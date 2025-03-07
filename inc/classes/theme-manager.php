@@ -45,10 +45,10 @@ class DIS_ThemeManager {
 		$this->enable_security_configurations();
 
 		// Setup internationalisation.
-		add_action( 'init', array( $this, 'configure_languages' ) );
+		$this->setup_internationalisation();
 
 		// Setup permalink structure.
-		add_action( 'init', array( $this, 'configure_permalink' ) );
+		$this->setup_site_structure();
 
 		// Setup custom types and theme configuration managers.
 
@@ -93,6 +93,24 @@ class DIS_ThemeManager {
 		add_filter( 'the_generator', '__return_null' );
 		// Disable XMLRPC service.
 		add_filter( 'xmlrpc_enabled', '__return_false' );
+	}
+
+	/**
+	 * Setup internationalisation.
+	 *
+	 * @return void
+	 */
+	private function setup_internationalisation(){
+		add_action( 'init', array( $this, 'configure_languages' ) );
+	}
+
+	/**
+	 * Setup site structure.
+	 *
+	 * @return void
+	 */
+	private function setup_site_structure(){
+		add_action( 'init', array( $this, 'configure_permalink' ) );
 	}
 
 }
