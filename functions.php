@@ -12,11 +12,19 @@
  */
 require get_template_directory() . '/config-site.php';
 
+/**
+ * SETUP THE THEME.
+ */
+if ( ! class_exists( 'DIS_ThemeManager' ) ) {
+	require_once get_template_directory() . '/inc/classes/theme-manager.php';
+}
 
-// ////// SETUP THE POST TYPES  USED BY THE THEME. //////
-// if ( ! class_exists( 'DIS_LabManager' ) ) {
-// 	include_once 'inc/classes/class-labmanager.php';
-// 	global $lab_manager;
-// 	$lab_manager = new DIS_LabManager();
-// 	$lab_manager->plugin_setup();
-// }
+if ( class_exists( 'DIS_ThemeManager' ) ) {
+	add_action(
+		'after_setup_theme',
+		function() {
+			$theme_manager = DIS_ThemeManager::get_instance();
+			$theme_manager->plugin_setup();
+		}
+	);
+}
