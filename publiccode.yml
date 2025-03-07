@@ -1,0 +1,68 @@
+# This repository adheres to the publiccode.yml standard by including this 
+# metadata file that makes public software easily discoverable.
+# More info at https://github.com/italia/publiccode.yml
+
+publiccodeYmlVersion: '0.4.0'
+applicationSuite: WordPress
+softwareVersion: 1.5.9
+categories:
+  - website-builder
+description:
+  it:
+    documentation: >-
+      https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/README.md
+    features:
+      - Popolamento automatico del sito (pagine e menu).
+    localisedName: Design ICT Site
+    longDescription: >
+      WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
+      WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
+      WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
+    screenshots:
+      - assets/screenshots/homepage.png
+    shortDescription: >-
+        WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
+developmentStatus: development 
+intendedAudience:
+  countries:
+    - it
+  scope:
+    - education
+usedBy:
+  - Sito ICT - Scuola Normale Superiore - https://ict.sns.it/
+it:
+  countryExtensionVersion: '0.2'
+  riuso:
+    codiceIPA: sns_pi
+  conforme:
+    gdpr: true
+    lineeGuidaDesign: true
+    misureMinimeSicurezza: true
+  piattaforme:
+    anpr: false
+    cie: false
+    pagopa: false
+    spid: false
+legal:
+  license: GPL-3.0-only
+localisation:
+  availableLanguages:
+    - it
+    - en
+  localisationReady: true
+dependsOn:
+  open:
+    - name: WordPress
+      optional: false
+maintenance:
+  contacts:
+    - email: servizi.informativi@sns.it
+      name: Servizi Informativi SNS
+  type: community
+name: Design Sito ICT
+platforms:
+  - web
+releaseDate: '2025-03-07'
+softwareType: addon
+url: 'https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme'
+logo: assets/img/logo_sns.png
