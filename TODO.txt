@@ -1,10 +1,12 @@
 
-1) BootstrapItalia Support + NPM
-2) LayoutManager: Custom CSS, JS, FONT
-3) Configuration Menu
+- Verificare numero passaggi: upload_scripts
+- Verificare numero passaggi: plugin_setup
+
+1) Configuration Menu with get_option wrapper
 4) FIRST CUSTOM POST TYPE
 
 
+Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
 B) Configurazione automatica di Polylang con italiano e inglese.
 C) 
@@ -17,6 +19,12 @@ Code examples:
 	$languages = DIS_MultiLangManager::get_languages_list();
 	echo 'Languages defined:' . count($languages);
 
+
 	$tm  = DIS_ThemeManager::get_instance();
 	$txt = $tm->cfm->get_name();
 	echo '--->' . $txt;
+
+
+	<svg class="icon icon-success">
+		<use href="<?php echo DIS_THEMA_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-user' ?>"></use>
+	</svg>

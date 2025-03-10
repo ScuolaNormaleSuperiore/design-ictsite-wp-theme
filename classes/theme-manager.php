@@ -8,9 +8,11 @@
 if ( ! class_exists( 'DIS_MultiLangManager' ) ) {
 	include_once 'multi-lang-manager.php';
 }
-
 if ( ! class_exists( 'DIS_CustomFieldsManager' ) ) {
 	include_once 'custom-fields-manager.php';
+}
+if ( ! class_exists( 'DIS_LayoutManager' ) ) {
+	include_once 'layout-manager.php';
 }
 
 /**
@@ -66,6 +68,10 @@ class DIS_ThemeManager {
 
 		// Setup of the tool to manage custom fields.
 		$this->cfm = new DIS_CustomFieldsManager();
+
+		// Setup of the layout of the theme.
+		$lym = new DIS_LayoutManager();
+		$lym->setup();
 
 		// Setup custom post types and associated taxonomies.
 		

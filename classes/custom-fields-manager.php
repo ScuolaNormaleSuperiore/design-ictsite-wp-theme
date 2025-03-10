@@ -16,11 +16,11 @@ class DIS_CustomFieldsManager {
 	 */
 	public function __construct() {}
 
-	public static function dli_get_field( $selector, $post_id = false, $format_value = true ) {
+	public static function get_field( $selector, $post_id = false, $format_value = true ) {
 		return get_field( $selector, $post_id, $format_value);
 	}
 
-	public static function dli_update_field( $fieldname, $field_value, $post_id ) {
+	public static function update_field( $fieldname, $field_value, $post_id ) {
 		update_field( $fieldname, $field_value, $post_id );
 	}
 
