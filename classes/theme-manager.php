@@ -5,6 +5,9 @@
  * @package Design_ICT_Site
  */
 
+if ( ! class_exists( 'DIS_MultiLangManager' ) ) {
+	include_once 'multilang-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -50,8 +53,12 @@ class DIS_ThemeManager {
 		// Setup permalink structure.
 		$this->setup_site_structure();
 
-		// Setup custom types and theme configuration managers.
+		// Multi language setup.
+		$mlg = new DIS_MultiLangManager();
+		$mlg->setup();
 
+		// Setup custom post types and associated taxonomies.
+		
 	}
 
 	/**

@@ -15,6 +15,10 @@ get_header();
 
 <?php echo '*** ICT Site content ***'; ?>
 
+<?php
+	$languages = DIS_MultiLangManager::get_languages_list();
+	echo 'Languages defined:' . count($languages);
+?>
 </main>
 
 <?php

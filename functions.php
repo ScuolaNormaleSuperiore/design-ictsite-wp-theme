@@ -8,12 +8,12 @@
  */
 
 /**
- * Define the theme parameters and configurations.
+ * Defining the theme parameters and the theme configurations.
  */
-require get_template_directory() . '/config-site.php';
+require get_template_directory() . '/config-theme.php';
 
 /**
- * Define and manage theme dependencies using TGM.
+ * Defining and managing theme dependencies using TGM.
  */
 require get_template_directory() . '/inc/theme-dependencies.php';
 
@@ -23,11 +23,12 @@ require get_template_directory() . '/inc/theme-dependencies.php';
 require get_template_directory() . '/inc/cmb2.php';
 
 
+
 /**
  * SETUP THE THEME.
  */
 if ( ! class_exists( 'DIS_ThemeManager' ) ) {
-	require_once get_template_directory() . '/inc/classes/theme-manager.php';
+	require_once get_template_directory() . '/classes/theme-manager.php';
 }
 
 if ( class_exists( 'DIS_ThemeManager' ) ) {
