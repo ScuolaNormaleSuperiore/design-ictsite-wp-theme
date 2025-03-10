@@ -62,7 +62,7 @@ class DIS_ThemeManager {
 	 * @return void
 	 */
 	public function configure_languages() {
-		load_theme_textdomain( 'design_sito_ict', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'design_ict_site', get_template_directory() . '/languages' );
 	}
 
 	/**

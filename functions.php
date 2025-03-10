@@ -13,6 +13,17 @@
 require get_template_directory() . '/config-site.php';
 
 /**
+ * Define and manage theme dependencies using TGM.
+ */
+require get_template_directory() . '/inc/theme-dependencies.php';
+
+/**
+ * Import CMB2 libraries.
+ */
+require get_template_directory() . '/inc/cmb2.php';
+
+
+/**
  * SETUP THE THEME.
  */
 if ( ! class_exists( 'DIS_ThemeManager' ) ) {

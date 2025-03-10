@@ -1,0 +1,2 @@
+<?php
+return ['project-id-version'=>'Design ICT Site','report-msgid-bugs-to'=>'','pot-creation-date'=>'2025-03-10 08:30+0000','po-revision-date'=>'2025-03-10 08:31+0000','last-translator'=>'','language-team'=>'Italian','language'=>'it_IT','plural-forms'=>'nplurals=2; plural=n != 1;','mime-version'=>'1.0','content-type'=>'text/plain; charset=UTF-8','content-transfer-encoding'=>'8bit','x-generator'=>'Loco https://localise.biz/','x-loco-version'=>'2.7.1; wp-6.7.2','x-domain'=>'design_ict_site','messages'=>[]];

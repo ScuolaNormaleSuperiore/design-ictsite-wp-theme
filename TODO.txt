@@ -1,9 +1,10 @@
 
-1) Multilanguage Support
-2) CMB2 Support
-3) TGM Support
-4) Polylang Support
-5) BootstrapItalia Support + NPM
-6) Custom CSS, JS, FONT
-7) Configuration Menu
-8) FIRST CUSTOM POST TYPE
+1) Polylang Support and wrapper
+2) BootstrapItalia Support + NPM
+3) Custom CSS, JS, FONT
+4) Configuration Menu
+5) FIRST CUSTOM POST TYPE
+
+- Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins
+- Configurazione automatica di Polylang con italiano e inglese
+- 
