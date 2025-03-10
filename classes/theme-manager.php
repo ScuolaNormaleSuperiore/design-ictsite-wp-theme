@@ -64,7 +64,7 @@ class DIS_ThemeManager {
 		$this->mlg = new DIS_MultiLangManager();
 		$this->mlg->setup();
 
-		// Setup of the tool to manage multiple languages.
+		// Setup of the tool to manage custom fields.
 		$this->cfm = new DIS_CustomFieldsManager();
 
 		// Setup custom post types and associated taxonomies.
