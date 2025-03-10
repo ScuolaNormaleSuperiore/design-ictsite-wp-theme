@@ -18,6 +18,10 @@ get_header();
 <?php
 	$languages = DIS_MultiLangManager::get_languages_list();
 	echo 'Languages defined:' . count($languages);
+
+	$tm  = DIS_ThemeManager::get_instance();
+	$txt = $tm->cfm->get_name();
+	echo '--->' . $txt;
 ?>
 </main>
 

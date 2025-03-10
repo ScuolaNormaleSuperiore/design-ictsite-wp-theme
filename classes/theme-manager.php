@@ -6,7 +6,11 @@
  */
 
 if ( ! class_exists( 'DIS_MultiLangManager' ) ) {
-	include_once 'multilang-manager.php';
+	include_once 'multi-lang-manager.php';
+}
+
+if ( ! class_exists( 'DIS_CustomFieldsManager' ) ) {
+	include_once 'custom-fields-manager.php';
 }
 
 /**
@@ -22,6 +26,9 @@ class DIS_ThemeManager {
 	 * @var object
 	 */
 	protected static $instance = null;
+
+	public $cfm =null;
+	public $mlg =null;
 
 	private function __construct() {}
 
@@ -53,9 +60,12 @@ class DIS_ThemeManager {
 		// Setup permalink structure.
 		$this->setup_site_structure();
 
-		// Multi language setup.
-		$mlg = new DIS_MultiLangManager();
-		$mlg->setup();
+		// Setup of the tool to manage multiple languages.
+		$this->mlg = new DIS_MultiLangManager();
+		$this->mlg->setup();
+
+		// Setup of the tool to manage multiple languages.
+		$this->cfm = new DIS_CustomFieldsManager();
 
 		// Setup custom post types and associated taxonomies.
 		

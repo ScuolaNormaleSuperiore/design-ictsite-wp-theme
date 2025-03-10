@@ -1,10 +1,22 @@
 
-1) Polylang Support and wrapper
-2) BootstrapItalia Support + NPM
-3) Custom CSS, JS, FONT
-4) Configuration Menu
-5) FIRST CUSTOM POST TYPE
+1) BootstrapItalia Support + NPM
+2) LayoutManager: Custom CSS, JS, FONT
+3) Configuration Menu
+4) FIRST CUSTOM POST TYPE
 
-- Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins
-- Configurazione automatica di Polylang con italiano e inglese
-- 
+
+A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
+B) Configurazione automatica di Polylang con italiano e inglese.
+C) 
+
+
+
+
+Code examples:
+
+	$languages = DIS_MultiLangManager::get_languages_list();
+	echo 'Languages defined:' . count($languages);
+
+	$tm  = DIS_ThemeManager::get_instance();
+	$txt = $tm->cfm->get_name();
+	echo '--->' . $txt;
