@@ -8,7 +8,7 @@
 Si può togliere?
 C:\Users\claudio\Local Sites\sitoict\app\public\wp-content\themes\design-ictsite-wp-theme\admin\css\images
 
-1) Configuration Menu with get_option wrapper
+1) Get_option wrapper (ConfigurationManager)
 4) FIRST CUSTOM POST TYPE
 
 
