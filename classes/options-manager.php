@@ -29,7 +29,7 @@ class DIS_OptionsManager {
 		if( strpos( $current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dis_options' ) {
 				wp_enqueue_style( 'dis_options_dialog', DIS_THEMA_URL . '/admin/css/jquery-ui.css' );
 				wp_enqueue_script( 'dis_options_dialog', DIS_THEMA_URL . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
-				wp_enqueue_style( 'style-admin-css', DIS_THEMA_URL . '/admin/style-admin.css' );
+				wp_enqueue_style( 'style-admin-css', DIS_THEMA_URL . '/admin/css/style-admin.css' );
 		}
 	}
 
