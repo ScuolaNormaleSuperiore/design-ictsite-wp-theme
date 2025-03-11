@@ -11,8 +11,9 @@
  *
  */
 class DIS_OptionsManager {
-	private $tab_group  = 'dis_options';
-	private $capability = 'manage_options';
+	private $tab_group   = 'dis_options';
+	private $parent_slug = 'dis_opt_options';
+	private $capability  = 'manage_options';
 
 	/**
 	 * Constructor of the Manager.
@@ -26,17 +27,18 @@ class DIS_OptionsManager {
 
 	public function setup_option_assets() {
 		$current_screen = get_current_screen();
-		if( strpos( $current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dis_options' ) {
-				wp_enqueue_style( 'dis_options_dialog', DIS_THEMA_URL . '/admin/css/jquery-ui.css' );
-				wp_enqueue_script( 'dis_options_dialog', DIS_THEMA_URL . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
+		if( strpos( $current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dis_opt_options' ) {
 				wp_enqueue_style( 'style-admin-css', DIS_THEMA_URL . '/admin/css/style-admin.css' );
+				wp_enqueue_style( 'dis_options_dialog', DIS_THEMA_URL . '/admin/css/jquery-ui.css' );
+				// Hiding the submenu in the WordPress adminmenu.
+				wp_enqueue_script( 'dis_options_dialog', DIS_THEMA_URL . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
 		}
 	}
 
 
 	public function setup_options() {
 		// 1 - Registers options page "Base options".
-		$this->add_opt_base_option( 'dis_opt_options', $this->tab_group, $this->capability );
+		$this->add_opt_base_option( $this->parent_slug, $this->tab_group, $this->capability );
 		// 2 - Registers options page "Home Page Layout".
 		$this->add_opt_hp_layout( 'dis_opt_hp_layout', $this->tab_group, $this->capability );
 		// // 4 - Registers options page "Site Contacts".
@@ -60,7 +62,6 @@ class DIS_OptionsManager {
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'tab_group'    => $tab_group,
-			// 'parent_slug'  => $parent_slug,
 			'tab_title'    => __( 'Base options', 'design_ict_site' ),
 			'capability'   => $capability,
 			'position'     => 3, // Menu position. Only applicable if 'parent_slug' is left empty.
@@ -183,7 +184,7 @@ class DIS_OptionsManager {
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'HP layout', 'kk_writer_theme' ),
 		);
@@ -242,7 +243,7 @@ class DIS_OptionsManager {
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Site contacts', 'kk_writer_theme' ),	
 		);
@@ -333,7 +334,7 @@ class DIS_OptionsManager {
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Social media', 'kk_writer_theme' ),
 		);
@@ -451,7 +452,7 @@ class DIS_OptionsManager {
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'tab_title'    => __( 'Advanced', 'kk_writer_theme' ),
-			// 'parent_slug'  => $parent_slug,
+			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'capability'   => $capability,
 		);
