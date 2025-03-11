@@ -1,6 +1,6 @@
 <?php
 /**
- * Design Laboratori Italia functions and definitions
+ * Design ICT Site Italia functions and definitions.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *

@@ -1,0 +1,490 @@
+/**
+* admin bar
+*/
+
+
+#wpadminbar .dsi-icon{
+    position: relative;
+    float: left;
+    font: normal 20px/1 dashicons;
+    speak: none;
+    padding: 0px 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-image: none!important;
+    margin-right: 6px;
+}
+
+/*****************/
+
+
+.manuale ul{
+    list-style-type: circle;
+    margin-left:20px;
+
+}
+
+.manuale li{
+    padding:0px;
+}
+.manuale h2,.manuale h3, .manuale h4, .manuale h5 {
+    margin-top:10px;
+    margin-bottom:10px;
+}
+
+.manuale p{
+    margin-top:0px;
+    margin-bottom:10px;
+}
+
+.manuale .notice, .manuale .updated{
+    display:none;
+}
+
+
+/******************/
+
+.attached-posts-wrap ul{
+    height: 10em !important;
+}
+
+.cmb-type-custom-attached-posts .cmb-th{
+    width: 100% !important;
+
+}
+
+.cmb-type-custom-attached-posts .cmb-th{
+    font-size:18px;
+}
+
+
+/* cmb2 */
+.cmb2_textarea{
+    width:90% !important;
+    height:120px;
+}
+.cmb-row .regular-text{
+    width:90% !important;
+}
+
+/* classe */
+.taxonomy-classe #col-left{
+    width:70%;
+}
+
+.taxonomy-classe #col-right{
+    width:30%;
+}
+
+.taxonomy-classe #_dsi_classe_lunedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_martedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_mercoledi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_giovedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_venerdi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dsi_classe_sabato_repeat .cmb-repeat-group-field {
+    width:33%;
+    padding:0px 0px 6px 0px !important;
+    float:left;
+}
+
+.taxonomy-classe #_dsi_classe_libri_repeat .inside .cmb-type-text{
+    width:25%;
+    float:left;
+    border:0px;
+}
+
+.taxonomy-classe #edittag{
+    max-width:none;
+}
+
+.taxonomy-classe .term-slug-wrap, .taxonomy-classe .term-description-wrap{
+    display:none;
+}
+
+.taxonomy-classe .column-description, .taxonomy-classe .column-posts{
+    display:none}
+.taxonomy-classe .form-wrap h2{
+    font-size:20px;
+    margin-top:0px;
+}
+
+
+/* materia */
+
+#_dsi_materia_attivita_repeat .inside .cmb-type-text,#_dsi_materia_attivita_repeat .inside .cmb-type-textarea{
+    width:50%;
+    float:left;
+    border:0px;
+}
+#_dsi_materia_libri_repeat .inside .cmb-type-text{
+    width:25%;
+    float:left;
+    border:0px;
+}
+
+/* struttura org */
+.cmb2-id--dsi-struttura-link-schede-servizi .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id--dsi-struttura-link-schede-progetti .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id--dsi-struttura-sedi .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id-link-strutture-evidenza .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id-link-strutture-commissioni .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id-link_schede_documenti .cmb2-attached-posts-search-button{
+    display:none !important;
+}
+
+.cmb2-id--dsi-struttura-indirizzi .cmb-th label,.cmb2-id--dsi-struttura-codice-meccanografico .cmb-th label, .cmb2-id--dsi-struttura-link-servizi-didattici .cmb-th label, .cmb2-id--dsi-struttura-link-percorsi-di-studio .cmb-th label{
+    color:#D1344C;
+}
+
+
+
+
+    /* Style the caret/arrow */
+.cmb-type-taxonomy-multicheck-hierarchy-child .caret {
+    cursor: pointer;
+    user-select: none; /* Prevent text selection */
+}
+
+/* Create the caret/arrow with a unicode, and style it */
+.cmb-type-taxonomy-multicheck-hierarchy-child .caret::before {
+    content: "\25B6";
+    color: black;
+    display: inline-block;
+    margin-right: 6px;
+}
+
+/* Rotate the caret/arrow icon when clicked on (using JavaScript) */
+.cmb-type-taxonomy-multicheck-hierarchy-child .caret-down::before {
+    transform: rotate(90deg);
+}
+
+/* Hide the nested list */
+.cmb-type-taxonomy-multicheck-hierarchy-child .nested {
+    display: none;
+}
+
+/* Show the nested list when the user clicks on the caret/arrow (with JavaScript) */
+.cmb-type-taxonomy-multicheck-hierarchy-child .active {
+    display: block;
+}
+/**
+luogo
+ */
+
+#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-text,#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-textarea-small,#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-select{
+    width:33%;
+    float:left;
+    border:0px;
+}
+
+#_dsi_luogo_modalita_accesso_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+
+#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-type-text,#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-type-textarea-small{
+    width:50%;
+    float:left;
+    border:0px;
+}
+
+#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+
+
+.cmb-repeatable-group .cmb2-metabox-description{
+    font-weight:normal;
+    font-size:14px;
+    padding-bottom: 0px;
+}
+
+#_dsi_luogo_elementi_di_interesse_repeat .cmb2-metabox-description,
+#_dsi_luogo_modalita_accesso_repeat .cmb2-metabox-description {
+    padding-bottom:0px !important;
+    margin-bottom:0px !important;
+}
+
+
+.cmb2-id--dsi-luogo-gestito-da{
+    border-bottom: 0px !important;
+
+}
+
+ .cmb2-id--dsi-luogo-gestito-da {
+    padding-bottom:0px !important;
+}
+
+
+.cmb2-id--dsi-luogo-gestito-da-nome, .cmb2-id--dsi-luogo-gestito-da-link{
+    width:50% !important;
+    float:left;
+}
+
+/** documento **/
+
+
+#_dsi_documento_timeline_repeat .inside .cmb-type-text-date
+{
+    width:20%;
+    float:left;
+    border:0px;
+    text-align: right;
+    padding-right: 10px;
+    margin-left: -10px;
+}
+#_dsi_documento_timeline_repeat .inside .cmb-type-text
+{
+    width:80%;
+    float:left;
+    border:0px;
+}
+
+#_dsi_documento_timeline_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+/** cmb generico **/
+
+.cmb-row .move-up, .cmb-row .move-down{
+    border: solid 1px #0073aa;
+    padding:2px 5px 0px 4px;
+    color: #0073aa;
+}
+
+.cmb-row .cmb-remove-group-row{
+    text-transform:uppercase;
+    background-color:#be4441;
+    font-weight:bold;
+    color:#fff;
+    border:none;
+    padding:2px 12px 2px 12px;
+}
+
+/** servizi **/
+
+.cmb2-id--dsi-servizio-calendario-classi-descrizione, .cmb2-id--dsi-servizio-libri-testo-descrizione{
+    border:0px !important;
+    padding: 2px 0px 0px 0px !important;
+}
+
+.cmb2-id--dsi-servizio-percorsi .cmb-th label, .cmb2-id--dsi-servizio-link-struttura-didattica .cmb-th label, .cmb2-id--dsi-servizio-calendario-classi-descrizione .cmb-th label, .cmb2-id--dsi-servizio-calendario-classi-file .cmb-th label, .cmb2-id--dsi-servizio-libri-testo-descrizione .cmb-th label, .cmb2-id--dsi-servizio-libri-testo-file .cmb-th label{
+    color:#D1344C;
+}
+
+
+.cmb2-id--dsi-servizio-stato{
+    padding:0px !important;
+    border: 0px !important;
+}
+
+
+.cmb2-id--dsi-servizio-canale-digitale-link, .cmb2-id--dsi-servizio-canale-digitale-label, .cmb2-id--dsi-indirizzo-canale-digitale-link, .cmb2-id--dsi-indirizzo-canale-digitale-label{
+    width:48%;
+    float:left;
+    height:80px
+}
+
+/** evento **/
+
+
+#_dsi_evento_date_repeat .inside .cmb-type-textarea, #_dsi_evento_date_repeat .inside .cmb-type-textarea-small
+{
+    width:80%;
+    float:left;
+    border:0px;
+    text-align: left;
+
+}
+
+#_dsi_evento_date_repeat .inside .cmb-type-textarea-small textarea{
+    width:100%;
+}
+
+#_dsi_evento_date_repeat .inside .cmb-type-text-datetime-timestamp
+{
+    width:20%;
+    float:left;
+    border:0px;
+    text-align: right;
+    padding-right: 10px;
+    margin-left: -10px;
+}
+#_dsi_evento_date_repeat .inside .cmb-type-textarea-small .cmb2-metabox-description{
+
+    padding:0px;
+}
+
+#_dsi_evento_date_repeat .inside .cmb-row {
+    padding-bottom:0px !important;
+    padding-top:8px !important;
+}
+
+#_dsi_evento_timestamp_inizio_date, #_dsi_evento_timestamp_inizio_time{
+
+    width:40% !important;
+    float:left !important;
+    margin:0px !important;
+    margin-left:10px !important;
+    margin-top:10px !important;
+}
+
+#_dsi_evento_timestamp_fine_date, #_dsi_evento_timestamp_fine_time{
+
+    width:40% !important;
+    float:left !important;
+    margin:0px !important;
+    margin-left:10px !important;
+    margin-top:10px !important;
+}
+
+#_dsi_evento_box_side .cmb-type-text-datetime-timestamp{
+    padding:10px 0px 10px 0px!important;
+}
+
+/** doc **/
+#_dsi_documento_box_annullato{
+    background-color:#d1344d;
+}
+
+#_dsi_documento_box_annullato .cmb-th,#_dsi_documento_box_annullato .cmb2-metabox-description, #_dsi_documento_box_annullato h2{
+    color:#fff;
+}
+
+.cmb2-options-box {
+    background-color: #ffffff;
+    padding: 0;
+    margin: 0;
+    border: 1px solid #e9e9e9;;
+}
+
+.cmb2-options-box .nav-tab-wrapper {
+    width: 15%;
+    overflow: hidden;
+    float: left;
+    padding: 0;
+    margin: 0;
+}
+
+.cmb2-options-box .nav-tab-wrapper a{
+    width: 100%;
+    display: inline-block;
+    padding: 0.5em 0 0.5em 0.5em;
+    margin: 0;
+}
+
+.cmb2-options-box .form-content {
+    width: 85%;
+    float: right;
+}
+
+.cmb2-options-box .cmb-type-title {
+    margin-top: 0!important;
+}
+
+.cmb2-options-box .select2-search,
+.cmb2-options-box .select2-search input {
+    width: 100%!important;
+}
+
+.cmb2-options-box .form-footer {
+    width: 85%;
+    float: right;
+}
+
+.cmb2-options-box .submit-box {
+    text-align: center;
+    padding: 2em 0;
+    border-left: 1px solid #e9e9e9;
+}
+
+.cmb2-options-box .nav-tab:last-child {
+    border-bottom: 0 none;
+}
+.cmb2-options-box .clear-form {
+    width: 100%;
+    clear: both;
+}
+
+.cmb2-options-box .cmb2-metabox>.cmb-row {
+    border-right: 0 none!important;
+}
+
+.cmb2-options-box .radio-color {
+    width: 16px;
+    height: 16px;
+    margin-right: 5px;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.cmb2-options-box .radio-color.red {
+    background-color: #CC334C;
+}
+.cmb2-options-box .radio-color.purple {
+    background-color: #B21DD0;
+}
+.cmb2-options-box .radio-color.green {
+    background-color: #008055;
+}
+.cmb2-options-box .radio-color.blue {
+    background-color: #0D00FF;
+}
+.cmb2-options-box .radio-color.yellow {
+    background-color: #FFCC00;
+}
+.cmb2-options-box .radio-color.gray {
+	background-color: #5d7083;
+}
+.cmb2-options-box .radio-color.brown {
+	background-color: #995C00;
+}
+
+#spinner-overlayer {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 99999;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5) url(images/spinner.gif) center center no-repeat;
+}
+
+._dsi_circolare_tipologia.error, label.error {
+    color: #D8000C;
+}
+
+.cmb2-option.error {
+    border-color: #D8000C;
+}
+
+._dsi_circolare_tipologia_error {
+    display: block!important;
+    font-weight: bold;
+    color: #D8000C;
+}
+
+.taxonomy-percorsi-di-studio .column-posts {
+    width: 98px;
+}
+
+.taxonomy-percorsi-di-studio .column-ordinamento {
+    width: 54px;
+    text-align: center;
+}

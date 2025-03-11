@@ -6,7 +6,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package Design_Laboratori_Italia
+ * @package Design_ICT_Site
  */
 ?>
 

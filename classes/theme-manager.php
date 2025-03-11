@@ -15,6 +15,11 @@ if ( ! class_exists( 'DIS_LayoutManager' ) ) {
 	include_once 'layout-manager.php';
 }
 
+if ( ! class_exists( 'DIS_OptionsManager' ) ) {
+	include_once 'options-manager.php';
+}
+
+
 /**
  * The manager that builds the tool and configures Wordpress.
  * How to get a manger?
@@ -30,7 +35,8 @@ class DIS_ThemeManager {
 	protected static $instance = null;
 
 	public $cfm =null;
-	public $mlg =null;
+	public $mlm =null;
+	public $cnm =null;
 
 	private function __construct() {}
 
@@ -63,8 +69,8 @@ class DIS_ThemeManager {
 		$this->setup_site_structure();
 
 		// Setup of the tool to manage multiple languages.
-		$this->mlg = new DIS_MultiLangManager();
-		$this->mlg->setup();
+		$this->mlm = new DIS_MultiLangManager();
+		$this->mlm->setup();
 
 		// Setup of the tool to manage custom fields.
 		$this->cfm = new DIS_CustomFieldsManager();
@@ -72,6 +78,10 @@ class DIS_ThemeManager {
 		// Setup of the layout of the theme.
 		$lym = new DIS_LayoutManager();
 		$lym->setup();
+
+		// Setup of the layout of the theme.
+		$this->cnm = new DIS_OptionsManager();
+		$this->cnm->build_conf_menu();
 
 		// Setup custom post types and associated taxonomies.
 		
@@ -109,7 +119,7 @@ class DIS_ThemeManager {
 		add_filter(
 			'login_errors',
 			function() {
-				return __( 'Invalid username or password', 'kk_writer_theme' );
+				return __( 'Invalid username or password', 'design_ict_site' );
 			}
 		);
 		// Hook per nascondere la versione del CMS (tag generator).
