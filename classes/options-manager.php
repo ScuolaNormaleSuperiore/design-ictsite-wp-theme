@@ -17,18 +17,14 @@ class DIS_OptionsManager {
 	/**
 	 * Constructor of the Manager.
 	*/
-	public function __construct() {
-		error_log( '*** __construct: build conf menu ***' );
-	}
+	public function __construct() {}
 
 	public function build_conf_menu() {
-		error_log( '*** setup: build conf menu ***' );
 		add_action( 'cmb2_admin_init', array( $this, 'setup_options' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'setup_option_assets' ) );
 	}
 
 	public function setup_option_assets() {
-		error_log( '@@@ setup_option_assets' );
 		$current_screen = get_current_screen();
 		if( strpos( $current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dis_options' ) {
 				wp_enqueue_style( 'dis_options_dialog', DIS_THEMA_URL . '/admin/css/jquery-ui.css' );
@@ -39,7 +35,6 @@ class DIS_OptionsManager {
 
 
 	public function setup_options() {
-		error_log( '@@@ setup_options' );
 		// 1 - Registers options page "Base options".
 		$this->add_opt_base_option( 'dis_opt_options', $this->tab_group, $this->capability );
 		// 2 - Registers options page "Home Page Layout".
@@ -61,7 +56,7 @@ class DIS_OptionsManager {
 		$result = true;
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Configuration', 'design_ict_site' ),
+			'title'        => esc_html__( 'ICT Site', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'tab_group'    => $tab_group,
@@ -449,8 +444,7 @@ class DIS_OptionsManager {
 	 *
 	 * @return boolean
 	 */
-	public function add_opt_advanced_settings( $option_key, $tab_group, $capability )
-	{
+	public function add_opt_advanced_settings( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'Advanced', 'kk_writer_theme' ),
