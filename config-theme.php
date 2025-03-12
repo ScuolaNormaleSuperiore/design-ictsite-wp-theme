@@ -7,6 +7,14 @@
  * @package Design_ICT_Site
  */
 
+
+/* MENU */
+define( 'DIS_SLUG_MAIN_MENU', 'dis_main_menu' );
+
+/* ROLES AND PERMISSIONS */
+define( 'DIS_EDIT_PERMISSION', 'edit_posts' );
+define( 'DIS_EDIT_THEME_PERMISSION', 'edit_theme_options' );
+
 /**
  *  The mandatory plugin used by this theme.
  */

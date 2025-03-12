@@ -1,7 +1,7 @@
 <?php
 /**
  * Definition of the Multi Language Manager: wrapper for Polylang.
- * 
+ *
  * @package Design_ICT_Site
  */
 

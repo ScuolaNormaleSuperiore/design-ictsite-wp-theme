@@ -1,8 +1,8 @@
 
 * TODO LIST:
 
-1) Reload data procedure
-2) FIRST CUSTOM POST TYPE
+1) FIRST CUSTOM POST TYPE
+2)
 
 
 
@@ -37,3 +37,9 @@ C)
 	<svg class="icon icon-success">
 		<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-user' ?>"></use>
 	</svg>
+
+
+	// Check if is the first installation.
+	$dis_has_installed = get_option( 'kdis_has_installed' );
+	// Set installation executed.
+	update_option( 'dis_has_installed', true );

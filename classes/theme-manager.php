@@ -14,11 +14,15 @@ if ( ! class_exists( 'DIS_CustomFieldsManager' ) ) {
 if ( ! class_exists( 'DIS_LayoutManager' ) ) {
 	include_once 'layout-manager.php';
 }
-
 if ( ! class_exists( 'DIS_OptionsManager' ) ) {
 	include_once 'options-manager.php';
 }
-
+if ( ! class_exists( 'DIS_MenuManager' ) ) {
+	include_once 'menu-manager.php';
+}
+if ( ! class_exists( 'DIS_ActivationManager' ) ) {
+	include_once 'activation-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -82,6 +86,10 @@ class DIS_ThemeManager {
 		// Setup of the layout of the theme.
 		$this->cnm = new DIS_OptionsManager();
 		$this->cnm->build_conf_menu();
+
+		// Setup the menus of the theme.
+		$mnm = new DIS_MenuManager();
+		$mnm->setup();
 
 		// Setup custom post types and associated taxonomies.
 		

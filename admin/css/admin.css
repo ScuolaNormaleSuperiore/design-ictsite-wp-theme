@@ -1,0 +1,16 @@
+
+.dis_admin_reload_data {
+	padding: 20px;
+}
+
+
+.dis_admin_reload_result {
+	margin-top: 10px;
+	padding: 20px;
+}
+
+.dis_admin_reload_result_text {
+	margin-top: 40px;
+	padding: 10px;
+	border: 1px solid green;
+}

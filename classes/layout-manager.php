@@ -22,10 +22,8 @@ class DIS_LayoutManager {
 	 * @return void
 	 */
 	public function setup() {
-
 		add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'upload_admin_scripts' ) );
-
 	}
 
 	public function upload_scripts(){
@@ -44,7 +42,8 @@ class DIS_LayoutManager {
 
 	public function upload_admin_scripts(){
 		// ADMIN style: for Configuration Menu (CMB2) - To put the menu on the left instead of at the top.
-		wp_enqueue_style( 'style-admin-css', DIS_THEME_URL . '/admin/css/style-admin.css' );
+		wp_enqueue_style( 'dis-style-admin-css', DIS_THEME_URL . '/admin/css/style-admin.css' );
+		wp_enqueue_style( 'dis-admin-css', DIS_THEME_URL . '/admin/css/admin.css' );
 	}
 
 }

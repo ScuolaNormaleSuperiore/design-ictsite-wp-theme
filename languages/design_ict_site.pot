@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-10 08:30+0000\n"
+"POT-Creation-Date: 2025-03-12 13:44+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,20 +16,134 @@ msgstr ""
 "X-Loco-Version: 2.7.1; wp-6.7.2\n"
 "X-Domain: design_ict_site"
 
+#: classes/options-manager.php:64
+msgid "Base options"
+msgstr ""
+
+#: classes/options-manager.php:159
+msgid ""
+"Choose the the footer logo. If it is not present, but the display of the "
+"logo in the footer is enabled, the header logo is shown with inverted colors."
+" It is recommended to upload an image in SVG format."
+msgstr ""
+
+#: classes/menu-manager.php:67
+msgid ""
+"Click the button to reload theme data: post-types, taxonomies, sections, "
+"pages, menu, etc. "
+msgstr ""
+
 #. Name of the theme
 msgid "Design ICT Site"
+msgstr ""
+
+#: classes/options-manager.php:145
+msgid "Footer logo visible"
+msgstr ""
+
+#: classes/options-manager.php:121
+msgid "Header logo visible"
 msgstr ""
 
 #. Author URI of the theme
 msgid "https://ict.sns.it"
 msgstr ""
 
+#: classes/options-manager.php:60
+msgid "ICT Site"
+msgstr ""
+
 #. Author of the theme
 msgid "ICT SNS"
+msgstr ""
+
+#: classes/theme-manager.php:130
+msgid "Invalid username or password"
+msgstr ""
+
+#: classes/options-manager.php:158
+msgid "Logo footer"
+msgstr ""
+
+#: classes/options-manager.php:134
+msgid "Logo header"
+msgstr ""
+
+#: classes/options-manager.php:105
+msgid "Network name"
+msgstr ""
+
+#: classes/options-manager.php:113
+msgid "Network url"
+msgstr ""
+
+#: classes/options-manager.php:127 classes/options-manager.php:151
+msgid "No"
+msgstr ""
+
+#: classes/menu-manager.php:39 classes/menu-manager.php:40
+#: classes/menu-manager.php:63
+msgid "Reload theme data"
+msgstr ""
+
+#: classes/options-manager.php:79
+msgid "Section to configure base options."
+msgstr ""
+
+#: classes/options-manager.php:78
+msgid "Site configuration"
+msgstr ""
+
+#: classes/options-manager.php:86
+msgid "Site title"
+msgstr ""
+
+#: classes/options-manager.php:97
+msgid "Tagline"
+msgstr ""
+
+#: classes/options-manager.php:135
+msgid "The logo of the site, please load an SVG image."
+msgstr ""
+
+#: classes/options-manager.php:106
+msgid "The name of the network the site is part of."
+msgstr ""
+
+#: classes/options-manager.php:98
+msgid "The tagline of the site."
+msgstr ""
+
+#: classes/options-manager.php:87
+msgid "The title of the site."
+msgstr ""
+
+#: classes/options-manager.php:114
+msgid "The url of the network the site is part of."
+msgstr ""
+
+#: classes/menu-manager.php:73
+msgid "Theme data loaded successfully"
+msgstr ""
+
+#: classes/menu-manager.php:75
+msgid "Theme data not reloaded"
 msgstr ""
 
 #. Description of the theme
 msgid ""
 "WordPress theme for building websites that showcase and facilitate the use "
 "of an organization's ICT services."
+msgstr ""
+
+#: classes/options-manager.php:126 classes/options-manager.php:150
+msgid "Yes"
+msgstr ""
+
+#: classes/options-manager.php:146
+msgid "Yes if the logo needs to be shown in the footer."
+msgstr ""
+
+#: classes/options-manager.php:122
+msgid "Yes if the logo needs to be shown in the header."
 msgstr ""
