@@ -39,7 +39,6 @@ class DIS_LayoutManager {
 
 		// Import Javascript files.
 		wp_enqueue_script( 'dis-main-js', DIS_THEME_URL . '/assets/js/main.js' );
-		// mwp_enqueue_script( 'dis-modernizr', DIS_THEME_URL . '/assets/js/modernizr.custom.js' );
 		wp_enqueue_script( 'dis-boostrap-italia-js', DIS_THEME_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js', array(), false, true);
 	}
 

@@ -18,7 +18,12 @@ C)
 
 
 
+
+
+
 Code examples:
+
+	$site_title = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 
 	$languages = DIS_MultiLangManager::get_languages_list();
 	echo 'Languages defined:' . count($languages);

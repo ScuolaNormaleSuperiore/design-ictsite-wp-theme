@@ -9,11 +9,14 @@
 
 get_header();
 
+$site_title = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
+
 ?>
 
 <main id="main-container" class="main-container redbrown" role="main">
 
 <?php echo '*** ICT Site content ***'; ?>
+<?php echo '<H1>' . $site_title . '</H1>'; ?>
 
 <?php
 	$languages = DIS_MultiLangManager::get_languages_list();
