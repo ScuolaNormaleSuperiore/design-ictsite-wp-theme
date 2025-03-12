@@ -63,7 +63,7 @@ get_header();
 	<button class="btn btn-success btn-lg btn-icon btn-me">
 		<span class="rounded-icon">
 			<svg class="icon icon-success">
-				<use href="<?php echo DIS_THEMA_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-user' ?>"></use>
+				<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-user' ?>"></use>
 			</svg>
 		</span>
 		<span>Round Icon Lg</span>

@@ -1,13 +1,15 @@
 <?php
+/**
+ * Design ICT Site constants and configurations.
+ *
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package Design_ICT_Site
+ */
 
-/*
-* Constants.
-*/
-define( 'DIS_THEMA_PATH', plugin_dir_path( __FILE__ ) );
-define( 'DIS_THEMA_URL', get_template_directory_uri() );
-
-
-
+/**
+ *  The mandatory plugin used by this theme.
+ */
 define(
 	'REQUIRED_PLUGINS',
 	array(

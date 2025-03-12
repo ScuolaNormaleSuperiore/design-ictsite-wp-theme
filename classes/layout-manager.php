@@ -32,20 +32,20 @@ class DIS_LayoutManager {
 
 		// Import CSS files.
 		wp_enqueue_style( 'dis-wp-style', get_stylesheet_uri() ); // File style.css vuoto.
-		wp_enqueue_style( 'dis-font', DIS_THEMA_URL . '/assets/css/fonts.css' );
-		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEMA_URL . '/assets/css/bootstrap-italia-custom.min.css' );
-		wp_enqueue_style( 'dis-custom-css', DIS_THEMA_URL . '/assets/css/custom-colors.css' );
-		wp_enqueue_style( 'dis-main', DIS_THEMA_URL . '/assets/css/main.css' );
+		wp_enqueue_style( 'dis-font', DIS_THEME_URL . '/assets/css/fonts.css' );
+		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css' );
+		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css' );
+		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css' );
 
 		// Import Javascript files.
-		wp_enqueue_script( 'dis-main-js', DIS_THEMA_URL . '/assets/js/main.js' );
-		// mwp_enqueue_script( 'dis-modernizr', DIS_THEMA_URL . '/assets/js/modernizr.custom.js' );
-		wp_enqueue_script( 'dis-boostrap-italia-js', DIS_THEMA_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js', array(), false, true);
+		wp_enqueue_script( 'dis-main-js', DIS_THEME_URL . '/assets/js/main.js' );
+		// mwp_enqueue_script( 'dis-modernizr', DIS_THEME_URL . '/assets/js/modernizr.custom.js' );
+		wp_enqueue_script( 'dis-boostrap-italia-js', DIS_THEME_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js', array(), false, true);
 	}
 
 	public function upload_admin_scripts(){
 		// ADMIN style: for Configuration Menu (CMB2) - To put the menu on the left instead of at the top.
-		wp_enqueue_style( 'style-admin-css', DIS_THEMA_URL . '/admin/css/style-admin.css' );
+		wp_enqueue_style( 'style-admin-css', DIS_THEME_URL . '/admin/css/style-admin.css' );
 	}
 
 }

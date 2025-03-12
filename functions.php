@@ -7,24 +7,28 @@
  * @package Design_ICT_Site
  */
 
+ /*
+* Constants.
+*/
+define( 'DIS_THEME_PATH', plugin_dir_path( __FILE__ ) );
+define( 'DIS_THEME_URL', get_template_directory_uri() );
+
+
 /**
  * Defining the theme parameters and the theme configurations.
  */
-require get_template_directory() . '/config-theme.php';
+require DIS_THEME_PATH . '/config-theme.php';
 
 /**
  * Defining and managing theme dependencies using TGM.
  */
-require get_template_directory() . '/inc/theme-dependencies.php';
+require DIS_THEME_PATH . '/inc/theme-dependencies.php';
 
 /**
  * Import CMB2 libraries.
  */
-require get_template_directory() . '/inc/cmb2.php';
+require DIS_THEME_PATH. '/inc/cmb2.php';
 
-
-// Import the code to create the admin section: Configurazione.
-require get_template_directory() . '/admin/options.php';
 
 
 /**
