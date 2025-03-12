@@ -83,7 +83,7 @@ class DIS_ThemeManager {
 		$lym = new DIS_LayoutManager();
 		$lym->setup();
 
-		// Setup of the layout of the theme.
+		// Setup of the Options Configuration Section of the the.
 		$this->cnm = new DIS_OptionsManager();
 		$this->cnm->build_conf_menu();
 
