@@ -44,7 +44,15 @@ if ( class_exists( 'DIS_ThemeManager' ) ) {
 		function() {
 			remove_action( 'after_setup_theme', __FUNCTION__ );
 			$theme_manager = DIS_ThemeManager::get_instance();
-			$theme_manager->plugin_setup();
+			$theme_manager->theme_setup();
 		}
 	);
 }
+
+// ////// SETUP THE THEME //////
+// if ( ! class_exists( 'DIS_ThemeManager' ) ) {
+// 	include_once get_template_directory() . '/classes/theme-manager.php';
+// 	global $theme_manager;
+// 	$theme_manager = new DIS_ThemeManager();
+// 	$theme_manager->theme_setup();
+// }

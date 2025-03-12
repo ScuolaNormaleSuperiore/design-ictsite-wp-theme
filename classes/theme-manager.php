@@ -57,7 +57,7 @@ class DIS_ThemeManager {
 	 *
 	 * @return void
 	 */
-	public function plugin_setup() {
+	public function theme_setup() {
 
 		// Setup security configurations.
 		$this->enable_security_configurations();
