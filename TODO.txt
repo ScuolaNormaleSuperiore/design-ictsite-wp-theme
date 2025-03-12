@@ -1,16 +1,12 @@
-* Perché?
-- upload_scripts: viene invocato una sola volta
-- add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) ) --> viene invocato 3 volte
 
-		if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dli_options') {
+* TODO LIST:
 
-
-
-1) Get_option wrapper (ConfigurationManager)
-4) FIRST CUSTOM POST TYPE
+1) Reload data procedure
+2) FIRST CUSTOM POST TYPE
 
 
-Procedure da fare:
+
+* Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
 B) Configurazione automatica di Polylang con italiano e inglese.
 C) 
@@ -19,9 +15,13 @@ C)
 
 
 
+* Problema caricamento multiplo:
+- upload_scripts: viene invocato una sola volta
+- add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) ) --> viene invocato 3 volte
 
 
-Code examples:
+
+* Code examples:
 
 	$site_title = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 
