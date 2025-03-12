@@ -28,7 +28,6 @@ class DIS_OptionsManager {
 	public function setup_option_assets() {
 		$current_screen = get_current_screen();
 		if( strpos( $current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dis_opt_options' ) {
-				wp_enqueue_style( 'style-admin-css', DIS_THEMA_URL . '/admin/css/style-admin.css' );
 				wp_enqueue_style( 'dis_options_dialog', DIS_THEMA_URL . '/admin/css/jquery-ui.css' );
 				// Hiding the submenu in the WordPress adminmenu.
 				wp_enqueue_script( 'dis_options_dialog', DIS_THEMA_URL . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
@@ -68,9 +67,9 @@ class DIS_OptionsManager {
 			'icon_url'     => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 	$args['display_cb'] = array( $this, 'options_display_with_tabs' );
-		// }
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+			$args['display_cb'] = 'dis_options_display_with_tabs';
+		}
 		$base_options = new_cmb2_box( $args );
 
 		$base_options->add_field(
@@ -189,9 +188,9 @@ class DIS_OptionsManager {
 			'tab_title'    => __( 'HP layout', 'kk_writer_theme' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = array( $this, 'options_display_with_tabs' );
-		// }
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+				$args['display_cb'] = 'dis_options_display_with_tabs';
+		}
 		$home_options = new_cmb2_box( $args );
 
 		// CAROUSEL Section (Home Page)
@@ -247,10 +246,10 @@ class DIS_OptionsManager {
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Site contacts', 'kk_writer_theme' ),	
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = 'dis_options_display_with_tabs';
-		// }
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+				$args['display_cb'] = 'dis_options_display_with_tabs';
+		}
 		$contacts_options = new_cmb2_box( $args );
 
 		$contacts_options->add_field(
@@ -338,10 +337,10 @@ class DIS_OptionsManager {
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Social media', 'kk_writer_theme' ),
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 		$args['display_cb'] = 'dis_options_display_with_tabs';
-		// }
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+				$args['display_cb'] = 'dis_options_display_with_tabs';
+		}
 		$social_options = new_cmb2_box( $args );
 
 		$social_options->add_field(
@@ -456,10 +455,10 @@ class DIS_OptionsManager {
 			'tab_group'    => $tab_group,
 			'capability'   => $capability,
 		);
-		// // 'tab_group' property is supported in > 2.4.0.
-		// if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
-		// 	$args['display_cb'] = 'dis_options_display_with_tabs';
-		// }
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+			$args['display_cb'] = 'dis_options_display_with_tabs';
+		}
 		$advanced_options = new_cmb2_box( $args );
 	
 		$advanced_options->add_field(
@@ -598,5 +597,6 @@ class DIS_OptionsManager {
 			)
 		);
 	}
+
 
 }

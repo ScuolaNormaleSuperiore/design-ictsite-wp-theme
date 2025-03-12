@@ -24,6 +24,7 @@ class DIS_LayoutManager {
 	public function setup() {
 
 		add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) );
+		add_action( 'admin_enqueue_scripts', array( $this, 'upload_admin_scripts' ) );
 
 	}
 
@@ -40,6 +41,11 @@ class DIS_LayoutManager {
 		wp_enqueue_script( 'dis-main-js', DIS_THEMA_URL . '/assets/js/main.js' );
 		// mwp_enqueue_script( 'dis-modernizr', DIS_THEMA_URL . '/assets/js/modernizr.custom.js' );
 		wp_enqueue_script( 'dis-boostrap-italia-js', DIS_THEMA_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js', array(), false, true);
+	}
+
+	public function upload_admin_scripts(){
+		// ADMIN style: for Configuration Menu (CMB2) - To put the menu on the left instead of at the top.
+		wp_enqueue_style( 'style-admin-css', DIS_THEMA_URL . '/admin/css/style-admin.css' );
 	}
 
 }

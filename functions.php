@@ -23,6 +23,9 @@ require get_template_directory() . '/inc/theme-dependencies.php';
 require get_template_directory() . '/inc/cmb2.php';
 
 
+// Import the code to create the admin section: Configurazione.
+require get_template_directory() . '/admin/options.php';
+
 
 /**
  * SETUP THE THEME.
