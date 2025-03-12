@@ -12,9 +12,7 @@ $j(function() {
                 $j('#spinner-overlayer').remove();
                 e.preventDefault();
                 e.stopPropagation();
-
                 let link = $j(this).attr('href');
-
                 let modal = $j('<div>').html("Attenzione, le informazioni inserite nel form non sono state salvate, si vuole proseguire comunque?");
                 let args = {
                     title: "Attenzione!",

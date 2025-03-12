@@ -27,7 +27,8 @@ class DIS_OptionsManager {
 
 	public function setup_option_assets() {
 		$current_screen = get_current_screen();
-		if( strpos( $current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dis_opt_options' ) {
+		// if( strpos( $current_screen->id, 'ict-site_page_') !== false || $current_screen->id === 'toplevel_page_dis_opt_options' ) {
+		if ( strpos( $current_screen->id, 'dis_opt') !== false ) {
 				wp_enqueue_style( 'dis_options_dialog', DIS_THEME_URL . '/admin/css/jquery-ui.css' );
 				// Hiding the submenu in the WordPress adminmenu.
 				wp_enqueue_script( 'dis_options_dialog', DIS_THEME_URL . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
@@ -39,11 +40,11 @@ class DIS_OptionsManager {
 		$this->add_opt_base_option( $this->parent_slug, $this->tab_group, $this->capability );
 		// 2 - Registers options page "Home Page Layout".
 		$this->add_opt_hp_layout( 'dis_opt_hp_layout', $this->tab_group, $this->capability );
-		// // 4 - Registers options page "Site Contacts".
+		// 3 - Registers options page "Site Contacts".
 		$this->add_opt_site_contacts( 'dis_opt_site_contacts', $this->tab_group, $this->capability );
-		// // 5- Registers options page "Social media".
+		// 4- Registers options page "Social media".
 		$this->add_opt_social_media( 'dis_opt_social_media', $this->tab_group, $this->capability );
-		// // 6 - Registers options page "Advanced settings".
+		// 5 - Registers options page "Advanced settings".
 		$this->add_opt_advanced_settings( 'dis_opt_advanced_settings', $this->tab_group, $this->capability );
 	}
 
@@ -62,7 +63,7 @@ class DIS_OptionsManager {
 			'tab_group'    => $tab_group,
 			'tab_title'    => __( 'Base options', 'design_ict_site' ),
 			'capability'   => $capability,
-			'position'     => 3, // Menu position. Only applicable if 'parent_slug' is left empty.
+			'position'     => 2, // Menu position. Only applicable if 'parent_slug' is left empty.
 			'icon_url'     => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 		);
 		// 'tab_group' property is supported in > 2.4.0.
@@ -86,43 +87,43 @@ class DIS_OptionsManager {
 				'desc'       => __( 'The title of the site.' , 'design_ict_site' ),
 				'type'       => 'text',
 				'attributes' => array(
-					'required'   => 'required',
+					'required' => 'required',
 				),
 			)
 		);
 		$base_options->add_field(
 			array(
-				'id'         => 'site_tagline',
-				'name'       => __( 'Tagline', 'design_ict_site' ),
-				'desc'       => __( 'The tagline of the site.' , 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_tagline',
+				'name' => __( 'Tagline', 'design_ict_site' ),
+				'desc' => __( 'The tagline of the site.' , 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$base_options->add_field(
 			array(
-				'id'         => 'site_network_name',
-				'name'       => __( 'Network name', 'design_ict_site' ),
-				'desc'       => __( 'The name of the network the site is part of.' , 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_network_name',
+				'name' => __( 'Network name', 'design_ict_site' ),
+				'desc' => __( 'The name of the network the site is part of.' , 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$base_options->add_field(
 			array(
-				'id'         => 'site_network_url',
-				'name'       => __( 'Network url', 'design_ict_site' ),
-				'desc'       => __( 'The url of the network the site is part of.' , 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_network_url',
+				'name' => __( 'Network url', 'design_ict_site' ),
+				'desc' => __( 'The url of the network the site is part of.' , 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$base_options->add_field(
 			array(
-				'id' => 'header_logo_visible',
-				'name' => __( 'Header logo visible', 'design_ict_site' ),
-				'desc' => __( 'Yes if the logo needs to be shown in the header.', 'design_ict_site' ),
-				'type' => 'radio_inline',
+				'id'      => 'header_logo_visible',
+				'name'    => __( 'Header logo visible', 'design_ict_site' ),
+				'desc'    => __( 'Yes if the logo needs to be shown in the header.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true' => __( 'Yes', 'design_ict_site' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
 						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
@@ -134,21 +135,19 @@ class DIS_OptionsManager {
 				'desc'       => __( 'The logo of the site, please load an SVG image.' , 'design_ict_site' ),
 				'type'       => 'file',
 				'query_args' => array(
-					'type' => array(
-						'image',
-					),
+					'type' => array( 'image', ),
 				),
 			)
 		);
 		$base_options->add_field(
 			array(
-				'id' => 'footer_logo_visible',
-				'name' => __( 'Footer logo visible', 'design_ict_site' ),
-				'desc' => __( 'Yes if the logo needs to be shown in the footer.', 'design_ict_site' ),
-				'type' => 'radio_inline',
+				'id'      => 'footer_logo_visible',
+				'name'    => __( 'Footer logo visible', 'design_ict_site' ),
+				'desc'    => __( 'Yes if the logo needs to be shown in the footer.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true' => __( 'Yes', 'design_ict_site' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
 						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
@@ -160,9 +159,7 @@ class DIS_OptionsManager {
 				'desc'       => __( 'Choose the the footer logo. If it is not present, but the display of the logo in the footer is enabled, the header logo is shown with inverted colors. It is recommended to upload an image in SVG format.' , 'design_ict_site' ),
 				'type'       => 'file',
 				'query_args' => array(
-					'type' => array(
-						'image',
-					),
+					'type' => array( 'image', ),
 				),
 			)
 		);

@@ -4,9 +4,7 @@
 
 		if(strpos($current_screen->id, 'configurazione_page_') !== false || $current_screen->id === 'toplevel_page_dli_options') {
 
-ù
-Si può togliere?
-C:\Users\claudio\Local Sites\sitoict\app\public\wp-content\themes\design-ictsite-wp-theme\admin\css\images
+
 
 1) Get_option wrapper (ConfigurationManager)
 4) FIRST CUSTOM POST TYPE
