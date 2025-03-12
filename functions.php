@@ -38,10 +38,13 @@ if ( ! class_exists( 'DIS_ThemeManager' ) ) {
 	require_once get_template_directory() . '/classes/theme-manager.php';
 }
 
+error_log( 'functions.php' );
+
 if ( class_exists( 'DIS_ThemeManager' ) ) {
 	add_action(
 		'after_setup_theme',
 		function() {
+			error_log( 'after_setup_theme' );
 			remove_action( 'after_setup_theme', __FUNCTION__ );
 			$theme_manager = DIS_ThemeManager::get_instance();
 			$theme_manager->theme_setup();
