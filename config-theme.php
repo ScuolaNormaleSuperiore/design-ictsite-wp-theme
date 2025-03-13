@@ -8,6 +8,14 @@
  */
 
 
+// DEFAULT WP TAXONOMIES.
+define( 'DIS_DEFAULT_CATEGORY', 'category' );
+define( 'DIS_DEFAULT_TAGS', 'post_tag' );
+
+// CUSTOM CONTENT TYPES.
+define( 'DIS_CLUSTER_POST_TYPE', 'service-cluster' );
+define( 'DIS_SERVICE_POST_TYPE', 'service' );
+
 /* MENU */
 define( 'DIS_SLUG_MAIN_MENU', 'dis_main_menu' );
 

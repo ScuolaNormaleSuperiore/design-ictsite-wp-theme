@@ -23,6 +23,12 @@ if ( ! class_exists( 'DIS_MenuManager' ) ) {
 if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 	include_once 'activation-manager.php';
 }
+if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
+	include_once 'service-cluster-manager.php';
+}
+if ( ! class_exists( 'Service_Manager' ) ) {
+	include_once 'service-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -91,8 +97,17 @@ class DIS_ThemeManager {
 		$mnm = new DIS_MenuManager();
 		$mnm->setup();
 
-		// Setup custom post types and associated taxonomies.
-		
+		/***
+		 * Setup custom post types and associated taxonomies.
+		 */
+
+		// Setup of the Service Cluster post-type.
+		$sctpt = new Service_Cluster_Manager();
+		$sctpt->setup();
+
+		// Setup of the Service post-type.
+		$srvpt = new Service_Manager();
+		$srvpt->setup();
 	}
 
 	/**
