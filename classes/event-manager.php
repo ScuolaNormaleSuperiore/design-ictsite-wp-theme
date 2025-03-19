@@ -56,10 +56,10 @@ class Event_Manager {
 			'menu_icon'       => 'dashicons-calendar',
 			'has_archive'     => false,
 			'show_in_rest'    => true,
-			'taxonomies'      => array( DIS_EVENT_POST_TYPE, DIS_DEFAULT_TAGS ),
+			'taxonomies'      => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
-		register_post_type( DIS_PERSON_POST_TYPE, $args );
+		register_post_type( DIS_EVENT_POST_TYPE, $args );
 
 		// Add the custom fields.
 		$this->add_fields();

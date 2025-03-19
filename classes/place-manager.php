@@ -56,10 +56,10 @@ class Place_Manager {
 			'menu_icon'       => 'dashicons-pressthis',
 			'has_archive'     => false,
 			'show_in_rest'    => true,
-			'taxonomies'      => array( DIS_PLACE_POST_TYPE, DIS_DEFAULT_TAGS ),
+			'taxonomies'      => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
-		register_post_type( DIS_PERSON_POST_TYPE, $args );
+		register_post_type( DIS_PLACE_POST_TYPE, $args );
 
 		// Add the custom fields.
 		$this->add_fields();
