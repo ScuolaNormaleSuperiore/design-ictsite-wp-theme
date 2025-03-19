@@ -15,6 +15,11 @@ define( 'DIS_DEFAULT_TAGS', 'post_tag' );
 // CUSTOM CONTENT TYPES.
 define( 'DIS_CLUSTER_POST_TYPE', 'service-cluster' );
 define( 'DIS_SERVICE_POST_TYPE', 'service' );
+define( 'DIS_OFFICE_POST_TYPE', 'office' );
+define( 'DIS_PERSON_POST_TYPE', 'person' );
+define( 'DIS_PROJECT_POST_TYPE', 'project' );
+define( 'DIS_PLACE_POST_TYPE', 'place' );
+define( 'DIS_EVENT_POST_TYPE', 'event' );
 
 /* MENU */
 define( 'DIS_SLUG_MAIN_MENU', 'dis_main_menu' );

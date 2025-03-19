@@ -53,7 +53,7 @@ class Service_Manager {
 			'public'          => true,
 			'show_in_menu'    => true,
 			'menu_position'   => 6,
-			'menu_icon'       => 'dashicons-calendar',
+			'menu_icon'       => 'dashicons-admin-plugins',
 			'has_archive'     => false,
 			'show_in_rest'    => true,
 			'taxonomies'      => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
