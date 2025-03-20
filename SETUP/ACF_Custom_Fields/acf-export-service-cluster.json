@@ -4,6 +4,27 @@
         "title": "Service Cluster Fields",
         "fields": [
             {
+                "key": "field_67d2f11f660f1",
+                "label": "Short description",
+                "name": "short_description",
+                "aria-label": "",
+                "type": "wysiwyg",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "tabs": "all",
+                "toolbar": "full",
+                "media_upload": 1,
+                "delay": 0
+            },
+            {
                 "key": "field_67d2c219021c1",
                 "label": "Icon",
                 "name": "icon",
@@ -28,27 +49,6 @@
                 "mime_types": "",
                 "allow_in_bindings": 0,
                 "preview_size": "medium"
-            },
-            {
-                "key": "field_67d2f11f660f1",
-                "label": "Short description",
-                "name": "short_description",
-                "aria-label": "",
-                "type": "wysiwyg",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "allow_in_bindings": 0,
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "delay": 0
             }
         ],
         "location": [
