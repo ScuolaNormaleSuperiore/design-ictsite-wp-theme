@@ -1,8 +1,14 @@
 
 * TODO LIST:
 
-1) FIRST CUSTOM POST TYPE
-2)
+
+2) SERVICE-CLUSTER, SERVICE
+3) PROJECT, EVENT
+4) PAGE, POST
+5) ALERT
+6) USER STATUS
+7) TAX-ROLE
+8) Impostare traduzione dei custom post types.
 
 
 

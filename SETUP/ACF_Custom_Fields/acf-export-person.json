@@ -146,27 +146,6 @@
                 "allow_in_bindings": 0
             },
             {
-                "key": "field_67dad10191ed1",
-                "label": "Disable detail",
-                "name": "disable_detail",
-                "aria-label": "",
-                "type": "true_false",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "message": "",
-                "default_value": 0,
-                "allow_in_bindings": 0,
-                "ui": 0,
-                "ui_on_text": "",
-                "ui_off_text": ""
-            },
-            {
                 "key": "field_67dad16491ed2",
                 "label": "Detail link",
                 "name": "detail_link",
@@ -183,7 +162,8 @@
                 "choices": {
                     "detail_page": "Detail page",
                     "attachment_1": "Attachment 1",
-                    "website": "Web site"
+                    "website": "Web site",
+                    "no_link": "No link"
                 },
                 "default_value": false,
                 "return_format": "value",
