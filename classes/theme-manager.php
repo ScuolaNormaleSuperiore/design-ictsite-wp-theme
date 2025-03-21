@@ -44,6 +44,12 @@ if ( ! class_exists( 'Event_Manager' ) ) {
 if ( ! class_exists( 'Place_Manager' ) ) {
 	include_once 'place-manager.php';
 }
+if ( ! class_exists( 'Post_Manager' ) ) {
+	include_once 'post-manager.php';
+}
+if ( ! class_exists( 'Page_Manager' ) ) {
+	include_once 'page-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -143,6 +149,15 @@ class DIS_ThemeManager {
 		// Setup of the Place post-type.
 		$plcm = new Place_Manager();
 		$plcm->setup();
+
+		// Setup of the Post post-type.
+		$pstm = new Post_Manager();
+		$pstm->setup();
+
+		// Setup of the Page post-type.
+		$pgm = new Page_Manager();
+		$pgm->setup();
+
 	}
 
 	/**
