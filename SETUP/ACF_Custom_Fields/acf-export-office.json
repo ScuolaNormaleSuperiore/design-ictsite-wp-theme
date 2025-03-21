@@ -67,8 +67,8 @@
             },
             {
                 "key": "field_67dacc2ed84a7",
-                "label": "Place",
-                "name": "place",
+                "label": "Locations",
+                "name": "locations",
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",
@@ -80,7 +80,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "person"
+                    "place"
                 ],
                 "post_status": "",
                 "taxonomy": "",
@@ -97,8 +97,8 @@
             },
             {
                 "key": "field_67dad2896616f",
-                "label": "Person",
-                "name": "person",
+                "label": "Members",
+                "name": "members",
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",

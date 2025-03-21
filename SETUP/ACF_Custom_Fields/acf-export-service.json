@@ -305,8 +305,8 @@
             },
             {
                 "key": "field_67dc32770ef2a",
-                "label": "Service cluster",
-                "name": "service_cluster",
+                "label": "Cluster",
+                "name": "cluster",
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",
@@ -335,8 +335,8 @@
             },
             {
                 "key": "field_67dc32a00ef2b",
-                "label": "Related items",
-                "name": "related_items",
+                "label": "Related services",
+                "name": "related_services",
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",

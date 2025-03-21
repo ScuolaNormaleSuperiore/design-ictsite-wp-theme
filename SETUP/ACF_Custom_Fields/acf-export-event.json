@@ -1,10 +1,10 @@
 [
     {
-        "key": "group_67dad37634108",
-        "title": "Project Fields",
+        "key": "group_67dd2497b30b1",
+        "title": "Event Fields",
         "fields": [
             {
-                "key": "field_67dad376c2fd8",
+                "key": "field_67dd249707c61",
                 "label": "Short description",
                 "name": "short_description",
                 "aria-label": "",
@@ -25,7 +25,7 @@
                 "delay": 0
             },
             {
-                "key": "field_67dd219b9ffbd",
+                "key": "field_67dd250307c62",
                 "label": "Start date",
                 "name": "start_date",
                 "aria-label": "",
@@ -44,7 +44,25 @@
                 "allow_in_bindings": 0
             },
             {
-                "key": "field_67dd21ed9ffbe",
+                "key": "field_67dd258d07c64",
+                "label": "Start hour",
+                "name": "start_hour",
+                "aria-label": "",
+                "type": "time_picker",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "display_format": "H:i",
+                "return_format": "H:i",
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_67dd257707c63",
                 "label": "End date",
                 "name": "end_date",
                 "aria-label": "",
@@ -63,11 +81,11 @@
                 "allow_in_bindings": 0
             },
             {
-                "key": "field_67dd220b9ffbf",
-                "label": "Archived",
-                "name": "archived",
+                "key": "field_67dd25e807c65",
+                "label": "End hour",
+                "name": "end_hour",
                 "aria-label": "",
-                "type": "true_false",
+                "type": "time_picker",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -76,15 +94,94 @@
                     "class": "",
                     "id": ""
                 },
-                "message": "",
-                "default_value": 0,
-                "allow_in_bindings": 0,
-                "ui": 0,
-                "ui_on_text": "",
-                "ui_off_text": ""
+                "display_format": "H:i",
+                "return_format": "H:i",
+                "allow_in_bindings": 0
             },
             {
-                "key": "field_67dd221c9ffc0",
+                "key": "field_67dd26e207c66",
+                "label": "Email",
+                "name": "email",
+                "aria-label": "",
+                "type": "email",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_67dd26f007c67",
+                "label": "Telephone",
+                "name": "telephone",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_67dd271307c69",
+                "label": "Place",
+                "name": "place",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_67dd271e07c6a",
+                "label": "GPS position",
+                "name": "gps_position",
+                "aria-label": "",
+                "type": "google_map",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "center_lat": "",
+                "center_lng": "",
+                "zoom": "",
+                "height": "",
+                "allow_in_bindings": 0
+            },
+            {
+                "key": "field_67dd270707c68",
                 "label": "Website",
                 "name": "website",
                 "aria-label": "",
@@ -102,25 +199,7 @@
                 "placeholder": ""
             },
             {
-                "key": "field_67dd222b9ffc1",
-                "label": "Repository",
-                "name": "repository",
-                "aria-label": "",
-                "type": "url",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "allow_in_bindings": 0,
-                "placeholder": ""
-            },
-            {
-                "key": "field_67dd223e9ffc2",
+                "key": "field_67dd275f07c6b",
                 "label": "Attachment 1",
                 "name": "attachment_1",
                 "aria-label": "",
@@ -141,11 +220,11 @@
                 "allow_in_bindings": 0
             },
             {
-                "key": "field_67dd225e9ffc3",
-                "label": "Video",
-                "name": "video",
+                "key": "field_67dd2cba02589",
+                "label": "Detail link",
+                "name": "detail_link",
                 "aria-label": "",
-                "type": "url",
+                "type": "select",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -154,12 +233,40 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
+                "choices": {
+                    "detail_page": "Detail page",
+                    "attachment_1": "Attachment 1",
+                    "website": "Web site",
+                    "no_link": "No link"
+                },
+                "default_value": false,
+                "return_format": "value",
+                "multiple": 0,
+                "allow_null": 0,
                 "allow_in_bindings": 0,
+                "ui": 0,
+                "ajax": 0,
                 "placeholder": ""
             },
             {
-                "key": "field_67dd22819ffc4",
+                "key": "field_67dd276f07c6c",
+                "label": "Video",
+                "name": "video",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "placeholder": ""
+            },
+            {
+                "key": "field_67dd29ea07c6d",
                 "label": "Show in carousel",
                 "name": "show_in_carousel",
                 "aria-label": "",
@@ -180,7 +287,7 @@
                 "ui_off_text": ""
             },
             {
-                "key": "field_67dd22999ffc5",
+                "key": "field_67dd29fc07c6e",
                 "label": "Show in Home Page",
                 "name": "show_in_home_page",
                 "aria-label": "",
@@ -201,7 +308,7 @@
                 "ui_off_text": ""
             },
             {
-                "key": "field_67dd22b79ffc6",
+                "key": "field_67dd2a0f07c6f",
                 "label": "Related items",
                 "name": "related_items",
                 "aria-label": "",
@@ -233,7 +340,7 @@
                 "bidirectional_target": []
             },
             {
-                "key": "field_67dd22dd9ffc7",
+                "key": "field_67dd2d9ac6514",
                 "label": "Office",
                 "name": "office",
                 "aria-label": "",
@@ -261,36 +368,6 @@
                 "elements": "",
                 "bidirectional": 0,
                 "bidirectional_target": []
-            },
-            {
-                "key": "field_67dd22f49ffc8",
-                "label": "Participants",
-                "name": "participants",
-                "aria-label": "",
-                "type": "relationship",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "person"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "search"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": "",
-                "allow_in_bindings": 0,
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
             }
         ],
         "location": [
@@ -298,7 +375,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "project"
+                    "value": "event"
                 }
             ]
         ],

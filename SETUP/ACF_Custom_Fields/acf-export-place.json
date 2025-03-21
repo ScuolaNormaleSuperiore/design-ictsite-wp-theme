@@ -5,10 +5,10 @@
         "fields": [
             {
                 "key": "field_67dacafdb15d6",
-                "label": "GPS Position",
+                "label": "GPS position",
                 "name": "gps_position",
                 "aria-label": "",
-                "type": "text",
+                "type": "google_map",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -17,12 +17,11 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "center_lat": "",
+                "center_lng": "",
+                "zoom": "",
+                "height": "",
+                "allow_in_bindings": 1
             },
             {
                 "key": "field_67dacb2fb15d7",

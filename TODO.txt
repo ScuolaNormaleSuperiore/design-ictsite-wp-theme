@@ -1,14 +1,11 @@
 
 * TODO LIST:
 
-
-2) SERVICE-CLUSTER, SERVICE
-3) PROJECT, EVENT
-4) PAGE, POST
-5) ALERT
-6) USER STATUS
-7) TAX-ROLE
-8) Impostare traduzione dei custom post types.
+1) PAGE, POST
+2) ALERT
+3) USER STATUS
+4) TAX-ROLE
+5) Impostare traduzione dei custom post types.
 
 
 
