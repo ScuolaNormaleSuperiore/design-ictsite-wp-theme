@@ -23,6 +23,33 @@ if ( ! class_exists( 'DIS_MenuManager' ) ) {
 if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 	include_once 'activation-manager.php';
 }
+if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
+	include_once 'service-cluster-manager.php';
+}
+if ( ! class_exists( 'Service_Manager' ) ) {
+	include_once 'service-manager.php';
+}
+if ( ! class_exists( 'Office_Manager' ) ) {
+	include_once 'office-manager.php';
+}
+if ( ! class_exists( 'Person_Manager' ) ) {
+	include_once 'person-manager.php';
+}
+if ( ! class_exists( 'Project_Manager' ) ) {
+	include_once 'project-manager.php';
+}
+if ( ! class_exists( 'Event_Manager' ) ) {
+	include_once 'event-manager.php';
+}
+if ( ! class_exists( 'Place_Manager' ) ) {
+	include_once 'place-manager.php';
+}
+if ( ! class_exists( 'Post_Manager' ) ) {
+	include_once 'post-manager.php';
+}
+if ( ! class_exists( 'Page_Manager' ) ) {
+	include_once 'page-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -91,8 +118,46 @@ class DIS_ThemeManager {
 		$mnm = new DIS_MenuManager();
 		$mnm->setup();
 
-		// Setup custom post types and associated taxonomies.
-		
+		/***
+		 * Setup custom post types and associated taxonomies.
+		 */
+
+		// Setup of the Service Cluster post-type.
+		$srcm = new Service_Cluster_Manager();
+		$srcm->setup();
+
+		// Setup of the Service post-type.
+		$srvpt = new Service_Manager();
+		$srvpt->setup();
+
+		// Setup of the Office post-type.
+		$offm = new Office_Manager();
+		$offm->setup();
+
+		// Setup of the People post-type.
+		$prsm = new Person_Manager();
+		$prsm->setup();
+
+		// Setup of the Project post-type.
+		$prjm = new Project_Manager();
+		$prjm->setup();
+
+		// Setup of the Event post-type.
+		$evnm = new Event_Manager();
+		$evnm->setup();
+
+		// Setup of the Place post-type.
+		$plcm = new Place_Manager();
+		$plcm->setup();
+
+		// Setup of the Post post-type.
+		$pstm = new Post_Manager();
+		$pstm->setup();
+
+		// Setup of the Page post-type.
+		$pgm = new Page_Manager();
+		$pgm->setup();
+
 	}
 
 	/**

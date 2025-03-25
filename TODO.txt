@@ -1,15 +1,16 @@
 
 * TODO LIST:
 
-1) FIRST CUSTOM POST TYPE
-2)
+1) ALERT
+2) USER STATUS
+3) TAX-ROLE
+4) Impostare traduzione dei custom post types.
 
 
 
 * Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
 B) Configurazione automatica di Polylang con italiano e inglese.
-C) 
 
 
 
