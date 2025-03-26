@@ -22,70 +22,55 @@ class DIS_MultiLangManager {
 	 * @return void
 	 */
 	public function setup() {
-
-		// add_filter( 'pll_get_post_types', array( $this, 'add_cpt_to_pll' ), 10, 2 );
-		// add_filter( 'pll_get_taxonomies', array( $this, 'add_tax_to_pll' ), 10, 2 );
-
+		add_filter( 'pll_get_post_types', array( $this, 'add_cpt_to_pll' ), 10, 2 );
+		add_filter( 'pll_get_taxonomies', array( $this, 'add_tax_to_pll' ), 10, 2 );
 	}
 
-	// /**
-	//  * All the post types that must be managed by Polylang.
-	//  *
-	//  * @return void
-	//  */
-	// public function add_cpt_to_pll() {
-	// 	return DIS_POST_TYPES_TO_TRANSLATE;
-	// }
+	/**
+	 * All the post types that must be managed by Polylang.
+	 *
+	 * @return void
+	 */
+	public function add_cpt_to_pll() {
+		return MULTILANG_POST_TYPES;
+	}
 
-	// /**
-	//  *  all the taxonomies that must be managed by Polylang.
-	//  *
-	//  * @return void
-	//  */
-	// public function add_tax_to_pll() {
-	// 	return DIS_TAXONOMIES_TO_TRANSLATE;
-	// }
+	/**
+	 *  all the taxonomies that must be managed by Polylang.
+	 *
+	 * @return void
+	 */
+	public function add_tax_to_pll() {
+		return MULTILANG_TAXONOMIES;
+	}
 
-// 	/**
-// 	* Sets the language of a taxonomy term.
-// 	*
-// 	* @param [type] $term
-// 	* @param [type] $lang
-// 	* @return void
-// 	*/
-// 	public static function set_term_language( $term, $lang ) {
-// 	 return pll_set_term_language( $term, $lang );
-//  }
+	/**
+	 * Returns the Home Page in the right language.
+	 * @return string
+	 */
+	public static function get_home_url() {
+		return pll_home_url();
+	}
 
-// 	/**
-// 	 * Defines a term as translation of another.
-// 	 *
-// 	 * @param [type] $related_taxonomies
-// 	 * @return void
-// 	 */
-// 	public static function save_term_translations( $related_taxonomies ) {
-// 		return pll_save_term_translations( $related_taxonomies );
-// 	}
-
-// 	/**
-// 	 * Retrieves the default language of the site.
-// 	 *
-// 	 * @param string $type
-// 	 * @return string
-// 	 */
-// 	public static function get_current_language( $type = 'slug' ) {
-// 		$cl = pll_current_language( $type );
-// 		return $cl;
-// 	}
+	/**
+	 * Retrieves the default language of the site.
+	 *
+	 * @param string $type
+	 * @return string
+	 */
+	public static function get_current_language( $type = 'slug' ) {
+		$cl = pll_current_language( $type );
+		return $cl;
+	}
 
 
-// 	/**
-// 	 * Returns all the translations of a page with language and flag.
-// 	 * @return array|string
-// 	 */
-// 	public static function get_all_languages() {
-// 		return pll_the_languages( array ( 'raw' => 1) );
-// 	}
+	/**
+	 * Returns all the translations of a page with language and flag.
+	 * @return array|string
+	 */
+	public static function get_all_languages() {
+		return pll_the_languages( array ( 'raw' => 1) );
+	}
 
 
 	/**
@@ -99,15 +84,58 @@ class DIS_MultiLangManager {
 		return pll_languages_list( $args );
 	}
 
-// 	/**
-// 	 * Retrieves the list of the languages supported by the site.
-// 	 *
-// 	 * @param [type] $args
-// 	 * @return void
-// 	 */
-// 	public static function the_languages() {
-// 		pll_the_languages( array( 'dropdown' => 1 ) );
-// 	}
+	/**
+	 * Retrieves the list of the languages supported by the site.
+	 *
+	 * @param [type] $args
+	 * @return void
+	 */
+	public static function the_languages() {
+		pll_the_languages( array( 'dropdown' => 1 ) );
+	}
+
+	/**
+	* Sets the language of a taxonomy term.
+	*
+	* @param [type] $term
+	* @param [type] $lang
+	* @return void
+	*/
+	public static function set_term_language( $term, $lang ) {
+	 return pll_set_term_language( $term, $lang );
+ }
+
+	/**
+	 * Defines a term as translation of another.
+	 *
+	 * @param [type] $related_taxonomies
+	 * @return void
+	 */
+	public static function save_term_translations( $related_taxonomies ) {
+		return pll_save_term_translations( $related_taxonomies );
+	}
+
+
+	/**
+	 * Sets the language of a post.
+	 *
+	 * @param [type] $post
+	 * @param [type] $lang
+	 * @return void
+	 */
+	public static function set_post_language( $post, $lang ) {
+		return pll_set_post_language( $post, $lang );
+	}
+
+	/**
+	 * Defines a post as the translation of another.
+	 *
+	 * @param [type] $related_posts
+	 * @return void
+	 */
+	public static function save_post_translations( $related_posts ) {
+		return pll_save_post_translations( $related_posts );
+	}
 
 // 	/**
 // 	* Retrieves the ID of the page in the current language.
@@ -140,27 +168,6 @@ class DIS_MultiLangManager {
 // 	}
 
 // 	/**
-// 	 * Sets the language of a post.
-// 	 *
-// 	 * @param [type] $post
-// 	 * @param [type] $lang
-// 	 * @return void
-// 	 */
-// 	public static function set_post_language( $post, $lang ) {
-// 		return pll_set_post_language( $post, $lang );
-// 	}
-
-// 	/**
-// 	 * Defines a post as the translation of another.
-// 	 *
-// 	 * @param [type] $related_posts
-// 	 * @return void
-// 	 */
-// 	public static function save_post_translations( $related_posts ) {
-// 		return pll_save_post_translations( $related_posts );
-// 	}
-
-// 	/**
 // 	 * Retrieves the translations of a post in all the site languages, if present.
 // 	 *
 // 	 * @param [type] $related_posts
@@ -170,12 +177,5 @@ class DIS_MultiLangManager {
 // 		return pll_get_post_translations( $post_id );
 // 	}
 
-// 	/**
-// 	 * Returns the Home Page in the right language.
-// 	 * @return string
-// 	 */
-// 	public static function get_home_url() {
-// 		return pll_home_url();
-// 	}
 
 }
