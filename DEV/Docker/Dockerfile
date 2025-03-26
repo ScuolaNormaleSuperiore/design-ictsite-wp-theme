@@ -13,16 +13,16 @@ FROM php:8.3-apache
 
 ################# CONFIGURATIONS (define ARG after FROM) #####################
 ARG WP_ARCHIVE=wordpress-6.7.2.tar.gz
-ARG DLI_THEME=https://github.com/ScuolaNormaleSuperiore/deploy-sito-ict.git
+ARG DLI_THEME=https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme.git
 ARG ADMINER=https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 
 ARG BASE_PLUGIN_URL=https://downloads.wordpress.org/plugin
 ARG PLG_ACF_OPENSTRRETMAP=acf-openstreetmap-field.1.6.1.zip
 ARG PLG_ACF=advanced-custom-fields.6.3.12.zip
 ARG PLG_ARIA_LABEL=better-aria-label-support.0.1.zip
-ARG PLG_POLYLANG=polylang.3.6.6.zip
+ARG PLG_POLYLANG=polylang.3.6.7.zip
 ARG PLG_CAPTCHA=really-simple-captcha.zip
-ARG PLG_SMTP=wp-mail-smtp.4.3.0.zip
+ARG PLG_SMTP=wp-mail-smtp.4.4.0.zip
 
 # Plugion facoltativi o di sviluppo
 ARG PLG_LOCO_TRANSLATE=loco-translate.2.7.1.zip
@@ -80,6 +80,9 @@ RUN curl -o /tmp/${WP_ARCHIVE} https://wordpress.org/${WP_ARCHIVE} && \
 	mv /var/www/wordpress /var/www/html	&& \
 	rm -rf /var/www/html/wp-content/themes/twentytwentyone && \
 	rm -rf /var/www/html/wp-content/themes/twentytwentytwo && \
+	rm -rf /var/www/html/wp-content/themes/twentytwentythree && \
+	rm -rf /var/www/html/wp-content/themes/twentytwentyfour && \
+	rm -rf /var/www/html/wp-content/themes/twentytwentyfive && \
 	rm -rf /var/www/html/wp-content/plugins/akismet && \
 	rm -rf /var/www/html/wp-content/plugins/hello.php && \
 	cd /var/www/html/wp-content/themes && \
