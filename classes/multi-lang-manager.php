@@ -85,16 +85,6 @@ class DIS_MultiLangManager {
 	}
 
 	/**
-	 * Retrieves the list of the languages supported by the site.
-	 *
-	 * @param [type] $args
-	 * @return void
-	 */
-	public static function the_languages() {
-		pll_the_languages( array( 'dropdown' => 1 ) );
-	}
-
-	/**
 	* Sets the language of a taxonomy term.
 	*
 	* @param [type] $term

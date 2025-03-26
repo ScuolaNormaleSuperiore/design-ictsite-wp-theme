@@ -11,6 +11,10 @@ get_header();
 
 $site_title = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 
+$current_lang = DIS_MultiLangManager::get_current_language();
+$home         = DIS_MultiLangManager::get_home_url();
+$all          = DIS_MultiLangManager::get_all_languages();
+$list         = DIS_MultiLangManager::get_languages_list();
 ?>
 
 <main id="main-container" class="main-container redbrown" role="main">
