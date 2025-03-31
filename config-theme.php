@@ -26,6 +26,7 @@ define( 'DIS_PERSON_POST_TYPE', 'person' );
 define( 'DIS_PROJECT_POST_TYPE', 'project' );
 define( 'DIS_PLACE_POST_TYPE', 'place' );
 define( 'DIS_EVENT_POST_TYPE', 'event' );
+define( 'DIS_USER_STATUS_POST_TYPE', 'user-status' );
 define( 'DIS_ALERT_POST_TYPE', 'alert' ); /* no multilanguage */
 
 /* MENU */
@@ -59,6 +60,7 @@ define(
 		DIS_PROJECT_POST_TYPE,
 		DIS_PLACE_POST_TYPE,
 		DIS_EVENT_POST_TYPE,
+		DIS_USER_STATUS_POST_TYPE,
 	)
 );
 

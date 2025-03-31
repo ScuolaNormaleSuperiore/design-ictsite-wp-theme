@@ -35,8 +35,8 @@ class Event_Manager {
 		$labels = array(
 			'name'                  => _x( 'Events', 'Post Type General Name', 'design_ict_site' ),
 			'singular_name'         => _x( 'Event', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a event', 'Post Type Singular Name', 'design_ict_site' ),
+			'add_new'               => _x( 'Add an event ', 'Post Type Singular Name', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add an event', 'Post Type Singular Name', 'design_ict_site' ),
 			'edit_item'             => _x( 'Edit the event', 'Post Type Singular Name', 'design_ict_site' ),
 			'view_item'             => _x( 'View the event', 'Post Type Singular Name', 'design_ict_site' ),
 			'featured_image'        => __( "Event image", 'design_ict_site' ),

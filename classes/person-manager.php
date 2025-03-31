@@ -38,15 +38,15 @@ class Person_Manager {
 		// aggiungo la tassonomia tipologia luogo.
 
 		$person_role_labels = array(
-			'name'              => _x( 'Person Role', 'taxonomy general name', 'design_ict_site' ),
+			'name'              => _x( 'Person Roles', 'taxonomy general name', 'design_ict_site' ),
 			'singular_name'     => _x( 'Person Role', 'taxonomy singular name', 'design_ict_site' ),
-			'search_items'      => __( 'Look for a Person Role', 'design_ict_site' ),
-			'all_items'         => __( 'All Person Roles', 'design_ict_site' ),
-			'edit_item'         => __( 'Modify the Person Role', 'design_ict_site' ),
-			'update_item'       => __( 'Edit the Person Role Type', 'design_ict_site' ),
-			'add_new_item'      => __( 'Add a Person Role', 'design_ict_site' ),
-			'new_item_name'     => __( 'New Person Role', 'design_ict_site' ),
-			'menu_name'         => __( 'Person Role', 'design_ict_site' ),
+			'search_items'      => __( 'Look for a person role', 'design_ict_site' ),
+			'all_items'         => __( 'All person roles', 'design_ict_site' ),
+			'edit_item'         => __( 'Modify the person role', 'design_ict_site' ),
+			'update_item'       => __( 'Edit the person role Type', 'design_ict_site' ),
+			'add_new_item'      => __( 'Add a person role', 'design_ict_site' ),
+			'new_item_name'     => __( 'New person role', 'design_ict_site' ),
+			'menu_name'         => __( 'Person Roles', 'design_ict_site' ),
 		);
 
 		$person_role_args = array(

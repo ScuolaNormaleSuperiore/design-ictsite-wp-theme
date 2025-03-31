@@ -35,7 +35,7 @@ class Service_Manager {
 		$labels = array(
 			'name'                  => _x( 'Services', 'Post Type General Name', 'design_ict_site' ),
 			'singular_name'         => _x( 'Service', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a ', 'Post Type Singular Name', 'design_ict_site' ),
+			'add_new'               => _x( 'Add a service', 'Post Type Singular Name', 'design_ict_site' ),
 			'add_new_item'          => _x( 'Add a service', 'Post Type Singular Name', 'design_ict_site' ),
 			'edit_item'             => _x( 'Edit the service', 'Post Type Singular Name', 'design_ict_site' ),
 			'view_item'             => _x( 'View the service', 'Post Type Singular Name', 'design_ict_site' ),

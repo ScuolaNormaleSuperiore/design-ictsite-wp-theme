@@ -1,12 +1,12 @@
 <?php
 /**
- * Definition of the Office Manager.
+ * Definition of the User Status Manager.
  *
  * @package Design_ICT_Site
  */
 
 
-class Office_Manager {
+class UserStatus_Manager {
 	/**
 	 * Constructor of the Manager.
 	 */
@@ -33,33 +33,33 @@ class Office_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Offices', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Office', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an office ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an office', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the office', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the office', 'Post Type Singular Name', 'design_ict_site' ),
-			'featured_image'        => __( "Office image", 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose office image' ),
-			'remove_featured_image' => __( 'Remove office image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as office image' , 'design_ict_site' ),
+			'name'                  => _x( 'User Status', 'Post Type General Name', 'design_ict_site' ),
+			'singular_name'         => _x( 'User Status', 'Post Type Singular Name', 'design_ict_site' ),
+			'add_new'               => _x( 'Add an user status ', 'Post Type Singular Name', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add an user status', 'Post Type Singular Name', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the user status', 'Post Type Singular Name', 'design_ict_site' ),
+			'view_item'             => _x( 'View the user status', 'Post Type Singular Name', 'design_ict_site' ),
+			'featured_image'        => __( "User Status image", 'design_ict_site' ),
+			'set_featured_image'    => __( 'Choose user status image' ),
+			'remove_featured_image' => __( 'Remove user status image' , 'design_ict_site' ),
+			'use_featured_image'    => __( 'Use as user status image' , 'design_ict_site' ),
 		);
 
 		$args   = array(
-			'label'           => __( 'Office', 'design_ict_site' ),
+			'label'           => __( 'User Status', 'design_ict_site' ),
 			'labels'          => $labels,
 			'supports'        => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'    => false,
 			'public'          => true,
 			'show_in_menu'    => true,
 			'menu_position'   => 6,
-			'menu_icon'       => 'dashicons-building',
+			'menu_icon'       => 'dashicons-buddicons-buddypress-logo',
 			'has_archive'     => false,
 			'show_in_rest'    => true,
 			'taxonomies'      => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
-		register_post_type( DIS_OFFICE_POST_TYPE, $args );
+		register_post_type( DIS_USER_STATUS_POST_TYPE, $args );
 
 		// Add the custom fields.
 		$this->add_fields();
@@ -85,6 +85,7 @@ class Office_Manager {
 	 * @return void
 	 */
 	function add_fields() {
+
 
 
 	}
