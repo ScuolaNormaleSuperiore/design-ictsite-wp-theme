@@ -1,8 +1,8 @@
 
 * TODO LIST:
 
-3) ALERT
-4) USER STATUS
+3) ALERT (custom fields)
+4) USER STATUS (custom fields)
 
 
 
