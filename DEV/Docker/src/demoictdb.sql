@@ -2655,7 +2655,7 @@ INSERT INTO `wp_usermeta` (`umeta_id`, `user_id`, `meta_key`, `meta_value`) VALU
 (30,	1,	'wp_mail_smtp_dash_widget_lite_hide_graph',	'1'),
 (31,	1,	'wp_mail_smtp_dash_widget_lite_hide_email_alerts_banner',	'1'),
 (32,	1,	'session_tokens',	'a:1:{s:64:\"63b5994d0735905358b103e26f056cfc2946abdd1bd1e2530af779ac962af6f9\";a:4:{s:10:\"expiration\";i:1743158804;s:2:\"ip\";s:10:\"172.17.0.1\";s:2:\"ua\";s:111:\"Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/134.0.0.0 Safari/537.36\";s:5:\"login\";i:1742986004;}}'),
-(33,	1,	'tgmpa_dismissed_notice_design_laboratori_italia',	'1'),
+(33,	1,	'tgmpa_dismissed_notice_design_ict_site',	'1'),
 (34,	1,	'wp_persisted_preferences',	'a:3:{s:4:\"core\";a:2:{s:26:\"isComplementaryAreaVisible\";b:1;s:10:\"openPanels\";a:4:{i:0;s:11:\"post-status\";i:1;s:23:\"taxonomy-panel-post_tag\";i:2;s:23:\"taxonomy-panel-category\";i:3;s:28:\"taxonomy-panel-area-tematica\";}}s:14:\"core/edit-post\";a:1:{s:12:\"welcomeGuide\";b:0;}s:9:\"_modified\";s:24:\"2024-10-24T10:56:30.814Z\";}'),
 (35,	2,	'nickname',	'super'),
 (36,	2,	'first_name',	'Super'),

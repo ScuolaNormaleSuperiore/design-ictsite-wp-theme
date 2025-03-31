@@ -18,12 +18,50 @@ class Person_Manager {
 	 * @return void
 	 */
 	public function setup() {
+
+		// Register the taxonomies used by this post type.
+		add_action( 'init', array( $this, 'add_taxonomies' ) );
+
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
 
 		// Customize the post type layout of the admin interface.
 		// add_action( 'edit_form_after_title', array( $this, 'custom_layout' ) );
 	}
+
+	/**
+	 * Register the taxonomies.
+	 *
+	 * @return void
+	 */
+	public function add_taxonomies() {
+		// aggiungo la tassonomia tipologia luogo.
+
+		$person_role_labels = array(
+			'name'              => _x( 'Person Role', 'taxonomy general name', 'design_ict_site' ),
+			'singular_name'     => _x( 'Person Role', 'taxonomy singular name', 'design_ict_site' ),
+			'search_items'      => __( 'Look for a Person Role', 'design_ict_site' ),
+			'all_items'         => __( 'All Person Roles', 'design_ict_site' ),
+			'edit_item'         => __( 'Modify the Person Role', 'design_ict_site' ),
+			'update_item'       => __( 'Edit the Person Role Type', 'design_ict_site' ),
+			'add_new_item'      => __( 'Add a Person Role', 'design_ict_site' ),
+			'new_item_name'     => __( 'New Person Role', 'design_ict_site' ),
+			'menu_name'         => __( 'Person Role', 'design_ict_site' ),
+		);
+
+		$person_role_args = array(
+			'hierarchical'      => true,
+			'labels'            => $person_role_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => DIS_PERSON_ROLE_TAXONOMY ),
+			'show_in_rest'      => true,
+		);
+
+		register_taxonomy( DIS_PERSON_ROLE_TAXONOMY, array( DIS_PERSON_POST_TYPE ), $person_role_args );
+	}
+
 
 	/**
 	 * Register the post type.

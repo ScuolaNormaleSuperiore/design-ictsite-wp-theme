@@ -10,7 +10,9 @@
 
 // DEFAULT WP TAXONOMIES.
 define( 'DIS_DEFAULT_CATEGORY', 'category' );
-define( 'DIS_DEFAULT_TAGS', 'post_tag' );
+define( 'DIS_DEFAULT_TAGS', 'post-tag' );
+define( 'DIS_PLACE_TYPE_TAXONOMY', 'place-type' );
+define( 'DIS_PERSON_ROLE_TAXONOMY', 'person-role' );
 
 //DEFAULT WP POST TYPES.
 define( 'WP_DEFAULT_POST', 'post' );
@@ -41,6 +43,8 @@ define(
 	array(
 		DIS_DEFAULT_CATEGORY,
 		WP_DEFAULT_PAGE,
+		DIS_PLACE_TYPE_TAXONOMY,
+		DIS_PERSON_ROLE_TAXONOMY,
 	)
 );
 
