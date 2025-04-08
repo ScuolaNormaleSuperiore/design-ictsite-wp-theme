@@ -197,48 +197,6 @@
                 "placeholder": ""
             },
             {
-                "key": "field_67dc31e20ef25",
-                "label": "Attachment title 1",
-                "name": "attachment_title_1",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_67dc31f60ef26",
-                "label": "Attachment 1",
-                "name": "attachment_1",
-                "aria-label": "",
-                "type": "file",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "return_format": "array",
-                "library": "all",
-                "min_size": "",
-                "max_size": "",
-                "mime_types": "",
-                "allow_in_bindings": 0
-            },
-            {
                 "key": "field_67dc321f0ef27",
                 "label": "Visit counter",
                 "name": "visit_counter",
@@ -392,6 +350,27 @@
                 "elements": "",
                 "bidirectional": 0,
                 "bidirectional_target": []
+            },
+            {
+                "key": "field_67f52fa35ecd5",
+                "label": "Related documents",
+                "name": "related_documents",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
             }
         ],
         "location": [
@@ -399,7 +378,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "service"
+                    "value": "post"
                 }
             ]
         ],

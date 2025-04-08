@@ -11,23 +11,24 @@
 // DEFAULT WP TAXONOMIES.
 define( 'DIS_DEFAULT_CATEGORY', 'category' );
 define( 'DIS_DEFAULT_TAGS', 'post-tag' );
-define( 'DIS_PLACE_TYPE_TAXONOMY', 'place-type' );
-define( 'DIS_PERSON_ROLE_TAXONOMY', 'person-role' );
+define( 'DIS_PLACE_TYPE_TAXONOMY', 'dis-place-type' );
+define( 'DIS_PERSON_ROLE_TAXONOMY', 'dis-person-role' );
 
 //DEFAULT WP POST TYPES.
 define( 'WP_DEFAULT_POST', 'post' );
 define( 'WP_DEFAULT_PAGE', 'page' );
 
 // CUSTOM CONTENT TYPES.
-define( 'DIS_CLUSTER_POST_TYPE', 'service-cluster' );
-define( 'DIS_SERVICE_POST_TYPE', 'service' );
-define( 'DIS_OFFICE_POST_TYPE', 'office' );
-define( 'DIS_PERSON_POST_TYPE', 'person' );
-define( 'DIS_PROJECT_POST_TYPE', 'project' );
-define( 'DIS_PLACE_POST_TYPE', 'place' );
-define( 'DIS_EVENT_POST_TYPE', 'event' );
-define( 'DIS_USER_STATUS_POST_TYPE', 'user-status' );
-define( 'DIS_ALERT_POST_TYPE', 'alert' ); /* no multilanguage */
+define( 'DIS_CLUSTER_POST_TYPE', 'dis-service-cluster' );
+define( 'DIS_SERVICE_POST_TYPE', 'dis-service' );
+define( 'DIS_OFFICE_POST_TYPE', 'dis-office' );
+define( 'DIS_PERSON_POST_TYPE', 'dis-person' );
+define( 'DIS_PROJECT_POST_TYPE', 'dis-project' );
+define( 'DIS_PLACE_POST_TYPE', 'dis-place' );
+define( 'DIS_EVENT_POST_TYPE', 'dis-event' );
+define( 'DIS_USER_STATUS_POST_TYPE', 'dis-user-status' );
+define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
+define( 'DIS_ALERT_POST_TYPE', 'dis-alert' ); /* no multilanguage */
 
 /* MENU */
 define( 'DIS_SLUG_MAIN_MENU', 'dis_main_menu' );
@@ -61,6 +62,7 @@ define(
 		DIS_PLACE_POST_TYPE,
 		DIS_EVENT_POST_TYPE,
 		DIS_USER_STATUS_POST_TYPE,
+		DIS_ATTACHMENT_POST_TYPE,
 	)
 );
 
