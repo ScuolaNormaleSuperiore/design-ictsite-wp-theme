@@ -38,13 +38,15 @@ class DIS_OptionsManager {
 	public function setup_options() {
 		// 1 - Registers options page "Base options".
 		$this->add_opt_base_option( $this->parent_slug, $this->tab_group, $this->capability );
-		// 2 - Registers options page "Home Page Layout".
+		// 2 - Registers options page "Home Page Sections".
+		$this->add_opt_hp_sections( 'dis_opt_hp_sections', $this->tab_group, $this->capability );
+		// 3 - Registers options page "Home Page Layout".
 		$this->add_opt_hp_layout( 'dis_opt_hp_layout', $this->tab_group, $this->capability );
-		// 3 - Registers options page "Site Contacts".
+		// 4 - Registers options page "Site Contacts".
 		$this->add_opt_site_contacts( 'dis_opt_site_contacts', $this->tab_group, $this->capability );
-		// 4- Registers options page "Social media".
+		// 5- Registers options page "Social media".
 		$this->add_opt_social_media( 'dis_opt_social_media', $this->tab_group, $this->capability );
-		// 5 - Registers options page "Advanced settings".
+		// 6 - Registers options page "Advanced settings".
 		$this->add_opt_advanced_settings( 'dis_opt_advanced_settings', $this->tab_group, $this->capability );
 	}
 
@@ -75,7 +77,7 @@ class DIS_OptionsManager {
 		$base_options->add_field(
 			array(
 				'id'   => 'baseoptions_info',
-				'name' => __( 'Site configuration', 'design_ict_site' ),
+				'name' => __( 'Site configurations', 'design_ict_site' ),
 				'desc' => __( 'Section to configure base options.' , 'design_ict_site' ),
 				'type' => 'title',
 			)
@@ -166,22 +168,126 @@ class DIS_OptionsManager {
 		return $result;
 	}
 
+	/**
+	 * 2 - Registers options page "Home Page Sections".
+	 *
+	 * @return boolean
+	 */
+	public function add_opt_hp_sections( $option_key, $tab_group, $capability ) {
+		$args = array(
+			'id'           => $option_key . '_id',
+			'title'        => esc_html__( 'Home Page Sections', 'design_ict_site' ),
+			'object_types' => array( 'options-page' ),
+			'option_key'   => $option_key,
+			'capability'   => $capability,
+			'parent_slug'  => $this->parent_slug,
+			'tab_group'    => $tab_group,
+			'tab_title'    => __( 'HP sections', 'design_ict_site' ),
+		);
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
+		}
+		$section_options = new_cmb2_box( $args );
+
+		$section_options->add_field(
+			array(
+				'id'   => 'sectionoptions_info',
+				'name' => __( 'Home Page sections', 'design_ict_site' ),
+				'desc' => __( 'Configure the sections of the site.' , 'design_ict_site' ),
+				'type' => 'title',
+			)
+		);
+		$section_group_id = $section_options->add_field(
+			array(
+				'id'          => 'site_sections',
+				'type'        => 'group',
+				'desc'        => __( 'Choose the site sections' , 'design_ict_site' )   . '.',
+				'repeatable'  => true,
+				'options'     => array(
+						'group_title'    => __( 'Section', 'design_ict_site' ) . ' {#}',
+						'add_button'     => __( 'Add the section', 'design_ict_site' ),
+						'remove_button'  => __( 'Remove the section', 'design_ict_site' ),
+						'sortable'       => true,
+						'closed'         => true,
+						'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'design_ict_site' ),
+				),
+			)
+		);
+		$section_options->add_group_field(
+			$section_group_id,
+			array(
+				'id'               => 'section',
+				'name'             => __( "Section", 'design_ict_site' ),
+				'desc'             => __( "Choose the section." , 'design_ict_site' ),
+				'type'             => 'select',
+				'default'          => 'never',
+				'show_option_none' => false,
+				'options'          => array(
+					'main_hero_section'      => __( 'Main hero', 'design_ict_site' ),
+					'clusters_section'     => __( 'Clusters', 'design_ict_site' ),
+					'news_section'      => __( 'News', 'design_ict_site' ),
+					'search_section' => __( 'Search', 'design_ict_site' ),
+					'in_evidence'     => __( 'In evidence', 'design_ict_site' ),
+				),
+			)
+		);
+		$section_options->add_group_field(
+			$section_group_id,
+			array(
+				'id' => 'section_enabled',
+				'name' => __( 'Enable this section', 'design_ict_site' ),
+				'desc' => __( 'If yes, the section is shown in the Home Page.', 'design_ict_site' ),
+				'type' => 'radio_inline',
+				'default' => 'true',
+				'options' => array(
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+		$section_options->add_group_field(
+			$section_group_id,
+			array(
+				'id' => 'show_title',
+				'name' => __( 'Show the section title', 'design_ict_site' ),
+				'desc' => __( 'If yes, the title of the section is shown.', 'design_ict_site' ),
+				'type' => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+
+		$section_options->add_group_field(
+			$section_group_id,
+			array(
+				'id'         => 'title',
+				'name'       => __( 'Title', 'design_ict_site' ),
+				'desc'       => __( "The title of the section." , 'design_ict_site' ),
+				'type'       => 'text',
+			)
+		);
+
+	}
 	
 	/**
-	 * 2 - Registers options page "Home Page Layout".
+	 * 3 - Registers options page "Home Page Layout".
 	 *
 	 * @return boolean
 	 */
 	public function add_opt_hp_layout( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Home Page Layout', 'kk_writer_theme' ),
+			'title'        => esc_html__( 'Home Page Layout', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
 			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
-			'tab_title'    => __( 'HP layout', 'kk_writer_theme' ),
+			'tab_title'    => __( 'HP layout', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
 		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -193,54 +299,54 @@ class DIS_OptionsManager {
 		$home_options->add_field(
 			array(
 				'id'   => 'home_carousel',
-				'name' => __( 'Carousel section', 'kk_writer_theme' ),
-				'desc' => __( 'Configure here the carousel section.' , 'kk_writer_theme' ),
+				'name' => __( 'Home Page layout', 'design_ict_site' ),
+				'desc' => __( 'Configure here the layout of the Home Page.' , 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
 		$home_options->add_field(
 			array(
 				'id' => 'home_carousel_before_featured_enabled',
-				'name' => __( 'Show carousel before featured content', 'kk_writer_theme' ),
-				'desc' => __( 'If yes, the carousel is shown before the featured content section.', 'kk_writer_theme' ),
+				'name' => __( 'Show carousel before featured content', 'design_ict_site' ),
+				'desc' => __( 'If yes, the carousel is shown before the featured content section.', 'design_ict_site' ),
 				'type' => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true' => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true' => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
 		$home_options->add_field(
 			array(
 				'id' => 'home_carousel_visible',
-				'name' => __( 'Show the Carousel section', 'kk_writer_theme' ),
-				'desc' => __( 'Show the main carousel in the Home Page.', 'kk_writer_theme' ),
+				'name' => __( 'Show the Carousel section', 'design_ict_site' ),
+				'desc' => __( 'Show the main carousel in the Home Page.', 'design_ict_site' ),
 				'type' => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-					'true'  => __( 'Yes', 'kk_writer_theme' ),
-					'false' => __( 'No', 'kk_writer_theme' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
 	}
 
 	/**
-	 * 3 - Registers options page "Site Contacts".
+	 * 4 - Registers options page "Site Contacts".
 	 *
 	 * @return boolean
 	 */
 	public function add_opt_site_contacts( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Contacts', 'kk_writer_theme' ),
+			'title'        => esc_html__( 'Site contacts', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
 			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
-			'tab_title'    => __( 'Site contacts', 'kk_writer_theme' ),	
+			'tab_title'    => __( 'Site contacts', 'design_ict_site' ),	
 		);
 		// 'tab_group' property is supported in > 2.4.0.
 		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -251,40 +357,40 @@ class DIS_OptionsManager {
 		$contacts_options->add_field(
 			array(
 			'id' => 'social_info',
-			'name'        => __( 'Contacts', 'kk_writer_theme' ),
-			'desc' => __( 'The contact shown in the footer.' , 'kk_writer_theme' ),
+			'name'        => __( 'Site contacts', 'design_ict_site' ),
+			'desc' => __( 'The contact shown in the footer.' , 'design_ict_site' ),
 			'type' => 'title',
 			)
 		);
 		$contacts_options->add_field(
 			array(
 				'id'         => 'site_city',
-				'name'       => __( 'City', 'kk_writer_theme' ),
-				'desc'       => __( 'The city of the site.' , 'kk_writer_theme' ),
+				'name'       => __( 'City', 'design_ict_site' ),
+				'desc'       => __( 'The city of the site.' , 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
 				'id'         => 'site_address',
-				'name'       => __( 'Address', 'kk_writer_theme' ),
-				'desc'       => __( "The address of the site." , 'kk_writer_theme' ),
+				'name'       => __( 'Address', 'design_ict_site' ),
+				'desc'       => __( "The address of the site." , 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
 				'id'         => 'site_email',
-				'name'       => __( 'E-mail', 'kk_writer_theme' ),
-				'desc'       => __( 'The e-mail of the site.' , 'kk_writer_theme' ),
+				'name'       => __( 'E-mail', 'design_ict_site' ),
+				'desc'       => __( 'The e-mail of the site.' , 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
 				'id'         => 'site_telephone',
-				'name'       => __( 'Phone number', 'kk_writer_theme' ),
-				'desc'       => __( 'The phone number of the site.' , 'kk_writer_theme' ),
+				'name'       => __( 'Phone number', 'design_ict_site' ),
+				'desc'       => __( 'The phone number of the site.' , 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -292,7 +398,7 @@ class DIS_OptionsManager {
 		$contacts_options->add_field(
 			array(
 				'id'   => 'smtp',
-				'name' => __( 'SMTP', 'kk_writer_theme' ),
+				'name' => __( 'SMTP', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -300,8 +406,8 @@ class DIS_OptionsManager {
 		$contacts_options->add_field(
 			array(
 				'id'         => 'smtp_sender_name',
-				'name'       => __( 'SMTP sender name', 'kk_writer_theme' ),
-				'desc'       => __( 'The name that must appear on the e-mails sent by the site.' , 'kk_writer_theme' ),
+				'name'       => __( 'SMTP sender name', 'design_ict_site' ),
+				'desc'       => __( 'The name that must appear on the e-mails sent by the site.' , 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -309,8 +415,8 @@ class DIS_OptionsManager {
 		$contacts_options->add_field(
 			array(
 				'id'         => 'smtp_sender_email',
-				'name'       => __( 'SMTP sender email', 'kk_writer_theme' ),
-				'desc'       => __( 'The provider e-mail that must be used as sender.' , 'kk_writer_theme' ),
+				'name'       => __( 'SMTP sender email', 'design_ict_site' ),
+				'desc'       => __( 'The provider e-mail that must be used as sender.' , 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -318,20 +424,20 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 4 - Registers options page "Social media".
+	 * 5 - Registers options page "Social media".
 	 *
 	 * @return boolean
 	 */
 	public function add_opt_social_media( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Social media', 'kk_writer_theme' ),
+			'title'        => esc_html__( 'Social media', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
 			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
-			'tab_title'    => __( 'Social media', 'kk_writer_theme' ),
+			'tab_title'    => __( 'Social media', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
 		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
@@ -342,21 +448,21 @@ class DIS_OptionsManager {
 		$social_options->add_field(
 			array(
 				'id' => 'social_info',
-				'name'        => __( 'Social media', 'kk_writer_theme' ),
-				'desc' => __( 'Insert here the links to your social media.' , 'kk_writer_theme' ),
+				'name'        => __( 'Social media', 'design_ict_site' ),
+				'desc' => __( 'Insert here the links to your social media.' , 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
 		$social_options->add_field(
 			array(
 				'id' => 'show_socials',
-				'name' => __( 'Show social media icons', 'kk_writer_theme' ),
-				'desc' => __( 'Enable the display of social media in the header and footer of the page.', 'kk_writer_theme' ),
+				'name' => __( 'Show social media icons', 'design_ict_site' ),
+				'desc' => __( 'Enable the display of social media in the header and footer of the page.', 'design_ict_site' ),
 				'type' => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true' => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true' => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 				'attributes' => array(
 						'data-conditional-value' => "false",
@@ -436,17 +542,17 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 5 - Registers options page "Advanced settings".
+	 * 6 - Registers options page "Advanced settings".
 	 *
 	 * @return boolean
 	 */
 	public function add_opt_advanced_settings( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Advanced', 'kk_writer_theme' ),
+			'title'        => esc_html__( 'Advanced options', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
-			'tab_title'    => __( 'Advanced', 'kk_writer_theme' ),
+			'tab_title'    => __( 'Advanced options', 'design_ict_site' ),
 			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
 			'capability'   => $capability,
@@ -460,8 +566,8 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 					'id'   => 'advanced_info',
-					'name' => __( 'Advanced configurations', 'kk_writer_theme' ),
-					'desc' => __( 'Section to configure advanced settings.' , 'kk_writer_theme' ),
+					'name' => __( 'Advanced options', 'design_ict_site' ),
+					'desc' => __( 'Section to configure advanced settings.' , 'design_ict_site' ),
 					'type' => 'title',
 			)
 		);
@@ -469,7 +575,7 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'   => 'login',
-				'name' => __( 'Login', 'kk_writer_theme' ),
+				'name' => __( 'Login', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -477,12 +583,12 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'      => 'login_button_visible',
-				'name'    => __( 'Login visible', 'kk_writer_theme' ),
+				'name'    => __( 'Login visible', 'design_ict_site' ),
 				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -490,7 +596,7 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'   => 'multilingua',
-				'name' => __( 'Multilanguage', 'kk_writer_theme' ),
+				'name' => __( 'Multilanguage', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -498,12 +604,12 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'      => 'language_selector_visible',
-				'name'    => __( 'Enable language selector', 'kk_writer_theme' ),
+				'name'    => __( 'Enable language selector', 'design_ict_site' ),
 				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -511,7 +617,7 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'   => 'analytics',
-				'name' => __( 'Web Analytics Code', 'kk_writer_theme' ),
+				'name' => __( 'Web Analytics Code', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -520,7 +626,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'analytics_code',
 				'name' => 'Code',
-				'desc' => __( 'Enter the analytics code.', 'kk_writer_theme' ),
+				'desc' => __( 'Enter the analytics code.', 'design_ict_site' ),
 				'type' => 'textarea_code',
 				'attributes'    => array(
 						'rows'  => 10,
@@ -532,20 +638,20 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'   => 'rest_api',
-				'name' => __( 'REST API', 'kk_writer_theme' ),
+				'name' => __( 'REST API', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
 		$advanced_options->add_field(
 			array(
 				'id'      => 'rest_api_enabled',
-				'name'    => __( 'Enable the REST API', 'kk_writer_theme' ),
-				'desc'    => __( 'Some plugin require the REST API to be enabled.', 'kk_writer_theme' ),
+				'name'    => __( 'Enable the REST API', 'design_ict_site' ),
+				'desc'    => __( 'Some plugin require the REST API to be enabled.', 'design_ict_site' ),
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true'  => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -553,20 +659,20 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'   => 'xmlrpc_api',
-				'name' => __( 'XMLRPC API', 'kk_writer_theme' ),
+				'name' => __( 'XMLRPC API', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
 		$advanced_options->add_field(
 			array(
 				'id'      => 'xmlrpc_api_enabled',
-				'name'    => __( 'Enable the XMLRPC API', 'kk_writer_theme' ),
-				'desc'    => __( 'Preferably, it should be disabled.', 'kk_writer_theme' ),
+				'name'    => __( 'Enable the XMLRPC API', 'design_ict_site' ),
+				'desc'    => __( 'Preferably, it should be disabled.', 'design_ict_site' ),
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true'  => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -575,20 +681,20 @@ class DIS_OptionsManager {
 		$advanced_options->add_field(
 			array(
 				'id'   => 'seo_section',
-				'name' => __( 'SEO', 'kk_writer_theme' ),
+				'name' => __( 'SEO', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
 		$advanced_options->add_field(
 			array(
 				'id'      => 'seo_internal_management_enabled',
-				'name'    => __( 'Enable internal SEO management', 'kk_writer_theme' ),
-				'desc'    => __( 'Enable the internal management of SEO and OG tags or disable it to delegate this job to an external plugin.', 'kk_writer_theme' ),
+				'name'    => __( 'Enable internal SEO management', 'design_ict_site' ),
+				'desc'    => __( 'Enable the internal management of SEO and OG tags or disable it to delegate this job to an external plugin.', 'design_ict_site' ),
 				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'kk_writer_theme' ),
-						'false' => __( 'No', 'kk_writer_theme' ),
+						'true'  => __( 'Yes', 'design_ict_site' ),
+						'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);

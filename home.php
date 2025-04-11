@@ -15,6 +15,11 @@ $current_lang = DIS_MultiLangManager::get_current_language();
 $home         = DIS_MultiLangManager::get_home_url();
 $all          = DIS_MultiLangManager::get_all_languages();
 $list         = DIS_MultiLangManager::get_languages_list();
+
+$sections = DIS_OptionsManager::dis_get_option( 'site_sections', 'dis_opt_hp_sections' );
+foreach ( $sections as $section ){
+	echo $section['section'] . '<br>';
+}
 ?>
 
 <main id="main-container" class="main-container redbrown" role="main">
