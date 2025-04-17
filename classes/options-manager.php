@@ -38,15 +38,17 @@ class DIS_OptionsManager {
 	public function setup_options() {
 		// 1 - Registers options page "Base options".
 		$this->add_opt_base_option( $this->parent_slug, $this->tab_group, $this->capability );
-		// 2 - Registers options page "Home Page Sections".
+		// 2 - Registers options page "Site alerts".
+		$this->add_opt_site_alerts( 'dis_opt_site_alerts', $this->tab_group, $this->capability );
+		// 3 - Registers options page "Home Page Sections".
 		$this->add_opt_hp_sections( 'dis_opt_hp_sections', $this->tab_group, $this->capability );
-		// 3 - Registers options page "Home Page Layout".
+		// 4 - Registers options page "Home Page Layout".
 		$this->add_opt_hp_layout( 'dis_opt_hp_layout', $this->tab_group, $this->capability );
-		// 4 - Registers options page "Site Contacts".
+		// 5 - Registers options page "Site Contacts".
 		$this->add_opt_site_contacts( 'dis_opt_site_contacts', $this->tab_group, $this->capability );
-		// 5- Registers options page "Social media".
+		// 6- Registers options page "Social media".
 		$this->add_opt_social_media( 'dis_opt_social_media', $this->tab_group, $this->capability );
-		// 6 - Registers options page "Advanced settings".
+		// 7 - Registers options page "Advanced settings".
 		$this->add_opt_advanced_settings( 'dis_opt_advanced_settings', $this->tab_group, $this->capability );
 	}
 
@@ -169,7 +171,98 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 2 - Registers options page "Home Page Sections".
+	 * 2 - Registers options page "Advanced settings".
+	 *
+	 * @return boolean
+	 */
+	public function add_opt_site_alerts( $option_key, $tab_group, $capability ) {
+		$args = array(
+			'id'           => $option_key . '_id',
+			'title'        => esc_html__( 'HP alerts', 'design_ict_site' ),
+			'object_types' => array( 'options-page' ),
+			'option_key'   => $option_key,
+			'tab_title'    => __( 'HP alerts', 'design_ict_site' ),
+			'parent_slug'  => $this->parent_slug,
+			'tab_group'    => $tab_group,
+			'capability'   => $capability,
+		);
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
+		}
+
+		$alerts_options = new_cmb2_box( $args );
+
+		$alerts_options->add_field(
+			array(
+			'id'   => 'alerts_instructions',
+			'name' => __( 'Home Page alerts', 'design_ict_site' ),
+			'desc' => __( 'Enter messages that will be displayed on the homepage' , 'design_ict_site' )  . '.',
+			'type' => 'title',
+			)
+		);
+
+		$alerts_group_id = $alerts_options->add_field(
+			array(
+				'id'          => 'messages',
+				'type'        => 'group',
+				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages ​​supported by the site' , 'design_ict_site' )   . '.',
+				'repeatable'  => true,
+				'options'     => array(
+						'group_title'    => __( 'Message', 'design_ict_site' ) . '&nbsp{#}',
+						'add_button'     => __( 'Add a message', 'design_ict_site' ),
+						'remove_button'  => __( 'Remove the message', 'design_ict_site' ),
+						'sortable'       => true,
+						'closed'         => true,
+						'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'design_ict_site' ),
+				),
+			)
+		);
+
+		$alerts_options->add_group_field( 
+			$alerts_group_id,
+			array(
+				'name'    => 'Choose the color of the message',
+				'id'      => 'message_color',
+				'type'    => 'radio_inline',
+				'options' => array(
+						'danger'  => '<span class="radio-color red"></span>' . __( 'Danger', 'design_ict_site' ),
+						'success' => '<span class="radio-color green"></span>' . __( 'Success', 'design_ict_site' ),
+						'warning' => '<span class="radio-color brown"></span>' . __( 'Warning', 'design_ict_site' ),
+						'info'    => '<span class="radio-color gray"></span>' . __( 'Info', 'design_ict_site' ),
+				),
+				'default' => 'info',
+			)
+		);
+
+		$alerts_options->add_group_field(
+		$alerts_group_id,
+		array(
+				'id'         => 'message_text',
+				'name'       => __( 'Text', 'design_ict_site' ),
+				'desc'       => __( 'Maximum 300 characters' , 'design_ict_site' ),
+				'type'       => 'textarea_small',
+				'attributes' => array(
+						'rows'      => 3,
+						'maxlength' => '300',
+				),
+			)
+		);
+
+		$alerts_options->add_group_field(
+			$alerts_group_id,
+			array(
+				'id'   => 'message_link',
+				'name' => __( 'Link', 'design_ict_site' ),
+				'desc' => __( 'Link to a more in-depth page, even external to the site' , 'design_ict_site' ),
+				'type' => 'text_url',
+			)
+		);
+
+	}
+
+	/**
+	 * 3 - Registers options page "Home Page Sections".
 	 *
 	 * @return boolean
 	 */
@@ -274,7 +367,7 @@ class DIS_OptionsManager {
 	}
 	
 	/**
-	 * 3 - Registers options page "Home Page Layout".
+	 * 4 - Registers options page "Home Page Layout".
 	 *
 	 * @return boolean
 	 */
@@ -333,7 +426,7 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 4 - Registers options page "Site Contacts".
+	 * 5 - Registers options page "Site Contacts".
 	 *
 	 * @return boolean
 	 */
@@ -424,7 +517,7 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 5 - Registers options page "Social media".
+	 * 6 - Registers options page "Social media".
 	 *
 	 * @return boolean
 	 */
@@ -542,7 +635,7 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 6 - Registers options page "Advanced settings".
+	 * 7 - Registers options page "Advanced settings".
 	 *
 	 * @return boolean
 	 */

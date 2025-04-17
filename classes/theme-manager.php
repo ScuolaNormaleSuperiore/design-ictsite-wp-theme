@@ -53,9 +53,6 @@ if ( ! class_exists( 'Page_Manager' ) ) {
 if ( ! class_exists( 'UserStatus_Manager' ) ) {
 	include_once 'user-status-manager.php';
 }
-if ( ! class_exists( 'Alert_Manager' ) ) {
-	include_once 'alert-manager.php';
-}
 if ( ! class_exists( 'Attachment_Manager' ) ) {
 	include_once 'attachment-manager.php';
 }
@@ -171,10 +168,6 @@ class DIS_ThemeManager {
 		// Setup of the User Status post-type.
 		$usm = new UserStatus_Manager();
 		$usm->setup();
-
-		// Setup of the Alert post-type.
-		$alm = new Alert_Manager();
-		$alm->setup();
 
 		// Setup of the Attachment post-type.
 		$atm = new Attachment_Manager();
