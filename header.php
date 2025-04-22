@@ -28,6 +28,8 @@ $current_lang = DIS_MultiLangManager::get_current_language();
 	<link rel="icon" type="image/png" sizes="32x32" href="<?php echo esc_url( DIS_THEME_URL ) . '/assets/favicons/favicon-32x32.png'; ?>">
 	<link rel="icon" type="image/png" sizes="16x16" href="<?php echo esc_url( DIS_THEME_URL ) . '/assets/favicons/favicon-16x16.png'; ?>">
 	<link rel="manifest" href="<?php echo esc_url( DIS_THEME_URL ) . '/assets/favicons/site.webmanifest'; ?>">
+	<link rel="icon" href="<?php echo esc_url( DIS_THEME_URL ) . '/assets/favicons/favicon-16x16.png'; ?>">
+
 
 	<!-- ANALYTICS CODE -->
 	<?php get_template_part( 'template-parts/header/analytics' ); ?>
