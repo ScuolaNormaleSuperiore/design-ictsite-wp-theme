@@ -23,6 +23,9 @@ if ( ! class_exists( 'DIS_MenuManager' ) ) {
 if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 	include_once 'activation-manager.php';
 }
+if ( ! class_exists( 'DIS_ContentsManager' ) ) {
+	include_once 'contents-manager.php';
+}
 if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
 	include_once 'service-cluster-manager.php';
 }
@@ -72,9 +75,9 @@ class DIS_ThemeManager {
 	 */
 	protected static $instance = null;
 
-	public $cfm =null;
-	public $mlm =null;
-	public $cnm =null;
+	public $cfm = null;
+	public $mlm = null;
+	public $cnm = null;
 
 	private function __construct() {}
 

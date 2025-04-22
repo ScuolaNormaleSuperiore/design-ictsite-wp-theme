@@ -7,7 +7,6 @@
  * @package Design_ICT_Site
  */
 
-
 // DEFAULT WP TAXONOMIES.
 define( 'DIS_DEFAULT_CATEGORY', 'category' );
 define( 'DIS_DEFAULT_TAGS', 'post-tag' );
@@ -84,3 +83,52 @@ define(
 		),
 	)
 );
+
+	// Home Page Sections.
+	define(
+		'DIS_HP_SECTIONS',
+		array(
+			'main_hero' =>
+				array(
+					'id'       => 'main_hero',
+					'name'     => 'Main hero',
+					'template' => 'template-parts/home/main-hero',
+				),
+			'site_description' =>
+				array(
+					'id'       => 'cluster_section',
+					'name'     => 'Cluster list',
+					'template' => 'template-parts/home/cluster-list',
+				),
+			'events_section' =>
+				array(
+					'id'       => 'news_section',
+					'name'     => 'News',
+					'template' => 'template-parts/home/hp-list-news',
+				),
+				'projects_section' =>
+				array(
+					'id'       => 'news_section',
+					'name'     => 'Projects',
+					'template' => 'template-parts/home/hp-list-projects',
+				),
+				'featured_contents' =>
+				array(
+					'id'       => 'featured_contents',
+					'name'     => 'Contenuti in evidenza',
+					'template' => 'template-parts/home/featured-contents',
+				),
+			'articles_section' =>
+				array(
+					'id'       => 'articles_section',
+					'name'     => 'Articoli',
+					'template' => 'template-parts/home/hp-list-article',
+				),
+			'banners_section' =>
+				array(
+					'id'       => 'banners_section',
+					'name'     => 'Banner',
+					'template' => 'template-parts/home/hp-banners-section',
+				),
+		)
+	);

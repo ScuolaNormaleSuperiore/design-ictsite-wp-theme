@@ -13,7 +13,7 @@ FROM php:8.3-apache
 
 ################# CONFIGURATIONS (define ARG after FROM) #####################
 ARG WP_ARCHIVE=wordpress-6.7.2.tar.gz
-ARG DLI_THEME=https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme.git
+ARG DIS_THEME=https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme.git
 ARG ADMINER=https://github.com/vrana/adminer/releases/download/v4.8.1/adminer-4.8.1.php
 
 ARG BASE_PLUGIN_URL=https://downloads.wordpress.org/plugin
@@ -86,7 +86,7 @@ RUN curl -o /tmp/${WP_ARCHIVE} https://wordpress.org/${WP_ARCHIVE} && \
 	rm -rf /var/www/html/wp-content/plugins/akismet && \
 	rm -rf /var/www/html/wp-content/plugins/hello.php && \
 	cd /var/www/html/wp-content/themes && \
-	git clone --branch dev --single-branch ${DLI_THEME} && \
+	git clone --branch dev --single-branch ${DIS_THEME} && \
 	cd /var/www/html/wp-content/plugins && \
 	curl -o /tmp/${PLG_ACF_OPENSTRRETMAP} ${BASE_PLUGIN_URL}/${PLG_ACF_OPENSTRRETMAP} && \
 	unzip /tmp/${PLG_ACF_OPENSTRRETMAP}  && \

@@ -27,11 +27,10 @@ class DIS_OptionsManager {
 
 	public function setup_option_assets() {
 		$current_screen = get_current_screen();
-		// if( strpos( $current_screen->id, 'ict-site_page_') !== false || $current_screen->id === 'toplevel_page_dis_opt_options' ) {
-		if ( strpos( $current_screen->id, 'dis_opt') !== false ) {
+		if ( strpos( $current_screen->id, 'dis_opt' ) !== false ) {
 				wp_enqueue_style( 'dis_options_dialog', DIS_THEME_URL . '/admin/css/jquery-ui.css' );
 				// Hiding the submenu in the WordPress adminmenu.
-				wp_enqueue_script( 'dis_options_dialog', DIS_THEME_URL . '/admin/js/options.js', array('jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
+				wp_enqueue_script( 'dis_options_dialog', DIS_THEME_URL . '/admin/js/options.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
 		}
 	}
 
@@ -80,7 +79,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'baseoptions_info',
 				'name' => __( 'Site configurations', 'design_ict_site' ),
-				'desc' => __( 'Section to configure base options.' , 'design_ict_site' ),
+				'desc' => __( 'Section to configure base options.', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -88,7 +87,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'site_title',
 				'name'       => __( 'Site title', 'design_ict_site' ) . '&nbsp;*',
-				'desc'       => __( 'The title of the site.' , 'design_ict_site' ),
+				'desc'       => __( 'The title of the site.', 'design_ict_site' ),
 				'type'       => 'text',
 				'attributes' => array(
 					'required' => 'required',
@@ -99,7 +98,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'site_tagline',
 				'name' => __( 'Tagline', 'design_ict_site' ),
-				'desc' => __( 'The tagline of the site.' , 'design_ict_site' ),
+				'desc' => __( 'The tagline of the site.', 'design_ict_site' ),
 				'type' => 'text',
 			)
 		);
@@ -107,7 +106,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'site_network_name',
 				'name' => __( 'Network name', 'design_ict_site' ),
-				'desc' => __( 'The name of the network the site is part of.' , 'design_ict_site' ),
+				'desc' => __( 'The name of the network the site is part of.', 'design_ict_site' ),
 				'type' => 'text',
 			)
 		);
@@ -115,7 +114,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'site_network_url',
 				'name' => __( 'Network url', 'design_ict_site' ),
-				'desc' => __( 'The url of the network the site is part of.' , 'design_ict_site' ),
+				'desc' => __( 'The url of the network the site is part of.', 'design_ict_site' ),
 				'type' => 'text',
 			)
 		);
@@ -127,8 +126,8 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -136,7 +135,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'site_logo',
 				'name'       => __( 'Logo header', 'design_ict_site' ),
-				'desc'       => __( 'The logo of the site, please load an SVG image.' , 'design_ict_site' ),
+				'desc'       => __( 'The logo of the site, please load an SVG image.', 'design_ict_site' ),
 				'type'       => 'file',
 				'query_args' => array(
 					'type' => array( 'image', ),
@@ -151,8 +150,8 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -160,7 +159,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'footer_logo',
 				'name'       => __( 'Logo footer', 'design_ict_site' ),
-				'desc'       => __( 'Choose the the footer logo. If it is not present, but the display of the logo in the footer is enabled, the header logo is shown with inverted colors. It is recommended to upload an image in SVG format.' , 'design_ict_site' ),
+				'desc'       => __( 'Choose the the footer logo. If it is not present, but the display of the logo in the footer is enabled, the header logo is shown with inverted colors. It is recommended to upload an image in SVG format.', 'design_ict_site' ),
 				'type'       => 'file',
 				'query_args' => array(
 					'type' => array( 'image', ),
@@ -197,7 +196,7 @@ class DIS_OptionsManager {
 			array(
 			'id'   => 'alerts_instructions',
 			'name' => __( 'Home Page alerts', 'design_ict_site' ),
-			'desc' => __( 'Enter messages that will be displayed on the homepage' , 'design_ict_site' )  . '.',
+			'desc' => __( 'Enter messages that will be displayed on the homepage', 'design_ict_site' ) . '.',
 			'type' => 'title',
 			)
 		);
@@ -206,7 +205,7 @@ class DIS_OptionsManager {
 			array(
 				'id'          => 'messages',
 				'type'        => 'group',
-				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages ​​supported by the site' , 'design_ict_site' )   . '.',
+				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages ​​supported by the site', 'design_ict_site' )   . '.',
 				'repeatable'  => true,
 				'options'     => array(
 						'group_title'    => __( 'Message', 'design_ict_site' ) . '&nbsp{#}',
@@ -240,7 +239,7 @@ class DIS_OptionsManager {
 		array(
 				'id'         => 'message_text',
 				'name'       => __( 'Text', 'design_ict_site' ),
-				'desc'       => __( 'Maximum 300 characters' , 'design_ict_site' ),
+				'desc'       => __( 'Maximum 300 characters', 'design_ict_site' ),
 				'type'       => 'textarea_small',
 				'attributes' => array(
 						'rows'      => 3,
@@ -254,7 +253,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'message_link',
 				'name' => __( 'Link', 'design_ict_site' ),
-				'desc' => __( 'Link to a more in-depth page, even external to the site' , 'design_ict_site' ),
+				'desc' => __( 'Link to a more in-depth page, even external to the site', 'design_ict_site' ),
 				'type' => 'text_url',
 			)
 		);
@@ -287,7 +286,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'sectionoptions_info',
 				'name' => __( 'Home Page sections', 'design_ict_site' ),
-				'desc' => __( 'Configure the sections of the site.' , 'design_ict_site' ),
+				'desc' => __( 'Configure the sections of the site.', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -295,77 +294,60 @@ class DIS_OptionsManager {
 			array(
 				'id'          => 'site_sections',
 				'type'        => 'group',
-				'desc'        => __( 'Choose the site sections' , 'design_ict_site' )   . '.',
+				'desc'        => __( 'Choose the site sections', 'design_ict_site' ) . '.',
 				'repeatable'  => true,
 				'options'     => array(
-						'group_title'    => __( 'Section', 'design_ict_site' ) . ' {#}',
-						'add_button'     => __( 'Add the section', 'design_ict_site' ),
-						'remove_button'  => __( 'Remove the section', 'design_ict_site' ),
-						'sortable'       => true,
-						'closed'         => true,
-						'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'design_ict_site' ),
+					'group_title'    => __( 'Section', 'design_ict_site' ) . ' {#}',
+					'add_button'     => __( 'Add the section', 'design_ict_site' ),
+					'remove_button'  => __( 'Remove the section', 'design_ict_site' ),
+					'sortable'       => true,
+					'closed'         => true,
+					'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'design_ict_site' ),
 				),
 			)
 		);
 		$section_options->add_group_field(
 			$section_group_id,
 			array(
-				'id'               => 'section',
-				'name'             => __( "Section", 'design_ict_site' ),
-				'desc'             => __( "Choose the section." , 'design_ict_site' ),
+				'id'               => 'id',
+				'name'             => __( 'Section', 'design_ict_site' ),
+				'desc'             => __( 'Choose the section.', 'design_ict_site' ),
 				'type'             => 'select',
 				'default'          => 'never',
 				'show_option_none' => false,
-				'options'          => array(
-					'main_hero_section'      => __( 'Main hero', 'design_ict_site' ),
-					'clusters_section'     => __( 'Clusters', 'design_ict_site' ),
-					'news_section'      => __( 'News', 'design_ict_site' ),
-					'search_section' => __( 'Search', 'design_ict_site' ),
-					'in_evidence'     => __( 'In evidence', 'design_ict_site' ),
-				),
+				'options'          => DIS_ContentsManager::get_hp_section_list(),
 			)
 		);
 		$section_options->add_group_field(
 			$section_group_id,
 			array(
-				'id' => 'section_enabled',
-				'name' => __( 'Enable this section', 'design_ict_site' ),
-				'desc' => __( 'If yes, the section is shown in the Home Page.', 'design_ict_site' ),
-				'type' => 'radio_inline',
+				'id'      => 'enabled',
+				'name'    => __( 'Enable this section', 'design_ict_site' ),
+				'desc'    => __( 'If yes, the section is shown in the Home Page.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
 		$section_options->add_group_field(
 			$section_group_id,
 			array(
-				'id' => 'show_title',
-				'name' => __( 'Show the section title', 'design_ict_site' ),
-				'desc' => __( 'If yes, the title of the section is shown.', 'design_ict_site' ),
-				'type' => 'radio_inline',
-				'default' => 'false',
+				'id'      => 'show_title',
+				'name'    => __( 'Show the section title', 'design_ict_site' ),
+				'desc'    => __( 'If yes, the title of the section is shown.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
-
-		$section_options->add_group_field(
-			$section_group_id,
-			array(
-				'id'         => 'title',
-				'name'       => __( 'Title', 'design_ict_site' ),
-				'desc'       => __( "The title of the section." , 'design_ict_site' ),
-				'type'       => 'text',
-			)
-		);
-
 	}
-	
+
 	/**
 	 * 4 - Registers options page "Home Page Layout".
 	 *
@@ -393,7 +375,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'home_carousel',
 				'name' => __( 'Home Page layout', 'design_ict_site' ),
-				'desc' => __( 'Configure here the layout of the Home Page.' , 'design_ict_site' ),
+				'desc' => __( 'Configure here the layout of the Home Page.', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -451,7 +433,7 @@ class DIS_OptionsManager {
 			array(
 			'id' => 'social_info',
 			'name'        => __( 'Site contacts', 'design_ict_site' ),
-			'desc' => __( 'The contact shown in the footer.' , 'design_ict_site' ),
+			'desc' => __( 'The contact shown in the footer.', 'design_ict_site' ),
 			'type' => 'title',
 			)
 		);
@@ -459,7 +441,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'site_city',
 				'name'       => __( 'City', 'design_ict_site' ),
-				'desc'       => __( 'The city of the site.' , 'design_ict_site' ),
+				'desc'       => __( 'The city of the site.', 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -475,7 +457,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'site_email',
 				'name'       => __( 'E-mail', 'design_ict_site' ),
-				'desc'       => __( 'The e-mail of the site.' , 'design_ict_site' ),
+				'desc'       => __( 'The e-mail of the site.', 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -483,7 +465,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'site_telephone',
 				'name'       => __( 'Phone number', 'design_ict_site' ),
-				'desc'       => __( 'The phone number of the site.' , 'design_ict_site' ),
+				'desc'       => __( 'The phone number of the site.', 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -500,7 +482,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'smtp_sender_name',
 				'name'       => __( 'SMTP sender name', 'design_ict_site' ),
-				'desc'       => __( 'The name that must appear on the e-mails sent by the site.' , 'design_ict_site' ),
+				'desc'       => __( 'The name that must appear on the e-mails sent by the site.', 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -509,7 +491,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'smtp_sender_email',
 				'name'       => __( 'SMTP sender email', 'design_ict_site' ),
-				'desc'       => __( 'The provider e-mail that must be used as sender.' , 'design_ict_site' ),
+				'desc'       => __( 'The provider e-mail that must be used as sender.', 'design_ict_site' ),
 				'type'       => 'text',
 			)
 		);
@@ -542,7 +524,7 @@ class DIS_OptionsManager {
 			array(
 				'id' => 'social_info',
 				'name'        => __( 'Social media', 'design_ict_site' ),
-				'desc' => __( 'Insert here the links to your social media.' , 'design_ict_site' ),
+				'desc' => __( 'Insert here the links to your social media.', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
@@ -660,7 +642,7 @@ class DIS_OptionsManager {
 			array(
 					'id'   => 'advanced_info',
 					'name' => __( 'Advanced options', 'design_ict_site' ),
-					'desc' => __( 'Section to configure advanced settings.' , 'design_ict_site' ),
+					'desc' => __( 'Section to configure advanced settings.', 'design_ict_site' ),
 					'type' => 'title',
 			)
 		);
