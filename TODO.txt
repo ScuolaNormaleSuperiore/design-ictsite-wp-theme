@@ -1,7 +1,14 @@
 
 * TODO LIST:
 
-1) Dettaglio servizio
+1) HP: Gestione Lingua
+2) HP: Gestione Login
+3) Logo e titolo del sito
+4) Header: Link dei social
+5) Creazione dei menu: Main menu (header left), Secondary menu (header right), Top Bar (header), Footer (footer), Useful Link (footer)
+6) Link pagina di ricerca
+7) Creazione pagine statiche multilingua.
+
 
 
 * Procedure da fare:
