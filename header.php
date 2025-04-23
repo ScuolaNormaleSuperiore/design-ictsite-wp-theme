@@ -9,6 +9,7 @@
  * @package Design_ICT_Site
  */
 
+// Site options.
 $site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 $site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
 $header_logo  = DIS_OptionsManager::dis_get_option( 'header_logo_visible', 'dis_opt_options' );
@@ -74,13 +75,13 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 				<div class="col-12">
 					<div class="it-header-slim-wrapper-content">
 						<!-- Left-->
-						<a class="d-none d-lg-block navbar-brand" href="<?php echo esc_url( $network_url ); ?>"><?php echo esc_attr( $network_name); ?></a>
+						<a class="d-none d-lg-block navbar-brand" href="<?php echo esc_url( $network_url ); ?>"><?php echo esc_attr( $network_name ); ?></a>
 						<!--Right -->
 						<div class="nav-mobile">
 							<nav aria-label="<?php echo __( 'Accessory navigation', 'design_ict_site' ); ?>">
 								<a class="it-opener d-lg-none" data-bs-toggle="collapse" href="<?php echo esc_url( $network_url ); ?>" role="button"
-									aria-expanded="false" aria-controls="menu4" aria-label="<?php echo esc_attr( $network_name); ?>">
-									<span><?php echo esc_attr( $network_name); ?></span>
+									aria-expanded="false" aria-controls="menu4" aria-label="<?php echo esc_attr( $network_name ); ?>">
+									<span><?php echo esc_attr( $network_name ); ?></span>
 									<svg class="icon" aria-hidden="true">
 										<use href=<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
 									</svg>
@@ -96,31 +97,10 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 						</div>
 						<div class="it-header-slim-right-zone">
 							<!-- Language selection -->
-							<div class="nav-item dropdown">
-								<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-									<span class="visually-hidden"><?php echo __( 'Language selection: selected language', 'design_ict_site' ); ?></span>
-									<span>ITA</span>
-									<svg class="icon d-none d-lg-block">
-										<use href="/bootstrap-italia/svg/sprites.svg#it-expand"></use>
-									</svg>
-								</a>
-								<div class="dropdown-menu">
-									<div class="row">
-										<div class="col-12">
-											<div class="link-list-wrapper">
-												<ul class="link-list">
-													<li><a class="dropdown-item list-item" href="#"><span>ITA <span class="visually-hidden">selezionata</span></span></a></li>
-													<li><a class="dropdown-item list-item" href="#"><span>ENG</span></a></li>
-												</ul>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
+							<?php get_template_part( 'template-parts/header/language_selector' ); ?>
+
 							<!-- Login -->
-							<div class="it-access-top-wrapper">
-								<a class="btn btn-primary btn-sm" href="#">Accedi</a>
-							</div>
+							<?php get_template_part( 'template-parts/header/login_button' ); ?>
 						</div>
 					</div>
 				</div>
