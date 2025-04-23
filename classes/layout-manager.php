@@ -34,6 +34,8 @@ class DIS_LayoutManager {
 		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css' );
 		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css' );
 		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css' );
+		// Enqueue Bootstrap Icons.
+		wp_enqueue_style( 'bootstrap-icons', DIS_THEME_URL . '/assets/css/bootstrap-icons.css' );
 
 		// Import Javascript files.
 		wp_enqueue_script( 'dis-main-js', DIS_THEME_URL . '/assets/js/main.js' );

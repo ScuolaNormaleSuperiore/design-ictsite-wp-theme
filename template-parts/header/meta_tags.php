@@ -9,7 +9,6 @@ $resource_type = 'document';
 $charset       = 'text/html; charset=US-ASCII';
 $page_title    = get_the_title();
 $page_title    = $page_title ? $page_title : $site_title ;
-// $page_desc     = array_key_exists( 'description', $wrapper ) ? $wrapper['description']: '';
 $keywords      = preg_replace( "/[^a-zA-Z0-9\s]/", '', $page_title . ' ' . $tagline );
 
 ?>
@@ -18,6 +17,9 @@ $keywords      = preg_replace( "/[^a-zA-Z0-9\s]/", '', $page_title . ' ' . $tagl
 <meta name="description" content="<?php echo $page_title; ?>" />
 <meta name="copyright" content="<?php echo $site_title; ?>" />
 <meta name="keywords" content="<?php echo $keywords; ?>"/>
+<meta name="author" content="ICT Staff">
+<meta name="generator" content="">
+<meta name="robots" content="noindex">
 
 <meta http-equiv="content-type" content="<?php echo $charset; ?>" />
 <meta http-equiv="content-language" content="<?php echo $locale; ?>" />
