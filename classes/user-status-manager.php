@@ -33,12 +33,12 @@ class UserStatus_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'User Status', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'User Status', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an user status ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an user status', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the user status', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the user status', 'Post Type Singular Name', 'design_ict_site' ),
+			'name'                  => _x( 'User Status', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'User Status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add an user status ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add an user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'featured_image'        => __( "User Status image", 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose user status image' ),
 			'remove_featured_image' => __( 'Remove user status image' , 'design_ict_site' ),

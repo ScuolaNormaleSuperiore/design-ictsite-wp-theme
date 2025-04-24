@@ -33,12 +33,12 @@ class Service_Cluster_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Service Clusters', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Service Cluster', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a cluster', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a cluster', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the cluster', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the cluster', 'Post Type Singular Name', 'design_ict_site' ),
+			'name'                  => _x( 'Service Clusters', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Service Cluster', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add a cluster', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add a cluster', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the cluster', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the cluster', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'featured_image'        => __( "Cluster image", 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose cluster image' ),
 			'remove_featured_image' => __( 'Remove cluster image' , 'design_ict_site' ),

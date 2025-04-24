@@ -186,6 +186,7 @@ class DIS_ThemeManager {
 	 * @return void
 	 */
 	public function configure_languages() {
+		// For the labels of the theme.
 		load_theme_textdomain( 'design_ict_site', get_template_directory() . '/languages' );
 	}
 

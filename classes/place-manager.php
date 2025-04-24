@@ -38,8 +38,8 @@ class Place_Manager {
 		// aggiungo la tassonomia tipologia luogo.
 
 		$place_type_labels = array(
-			'name'              => _x( 'Place Type', 'taxonomy general name', 'design_ict_site' ),
-			'singular_name'     => _x( 'Place Type', 'taxonomy singular name', 'design_ict_site' ),
+			'name'              => _x( 'Place Type', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
+			'singular_name'     => _x( 'Place Type', 'DIS_TaxonomySingularName', 'design_ict_site' ),
 			'search_items'      => __( 'Look for a Place Type', 'design_ict_site' ),
 			'all_items'         => __( 'All Place Types', 'design_ict_site' ),
 			'edit_item'         => __( 'Modify the Place Type', 'design_ict_site' ),
@@ -70,12 +70,12 @@ class Place_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Places', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Place', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a place', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the place', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the place', 'Post Type Singular Name', 'design_ict_site' ),
+			'name'                  => _x( 'Places', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Place', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add a ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add a place', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the place', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the place', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'featured_image'        => __( "Place image", 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose place image' ),
 			'remove_featured_image' => __( 'Remove place image' , 'design_ict_site' ),

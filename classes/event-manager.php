@@ -33,12 +33,12 @@ class Event_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Events', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Event', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an event ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an event', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the event', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the event', 'Post Type Singular Name', 'design_ict_site' ),
+			'name'                  => _x( 'Events', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add an event ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add an event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'featured_image'        => __( "Event image", 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose event image' ),
 			'remove_featured_image' => __( 'Remove event image' , 'design_ict_site' ),

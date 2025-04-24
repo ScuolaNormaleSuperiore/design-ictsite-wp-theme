@@ -33,13 +33,13 @@ class Office_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Offices', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Office', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an office ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an office', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the office', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the office', 'Post Type Singular Name', 'design_ict_site' ),
-			'featured_image'        => __( "Office image", 'design_ict_site' ),
+			'name'                  => _x( 'Offices', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add an office ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add an office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'featured_image'        => __( 'Office image', 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose office image' ),
 			'remove_featured_image' => __( 'Remove office image' , 'design_ict_site' ),
 			'use_featured_image'    => __( 'Use as office image' , 'design_ict_site' ),

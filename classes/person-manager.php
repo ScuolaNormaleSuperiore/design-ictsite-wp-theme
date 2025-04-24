@@ -38,8 +38,8 @@ class Person_Manager {
 		// aggiungo la tassonomia tipologia luogo.
 
 		$person_role_labels = array(
-			'name'              => _x( 'Person Roles', 'taxonomy general name', 'design_ict_site' ),
-			'singular_name'     => _x( 'Person Role', 'taxonomy singular name', 'design_ict_site' ),
+			'name'              => _x( 'Person Roles', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
+			'singular_name'     => _x( 'Person Role', 'DIS_TaxonomySingularName', 'design_ict_site' ),
 			'search_items'      => __( 'Look for a person role', 'design_ict_site' ),
 			'all_items'         => __( 'All person roles', 'design_ict_site' ),
 			'edit_item'         => __( 'Modify the person role', 'design_ict_site' ),
@@ -71,16 +71,16 @@ class Person_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Persons', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Person', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a person', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the person', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the person', 'Post Type Singular Name', 'design_ict_site' ),
-			'featured_image'        => __( "Person image", 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose person image' ),
-			'remove_featured_image' => __( 'Remove person image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as person image' , 'design_ict_site' ),
+			'name'                  => _x( 'Persons', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Person', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add a ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add a person', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the person', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the person', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'featured_image'        => __( 'Person image', 'design_ict_site' ),
+			'set_featured_image'    => __( 'Choose person image', 'design_ict_site' ),
+			'remove_featured_image' => __( 'Remove person image', 'design_ict_site' ),
+			'use_featured_image'    => __( 'Use as person image', 'design_ict_site' ),
 		);
 
 		$args   = array(

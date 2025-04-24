@@ -33,12 +33,12 @@ class Service_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Services', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Service', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a service', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a service', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the service', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the service', 'Post Type Singular Name', 'design_ict_site' ),
+			'name'                  => _x( 'Services', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add a service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add a service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'featured_image'        => __( "Service image", 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose service image' ),
 			'remove_featured_image' => __( 'Remove service image' , 'design_ict_site' ),

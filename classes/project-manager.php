@@ -33,12 +33,12 @@ class Project_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Projects', 'Post Type General Name', 'design_ict_site' ),
-			'singular_name'         => _x( 'Project', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a ', 'Post Type Singular Name', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a project', 'Post Type Singular Name', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the project', 'Post Type Singular Name', 'design_ict_site' ),
-			'view_item'             => _x( 'View the project', 'Post Type Singular Name', 'design_ict_site' ),
+			'name'                  => _x( 'Projects', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'singular_name'         => _x( 'Project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'               => _x( 'Add a ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'          => _x( 'Add a project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'             => _x( 'Edit the project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'             => _x( 'View the project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'featured_image'        => __( "Project image", 'design_ict_site' ),
 			'set_featured_image'    => __( 'Choose project image' ),
 			'remove_featured_image' => __( 'Remove project image' , 'design_ict_site' ),
