@@ -4,7 +4,6 @@
 3) Creazione dei menu: Main menu (header left), Secondary menu (header right), Top Bar (header), Footer (footer), Useful Link (footer)
 4) Link pagina di ricerca
 5) Creazione pagine statiche multilingua.
-6) Bug URL CMB2 del sito di sviluppo.
 
 
 * Procedure da fare:
