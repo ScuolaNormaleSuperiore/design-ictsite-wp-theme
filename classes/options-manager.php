@@ -575,15 +575,15 @@ class DIS_OptionsManager {
 		$social_options->add_field(
 			array(
 				'id'   => 'twitter',
-				'name' => 'Twitter',
+				'name' => 'Twitter-X',
 				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'ics',
-			'name' => 'X',
-			'type' => 'text_url',
+				'id'   => 'bluesky',
+				'name' => 'Blue Sky',
+				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
@@ -595,8 +595,15 @@ class DIS_OptionsManager {
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'titok',
+			'id'   => 'tiktok',
 			'name' => 'TikTok',
+			'type' => 'text_url',
+			)
+		);
+		$social_options->add_field(
+			array(
+			'id'   => 'snapchat',
+			'name' => 'Snapchat',
 			'type' => 'text_url',
 			)
 		);

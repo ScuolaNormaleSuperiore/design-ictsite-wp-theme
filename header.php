@@ -128,8 +128,13 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 									),
 								);
 							?>
-							<!-- SOCIAL-->
-							<?php get_template_part( 'template-parts/header/social_list' ); ?>
+							<!-- SOCIAL AND SITE SEARCH -->
+							<div class="it-right-zone">
+								<!-- SOCIAL-->
+								<?php get_template_part( 'template-parts/header/social_list' ); ?>
+								<!-- SITE SEARCH -->
+								<?php get_template_part( 'template-parts/header/site_search' ); ?>
+							</div>
 						</div>
 					</div>
 				</div>
@@ -146,7 +151,7 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 							<button class="custom-navbar-toggler" type="button" aria-controls="nav1" aria-expanded="false"
 								aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
 								<svg class="icon">
-									<use href="/bootstrap-italia/svg/sprites.svg#it-burger"></use>
+									<use href="/assets/bootstrap-italia/svg/sprites.svg#it-burger"></use>
 								</svg>
 							</button>
 							<div class="navbar-collapsable" id="nav1" style="display: none;">
@@ -155,7 +160,7 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 									<button class="btn close-menu" type="button">
 										<span class="visually-hidden">Nascondi la navigazione</span>
 										<svg class="icon">
-											<use href="/bootstrap-italia/svg/sprites.svg#it-close-big"></use>
+											<use href="/assets/bootstrap-italia/svg/sprites.svg#it-close-big"></use>
 										</svg>
 									</button>
 								</div>
