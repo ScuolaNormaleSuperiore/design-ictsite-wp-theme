@@ -1,8 +1,6 @@
 
 * TODO LIST:
 
-1) Logo e titolo del sito
-2) Header: Link dei social
 3) Creazione dei menu: Main menu (header left), Secondary menu (header right), Top Bar (header), Footer (footer), Useful Link (footer)
 4) Link pagina di ricerca
 5) Creazione pagine statiche multilingua.
