@@ -108,64 +108,35 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 		</div>
 	</div>
 	
+	<!-- MAIN BAR -->
 	<div class="it-nav-wrapper">
-		<!-- LOGO & TITLE -->
+		<!-- MAIN BAR - FIRST ROW -->
 		<div class="it-header-center-wrapper theme-light">
 			<div class="container-xxl">
 				<div class="row">
 					<div class="col-12">
 						<div class="it-header-center-content-wrapper">
-							<div class="it-brand-wrapper">
-								<a href="index.html">
-									<img src="img/logo-sns.png" height="80" alt="Logo Scuola Normale" />
-									<div class="it-brand-text">
-										<div class="it-brand-title">Servizi informatici di ateneo</div>
-										<div class="it-brand-tagline d-none d-md-block">Area Progetti e Servizi ICT</div>
-									</div>
-								</a>
-							</div>
-							<div class="it-right-zone">
-								<div class="it-socials d-none d-md-flex">
-									<span>Seguici su</span>
-									<ul>
-										<li> <a href="#" aria-label="Facebook" target="_blank">
-												<svg class="icon" role="img" aria-labelledby="Facebook" aria-label="Facebook">
-													<title>Facebook</title>
-													<use href="bootstrap-italia/svg/sprites.svg#it-facebook"></use>
-												</svg>
-											</a> </li>
-										<li> <a href="#" aria-label="Github" target="_blank">
-												<svg class="icon" role="img" aria-labelledby="Github" aria-label="Github">
-													<title>GitHub</title>
-													<use href="bootstrap-italia/svg/sprites.svg#it-github"></use>
-												</svg>
-											</a> </li>
-										<li> <a href="#" aria-label="Twitter" target="_blank">
-												<svg class="icon" role="img" aria-labelledby="Twitter" aria-label="Twitter">
-													<title>Twitter</title>
-													<use href="bootstrap-italia/svg/sprites.svg#it-twitter"></use>
-												</svg>
-											</a>
-										</li>
-									</ul>
-								</div>
-								<div class="it-search-wrapper">
-									<span class="d-none d-md-block">Cerca</span>
-									<a class="search-link rounded-icon" aria-label="Cerca nel sito" href="#">
-										<svg class="icon" role="img" aria-labelledby="Search" aria-label="Cerca nel sito">
-											<title>Cerca nel sito</title>
-											<use href="bootstrap-italia/svg/sprites.svg#it-search"></use>
-										</svg>
-									</a>
-								</div>
-							</div>
+							<!-- LOGO & TITLE -->
+							<?php
+								get_template_part(
+									'template-parts/header/logo_title',
+									false,
+									array(
+										'site_title'   => $site_title,
+										'site_tagline' => $site_tagline,
+										'current_lang' => $current_lang,
+									),
+								);
+							?>
+							<!-- SOCIAL-->
+							<?php get_template_part( 'template-parts/header/social_list' ); ?>
 						</div>
 					</div>
 				</div>
 			</div>
 		</div>
 
-		<!-- MAIN MENU -->
+		<!-- MAIN BAR - SECOND ROW -->
 		<div class="it-header-navbar-wrapper theme-light-desk">
 			<div class="container-xxl">
 				<div class="row">
