@@ -58,25 +58,27 @@ class DIS_MenuManager {
 			$actm              = new DIS_ActivationManager();
 			$result_activation = $actm->reload_data();
 		}
-
-		echo "<div class='wrap'>";
-		echo '<h1>' .  __( 'Reload theme data', 'design_ict_site' ) .'</h1>';
-
-		echo '<div class="dis_admin_reload_data">';
-
-		echo '<p>' .  __( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ). '</p>';
-		echo '<a href="admin.php?page=dis-reload-data-theme-options&action=reload" class="button button-primary">Reload data</a>';
-		echo '</div>';
-
+		echo "<DIV class='wrap'>";
+		echo '<H1>' . __( 'Reload theme data', 'design_ict_site' ) .'</H1>';
+		echo '<DIV class="dis_admin_reload_data">';
+		echo '<P>' . __( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ). '</P>';
+		echo '<A HREF="admin.php?page=dis-reload-data-theme-options&action=reload" class="button button-primary">Reload data</A>';
+		echo '</DIV>';
 		if ( $is_reload ) {
 			if ( ( $result_activation ) && ( $result_activation['code']= 1 ) ) {
-				echo '<div class="dis_admin_reload_result text-primary mt-20"><em>' . __( 'Theme data loaded successfully', 'design_ict_site' ) .'</em><div class="dis_admin_reload_result_text">' . json_encode( $result_activation['data'] )	.'</div></div>';
+				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><em>' . __( 'Theme data loaded successfully', 'design_ict_site' ) .'</EM><DIV class="dis_admin_reload_result_text">';
+				echo '<H3>' . __( 'List of all activations', 'design_ict_site' ) . ':</H3>';
+				echo '<UL>';
+				foreach ($result_activation['data'] as $msg ) {
+					echo '<LI>' . $msg . '</LI>';
+				}
+				echo '</UL>';
+				echo '</DIV></DIV>';
 			} else {
-				echo '<div class="dis_admin_reload_result text-danger"><em>' .  __( 'Theme data not reloaded', 'design_ict_site' ) . '</em>.</div>';
+				echo '<DIV class="dis_admin_reload_result text-danger"><EM>' . __( 'Theme data not reloaded', 'design_ict_site' ) . '</EM>.</DIV>';
 			}
 		}
-
-		echo '</div>';
+		echo '</DIV>';
 	}
 
 }

@@ -132,12 +132,3 @@ define(
 			),
 	)
 );
-
-
-
-// Page that is edited from the backend.
-define( 'DIS_STATIC_PAGE_CAT', 'static_page' );
-// Automatically built page with forms, maps, etc.
-define( 'DIS_CUSTOM_PAGE_CAT', 'custom_page' );
-// Page containing the list of posts of a certain type (archive).
-define( 'DIS_ARCHIVE_PAGE_CAT', 'archive_page' );
