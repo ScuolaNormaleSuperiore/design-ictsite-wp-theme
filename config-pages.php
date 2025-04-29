@@ -26,6 +26,12 @@ define( 'SLUG_SITE_SEARCH', 'SiteSearchPageSlug' );
 define( 'SLUG_PEOPLE', 'PeoplePageSlug' );
 define( 'SLUG_SERVICE_CLUSTER', 'ServiceClusterPageSlug' );
 define( 'SLUG_SERVICE_ITEM', 'ServiceItemPageSlug' );
+define( 'SLUG_EVENTS', 'EventPageSlug' );
+define( 'SLUG_PROJECTS', 'ProjectPageSlug' );
+define( 'SLUG_MEDIA_POLICY', 'MediaPolicyPageSlug' );
+define( 'SLUG_ABOUT_US', 'AboutUsPageSlug' );
+define( 'SLUG_DOCUMENTATION', 'DocumentationPageSlug' );
+define( 'SLUG_FAQ', 'FaqPageSlug' );
 
 
 /* PAGES */
@@ -161,6 +167,84 @@ define(
 				'content_type'     => 'page',
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
+		SLUG_EVENTS =>
+			array(
+				'content_slug'     => SLUG_EVENTS,
+				'content_file'     => '',
+				'content_title'    => 'EventPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/event.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
+		SLUG_PROJECTS =>
+			array(
+				'content_slug'     => SLUG_PROJECTS,
+				'content_file'     => '',
+				'content_title'    => 'ProjectPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/project.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
+		SLUG_MEDIA_POLICY =>
+			array(
+				'content_slug'     => SLUG_MEDIA_POLICY,
+				'content_file'     => '',
+				'content_title'    => 'MediaPolicyPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => '',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_STATIC_PAGE_CAT,
+			),
+		SLUG_ABOUT_US =>
+			array(
+				'content_slug'     => SLUG_ABOUT_US,
+				'content_file'     => '',
+				'content_title'    => 'AboutUsPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => '',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_STATIC_PAGE_CAT,
+			),
+		SLUG_DOCUMENTATION =>
+			array(
+				'content_slug'     => SLUG_DOCUMENTATION,
+				'content_file'     => '',
+				'content_title'    => 'DocumentationPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/documentation.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_CUSTOM_PAGE_CAT,
+			),
+		SLUG_FAQ =>
+			array(
+				'content_slug'     => SLUG_FAQ,
+				'content_file'     => '',
+				'content_title'    => 'FaqPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/faq.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
 	)
 );
