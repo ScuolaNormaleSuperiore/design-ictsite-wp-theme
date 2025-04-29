@@ -20,9 +20,14 @@ define( 'DIS_THEME_URL', get_template_directory_uri() );
 require DIS_THEME_PATH . '/config-theme.php';
 
 /**
- * Defining the theme pages of the site.
+ * Defining the pages of the site.
  */
 require DIS_THEME_PATH . '/config-pages.php';
+
+/**
+ * Defining the menus of the site.
+ */
+require DIS_THEME_PATH . '/config-menu.php';
 
 /**
  * Defining and managing theme dependencies using TGM.
@@ -51,12 +56,13 @@ if ( class_exists( 'DIS_ThemeManager' ) ) {
 			remove_action( 'after_setup_theme', __FUNCTION__ );
 			$theme_manager = DIS_ThemeManager::get_instance();
 			$theme_manager->theme_setup();
-		}
+		},
+		2
 	);
 }
 
 // ////// SETUP THE THEME //////
-// if ( ! class_exists( 'DIS_ThemeManager' ) ) {
+// if ( class_exists( 'DIS_ThemeManager' ) ) {
 // 	include_once get_template_directory() . '/classes/theme-manager.php';
 // 	global $theme_manager;
 // 	$theme_manager = new DIS_ThemeManager();

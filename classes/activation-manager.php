@@ -27,13 +27,13 @@ class DIS_ActivationManager {
 		array_push( $this->result['data'], '*** BEGIN THEME ACTIVATION ***' );
 
 		// Create the pages of the site, if not exist.
-		$this->pages_creation( $this->result['data'] );
+		// $this->pages_creation( $this->result['data'] );
 		// Create the taxonomies of the site, if not exist.
-		$this->taxonomies_creation( $this->result['data'] );
+		// $this->taxonomies_creation( $this->result['data'] );
 		// Create the menus of the site, if not exist.
 		$this->menu_creation( $this->result['data'] );
 		// Create the custom tables, if not exist.
-		$this->create_the_tables( $this->result['data'] );
+		// $this->create_the_tables( $this->result['data'] );
 
 		$this->result['status'] = 1;
 		array_push( $this->result['data'], '*** END THEME ACTIVATION ***' );
@@ -116,6 +116,9 @@ class DIS_ActivationManager {
 
 	private function menu_creation( &$messages ) {
 		array_push( $this->result['data'], '* BEGIN Menu Creation:' );
+
+		$this->build_the_menu( $messages, DIS_MAIN_MENU, 'en' );
+
 		array_push( $this->result['data'], '* END Menu Creation:' );
 		return true;
 	}
@@ -141,11 +144,65 @@ class DIS_ActivationManager {
 				KEY idx_text_domain (domain)
 				) ENGINE=InnoDB $charset_collate;";
 			dbDelta( $sql );
-			array_push( $messages, __( "Table  $table_name  successfully created.", 'design_ict_site' ) );
+			array_push( $messages, __( "Table '$table_name' successfully created.", 'design_ict_site' ) );
 		} else {
-			array_push( $messages, __( "Table $table_name  already present.", 'design_ict_site' ) );
+			array_push( $messages, __( "Table '$table_name' already present.", 'design_ict_site' ) );
 		}
 		return true;
+	}
+
+	private function build_the_menu( &$messages, $menu, $lang ) {
+		$menu_name     = $menu['name'];
+		$menu_items    = $menu['items'];
+		$menu_location = $menu['location'];
+		$menu_object   = wp_get_nav_menu_object( $menu_name );
+
+		if ( $menu_object ) {
+			// Do nothing if the menu exists.
+			array_push( $messages, __( "The menu '$menu_name' already exists.", 'design_ict_site' ) );
+			$menu_id = $menu_object->term_id;
+			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
+		} else {
+			$menu_id  = wp_create_nav_menu( $menu_name );
+			$menu     = get_term_by( 'id', $menu_id, 'nav_menu' );
+			foreach ( $menu_items as $menu_item ) {
+				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
+					// Link to pages or posts.
+					$result = self::get_content( $menu_item['slug'], $menu_item['content_type'] );
+					if ( $result ) {
+						$menu_item_id = $result->ID;
+						wp_update_nav_menu_item(
+							$menu->term_id,
+							0,
+							array(
+								'menu-item-title'     => $menu_item['title'],
+								'menu-item-object-id' => $menu_item_id,
+								'menu-item-object'    => $menu_item['content_type'],
+								'menu-item-status'    => $menu_item['status'],
+								'menu-item-type'      => $menu_item['post_type'],
+								'menu-item-url'       => $menu_item['link'],
+							)
+						);
+					}
+				} else {
+					// External links.
+					wp_update_nav_menu_item(
+						$menu->term_id,
+						0,
+						array(
+							'menu-item-title'     => $menu_item['title'],
+							'menu-item-status'    => $menu_item['status'],
+							'menu-item-url'       => $menu_item['link'],
+						)
+					);
+				}
+			}
+			$locations_primary_arr                   = get_theme_mod( 'nav_menu_locations' );
+			$locations_primary_arr[ $menu_location ] = $menu->term_id;
+			set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
+			update_option( 'menu_check', true );
+			array_push( $messages, __( "NEW menu '$menu_name' created.", 'design_ict_site' ) );
+		}
 	}
 
 }

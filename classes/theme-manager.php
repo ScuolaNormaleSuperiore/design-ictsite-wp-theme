@@ -1,6 +1,7 @@
 <?php
 /**
  * Definition of the ThemeManager used to create the custom content types.
+ * In this file we define the structure of the site.
  * 
  * @package Design_ICT_Site
  */
@@ -79,7 +80,7 @@ class DIS_ThemeManager {
 	public $mlm = null;
 	public $cnm = null;
 
-	private function __construct() {}
+	public function __construct() {}
 
 	/**
 	 * Create the instance of the manager.
@@ -225,7 +226,7 @@ class DIS_ThemeManager {
 	 *
 	 * @return void
 	 */
-	private function setup_internationalisation(){
+	private function setup_internationalisation() {
 		add_action( 'init', array( $this, 'configure_languages' ) );
 	}
 
@@ -234,7 +235,7 @@ class DIS_ThemeManager {
 	 *
 	 * @return void
 	 */
-	private function setup_site_structure(){
+	private function setup_site_structure() {
 		add_action( 'init', array( $this, 'configure_permalink' ) );
 	}
 

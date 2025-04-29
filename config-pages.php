@@ -16,33 +16,49 @@ define( 'DIS_ARCHIVE_PAGE_CAT', 'archive_page' );
 
 
 /* SLUGS */
-define( 'SLUG_CONTACTS', 'ContactsPageSlug' );
-define( 'SLUG_SITE_MAP', 'SiteMapPageSlug' );
-define( 'SLUG_PRIVACY', 'PrivacyPageSlug' );
-define( 'SLUG_NEWSLETTER', 'NewsletterPageSlug' );
-define( 'SLUG_ACCESSIBILITY', 'AccessibilityPageSlug' );
-define( 'SLUG_LEGAL_NOTES', 'LegalNotesPageSlug' );
-define( 'SLUG_SITE_SEARCH', 'SiteSearchPageSlug' );
-define( 'SLUG_PEOPLE', 'PeoplePageSlug' );
-define( 'SLUG_SERVICE_CLUSTER', 'ServiceClusterPageSlug' );
-define( 'SLUG_SERVICE_ITEM', 'ServiceItemPageSlug' );
-define( 'SLUG_EVENTS', 'EventPageSlug' );
-define( 'SLUG_PROJECTS', 'ProjectPageSlug' );
-define( 'SLUG_MEDIA_POLICY', 'MediaPolicyPageSlug' );
-define( 'SLUG_ABOUT_US', 'AboutUsPageSlug' );
-define( 'SLUG_DOCUMENTATION', 'DocumentationPageSlug' );
-define( 'SLUG_FAQ', 'FaqPageSlug' );
+define( 'CONTACTS_PAGE_SLUG', 'ContactsPageSlug' );
+define( 'CONTACTS_PAGE_TITLE', 'ContactsPageTitle' );
+define( 'SITE_MAP_PAGE_SLUG', 'SiteMapPageSlug' );
+define( 'SITE_MAP_PAGE_TITLE', 'SiteMapPageTitle' );
+define( 'PRIVACY_PAGE_SLUG', 'PrivacyPageSlug' );
+define( 'PRIVACY_PAGE_TITLE', 'PrivacyPageTitle' );
+define( 'NEWSLETTER_PAGE_SLUG', 'NewsletterPageSlug' );
+define( 'NEWSLETTER_PAGE_TITLE', 'NewsletterPageTitle' );
+define( 'ACCESSIBILITY_PAGE_SLUG', 'AccessibilityPageSlug' );
+define( 'ACCESSIBILITY_PAGE_TITLE', 'AccessibilityPageTitle' );
+define( 'LEGAL_NOTES_PAGE_SLUG', 'LegalNotesPageSlug' );
+define( 'LEGAL_NOTES_PAGE_TITLE', 'LegalNotesPageTitle' );
+define( 'SITE_SEARCH_PAGE_SLUG', 'SiteSearchPageSlug' );
+define( 'SITE_SEARCH_PAGE_TITLE', 'SiteSearchPageTitle' );
+define( 'PEOPLE_PAGE_SLUG', 'PeoplePageSlug' );
+define( 'PEOPLE_PAGE_TITLE', 'PeoplePageTitle' );
+define( 'SERVICE_CLUSTER_PAGE_SLUG', 'ServiceClusterPageSlug' );
+define( 'SERVICE_CLUSTER_PAGE_TITLE', 'ServiceClusterPageTitle' );
+define( 'SERVICE_ITEM_PAGE_SLUG', 'ServiceItemPageSlug' );
+define( 'SERVICE_ITEM_PAGE_TITLE', 'ServiceItemPageTitle' );
+define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
+define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );
+define( 'PROJECTS_PAGE_SLUG', 'ProjectPageSlug' );
+define( 'PROJECTS_PAGE_TITLE', 'ProjectPageTitle' );
+define( 'MEDIA_POLICY_PAGE_SLUG', 'MediaPolicyPageSlug' );
+define( 'MEDIA_POLICY_PAGE_TITLE', 'MediaPolicyPageTitle' );
+define( 'ABOUT_US_PAGE_SLUG', 'AboutUsPageSlug' );
+define( 'ABOUT_US_PAGE_TITLE', 'AboutUsPagetitle' );
+define( 'DOCUMENTATION_PAGE_SLUG', 'DocumentationPageSlug' );
+define( 'DOCUMENTATION_PAGE_TITLE', 'DocumentationPageTitle' );
+define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
+define( 'FAQ_PAGE_TITLE', 'FaqPageTitle' );
 
 
 /* PAGES */
 define(
 	'DIS_STATIC_PAGES',
 	array(
-		SLUG_CONTACTS =>
+		CONTACTS_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_CONTACTS,
+				'content_slug'     => CONTACTS_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'ContactsPageTitle',
+				'content_title'    => CONTACTS_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -51,11 +67,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_SITE_MAP =>
+		SITE_MAP_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_SITE_MAP,
+				'content_slug'     => SITE_MAP_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'SiteMapPageTitle',
+				'content_title'    => SITE_MAP_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -64,11 +80,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_PRIVACY =>
+		PRIVACY_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_PRIVACY,
+				'content_slug'     => PRIVACY_PAGE_SLUG,
 				'content_file'     => 'assets/html/privacy_xx.html', // To load the initial content of a page from a file (eg. privacy_en.html, privacy_it.html,... ).
-				'content_title'    => 'PrivacyPageTitle',
+				'content_title'    => PRIVACY_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -77,11 +93,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_NEWSLETTER =>
+		NEWSLETTER_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_NEWSLETTER,
+				'content_slug'     => NEWSLETTER_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'NewsletterPageTitle',
+				'content_title'    => NEWSLETTER_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -90,11 +106,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_ACCESSIBILITY =>
+		ACCESSIBILITY_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_ACCESSIBILITY,
+				'content_slug'     => ACCESSIBILITY_PAGE_SLUG,
 				'content_file'     => 'assets/html/accessibility_xx.html',
-				'content_title'    => 'AccessibilityPageTitle',
+				'content_title'    => ACCESSIBILITY_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -103,11 +119,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SLUG_LEGAL_NOTES =>
+		LEGAL_NOTES_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_LEGAL_NOTES,
+				'content_slug'     => LEGAL_NOTES_PAGE_SLUG,
 				'content_file'     => 'assets/html/legal_notes_xx.html',
-				'content_title'    => 'LegalNotesPageTitle',
+				'content_title'    => LEGAL_NOTES_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -116,11 +132,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SLUG_SITE_SEARCH =>
+		SITE_SEARCH_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_SITE_SEARCH,
+				'content_slug'     => SITE_SEARCH_PAGE_SLUG,
 				'content_file'     => 'assets/html/site_search_xx.html',
-				'content_title'    => 'SiteSearchPageTitle',
+				'content_title'    => SITE_SEARCH_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -129,11 +145,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_PEOPLE =>
+		PEOPLE_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_PEOPLE,
+				'content_slug'     => PEOPLE_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'PeoplePageTitle',
+				'content_title'    => PEOPLE_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -142,11 +158,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_SERVICE_CLUSTER =>
+		SERVICE_CLUSTER_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_SERVICE_CLUSTER,
+				'content_slug'     => SERVICE_CLUSTER_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'ServiceClusterPageTitle',
+				'content_title'    => SERVICE_CLUSTER_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -155,11 +171,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_SERVICE_ITEM =>
+		SERVICE_ITEM_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_SERVICE_ITEM,
+				'content_slug'     => SERVICE_ITEM_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'ServiceItemPageTitle',
+				'content_title'    => SERVICE_ITEM_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -168,11 +184,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_EVENTS =>
+		EVENTS_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_EVENTS,
+				'content_slug'     => EVENTS_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'EventPageTitle',
+				'content_title'    => EVENTS_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -181,11 +197,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_PROJECTS =>
+		PROJECTS_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_PROJECTS,
+				'content_slug'     => PROJECTS_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'ProjectPageTitle',
+				'content_title'    => PROJECTS_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -194,11 +210,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_MEDIA_POLICY =>
+		MEDIA_POLICY_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_MEDIA_POLICY,
+				'content_slug'     => MEDIA_POLICY_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'MediaPolicyPageTitle',
+				'content_title'    => MEDIA_POLICY_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -207,11 +223,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SLUG_ABOUT_US =>
+		ABOUT_US_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_ABOUT_US,
+				'content_slug'     => ABOUT_US_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'AboutUsPageTitle',
+				'content_title'    => ABOUT_US_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -220,11 +236,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SLUG_DOCUMENTATION =>
+		DOCUMENTATION_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_DOCUMENTATION,
+				'content_slug'     => DOCUMENTATION_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'DocumentationPageTitle',
+				'content_title'    => DOCUMENTATION_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
@@ -233,11 +249,11 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_FAQ =>
+		FAQ_PAGE_SLUG =>
 			array(
-				'content_slug'     => SLUG_FAQ,
+				'content_slug'     => FAQ_PAGE_SLUG,
 				'content_file'     => '',
-				'content_title'    => 'FaqPageTitle',
+				'content_title'    => FAQ_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
