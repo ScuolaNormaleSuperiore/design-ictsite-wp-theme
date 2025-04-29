@@ -32,36 +32,36 @@ define( 'SLUG_SERVICE_ITEM', 'ServiceItemPageSlug' );
 define(
 	'DIS_STATIC_PAGES',
 	array(
-		// SLUG_CONTACTS =>
-		// 	array(
-		// 		'content_slug'     => SLUG_CONTACTS,
-		// 		'content_file'     => '',
-		// 		'content_title'    => 'ContactsPageTitle',
-		// 		'content'          => '',
-		// 		'content_status'   => 'publish',
-		// 		'content_author'   => 1,
-		// 		'content_template' => 'page-templates/contacts.php',
-		// 		'content_type'     => 'page',
-		// 		'content_parent'   => null,
-		// 		'content_category' => DIS_CUSTOM_PAGE_CAT,
-		// 	),
-		// SLUG_SITE_MAP =>
-		// 	array(
-		// 		'content_slug'     => SLUG_SITE_MAP,
-		// 		'content_file'     => '',
-		// 		'content_title'    => 'SiteMapPageTitle',
-		// 		'content'          => '',
-		// 		'content_status'   => 'publish',
-		// 		'content_author'   => 1,
-		// 		'content_template' => 'page-templates/site-map.php',
-		// 		'content_type'     => 'page',
-		// 		'content_parent'   => null,
-		// 		'content_category' => DIS_CUSTOM_PAGE_CAT,
-		// 	),
-		SLUG_PRIVACY => 
+		SLUG_CONTACTS =>
+			array(
+				'content_slug'     => SLUG_CONTACTS,
+				'content_file'     => '',
+				'content_title'    => 'ContactsPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/contacts.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_CUSTOM_PAGE_CAT,
+			),
+		SLUG_SITE_MAP =>
+			array(
+				'content_slug'     => SLUG_SITE_MAP,
+				'content_file'     => '',
+				'content_title'    => 'SiteMapPageTitle',
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/site-map.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_CUSTOM_PAGE_CAT,
+			),
+		SLUG_PRIVACY =>
 			array(
 				'content_slug'     => SLUG_PRIVACY,
-				'content_file'     => '/assets/html/privacy_xx.html', // To load the initial content of a page from a file (eg. privacy_en.html, privacy_it.html,... ).
+				'content_file'     => 'assets/html/privacy_xx.html', // To load the initial content of a page from a file (eg. privacy_en.html, privacy_it.html,... ).
 				'content_title'    => 'PrivacyPageTitle',
 				'content'          => '',
 				'content_status'   => 'publish',
@@ -87,7 +87,7 @@ define(
 		SLUG_ACCESSIBILITY =>
 			array(
 				'content_slug'     => SLUG_ACCESSIBILITY,
-				'content_file'     => '/assets/html/accessibility_xx.html',
+				'content_file'     => 'assets/html/accessibility_xx.html',
 				'content_title'    => 'AccessibilityPageTitle',
 				'content'          => '',
 				'content_status'   => 'publish',
@@ -97,10 +97,10 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SLUG_LEGAL_NOTES => 
+		SLUG_LEGAL_NOTES =>
 			array(
 				'content_slug'     => SLUG_LEGAL_NOTES,
-				'content_file'     => '/assets/html/legal_notes_xx.html',
+				'content_file'     => 'assets/html/legal_notes_xx.html',
 				'content_title'    => 'LegalNotesPageTitle',
 				'content'          => '',
 				'content_status'   => 'publish',
@@ -110,10 +110,10 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SLUG_SITE_SEARCH => 
+		SLUG_SITE_SEARCH =>
 			array(
 				'content_slug'     => SLUG_SITE_SEARCH,
-				'content_file'     => '/assets/html/site_search_xx.html',
+				'content_file'     => 'assets/html/site_search_xx.html',
 				'content_title'    => 'SiteSearchPageTitle',
 				'content'          => '',
 				'content_status'   => 'publish',
@@ -123,7 +123,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SLUG_PEOPLE => 
+		SLUG_PEOPLE =>
 			array(
 				'content_slug'     => SLUG_PEOPLE,
 				'content_file'     => '',
@@ -136,7 +136,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_SERVICE_CLUSTER => 
+		SLUG_SERVICE_CLUSTER =>
 			array(
 				'content_slug'     => SLUG_SERVICE_CLUSTER,
 				'content_file'     => '',
@@ -149,7 +149,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SLUG_SERVICE_ITEM => 
+		SLUG_SERVICE_ITEM =>
 			array(
 				'content_slug'     => SLUG_SERVICE_ITEM,
 				'content_file'     => '',

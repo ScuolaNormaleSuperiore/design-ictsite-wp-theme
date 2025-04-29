@@ -22,7 +22,7 @@ class DIS_ActivationManager {
 	 */
 	public function __construct() {}
 
-	public function reload_data(){
+	public function reload_data() {
 		error_log( '*** ACTION RELOAD DATA ***' );
 		array_push( $this->result['data'], '*** BEGIN THEME ACTIVATION ***' );
 
@@ -58,23 +58,23 @@ class DIS_ActivationManager {
 	private function pages_creation( &$messages ) {
 		array_push( $this->result['data'], '* BEGIN Pages Creation:' );
 		$languages = DIS_MultiLangManager::get_languages_list();
-		foreach( DIS_STATIC_PAGES as $slug => $pg ){
+		foreach ( DIS_STATIC_PAGES as $slug => $pg ) {
 			$related_posts = array();
-			foreach( $languages as $lang ){
+			foreach ( $languages as $lang ) {
 				$slug_trans = DIS_MultiLangManager::get_dis_translation( $slug, 'DIS_ActivationItems', $lang );
-				if ( $slug_trans ){
+				if ( $slug_trans ) {
 					$check_page   = self::get_content( $slug_trans, $pg['content_type'] );
 					$new_page_id  = $check_page ? $check_page->ID : 0;
-					if ( $new_page_id === 0 ){
+					if ( $new_page_id === 0 ) {
 						// Create the page if not exists.
 						$title_trans = DIS_MultiLangManager::get_dis_translation( $pg['content_title'], 'DIS_ActivationItems', $lang );
 						if ( $title_trans ) {
 							// Check if a page template exists.
 							$content = '';
-							if ( $pg['content_file'] ){
-								$file_path = DIS_THEME_PATH . '/' . str_replace( '_xx.html', '_' . $lang . '.html', $pg['content_file'] );
-								if ( file_exists( $file_path ) ){
-									$content = file_get_contents( DIS_THEME_PATH . $file_path );
+							if ( $pg['content_file'] ) {
+								$file_path = realpath( DIS_THEME_PATH . str_replace( '_xx.html', '_' . $lang . '.html', $pg['content_file'] ) );
+								if ( file_exists( $file_path ) ) {
+									$content = file_get_contents( $file_path );
 								}
 							}
 							$new_page = array(
@@ -89,7 +89,7 @@ class DIS_ActivationManager {
 							// Page creation.
 							$new_page_id = wp_insert_post( $new_page );
 							// Assign a template to the page.
-							if ( $pg['content_template'] ){
+							if ( $pg['content_template'] ) {
 								update_post_meta( $new_page_id, '_wp_page_template', $pg['content_template'] );
 							}
 							// Assign the IT language to the page.
@@ -97,7 +97,7 @@ class DIS_ActivationManager {
 						}
 						array_push( $messages, __( "Successfully create the page:  $slug_trans.", 'design_ict_site' ) );
 					} else {
-						array_push( $messages, __( "Page:  $slug_trans already present", 'design_ict_site' ) );
+						array_push( $messages, __( "Page: $slug_trans already present", 'design_ict_site' ) );
 						$related_posts[$lang] = $new_page_id;
 					}
 				}
