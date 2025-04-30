@@ -1,9 +1,13 @@
 
 * TODO LIST:
 
-3) Creazione dei menu: Main menu (header left), Secondary menu (header right), Top Bar (header), Footer (footer), Useful Link (footer)
-4) Link pagina di ricerca
-5) Creazione pagine statiche multilingua.
+1) Search Page Link
+2) Logo Footer
+3) Footer menu bottom
+4) Footer Useful Lins
+5) Footer Show Newsletter
+6) Footer Help Desk
+7) Footer Offices??
 
 
 * Procedure da fare:
