@@ -19,6 +19,11 @@ $network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt
 $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
 // Menu options.
 $locations = get_nav_menu_locations();
+require_once DIS_THEME_PATH . '/inc/walkers/main-menu-walker.php';
+require_once DIS_THEME_PATH . '/inc/walkers/menu-right-walker.php';
+
+// Check presence mandatory plugins.
+// check_mandatory_plugins();
 ?>
 
 <!doctype html>
@@ -90,7 +95,7 @@ $locations = get_nav_menu_locations();
 								</a>
 								<!-- TOP BAR MENU -->
 								<?php
-								echo get_template_part( 'template-parts/menu/top-header-menu', false, array( 'locations' => $locations,) );
+								echo get_template_part( 'template-parts/menu/top-header-menu', false, array( 'locations' => $locations ) );
 								?>
 							</nav>
 						</div>
@@ -164,39 +169,14 @@ $locations = get_nav_menu_locations();
 									</button>
 								</div>
 								<div class="menu-wrapper">
-									<ul class="navbar-nav">
-										<li class="nav-item"><a class="nav-link" href="elenco-servizi.html"><span>I nostri
-													servizi</span></a></li>
-										<li class="nav-item dropdown">
-											<a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
-												aria-expanded="false" id="mainNavDropdown3">
-												<span>Come fare per</span>
-												<svg class="icon icon-xs">
-													<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
-												</svg>
-											</a>
-											<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown3">
-												<div class="link-list-wrapper">
-													<ul class="link-list">
-														<li><a class="dropdown-item list-item" href="#"><span>Link lista 1</span></a></li>
-														<li><a class="dropdown-item list-item" href="#"><span>Link lista 2</span></a></li>
-														<li><a class="dropdown-item list-item" href="#"><span>Link lista 3</span></a></li>
-														<li><span class="divider"></span></li>
-														<li><a class="dropdown-item list-item" href="#"><span>Link lista 4</span></a></li>
-													</ul>
-												</div>
-											</div>
-										</li>
-										<li class="nav-item"><a class="nav-link" href="chi-siamo.html"><span>Chi siamo</span></a></li>
-										<li class="nav-item"><a class="nav-link" href="helpdesk.html"><span>Helpdesk</span></a></li>
-									</ul>
-									<!-- MENU SECONDARIO - lato dx creare posizione menù ad utilizzo facoltativo -->
-									<ul class="navbar-nav navbar-secondary">
-										<li class="nav-item"><a class="nav-link" href="faq.html"><span>FAQ</span></a></li>
-										<li class="nav-item"><a class="nav-link" href="progetti.html"><span>Progetti</span></a></li>
-										<li class="nav-item"><a class="nav-link"
-												href="documentazione.html"><span>Documentazione</span></a></li>
-									</ul>
+									<!-- PRIMARY MENU -->
+									<?php
+									echo get_template_part( 'template-parts/menu/primary-menu', false, array( 'locations' => $locations ) );
+									?>
+									<!-- SECONDARY MENU-->
+									<?php
+									echo get_template_part( 'template-parts/menu/secondary-menu', false, array( 'locations' => $locations ) );
+									?>
 								</div>
 							</div>
 						</nav>

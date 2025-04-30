@@ -126,4 +126,21 @@ class DIS_ContentsManager {
 		return $results;
 	}
 
+	public static function get_menu_tree_by_items( $menuitems ) {
+		$menu_tree = array();
+		foreach ( $menuitems As $item ) {
+			if ( $item->menu_item_parent === '0' ) {
+				$menu_tree[$item->ID] = array(
+					'element'  => $item,
+					'children' => array(),
+				);
+			} else {
+				if( array_key_exists( $item->menu_item_parent, $menu_tree ) && $menu_tree[$item->menu_item_parent] !== null ) {
+					array_push( $menu_tree[$item->menu_item_parent]['children'], $item );
+				}
+			}
+		}
+		return $menu_tree;
+	}
+
 }
