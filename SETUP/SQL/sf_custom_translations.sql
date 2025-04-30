@@ -41,14 +41,14 @@ INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translati
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (30, 'PeoplePageSlug', 'DIS_ActivationItems', 'it', 'persone');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (31, 'PeoplePageTitle', 'DIS_ActivationItems', 'en', 'People');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (32, 'PeoplePageTitle', 'DIS_ActivationItems', 'it', 'Persone');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (33, 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'en', 'service-cluster');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (34, 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'it', 'gruppo-servizi');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (35, 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'en', 'Service cluster');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (36, 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'it', 'Gruppo di servizi');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (37, 'ServiceItemPageSlug', 'DIS_ActivationItems', 'en', 'service');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (38, 'ServiceItemPageSlug', 'DIS_ActivationItems', 'it', 'servizio');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (39, 'ServiceItemPageTitle', 'DIS_ActivationItems', 'en', 'Service');
-INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (40, 'ServiceItemPageTitle', 'DIS_ActivationItems', 'it', 'Servizio');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (33, 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'en', 'service-clusters');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (34, 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'it', 'gruppi-servizi');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (35, 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'en', 'Service clusters');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (36, 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'it', 'Gruppi di servizi');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (37, 'ServiceItemPageSlug', 'DIS_ActivationItems', 'en', 'services');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (38, 'ServiceItemPageSlug', 'DIS_ActivationItems', 'it', 'servizi');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (39, 'ServiceItemPageTitle', 'DIS_ActivationItems', 'en', 'Services');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (40, 'ServiceItemPageTitle', 'DIS_ActivationItems', 'it', 'Servizi');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (41, 'EventPageSlug', 'DIS_ActivationItems', 'en', 'events');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (42, 'EventPageSlug', 'DIS_ActivationItems', 'it', 'eventi');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (43, 'EventPageTitle', 'DIS_ActivationItems', 'en', 'Events');
@@ -69,3 +69,5 @@ INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translati
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (58, 'DocumentationPageSlug', 'DIS_ActivationItems', 'it', 'documentazione');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (59, 'DocumentationPageTitle', 'DIS_ActivationItems', 'en', 'Documentation');
 INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (60, 'DocumentationPageTitle', 'DIS_ActivationItems', 'it', 'Documentazione');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (61, 'ReuseLinkTitle', 'DIS_ActivationItems', 'en', 'Reuse');
+INSERT INTO local.wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (62, 'ReuseLinkTitle', 'DIS_ActivationItems', 'it', 'Riuso');

@@ -123,9 +123,12 @@ class DIS_ActivationManager {
 		array_push( $this->result['data'], '* BEGIN Menu Creation:' );
 
 		// Creation of all the site menus: each menu is replicated for each available language.
-		$this->build_the_menu( $messages, DIS_MAIN_MENU, 'en' );
+		$languages = DIS_MultiLangManager::get_languages_list();
+		foreach ( $languages as $lang ) {
+			$this->build_the_menu( $messages, DIS_MAIN_MENU, $lang );
+		}
 
-		array_push( $this->result['data'], '* END Menu Creation:' );
+		array_push( $this->result['data'], '* END Menu Creation.' );
 		return true;
 	}
 
@@ -177,33 +180,40 @@ class DIS_ActivationManager {
 			foreach ( $menu_items as $menu_item ) {
 				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
 					// Link to pages or posts.
-					$result = self::get_content( $menu_item['slug'], $menu_item['content_type'] );
-					if ( $result ) {
-						$menu_item_id = $result->ID;
+					$slug_trans = DIS_MultiLangManager::get_dis_translation( $menu_item['slug'], 'DIS_ActivationItems', $lang );
+					if ( $slug_trans ) {
+						$result      = self::get_content( $slug_trans, $menu_item['content_type'] );
+						$title_trans = DIS_MultiLangManager::get_dis_translation( $menu_item['title'], 'DIS_ActivationItems', $lang );
+						if ( $result ) {
+							$menu_item_id = $result->ID;
+							wp_update_nav_menu_item(
+								$menu->term_id,
+								0,
+								array(
+									'menu-item-title'     => $title_trans,
+									'menu-item-object-id' => $menu_item_id,
+									'menu-item-object'    => $menu_item['content_type'],
+									'menu-item-status'    => $menu_item['status'],
+									'menu-item-type'      => $menu_item['post_type'],
+									'menu-item-url'       => $menu_item['link'],
+								)
+							);
+						}
+					}
+				} else {
+					// External links.
+					$title_trans  = DIS_MultiLangManager::get_dis_translation( $menu_item['title'], 'DIS_ActivationItems', $lang );
+					if ( $title_trans ) {
 						wp_update_nav_menu_item(
 							$menu->term_id,
 							0,
 							array(
-								'menu-item-title'     => $menu_item['title'],
-								'menu-item-object-id' => $menu_item_id,
-								'menu-item-object'    => $menu_item['content_type'],
+								'menu-item-title'     => $title_trans,
 								'menu-item-status'    => $menu_item['status'],
-								'menu-item-type'      => $menu_item['post_type'],
 								'menu-item-url'       => $menu_item['link'],
 							)
 						);
 					}
-				} else {
-					// External links.
-					wp_update_nav_menu_item(
-						$menu->term_id,
-						0,
-						array(
-							'menu-item-title'     => $menu_item['title'],
-							'menu-item-status'    => $menu_item['status'],
-							'menu-item-url'       => $menu_item['link'],
-						)
-					);
 				}
 			}
 			$locations_primary_arr                   = get_theme_mod( 'nav_menu_locations' );
