@@ -100,6 +100,7 @@ class DIS_ActivationManager {
 						}
 						$msg = sprintf(  __( "Successfully created the page: '%s'.", 'design_ict_site' ), $slug_trans );
 						array_push( $messages, $msg );
+						$related_posts[ $lang ] = $new_page_id;
 					} else {
 						// $msg = sprintf( __( "Page: '%s' already present", 'design_ict_site' ), $slug_trans );
 						// array_push( $messages, $msg );

@@ -186,11 +186,22 @@ class DIS_MultiLangManager {
 	/**
 	 * Retrieves the translations of a post.
 	 *
-	 * @param [type] $related_posts
+	 * @param id $post_id
 	 * @return array
 	 */
 	public static function get_post_translations( $post_id ): array {
 		return pll_get_post_translations( $post_id );
+	}
+
+	/**
+	 * Retrieves the post in the $lang version.
+	 *
+	 * @param int $post_id
+	 * @param string $lang
+	 * @return int
+	 */
+	public static function get_post( $post_id, $lang = '' ): int {
+		return pll_get_post( $post_id, $lang );
 	}
 
 	/**
@@ -201,7 +212,7 @@ class DIS_MultiLangManager {
 	 * @param string $lang
 	 * @return string
 	 */
-	public static function get_dis_translation( $text, $domain=null, $lang=null ) {
+	public static function get_dis_translation( $text, $domain = null, $lang = null ) {
 		global $wpdb;
 		if ( $lang === null ) {
 			$lang = self::get_current_language();
