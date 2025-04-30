@@ -31,7 +31,7 @@ define(
 );
 
 define(
-	'DIS_MAIN_MENU',
+	'DIS_PRIMARY_MENU',
 	array(
 		'name'     => 'Primary Menu',
 		'location' => PRIMARY_LOCATION_SLUG,
@@ -54,6 +54,63 @@ define(
 				'classes'      => 'footer-link',
 				'link'         => '',
 			),
+		),
+	)
+);
+
+define(
+	'DIS_SECONDARY_MENU',
+	array(
+		'name'     => 'Secondary Menu',
+		'location' => SECONDARY_LOCATION_SLUG,
+		'items'    => array(
+			array(
+				'slug'         => PROJECTS_PAGE_SLUG,
+				'title'        => PROJECTS_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
+		),
+	)
+);
+
+define(
+	'DIS_HEADER_MENU',
+	array(
+		'name'     => 'Header Menu',
+		'location' => TOP_HEADER_LOCATION_SLUG,
+		'items'    => array(
+			array(
+				'slug'         => EVENTS_PAGE_SLUG,
+				'title'        => EVENTS_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
+		),
+	)
+);
+
+define(
+	'DIS_FOOTER_MENU',
+	array(
+		'name'     => 'Footer Menu',
+		'location' => BOTTOM_FOOTER_LOCATION_SLUG,
+		'items'    => array(
+			array(
+				'slug'         => PRIVACY_PAGE_SLUG,
+				'title'        => PRIVACY_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
 			array(
 				'slug'         => '',
 				'title'        => 'ReuseLinkTitle',
@@ -64,5 +121,36 @@ define(
 				'link'         => 'https://developers.italia.it/it/software/sns_pi-scuolanormalesuperiore-design-laboratori-wordpress-theme',
 			),
 		),
+	)
+);
+
+define(
+	'DIS_USEFUL_LINKS_MENU',
+	array(
+		'name'     => 'Primary Menu',
+		'location' => USEFUL_LINKS_LOCATION_SLUG,
+		'items'    => array(
+			array(
+				'slug'         => ACCESSIBILITY_PAGE_SLUG,
+				'title'        => ACCESSIBILITY_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
+		),
+	)
+);
+
+
+define(
+	'DIS_SITE_MENU_LIST',
+	array(
+		DIS_PRIMARY_MENU,
+		DIS_SECONDARY_MENU,
+		DIS_HEADER_MENU,
+		DIS_FOOTER_MENU,
+		DIS_USEFUL_LINKS_MENU,
 	)
 );

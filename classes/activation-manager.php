@@ -101,8 +101,8 @@ class DIS_ActivationManager {
 						$msg = sprintf(  __( "Successfully created the page: '%s'.", 'design_ict_site' ), $slug_trans );
 						array_push( $messages, $msg );
 					} else {
-						$msg = sprintf( __( "Page: '%s' already present", 'design_ict_site' ), $slug_trans );
-						array_push( $messages, $msg );
+						// $msg = sprintf( __( "Page: '%s' already present", 'design_ict_site' ), $slug_trans );
+						// array_push( $messages, $msg );
 						$related_posts[ $lang ] = $new_page_id;
 					}
 				}
@@ -125,7 +125,7 @@ class DIS_ActivationManager {
 		// Creation of all the site menus: each menu is replicated for each available language.
 		$languages = DIS_MultiLangManager::get_languages_list();
 		foreach ( $languages as $lang ) {
-			$this->build_the_menu( $messages, DIS_MAIN_MENU, $lang );
+			$this->build_the_menu( $messages, DIS_PRIMARY_MENU, $lang );
 		}
 
 		array_push( $this->result['data'], '* END Menu Creation.' );

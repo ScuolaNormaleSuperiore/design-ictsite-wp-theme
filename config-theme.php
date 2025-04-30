@@ -30,7 +30,7 @@ define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
 define( 'DIS_ALERT_POST_TYPE', 'dis-alert' ); /* no multilanguage */
 
 /* MENU */
-define( 'DIS_SLUG_MAIN_MENU', 'dis_main_menu' );
+define( 'DIS_SLUG_MAIN_MENU', 'DIS_PRIMARY_MENU' );
 
 /* ROLES AND PERMISSIONS */
 define( 'DIS_EDIT_PERMISSION', 'edit_posts' );
