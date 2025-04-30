@@ -27,13 +27,16 @@ class DIS_ActivationManager {
 		array_push( $this->result['data'], '*** BEGIN THEME ACTIVATION ***' );
 
 		// Create the pages of the site, if not exist.
-		// $this->pages_creation( $this->result['data'] );
+		$this->pages_creation( $this->result['data'] );
+
 		// Create the taxonomies of the site, if not exist.
-		// $this->taxonomies_creation( $this->result['data'] );
+		$this->taxonomies_creation( $this->result['data'] );
+
 		// Create the menus of the site, if not exist.
 		$this->menu_creation( $this->result['data'] );
+
 		// Create the custom tables, if not exist.
-		// $this->create_the_tables( $this->result['data'] );
+		$this->create_the_tables( $this->result['data'] );
 
 		$this->result['status'] = 1;
 		array_push( $this->result['data'], '*** END THEME ACTIVATION ***' );
@@ -95,10 +98,12 @@ class DIS_ActivationManager {
 							// Assign the IT language to the page.
 							DIS_MultiLangManager::set_post_language( $new_page_id, $lang );
 						}
-						array_push( $messages, __( "Successfully create the page:  $slug_trans.", 'design_ict_site' ) );
+						$msg = sprintf(  __( "Successfully created the page: '%s'.", 'design_ict_site' ), $slug_trans );
+						array_push( $messages, $msg );
 					} else {
-						array_push( $messages, __( "Page: $slug_trans already present", 'design_ict_site' ) );
-						$related_posts[$lang] = $new_page_id;
+						$msg = sprintf( __( "Page: '%s' already present", 'design_ict_site' ), $slug_trans );
+						array_push( $messages, $msg );
+						$related_posts[ $lang ] = $new_page_id;
 					}
 				}
 			}
@@ -117,6 +122,7 @@ class DIS_ActivationManager {
 	private function menu_creation( &$messages ) {
 		array_push( $this->result['data'], '* BEGIN Menu Creation:' );
 
+		// Creation of all the site menus: each menu is replicated for each available language.
 		$this->build_the_menu( $messages, DIS_MAIN_MENU, 'en' );
 
 		array_push( $this->result['data'], '* END Menu Creation:' );
@@ -131,7 +137,7 @@ class DIS_ActivationManager {
 	private function create_the_tables( &$messages ) {
 		global $wpdb;
 		$table_name = $wpdb->prefix . 'dis_custom_translations';
-		if ( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) != $table_name ) {
+		if ( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) !== $table_name ) {
 			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
 			$charset_collate = $wpdb->get_charset_collate();
 			$sql = "CREATE TABLE $table_name (
@@ -144,22 +150,25 @@ class DIS_ActivationManager {
 				KEY idx_text_domain (domain)
 				) ENGINE=InnoDB $charset_collate;";
 			dbDelta( $sql );
-			array_push( $messages, __( "Table '$table_name' successfully created.", 'design_ict_site' ) );
+			$msg = sprintf( __( "Table '%s successfully created.", 'design_ict_site' ), $table_name );
+			array_push( $messages, $msg );
 		} else {
-			array_push( $messages, __( "Table '$table_name' already present.", 'design_ict_site' ) );
+			$msg = sprintf( __( "Table '%s' already present.", 'design_ict_site' ), $table_name );
+			array_push( $messages, $msg );
 		}
 		return true;
 	}
 
 	private function build_the_menu( &$messages, $menu, $lang ) {
-		$menu_name     = $menu['name'];
+		$menu_name     = $menu['name'] . ' [' . strtoupper( $lang ) . ']';
 		$menu_items    = $menu['items'];
 		$menu_location = $menu['location'];
 		$menu_object   = wp_get_nav_menu_object( $menu_name );
 
 		if ( $menu_object ) {
 			// Do nothing if the menu exists.
-			array_push( $messages, __( "The menu '$menu_name' already exists.", 'design_ict_site' ) );
+			$msg = sprintf( __( "The menu '%s' already exists.", 'design_ict_site' ), $menu_name );
+			array_push( $messages, $msg );
 			$menu_id = $menu_object->term_id;
 			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
 		} else {
@@ -201,7 +210,8 @@ class DIS_ActivationManager {
 			$locations_primary_arr[ $menu_location ] = $menu->term_id;
 			set_theme_mod( 'nav_menu_locations', $locations_primary_arr );
 			update_option( 'menu_check', true );
-			array_push( $messages, __( "NEW menu '$menu_name' created.", 'design_ict_site' ) );
+			$msg = sprintf( __( "NEW menu '%s' created.", 'design_ict_site' ), $menu_name );
+			array_push( $messages, $msg );
 		}
 	}
 

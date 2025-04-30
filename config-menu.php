@@ -10,11 +10,11 @@
 define(
 	'DIS_MENU_LOCATIONS',
 	array(
-		'primary-menu'      => 'Primary menu on the left',
-		'secondary-menu'    => 'Secondary menu on the right',
-		'top-header-menu'   => 'Header menu top right',
-		'footer-menu'       => 'Low footer menu',
-		'useful-links-menu' => 'Footer menu useful links',
+		'primary-menu-location'      => 'Primary on the left',
+		'secondary-menu-location'    => 'Secondary on the right',
+		'top-header-menu-location'   => 'Header top',
+		'footer-menu-location'       => 'Bottom footer',
+		'useful-links-menu-location' => 'Useful links',
 	)
 );
 
@@ -41,6 +41,15 @@ define(
 				'status'       => 'publish',
 				'classes'      => 'footer-link',
 				'link'         => '',
+			),
+			array(
+				'slug'         => '',
+				'title'        => 'ReuseLink',
+				'content_type' => '',
+				'post_type'    => '',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => 'https://developers.italia.it/it/software/sns_pi-scuolanormalesuperiore-design-laboratori-wordpress-theme',
 			),
 		),
 	)
