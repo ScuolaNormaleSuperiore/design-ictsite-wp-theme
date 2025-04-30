@@ -11,11 +11,101 @@
 ?>
 
 <!-- START FOOTER -->
-<footer class="it-footer" id="footer-container" role="contentinfo">
+	<footer class="it-footer" id="it-footer">
+		<div class="it-footer-main">
+			<div class="container">
+				<section>
+					<div class="row clearfix">
+						<div class="col-sm-12">
+							<div class="it-brand-wrapper"> <a href="sf-index.html"> <img src="img/logo-sns.png" height="80"
+										alt="Logo Scuola Normale" class="color-invert" />
+									<div class="it-brand-text">
+										<h2 class="no_toc">Servizi informatici di ateneo</h2>
+										<h3 class="no_toc d-none d-md-block">Area Progetti e Servizi ICT</h3>
+									</div>
+								</a>
+							</div>
+						</div>
+					</div>
+				</section>
+				<section class="py-4 border-white border-top">
+					<div class="row">
+						<div class="col-lg-4 col-md-4 pb-2">
+							<h4 class="customSpacing">HELPDESK</h4>
+							<p> L'helpdesk telefonico è disponibile dal lunedì al venerdì in orario di ufficio
+								(9.00-13.00/14.00-17.00)</p>
+							<div class="link-list-wrapper">
+								<ul class="footer-list link-list clearfix">
+									<li><a class="list-item" href="mailto:helpdesk@sns.it"
+											title="Contatta la mail dell'helpdesk">helpdesk@sns.it</a></li>
+									<li> +39 050 6133533 </li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 pb-2">
+							<h4 class="customSpacing">Link utili</h4>
+							<div class="link-list-wrapper">
+								<ul class="footer-list link-list clearfix">
+									<li><a class="list-item" href="paginabase.html" title="Vai alla pagina: policy IT">IT Policies</a>
+									</li>
+									<li><a class="list-item" href="paginabase.html"
+											title="Vai alla pagina: Documenti e link utili">Documenti e link utili</a> </li>
+								</ul>
+							</div>
+						</div>
+						<div class="col-lg-4 col-md-4 pb-2">
+							<div class="pb-2">
+								<h4 class="customSpacing">Area Progetti e Servizi ICT</h4>
+								<div class="link-list-wrapper">
+									<ul class="footer-list link-list clearfix">
+										<li><a class="list-item" href="paginabase.html" title="Vai alla pagina: policy IT">Servizio
+												Infrastrutture</a> </li>
+										<li><a class="list-item" href="paginabase.html"
+												title="Vai alla pagina: Documenti e link utili">Servizio Sistemi Informativi</a> </li>
+									</ul>
+								</div>
 
-	<?php echo 'ICT Site FOOTER'; ?>
-
-</footer>
+								<!-- blocco newsletter -->
+								<h4>Newsletter </h4>
+								<div class="form-group">
+									<div class="input-group border">
+										<div class="input-group-prepend">
+											<div class="input-group-text bg-transparent border-white">
+												<svg class="icon icon-sm icon-white" role="img" aria-labelledby="Mail">
+													<title>Mail</title>
+													<use xlink:href="bootstrap-italia/svg/sprites.svg#it-mail"></use>
+												</svg>
+											</div>
+										</div>
+										<label for="input-group-3" class="text-white text-light">Indirizzo e-mail</label>
+										<input autocomplete="email" type="text"
+											title="Inserisci il tuo indirizzo email per ricevere aggiornamenti"
+											class="form-control bg-transparent text-white border-white" id="input-group-3"
+											name="input-group-3">
+										<div class="input-group-append">
+											<button class="btn btn-primary bg-transparent text-white text-light border-white border"
+												type="button" id="button-newsletter-iscriviti">Invio</button>
+										</div>
+									</div>
+								</div>
+								<!-- fine blocco newsletter -->
+							</div>
+						</div>
+					</div>
+				</section>
+			</div>
+		</div>
+		<div class="it-footer-small-prints clearfix">
+			<div class="container">
+				<h3 class="visually-hidden">Sezione Link Utili</h3>
+				<ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
+					<li class="list-inline-item"><a href="paginabase.html" title="Privacy-Cookies">Privacy policy</a></li>
+					<li class="list-inline-item"><a href="paginabase.html" title="Accessibilità">Dichiarazione di
+							accessibilità</a></li>
+				</ul>
+			</div>
+		</div>
+	</footer>
 <!-- END FOOTER -->
 
 <?php wp_footer(); ?>
