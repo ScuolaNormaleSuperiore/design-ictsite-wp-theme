@@ -1,8 +1,8 @@
 <?php
 /**
- * KK Writer Theme: The analytics code of the site.
+ * The analytics code of the site.
  *
- * @package KK_Writer_Theme
+ * @package Design_ICT_Site
  */
 
 global $post;

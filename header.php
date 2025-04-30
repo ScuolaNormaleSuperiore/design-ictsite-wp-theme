@@ -17,6 +17,8 @@ $footer_logo  = DIS_OptionsManager::dis_get_option( 'footer_logo_visible', 'dis_
 $current_lang = DIS_MultiLangManager::get_current_language();
 $network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt_options' );
 $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
+// Menu options.
+$locations = get_nav_menu_locations();
 ?>
 
 <!doctype html>
@@ -87,12 +89,9 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 									</svg>
 								</a>
 								<!-- TOP BAR MENU -->
-								<div class="link-list-wrapper collapse" id="menu1a">
-									<ul class="link-list">
-										<li><a class="list-item" href="eventi.html">Eventi</a></li>
-										<li><a class="list-item" href="dovesiamo.html">Dove siamo</a></li>
-									</ul>
-								</div>
+								<?php
+								echo get_template_part( 'template-parts/menu/top-header-menu', false, array( 'locations' => $locations,) );
+								?>
 							</nav>
 						</div>
 						<div class="it-header-slim-right-zone">
@@ -107,7 +106,7 @@ $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_op
 			</div>
 		</div>
 	</div>
-	
+
 	<!-- MAIN BAR -->
 	<div class="it-nav-wrapper">
 		<!-- MAIN BAR - FIRST ROW -->

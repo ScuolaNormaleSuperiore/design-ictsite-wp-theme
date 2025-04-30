@@ -126,6 +126,10 @@ class DIS_ActivationManager {
 		$languages = DIS_MultiLangManager::get_languages_list();
 		foreach ( $languages as $lang ) {
 			$this->build_the_menu( $messages, DIS_PRIMARY_MENU, $lang );
+			$this->build_the_menu( $messages, DIS_SECONDARY_MENU, $lang );
+			$this->build_the_menu( $messages, DIS_HEADER_MENU, $lang );
+			$this->build_the_menu( $messages, DIS_FOOTER_MENU, $lang );
+			$this->build_the_menu( $messages, DIS_USEFUL_LINKS_MENU, $lang );
 		}
 
 		array_push( $this->result['data'], '* END Menu Creation.' );

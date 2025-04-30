@@ -127,7 +127,7 @@ define(
 define(
 	'DIS_USEFUL_LINKS_MENU',
 	array(
-		'name'     => 'Primary Menu',
+		'name'     => 'Useful Links Menu',
 		'location' => USEFUL_LINKS_LOCATION_SLUG,
 		'items'    => array(
 			array(
