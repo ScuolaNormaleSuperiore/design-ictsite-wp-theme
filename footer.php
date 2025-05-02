@@ -13,7 +13,7 @@
 $site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 $site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
 $current_lang = DIS_MultiLangManager::get_current_language();
-
+$locations    = get_nav_menu_locations();
 ?>
 
 <!-- START FOOTER -->
@@ -40,6 +40,7 @@ $current_lang = DIS_MultiLangManager::get_current_language();
 				</section>
 				<section class="py-4 border-white border-top">
 					<div class="row">
+						<!-- Help desk section -->
 						<div class="col-lg-4 col-md-4 pb-2">
 							<h4 class="customSpacing">HELPDESK</h4>
 							<p> L'helpdesk telefonico è disponibile dal lunedì al venerdì in orario di ufficio
@@ -53,15 +54,10 @@ $current_lang = DIS_MultiLangManager::get_current_language();
 							</div>
 						</div>
 						<div class="col-lg-4 col-md-4 pb-2">
-							<h4 class="customSpacing">Link utili</h4>
-							<div class="link-list-wrapper">
-								<ul class="footer-list link-list clearfix">
-									<li><a class="list-item" href="paginabase.html" title="Vai alla pagina: policy IT">IT Policies</a>
-									</li>
-									<li><a class="list-item" href="paginabase.html"
-											title="Vai alla pagina: Documenti e link utili">Documenti e link utili</a> </li>
-								</ul>
-							</div>
+							<!-- USEFUL LINKS -->
+							<?php
+								get_template_part( 'template-parts/menu/useful-links-menu', false,array( 'locations' => $locations ) );
+							?>
 						</div>
 						<div class="col-lg-4 col-md-4 pb-2">
 							<div class="pb-2">

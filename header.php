@@ -17,11 +17,8 @@ $network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt
 $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
 // Menu options.
 $locations = get_nav_menu_locations();
-require_once DIS_THEME_PATH . '/inc/walkers/main-menu-walker.php';
-require_once DIS_THEME_PATH . '/inc/walkers/menu-right-walker.php';
-
 // Check presence mandatory plugins.
-// check_mandatory_plugins();
+// @TODO: check_mandatory_plugins().
 ?>
 
 <!doctype html>
