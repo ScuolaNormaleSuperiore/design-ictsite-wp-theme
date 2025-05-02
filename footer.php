@@ -8,6 +8,12 @@
  *
  * @package Design_ICT_Site
  */
+
+// Site options.
+$site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
+$site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
+$current_lang = DIS_MultiLangManager::get_current_language();
+
 ?>
 
 <!-- START FOOTER -->
@@ -17,14 +23,18 @@
 				<section>
 					<div class="row clearfix">
 						<div class="col-sm-12">
-							<div class="it-brand-wrapper"> <a href="sf-index.html"> <img src="img/logo-sns.png" height="80"
-										alt="Logo Scuola Normale" class="color-invert" />
-									<div class="it-brand-text">
-										<h2 class="no_toc">Servizi informatici di ateneo</h2>
-										<h3 class="no_toc d-none d-md-block">Area Progetti e Servizi ICT</h3>
-									</div>
-								</a>
-							</div>
+							<!-- LOGO & TITLE -->
+							<?php
+								get_template_part(
+									'template-parts/footer/logo_title_footer',
+									false,
+									array(
+										'site_title'   => $site_title,
+										'site_tagline' => $site_tagline,
+										'current_lang' => $current_lang,
+									),
+								);
+								?>
 						</div>
 					</div>
 				</section>

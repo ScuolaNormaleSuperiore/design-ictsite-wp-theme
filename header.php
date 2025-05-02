@@ -12,8 +12,6 @@
 // Site options.
 $site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 $site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
-$header_logo  = DIS_OptionsManager::dis_get_option( 'header_logo_visible', 'dis_opt_options' );
-$footer_logo  = DIS_OptionsManager::dis_get_option( 'footer_logo_visible', 'dis_opt_options' );
 $current_lang = DIS_MultiLangManager::get_current_language();
 $network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt_options' );
 $network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
@@ -123,7 +121,7 @@ require_once DIS_THEME_PATH . '/inc/walkers/menu-right-walker.php';
 							<!-- LOGO & TITLE -->
 							<?php
 								get_template_part(
-									'template-parts/header/logo_title',
+									'template-parts/header/logo_title_header',
 									false,
 									array(
 										'site_title'   => $site_title,

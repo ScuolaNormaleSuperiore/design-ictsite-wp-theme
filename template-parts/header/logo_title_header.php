@@ -7,14 +7,15 @@
 
 $logo_visible = DIS_OptionsManager::dis_get_option( 'header_logo_visible', 'dis_opt_options' );
 if ( $logo_visible === 'true' ) {
-	$current_lang  = $args['current_lang'] ?? '';
-	$site_title    = $args['site_title'] ?? '';
-	$tagline       = $args['site_tagline'] ?? '';
-	$logo_url      = DIS_OptionsManager::dis_get_option( 'site_logo', 'dis_opt_options' );
+	$current_lang = $args['current_lang'] ?? '';
+	$site_title   = $args['site_title'] ?? '';
+	$tagline      = $args['site_tagline'] ?? '';
+	$logo_url     = DIS_OptionsManager::dis_get_option( 'site_logo', 'dis_opt_options' );
 ?>
 
 	<!-- The logo is visible -->
 	<div class="it-brand-wrapper">
+
 		<?php
 		if ( $logo_url ) {
 			if( pathinfo( $logo_url, PATHINFO_EXTENSION ) !== 'svg' ) {
@@ -45,7 +46,7 @@ if ( $logo_visible === 'true' ) {
 			}
 		} else {
 		?>
-			<!-- DEfault Logo -->
+			<!-- Default Logo -->
 			<a href="<?php echo esc_url( site_url() ); ?>">
 				<img src="<?php echo DIS_THEME_URL . '/assets/img/logo-default.png' ; ?>"
 					height="80"
@@ -58,6 +59,7 @@ if ( $logo_visible === 'true' ) {
 		<?php
 		}
 		?>
+
 	</div>
 
 <?php

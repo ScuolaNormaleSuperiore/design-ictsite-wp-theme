@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-1) Logo Footer
 2) Footer menu bottom
 3) Footer Useful Lins
 4) Footer Show Newsletter
