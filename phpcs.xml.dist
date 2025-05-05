@@ -114,5 +114,7 @@
 	</rule>
 
 	<!-- Custom rules -->
+	<!-- Disallow Yoda conditions in your codebase. -->
+	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
 
 </ruleset>

@@ -21,7 +21,7 @@ class DIS_OptionsManager {
 	public function __construct() {}
 
 	public function build_conf_menu() {
-		add_action( 'cmb2_admin_init', array( $this, 'setup_options' ) );
+		add_action( 'cmb2_admin_init', array( $this, 'advanced_options' ) );
 		add_action( 'admin_enqueue_scripts', array( $this, 'setup_option_assets' ) );
 	}
 
@@ -34,7 +34,7 @@ class DIS_OptionsManager {
 		}
 	}
 
-	public function setup_options() {
+	public function advanced_options() {
 		// 1 - Registers options page "Base options".
 		$this->add_opt_base_option( $this->parent_slug, $this->tab_group, $this->capability );
 		// 2 - Registers options page "Site alerts".
@@ -47,7 +47,9 @@ class DIS_OptionsManager {
 		$this->add_opt_site_contacts( 'dis_opt_site_contacts', $this->tab_group, $this->capability );
 		// 6- Registers options page "Social media".
 		$this->add_opt_social_media( 'dis_opt_social_media', $this->tab_group, $this->capability );
-		// 7 - Registers options page "Advanced settings".
+		// 7 - Registers options page "Newsletter settings".
+		$this->add_opt_newsletter_settings( 'dis_opt_newsletter_settings', $this->tab_group, $this->capability );
+		// 8 - Registers options page "Advanced settings".
 		$this->add_opt_advanced_settings( 'dis_opt_advanced_settings', $this->tab_group, $this->capability );
 	}
 
@@ -191,16 +193,14 @@ class DIS_OptionsManager {
 		}
 
 		$alerts_options = new_cmb2_box( $args );
-
 		$alerts_options->add_field(
 			array(
-			'id'   => 'alerts_instructions',
-			'name' => __( 'Home Page alerts', 'design_ict_site' ),
-			'desc' => __( 'Enter messages that will be displayed on the homepage', 'design_ict_site' ) . '.',
-			'type' => 'title',
+				'id'   => 'alerts_instructions',
+				'name' => __( 'Home Page alerts', 'design_ict_site' ),
+				'desc' => __( 'Enter messages that will be displayed on the homepage', 'design_ict_site' ) . '.',
+				'type' => 'title',
 			)
 		);
-
 		$alerts_group_id = $alerts_options->add_field(
 			array(
 				'id'          => 'messages',
@@ -208,46 +208,43 @@ class DIS_OptionsManager {
 				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages ​​supported by the site', 'design_ict_site' )   . '.',
 				'repeatable'  => true,
 				'options'     => array(
-						'group_title'    => __( 'Message', 'design_ict_site' ) . '&nbsp{#}',
-						'add_button'     => __( 'Add a message', 'design_ict_site' ),
-						'remove_button'  => __( 'Remove the message', 'design_ict_site' ),
-						'sortable'       => true,
-						'closed'         => true,
-						'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'design_ict_site' ),
+					'group_title'    => __( 'Message', 'design_ict_site' ) . '&nbsp{#}',
+					'add_button'     => __( 'Add a message', 'design_ict_site' ),
+					'remove_button'  => __( 'Remove the message', 'design_ict_site' ),
+					'sortable'       => true,
+					'closed'         => true,
+					'remove_confirm' => esc_html__( 'Are you sure you want to remove?', 'design_ict_site' ),
 				),
 			)
 		);
-
-		$alerts_options->add_group_field( 
+		$alerts_options->add_group_field(
 			$alerts_group_id,
 			array(
 				'name'    => 'Choose the color of the message',
 				'id'      => 'message_color',
 				'type'    => 'radio_inline',
 				'options' => array(
-						'danger'  => '<span class="radio-color red"></span>' . __( 'Danger', 'design_ict_site' ),
-						'success' => '<span class="radio-color green"></span>' . __( 'Success', 'design_ict_site' ),
-						'warning' => '<span class="radio-color brown"></span>' . __( 'Warning', 'design_ict_site' ),
-						'info'    => '<span class="radio-color gray"></span>' . __( 'Info', 'design_ict_site' ),
+					'danger'  => '<span class="radio-color red"></span>' . __( 'Danger', 'design_ict_site' ),
+					'success' => '<span class="radio-color green"></span>' . __( 'Success', 'design_ict_site' ),
+					'warning' => '<span class="radio-color brown"></span>' . __( 'Warning', 'design_ict_site' ),
+					'info'    => '<span class="radio-color gray"></span>' . __( 'Info', 'design_ict_site' ),
 				),
 				'default' => 'info',
 			)
 		);
-
 		$alerts_options->add_group_field(
-		$alerts_group_id,
-		array(
+			$alerts_group_id,
+			array(
 				'id'         => 'message_text',
 				'name'       => __( 'Text', 'design_ict_site' ),
 				'desc'       => __( 'Maximum 300 characters', 'design_ict_site' ),
 				'type'       => 'textarea_small',
 				'attributes' => array(
-						'rows'      => 3,
-						'maxlength' => '300',
+					'rows'      => 3,
+					'maxlength' => '300',
 				),
 			)
 		);
-
 		$alerts_options->add_group_field(
 			$alerts_group_id,
 			array(
@@ -370,7 +367,7 @@ class DIS_OptionsManager {
 		}
 		$home_options = new_cmb2_box( $args );
 
-		// CAROUSEL Section (Home Page)
+		// CAROUSEL Section (Home Page).
 		$home_options->add_field(
 			array(
 				'id'   => 'home_carousel',
@@ -387,8 +384,8 @@ class DIS_OptionsManager {
 				'type' => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true' => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true' => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
@@ -428,13 +425,12 @@ class DIS_OptionsManager {
 				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$contacts_options = new_cmb2_box( $args );
-
 		$contacts_options->add_field(
 			array(
-			'id' => 'social_info',
-			'name'        => __( 'Site contacts', 'design_ict_site' ),
-			'desc' => __( 'The contact shown in the footer.', 'design_ict_site' ),
-			'type' => 'title',
+				'id'   => 'social_info',
+				'name' => __( 'Site contacts', 'design_ict_site' ),
+				'desc' => __( 'The contact shown in the footer.', 'design_ict_site' ),
+				'type' => 'title',
 			)
 		);
 		$contacts_options->add_field(
@@ -469,7 +465,6 @@ class DIS_OptionsManager {
 				'type'       => 'text',
 			)
 		);
-
 		$contacts_options->add_field(
 			array(
 				'id'   => 'smtp',
@@ -477,7 +472,6 @@ class DIS_OptionsManager {
 				'type' => 'title',
 			)
 		);
-		
 		$contacts_options->add_field(
 			array(
 				'id'         => 'smtp_sender_name',
@@ -486,7 +480,6 @@ class DIS_OptionsManager {
 				'type'       => 'text',
 			)
 		);
-
 		$contacts_options->add_field(
 			array(
 				'id'         => 'smtp_sender_email',
@@ -522,25 +515,25 @@ class DIS_OptionsManager {
 
 		$social_options->add_field(
 			array(
-				'id' => 'social_info',
-				'name'        => __( 'Social media', 'design_ict_site' ),
+				'id'   => 'social_info',
+				'name' => __( 'Social media', 'design_ict_site' ),
 				'desc' => __( 'Insert here the links to your social media.', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
 		$social_options->add_field(
 			array(
-				'id' => 'show_socials',
-				'name' => __( 'Show social media icons', 'design_ict_site' ),
-				'desc' => __( 'Enable the display of social media in the header and footer of the page.', 'design_ict_site' ),
-				'type' => 'radio_inline',
+				'id'      => 'show_socials',
+				'name'    => __( 'Show social media icons', 'design_ict_site' ),
+				'desc'    => __( 'Enable the display of social media in the header and footer of the page.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true' => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 				'attributes' => array(
-						'data-conditional-value' => "false",
+					'data-conditional-value' => "false",
 				),
 			)
 		);
@@ -567,9 +560,9 @@ class DIS_OptionsManager {
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'pinterest',
-			'name' => 'Pinterest',
-			'type' => 'text_url',
+				'id'   => 'pinterest',
+				'name' => 'Pinterest',
+				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
@@ -595,36 +588,131 @@ class DIS_OptionsManager {
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'tiktok',
-			'name' => 'TikTok',
-			'type' => 'text_url',
+				'id'   => 'tiktok',
+				'name' => 'TikTok',
+				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'snapchat',
-			'name' => 'Snapchat',
-			'type' => 'text_url',
+				'id'   => 'snapchat',
+				'name' => 'Snapchat',
+				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'github',
-			'name' => 'GitHub',
-			'type' => 'text_url',
+				'id'   => 'github',
+				'name' => 'GitHub',
+				'type' => 'text_url',
 			)
 		);
 		$social_options->add_field(
 			array(
-			'id'   => 'gitlab',
-			'name' => 'GitLab',
-			'type' => 'text_url',
+				'id'   => 'gitlab',
+				'name' => 'GitLab',
+				'type' => 'text_url',
 			)
 		);
 	}
 
 	/**
-	 * 7 - Registers options page "Advanced settings".
+	 * 7 - Registers options page "Newsletter settings".
+	 *
+	 * @return boolean
+	 */
+	public function add_opt_newsletter_settings( $option_key, $tab_group, $capability ) {
+		$args = array(
+			'id'           => $option_key . '_id',
+			'title'        => esc_html__( 'Newsletter options', 'design_ict_site' ),
+			'object_types' => array( 'options-page' ),
+			'option_key'   => $option_key,
+			'tab_title'    => __( 'Newsletter options', 'design_ict_site' ),
+			'parent_slug'  => $this->parent_slug,
+			'tab_group'    => $tab_group,
+			'capability'   => $capability,
+		);
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
+		}
+		$newsletter_options = new_cmb2_box( $args );
+
+		$newsletter_options->add_field(
+			array(
+				'id'   => 'newsletter',
+				'name' => __( 'Newsletter', 'design_ict_site' ),
+				'type' => 'title',
+			)
+		);
+		$newsletter_options->add_field(
+			array(
+				'id'      => 'newsletter_enabled',
+				'name'    => __( 'Enable the newsletter', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+		$newsletter_options->add_field(
+			array(
+				'id'               => 'newsletter_manager',
+				'name'             => __( 'Newsletter manager', 'design_ict_site' ),
+				'desc'             => __( 'Selection of the program used to manage the site newsletter' , 'design_ict_site' ),
+				'type'             => 'select',
+				'default'          => 'default',
+				'show_option_none' => false,
+				'options'          => array(
+					'brevo' => __( 'Brevo', 'design_ict_site' ),
+				),
+			)
+		);
+		$newsletter_options->add_field(
+			array(
+				'id'         => 'newsletter_api_token',
+				'name'       => __( 'API token', 'design_ict_site' ),
+				'type'       => 'text',
+				'attributes' => array(
+					'type' => 'password',
+				),
+			)
+		);
+		$newsletter_options->add_field(
+			array(
+				'id'         => 'newsletter_list_id',
+				'name'       => __( 'List ID', 'design_ict_site' ),
+				'desc'       => __( 'ID of the list associated with the site' , 'design_ict_site' ),
+				'type'       => 'text_small',
+				'attributes' => array(
+					'type'    => 'number',
+					'pattern' => '\d*',
+				),
+				'sanitization_cb' => 'absint',
+				'escape_cb'       => 'absint',
+			)
+		);
+		$newsletter_options->add_field(
+			array(
+				'id'         => 'newsletter_template_id',
+				'name'       => __( 'Template ID', 'design_ict_site' ),
+				'desc'       => __( 'ID of the page template that handles the double OptIn' , 'design_ict_site' ),
+				'type'       => 'text_small',
+				'attributes' => array(
+					'type'    => 'number',
+					'pattern' => '\d*',
+				),
+				'sanitization_cb' => 'absint',
+				'escape_cb'       => 'absint',
+			)
+		);
+	}
+
+
+	/**
+	 * 8 - Registers options page "Advanced settings".
 	 *
 	 * @return boolean
 	 */
@@ -644,7 +732,7 @@ class DIS_OptionsManager {
 			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$advanced_options = new_cmb2_box( $args );
-	
+
 		$advanced_options->add_field(
 			array(
 					'id'   => 'advanced_info',
@@ -653,7 +741,6 @@ class DIS_OptionsManager {
 					'type' => 'title',
 			)
 		);
-	
 		$advanced_options->add_field(
 			array(
 				'id'   => 'login',
@@ -661,7 +748,6 @@ class DIS_OptionsManager {
 				'type' => 'title',
 			)
 		);
-	
 		$advanced_options->add_field(
 			array(
 				'id'      => 'login_button_visible',
@@ -669,12 +755,12 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
-	
+
 		$advanced_options->add_field(
 			array(
 				'id'   => 'multilingua',
@@ -682,7 +768,6 @@ class DIS_OptionsManager {
 				'type' => 'title',
 			)
 		);
-	
 		$advanced_options->add_field(
 			array(
 				'id'      => 'language_selector_visible',
@@ -690,12 +775,12 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
-	
+
 		$advanced_options->add_field(
 			array(
 				'id'   => 'analytics',
@@ -703,7 +788,6 @@ class DIS_OptionsManager {
 				'type' => 'title',
 			)
 		);
-	
 		$advanced_options->add_field(
 			array(
 				'id'   => 'analytics_code',
@@ -711,12 +795,11 @@ class DIS_OptionsManager {
 				'desc' => __( 'Enter the analytics code.', 'design_ict_site' ),
 				'type' => 'textarea_code',
 				'attributes'    => array(
-						'rows'  => 10,
-						'maxlength'  => '1000',
+					'rows'       => 10,
+					'maxlength'  => '1000',
 				),
 			)
 		);
-	
 		$advanced_options->add_field(
 			array(
 				'id'   => 'rest_api',
@@ -732,12 +815,11 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
-
 		$advanced_options->add_field(
 			array(
 				'id'   => 'xmlrpc_api',
@@ -753,13 +835,11 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'false',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);
-
-
 		$advanced_options->add_field(
 			array(
 				'id'   => 'seo_section',
@@ -775,8 +855,8 @@ class DIS_OptionsManager {
 				'type'    => 'radio_inline',
 				'default' => 'true',
 				'options' => array(
-						'true'  => __( 'Yes', 'design_ict_site' ),
-						'false' => __( 'No', 'design_ict_site' ),
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
 				),
 			)
 		);

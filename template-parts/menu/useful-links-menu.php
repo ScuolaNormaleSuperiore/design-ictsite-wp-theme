@@ -18,7 +18,7 @@ if ( has_nav_menu( $location ) ) {
 	$menuitems   = $menuitems ? $menuitems : array();
 	if ( count( $menuitems ) > 0 ) {
 ?>
-		<h4 class="customSpacing">Link utili</h4>
+		<h4 class="customSpacing"><?php echo __( 'Useful links menu', 'design_ict_site' ); ?></h4>
 		<div class="link-list-wrapper">
 		<?php
 			wp_nav_menu(

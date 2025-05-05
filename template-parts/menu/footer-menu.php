@@ -19,7 +19,7 @@ if ( has_nav_menu( $location ) ) {
 	if ( count( $menuitems ) > 0 ) {
 ?>
 		<div class="container">
-			<h3 class="visually-hidden">Link footer</h3>
+			<h3 class="visually-hidden"><?php echo __( 'Footer menu', 'design_ict_site' ); ?></h3>
 			<?php
 				wp_nav_menu(
 					array(

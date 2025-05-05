@@ -70,31 +70,18 @@ $locations    = get_nav_menu_locations();
 												title="Vai alla pagina: Documenti e link utili">Servizio Sistemi Informativi</a> </li>
 									</ul>
 								</div>
-
-								<!-- blocco newsletter -->
-								<h4>Newsletter </h4>
-								<div class="form-group">
-									<div class="input-group border">
-										<div class="input-group-prepend">
-											<div class="input-group-text bg-transparent border-white">
-												<svg class="icon icon-sm icon-white" role="img" aria-labelledby="Mail">
-													<title>Mail</title>
-													<use xlink:href="bootstrap-italia/svg/sprites.svg#it-mail"></use>
-												</svg>
-											</div>
-										</div>
-										<label for="input-group-3" class="text-white text-light">Indirizzo e-mail</label>
-										<input autocomplete="email" type="text"
-											title="Inserisci il tuo indirizzo email per ricevere aggiornamenti"
-											class="form-control bg-transparent text-white border-white" id="input-group-3"
-											name="input-group-3">
-										<div class="input-group-append">
-											<button class="btn btn-primary bg-transparent text-white text-light border-white border"
-												type="button" id="button-newsletter-iscriviti">Invio</button>
-										</div>
-									</div>
-								</div>
-								<!-- fine blocco newsletter -->
+								<!-- BEGIN NEWSLETTER -->
+								<?php
+									get_template_part(
+										'template-parts/common/newsletter',
+										false,
+										array(
+											'site_title'   => $site_title,
+											'site_tagline' => $site_tagline,
+											'current_lang' => $current_lang,
+										),
+									);
+								?>
 							</div>
 						</div>
 					</div>

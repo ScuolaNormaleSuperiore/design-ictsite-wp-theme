@@ -5,7 +5,7 @@
  * @package Design_ICT_Site
  */
 
- $search_link = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+$search_link = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 ?>
 <div class="it-search-wrapper">
 	<span class="d-none d-md-block"><?php echo __( 'Search', 'design_ict_site' ); ?></span>
