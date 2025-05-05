@@ -56,7 +56,7 @@ $locations    = get_nav_menu_locations();
 						<div class="col-lg-4 col-md-4 pb-2">
 							<!-- USEFUL LINKS -->
 							<?php
-								get_template_part( 'template-parts/menu/useful-links-menu', false,array( 'locations' => $locations ) );
+								get_template_part( 'template-parts/menu/useful-links-menu', false, array( 'locations' => $locations ) );
 							?>
 						</div>
 						<div class="col-lg-4 col-md-4 pb-2">
@@ -102,14 +102,10 @@ $locations    = get_nav_menu_locations();
 			</div>
 		</div>
 		<div class="it-footer-small-prints clearfix">
-			<div class="container">
-				<h3 class="visually-hidden">Sezione Link Utili</h3>
-				<ul class="it-footer-small-prints-list list-inline mb-0 d-flex flex-column flex-md-row">
-					<li class="list-inline-item"><a href="paginabase.html" title="Privacy-Cookies">Privacy policy</a></li>
-					<li class="list-inline-item"><a href="paginabase.html" title="Accessibilità">Dichiarazione di
-							accessibilità</a></li>
-				</ul>
-			</div>
+			<!-- FOOTER -MENU -->
+			<?php
+				get_template_part( 'template-parts/menu/footer-menu', false, array( 'locations' => $locations ) );
+			?>
 		</div>
 	</footer>
 <!-- END FOOTER -->

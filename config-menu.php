@@ -13,10 +13,10 @@ define( 'SECONDARY_LOCATION_SLUG', 'secondary-menu-location' );
 define( 'SECONDARY_LOCATION_TITLE', 'Secondary on the right' );
 define( 'TOP_HEADER_LOCATION_SLUG', 'top-header-menu-location' );
 define( 'TOP_HEADER_LOCATION_TITLE', 'Header top' );
-define( 'BOTTOM_FOOTER_LOCATION_SLUG', 'bottom-footer-menu-location' );
-define( 'BOTTOM_FOOTER_LOCATION_TITLE', 'Bottom footer' );
 define( 'USEFUL_LINKS_LOCATION_SLUG', 'useful-links-menu-location' );
 define( 'USEFUL_LINKS_LOCATION_TITLE', 'Useful links' );
+define( 'BOTTOM_FOOTER_LOCATION_SLUG', 'bottom-footer-menu-location' );
+define( 'BOTTOM_FOOTER_LOCATION_TITLE', 'Bottom footer' );
 
 
 define(
@@ -150,7 +150,7 @@ define(
 		DIS_PRIMARY_MENU,
 		DIS_SECONDARY_MENU,
 		DIS_HEADER_MENU,
-		DIS_FOOTER_MENU,
 		DIS_USEFUL_LINKS_MENU,
+		DIS_FOOTER_MENU,
 	)
 );

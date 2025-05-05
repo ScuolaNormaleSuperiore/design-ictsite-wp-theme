@@ -1,11 +1,11 @@
 <?php
 /**
- * Section with the Logo and the title of the site.
+ * Section with the useful links menu of the footer.
  *
  * @package Design_ICT_Site
  */
 
-require_once DIS_THEME_PATH . '/inc/walkers/useful-links-walker.php';
+require_once DIS_THEME_PATH . '/inc/walkers/useful-links-menu-walker.php';
 
 $locations  = $args['locations'];
 $location   = USEFUL_LINKS_LOCATION_SLUG;
