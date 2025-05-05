@@ -95,10 +95,10 @@ $locations = get_nav_menu_locations();
 							</nav>
 						</div>
 						<div class="it-header-slim-right-zone">
-							<!-- Language selection -->
+							<!-- Language selection section -->
 							<?php get_template_part( 'template-parts/header/language_selector' ); ?>
 
-							<!-- Login -->
+							<!-- Login section -->
 							<?php get_template_part( 'template-parts/header/login_button' ); ?>
 						</div>
 					</div>
@@ -115,7 +115,7 @@ $locations = get_nav_menu_locations();
 				<div class="row">
 					<div class="col-12">
 						<div class="it-header-center-content-wrapper">
-							<!-- LOGO & TITLE -->
+							<!-- Logo & title section -->
 							<?php
 								get_template_part(
 									'template-parts/header/logo_title_header',
@@ -127,11 +127,11 @@ $locations = get_nav_menu_locations();
 									),
 								);
 							?>
-							<!-- SOCIAL AND SITE SEARCH -->
+							<!--Social and site search section -->
 							<div class="it-right-zone">
-								<!-- SOCIAL-->
+								<!-- social section-->
 								<?php get_template_part( 'template-parts/header/social_list' ); ?>
-								<!-- SITE SEARCH -->
+								<!-- Site search section -->
 								<?php get_template_part( 'template-parts/header/site_search' ); ?>
 							</div>
 						</div>

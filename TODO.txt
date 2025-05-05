@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-- Footer Offices
 - HP main hero
 - HP Service Clusters
 - HP News
