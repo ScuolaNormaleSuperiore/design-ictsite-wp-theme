@@ -105,13 +105,13 @@ define(
 			array(
 				'id'       => 'news_section',
 				'name'     => 'News',
-				'template' => 'template-parts/home/hp-list-news',
+				'template' => 'template-parts/home/news-list',
 			),
 		'projects_section' =>
 		array(
 			'id'       => 'news_section',
 			'name'     => 'Projects',
-			'template' => 'template-parts/home/hp-list-projects',
+			'template' => 'template-parts/home/project-list',
 		),
 		'featured_contents' =>
 			array(
@@ -123,13 +123,13 @@ define(
 			array(
 				'id'       => 'articles_section',
 				'name'     => 'Articoli',
-				'template' => 'template-parts/home/hp-list-article',
+				'template' => 'template-parts/home/article-list',
 			),
 		'banners_section' =>
 			array(
 				'id'       => 'banners_section',
 				'name'     => 'Banner',
-				'template' => 'template-parts/home/hp-banners-section',
+				'template' => 'template-parts/home/banners-section',
 			),
 	)
 );

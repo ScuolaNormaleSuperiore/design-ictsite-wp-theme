@@ -435,34 +435,34 @@ class DIS_OptionsManager {
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'site_city',
-				'name'       => __( 'City', 'design_ict_site' ),
-				'desc'       => __( 'The city of the site.', 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_city',
+				'name' => __( 'City', 'design_ict_site' ),
+				'desc' => __( 'The city of the site.', 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'site_address',
-				'name'       => __( 'Address', 'design_ict_site' ),
-				'desc'       => __( "The address of the site." , 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_address',
+				'name' => __( 'Address', 'design_ict_site' ),
+				'desc' => __( 'The address of the site.' , 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'site_email',
-				'name'       => __( 'E-mail', 'design_ict_site' ),
-				'desc'       => __( 'The e-mail of the site.', 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_email',
+				'name' => __( 'E-mail', 'design_ict_site' ),
+				'desc' => __( 'The e-mail of the site.', 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'site_telephone',
-				'name'       => __( 'Phone number', 'design_ict_site' ),
-				'desc'       => __( 'The phone number of the site.', 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'site_telephone',
+				'name' => __( 'Phone number', 'design_ict_site' ),
+				'desc' => __( 'The phone number of the site.', 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$contacts_options->add_field(
@@ -474,18 +474,18 @@ class DIS_OptionsManager {
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'smtp_sender_name',
-				'name'       => __( 'SMTP sender name', 'design_ict_site' ),
-				'desc'       => __( 'The name that must appear on the e-mails sent by the site.', 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'smtp_sender_name',
+				'name' => __( 'SMTP sender name', 'design_ict_site' ),
+				'desc' => __( 'The name that must appear on the e-mails sent by the site.', 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 		$contacts_options->add_field(
 			array(
-				'id'         => 'smtp_sender_email',
-				'name'       => __( 'SMTP sender email', 'design_ict_site' ),
-				'desc'       => __( 'The provider e-mail that must be used as sender.', 'design_ict_site' ),
-				'type'       => 'text',
+				'id'   => 'smtp_sender_email',
+				'name' => __( 'SMTP sender email', 'design_ict_site' ),
+				'desc' => __( 'The provider e-mail that must be used as sender.', 'design_ict_site' ),
+				'type' => 'text',
 			)
 		);
 
@@ -533,7 +533,7 @@ class DIS_OptionsManager {
 					'false' => __( 'No', 'design_ict_site' ),
 				),
 				'attributes' => array(
-					'data-conditional-value' => "false",
+					'data-conditional-value' => 'false',
 				),
 			)
 		);
