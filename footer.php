@@ -40,25 +40,19 @@ $locations    = get_nav_menu_locations();
 				</section>
 				<section class="py-4 border-white border-top">
 					<div class="row">
-						<!-- Help desk section -->
+						<!-- Contacts section -->
 						<div class="col-lg-4 col-md-4 pb-2">
-							<h4 class="customSpacing">HELPDESK</h4>
-							<p> L'helpdesk telefonico è disponibile dal lunedì al venerdì in orario di ufficio
-								(9.00-13.00/14.00-17.00)</p>
-							<div class="link-list-wrapper">
-								<ul class="footer-list link-list clearfix">
-									<li><a class="list-item" href="mailto:helpdesk@sns.it"
-											title="Contatta la mail dell'helpdesk">helpdesk@sns.it</a></li>
-									<li> +39 050 6133533 </li>
-								</ul>
-							</div>
+							<?php
+									get_template_part( 'template-parts/footer/contacts-section', false, array( 'locations' => $locations ) );
+							?>
 						</div>
+						<!-- USEFUL LINKS -->
 						<div class="col-lg-4 col-md-4 pb-2">
-							<!-- USEFUL LINKS -->
 							<?php
 								get_template_part( 'template-parts/menu/useful-links-menu', false, array( 'locations' => $locations ) );
 							?>
 						</div>
+
 						<div class="col-lg-4 col-md-4 pb-2">
 							<div class="pb-2">
 								<h4 class="customSpacing">Area Progetti e Servizi ICT</h4>
@@ -84,7 +78,7 @@ $locations    = get_nav_menu_locations();
 								?>
 							</div>
 						</div>
-					</div>
+					</div> <!-- row -->
 				</section>
 			</div>
 		</div>

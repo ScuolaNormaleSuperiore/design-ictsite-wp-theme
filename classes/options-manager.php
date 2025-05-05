@@ -418,7 +418,7 @@ class DIS_OptionsManager {
 			'capability'   => $capability,
 			'parent_slug'  => $this->parent_slug,
 			'tab_group'    => $tab_group,
-			'tab_title'    => __( 'Site contacts', 'design_ict_site' ),	
+			'tab_title'    => __( 'Site contacts', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
 		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {

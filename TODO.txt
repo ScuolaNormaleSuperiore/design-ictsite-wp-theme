@@ -1,14 +1,13 @@
 
 * TODO LIST:
 
-1) Footer Help Desk
-2) Footer Offices??
-3) HP main hero
-4) HP Service Clusters
-5) HP News
-6) HP Projects
-7) HP Banner
-8) HP Blog ??
+- Footer Offices
+- HP main hero
+- HP Service Clusters
+- HP News
+- HP Projects
+- HP Banner
+- HP Blog ??
 
 * Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
