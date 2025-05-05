@@ -184,3 +184,9 @@ $locations = get_nav_menu_locations();
 
 </header>
 <!-- END HEADER -->
+
+
+<!-- ALERT section -->
+<?php
+	get_template_part( 'template-parts/header/alert' );
+?>

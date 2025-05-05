@@ -205,10 +205,10 @@ class DIS_OptionsManager {
 			array(
 				'id'          => 'messages',
 				'type'        => 'group',
-				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages ​​supported by the site', 'design_ict_site' )   . '.',
+				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages supported by the site', 'design_ict_site' )   . '.',
 				'repeatable'  => true,
 				'options'     => array(
-					'group_title'    => __( 'Message', 'design_ict_site' ) . '&nbsp{#}',
+					'group_title'    => __( 'Message', 'design_ict_site' ) . ' {#}',
 					'add_button'     => __( 'Add a message', 'design_ict_site' ),
 					'remove_button'  => __( 'Remove the message', 'design_ict_site' ),
 					'sortable'       => true,
