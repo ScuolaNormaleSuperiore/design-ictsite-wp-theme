@@ -375,7 +375,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "event"
+                    "value": "dis-event"
                 }
             ]
         ],

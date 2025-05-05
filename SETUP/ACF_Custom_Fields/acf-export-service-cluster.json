@@ -56,7 +56,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "service-cluster"
+                    "value": "dis-service-cluster"
                 }
             ]
         ],

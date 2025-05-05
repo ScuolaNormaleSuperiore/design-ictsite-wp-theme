@@ -180,7 +180,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "person"
+                    "value": "dis-person"
                 }
             ]
         ],

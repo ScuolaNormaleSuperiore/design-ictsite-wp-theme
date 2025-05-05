@@ -85,6 +85,7 @@ class Service_Cluster_Manager {
 	 * @return void
 	 */
 	function add_fields() {
+
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
@@ -93,6 +94,27 @@ class Service_Cluster_Manager {
 		'key' => 'group_67d2c21943c45',
 		'title' => 'Service Cluster Fields',
 		'fields' => array(
+			array(
+				'key' => 'field_67d2f11f660f1',
+				'label' => 'Short description',
+				'name' => 'short_description',
+				'aria-label' => '',
+				'type' => 'wysiwyg',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'allow_in_bindings' => 0,
+				'tabs' => 'all',
+				'toolbar' => 'full',
+				'media_upload' => 1,
+				'delay' => 0,
+			),
 			array(
 				'key' => 'field_67d2c219021c1',
 				'label' => 'Icon',
@@ -119,34 +141,13 @@ class Service_Cluster_Manager {
 				'allow_in_bindings' => 0,
 				'preview_size' => 'medium',
 			),
-			array(
-				'key' => 'field_67d2f11f660f1',
-				'label' => 'Short description',
-				'name' => 'short_description',
-				'aria-label' => '',
-				'type' => 'wysiwyg',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'allow_in_bindings' => 0,
-				'tabs' => 'all',
-				'toolbar' => 'full',
-				'media_upload' => 1,
-				'delay' => 0,
-			),
 		),
 		'location' => array(
 			array(
 				array(
 					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'service-cluster',
+					'value' => 'dis-service-cluster',
 				),
 			),
 		),

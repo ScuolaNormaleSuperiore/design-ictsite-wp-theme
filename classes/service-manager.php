@@ -85,6 +85,7 @@ class Service_Manager {
 	 * @return void
 	 */
 	function add_fields() {
+
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
@@ -471,7 +472,7 @@ class Service_Manager {
 				array(
 					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'post',
+					'value' => 'dis-service',
 				),
 			),
 		),
@@ -485,6 +486,7 @@ class Service_Manager {
 		'description' => '',
 		'show_in_rest' => 0,
 	) );
+
 	}
 
 }

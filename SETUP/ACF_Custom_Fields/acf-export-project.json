@@ -298,7 +298,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "project"
+                    "value": "dis-project"
                 }
             ]
         ],
