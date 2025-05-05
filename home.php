@@ -10,20 +10,30 @@
 get_header();
 
 // Retrieve all the sections of this site.
-$sections = DIS_ContentsManager::get_hp_section_options( true );
-foreach ( $sections as $section ) {
-	echo esc_attr( $section['id'] ) . '<br>';
-}
+$all_sections = DIS_ContentsManager::get_hp_sections();
+$sections     = DIS_ContentsManager::get_hp_section_options( true );
 ?>
 
 <main id="main-container" class="main-container redbrown" role="main">
 
-			<?php
-				$languages = DIS_MultiLangManager::get_languages_list();
-				echo 'Languages defined:' . esc_attr( count( $languages ) );
-			?>
-
-
+	<?php
+	foreach ( $sections as $section ) {
+		$sec_id   = $section['id'];
+		$sec_data = ( $sec_id && array_key_exists( $sec_id, $all_sections ) ) ? $all_sections[$sec_id] : null;
+		echo $sec_id. '<BR>' ;
+		if ( $sec_data ){
+			get_template_part(
+				$sec_data['template'],
+				null,
+				array(
+					'id'         => $section['id'],
+					'show_title' => $section['show_title'],
+					'enabled'    => $section['enabled'],
+				)
+			);
+		}
+	}
+	?>
 
 </main>
 
