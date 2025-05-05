@@ -1,6 +1,6 @@
 <?php
 /**
- * Section with the Logo and the title of the site.
+ * Section with contacts data in the footer.
  *
  * @package Design_ICT_Site
  */

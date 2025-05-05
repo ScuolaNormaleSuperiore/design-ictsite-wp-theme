@@ -151,4 +151,22 @@ class DIS_ContentsManager {
 		return get_permalink( $translated_id );
 	}
 
+	public static function get_hp_office_list(){
+		$args = array(
+			'post_type'      => 'dis-office',
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'show_in_home_page',
+					'value'   => '1',
+					'compare' => '='
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ($query->have_posts()) {
+			return $query->posts;
+		}
+		return array();
+	}
 }

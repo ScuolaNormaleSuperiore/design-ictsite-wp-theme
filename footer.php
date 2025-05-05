@@ -23,7 +23,7 @@ $locations    = get_nav_menu_locations();
 				<section>
 					<div class="row clearfix">
 						<div class="col-sm-12">
-							<!-- LOGO & TITLE -->
+							<!-- Logo & title section -->
 							<?php
 								get_template_part(
 									'template-parts/footer/logo_title_footer',
@@ -46,7 +46,7 @@ $locations    = get_nav_menu_locations();
 									get_template_part( 'template-parts/footer/contacts-section', false, array( 'locations' => $locations ) );
 							?>
 						</div>
-						<!-- USEFUL LINKS -->
+						<!-- USEFUL LINKS MENU -->
 						<div class="col-lg-4 col-md-4 pb-2">
 							<?php
 								get_template_part( 'template-parts/menu/useful-links-menu', false, array( 'locations' => $locations ) );
@@ -55,16 +55,11 @@ $locations    = get_nav_menu_locations();
 
 						<div class="col-lg-4 col-md-4 pb-2">
 							<div class="pb-2">
-								<h4 class="customSpacing">Area Progetti e Servizi ICT</h4>
-								<div class="link-list-wrapper">
-									<ul class="footer-list link-list clearfix">
-										<li><a class="list-item" href="paginabase.html" title="Vai alla pagina: policy IT">Servizio
-												Infrastrutture</a> </li>
-										<li><a class="list-item" href="paginabase.html"
-												title="Vai alla pagina: Documenti e link utili">Servizio Sistemi Informativi</a> </li>
-									</ul>
-								</div>
-								<!-- BEGIN NEWSLETTER -->
+								<!-- Offices section -->
+								<?php
+									get_template_part( 'template-parts/footer/offices-section', false, array( 'locations' => $locations ) );
+								?>
+								<!-- Newsletter section -->
 								<?php
 									get_template_part(
 										'template-parts/common/newsletter',

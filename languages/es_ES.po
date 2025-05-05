@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-05-05 09:30+0000\n"
+"PO-Revision-Date: 2025-05-05 10:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: header.php:83
 msgid "Accessory navigation"
-msgstr ""
+msgstr "Área de Proyectos y Servicios TIC"
 
 #: classes/options-manager.php:212
 msgid "Add a message"
