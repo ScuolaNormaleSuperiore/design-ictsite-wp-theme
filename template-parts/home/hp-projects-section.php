@@ -7,4 +7,4 @@
 
 ?>
 
-<H2>ROJECT LIST</H2>
+<H2>PROJECT LIST</H2>

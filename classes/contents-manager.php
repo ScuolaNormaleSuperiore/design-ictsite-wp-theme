@@ -81,26 +81,6 @@ class DIS_ContentsManager {
 		return $og_data;
 	}
 
-	public static function clean_and_truncate_text( $text, $size=500, $split=false ) {
-		// Remove HTML tags.
-		$clean_text = wp_strip_all_tags( $text );
-		// Truncate tags.
-		if ( strlen( $clean_text ) > $size ) {
-			if ( $split ){
-				$truncated_text = substr( $clean_text, 0, $size ) . '...';
-			} else {
-				$truncated_text = mb_substr( $clean_text, 0, $size );
-				$last_space     = mb_strrpos( $truncated_text, ' ' );
-				if ( $last_space !== false ) {
-					$truncated_text = mb_substr( $truncated_text, 0, $last_space ) . '...';
-				}
-			}
-		} else {
-			$truncated_text = $clean_text;
-		}
-		return $truncated_text;
-	}
-
 	public static function get_hp_sections() {
 		return DIS_HP_SECTIONS;
 	}
@@ -189,6 +169,76 @@ class DIS_ContentsManager {
 			return $query->posts;
 		}
 		return array();
+	}
+
+	public static function get_hp_events_list(){
+		$args = array(
+			'post_type'      => DIS_EVENT_POST_TYPE,
+			'posts_per_page' => -1,
+			'status'         => 'publish',
+			'meta_query'     => array(
+				array(
+					'key'     => 'show_in_home_page',
+					'value'   => '1',
+					'compare' => '='
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ($query->have_posts()) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+
+	public static function get_image_metadata( $item, $image_size = 'full', $default_img_url = '/assets/img/default-image.png' ) {
+		$result = array(
+			'image_url'     => '',
+			'image_alt'     => '',
+			'image_title'   => '',
+			'image_caption' => '',
+		);
+		$image_id   = get_post_thumbnail_id( $item->ID );
+		$post_title = get_the_title( $item ); 
+		if ( $image_id !== 0 ) {
+			$result['image_url']     = get_the_post_thumbnail_url( $item, $image_size );
+			$image_title             = get_the_title( $image_id );
+			$result['image_title']   = $image_title ? $image_title : $post_title;
+			$image_alt               = get_post_meta( $image_id, '_wp_attachment_image_alt', TRUE );
+			$result['image_alt']     = $image_alt ? $image_alt : $post_title;
+			$image_caption           = wp_get_attachment_caption( $image_id );
+			$result['image_caption'] = $image_caption ? $image_caption :  $post_title;
+		} else {
+			$result['image_url']     = DIS_THEME_URL . $default_img_url;
+			$result['image_title']   = $post_title;
+			$result['image_alt']     = $post_title;
+			$result['image_caption'] = $post_title;
+		}
+		return $result;
+	}
+
+
+	// UTILITIES.
+
+	public static function clean_and_truncate_text( $text, $size=500, $split=false ) {
+		// Remove HTML tags.
+		$clean_text = wp_strip_all_tags( $text );
+		// Truncate tags.
+		if ( strlen( $clean_text ) > $size ) {
+			if ( $split ){
+				$truncated_text = substr( $clean_text, 0, $size ) . '...';
+			} else {
+				$truncated_text = mb_substr( $clean_text, 0, $size );
+				$last_space     = mb_strrpos( $truncated_text, ' ' );
+				if ( $last_space !== false ) {
+					$truncated_text = mb_substr( $truncated_text, 0, $last_space ) . '...';
+				}
+			}
+		} else {
+			$truncated_text = $clean_text;
+		}
+		return $truncated_text;
 	}
 
 }

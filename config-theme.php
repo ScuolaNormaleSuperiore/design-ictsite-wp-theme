@@ -94,43 +94,43 @@ define(
 			array(
 				'id'       => 'main_hero',
 				'name'     => 'Main hero',
-				'template' => 'template-parts/home/main-hero',
+				'template' => 'template-parts/home/hp-main-hero-section',
 			),
 		'cluster_section' =>
 			array(
 				'id'       => 'cluster_section',
 				'name'     => 'Cluster list',
-				'template' => 'template-parts/home/cluster-list',
+				'template' => 'template-parts/home/hp-clusters-section',
 			),
-		'news_section' =>
+		'events_section' =>
 			array(
-				'id'       => 'news_section',
-				'name'     => 'News',
-				'template' => 'template-parts/home/news-list',
+				'id'       => 'events_section',
+				'name'     => 'Events',
+				'template' => 'template-parts/home/hp-events-section',
 			),
 		'projects_section' =>
 			array(
 				'id'       => 'projects_section',
 				'name'     => 'Projects',
-				'template' => 'template-parts/home/project-list',
+				'template' => 'template-parts/home/hp-projects-section',
 			),
 		'featured_contents' =>
 			array(
 				'id'       => 'featured_contents',
 				'name'     => 'Featured contents',
-				'template' => 'template-parts/home/featured-contents',
+				'template' => 'template-parts/home/hp-featured-contents-section',
 			),
 		'articles_section' =>
 			array(
 				'id'       => 'articles_section',
 				'name'     => 'Articles',
-				'template' => 'template-parts/home/article-list',
+				'template' => 'template-parts/home/hp-articles-section',
 			),
 		'banners_section' =>
 			array(
 				'id'       => 'banners_section',
 				'name'     => 'Banners',
-				'template' => 'template-parts/home/banners-section',
+				'template' => 'template-parts/home/hp-banners-section',
 			),
 	)
 );

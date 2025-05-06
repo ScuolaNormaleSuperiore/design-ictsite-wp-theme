@@ -5,7 +5,6 @@
  * @package Design_ICT_Site
  */
 
-$label_domain    = 'DIS_SiteOptionLabel';
 $enabled_par     = $args['enabled'] ?? '';
 $id_par          = $args['id'] ?? '';
 $show_title_par  = $args['show_title'] ?? '';
@@ -13,7 +12,8 @@ $show_title      = ( $show_title_par === 'true' ) ? true : false;
 $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
-	$items      = DIS_ContentsManager::get_hp_cluster_list();
+	$items = DIS_ContentsManager::get_hp_cluster_list();
+	// $all_items_link = DIS_ContentsManager::get_page_link( SERVICE_CLUSTER_PAGE_SLUG );
 ?>
 	<!-- CLUSTER SERVICE ITEMS SECTION -->
 	<div class="container card shadow rounded home-listing-items p-4 pt-5 pb-3">

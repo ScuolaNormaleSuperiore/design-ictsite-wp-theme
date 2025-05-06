@@ -27,6 +27,8 @@ class DIS_LayoutManager {
 		add_action( 'admin_enqueue_scripts', array( $this, 'upload_admin_scripts' ) );
 		add_action( 'after_setup_theme', array( $this, 'configure_post_options' ) );
 		add_action( 'after_setup_theme', array( $this, 'define_menu_locations' ) );
+		// Setup image sizes.
+		// add_action( 'after_setup_theme', array( $this, 'setup_image_sizes' ) );
 	}
 
 	public function upload_scripts() {
@@ -78,5 +80,12 @@ class DIS_LayoutManager {
 		 */
 		register_nav_menus( DIS_MENU_LOCATIONS );
 	}
+
+	// public function setup_image_sizes() {
+	// 	// Image size.
+	// 	if ( function_exists( 'add_image_size' ) ) {
+	// 		add_image_size( 'item-card-list', 305, 190 , true );
+	// 	}
+	// }
 
 }
