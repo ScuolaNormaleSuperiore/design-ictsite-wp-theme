@@ -37,7 +37,11 @@ if ( $section_enabled ) {
 			<div class="col-12">
 				<div class="it-hero-text-wrapper ">
 					<h2>
-						<?php echo esc_attr( $hero_title ); ?>
+						<?php
+						if ( $show_title ) {
+							echo esc_attr( $hero_title );
+						}
+						?>
 					</h2>
 					<div class="form-group">
 						<div class="input-group">

@@ -153,8 +153,9 @@ class DIS_ContentsManager {
 
 	public static function get_hp_office_list(){
 		$args = array(
-			'post_type'      => 'dis-office',
+			'post_type'      => DIS_OFFICE_POST_TYPE,
 			'posts_per_page' => -1,
+			'status'         => 'publish',
 			'meta_query'     => array(
 				array(
 					'key'     => 'show_in_home_page',
@@ -169,4 +170,25 @@ class DIS_ContentsManager {
 		}
 		return array();
 	}
+
+	public static function get_hp_cluster_list(){
+		$args = array(
+			'post_type'      => DIS_CLUSTER_POST_TYPE,
+			'posts_per_page' => -1,
+			'status'         => 'publish',
+			'meta_query'     => array(
+				array(
+					'key'     => 'show_in_home_page',
+					'value'   => '1',
+					'compare' => '='
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ($query->have_posts()) {
+			return $query->posts;
+		}
+		return array();
+	}
+
 }

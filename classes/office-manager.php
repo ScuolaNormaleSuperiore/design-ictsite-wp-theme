@@ -46,17 +46,18 @@ class Office_Manager {
 		);
 
 		$args   = array(
-			'label'           => __( 'Office', 'design_ict_site' ),
-			'labels'          => $labels,
-			'supports'        => array( 'title', 'editor', 'thumbnail' ),
-			'hierarchical'    => false,
-			'public'          => true,
-			'show_in_menu'    => true,
-			'menu_position'   => 6,
-			'menu_icon'       => 'dashicons-building',
-			'has_archive'     => false,
-			'show_in_rest'    => true,
-			'taxonomies'      => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
+			'label'         => __( 'Office', 'design_ict_site' ),
+			'labels'        => $labels,
+			'supports'      => array( 'title', 'editor', 'thumbnail' ),
+			'hierarchical'  => false,
+			'public'        => true,
+			'show_in_menu'  => true,
+			'menu_position' => 6,
+			'menu_icon'     => 'dashicons-building',
+			'has_archive'   => false,
+			'show_in_rest'  => true,
+			'rewrite'       => array( 'slug' => 'offices' ),
+			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
 		register_post_type( DIS_OFFICE_POST_TYPE, $args );
@@ -86,180 +87,7 @@ class Office_Manager {
 	 */
 	function add_fields() {
 
-		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
-			return;
-		}
 
-		acf_add_local_field_group( array(
-		'key' => 'group_67dac7fdf0360',
-		'title' => 'Office Fields',
-		'fields' => array(
-			array(
-				'key' => 'field_67dac7fe78be2',
-				'label' => 'Short name',
-				'name' => 'short_name',
-				'aria-label' => '',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 1,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'maxlength' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_67dac84b78be3',
-				'label' => 'Email',
-				'name' => 'email',
-				'aria-label' => '',
-				'type' => 'email',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_67dac86778be4',
-				'label' => 'Telephone',
-				'name' => 'telephone',
-				'aria-label' => '',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'maxlength' => '',
-				'allow_in_bindings' => 1,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_67dacc2ed84a7',
-				'label' => 'Locations',
-				'name' => 'locations',
-				'aria-label' => '',
-				'type' => 'relationship',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'post_type' => array(
-					0 => 'place',
-				),
-				'post_status' => '',
-				'taxonomy' => '',
-				'filters' => array(
-					0 => 'search',
-				),
-				'return_format' => 'object',
-				'min' => '',
-				'max' => '',
-				'allow_in_bindings' => 0,
-				'elements' => '',
-				'bidirectional' => 0,
-				'bidirectional_target' => array(
-				),
-			),
-			array(
-				'key' => 'field_67dad2896616f',
-				'label' => 'Members',
-				'name' => 'members',
-				'aria-label' => '',
-				'type' => 'relationship',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'post_type' => array(
-					0 => 'person',
-				),
-				'post_status' => '',
-				'taxonomy' => '',
-				'filters' => array(
-					0 => 'search',
-				),
-				'return_format' => 'object',
-				'min' => '',
-				'max' => '',
-				'allow_in_bindings' => 0,
-				'elements' => '',
-				'bidirectional' => 0,
-				'bidirectional_target' => array(
-				),
-			),
-			array(
-				'key' => 'field_681875b9e092e',
-				'label' => 'Show in Home Page',
-				'name' => 'show_in_home_page',
-				'aria-label' => '',
-				'type' => 'true_false',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'message' => '',
-				'default_value' => 0,
-				'allow_in_bindings' => 0,
-				'ui' => 0,
-				'ui_on_text' => '',
-				'ui_off_text' => '',
-			),
-		),
-		'location' => array(
-			array(
-				array(
-					'param' => 'post_type',
-					'operator' => '==',
-					'value' => 'dis-office',
-				),
-			),
-		),
-			'menu_order' => 0,
-			'position' => 'normal',
-			'style' => 'default',
-			'label_placement' => 'top',
-			'instruction_placement' => 'label',
-			'hide_on_screen' => '',
-			'active' => true,
-			'description' => '',
-			'show_in_rest' => 0,
-			)
-	);
 
 	}
 

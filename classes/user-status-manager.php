@@ -46,17 +46,18 @@ class UserStatus_Manager {
 		);
 
 		$args   = array(
-			'label'           => __( 'User Status', 'design_ict_site' ),
-			'labels'          => $labels,
-			'supports'        => array( 'title', 'editor', 'thumbnail' ),
-			'hierarchical'    => false,
-			'public'          => true,
-			'show_in_menu'    => true,
-			'menu_position'   => 6,
-			'menu_icon'       => 'dashicons-buddicons-buddypress-logo',
-			'has_archive'     => false,
-			'show_in_rest'    => true,
-			'taxonomies'      => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
+			'label'         => __( 'User Status', 'design_ict_site' ),
+			'labels'        => $labels,
+			'supports'      => array( 'title', 'editor', 'thumbnail' ),
+			'hierarchical'  => false,
+			'public'        => true,
+			'show_in_menu'  => true,
+			'menu_position' => 6,
+			'menu_icon'     => 'dashicons-buddicons-buddypress-logo',
+			'has_archive'   => false,
+			'show_in_rest'  => true,
+			// 'rewrite'       => array( 'slug' => 'service-status' ),
+			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
 		register_post_type( DIS_USER_STATUS_POST_TYPE, $args );
