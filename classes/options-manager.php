@@ -43,13 +43,15 @@ class DIS_OptionsManager {
 		$this->add_opt_hp_sections( 'dis_opt_hp_sections', $this->tab_group, $this->capability );
 		// 4 - Registers options page "Home Page Layout".
 		$this->add_opt_hp_layout( 'dis_opt_hp_layout', $this->tab_group, $this->capability );
-		// 5 - Registers options page "Site Contacts".
+		// 5 - Registers options page "Main Hero".
+		$this->add_opt_main_hero( 'dis_opt_main_hero', $this->tab_group, $this->capability );
+		// 6 - Registers options page "Site Contacts".
 		$this->add_opt_site_contacts( 'dis_opt_site_contacts', $this->tab_group, $this->capability );
-		// 6- Registers options page "Social media".
+		// 7- Registers options page "Social media".
 		$this->add_opt_social_media( 'dis_opt_social_media', $this->tab_group, $this->capability );
-		// 7 - Registers options page "Newsletter settings".
+		// 8 - Registers options page "Newsletter settings".
 		$this->add_opt_newsletter_settings( 'dis_opt_newsletter_settings', $this->tab_group, $this->capability );
-		// 8 - Registers options page "Advanced settings".
+		// 9 - Registers options page "Advanced settings".
 		$this->add_opt_advanced_settings( 'dis_opt_advanced_settings', $this->tab_group, $this->capability );
 	}
 
@@ -367,45 +369,118 @@ class DIS_OptionsManager {
 		}
 		$home_options = new_cmb2_box( $args );
 
-		// CAROUSEL Section (Home Page).
+		// HP HERO SECTION options.
 		$home_options->add_field(
 			array(
-				'id'   => 'home_carousel',
+				'id'   => 'hp_layout_settings',
 				'name' => __( 'Home Page layout', 'design_ict_site' ),
-				'desc' => __( 'Configure here the layout of the Home Page.', 'design_ict_site' ),
+				'desc' => __( 'Home Page layout settings.', 'design_ict_site' ),
 				'type' => 'title',
 			)
 		);
-		$home_options->add_field(
+
+	}
+
+	/**
+	 * 5 - Registers options page "Home Page Layout".
+	 *
+	 * @return boolean
+	 */
+	public function add_opt_main_hero( $option_key, $tab_group, $capability ) {
+		$args = array(
+			'id'           => $option_key . '_id',
+			'title'        => esc_html__( 'Main hero', 'design_ict_site' ),
+			'object_types' => array( 'options-page' ),
+			'option_key'   => $option_key,
+			'capability'   => $capability,
+			'parent_slug'  => $this->parent_slug,
+			'tab_group'    => $tab_group,
+			'tab_title'    => __( 'Main hero', 'design_ict_site' ),
+		);
+		// 'tab_group' property is supported in > 2.4.0.
+		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
+		}
+		$main_hero_options = new_cmb2_box( $args );
+
+		// HP HERO SECTION options.
+		$main_hero_options->add_field(
 			array(
-				'id' => 'home_carousel_before_featured_enabled',
-				'name' => __( 'Show carousel before featured content', 'design_ict_site' ),
-				'desc' => __( 'If yes, the carousel is shown before the featured content section.', 'design_ict_site' ),
-				'type' => 'radio_inline',
-				'default' => 'true',
-				'options' => array(
-					'true' => __( 'Yes', 'design_ict_site' ),
-					'false' => __( 'No', 'design_ict_site' ),
-				),
+				'id'   => 'home_main_hero',
+				'name' => __( 'Main hero', 'design_ict_site' ),
+				'desc' => __( 'The hero section of the Home Page.', 'design_ict_site' ),
+				'type' => 'title',
 			)
 		);
-		$home_options->add_field(
+		$main_hero_options->add_field(
 			array(
-				'id' => 'home_carousel_visible',
-				'name' => __( 'Show the Carousel section', 'design_ict_site' ),
-				'desc' => __( 'Show the main carousel in the Home Page.', 'design_ict_site' ),
-				'type' => 'radio_inline',
-				'default' => 'true',
-				'options' => array(
-					'true'  => __( 'Yes', 'design_ict_site' ),
-					'false' => __( 'No', 'design_ict_site' ),
+				'id'         => 'main_hero_title',
+				'name'       => __( 'Title', 'design_ict_site' ),
+				'desc'       => __( 'To translate the text refers to the domain DIS_SiteOptionLabel.', 'design_ict_site' ),
+				'type'       => 'text',
+				'default'    => 'MainHeroTitle',
+				'attributes' => array( 'disabled' => true ),
+			)
+		);
+		$main_hero_options->add_field(
+			array(
+				'id'         => 'main_hero_text',
+				'name'       => __( 'Text', 'design_ict_site' ),
+				'desc'       => __( 'To translate the text refers to the domain DIS_SiteOptionLabel.', 'design_ict_site' ),
+				'type'       => 'text',
+				'default'    => 'MainHeroText',
+				'attributes' => array( 'disabled' => true ),
+			)
+		);
+		$main_hero_options->add_field(
+			array(
+				'id'         => 'main_hero_search_button_label',
+				'name'       => __( 'Search button label', 'design_ict_site' ),
+				'desc'       => __( 'To translate the text refers to the domain DIS_SiteOptionLabel.', 'design_ict_site' ),
+				'default'    => 'MainHeroSearchButtonLabel',
+				'attributes' => array( 'disabled' => true ),
+				'type'       => 'text',
+			)
+		);
+		$main_hero_options->add_field(
+			array(
+				'id'         => 'main_hero_left_button_label',
+				'name'       => __( 'Left button label', 'design_ict_site' ),
+				'desc'       => __( 'To translate the text refers to the domain DIS_SiteOptionLabel.', 'design_ict_site' ),
+				'default'    => 'MainHeroLeftButtonLabel',
+				'attributes' => array( 'disabled' => true ),
+				'type'       => 'text',
+			)
+		);
+		$main_hero_options->add_field(
+			array(
+				'id'         => 'main_hero_right_button_label',
+				'name'       => __( 'Right button label', 'design_ict_site' ),
+				'desc'       => __( 'To translate the text refers to the domain DIS_SiteOptionLabel.', 'design_ict_site' ),
+				'default'    => 'MainHeroRightButtonLabel',
+				'attributes' => array( 'disabled' => true ),
+				'type'       => 'text',
+			)
+		);
+		$main_hero_options->add_field(
+			array(
+				'id'         => 'main_hero_image',
+				'name'       => __( 'Background image', 'design_ict_site' ),
+				'desc'       => __( 'Image in png or jpg format.', 'design_ict_site' ),
+				'type'       => 'file',
+				'query_args' => array(
+					'type' => array(
+						'image/png',
+						'image/jpg',
+						'image/jpeg',
+					),
 				),
 			)
 		);
 	}
 
 	/**
-	 * 5 - Registers options page "Site Contacts".
+	 * 6 - Registers options page "Site Contacts".
 	 *
 	 * @return boolean
 	 */
@@ -445,7 +520,7 @@ class DIS_OptionsManager {
 			array(
 				'id'   => 'site_address',
 				'name' => __( 'Address', 'design_ict_site' ),
-				'desc' => __( 'The address of the site.' , 'design_ict_site' ),
+				'desc' => __( 'The address of the site.', 'design_ict_site' ),
 				'type' => 'text',
 			)
 		);
@@ -492,7 +567,7 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 6 - Registers options page "Social media".
+	 * 7 - Registers options page "Social media".
 	 *
 	 * @return boolean
 	 */
@@ -617,7 +692,7 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	 * 7 - Registers options page "Newsletter settings".
+	 * 8 - Registers options page "Newsletter settings".
 	 *
 	 * @return boolean
 	 */
@@ -661,7 +736,7 @@ class DIS_OptionsManager {
 			array(
 				'id'               => 'newsletter_manager',
 				'name'             => __( 'Newsletter manager', 'design_ict_site' ),
-				'desc'             => __( 'Selection of the program used to manage the site newsletter' , 'design_ict_site' ),
+				'desc'             => __( 'Selection of the program used to manage the site newsletter', 'design_ict_site' ),
 				'type'             => 'select',
 				'default'          => 'default',
 				'show_option_none' => false,
@@ -684,7 +759,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'newsletter_list_id',
 				'name'       => __( 'List ID', 'design_ict_site' ),
-				'desc'       => __( 'ID of the list associated with the site' , 'design_ict_site' ),
+				'desc'       => __( 'ID of the list associated with the site', 'design_ict_site' ),
 				'type'       => 'text_small',
 				'attributes' => array(
 					'type'    => 'number',
@@ -698,7 +773,7 @@ class DIS_OptionsManager {
 			array(
 				'id'         => 'newsletter_template_id',
 				'name'       => __( 'Template ID', 'design_ict_site' ),
-				'desc'       => __( 'ID of the page template that handles the double OptIn' , 'design_ict_site' ),
+				'desc'       => __( 'ID of the page template that handles the double OptIn', 'design_ict_site' ),
 				'type'       => 'text_small',
 				'attributes' => array(
 					'type'    => 'number',
@@ -710,9 +785,8 @@ class DIS_OptionsManager {
 		);
 	}
 
-
 	/**
-	 * 8 - Registers options page "Advanced settings".
+	 * 9 - Registers options page "Advanced settings".
 	 *
 	 * @return boolean
 	 */
@@ -861,6 +935,7 @@ class DIS_OptionsManager {
 			)
 		);
 	}
+
 
 	/**
 	* A CMB2 options-page display callback override which adds tab navigation among

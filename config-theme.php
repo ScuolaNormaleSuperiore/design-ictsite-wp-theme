@@ -95,40 +95,40 @@ define(
 				'name'     => 'Main hero',
 				'template' => 'template-parts/home/main-hero',
 			),
-		'site_description' =>
+		'cluster_section' =>
 			array(
 				'id'       => 'cluster_section',
 				'name'     => 'Cluster list',
 				'template' => 'template-parts/home/cluster-list',
 			),
-		'events_section' =>
+		'news_section' =>
 			array(
 				'id'       => 'news_section',
 				'name'     => 'News',
 				'template' => 'template-parts/home/news-list',
 			),
 		'projects_section' =>
-		array(
-			'id'       => 'news_section',
-			'name'     => 'Projects',
-			'template' => 'template-parts/home/project-list',
-		),
+			array(
+				'id'       => 'projects_section',
+				'name'     => 'Projects',
+				'template' => 'template-parts/home/project-list',
+			),
 		'featured_contents' =>
 			array(
 				'id'       => 'featured_contents',
-				'name'     => 'Contenuti in evidenza',
+				'name'     => 'Featured contents',
 				'template' => 'template-parts/home/featured-contents',
 			),
 		'articles_section' =>
 			array(
 				'id'       => 'articles_section',
-				'name'     => 'Articoli',
+				'name'     => 'Articles',
 				'template' => 'template-parts/home/article-list',
 			),
 		'banners_section' =>
 			array(
 				'id'       => 'banners_section',
-				'name'     => 'Banner',
+				'name'     => 'Banners',
 				'template' => 'template-parts/home/banners-section',
 			),
 	)

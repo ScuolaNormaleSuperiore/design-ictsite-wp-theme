@@ -7,4 +7,6 @@
 
 ?>
 
-<H2>NEWS LIST</H2>
+<section>
+	<H2>NEWS LIST</H2>
+</section>

@@ -7,4 +7,6 @@
 
 ?>
 
-<H2>CLUSTER LIST</H2>
+<section>
+	<H2>CLUSTER LIST</H2>
+</section>
