@@ -13,14 +13,14 @@ $show_title      = ( $show_title_par === 'true' ) ? true : false;
 $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
-	$items = DIS_ContentsManager::get_hp_cluster_list();
+	$items      = DIS_ContentsManager::get_hp_cluster_list();
 ?>
 	<!-- CLUSTER SERVICE ITEMS SECTION -->
 	<div class="container card shadow rounded home-listing-items p-4 pt-5 pb-3">
 		<h2 class="pb-2">
 		<?php
 		if ( $show_title ) {
-			echo esc_attr( $hero_title );
+			echo __( 'Our services' , 'design_ict_site' );
 		}
 		?>
 		</h2>
