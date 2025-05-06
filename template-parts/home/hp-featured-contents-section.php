@@ -7,4 +7,7 @@
 
 ?>
 
-<H2>FEATURED CONTENTS</H2>
+<section class="section pt-5 pb-3">
+	<H2>FEATURED CONTENTS</H2>
+</section>
+
