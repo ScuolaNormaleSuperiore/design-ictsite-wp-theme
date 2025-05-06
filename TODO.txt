@@ -1,9 +1,6 @@
 
 * TODO LIST:
 
-- HP main hero
-- HP Service Clusters
-- HP News
 - HP Projects
 - HP Banner
 - HP Blog ??
