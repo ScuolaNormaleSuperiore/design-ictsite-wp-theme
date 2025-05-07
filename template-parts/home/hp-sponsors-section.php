@@ -27,7 +27,13 @@ if ( $section_enabled ) {
 					?>
 					<div class="col-6 col-lg-3">
 						<div class="it-grid-item-wrapper">
+							<?php
+							if ( $external_link ) {
+							?>
 							<a href="<?php esc_url( $external_link ); ?>">
+							<?php
+							}
+							?>
 								<figure class="figure img-full w-100">
 									<img
 										class="figure-img img-fluid rounded"
@@ -36,7 +42,13 @@ if ( $section_enabled ) {
 										alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
 									>
 								</figure>
+							<?php
+							if ( $external_link ) {
+							?>
 							</a>
+							<?php
+							}
+							?>
 						</div>
 					</div>
 					<?php
