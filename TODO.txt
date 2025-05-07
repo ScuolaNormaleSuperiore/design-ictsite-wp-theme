@@ -1,9 +1,16 @@
 
 * TODO LIST:
 
-- HP Projects
-- HP Banner
-- HP Blog ??
+- HP Banner.
+- HP Sponsor.
+- HP Blog.
+- Gestione slug.
+- Elenco servizi.
+- Ricerca e wrapper contenuti.
+- Dettaglio servizio.
+
+
+
 
 * Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
@@ -16,7 +23,6 @@ B) Configurazione automatica di Polylang con italiano e inglese.
 * Problema caricamento multiplo:
 - upload_scripts: viene invocato una sola volta
 - add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) ) --> viene invocato 3 volte
-
 
 
 * Code examples:

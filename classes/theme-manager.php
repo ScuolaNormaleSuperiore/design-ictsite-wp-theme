@@ -60,7 +60,12 @@ if ( ! class_exists( 'UserStatus_Manager' ) ) {
 if ( ! class_exists( 'Attachment_Manager' ) ) {
 	include_once 'attachment-manager.php';
 }
-
+if ( ! class_exists( 'Banner_Manager' ) ) {
+	include_once 'banner-manager.php';
+}
+if ( ! class_exists( 'Sponsor_Manager' ) ) {
+	include_once 'sponsor-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -176,6 +181,14 @@ class DIS_ThemeManager {
 		// Setup of the Attachment post-type.
 		$atm = new Attachment_Manager();
 		$atm->setup();
+
+		// Setup of the Banner post-type.
+		$bnm = new Banner_Manager();
+		$bnm->setup();
+
+		// Setup of the Sponsor post-type.
+		$spm = new Sponsor_Manager();
+		$spm->setup();
 
 	}
 
