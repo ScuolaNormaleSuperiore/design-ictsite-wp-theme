@@ -1,7 +1,8 @@
 
 * TODO LIST:
 
-- HP Banner.
+- Add priority to Projects in CT and HP section.
+- Show in hp: default true.
 - HP Sponsor.
 - HP Blog.
 - Gestione slug.
