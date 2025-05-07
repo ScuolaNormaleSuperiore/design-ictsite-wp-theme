@@ -25,6 +25,29 @@
                 "delay": 0
             },
             {
+                "key": "field_681b6c361d273",
+                "label": "Priority",
+                "name": "priority",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
                 "key": "field_67dd219b9ffbd",
                 "label": "Start date",
                 "name": "start_date",
