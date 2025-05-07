@@ -6,7 +6,7 @@
 - Gestione slug.
 - Elenco cluster di servizi.
 - Dettaglio servizio.
-
+- Controlla se una sezione HP non ha elementi non la mostrare (es. eventi, progetti, ecc).
 
 
 
