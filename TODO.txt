@@ -1,8 +1,6 @@
 
 * TODO LIST:
 
-- Add priority to Projects in CT and HP section.
-- Show in hp: default true.
 - Ricerca e wrapper contenuti.
 - HP Featured Events.
 - Gestione slug.
