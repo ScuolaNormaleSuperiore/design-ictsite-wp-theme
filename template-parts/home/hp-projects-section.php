@@ -69,7 +69,7 @@ if ( $section_enabled ) {
 				</div>
 				<div class="text-center pt-5 pb-5">
 					<a href="<?php echo esc_url( $all_items_link ); ?>" class="btn btn-secondary">
-						<?php echo __( 'All projects' , 'design_ict_site' ); ?>
+						<?php echo __( 'All projects', 'design_ict_site' ); ?>
 					</a>
 				</div>
 
