@@ -27,6 +27,8 @@ define( 'DIS_PLACE_POST_TYPE', 'dis-place' );
 define( 'DIS_EVENT_POST_TYPE', 'dis-event' );
 define( 'DIS_USER_STATUS_POST_TYPE', 'dis-user-status' );
 define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
+define( 'DIS_BANNER_POST_TYPE', 'dis-banner' );
+define( 'DIS_SPONSOR_POST_TYPE', 'dis-sponsor' );
 /* CT no multilanguage */
 define( 'DIS_ALERT_POST_TYPE', 'dis-alert' );
 
