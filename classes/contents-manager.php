@@ -196,6 +196,9 @@ class DIS_ContentsManager {
 			'post_type'      => DIS_PROJECT_POST_TYPE,
 			'posts_per_page' => -1,
 			'status'         => 'publish',
+			'orderby'        => 'meta_value_num',
+			'meta_key'       => 'priority',
+			'order'          => 'ASC',
 			'meta_query'     => array(
 				array(
 					'key'     => 'show_in_home_page',
@@ -216,13 +219,9 @@ class DIS_ContentsManager {
 			'post_type'      => DIS_BANNER_POST_TYPE,
 			'posts_per_page' => -1,
 			'status'         => 'publish',
-			'meta_query'     => array(
-				array(
-					'key'     => 'show_in_home_page',
-					'value'   => '1',
-					'compare' => '='
-				)
-			)
+			'orderby'        => 'meta_value_num',
+			'meta_key'       => 'priority',
+			'order'          => 'ASC',
 		);
 		$query = new WP_Query( $args );
 		if ($query->have_posts()) {
@@ -259,7 +258,7 @@ class DIS_ContentsManager {
 			'image_caption' => '',
 		);
 		$image_id   = get_post_thumbnail_id( $item->ID );
-		$post_title = get_the_title( $item ); 
+		$post_title = $item->post_title;
 		if ( $image_id !== 0 ) {
 			$result['image_url']     = get_the_post_thumbnail_url( $item, $image_size );
 			$image_title             = get_the_title( $image_id );
