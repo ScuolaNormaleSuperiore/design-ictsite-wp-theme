@@ -70,6 +70,138 @@ class Banner_Manager {
 	 */
 	private function add_fields() {
 
+		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
+			return;
+		}
+	
+		acf_add_local_field_group( array(
+		'key' => 'group_681b32511f16e',
+		'title' => 'Banner Fields',
+		'fields' => array(
+			array(
+				'key' => 'field_681b325259895',
+				'label' => 'Section',
+				'name' => 'section',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_681b32ad59896',
+				'label' => 'Priority',
+				'name' => 'priority',
+				'aria-label' => '',
+				'type' => 'number',
+				'instructions' => '',
+				'required' => 1,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'min' => '',
+				'max' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'step' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_681b32bb59897',
+				'label' => 'Button label',
+				'name' => 'button_label',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_681b32d259898',
+				'label' => 'Button link',
+				'name' => 'button_link',
+				'aria-label' => '',
+				'type' => 'url',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+			),
+			array(
+				'key' => 'field_681b32e059899',
+				'label' => 'New window',
+				'name' => 'new_window',
+				'aria-label' => '',
+				'type' => 'true_false',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'message' => '',
+				'default_value' => 0,
+				'allow_in_bindings' => 0,
+				'ui' => 0,
+				'ui_on_text' => '',
+				'ui_off_text' => '',
+			),
+		),
+		'location' => array(
+			array(
+				array(
+					'param' => 'post_type',
+					'operator' => '==',
+					'value' => 'dis-banner',
+				),
+			),
+		),
+		'menu_order' => 0,
+		'position' => 'normal',
+		'style' => 'default',
+		'label_placement' => 'top',
+		'instruction_placement' => 'label',
+		'hide_on_screen' => '',
+		'active' => true,
+		'description' => '',
+		'show_in_rest' => 0,
+	) );
 
 	}
 
