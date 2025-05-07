@@ -286,7 +286,7 @@ class Project_Manager {
 					'id' => '',
 				),
 				'message' => '',
-				'default_value' => 0,
+				'default_value' => 1,
 				'allow_in_bindings' => 0,
 				'ui' => 0,
 				'ui_on_text' => '',
@@ -340,7 +340,7 @@ class Project_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'office',
+					0 => 'dis-office',
 				),
 				'post_status' => '',
 				'taxonomy' => '',

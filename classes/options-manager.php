@@ -267,7 +267,7 @@ class DIS_OptionsManager {
 	public function add_opt_hp_sections( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Home Page Sections', 'design_ict_site' ),
+			'title'        => esc_html__( 'HP Sections', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,
@@ -355,7 +355,7 @@ class DIS_OptionsManager {
 	public function add_opt_hp_layout( $option_key, $tab_group, $capability ) {
 		$args = array(
 			'id'           => $option_key . '_id',
-			'title'        => esc_html__( 'Home Page Layout', 'design_ict_site' ),
+			'title'        => esc_html__( 'HP Layout', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
 			'option_key'   => $option_key,
 			'capability'   => $capability,

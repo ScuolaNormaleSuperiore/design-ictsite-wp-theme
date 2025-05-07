@@ -5,16 +5,16 @@
  * @package Design_ICT_Site
  */
 
- $enabled_par     = $args['enabled'] ?? '';
- $id_par          = $args['id'] ?? '';
- $show_title_par  = $args['show_title'] ?? '';
- $show_title      = ( $show_title_par === 'true' ) ? true : false;
- $section_enabled = ( $enabled_par === 'true' ) ? true : false;
- 
- if ( $section_enabled ) {
-	 $items          = DIS_ContentsManager::get_hp_events_list();
-	 $all_items_link = DIS_ContentsManager::get_page_link( EVENTS_PAGE_SLUG );
- ?>
+$enabled_par     = $args['enabled'] ?? '';
+$id_par          = $args['id'] ?? '';
+$show_title_par  = $args['show_title'] ?? '';
+$show_title      = ( $show_title_par === 'true' ) ? true : false;
+$section_enabled = ( $enabled_par === 'true' ) ? true : false;
+
+if ( $section_enabled ) {
+	$items          = DIS_ContentsManager::get_hp_events_list();
+	$all_items_link = DIS_ContentsManager::get_page_link( EVENTS_PAGE_SLUG );
+?>
 
  <!-- EVENTS SECTION-->
 	<section id="blocco-events" class="section pt-5 pb-3">
@@ -33,14 +33,16 @@
 					<?php
 					foreach ( $items as $item ){
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
-						// $short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID ); 
+						// $short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
 					?>
 						<!--start card-->
 						<div class="card-wrapper">
 							<div class="card card-img no-after">
-								<a href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>"
+								<a
+									href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>"
 									title="<?php echo esc_attr( $item->post_title ); ?>"
-									alt="<?php echo esc_attr( $item->post_title ); ?>">
+									alt="<?php echo esc_attr( $item->post_title ); ?>"
+								>
 									<div class="img-responsive-wrapper">
 										<div class="img-responsive">
 											<figure class="img-wrapper">
@@ -69,7 +71,7 @@
 				</div>
 				<div class="text-center pt-5 pb-5">
 					<a href="<?php echo esc_url( $all_items_link ); ?>" class="btn btn-secondary">
-						<?php echo __( 'All events' , 'design_ict_site' ); ?>
+						<?php echo __( 'All events', 'design_ict_site' ); ?>
 					</a>
 				</div>
 			</div>

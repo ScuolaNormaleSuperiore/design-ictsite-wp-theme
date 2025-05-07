@@ -191,6 +191,25 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+	public static function get_hp_project_list(){
+		$args = array(
+			'post_type'      => DIS_PROJECT_POST_TYPE,
+			'posts_per_page' => -1,
+			'status'         => 'publish',
+			'meta_query'     => array(
+				array(
+					'key'     => 'show_in_home_page',
+					'value'   => '1',
+					'compare' => '='
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ($query->have_posts()) {
+			return $query->posts;
+		}
+		return array();
+	}
 
 	public static function get_image_metadata( $item, $image_size = 'full', $default_img_url = '/assets/img/default-image.png' ) {
 		$result = array(
