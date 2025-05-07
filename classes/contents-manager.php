@@ -196,9 +196,6 @@ class DIS_ContentsManager {
 			'post_type'      => DIS_PROJECT_POST_TYPE,
 			'posts_per_page' => -1,
 			'status'         => 'publish',
-			'orderby'        => 'meta_value_num',
-			'meta_key'       => 'priority',
-			'order'          => 'ASC',
 			'meta_query'     => array(
 				array(
 					'key'     => 'show_in_home_page',
