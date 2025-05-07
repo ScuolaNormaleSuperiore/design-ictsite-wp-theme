@@ -174,7 +174,7 @@ class DIS_ContentsManager {
 	public static function get_hp_events_list(){
 		$args = array(
 			'post_type'      => DIS_EVENT_POST_TYPE,
-			'posts_per_page' => -1,
+			'posts_per_page' => 4,
 			'status'         => 'publish',
 			'meta_query'     => array(
 				array(
@@ -194,7 +194,7 @@ class DIS_ContentsManager {
 	public static function get_hp_project_list(){
 		$args = array(
 			'post_type'      => DIS_PROJECT_POST_TYPE,
-			'posts_per_page' => -1,
+			'posts_per_page' => 3,
 			'status'         => 'publish',
 			'meta_query'     => array(
 				array(
@@ -230,15 +230,11 @@ class DIS_ContentsManager {
 	public static function get_hp_sponsor_list(){
 		$args = array(
 			'post_type'      => DIS_SPONSOR_POST_TYPE,
-			'posts_per_page' => -1,
+			'posts_per_page' => 4,
 			'status'         => 'publish',
-			'meta_query'     => array(
-				array(
-					'key'     => 'show_in_home_page',
-					'value'   => '1',
-					'compare' => '='
-				)
-			)
+			'orderby'        => 'meta_value_num',
+			'meta_key'       => 'priority',
+			'order'          => 'ASC',
 		);
 		$query = new WP_Query( $args );
 		if ($query->have_posts()) {

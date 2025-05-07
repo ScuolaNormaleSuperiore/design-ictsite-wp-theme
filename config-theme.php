@@ -136,5 +136,11 @@ define(
 				'name'     => 'Banners',
 				'template' => 'template-parts/home/hp-banners-section',
 			),
+		'sponsors_section' =>
+			array(
+				'id'       => 'sponsors_section',
+				'name'     => 'Sponsors',
+				'template' => 'template-parts/home/hp-sponsors-section',
+			),
 	)
 );
