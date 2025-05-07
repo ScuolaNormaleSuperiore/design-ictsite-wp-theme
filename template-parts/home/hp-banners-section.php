@@ -40,7 +40,8 @@ if ( $section_enabled ) {
 						<img
 							src="<?php echo esc_url( $image_data['image_url'] ); ?>"
 							title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-							alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>">
+							alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+						>
 						</div>
 				</div>
 			</div>
