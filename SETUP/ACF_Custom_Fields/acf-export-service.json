@@ -356,7 +356,7 @@
                 "label": "Related documents",
                 "name": "related_documents",
                 "aria-label": "",
-                "type": "text",
+                "type": "relationship",
                 "instructions": "",
                 "required": 0,
                 "conditional_logic": 0,
@@ -365,12 +365,23 @@
                     "class": "",
                     "id": ""
                 },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "post_type": [
+                    "dis-attachment"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search",
+                    "post_type",
+                    "taxonomy"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 1,
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
             }
         ],
         "location": [
