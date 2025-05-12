@@ -179,29 +179,6 @@
                 "append": ""
             },
             {
-                "key": "field_67d2f31146bea",
-                "label": "Order",
-                "name": "order",
-                "aria-label": "",
-                "type": "number",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "min": "",
-                "max": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "step": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
                 "key": "field_67dc31c20ef24",
                 "label": "Service link",
                 "name": "service_link",
