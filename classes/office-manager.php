@@ -20,9 +20,6 @@ class Office_Manager {
 	public function setup() {
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
-
-		// Customize the post type layout of the admin interface.
-		// add_action( 'edit_form_after_title', array( $this, 'custom_layout' ) );
 	}
 
 	/**
@@ -65,20 +62,6 @@ class Office_Manager {
 		// Add the custom fields.
 		$this->add_fields();
 	}
-
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
 
 	/**
 	 * Add the custom fields of the custom post-type.
@@ -172,7 +155,7 @@ class Office_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'place',
+					0 => 'dis-place',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -203,7 +186,7 @@ class Office_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'person',
+					0 => 'dis-person',
 				),
 				'post_status' => '',
 				'taxonomy' => '',

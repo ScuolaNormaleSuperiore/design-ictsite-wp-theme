@@ -80,7 +80,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "place"
+                    "dis-place"
                 ],
                 "post_status": "",
                 "taxonomy": "",
@@ -110,7 +110,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "person"
+                    "dis-person"
                 ],
                 "post_status": "",
                 "taxonomy": "",

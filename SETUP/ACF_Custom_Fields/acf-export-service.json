@@ -25,6 +25,29 @@
                 "delay": 0
             },
             {
+                "key": "field_6821f31ca30b9",
+                "label": "Priority",
+                "name": "priority",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": 0,
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
                 "key": "field_67d2c4cfba619",
                 "label": "Features",
                 "name": "features",
@@ -276,7 +299,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "service-cluster"
+                    "dis-service-cluster"
                 ],
                 "post_status": "",
                 "taxonomy": "",
@@ -306,7 +329,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "service"
+                    "dis-service"
                 ],
                 "post_status": "",
                 "taxonomy": "",
@@ -336,7 +359,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "office"
+                    "dis-office"
                 ],
                 "post_status": "",
                 "taxonomy": "",

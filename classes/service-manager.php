@@ -20,9 +20,6 @@ class Service_Manager {
 	public function setup() {
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
-
-		// Customize the post type layout of the admin interface.
-		// add_action( 'edit_form_after_title', array( $this, 'custom_layout' ) );
 	}
 
 	/**
@@ -66,20 +63,6 @@ class Service_Manager {
 		$this->add_fields();
 	}
 
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
-
 	/**
 	 * Add the custom fields of the custom post-type.
 	 *
@@ -115,6 +98,29 @@ class Service_Manager {
 				'toolbar' => 'full',
 				'media_upload' => 1,
 				'delay' => 0,
+			),
+			array(
+				'key' => 'field_6821f31ca30b9',
+				'label' => 'Priority',
+				'name' => 'priority',
+				'aria-label' => '',
+				'type' => 'number',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 0,
+				'min' => '',
+				'max' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'step' => '',
+				'prepend' => '',
+				'append' => '',
 			),
 			array(
 				'key' => 'field_67d2c4cfba619',
@@ -368,7 +374,7 @@ class Service_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'service-cluster',
+					0 => 'dis-service-cluster',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -399,7 +405,7 @@ class Service_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'service',
+					0 => 'dis-service',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -430,7 +436,7 @@ class Service_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'office',
+					0 => 'dis-office',
 				),
 				'post_status' => '',
 				'taxonomy' => '',

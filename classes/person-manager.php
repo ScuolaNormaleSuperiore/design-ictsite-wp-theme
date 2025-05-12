@@ -104,20 +104,6 @@ class Person_Manager {
 		$this->add_fields();
 	}
 
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
-
 	/**
 	 * Add the custom fields of the custom post-type.
 	 *
