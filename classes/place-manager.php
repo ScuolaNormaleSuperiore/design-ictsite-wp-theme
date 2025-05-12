@@ -24,9 +24,6 @@ class Place_Manager {
 
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
-
-		// Customize the post type layout of the admin interface.
-		// add_action( 'edit_form_after_title', array( $this, 'custom_layout' ) );
 	}
 
 	/**
@@ -103,19 +100,6 @@ class Place_Manager {
 		$this->add_fields();
 	}
 
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
 
 	/**
 	 * Add the custom fields of the custom post-type.
@@ -133,11 +117,21 @@ class Place_Manager {
 		'title' => 'Place Fields',
 		'fields' => array(
 			array(
+				'center_lat' => 53.550640000000001,
+				'center_lng' => 10.00065,
+				'zoom' => 12,
+				'height' => 400,
+				'return_format' => 'leaflet',
+				'allow_map_layers' => 1,
+				'max_markers' => '',
+				'layers' => array(
+					0 => 'OpenStreetMap.Mapnik',
+				),
 				'key' => 'field_67dacafdb15d6',
 				'label' => 'GPS position',
 				'name' => 'gps_position',
 				'aria-label' => '',
-				'type' => 'google_map',
+				'type' => 'open_street_map',
 				'instructions' => '',
 				'required' => 0,
 				'conditional_logic' => 0,
@@ -146,16 +140,13 @@ class Place_Manager {
 					'class' => '',
 					'id' => '',
 				),
-				'center_lat' => '',
-				'center_lng' => '',
-				'zoom' => '',
-				'height' => '',
 				'allow_in_bindings' => 1,
+				'leaflet_map' => '{"lat":53.550640000000001,"lng":10.00065,"zoom":12,"layers":["OpenStreetMap.Mapnik"],"markers":[]}',
 			),
 			array(
-				'key' => 'field_67dacb2fb15d7',
-				'label' => 'Address',
-				'name' => 'address',
+				'key' => 'field_6821fd65da573',
+				'label' => 'City',
+				'name' => 'city',
 				'aria-label' => '',
 				'type' => 'text',
 				'instructions' => '',
@@ -177,6 +168,27 @@ class Place_Manager {
 				'key' => 'field_67dacb3db15d8',
 				'label' => 'ZIP code',
 				'name' => 'zip_code',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
+			),
+			array(
+				'key' => 'field_67dacb2fb15d7',
+				'label' => 'Address',
+				'name' => 'address',
 				'aria-label' => '',
 				'type' => 'text',
 				'instructions' => '',
@@ -276,6 +288,27 @@ class Place_Manager {
 				'toolbar' => 'full',
 				'media_upload' => 1,
 				'delay' => 0,
+			),
+			array(
+				'key' => 'field_6821fd4307612',
+				'label' => 'Short description',
+				'name' => 'short_description',
+				'aria-label' => '',
+				'type' => 'text',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => '',
+				'maxlength' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'prepend' => '',
+				'append' => '',
 			),
 		),
 		'location' => array(

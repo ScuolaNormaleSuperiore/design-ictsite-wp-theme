@@ -87,6 +87,11 @@ define(
 			'slug'     => 'advanced-custom-fields',
 			'required' => true,
 		),
+		array(
+			'name'     => 'ACF OpenStreetMap Field',
+			'slug'     => 'acf-openstreetmap-field',
+			'required' => true,
+		),
 	)
 );
 

@@ -20,9 +20,6 @@ class Project_Manager {
 	public function setup() {
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
-
-		// Customize the post type layout of the admin interface.
-		// add_action( 'edit_form_after_title', array( $this, 'custom_layout' ) );
 	}
 
 	/**
@@ -66,19 +63,6 @@ class Project_Manager {
 		$this->add_fields();
 	}
 
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
 
 	/**
 	 * Add the custom fields of the custom post-type.
@@ -330,9 +314,9 @@ class Project_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'event',
-					1 => 'post',
-					2 => 'page',
+					0 => 'post',
+					1 => 'page',
+					2 => 'dis-event',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -394,7 +378,7 @@ class Project_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'person',
+					0 => 'dis-person',
 				),
 				'post_status' => '',
 				'taxonomy' => '',

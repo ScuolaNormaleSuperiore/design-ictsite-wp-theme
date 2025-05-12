@@ -238,9 +238,9 @@
                     "id": ""
                 },
                 "post_type": [
-                    "event",
                     "post",
-                    "page"
+                    "page",
+                    "dis-event"
                 ],
                 "post_status": "",
                 "taxonomy": "",
@@ -300,7 +300,7 @@
                     "id": ""
                 },
                 "post_type": [
-                    "person"
+                    "dis-person"
                 ],
                 "post_status": "",
                 "taxonomy": "",
