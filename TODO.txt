@@ -2,11 +2,12 @@
 * TODO LIST:
 
 - Dettaglio gruppo di servizi.
+- Dettaglio servizio.
 - Ricerca e wrapper contenuti.
 - HP Featured Events.
 - Gestione slug.
-- Elenco cluster di servizi.
-- Dettaglio servizio.
+- Gestione Breadcrumbs.
+- Sitemap.
 - Controlla se una sezione HP non ha elementi non la mostrare (es. eventi, progetti, ecc).
 
 

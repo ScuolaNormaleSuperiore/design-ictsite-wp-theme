@@ -7,7 +7,7 @@
 
 	global $post;
 	if ( ! is_home() ) {
-		// $steps = DLI_ContentsManager::build_content_path( $post );
+		// $steps = DIS_ContentsManager::build_content_path( $post );
 		$steps = array();
 		$index = 0;
 ?>
