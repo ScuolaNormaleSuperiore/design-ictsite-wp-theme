@@ -32,11 +32,14 @@ if ( $section_enabled ) {
 				$icon_code = DIS_CustomFieldsManager::get_field( 'icon_code' , $item->ID );
 			?>
 				<!--start card-->
-				<div class="card card-bg rounded card-teaser bg-white" style="border-top: 3px solid">
+				<div class="card card-bg rounded card-teaser bg-white"
+					style="border-top: 3px solid">
 					<div class="card-body text-center">
 						<a href="<?php echo esc_url( get_permalink( $item ) ); ?>">
 							<i class="bi <?php echo esc_attr( $icon_code ); ?>" style="font-size: 3rem;"></i>
-							<h3 class="card-title h5 text-primary"><?php echo esc_attr( $item->post_title ); ?></h3>
+							<h3 class="card-title h5 text-primary">
+								<?php echo esc_attr( $item->post_title ); ?>
+							</h3>
 						</a>
 					</div>
 				</div>

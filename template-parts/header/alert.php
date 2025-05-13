@@ -8,6 +8,7 @@
 $messages = DIS_OptionsManager::dis_get_option( 'messages', 'dis_opt_site_alerts' );
 if ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $messages[0] ) ) {
 	foreach ( $messages as $msg ) {
+		$message_link = array_key_exists( 'message_link', $msg ) ? $msg['message_link'] : '';
 		if ( isset( $msg['message_text'] ) ) {
 ?>
 
@@ -16,13 +17,13 @@ if ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $mes
 			aria-label="<?php echo __( 'Alert', 'design_ict_site' ); ?>"
 		>
 			<?php
-			if ( $msg['message_link'] ) {
+			if ( $message_link ) {
 			?>
-				<a target="_blank" href="<?php echo esc_attr( $msg['message_link'] ); ?>">
+				<a target="_blank" href="<?php echo esc_attr( $message_link ); ?>">
 			<?php
 			}
 			echo esc_attr( $msg['message_text'] );
-			if ( $msg['message_link'] ) {
+			if ( $message_link ) {
 			?>
 			</a>
 			<?php
