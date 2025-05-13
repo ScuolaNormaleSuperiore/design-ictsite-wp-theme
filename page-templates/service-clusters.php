@@ -33,7 +33,7 @@ $services = DIS_ContentsManager::get_service_list();
 							<i class="bi <?php echo esc_attr( $icon_code ); ?> me-3" style="font-size: 2em;"></i>
 							<div>
 								<h3 class="h5">
-									<a href="accesso-alla-rete.html">
+									<a href="<?php echo esc_url( get_permalink( $cluster ) ); ?>">
 										<?php echo esc_attr( $cluster->post_title ); ?>
 									</a>
 								</h3>
