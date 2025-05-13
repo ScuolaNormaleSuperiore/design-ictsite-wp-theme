@@ -29,8 +29,7 @@ define( 'DIS_USER_STATUS_POST_TYPE', 'dis-user-status' );
 define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
 define( 'DIS_BANNER_POST_TYPE', 'dis-banner' );
 define( 'DIS_SPONSOR_POST_TYPE', 'dis-sponsor' );
-/* CT no multilanguage */
-define( 'DIS_ALERT_POST_TYPE', 'dis-alert' );
+
 
 /* MENU */
 define( 'DIS_SLUG_MAIN_MENU', 'DIS_PRIMARY_MENU' );
