@@ -100,16 +100,16 @@ html {
 
 
 @media only screen and (max-width: 450px) {
-		.it-brand-title h1.h3 {
-				font-size: 1em !important;
-				line-height: 1.25rem;
-		}
+	.it-brand-title h1.h3 {
+		font-size: 1em !important;
+		line-height: 1.25rem;
+	}
 	}
 
 
 .it-brand-tagline {
 	font-size: 1rem !important;
-		
+	
 }
 
 .display_block {
@@ -218,9 +218,14 @@ html {
 	text-align: center;
 }
 
-/* RIMUOVE ORVERLAPPIng  */
+/* REMOVES ORVERLAPPIng  */
 @media (min-width: 1400px) {
-		.it-hero-wrapper.it-bottom-overlapping-content+.container .card-wrapper .card-body {
-				padding-top: 0px;
-		}
+	.it-hero-wrapper.it-bottom-overlapping-content+.container .card-wrapper .card-body {
+		padding-top: 0px;
+	}
+}
+
+/* CARD BORDER */
+.bordo-card {
+	border-top: 3px solid;
 }
