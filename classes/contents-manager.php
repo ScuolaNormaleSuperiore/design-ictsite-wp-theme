@@ -135,7 +135,7 @@ class DIS_ContentsManager {
 		$args = array(
 			'post_type'      => DIS_OFFICE_POST_TYPE,
 			'posts_per_page' => -1,
-			'status'         => 'publish',
+			'post_status'    => 'publish',
 			'meta_query'     => array(
 				array(
 					'key'     => 'show_in_home_page',
@@ -145,27 +145,70 @@ class DIS_ContentsManager {
 			)
 		);
 		$query = new WP_Query( $args );
-		if ($query->have_posts()) {
+		if ( $query->have_posts() ) {
 			return $query->posts;
 		}
 		return array();
 	}
 
-	public static function get_hp_cluster_list(){
+	public static function get_cluster_list( $hp=false ){
 		$args = array(
 			'post_type'      => DIS_CLUSTER_POST_TYPE,
 			'posts_per_page' => -1,
-			'status'         => 'publish',
-			'meta_query'     => array(
+			'post_status'    => 'publish',
+			'meta_key'       => 'priority',
+			'orderby'        => array(
+				'meta_value_num' => 'ASC',
+				'title'          => 'ASC'
+			),
+		);
+		if ( $hp ) {
+			$args['meta_query'] = array(
 				array(
 					'key'     => 'show_in_home_page',
 					'value'   => '1',
 					'compare' => '='
 				)
-			)
-		);
+			);
+		}
 		$query = new WP_Query( $args );
-		if ($query->have_posts()) {
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+	/**
+	 * Get service list order by title or by priority-title.
+	 *
+	 * @param string $order
+	 * @return array
+	 */
+	public static function get_service_list( $order='title' ){
+		$args = array();
+		if ( $order === 'title' ){
+			$args = array(
+				'post_type'      => DIS_SERVICE_POST_TYPE,
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
+				'order'          => 'ASC',
+				'orderby'        => 'title',
+			);
+		} else {
+			$args = array(
+				'post_type'      => DIS_SERVICE_POST_TYPE,
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
+				'meta_key'       => 'priority',
+				'orderby'        => array(
+					'meta_value_num' => 'ASC',
+					'title'          => 'ASC'
+				),
+			);
+		}
+
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
 			return $query->posts;
 		}
 		return array();
@@ -175,7 +218,7 @@ class DIS_ContentsManager {
 		$args = array(
 			'post_type'      => DIS_EVENT_POST_TYPE,
 			'posts_per_page' => 4,
-			'status'         => 'publish',
+			'post_status'    => 'publish',
 			'meta_query'     => array(
 				array(
 					'key'     => 'show_in_home_page',
@@ -185,7 +228,7 @@ class DIS_ContentsManager {
 			)
 		);
 		$query = new WP_Query( $args );
-		if ($query->have_posts()) {
+		if ( $query->have_posts() ) {
 			return $query->posts;
 		}
 		return array();
@@ -195,7 +238,7 @@ class DIS_ContentsManager {
 		$args = array(
 			'post_type'      => DIS_PROJECT_POST_TYPE,
 			'posts_per_page' => 3,
-			'status'         => 'publish',
+			'post_status'    => 'publish',
 			'orderby'        => 'meta_value_num',
 			'meta_key'       => 'priority',
 			'order'          => 'ASC',
@@ -208,7 +251,7 @@ class DIS_ContentsManager {
 			)
 		);
 		$query = new WP_Query( $args );
-		if ($query->have_posts()) {
+		if ( $query->have_posts() ) {
 			return $query->posts;
 		}
 		return array();
@@ -218,13 +261,13 @@ class DIS_ContentsManager {
 		$args = array(
 			'post_type'      => DIS_BANNER_POST_TYPE,
 			'posts_per_page' => -1,
-			'status'         => 'publish',
+			'post_status'    => 'publish',
 			'orderby'        => 'meta_value_num',
 			'meta_key'       => 'priority',
 			'order'          => 'ASC',
 		);
 		$query = new WP_Query( $args );
-		if ($query->have_posts()) {
+		if ( $query->have_posts() ) {
 			return $query->posts;
 		}
 		return array();
@@ -234,13 +277,13 @@ class DIS_ContentsManager {
 		$args = array(
 			'post_type'      => DIS_SPONSOR_POST_TYPE,
 			'posts_per_page' => 4,
-			'status'         => 'publish',
+			'post_status'    => 'publish',
 			'orderby'        => 'meta_value_num',
 			'meta_key'       => 'priority',
 			'order'          => 'ASC',
 		);
 		$query = new WP_Query( $args );
-		if ($query->have_posts()) {
+		if ( $query->have_posts() ) {
 			return $query->posts;
 		}
 		return array();

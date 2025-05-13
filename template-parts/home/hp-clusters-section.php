@@ -12,7 +12,7 @@ $show_title      = ( $show_title_par === 'true' ) ? true : false;
 $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
-	$items = DIS_ContentsManager::get_hp_cluster_list();
+	$items = DIS_ContentsManager::get_cluster_list( $hp=true );
 	// $all_items_link = DIS_ContentsManager::get_page_link( SERVICE_CLUSTER_PAGE_SLUG );
 ?>
 	<!-- CLUSTER SERVICE ITEMS SECTION -->
