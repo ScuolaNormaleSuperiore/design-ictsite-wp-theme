@@ -88,6 +88,7 @@ $services = DIS_ContentsManager::get_service_list();
 			</div>
 
 		</div>
+
 	</div>
 
 <?php

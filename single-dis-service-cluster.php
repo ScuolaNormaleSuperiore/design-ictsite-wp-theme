@@ -16,73 +16,51 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 
 	<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
 		<div class="row">
+
 			<!-- SERVICES OF THE GROUP -->
 			<div class="col">
-				<!-- BEGIN CLUSTER DESCRIPTION -->
 				<h2 class="pb-2 title"><?php echo( esc_attr( $post->post_title ) ); ?></h2> 
-					<!--start card-->
-					<div class="card card-bg rounded card-teaser bg-white" style="border-top: 3px solid">
-						<div class="card-body d-flex justify-content-start">
-							<div>
-								<p>
-									<?php echo get_the_content(); ?>
-								</p>
-							</div>
+				<div class="card card-bg rounded card-teaser bg-white" style="border-top: 3px solid">
+					<div class="card-body d-flex justify-content-start">
+						<div>
+							<p>
+								<?php echo get_the_content(); ?>
+							</p>
 						</div>
 					</div>
-					<!--end card -->
-				<!-- END CLUSTER DESCRIPTION -->
-					
-				<!-- ELENCO ITEM -->
+				</div>
 				<div class="row">
-						<div class="card-wrapper card-teaser-wrapper card-teaser-block-2">
-								<!--start card-->
-								<div class="card card-teaser rounded shadow">
-								<div class="card-body">
-									<h3 class="card-title h5 ">
-										<a href="scheda-singolo-servizio.html">WiFi SNS</a>
-									</h3>
-									<div class="card-text font-serif">
-										<p>I membri della Scuola, attraverso le credenziali di ateneo, hanno libero accesso alla rete della Scuola
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--end card-->
-								<!--start card-->
-								<div class="card card-teaser rounded shadow">
-								<div class="card-body">
-									<h3 class="card-title h5 ">
-										<a href="scheda-singolo-servizio.html">WiFi eduroam</a>
-									</h3>
-									<div class="card-text font-serif">
-										<p>Istruzioni per utenti SNS in visita presso altre istituzioni aderenti e per utenti di istituzioni aderenti a EduRoam in visita alla Scuola
-										</p>
-									</div>
-								</div>
-							</div>
-							<!--end card-->
+						<div class="card-wrapper card-teaser-wrapper card-tease">
+							<?php
+							foreach ( $services as $service ) {
+								$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $service->ID );
+							?>
 							<!--start card-->
 							<div class="card card-teaser rounded shadow">
 								<div class="card-body">
 									<h3 class="card-title h5 ">
-										<a href="scheda-singolo-servizio.html">WiFi Ospiti (GuestSNS)</a>
+										<a href="<?php echo get_permalink( $service ); ?>">
+											<?php echo esc_attr( $service->post_title ); ?>
+										</a>
 									</h3>
 									<div class="card-text font-serif">
-										<p>Rete dedicata ai partecipanti a convegni, seminari o incontri, utenti occasionali. E' possibile utilizzare la rete della Scuola registrandosi tramite l'apposito form</p>
+										<p>
+											<?php echo $short_description; ?>
+										</p>
 									</div>
 								</div>
 							</div>
 							<!--end card-->
-							</div>
-						</div> <!-- chiude ROW-->
-						<!-- FINE ELENCO ITEM -->
-			</div> <!-- chiude COL-->
+							<?php
+							}
+							?>
+						</div>
+				</div>
+			</div>
 
 			<!-- SIDEBAR LIST -->
 			<div class="col-12 col-lg-4 col-md-5">
 				<div class="sidebar-wrapper it-line-left-side">
-
 					<div class="sidebar-linklist-wrapper">
 						<div class="link-list-wrapper">
 							<ul class="link-list">
@@ -107,7 +85,6 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 							</ul>
 						</div>
 					</div>
-					
 				</div>
 			</div>
 
