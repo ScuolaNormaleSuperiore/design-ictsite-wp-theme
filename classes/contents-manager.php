@@ -151,17 +151,28 @@ class DIS_ContentsManager {
 		return array();
 	}
 
-	public static function get_cluster_list( $hp=false ){
-		$args = array(
-			'post_type'      => DIS_CLUSTER_POST_TYPE,
-			'posts_per_page' => -1,
-			'post_status'    => 'publish',
-			'meta_key'       => 'priority',
-			'orderby'        => array(
-				'meta_value_num' => 'ASC',
-				'title'          => 'ASC'
-			),
-		);
+	public static function get_cluster_list( $hp=false, $order='title' ){
+			$args = array();
+		if ( $order === 'title' ){
+			$args = array(
+				'post_type'      => DIS_CLUSTER_POST_TYPE,
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
+				'order'          => 'ASC',
+				'orderby'        => 'title',
+			);
+		} else {
+			$args = array(
+				'post_type'      => DIS_CLUSTER_POST_TYPE,
+				'posts_per_page' => -1,
+				'post_status'    => 'publish',
+				'meta_key'       => 'priority',
+				'orderby'        => array(
+					'meta_value_num' => 'ASC',
+					'title'          => 'ASC'
+				),
+			);
+		}
 		if ( $hp ) {
 			$args['meta_query'] = array(
 				array(
@@ -181,10 +192,10 @@ class DIS_ContentsManager {
 	/**
 	 * Get service list order by title or by priority-title.
 	 *
-	 * @param string $order
+	 * @param string $order ( 'title' || 'priority' )
 	 * @return array
 	 */
-	public static function get_service_list( $order='title' ){
+	public static function get_service_list( $order='title', $cluster_id=null ){
 		$args = array();
 		if ( $order === 'title' ){
 			$args = array(
@@ -204,6 +215,16 @@ class DIS_ContentsManager {
 					'meta_value_num' => 'ASC',
 					'title'          => 'ASC'
 				),
+			);
+		}
+
+		if ( $cluster_id ) {
+			$args['meta_query'] = array(
+				array(
+					'key'     => 'cluster',
+					'compare' => 'LIKE',
+					'value'   => '"' . $cluster_id . '"'
+				)
 			);
 		}
 
