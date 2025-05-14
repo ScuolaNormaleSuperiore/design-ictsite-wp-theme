@@ -19,15 +19,13 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 			<!-- SERVICES OF THE GROUP -->
 			<div class="col">
 				<!-- BEGIN CLUSTER DESCRIPTION -->
-				<h2 class="pb-2 title">Accesso alla rete</h2> 
+				<h2 class="pb-2 title"><?php echo( esc_attr( $post->post_title ) ); ?></h2> 
 					<!--start card-->
 					<div class="card card-bg rounded card-teaser bg-white" style="border-top: 3px solid">
 						<div class="card-body d-flex justify-content-start">
 							<div>
 								<p>
-									Questa è la descrizione estesa del Service Cluster. Studenti, docenti, personale e visitatori accedono ogni giorno alle risorse della Scuola Normale
-									tramite la sua rete. Segui le istruzioni di questa pagina e configura la connessione in base al tuo
-									profilo.
+									<?php echo get_the_content(); ?>
 								</p>
 							</div>
 						</div>
@@ -91,22 +89,21 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 								<li>
 									<h3><?php echo __( 'Our services' , 'design_ict_site' ); ?></h3>
 								</li>
+								<?php
+								foreach ( $clusters as $cluster ) {
+									$active = strval( $post->ID ) == strval( $cluster->ID ) ? 'active' : '';
+								?>
 								<li>
-									<a class="list-item medium active" href="#">
-										<span>Accesso alla rete </span>
+									<a
+										class="list-item medium <?php echo esc_attr( $active ) ?>"
+										href="<?php echo esc_url( get_permalink( $cluster ) ); ?>"
+									>
+										<span><?php echo esc_attr( $cluster->post_title ); ?></span>
 									</a>
 								</li>
-								<li>
-									<a class="list-item medium" href="#"><span>Account e password</span></a>
-								</li>
-								<li>
-									<a class="list-item medium" href="#"><span>Applicativi e piattafome</span>
-								</a>
-								</li>
-								<li>
-									<a class="list-item medium" href="#"><span>Backup e storage</span>
-								</a>
-								</li>
+								<?php
+								}
+								?>
 							</ul>
 						</div>
 					</div>
