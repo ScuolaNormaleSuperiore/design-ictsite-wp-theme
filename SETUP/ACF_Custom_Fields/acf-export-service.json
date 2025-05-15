@@ -8,7 +8,7 @@
                 "label": "Short description",
                 "name": "short_description",
                 "aria-label": "",
-                "type": "text",
+                "type": "textarea",
                 "instructions": "",
                 "required": false,
                 "conditional_logic": 0,
@@ -18,10 +18,10 @@
                     "id": ""
                 },
                 "default_value": "",
+                "new_lines": "",
                 "maxlength": "",
                 "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "rows": ""
             },
             {
                 "key": "field_6821f31ca30b9",

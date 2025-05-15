@@ -38,7 +38,7 @@ $services = DIS_ContentsManager::get_service_list();
 									</a>
 								</h3>
 								<p>
-									<?php echo $short_description; ?>
+									<?php echo esc_html( $short_description ); ?>
 								</p>
 							</div>
 						</div>

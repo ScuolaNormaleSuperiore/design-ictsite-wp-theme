@@ -8,9 +8,9 @@
                 "label": "Short description",
                 "name": "short_description",
                 "aria-label": "",
-                "type": "text",
+                "type": "textarea",
                 "instructions": "",
-                "required": 0,
+                "required": false,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -18,11 +18,10 @@
                     "id": ""
                 },
                 "default_value": "",
+                "new_lines": "",
                 "maxlength": "",
-                "allow_in_bindings": 1,
                 "placeholder": "",
-                "prepend": "",
-                "append": ""
+                "rows": ""
             },
             {
                 "key": "field_681b6c361d273",

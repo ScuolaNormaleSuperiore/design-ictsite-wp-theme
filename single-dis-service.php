@@ -9,7 +9,7 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $service->ID );
+$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 ?>
 
 
@@ -31,9 +31,9 @@ $short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $
 			<div class="row">
 				<div class="col-12">
 					<div class="it-hero-text-wrapper bg-dark it-text-centered">
-						<h2>[Title] Nome del servizio </h2>
+						<h2><?php echo esc_html( $post->post_title ); ?></h2>
 						<p class="d-none d-lg-block">
-							[Short Description] Platea dictumst vestibulum rhoncus . Eu nisl nunc mi ipsum faucibus.
+							<?php echo esc_html( $short_description ); ?>
 						</p>
 						<div class="it-btn-container">
 							<a class="btn btn-sm btn-secondary" href="[Service link]">

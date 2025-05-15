@@ -71,7 +71,6 @@ class Event_Manager {
 	 */
 	function add_fields() {
 
-
 	if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 		return;
 	}
@@ -85,7 +84,7 @@ class Event_Manager {
 			'label' => 'Short description',
 			'name' => 'short_description',
 			'aria-label' => '',
-			'type' => 'text',
+			'type' => 'textarea',
 			'instructions' => '',
 			'required' => false,
 			'conditional_logic' => 0,
@@ -95,10 +94,10 @@ class Event_Manager {
 				'id' => '',
 			),
 			'default_value' => '',
+			'new_lines' => '',
 			'maxlength' => '',
 			'placeholder' => '',
-			'prepend' => '',
-			'append' => '',
+			'rows' => '',
 		),
 		array(
 			'key' => 'field_67dd250307c62',
