@@ -47,6 +47,105 @@
                 "append": ""
             },
             {
+                "key": "field_67dc32770ef2a",
+                "label": "Cluster",
+                "name": "cluster",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "dis-service-cluster"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_67dc32c30ef2c",
+                "label": "Office",
+                "name": "office",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "dis-office"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            },
+            {
+                "key": "field_67d2f2caf054f",
+                "label": "How-to title",
+                "name": "how_to_title",
+                "aria-label": "",
+                "type": "text",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "maxlength": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
+            },
+            {
+                "key": "field_67dc31c20ef24",
+                "label": "Service link",
+                "name": "service_link",
+                "aria-label": "",
+                "type": "url",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "allow_in_bindings": 0,
+                "placeholder": ""
+            },
+            {
                 "key": "field_67d2c4cfba619",
                 "label": "Features",
                 "name": "features",
@@ -131,140 +230,6 @@
                 "delay": 0
             },
             {
-                "key": "field_67d2f2caf054f",
-                "label": "How-to title",
-                "name": "how_to_title",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_67dc31c20ef24",
-                "label": "Service link",
-                "name": "service_link",
-                "aria-label": "",
-                "type": "url",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "allow_in_bindings": 0,
-                "placeholder": ""
-            },
-            {
-                "key": "field_67dc321f0ef27",
-                "label": "Visit counter",
-                "name": "visit_counter",
-                "aria-label": "",
-                "type": "number",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "min": "",
-                "max": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "step": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_67dc32340ef28",
-                "label": "Show in carousel",
-                "name": "show_in_carousel",
-                "aria-label": "",
-                "type": "true_false",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "message": "",
-                "default_value": 0,
-                "allow_in_bindings": 0,
-                "ui": 0,
-                "ui_on_text": "",
-                "ui_off_text": ""
-            },
-            {
-                "key": "field_67dc325d0ef29",
-                "label": "Show in Home Page",
-                "name": "show_in_home_page",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_67dc32770ef2a",
-                "label": "Cluster",
-                "name": "cluster",
-                "aria-label": "",
-                "type": "relationship",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "dis-service-cluster"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "search"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": "",
-                "allow_in_bindings": 0,
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
-            },
-            {
                 "key": "field_67dc32a00ef2b",
                 "label": "Related services",
                 "name": "related_services",
@@ -280,36 +245,6 @@
                 },
                 "post_type": [
                     "dis-service"
-                ],
-                "post_status": "",
-                "taxonomy": "",
-                "filters": [
-                    "search"
-                ],
-                "return_format": "object",
-                "min": "",
-                "max": "",
-                "allow_in_bindings": 0,
-                "elements": "",
-                "bidirectional": 0,
-                "bidirectional_target": []
-            },
-            {
-                "key": "field_67dc32c30ef2c",
-                "label": "Office",
-                "name": "office",
-                "aria-label": "",
-                "type": "relationship",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "post_type": [
-                    "dis-office"
                 ],
                 "post_status": "",
                 "taxonomy": "",
@@ -344,9 +279,7 @@
                 "post_status": "",
                 "taxonomy": "",
                 "filters": [
-                    "search",
-                    "post_type",
-                    "taxonomy"
+                    "search"
                 ],
                 "return_format": "object",
                 "min": "",
@@ -355,6 +288,71 @@
                 "elements": "",
                 "bidirectional": 0,
                 "bidirectional_target": []
+            },
+            {
+                "key": "field_67dc325d0ef29",
+                "label": "Show in Home Page",
+                "name": "show_in_home_page",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 1,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_67dc32340ef28",
+                "label": "Show in carousel",
+                "name": "show_in_carousel",
+                "aria-label": "",
+                "type": "true_false",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "message": "",
+                "default_value": 0,
+                "allow_in_bindings": 0,
+                "ui": 0,
+                "ui_on_text": "",
+                "ui_off_text": ""
+            },
+            {
+                "key": "field_67dc321f0ef27",
+                "label": "Visit counter",
+                "name": "visit_counter",
+                "aria-label": "",
+                "type": "number",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "placeholder": "",
+                "step": "",
+                "prepend": "",
+                "append": ""
             }
         ],
         "location": [
