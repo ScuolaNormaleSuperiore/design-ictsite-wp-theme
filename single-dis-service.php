@@ -9,8 +9,7 @@
 global $post;
 get_header();
 
-// $services = DIS_ContentsManager::get_service_list( 'title', $cluster_id=$post->ID );
-// $clusters = DIS_ContentsManager::get_cluster_list();
+$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $service->ID );
 ?>
 
 
