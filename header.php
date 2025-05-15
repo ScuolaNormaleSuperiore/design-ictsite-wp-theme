@@ -202,4 +202,3 @@ if ( ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $m
 <?php
 }
 ?>
-
