@@ -8,9 +8,9 @@
                 "label": "Short description",
                 "name": "short_description",
                 "aria-label": "",
-                "type": "wysiwyg",
+                "type": "text",
                 "instructions": "",
-                "required": 0,
+                "required": false,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -18,11 +18,10 @@
                     "id": ""
                 },
                 "default_value": "",
-                "allow_in_bindings": 0,
-                "tabs": "all",
-                "toolbar": "full",
-                "media_upload": 1,
-                "delay": 0
+                "maxlength": "",
+                "placeholder": "",
+                "prepend": "",
+                "append": ""
             },
             {
                 "key": "field_67d2c219021c1",
