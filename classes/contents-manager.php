@@ -359,4 +359,31 @@ class DIS_ContentsManager {
 		return $truncated_text;
 	}
 
+	public static function increment_visit_counter( $page_id ){
+		// Ignore ADMIN visits.
+		if ( current_user_can( 'manage_options' ) ) {
+			return;
+		}
+		// Ignore AJAX calls.
+		if ( wp_doing_ajax() ) {
+			return;
+		}
+		// // Ignore some bots.
+		// $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+		// $bots       = BOT_LABEL;
+		// foreach ( $bots as $bot ) {
+		// 	if ( stripos( $user_agent, $bot ) !== false ) {
+		// 		return;
+		// 	}
+		// }
+		// Get actual value.
+		$visits = DIS_CustomFieldsManager::get_field( 'visit_counter' , $page_id );
+		if ( ! is_numeric( $visits ) ) {
+			$visits = 0;
+		}
+		// Update the counter.
+		$visits++;
+		DIS_CustomFieldsManager::update_field( 'visit_counter', $visits, $page_id );
+	}
+
 }

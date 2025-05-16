@@ -10,6 +10,16 @@ global $post;
 get_header();
 
 $short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+$service_link      = DIS_CustomFieldsManager::get_field( 'service_link' , $post->ID );
+$features          = DIS_CustomFieldsManager::get_field( 'features' , $post->ID );
+$requirements      = DIS_CustomFieldsManager::get_field( 'requirements' , $post->ID );
+$rates             = DIS_CustomFieldsManager::get_field( 'rates' , $post->ID );
+$get_started       = DIS_CustomFieldsManager::get_field( 'get_started' , $post->ID );
+$related_doc       = DIS_CustomFieldsManager::get_field( 'related_documents' , $post->ID );
+$related_services  = DIS_CustomFieldsManager::get_field( 'related_services' , $post->ID );
+$offices           = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
+// Incremento il contatore delle visite.
+DIS_ContentsManager::increment_visit_counter( $post->ID );
 ?>
 
 

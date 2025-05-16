@@ -424,7 +424,7 @@ class Service_Manager {
 				'class' => '',
 				'id' => '',
 			),
-			'default_value' => '',
+			'default_value' => 0,
 			'min' => '',
 			'max' => '',
 			'allow_in_bindings' => 0,
