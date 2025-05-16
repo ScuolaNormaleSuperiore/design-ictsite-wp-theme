@@ -360,30 +360,34 @@ class DIS_ContentsManager {
 	}
 
 	public static function increment_visit_counter( $page_id ){
-		// Ignore ADMIN visits.
-		if ( current_user_can( 'manage_options' ) ) {
-			return;
+		if ( DIS_OptionsManager::dis_get_option( 'service_page_counter_enabled', 'dis_opt_advanced_settings' ) === 'true' ) {
+			// Ignore ADMIN visits.
+			if ( current_user_can( 'manage_options' ) ) {
+				return;
+			}
+			// Ignore AJAX calls.
+			if ( wp_doing_ajax() ) {
+				return;
+			}
+			if ( DIS_OptionsManager::dis_get_option( 'ignore_robots', 'dis_opt_advanced_settings' ) === 'true' ) {
+				// Ignore some bots.
+				$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+				$bots       = BOT_LABEL;
+				foreach ( $bots as $bot ) {
+					if ( stripos( $user_agent, $bot ) !== false ) {
+						return;
+					}
+				}
+			}
+			// Get actual value.
+			$visits = DIS_CustomFieldsManager::get_field( 'visit_counter' , $page_id );
+			if ( ! is_numeric( $visits ) ) {
+				$visits = 0;
+			}
+			// Update the counter.
+			$visits++;
+			DIS_CustomFieldsManager::update_field( 'visit_counter', $visits, $page_id );
 		}
-		// Ignore AJAX calls.
-		if ( wp_doing_ajax() ) {
-			return;
-		}
-		// // Ignore some bots.
-		// $user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
-		// $bots       = BOT_LABEL;
-		// foreach ( $bots as $bot ) {
-		// 	if ( stripos( $user_agent, $bot ) !== false ) {
-		// 		return;
-		// 	}
-		// }
-		// Get actual value.
-		$visits = DIS_CustomFieldsManager::get_field( 'visit_counter' , $page_id );
-		if ( ! is_numeric( $visits ) ) {
-			$visits = 0;
-		}
-		// Update the counter.
-		$visits++;
-		DIS_CustomFieldsManager::update_field( 'visit_counter', $visits, $page_id );
 	}
 
 }

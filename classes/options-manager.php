@@ -815,6 +815,7 @@ class DIS_OptionsManager {
 					'type' => 'title',
 			)
 		);
+
 		$advanced_options->add_field(
 			array(
 				'id'   => 'login',
@@ -934,6 +935,42 @@ class DIS_OptionsManager {
 				),
 			)
 		);
+
+		$advanced_options->add_field(
+		array(
+				'id'   => 'page_counter',
+				'name' => __( 'Page counters', 'design_ict_site' ),
+				'type' => 'title',
+			)
+		);
+		$advanced_options->add_field(
+			array(
+				'id'      => 'ignore_robots',
+				'name'    => __( 'Ignore robots', 'design_ict_site' ),
+				'desc'    => __( 'Do not count the views of the robots.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+		$advanced_options->add_field(
+			array(
+				'id'      => 'service_page_counter_enabled',
+				'name'    => __( 'Service views counter', 'design_ict_site' ),
+				'desc'    => __( 'Enable the counter of the views of the service detail page.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+
+
 	}
 
 
