@@ -18,6 +18,9 @@ $get_started       = DIS_CustomFieldsManager::get_field( 'get_started' , $post->
 $related_doc       = DIS_CustomFieldsManager::get_field( 'related_documents' , $post->ID );
 $related_services  = DIS_CustomFieldsManager::get_field( 'related_services' , $post->ID );
 $offices           = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
+$designed_for      = '';
+$get_help          = '';
+$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 // Incremento il contatore delle visite.
 DIS_ContentsManager::increment_visit_counter( $post->ID );
 ?>
@@ -31,9 +34,10 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 			<div class="img-responsive">
 				<div class="img-wrapper">
 					<img
-						src="https://animals.sandiegozoo.org/sites/default/files/2016-08/animals_hero_mountains.jpg"
-						title="titolo immagine"
-						alt="descrizione immagine">
+						src="<?php echo esc_url( $image_data['image_url'] ); ?>"
+						title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
+						alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+					>
 				</div>
 			</div>
 		</div>
@@ -45,11 +49,17 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 						<p class="d-none d-lg-block">
 							<?php echo esc_html( $short_description ); ?>
 						</p>
+						<?php
+						if ( $service_link ) {
+						?>
 						<div class="it-btn-container">
-							<a class="btn btn-sm btn-secondary" href="[Service link]">
-								Accedi al servizio
+							<a class="btn btn-sm btn-secondary" href="<?php echo esc_url( $service_link ); ?>">
+								<?php echo __( 'Access the service', 'design_ict_site' ); ?>
 							</a>
 						</div>
+						<?php
+						}
+						?>
 					</div>
 				</div>
 			</div>
@@ -65,101 +75,169 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 
 				<!-- DESCRIZIONE -->
 				<p class="lead">
-					[Description] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget laoreet sem.
-					Etiam blandit dui lacus, posuere consectetur ipsum eleifend ac. Vivamus nec justo nunc. Fusce nec tempor
-					risus. Morbi volutpat, nisi at molestie maximus, sapien purus pharetra eros, nec condimentum nulla mauris sed
-					ipsum. Vivamus ac placerat dolor. Nunc posuere dignissim tortor, nec laoreet felis tempor non. Morbi vitae
-					neque dolor.
+					<?php echo get_the_content() ?>
 				</p>
 
-				<!-- FEATURES-->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-check-circle" style="font-size: 1.75rem;"></i>
-					Features
-				</h3>
-				<p class="">
-					[Features] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget laoreet sem. Etiam
-					blandit dui lacus, posuere consectetur ipsum eleifend ac. Vivamus nec justo nunc. Fusce nec tempor risus.
-					Morbi volutpat, nisi at molestie maximus, sapien purus pharetra eros, nec condimentum nulla mauris sed ipsum.
-					Vivamus ac placerat dolor. Nunc posuere dignissim tortor, nec laoreet felis tempor non. Morbi vitae neque
-					dolor.
-				</p>
+				<?php
+				if ( $features ) {
+				?>
+					<!-- FEATURES-->
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-check-circle" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Features', 'design_ict_site' ); ?>
+					</h3>
+					<p class="">
+						<?php echo $features; ?>
+					</p>
+				<?php
+				}
+				?>
 
-				<!-- REQUIREMENTS-->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-list-check" style="font-size: 1.75rem;"></i>
-					Requirements
-				</h3>
-				<p class="">[Requirements] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget laoreet sem. Etiam
-					blandit dui lacus, posuere consectetur ipsum eleifend ac. Vivamus nec justo nunc. Fusce nec tempor risus.
-					Morbi volutpat, nisi at molestie maximus, sapien purus pharetra eros, nec condimentum nulla mauris sed ipsum.
-					Vivamus ac placerat dolor. Nunc posuere dignissim tortor, nec laoreet felis tempor non. Morbi vitae neque
-					dolor.</p>
+				<?php
+				if ( $requirements ) {
+				?>
+					<!-- REQUIREMENTS-->
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-list-check" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Requirements', 'design_ict_site' ); ?>
+					</h3>
+					<p class="">
+						<?php echo $requirements; ?>
+					</p>
+				<?php
+				}
+				?>
 
+				<?php
+				if ( $designed_for ) {
+				?>
 					<!-- DESIGNED FOR -->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-people" style="font-size: 1.75rem;"></i>
-					A chi è rivolto
-				</h3>
-				<p class="">[Role Interested] Docenti, PTA, studenti</p>
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-people" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Designed for', 'design_ict_site' ); ?>
+					</h3>
+					<p class="">
+						<?php echo $designed_for; ?>
+					</p>
+				<?php
+				}
+				?>
 
-				<!-- GET STARTED-->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-rocket" style="font-size: 1.75rem;"></i>
-					Get started
-				</h3>
-				<p class="">[Get started] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget laoreet sem. Etiam
-					blandit dui lacus, posuere consectetur ipsum eleifend ac. Vivamus nec justo nunc. Fusce nec tempor risus.
-					Morbi volutpat, nisi at molestie maximus, sapien purus pharetra eros, nec condimentum nulla mauris sed ipsum.
-					Vivamus ac placerat dolor. Nunc posuere dignissim tortor, nec laoreet felis tempor non. Morbi vitae neque
-					dolor.</p>
+				<?php
+				if ( $get_started ) {
+				?>
+					<!-- GET STARTED-->
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-rocket" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Get started', 'design_ict_site' ); ?>
+					</h3>
+					<p class="">
+						<?php echo $get_started; ?>
+					</p>
+					<?php
+				}
+				?>
 
-						<!-- RATES -->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-credit-card" style="font-size: 1.75rem;"></i>
-					Rates
-				</h3>
-				<p class="">[Rates] Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras eget laoreet sem. Etiam
-					blandit dui lacus, posuere consectetur ipsum eleifend ac. Vivamus nec justo nunc. Fusce nec tempor risus.
-					Morbi volutpat, nisi at molestie maximus, sapien purus pharetra eros, nec condimentum nulla mauris sed ipsum.
-					Vivamus ac placerat dolor. Nunc posuere dignissim tortor, nec laoreet felis tempor non. Morbi vitae neque
-					dolor.</p>
+				<?php
+				if ( $rates ) {
+				?>
+					<!-- RATES -->
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-credit-card" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Rates', 'design_ict_site' ); ?>
+					</h3>
+					<p class="">
+						<?php echo $rates; ?>
+					</p>
+				<?php
+				}
+				?>
 
+				<?php
+				if ( $get_help ) {
+				?>
 					<!-- GET HELP -->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-question-circle" style="font-size: 1.75rem;"></i>
-					Get help
-				</h3>
-				<p class="">[Office] Write to or link to [servizio competente]</p>
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-question-circle" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Get help', 'design_ict_site' ); ?>
+					</h3>
+					<p class="">
+						<?php echo $get_help; ?>
+					</p>
+				<?php
+				}
+				?>
 
-					<!-- LEARN MORE -->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-info-circle" style="font-size: 1.75rem;"></i>
-					Documentazione
-				</h3>
-				<ul>
-					<li><a href="#">Documento 1</a></li>
-					<li><a href="#">Documento 1</a></li>
-					<li><a href="#">Documento 1</a></li>
-					<li><a href="#">Documento 1</a></li>
-				</ul>
+				<?php
+				if ( $related_doc ) {
+				?>
+					<!-- Related Documents -->
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-info-circle" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Documentation', 'design_ict_site' ); ?>
+					</h3>
+					<?php
+					foreach ( $related_doc as $doc ) {
+						$link = DIS_CustomFieldsManager::get_field( 'link' , $doc->ID );
+					?>
+						<ul>
+							<?php
+							if ( $link ){
+							?>
+							<li>
+								<a target="_blank" href="<?php echo esc_url( $link ); ?>">
+									<?php echo esc_attr( $doc->post_title ); ?>
+								</a>
+							</li>
+							<?php
+							} else {
+							?>
+							<li>
+								<a href="<?php echo get_permalink( $doc ); ?>">
+									<?php echo esc_attr( $doc->post_title ); ?>
+								</a>
+							</li>
+							<?php
+							}
+							?>
+						</ul>
+					<?php
+					}
+					?>
+				<?php
+				}
+				?>
 
-					<!-- Servizi correlati -->
-				<h3 class="h4 service-paragraph">
-					<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>
-					Servizi correlati
-				</h3>
-				<ul>
-					<li><a href="#">Servizio 1</a></li>
-					<li><a href="#">Servizio 1</a></li>
-					<li><a href="#">Servizio 1</a></li>
-					<li><a href="#">Servizio 1</a></li>
-				</ul>
+				<?php
+				if ( $related_services ) {
+				?>
+					<!-- Related Services -->
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'Related services', 'design_ict_site' ); ?>
+					</h3>
+					<ul>
+					<?php
+					foreach ( $related_services as $service ) {
+					?>
+						<li>
+							<a href="<?php echo get_permalink( $service ); ?>">
+								<?php echo esc_attr( $service->post_title ); ?>
+							</a>
+						</li>
+					<?php
+					}
+					?>
+					</ul>
+				<?php
+				}
+				?>
 
-				<!-- Data di aggiornamento -->
+				<!-- Last modification -->
 				<div class="pt-4">
 					<p class="it-text-centered">
-						Ultimo aggiornamento: [data-modifica]</p>
+						<?php echo __( 'Last modification', 'design_ict_site' ); ?>: <?php the_modified_date('d/m/Y'); ?>
+					</p>
 				</div>
 
 			</div>
