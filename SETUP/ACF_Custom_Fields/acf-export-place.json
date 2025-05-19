@@ -4,6 +4,26 @@
         "title": "Place Fields",
         "fields": [
             {
+                "key": "field_6821fd4307612",
+                "label": "Short description",
+                "name": "short_description",
+                "aria-label": "",
+                "type": "textarea",
+                "instructions": "",
+                "required": false,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "default_value": "",
+                "new_lines": "",
+                "maxlength": "",
+                "placeholder": "",
+                "rows": ""
+            },
+            {
                 "center_lat": 53.550640000000001,
                 "center_lng": 10.00065,
                 "zoom": 12,
@@ -37,7 +57,7 @@
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -58,7 +78,7 @@
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -79,7 +99,7 @@
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -175,27 +195,6 @@
                 "toolbar": "full",
                 "media_upload": 1,
                 "delay": 0
-            },
-            {
-                "key": "field_6821fd4307612",
-                "label": "Short description",
-                "name": "short_description",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
             }
         ],
         "location": [

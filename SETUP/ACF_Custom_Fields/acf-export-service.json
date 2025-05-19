@@ -10,7 +10,7 @@
                 "aria-label": "",
                 "type": "textarea",
                 "instructions": "",
-                "required": false,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -18,10 +18,11 @@
                     "id": ""
                 },
                 "default_value": "",
-                "new_lines": "",
                 "maxlength": "",
+                "allow_in_bindings": 1,
+                "rows": "",
                 "placeholder": "",
-                "rows": ""
+                "new_lines": ""
             },
             {
                 "key": "field_6821f31ca30b9",
@@ -53,7 +54,7 @@
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -83,7 +84,7 @@
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -290,6 +291,36 @@
                 "bidirectional_target": []
             },
             {
+                "key": "field_682aeaad47146",
+                "label": "Related user status",
+                "name": "related_user_status",
+                "aria-label": "",
+                "type": "relationship",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "post_type": [
+                    "dis-user-status"
+                ],
+                "post_status": "",
+                "taxonomy": "",
+                "filters": [
+                    "search"
+                ],
+                "return_format": "object",
+                "min": "",
+                "max": "",
+                "allow_in_bindings": 0,
+                "elements": "",
+                "bidirectional": 0,
+                "bidirectional_target": []
+            },
+            {
                 "key": "field_67dc325d0ef29",
                 "label": "Show in Home Page",
                 "name": "show_in_home_page",
@@ -304,7 +335,7 @@
                     "id": ""
                 },
                 "message": "",
-                "default_value": 0,
+                "default_value": 1,
                 "allow_in_bindings": 1,
                 "ui": 0,
                 "ui_on_text": "",

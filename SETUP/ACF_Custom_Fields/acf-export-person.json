@@ -10,7 +10,7 @@
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -31,7 +31,7 @@
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -152,7 +152,7 @@
                 "aria-label": "",
                 "type": "select",
                 "instructions": "",
-                "required": 0,
+                "required": 1,
                 "conditional_logic": 0,
                 "wrapper": {
                     "width": "",
@@ -172,7 +172,9 @@
                 "allow_in_bindings": 0,
                 "ui": 0,
                 "ajax": 0,
-                "placeholder": ""
+                "placeholder": "",
+                "create_options": 0,
+                "save_options": 0
             }
         ],
         "location": [
