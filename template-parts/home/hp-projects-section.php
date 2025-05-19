@@ -13,7 +13,8 @@ $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
 	$items          = DIS_ContentsManager::get_hp_project_list();
-	$all_items_link = DIS_ContentsManager::get_page_link( EVENTS_PAGE_SLUG );
+	$all_items_link = DIS_ContentsManager::get_page_link( PROJECTS_PAGE_SLUG );
+	if ( count( $items ) ) {
 ?>
 
 	<section id="blocco-progetti" class="section section-muted pt-5 pb-3">
@@ -79,5 +80,6 @@ if ( $section_enabled ) {
 
 
 <?php
+	}
 }
 ?>

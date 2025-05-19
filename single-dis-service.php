@@ -21,14 +21,12 @@ $offices           = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
 $designed_for      = '';
 $get_help          = '';
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
-// Incremento il contatore delle visite.
+// Increment the counter of the visits.
 DIS_ContentsManager::increment_visit_counter( $post->ID );
 ?>
 
-
-
+	<!-- CONTENT HERO -->
 	<div class="container">
-		<!-- SLIM HERO -->
 		<section class="it-hero-wrapper it-dark it-overlay it-text-centered">
 		<div class="img-responsive-wrapper">
 			<div class="img-responsive">
@@ -67,13 +65,13 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 		</section>
 	</div>
 
-	<!-- SERVICE BODY -->
+	<!-- CONTENT BODY -->
 	<div class="container shadow rounded p-4 mb-5 mt-2">
 		<div class="row">
-			<!-- Descrizione del servizio -->
+			<!-- Description of the service -->
 			<div class="col-12 col-md-10 offset-md-1 col-lg-7 offset-lg-1 m-auto">
 
-				<!-- DESCRIZIONE -->
+				<!-- DESCRIPTION -->
 				<p class="lead">
 					<?php echo get_the_content() ?>
 				</p>
@@ -243,7 +241,6 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 			</div>
 		</div>
 	</div>
-
 
 <?php
 get_footer();
