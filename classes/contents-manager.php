@@ -23,7 +23,6 @@
 	public string $domain       = '';
 }
 
-
 /**
  * The manager for the site contents.
  *
@@ -388,6 +387,126 @@ class DIS_ContentsManager {
 			$visits++;
 			DIS_CustomFieldsManager::update_field( 'visit_counter', $visits, $page_id );
 		}
+	}
+
+
+	public static function searchable_post_types(){
+		return array(
+								// array(
+							// 	'name' => 'Attachment',
+							// 	'slug' => DIS_ATTACHMENT_POST_TYPE,
+							// ),
+							array(
+								'name' => __( 'Event', 'design_ict_site' ),
+								'slug' => DIS_EVENT_POST_TYPE,
+							),
+							array(
+								'name' => __( 'Office', 'design_ict_site' ),
+								'slug' => DIS_OFFICE_POST_TYPE,
+							),
+							array(
+								'name' => __( 'Page', 'design_ict_site' ),
+								'slug' => WP_DEFAULT_PAGE,
+							),
+							array(
+								'name' => __( 'Post', 'design_ict_site' ),
+								'slug' => WP_DEFAULT_POST,
+							),
+							array(
+								'name' => __( 'Project', 'design_ict_site' ),
+								'slug' => DIS_PROJECT_POST_TYPE,
+							),
+							array(
+								'name' => __( 'Service', 'design_ict_site' ),
+								'slug' => DIS_SERVICE_POST_TYPE,
+							),
+					);
+	}
+
+	public static function get_content_types_with_results() {
+		$content_types              = self::searchable_post_types();
+		$content_types_with_results = array();
+		foreach ( $content_types as $ct) {
+			$the_query = new WP_Query(
+				array(
+					'post_type'   => $ct['slug'],
+					'post_status' => 'publish',
+				)
+			);
+			$num_results = $the_query->found_posts;
+			if ( $num_results > 0 ) {
+				array_push( $content_types_with_results, $ct );
+			}
+			wp_reset_postdata();
+		}
+		return $content_types_with_results;
+	}
+
+
+	public static function get_site_search_query( $selected_contents, $search_string, $page_size ){
+		$params = array(
+			'paged'          => get_query_var( 'paged', 1 ),
+			'post_status'    => 'publish',
+			'posts_per_page' => $page_size,
+			's'              => $search_string,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+		);
+		if( count( $selected_contents ) > 0 ) {
+			$params['post_type'] = $selected_contents;
+		}
+		$the_query = new WP_Query( $params );
+		return $the_query;
+	}
+
+	public static function wrap_search_result( $post ) {
+		// 			switch ( $result->post_type) {
+		// 		case EVENT_POST_TYPE:
+		// 			$item = dli_from_event_to_carousel_item ( $result );
+		// 			break;
+		// 		case NEWS_POST_TYPE:
+		// 			$item = dli_from_news_to_carousel_item ( $result );
+		// 			break;
+		// 		case PROGETTO_POST_TYPE:
+		// 			$item = dli_from_progetto_to_carousel_item ( $result );
+		// 			break;
+		// 		case PUBLICATION_POST_TYPE:
+		// 			$item = dli_from_publication_to_carousel_item ( $result );
+		// 			break;
+		// 		case PATENT_POST_TYPE:
+		// 			$item = dli_from_patent_to_carousel_item ( $result );
+		// 			break;
+		// 		case PATENT_POST_TYPE:
+		// 			$item = dli_from_patent_to_carousel_item ( $result );
+		// 			break;
+		// 		case WP_DEFAULT_PAGE:
+		// 			$item = dli_from_page_to_carousel_item ( $result );
+		// 			break;
+		// 		default:
+		// 			// Standard post or article.
+		// 			$item = dli_from_post_to_carousel_item ( $result );
+		// 			break;
+		// 	}
+
+		// $wrapper        = dli_get_post_wrapper( $post );
+		// $image_metadata = dli_get_image_metadata( $post, 'item-thumb', '/assets/img/placeholder.png' );
+		// $image_alt      = ( PEOPLE_POST_TYPE === $post->post_type ) ? $wrapper['title'] : $image_metadata['image_alt'];
+		// $image_title    = ( PEOPLE_POST_TYPE === $post->post_type ) ? $wrapper['title'] : $image_metadata['image_title'];
+
+		// return array(
+		// 	'id'            => $post->ID,
+		// 	'title'         => $wrapper['title'],
+		// 	'description'   => $wrapper['description'],
+		// 	'image'         => $image_metadata['image_url'],
+		// 	'link'          => $wrapper['link'],
+		// 	'date'          => $wrapper['date'],
+		// 	'type'          => $wrapper['type'],
+		// 	'category'      => $wrapper['category'],
+		// 	'link_category' => $wrapper['category_link'],
+		// 	'title'         => $wrapper['title'],
+		// 	'image_alt'     => $image_alt,
+		// 	'image_title'   => $image_title,
+		// );
 	}
 
 }

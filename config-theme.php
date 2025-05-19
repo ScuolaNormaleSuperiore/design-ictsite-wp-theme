@@ -70,6 +70,7 @@ define(
 	)
 );
 
+
 /**
  *  The mandatory plugin used by this theme.
  */
@@ -149,7 +150,13 @@ define(
 	)
 );
 
+// Site Search.
+define( 'DIS_SITE_SEARCH_CELLS_PER_PAGE', 10 );
+define( 'DIS_ACF_SHORT_DESC_LENGTH', 50 );
 
+
+
+// Bot definitions.
 define(
 	'BOT_LABEL',
 	array(
