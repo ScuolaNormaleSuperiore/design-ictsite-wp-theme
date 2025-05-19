@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-- Dettaglio servizio.
 - Ricerca e wrapper contenuti.
 - HP Featured Events.
 - Gestione slug.

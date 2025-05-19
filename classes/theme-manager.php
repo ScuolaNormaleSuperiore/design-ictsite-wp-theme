@@ -115,6 +115,9 @@ class DIS_ThemeManager {
 		// Setup permalink structure.
 		$this->setup_site_structure();
 
+		// Setup upload limits structure.
+		$this->setup_upload_limits();
+
 		// Setup of the tool to manage multiple languages.
 		$this->mlm = new DIS_MultiLangManager();
 		$this->mlm->setup();
@@ -215,6 +218,23 @@ class DIS_ThemeManager {
 		$wp_rewrite->flush_rules();
 	}
 
+	public function configure_upload_limits( $file ) {
+		$image_max_size = 1024 * 1024;     // 1MB for images.
+		$pdf_max_size   = 2 * 1024 * 1024; // 2MB for PDF files.
+		$type           = $file['type'];
+		$size           = $file['size'];
+		// Images limits.
+		$image_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
+		if ( in_array( $type, $image_types ) && $size > $image_max_size ) {
+			$file['error'] = __( 'The image is too big. The maximum allowed is: 1MB.', 'design_ict_site' );
+		}
+		// PDF size attachment limit.
+		if ( $type === 'application/pdf' && $size > $pdf_max_size ) {
+			$file['error'] = __( 'The PDf file is too big. the maximum allowed is: 2MB.', 'design_ict_site' );
+		}
+		return $file;
+	}
+
 	/**
 	 * Set minimal security configurations.
 	 *
@@ -251,6 +271,12 @@ class DIS_ThemeManager {
 	private function setup_site_structure() {
 		add_action( 'init', array( $this, 'configure_permalink' ) );
 	}
+
+	private function setup_upload_limits() {
+		add_action( 'wp_handle_upload_prefilter', array( $this, 'configure_upload_limits' ) );
+	}
+
+	
 
 }
 
