@@ -139,9 +139,36 @@
                 "append": ""
             },
             {
+                "center_lat": 53.550640000000001,
+                "center_lng": 10.00065,
+                "zoom": 12,
+                "height": 400,
+                "return_format": "leaflet",
+                "allow_map_layers": 1,
+                "max_markers": "",
+                "layers": [
+                    "OpenStreetMap.Mapnik"
+                ],
+                "key": "field_682c2dad7be11",
+                "label": "GPS Position",
+                "name": "gps_position",
+                "aria-label": "",
+                "type": "open_street_map",
+                "instructions": "",
+                "required": 0,
+                "conditional_logic": 0,
+                "wrapper": {
+                    "width": "",
+                    "class": "",
+                    "id": ""
+                },
+                "allow_in_bindings": 0,
+                "leaflet_map": "{\"lat\":53.550640000000001,\"lng\":10.00065,\"zoom\":12,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
+            },
+            {
                 "key": "field_67dd271307c69",
-                "label": "Place",
-                "name": "place",
+                "label": "Location",
+                "name": "location",
                 "aria-label": "",
                 "type": "text",
                 "instructions": "",

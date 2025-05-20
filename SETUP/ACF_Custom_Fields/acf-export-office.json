@@ -67,8 +67,8 @@
             },
             {
                 "key": "field_67dacc2ed84a7",
-                "label": "Locations",
-                "name": "locations",
+                "label": "Places",
+                "name": "places",
                 "aria-label": "",
                 "type": "relationship",
                 "instructions": "",
