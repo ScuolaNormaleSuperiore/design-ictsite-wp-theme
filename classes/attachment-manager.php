@@ -33,7 +33,7 @@ class Attachment_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Attachment', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'name'                  => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			'singular_name'         => _x( 'Attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new'               => _x( 'Add an attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new_item'          => _x( 'Add an attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),

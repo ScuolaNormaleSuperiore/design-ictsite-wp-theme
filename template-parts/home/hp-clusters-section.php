@@ -13,7 +13,6 @@ $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
 	$items = DIS_ContentsManager::get_cluster_list( $hp=true, $order='priority' );
-	// $all_items_link = DIS_ContentsManager::get_page_link( SERVICE_CLUSTER_PAGE_SLUG );
 ?>
 	<!-- CLUSTER SERVICE ITEMS SECTION -->
 	<div class="container card shadow rounded home-listing-items p-4 pt-5 pb-3">

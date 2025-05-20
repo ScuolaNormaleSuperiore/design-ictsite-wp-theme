@@ -30,7 +30,7 @@ class Banner_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Banners', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'name'                  => _x( 'Banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			'singular_name'         => _x( 'Banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new'               => _x( 'Add a banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new_item'          => _x( 'Add a banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),

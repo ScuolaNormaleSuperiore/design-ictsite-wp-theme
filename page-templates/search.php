@@ -163,28 +163,28 @@ if ( '' !== $search_string ) {
 										<div class="card">
 											<div class="card-body mb-0">
 												<?php
-												if ( $result['image'] ) {
+												if ( $result->image_url ) {
 												?>
-												<img src="<?php echo esc_url( $result['image'] ); ?>"
+												<img src="<?php echo esc_url( $result->image_url ); ?>"
 													height="100"
 													width="100"
 													class="img-thumbnail float-sm-start me-2 text-nowrap"
-													title="<?php echo esc_attr( $result['image_title'] ); ?>"
-													alt="<?php echo esc_attr( $result['image_alt'] ); ?>" />
+													title="<?php echo esc_attr( $result->image_title ); ?>"
+													alt="<?php echo esc_attr( $result->image_alt ); ?>" />
 												<?php
 												}
 												?>
 												<span class="text" style="text-transform: uppercase;">
-													<a class="text-decoration-none" href="<?php echo esc_url( $result['link_category'] ); ?>">
-														<?php echo esc_attr( $result['type'] ); ?>
+													<a class="text-decoration-none" href="<?php echo esc_url( $result->category_link ); ?>">
+														<?php echo esc_attr( $result->type ); ?>
 													</a>
 												</span>
 												<span>&nbsp;-&nbsp;</span>
-												<a class="text-decoration-none" href="<?php echo esc_url( $result['link'] ); ?>">
-													<h3 class="card-title h5"><?php echo esc_attr( $result['title'] ); ?></h3>
+												<a class="text-decoration-none" href="<?php echo esc_url( $result->link ); ?>">
+													<h3 class="card-title h5"><?php echo esc_attr( $result->title ); ?></h3>
 												</a>
 												<p class="card-text">
-													<?php echo esc_attr( wp_trim_words( $result['description'] , DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
+													<?php echo esc_attr( wp_trim_words( $result->description , DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
 												</p>
 											</div>
 										</div>

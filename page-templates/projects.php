@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Projects
+/* Template Name: dis-project
 *
 * @package Design_ICT_Site
 */

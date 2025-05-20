@@ -1,6 +1,6 @@
 <?php
 /**
- * Definition of the Event Manager.
+ * Definition of the DIS-Event Manager.
  *
  * @package Design_ICT_Site
  */
@@ -30,20 +30,16 @@ class Event_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Events', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
-			'singular_name'         => _x( 'Event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the event', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( "Event image", 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose event image' ),
-			'remove_featured_image' => __( 'Remove event image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as event image' , 'design_ict_site' ),
+			'name'          => dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_EVENT_POST_TYPE]['singular_name'],
+			'add_new'       => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
-		$args   = array(
-			'label'         => __( 'Event', 'design_ict_site' ),
+		$args = array(
+			'label'         => dis_ct_data()[DIS_EVENT_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -53,7 +49,7 @@ class Event_Manager {
 			'menu_icon'     => 'dashicons-calendar',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'events' ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_EVENT_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 

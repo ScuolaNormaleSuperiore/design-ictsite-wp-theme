@@ -23,6 +23,21 @@
 	public string $domain       = '';
 }
 
+
+	class DIS_Search_Wrapper {
+		public string $id            = '';
+		public string $title         = '';
+		public string $description   = '';
+		public string $link          = '';
+		public string $date          = '';
+		public string $type          = '';
+		public string $category      = '';
+		public string $category_link = '';
+		public string $image_url     = '';
+		public string $image_alt     = '';
+		public string $image_title   = '';
+	}
+
 /**
  * The manager for the site contents.
  *
@@ -128,6 +143,14 @@ class DIS_ContentsManager {
 		if ( ! $post ) return null;
 		$translated_id = DIS_MultiLangManager::get_post( $post->ID );
 		return get_permalink( $translated_id );
+	}
+	public static function get_archive_link( $type ){
+		$slug = dis_ct_data()[$type]['slug'];
+		if ( ! $slug ) return null;
+		$page = get_page_by_path($slug);
+		if ( ! $page ) return null;
+		$url = get_permalink($page->ID);
+		return $url;
 	}
 
 	public static function get_hp_office_list(){
@@ -389,39 +412,36 @@ class DIS_ContentsManager {
 		}
 	}
 
-
 	public static function searchable_post_types(){
 		return array(
-								// array(
-							// 	'name' => 'Attachment',
-							// 	'slug' => DIS_ATTACHMENT_POST_TYPE,
-							// ),
 							array(
-								'name' => __( 'Event', 'design_ict_site' ),
+								'name' => dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'],
 								'slug' => DIS_EVENT_POST_TYPE,
 							),
 							array(
-								'name' => __( 'Office', 'design_ict_site' ),
+								'name' => __( 'Offices', 'design_ict_site' ),
 								'slug' => DIS_OFFICE_POST_TYPE,
 							),
 							array(
-								'name' => __( 'Page', 'design_ict_site' ),
+								'name' => __( 'Pages', 'design_ict_site' ),
 								'slug' => WP_DEFAULT_PAGE,
 							),
 							array(
-								'name' => __( 'Post', 'design_ict_site' ),
+								'name' => __( 'Posts', 'design_ict_site' ),
 								'slug' => WP_DEFAULT_POST,
 							),
 							array(
-								'name' => __( 'Project', 'design_ict_site' ),
+								'name' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['plural_name'],
 								'slug' => DIS_PROJECT_POST_TYPE,
 							),
 							array(
-								'name' => __( 'Service', 'design_ict_site' ),
+								'name' => __( 'Services', 'design_ict_site' ),
 								'slug' => DIS_SERVICE_POST_TYPE,
 							),
 					);
 	}
+
+
 
 	public static function get_content_types_with_results() {
 		$content_types              = self::searchable_post_types();
@@ -459,54 +479,79 @@ class DIS_ContentsManager {
 		return $the_query;
 	}
 
-	public static function wrap_search_result( $post ) {
-		// 			switch ( $result->post_type) {
-		// 		case EVENT_POST_TYPE:
-		// 			$item = dli_from_event_to_carousel_item ( $result );
-		// 			break;
-		// 		case NEWS_POST_TYPE:
-		// 			$item = dli_from_news_to_carousel_item ( $result );
-		// 			break;
-		// 		case PROGETTO_POST_TYPE:
-		// 			$item = dli_from_progetto_to_carousel_item ( $result );
-		// 			break;
-		// 		case PUBLICATION_POST_TYPE:
-		// 			$item = dli_from_publication_to_carousel_item ( $result );
-		// 			break;
-		// 		case PATENT_POST_TYPE:
-		// 			$item = dli_from_patent_to_carousel_item ( $result );
-		// 			break;
-		// 		case PATENT_POST_TYPE:
-		// 			$item = dli_from_patent_to_carousel_item ( $result );
-		// 			break;
-		// 		case WP_DEFAULT_PAGE:
-		// 			$item = dli_from_page_to_carousel_item ( $result );
-		// 			break;
-		// 		default:
-		// 			// Standard post or article.
-		// 			$item = dli_from_post_to_carousel_item ( $result );
-		// 			break;
-		// 	}
+	/**
+	 * Wrap a specific content type into a generic Search Wrapper.
+	 * 
+	 * @param mixed $post
+	 * @return DIS_Search_Wrapper
+	 */
+	public static function wrap_search_result( $post ): DIS_Search_Wrapper {
+		$item = null;
+		switch ( $post->post_type ) {
+			case DIS_EVENT_POST_TYPE:
+				$item = self::wrap_event ( $post );
+				break;
+			case DIS_OFFICE_POST_TYPE:
+				$item = self::wrap_office ( $post );
+				break;
+			case DIS_PROJECT_POST_TYPE:
+				$item = self::wrap_project ( $post );
+				break;
+			case DIS_SERVICE_POST_TYPE:
+				$item = self::wrap_service ( $post );
+				break;
+			case WP_DEFAULT_PAGE:
+				$item = self::wrap_page ( $post );
+				break;
+			default:
+				$item = self::wrap_article ( $post );
+				break;
+		}
+		return $item;
+	}
 
-		// $wrapper        = dli_get_post_wrapper( $post );
-		// $image_metadata = dli_get_image_metadata( $post, 'item-thumb', '/assets/img/placeholder.png' );
-		// $image_alt      = ( PEOPLE_POST_TYPE === $post->post_type ) ? $wrapper['title'] : $image_metadata['image_alt'];
-		// $image_title    = ( PEOPLE_POST_TYPE === $post->post_type ) ? $wrapper['title'] : $image_metadata['image_title'];
+	/**
+	 * Wrap a DIS-Event.
+	 * @param mixed $post
+	 * @return DIS_Search_Wrapper
+	 */
+	public static function wrap_event( $post ): DIS_Search_Wrapper {
+		$result                = new DIS_Search_Wrapper();
+		$result->id            = $post->ID;
+		$result->title         = $post->post_title;
+		$result->type          = $post->post_type;
+		$result->link          = get_permalink( $post );
+		$result->date          = '';
+		$result->description   = '';
+		$result->category      = '';
+		$result->category_link = '';
+		$result->image_url     = '';
+		$result->image_alt     = '';
+		$result->image_title   = '';
+		return $result;
+	}
 
-		// return array(
-		// 	'id'            => $post->ID,
-		// 	'title'         => $wrapper['title'],
-		// 	'description'   => $wrapper['description'],
-		// 	'image'         => $image_metadata['image_url'],
-		// 	'link'          => $wrapper['link'],
-		// 	'date'          => $wrapper['date'],
-		// 	'type'          => $wrapper['type'],
-		// 	'category'      => $wrapper['category'],
-		// 	'link_category' => $wrapper['category_link'],
-		// 	'title'         => $wrapper['title'],
-		// 	'image_alt'     => $image_alt,
-		// 	'image_title'   => $image_title,
-		// );
+	public static function wrap_office( $post ): DIS_Search_Wrapper {
+		$result = new DIS_Search_Wrapper();
+		return $result;
+	}
+
+	public static function wrap_project( $post ): DIS_Search_Wrapper {
+		$result = new DIS_Search_Wrapper();
+		return $result;
+	}
+	public static function wrap_service( $post ): DIS_Search_Wrapper {
+		$result = new DIS_Search_Wrapper();
+		return $result;
+	}
+
+	public static function wrap_page( $post ): DIS_Search_Wrapper {
+		$result = new DIS_Search_Wrapper();
+		return $result;
+	}
+	public static function wrap_article( $post ) {
+		$result = new DIS_Search_Wrapper();
+		return $result;
 	}
 
 }

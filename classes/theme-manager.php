@@ -157,11 +157,11 @@ class DIS_ThemeManager {
 		$prsm = new Person_Manager();
 		$prsm->setup();
 
-		// Setup of the Project post-type.
+		// Setup of the DIS-Project post-type.
 		$prjm = new Project_Manager();
 		$prjm->setup();
 
-		// Setup of the Event post-type.
+		// Setup of the DIS-Event post-type.
 		$evnm = new Event_Manager();
 		$evnm->setup();
 

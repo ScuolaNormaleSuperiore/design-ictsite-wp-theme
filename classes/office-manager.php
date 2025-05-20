@@ -30,7 +30,7 @@ class Office_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Offices', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'name'                  => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			'singular_name'         => _x( 'Office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new'               => _x( 'Add an office ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new_item'          => _x( 'Add an office', 'DIS_PostTypeSingularName', 'design_ict_site' ),

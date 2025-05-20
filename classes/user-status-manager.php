@@ -33,7 +33,7 @@ class UserStatus_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'User Status', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'name'                  => _x( 'User Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			'singular_name'         => _x( 'User Status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new'               => _x( 'Add an user status ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new_item'          => _x( 'Add an user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),

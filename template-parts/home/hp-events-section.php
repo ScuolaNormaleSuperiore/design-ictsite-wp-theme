@@ -13,7 +13,7 @@ $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
 	$items          = DIS_ContentsManager::get_hp_events_list();
-	$all_items_link = DIS_ContentsManager::get_page_link( EVENTS_PAGE_SLUG );
+	$all_items_link = DIS_ContentsManager::get_archive_link( DIS_EVENT_POST_TYPE );
 	if ( count( $items ) ) {
 ?>
 
@@ -24,7 +24,7 @@ if ( $section_enabled ) {
 				<h2 class="pb-4">
 				<?php
 				if ( $show_title ) {
-					echo __( 'Events' , 'design_ict_site' );
+					echo dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'];
 				}
 				?>
 				</h2>

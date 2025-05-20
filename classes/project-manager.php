@@ -1,6 +1,6 @@
 <?php
 /**
- * Definition of the Project Manager.
+ * Definition of the DIS-Project Manager.
  *
  * @package Design_ICT_Site
  */
@@ -30,20 +30,16 @@ class Project_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Projects', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
-			'singular_name'         => _x( 'Project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the project', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( "Project image", 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose project image' ),
-			'remove_featured_image' => __( 'Remove project image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as project image' , 'design_ict_site' ),
+			'name'                  => dis_ct_data()[DIS_PROJECT_POST_TYPE]['plural_name'],
+			'singular_name'         => dis_ct_data()[DIS_PROJECT_POST_TYPE]['singular_name'],
+			'add_new'               => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'          => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'             => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'             => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args   = array(
-			'label'         => __( 'Project', 'design_ict_site' ),
+			'label'         => __( dis_ct_data()[DIS_PROJECT_POST_TYPE]['singular_name'], 'design_ict_site' ),
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -53,7 +49,7 @@ class Project_Manager {
 			'menu_icon'     => 'dashicons-share-alt',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'projects' ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 

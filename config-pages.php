@@ -15,7 +15,7 @@ define( 'DIS_CUSTOM_PAGE_CAT', 'custom_page' );
 define( 'DIS_ARCHIVE_PAGE_CAT', 'archive_page' );
 
 
-/* SLUGS */
+/* PAGE SLUGS */
 define( 'CONTACTS_PAGE_SLUG', 'ContactsPageSlug' );
 define( 'CONTACTS_PAGE_TITLE', 'ContactsPageTitle' );
 define( 'SITE_MAP_PAGE_SLUG', 'SiteMapPageSlug' );
@@ -30,16 +30,6 @@ define( 'LEGAL_NOTES_PAGE_SLUG', 'LegalNotesPageSlug' );
 define( 'LEGAL_NOTES_PAGE_TITLE', 'LegalNotesPageTitle' );
 define( 'SITE_SEARCH_PAGE_SLUG', 'SiteSearchPageSlug' );
 define( 'SITE_SEARCH_PAGE_TITLE', 'SiteSearchPageTitle' );
-define( 'PEOPLE_PAGE_SLUG', 'PeoplePageSlug' );
-define( 'PEOPLE_PAGE_TITLE', 'PeoplePageTitle' );
-define( 'SERVICE_CLUSTER_PAGE_SLUG', 'ServiceClusterPageSlug' );
-define( 'SERVICE_CLUSTER_PAGE_TITLE', 'ServiceClusterPageTitle' );
-define( 'SERVICE_ITEM_PAGE_SLUG', 'ServiceItemPageSlug' );
-define( 'SERVICE_ITEM_PAGE_TITLE', 'ServiceItemPageTitle' );
-define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
-define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );
-define( 'PROJECTS_PAGE_SLUG', 'ProjectPageSlug' );
-define( 'PROJECTS_PAGE_TITLE', 'ProjectPageTitle' );
 define( 'MEDIA_POLICY_PAGE_SLUG', 'MediaPolicyPageSlug' );
 define( 'MEDIA_POLICY_PAGE_TITLE', 'MediaPolicyPageTitle' );
 define( 'ABOUT_US_PAGE_SLUG', 'AboutUsPageSlug' );
@@ -49,6 +39,17 @@ define( 'DOCUMENTATION_PAGE_TITLE', 'DocumentationPageTitle' );
 define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
 define( 'FAQ_PAGE_TITLE', 'FaqPageTitle' );
 
+// POST TYPE SLUGS.
+define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
+define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );
+define( 'PROJECTS_PAGE_SLUG', 'ProjectPageSlug' );
+define( 'PROJECTS_PAGE_TITLE', 'ProjectPageTitle' );
+define( 'PEOPLE_PAGE_SLUG', 'PeoplePageSlug' );
+define( 'PEOPLE_PAGE_TITLE', 'PeoplePageTitle' );
+define( 'SERVICE_CLUSTER_PAGE_SLUG', 'ServiceClusterPageSlug' );
+define( 'SERVICE_CLUSTER_PAGE_TITLE', 'ServiceClusterPageTitle' );
+define( 'SERVICE_ITEM_PAGE_SLUG', 'ServiceItemPageSlug' );
+define( 'SERVICE_ITEM_PAGE_TITLE', 'ServiceItemPageTitle' );
 
 /* PAGES */
 define(

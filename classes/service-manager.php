@@ -30,7 +30,7 @@ class Service_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Services', 'DIS_PostTypeGeneralName', 'design_ict_site' ),
+			'name'                  => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			'singular_name'         => _x( 'Service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new'               => _x( 'Add a service', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 			'add_new_item'          => _x( 'Add a service', 'DIS_PostTypeSingularName', 'design_ict_site' ),

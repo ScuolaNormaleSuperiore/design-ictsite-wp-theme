@@ -217,7 +217,7 @@ class DIS_MultiLangManager {
 		if ( $lang === null ) {
 			$lang = self::get_current_language();
 		}
-		$table = $wpdb->prefix . 'dis_custom_translations';
+		$table       = $wpdb->prefix . 'dis_custom_translations';
 		$translation = $wpdb->get_var( $wpdb->prepare(
 			"SELECT translation FROM $table WHERE label = %s AND domain = %s AND lang = %s LIMIT 1",
 			$text,

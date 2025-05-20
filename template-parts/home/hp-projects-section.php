@@ -1,6 +1,6 @@
 <?php
 /**
- * The HP Project list section.
+ * The HP DIS-Project list section.
  *
  * @package Design_ICT_Site
  */
@@ -13,7 +13,7 @@ $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
 	$items          = DIS_ContentsManager::get_hp_project_list();
-	$all_items_link = DIS_ContentsManager::get_page_link( PROJECTS_PAGE_SLUG );
+	$all_items_link = DIS_ContentsManager::get_archive_link( DIS_PROJECT_POST_TYPE );
 	if ( count( $items ) ) {
 ?>
 
