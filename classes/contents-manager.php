@@ -515,41 +515,48 @@ class DIS_ContentsManager {
 	 * @param mixed $post
 	 * @return DIS_Search_Wrapper
 	 */
-	public static function wrap_event( $post ): DIS_Search_Wrapper {
+	private static function wrap_event( $post ): DIS_Search_Wrapper {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
-		$result->date          = '';
-		$result->description   = '';
-		$result->category      = '';
-		$result->category_link = '';
-		$result->image_url     = '';
-		$result->image_alt     = '';
-		$result->image_title   = '';
+		$result->date          = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
+		$result->description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->category_link = self::get_archive_link( $post->post_type );
+		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
-	public static function wrap_office( $post ): DIS_Search_Wrapper {
-		$result = new DIS_Search_Wrapper();
-		return $result;
+	private static function fill_image_data( $post,&$result ){
+		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/default-image.png' );
+		$result->image_url   = $image_data['image_url'];
+		$result->image_alt   = $image_data['image_alt'];
+		$result->image_title = $image_data['image_title'];
 	}
 
-	public static function wrap_project( $post ): DIS_Search_Wrapper {
-		$result = new DIS_Search_Wrapper();
-		return $result;
-	}
-	public static function wrap_service( $post ): DIS_Search_Wrapper {
+	private static function wrap_office( $post ): DIS_Search_Wrapper {
 		$result = new DIS_Search_Wrapper();
 		return $result;
 	}
 
-	public static function wrap_page( $post ): DIS_Search_Wrapper {
+	private static function wrap_project( $post ): DIS_Search_Wrapper {
 		$result = new DIS_Search_Wrapper();
 		return $result;
 	}
-	public static function wrap_article( $post ) {
+
+	private static function wrap_service( $post ): DIS_Search_Wrapper {
+		$result = new DIS_Search_Wrapper();
+		return $result;
+	}
+
+	private static function wrap_page( $post ): DIS_Search_Wrapper {
+		$result = new DIS_Search_Wrapper();
+		return $result;
+	}
+
+	private static function wrap_article( $post ) {
 		$result = new DIS_Search_Wrapper();
 		return $result;
 	}

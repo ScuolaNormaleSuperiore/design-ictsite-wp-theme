@@ -176,7 +176,7 @@ if ( '' !== $search_string ) {
 												?>
 												<span class="text" style="text-transform: uppercase;">
 													<a class="text-decoration-none" href="<?php echo esc_url( $result->category_link ); ?>">
-														<?php echo esc_attr( $result->type ); ?>
+														<?php echo esc_attr( $result->category ); ?>
 													</a>
 												</span>
 												<span>&nbsp;-&nbsp;</span>
