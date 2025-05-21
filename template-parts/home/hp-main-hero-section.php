@@ -19,6 +19,7 @@ if ( $section_enabled ) {
 	$search_label = DIS_MultiLangManager::get_dis_translation( 'MainHeroSearchButtonLabel', $label_domain );
 	$left_button  = DIS_MultiLangManager::get_dis_translation( 'MainHeroLeftButtonLabel', $label_domain );
 	$right_button = DIS_MultiLangManager::get_dis_translation( 'MainHeroRightButtonLabel', $label_domain );
+	$search_link   = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 ?>
 
 <!-- HERO Standard  -->
@@ -43,17 +44,23 @@ if ( $section_enabled ) {
 						}
 						?>
 					</h2>
+
+					<!-- SEARCH FORM -->
 					<div class="form-group">
-						<div class="input-group">
-							<label for="input-group-1"><?php echo __( 'Site search', 'design_ict_site' ); ?></label>
-							<input type="text" class="form-control" id="input-group-1" name="input-group-1">
-							<div class="input-group-append">
-								<button class="btn btn-primary btn-lg" type="button" id="button-1">
-									<?php echo esc_attr( $search_label ); ?>
-								</button>
+						<FORM action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+							<div class="input-group">
+								<label class="visually-hidden" for="search_string"><?php echo __( 'Site search', 'design_ict_site' ); ?></label>
+								<input type="text" class="form-control" id="search_string" name="search_string">
+								<div class="input-group-append">
+									<button class="btn btn-primary btn-lg" type="submit" value="submit" id="button-1">
+										<?php echo esc_attr( $search_label ); ?>
+									</button>
+								</div>
 							</div>
-						</div>
+						</FORM>
 					</div>
+
 					<p class="d-none d-lg-block">
 						<?php echo esc_attr( $hero_text ); ?>
 					</p>
