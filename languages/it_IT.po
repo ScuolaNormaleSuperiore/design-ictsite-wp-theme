@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-05-21 10:52+0000\n"
+"PO-Revision-Date: 2025-05-21 13:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -25,7 +25,7 @@ msgstr "Navigazione accessoria"
 
 #: template-parts/home/hp-banners-section.php:32
 msgid "Activity banner"
-msgstr ""
+msgstr "Banner attività"
 
 #: classes/options-manager.php:214
 msgid "Add a message"
@@ -33,11 +33,11 @@ msgstr "Aggiungi un messaggio"
 
 #: classes/person-manager.php:42
 msgid "Add a person role"
-msgstr ""
+msgstr "Aggiungi un ruolo"
 
 #: classes/place-manager.php:42
 msgid "Add a Place Type"
-msgstr ""
+msgstr "Aggiungi un tipo di luogo"
 
 #: classes/attachment-manager.php:38 classes/attachment-manager.php:39
 #: classes/banner-manager.php:35 classes/banner-manager.php:36
@@ -55,7 +55,7 @@ msgstr "Aggiungi un oggetto"
 
 #: classes/office-manager.php:35
 msgid "Add an item "
-msgstr ""
+msgstr "Aggiungi un oggetto"
 
 #: classes/options-manager.php:300
 msgid "Add the section"
@@ -80,11 +80,11 @@ msgstr "Tutti gli eventi"
 
 #: classes/person-manager.php:39
 msgid "All person roles"
-msgstr ""
+msgstr "Tutti i ruoli"
 
 #: classes/place-manager.php:39
 msgid "All Place Types"
-msgstr ""
+msgstr "Tutti i tipi di luogo"
 
 #: template-parts/home/hp-projects-section.php:73
 msgid "All projects"
@@ -120,11 +120,11 @@ msgstr "Annulla"
 
 #: classes/options-manager.php:313
 msgid "Choose the section."
-msgstr ""
+msgstr "Scegli la sezione."
 
 #: classes/options-manager.php:296
 msgid "Choose the site sections"
-msgstr ""
+msgstr "Scegli la sezione del sito"
 
 #: classes/options-manager.php:166
 msgid ""
@@ -132,6 +132,10 @@ msgid ""
 "logo in the footer is enabled, the header logo is shown with inverted colors."
 " It is recommended to upload an image in SVG format."
 msgstr ""
+"Scegli il logo del piè di pagina. Se non è presente, ma la visualizzazione "
+"del logo nel piè di pagina è abilitata, il logo dell'intestazione verrà "
+"visualizzato con colori invertiti. Si consiglia di caricare un'immagine in "
+"formato SVG."
 
 #: classes/options-manager.php:514
 msgid "City"
@@ -142,43 +146,45 @@ msgid ""
 "Click the button to reload theme data: post-types, taxonomies, sections, "
 "pages, menu, etc. "
 msgstr ""
+"Fare clic sul pulsante per ricaricare i dati del tema: tipi di post, "
+"tassonomie, sezioni, pagine, menu, ecc."
 
 #: template-parts/header/alert.php:32 template-parts/header/alert.php:33
 msgid "Close alert"
-msgstr ""
+msgstr "Chiudi avviso"
 
 #: classes/options-manager.php:288
 msgid "Configure the sections of the site."
-msgstr ""
+msgstr "Configura le sezioni del sito."
 
 #: template-parts/footer/contacts-section.php:22
 msgid "Contact email address"
-msgstr ""
+msgstr "Indirizzo e-mail di contatto"
 
 #. Name of the template
 #: page-templates/contacts.php:2
 msgid "Contacts"
-msgstr ""
+msgstr "Contatti"
 
 #: page-templates/search.php:107
 msgid "Content type filter"
-msgstr ""
+msgstr "Filtro per tipo di contenuto"
 
 #: classes/options-manager.php:229
 msgid "Danger"
-msgstr ""
+msgstr "Pericolo"
 
 #. Name of the theme
 msgid "Design ICT Site"
-msgstr ""
+msgstr "Design ICT Site"
 
 #: single-dis-service.php:115
 msgid "Designed for"
-msgstr ""
+msgstr "Realizzato per"
 
 #: page-templates/search.php:74
 msgid "Digit the text to search"
-msgstr ""
+msgstr "Scrivi il testo da cercare"
 
 #. Name of the template
 #: page-templates/events.php:2
@@ -188,12 +194,12 @@ msgstr "dis-event"
 #. Name of the template
 #: page-templates/offices.php:2
 msgid "dis-office"
-msgstr ""
+msgstr "dis-office"
 
 #. Name of the template
 #: page-templates/people.php:2
 msgid "dis-person"
-msgstr ""
+msgstr "dis-person"
 
 #. Name of the template
 #: page-templates/projects.php:2
@@ -417,21 +423,21 @@ msgstr "Tipo luogo"
 
 #: classes/options-manager.php:950
 msgid "Do not count the views of the robots."
-msgstr ""
+msgstr "Non contare le visualizzazioni dei robot."
 
 #. Name of the template
 #: single-dis-service.php:175 page-templates/documentation.php:2
 msgid "Documentation"
-msgstr ""
+msgstr "Documentazione"
 
 #: classes/options-manager.php:530
 msgid "E-mail"
-msgstr ""
+msgstr "E-mail"
 
 #: template-parts/common/newsletter.php:21
 #: template-parts/common/newsletter.php:30
 msgid "E-mail address"
-msgstr ""
+msgstr "Indirizzo e-mail"
 
 #: classes/options-manager.php:210
 msgid ""
@@ -439,6 +445,9 @@ msgid ""
 "expiration date (optional) translated into all languages supported by the "
 "site"
 msgstr ""
+"Ogni messaggio è costruito attraverso una breve descrizione (max 300 "
+"caratteri) e una data di scadenza (facoltativa) tradotta in tutte le lingue "
+"supportate dal sito"
 
 #: classes/attachment-manager.php:40 classes/banner-manager.php:37
 #: classes/event-manager.php:37 classes/office-manager.php:37
@@ -447,23 +456,23 @@ msgstr ""
 #: classes/service-manager.php:37 classes/sponsor-manager.php:37
 #: classes/user-status-manager.php:40
 msgid "Edit the item"
-msgstr ""
+msgstr "Modifica l'oggetto"
 
 #: classes/person-manager.php:41
 msgid "Edit the person role Type"
-msgstr ""
+msgstr "Modifica il ruolo"
 
 #: classes/place-manager.php:41
 msgid "Edit the Place Type"
-msgstr ""
+msgstr "Modifica il tipo di luogo"
 
 #: classes/options-manager.php:928
 msgid "Enable internal SEO management"
-msgstr ""
+msgstr "Abilita la gestione SEO interna"
 
 #: classes/options-manager.php:849
 msgid "Enable language selector"
-msgstr ""
+msgstr "Abilita selettore lingua"
 
 #: classes/options-manager.php:963
 msgid "Enable the counter of the views of the service detail page."
@@ -475,61 +484,65 @@ msgstr ""
 msgid ""
 "Enable the display of social media in the header and footer of the page."
 msgstr ""
+"Abilita la visualizzazione dei social media nell'intestazione e nel piè di "
+"pagina della pagina."
 
 #: classes/options-manager.php:929
 msgid ""
 "Enable the internal management of SEO and OG tags or disable it to delegate "
 "this job to an external plugin."
 msgstr ""
+"Abilita la gestione interna dei tag SEO e OG oppure disattivala per delegare "
+"questo lavoro a un plugin esterno."
 
 #: classes/options-manager.php:726
 msgid "Enable the newsletter"
-msgstr ""
+msgstr "Abilita la newsletter"
 
 #: classes/options-manager.php:888
 msgid "Enable the REST API"
-msgstr ""
+msgstr "Abilita la API REST"
 
 #: classes/options-manager.php:908
 msgid "Enable the XMLRPC API"
-msgstr ""
+msgstr "Abilita la API XMLRPC "
 
 #: classes/options-manager.php:324
 msgid "Enable this section"
-msgstr ""
+msgstr "abilita questa sezione"
 
 #: classes/options-manager.php:202
 msgid "Enter messages that will be displayed on the homepage"
-msgstr ""
+msgstr "Inserisci i messaggi che verranno visualizzati nella home page"
 
 #: classes/options-manager.php:870
 msgid "Enter the analytics code."
-msgstr ""
+msgstr "Inserisci il codice di analytics."
 
 #: template-parts/common/newsletter.php:27
 msgid "Enter your email address to receive updates"
-msgstr ""
+msgstr "Inserisci il tuo indirizzo email per ricevere gli aggiornamenti"
 
 #. Name of the template
 #: page-templates/faq.php:2
 msgid "Faq"
-msgstr ""
+msgstr "Faq"
 
 #: single-dis-service.php:85
 msgid "Features"
-msgstr ""
+msgstr "Funzionalità"
 
 #: template-parts/header/social_list.php:13
 msgid "Follow us on"
-msgstr ""
+msgstr "Seguici su"
 
 #: classes/options-manager.php:152
 msgid "Footer logo visible"
-msgstr ""
+msgstr "Logo del più pagina visibile"
 
 #: template-parts/menu/footer-menu.php:22
 msgid "Footer menu"
-msgstr ""
+msgstr "Footer menu"
 
 #: template-parts/footer/contacts-section.php:16
 msgid "FooterContactsDescription"
@@ -547,165 +560,165 @@ msgstr "Area Progetti e Servizi ICT"
 
 #: page-templates/service-clusters.php:65
 msgid "From a to z"
-msgstr ""
+msgstr "Dalla a alla z"
 
 #: single-dis-service.php:160
 msgid "Get help"
-msgstr ""
+msgstr "Supporto"
 
 #: single-dis-service.php:130
 msgid "Get started"
-msgstr ""
+msgstr "Per iniziare"
 
 #: header.php:74
 msgid "Go to the footer"
-msgstr ""
+msgstr "Vai al piè pagina"
 
 #: header.php:73
 msgid "Go to the main content"
-msgstr ""
+msgstr "Vai al contenuto principale"
 
 #: template-parts/footer/offices-section.php:21
 msgid "Go to the page"
-msgstr ""
+msgstr "Vai alla pagina"
 
 #: classes/options-manager.php:128
 msgid "Header logo visible"
-msgstr ""
+msgstr "Logo dell'intestazione visibile"
 
-#: template-parts/home/hp-main-hero-section.php:30
 #: template-parts/home/hp-main-hero-section.php:31
+#: template-parts/home/hp-main-hero-section.php:32
 msgid "Hero image"
-msgstr ""
+msgstr "Immagine dell'hero"
 
 #: classes/options-manager.php:201
 msgid "Home Page alerts"
-msgstr ""
+msgstr "Avvisi della Home Page"
 
 #: classes/options-manager.php:376
 msgid "Home Page layout"
-msgstr ""
+msgstr "Layout della Home Page"
 
 #: classes/options-manager.php:377
 msgid "Home Page layout settings."
-msgstr ""
+msgstr "Impostazioni del layout della Home Page"
 
 #: classes/options-manager.php:287
 msgid "Home Page sections"
-msgstr ""
+msgstr "Sezioni della Home Page"
 
 #: classes/options-manager.php:184 classes/options-manager.php:187
 msgid "HP alerts"
-msgstr ""
+msgstr "Avvisi in HP"
 
 #: classes/options-manager.php:358
 msgid "HP Layout"
-msgstr ""
+msgstr "Layout della HP"
 
 #: classes/options-manager.php:364
 msgid "HP layout"
-msgstr ""
+msgstr "Layout della HP"
 
 #: classes/options-manager.php:270
 msgid "HP Sections"
-msgstr ""
+msgstr "Sezioni della HP"
 
 #: classes/options-manager.php:276
 msgid "HP sections"
-msgstr ""
+msgstr "Sezioni della HP"
 
 #. Author URI of the theme
 msgid "https://ict.sns.it"
-msgstr ""
+msgstr "https://ict.sns.it"
 
 #: classes/options-manager.php:67
 msgid "ICT Site"
-msgstr ""
+msgstr "Sito ICT"
 
 #. Author of the theme
 msgid "ICT SNS"
-msgstr ""
+msgstr "ICT SNS"
 
 #: classes/options-manager.php:762
 msgid "ID of the list associated with the site"
-msgstr ""
+msgstr "ID della lista associata al sito"
 
 #: classes/options-manager.php:776
 msgid "ID of the page template that handles the double OptIn"
-msgstr ""
+msgstr "ID del modello di pagina che gestisce il doppio OptIn"
 
 #: classes/options-manager.php:325
 msgid "If yes, the section is shown in the Home Page."
-msgstr ""
+msgstr "In caso affermativo, la sezione viene visualizzata nella Home Page."
 
 #: classes/options-manager.php:339
 msgid "If yes, the title of the section is shown."
-msgstr ""
+msgstr "In caso affermativo, viene visualizzato il titolo della sezione."
 
 #: classes/options-manager.php:949
 msgid "Ignore robots"
-msgstr ""
+msgstr "Ignora i robots."
 
 #: classes/options-manager.php:469
 msgid "Image in png or jpg format."
-msgstr ""
+msgstr "Immagine in formato png o jpg."
 
 #: classes/options-manager.php:232
 msgid "Info"
-msgstr ""
+msgstr "Informazioni"
 
 #: classes/options-manager.php:595
 msgid "Insert here the links to your social media."
-msgstr ""
+msgstr "Inserisci qui i link ai tuoi social media."
 
 #: classes/theme-manager.php:248
 msgid "Invalid username or password"
-msgstr ""
+msgstr "Nome utente o password non validi"
 
 #: template-parts/header/language_selector.php:17
 msgid "Language selection: selected language"
-msgstr ""
+msgstr "Selezione lingua: lingua selezionata"
 
 #: single-dis-event.php:59 single-dis-office.php:59 single-dis-place.php:59
 #: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:237
 msgid "Last modification"
-msgstr ""
+msgstr "Ultima modifica"
 
 #: classes/options-manager.php:448
 msgid "Left button label"
-msgstr ""
+msgstr "Etichetta del bottone di sinistra"
 
 #: classes/options-manager.php:254
 msgid "Link"
-msgstr ""
+msgstr "Link"
 
 #: classes/options-manager.php:255
 msgid "Link to a more in-depth page, even external to the site"
-msgstr ""
+msgstr "Collegamento ad una pagina più approfondita, anche esterna al sito"
 
 #: classes/options-manager.php:761
 msgid "List ID"
-msgstr ""
+msgstr "ID lella lista"
 
 #: classes/menu-manager.php:70
 msgid "List of all activations"
-msgstr ""
+msgstr "Elenco di tutte le attivazioni"
 
 #: classes/options-manager.php:822 template-parts/header/login_button.php:14
 msgid "Login"
-msgstr ""
+msgstr "Login"
 
 #: classes/options-manager.php:829
 msgid "Login visible"
-msgstr ""
+msgstr "Login visibile"
 
 #: classes/options-manager.php:165
 msgid "Logo footer"
-msgstr ""
+msgstr "Logo del footer"
 
 #: classes/options-manager.php:141
 msgid "Logo header"
-msgstr ""
+msgstr "Logo dell'header"
 
 #: template-parts/footer/logo_title_footer.php:27
 #: template-parts/footer/logo_title_footer.php:40
@@ -714,79 +727,79 @@ msgstr ""
 #: template-parts/header/logo_title_header.php:40
 #: template-parts/header/logo_title_header.php:53
 msgid "Logo of the site"
-msgstr ""
+msgstr "Logo del sito"
 
 #: classes/person-manager.php:38
 msgid "Look for a person role"
-msgstr ""
+msgstr "Cerca un ruolo di persona"
 
 #: classes/place-manager.php:38
 msgid "Look for a Place Type"
-msgstr ""
+msgstr "Cerca un tipo di luogo"
 
 #: classes/options-manager.php:392 classes/options-manager.php:398
 #: classes/options-manager.php:410
 msgid "Main hero"
-msgstr ""
+msgstr "Hero principale"
 
 #: classes/options-manager.php:242
 msgid "Maximum 300 characters"
-msgstr ""
+msgstr "Massimo 300 caratteri"
 
 #: classes/options-manager.php:213
 msgid "Message"
-msgstr ""
+msgstr "Avviso"
 
 #: classes/person-manager.php:40
 msgid "Modify the person role"
-msgstr ""
+msgstr "Modificare il Ruolo della persona"
 
 #: classes/place-manager.php:40
 msgid "Modify the Place Type"
-msgstr ""
+msgstr "Modifica il Tipo di luogo"
 
 #: classes/options-manager.php:842
 msgid "Multilanguage"
-msgstr ""
+msgstr "Multilingua"
 
 #: template-parts/header/breadcrumb.php:15
 msgid "Navigation path"
-msgstr ""
+msgstr "Path di navizione"
 
 #: classes/options-manager.php:112
 msgid "Network name"
-msgstr ""
+msgstr "Nome del Network"
 
 #: classes/options-manager.php:120
 msgid "Network url"
-msgstr ""
+msgstr "Indirizzo del Network"
 
 #: classes/activation-manager.php:228
 #, php-format
 msgid "NEW menu '%s' created."
-msgstr ""
+msgstr "NUOVO menu '%s' creato."
 
 #: classes/person-manager.php:43
 msgid "New person role"
-msgstr ""
+msgstr "Nuovo ruolo"
 
 #: classes/place-manager.php:43
 msgid "New Place Type"
-msgstr ""
+msgstr "Nuovo tipo di luogo"
 
 #. Name of the template
 #: classes/options-manager.php:719 page-templates/newsletter.php:2
 #: template-parts/common/newsletter.php:12
 msgid "Newsletter"
-msgstr ""
+msgstr "Newsletter"
 
 #: classes/options-manager.php:738
 msgid "Newsletter manager"
-msgstr ""
+msgstr "Manager della Newsletter"
 
 #: classes/options-manager.php:702 classes/options-manager.php:705
 msgid "Newsletter options"
-msgstr ""
+msgstr "Opzioni della Newsletter"
 
 #: classes/options-manager.php:134 classes/options-manager.php:158
 #: classes/options-manager.php:330 classes/options-manager.php:344
@@ -796,7 +809,7 @@ msgstr ""
 #: classes/options-manager.php:934 classes/options-manager.php:955
 #: classes/options-manager.php:968
 msgid "No"
-msgstr ""
+msgstr "No"
 
 #: single-dis-service-cluster.php:68 page-templates/service-clusters.php:17
 #: template-parts/home/hp-clusters-section.php:22
@@ -805,33 +818,33 @@ msgstr "I nostri servizi"
 
 #: classes/options-manager.php:942
 msgid "Page counters"
-msgstr ""
+msgstr "Contatori di pagina"
 
 #: classes/person-manager.php:44
 msgid "Person Roles"
-msgstr ""
+msgstr "Ruolo di persona"
 
 #: classes/options-manager.php:538
 msgid "Phone number"
-msgstr ""
+msgstr "Telefono"
 
 #: classes/place-manager.php:44
 msgid "Place Type"
-msgstr ""
+msgstr "Tipo di luogo"
 
 #. Name of the template
 #: page-templates/articles.php:2
 msgid "post"
-msgstr ""
+msgstr "post"
 
 #: classes/options-manager.php:909
 msgid "Preferably, it should be disabled."
-msgstr ""
+msgstr "Sarebbe preferibile disattivarlo."
 
 #. Name of the template
 #: page-templates/privacy.php:2
 msgid "Privacy"
-msgstr ""
+msgstr "Provacy"
 
 #: template-parts/home/hp-projects-section.php:27
 msgid "Projects"
@@ -839,7 +852,7 @@ msgstr "Progetti"
 
 #: single-dis-service.php:145
 msgid "Rates"
-msgstr ""
+msgstr "Tariffe"
 
 #: single-dis-service.php:215
 msgid "Related services"
@@ -848,78 +861,78 @@ msgstr "Servizi correlati"
 #: classes/menu-manager.php:39 classes/menu-manager.php:40
 #: classes/menu-manager.php:62
 msgid "Reload theme data"
-msgstr ""
+msgstr "Ricarica i dati del tema"
 
 #: classes/options-manager.php:215
 msgid "Remove the message"
-msgstr ""
+msgstr "Rimuovi l'avviso"
 
 #: classes/options-manager.php:301
 msgid "Remove the section"
-msgstr ""
+msgstr "Rimuovi la sezione"
 
 #: single-dis-service.php:100
 msgid "Requirements"
-msgstr ""
+msgstr "Prerequisiti"
 
 #: classes/options-manager.php:881
 msgid "REST API"
-msgstr ""
+msgstr "API REST"
 
 #: page-templates/search.php:140
 msgid "Results"
-msgstr ""
+msgstr "Risultati"
 
 #: classes/options-manager.php:458
 msgid "Right button label"
-msgstr ""
+msgstr "Etichetta del bottone di destra"
 
 #: page-templates/search.php:84 template-parts/header/site_search.php:11
 msgid "Search"
-msgstr ""
+msgstr "Cerca"
 
 #: classes/options-manager.php:438
 msgid "Search button label"
-msgstr ""
+msgstr "Etichetta del bottone di ricerca"
 
 #: template-parts/header/site_search.php:12
 #: template-parts/header/site_search.php:13
 #: template-parts/header/site_search.php:14
 msgid "Search in the site"
-msgstr ""
+msgstr "Cerca nel sito"
 
 #. Name of the template
 #: page-templates/search.php:2
 msgid "Search in the site."
-msgstr ""
+msgstr "Cerca nel sito."
 
 #: page-templates/search.php:65 page-templates/search.php:70
 msgid "Search the site"
-msgstr ""
+msgstr "Cerca nel sito"
 
 #: classes/options-manager.php:299 classes/options-manager.php:312
 msgid "Section"
-msgstr ""
+msgstr "Sezione"
 
 #: classes/options-manager.php:814
 msgid "Section to configure advanced settings."
-msgstr ""
+msgstr "Sezione per configurare le impostazioni avanzate."
 
 #: classes/options-manager.php:86
 msgid "Section to configure base options."
-msgstr ""
+msgstr "Sezione per configurare le opzioni di base."
 
 #: template-parts/header/language_selector.php:37
 msgid "selected"
-msgstr ""
+msgstr "selezionato"
 
 #: classes/options-manager.php:739
 msgid "Selection of the program used to manage the site newsletter"
-msgstr ""
+msgstr "Selezione del programma utilizzato per gestire la newsletter del sito"
 
 #: classes/options-manager.php:921
 msgid "SEO"
-msgstr ""
+msgstr "SEO"
 
 #: classes/options-manager.php:962
 msgid "Service views counter"
@@ -937,166 +950,169 @@ msgstr "Servizi"
 
 #: classes/options-manager.php:602
 msgid "Show social media icons"
-msgstr ""
+msgstr "Mostra le icone dei social media"
 
 #: classes/options-manager.php:338
 msgid "Show the section title"
-msgstr ""
+msgstr "Mostra il titolo della sezione"
 
 #: template-parts/common/newsletter.php:35
 msgid "Sign me up"
-msgstr ""
+msgstr "Iscrivimi"
 
 #: classes/options-manager.php:85
 msgid "Site configurations"
-msgstr ""
+msgstr "Configurazioni del sito"
 
 #: classes/options-manager.php:490 classes/options-manager.php:496
 #: classes/options-manager.php:506
 msgid "Site contacts"
-msgstr ""
+msgstr "Contatti del sito"
 
-#: template-parts/home/hp-main-hero-section.php:48
+#: template-parts/home/hp-main-hero-section.php:53
 msgid "Site search"
-msgstr ""
+msgstr "Ricerca nel sito"
 
 #: classes/options-manager.php:93
 msgid "Site title"
-msgstr ""
+msgstr "Titolo del sito"
 
 #. Name of the template
 #: page-templates/site-map.php:2
 msgid "SiteMap"
-msgstr ""
+msgstr "Mappa del Sito"
 
 #: classes/options-manager.php:546
 msgid "SMTP"
-msgstr ""
+msgstr "SMTP"
 
 #: classes/options-manager.php:561
 msgid "SMTP sender email"
-msgstr ""
+msgstr "Mittente SMTP"
 
 #: classes/options-manager.php:553
 msgid "SMTP sender name"
-msgstr ""
+msgstr "Nome mittente SMTP"
 
 #: classes/options-manager.php:577 classes/options-manager.php:583
 #: classes/options-manager.php:594
 msgid "Social media"
-msgstr ""
+msgstr "Social media"
 
 #: classes/options-manager.php:889
 msgid "Some plugin require the REST API to be enabled."
-msgstr ""
+msgstr "Alcuni plugin richiedono l'abilitazione dell'API REST."
 
 #: classes/options-manager.php:230
 msgid "Success"
-msgstr ""
+msgstr "Seccesso"
 
 #: classes/activation-manager.php:101
 #, php-format
 msgid "Successfully created the page: '%s'."
-msgstr ""
+msgstr "Creata con successo la pagina: '%s'."
 
 #: classes/activation-manager.php:161
 #, php-format
 msgid "Table '%s successfully created."
-msgstr ""
+msgstr "Creata con successo la tabella '%s'."
 
 #: classes/activation-manager.php:164
 #, php-format
 msgid "Table '%s' already present."
-msgstr ""
+msgstr "La tabella '%s' è già presente."
 
 #: classes/options-manager.php:104
 msgid "Tagline"
-msgstr ""
+msgstr "Tagline"
 
 #: classes/options-manager.php:775
 msgid "Template ID"
-msgstr ""
+msgstr "ID del template"
 
 #: classes/options-manager.php:241 classes/options-manager.php:428
 msgid "Text"
-msgstr ""
+msgstr "Testo"
 
 #: classes/options-manager.php:523
 msgid "The address of the site."
-msgstr ""
+msgstr "L'indirizzo del sito."
 
 #: classes/options-manager.php:515
 msgid "The city of the site."
-msgstr ""
+msgstr "La città del sito."
 
 #: classes/options-manager.php:507
 msgid "The contact shown in the footer."
-msgstr ""
+msgstr "Il contatto mostrato nel piè di pagina."
 
 #: classes/options-manager.php:531
 msgid "The e-mail of the site."
-msgstr ""
+msgstr "L'e-mail del sito."
 
 #: classes/options-manager.php:411
 msgid "The hero section of the Home Page."
-msgstr ""
+msgstr "La sezione dedicata agli eroi della Home Page."
 
 #: classes/theme-manager.php:229
 msgid "The image is too big. The maximum allowed is: 1MB."
-msgstr ""
+msgstr "L'immagine è troppo grande. Il massimo consentito è 1 MB."
 
 #: classes/options-manager.php:142
 msgid "The logo of the site, please load an SVG image."
-msgstr ""
+msgstr "Il logo del sito, carica un'immagine SVG."
 
 #: classes/activation-manager.php:178
 #, php-format
 msgid "The menu '%s' already exists."
-msgstr ""
+msgstr "Il menu '%s' esiste già."
 
 #: classes/options-manager.php:113
 msgid "The name of the network the site is part of."
-msgstr ""
+msgstr "Nome della rete di cui il sito fa parte."
 
 #: classes/options-manager.php:554
 msgid "The name that must appear on the e-mails sent by the site."
-msgstr ""
+msgstr "Il nome che deve comparire nelle e-mail inviate dal sito."
 
 #: classes/theme-manager.php:233
-msgid "The PDf file is too big. the maximum allowed is: 2MB."
-msgstr ""
+#, fuzzy
+#| msgid "The PDf file is too big. the maximum allowed is: 2MB."
+msgid "The PDF file is too big. the maximum allowed is: 2MB."
+msgstr "Il file PDF è troppo grande. La dimensione massima consentita è 2 MB."
 
 #: classes/options-manager.php:539
 msgid "The phone number of the site."
-msgstr ""
+msgstr "Il numero di telefono del sito."
 
 #: classes/options-manager.php:562
 msgid "The provider e-mail that must be used as sender."
 msgstr ""
+"L'indirizzo e-mail del provider che deve essere utilizzato come mittente."
 
 #: classes/options-manager.php:105
 msgid "The tagline of the site."
-msgstr ""
+msgstr "The tagline of the site."
 
 #: classes/options-manager.php:94
 msgid "The title of the site."
-msgstr ""
+msgstr "Il titolo del sito."
 
 #: classes/options-manager.php:121
 msgid "The url of the network the site is part of."
-msgstr ""
+msgstr "L'URL della rete di cui il sito fa parte."
 
 #: classes/menu-manager.php:69
 msgid "Theme data loaded successfully"
-msgstr ""
+msgstr "Dati del tema caricati correttamente"
 
 #: classes/menu-manager.php:78
 msgid "Theme data not reloaded"
-msgstr ""
+msgstr "Dati del tema non ricaricati"
 
 #: classes/options-manager.php:418
 msgid "Title"
-msgstr ""
+msgstr "Titolo"
 
 #: classes/options-manager.php:419 classes/options-manager.php:429
 #: classes/options-manager.php:439 classes/options-manager.php:449
@@ -1107,11 +1123,11 @@ msgstr ""
 
 #: template-parts/menu/useful-links-menu.php:21
 msgid "Useful links menu"
-msgstr ""
+msgstr "Menù dei link utili"
 
 #: template-parts/common/newsletter.php:11
 msgid "Vai alla pagina: Newsletter"
-msgstr ""
+msgstr "Vai alla pagina: Newsletter"
 
 #: classes/attachment-manager.php:41 classes/banner-manager.php:38
 #: classes/event-manager.php:38 classes/office-manager.php:38
@@ -1120,15 +1136,15 @@ msgstr ""
 #: classes/service-manager.php:38 classes/sponsor-manager.php:38
 #: classes/user-status-manager.php:41
 msgid "View the item"
-msgstr ""
+msgstr "Visualizza l'oggetto"
 
 #: classes/options-manager.php:231
 msgid "Warning"
-msgstr ""
+msgstr "Warning"
 
 #: classes/options-manager.php:862
 msgid "Web Analytics Code"
-msgstr ""
+msgstr "Codice per la Web Analytics"
 
 #. Description of the theme
 msgid ""
@@ -1140,7 +1156,7 @@ msgstr ""
 
 #: classes/options-manager.php:901
 msgid "XMLRPC API"
-msgstr ""
+msgstr "API XMLRPC"
 
 #: classes/options-manager.php:133 classes/options-manager.php:157
 #: classes/options-manager.php:329 classes/options-manager.php:343
@@ -1150,12 +1166,12 @@ msgstr ""
 #: classes/options-manager.php:933 classes/options-manager.php:954
 #: classes/options-manager.php:967
 msgid "Yes"
-msgstr ""
+msgstr "Sì"
 
 #: classes/options-manager.php:153
 msgid "Yes if the logo needs to be shown in the footer."
-msgstr ""
+msgstr "Sì, se il logo deve essere visualizzato nel piè di pagina."
 
 #: classes/options-manager.php:129
 msgid "Yes if the logo needs to be shown in the header."
-msgstr ""
+msgstr "Sì, se il logo deve essere visualizzato nel piè di pagina."

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-05-21 10:51+0000\n"
+"PO-Revision-Date: 2025-05-21 13:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -571,8 +571,8 @@ msgstr ""
 msgid "Header logo visible"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:30
 #: template-parts/home/hp-main-hero-section.php:31
+#: template-parts/home/hp-main-hero-section.php:32
 msgid "Hero image"
 msgstr ""
 
@@ -954,7 +954,7 @@ msgstr ""
 msgid "Site contacts"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:48
+#: template-parts/home/hp-main-hero-section.php:53
 msgid "Site search"
 msgstr ""
 
@@ -1061,7 +1061,7 @@ msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
 #: classes/theme-manager.php:233
-msgid "The PDf file is too big. the maximum allowed is: 2MB."
+msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
 #: classes/options-manager.php:539

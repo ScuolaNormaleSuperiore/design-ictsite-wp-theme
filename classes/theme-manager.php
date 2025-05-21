@@ -230,7 +230,7 @@ class DIS_ThemeManager {
 		}
 		// PDF size attachment limit.
 		if ( $type === 'application/pdf' && $size > $pdf_max_size ) {
-			$file['error'] = __( 'The PDf file is too big. the maximum allowed is: 2MB.', 'design_ict_site' );
+			$file['error'] = __( 'The PDF file is too big. the maximum allowed is: 2MB.', 'design_ict_site' );
 		}
 		return $file;
 	}
