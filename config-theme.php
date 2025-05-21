@@ -65,6 +65,32 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'services', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
+			DIS_PERSON_POST_TYPE => array(
+				'type'          => DIS_PERSON_POST_TYPE,
+				'singular_name' => _x( 'Person', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Persons', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'people', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+			DIS_PLACE_POST_TYPE => array(
+				'type'          => DIS_PLACE_POST_TYPE,
+				'singular_name' => _x( 'Place', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Places', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'places', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+
+
+			WP_DEFAULT_POST => array(
+				'type'          => WP_DEFAULT_POST,
+				'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+			WP_DEFAULT_PAGE => array(
+				'type'          => WP_DEFAULT_PAGE,
+				'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
 		);
 	}
 }

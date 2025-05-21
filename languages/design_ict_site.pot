@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-21 08:04+0000\n"
+"POT-Creation-Date: 2025-05-21 08:52+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -197,6 +197,21 @@ msgstr ""
 msgid "dis-project"
 msgstr ""
 
+#: config-theme.php:70
+msgctxt "DIS_PostTypeLabels"
+msgid "Article"
+msgstr ""
+
+#: config-theme.php:71
+msgctxt "DIS_PostTypeLabels"
+msgid "Articles"
+msgstr ""
+
+#: config-theme.php:72
+msgctxt "DIS_PostTypeLabels"
+msgid "articles"
+msgstr ""
+
 #: classes/attachment-manager.php:36
 msgctxt "DIS_PostTypeLabels"
 msgid "Attachment"
@@ -235,6 +250,21 @@ msgstr ""
 #: config-theme.php:54
 msgctxt "DIS_PostTypeLabels"
 msgid "offices"
+msgstr ""
+
+#: config-theme.php:76
+msgctxt "DIS_PostTypeLabels"
+msgid "Page"
+msgstr ""
+
+#: config-theme.php:77
+msgctxt "DIS_PostTypeLabels"
+msgid "Pages"
+msgstr ""
+
+#: config-theme.php:78
+msgctxt "DIS_PostTypeLabels"
+msgid "pages"
 msgstr ""
 
 #: classes/person-manager.php:69
@@ -856,10 +886,6 @@ msgstr ""
 msgid "Page counters"
 msgstr ""
 
-#: classes/contents-manager.php:438
-msgid "Pages"
-msgstr ""
-
 #. Name of the template
 #: page-templates/people.php:2
 msgid "People"
@@ -891,10 +917,6 @@ msgstr ""
 
 #: classes/place-manager.php:44
 msgid "Place Type"
-msgstr ""
-
-#: classes/contents-manager.php:442
-msgid "Posts"
 msgstr ""
 
 #: classes/options-manager.php:909

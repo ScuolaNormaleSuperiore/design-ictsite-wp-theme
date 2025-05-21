@@ -39,7 +39,7 @@ class Project_Manager {
 		);
 
 		$args = array(
-			'label'         => __( dis_ct_data()[DIS_PROJECT_POST_TYPE]['singular_name'], 'design_ict_site' ),
+			'label'         => dis_ct_data()[DIS_PROJECT_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,

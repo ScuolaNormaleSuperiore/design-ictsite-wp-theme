@@ -40,6 +40,17 @@ define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
 define( 'FAQ_PAGE_TITLE', 'FaqPageTitle' );
 
 // POST TYPE SLUGS.
+define( 'ARTICLES_PAGE_SLUG', 'ArticlePageSlug' );
+define( 'ARTICLES_PAGE_TITLE', 'ArticlePageTitle' );
+define( 'OFFICES_PAGE_SLUG', 'OfficePageSlug' );
+define( 'OFFICES_PAGE_TITLE', 'OfficePageTitle' );
+define( 'PLACES_PAGE_SLUG', 'PlacePageSlug' );
+define( 'PLACES_PAGE_TITLE', 'PlacePageTitle' );
+define( 'BANNERS_PAGE_SLUG', 'BannerPageSlug' );
+define( 'BANNERS_PAGE_TITLE', 'BannerPageTitle' );
+define( 'SPONSORS_PAGE_SLUG', 'SponsorPageSlug' );
+define( 'SPONSORS_PAGE_TITLE', 'SponsorPageTitle' );
+
 define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
 define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );
 define( 'PROJECTS_PAGE_SLUG', 'ProjectPageSlug' );
@@ -194,6 +205,19 @@ define(
 				'content_status'   => 'publish',
 				'content_author'   => 1,
 				'content_template' => 'page-templates/events.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
+		ARTICLES_PAGE_SLUG =>
+			array(
+				'content_slug'     => ARTICLES_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => ARTICLES_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/articles.php',
 				'content_type'     => 'page',
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,

@@ -1,5 +1,5 @@
 <?php
-/* Template Name: dis-person
+/* Template Name: post
 *
 * @package Design_ICT_Site
 */
@@ -9,7 +9,7 @@ get_header();
 
 ?>
 
-*** Content of the page: PEOPLE ***
+*** Content of the page: POST (ARTICLES) ***
 
 <?php
 get_footer();

@@ -435,18 +435,25 @@ class DIS_ContentsManager {
 								'slug' => DIS_SERVICE_POST_TYPE,
 							),
 							array(
-								'name' => __( 'Pages', 'design_ict_site' ),
+								'name' => dis_ct_data()[WP_DEFAULT_PAGE]['plural_name'],
 								'slug' => WP_DEFAULT_PAGE,
 							),
 							array(
-								'name' => __( 'Posts', 'design_ict_site' ),
+								'name' => dis_ct_data()[WP_DEFAULT_POST]['plural_name'],
 								'slug' => WP_DEFAULT_POST,
 							),
-
 					);
 	}
 
-
+	private static function sort_by_name( array $items ) {
+		usort(
+			$items,
+			function( $a, $b ) {
+				return strcmp( strtolower( $a['name'] ), strtolower( $b['name'] ) );
+			}
+		);
+		return $items;
+	}
 
 	public static function get_content_types_with_results() {
 		$content_types              = self::searchable_post_types();
@@ -464,9 +471,8 @@ class DIS_ContentsManager {
 			}
 			wp_reset_postdata();
 		}
-		return $content_types_with_results;
+		return self::sort_by_name( $content_types_with_results );
 	}
-
 
 	public static function get_site_search_query( $selected_contents, $search_string, $page_size ){
 		$params = array(
@@ -562,12 +568,38 @@ class DIS_ContentsManager {
 	}
 
 	private static function wrap_page( $post ): DIS_Search_Wrapper {
-		$result = new DIS_Search_Wrapper();
+		$result        = new DIS_Search_Wrapper();
+		$result->id    = $post->ID;
+		$result->title = $post->post_title;
+		$result->type  = $post->post_type;
+		$result->link  = get_permalink( $post );
+		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
+		$description   = get_the_excerpt( $post->ID );
+		if ( ! $description ) {
+			$description = wp_strip_all_tags( get_the_content( $post ) );
+		}
+		$result->description   = $description;
+		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->category_link = self::get_archive_link( $post->post_type );
+		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
 	private static function wrap_article( $post ) {
-		$result = new DIS_Search_Wrapper();
+		$result        = new DIS_Search_Wrapper();
+		$result->id    = $post->ID;
+		$result->title = $post->post_title;
+		$result->type  = $post->post_type;
+		$result->link  = get_permalink( $post );
+		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
+		$description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		if ( ! $description ) {
+			$description = wp_strip_all_tags( get_the_content( $post ) );
+		}
+		$result->description   = $description;
+		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->category_link = self::get_archive_link( $post->post_type );
+		self::fill_image_data( $post, $result );
 		return $result;
 	}
 

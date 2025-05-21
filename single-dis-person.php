@@ -9,7 +9,6 @@
 global $post;
 get_header();
 
-
 ?>
 
 <h3>Person detail page</h3>
