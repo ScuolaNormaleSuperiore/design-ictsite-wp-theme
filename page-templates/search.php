@@ -7,23 +7,24 @@
 global $post;
 get_header();
 
-$search_string  = '';
-$allcontentypes = DIS_ContentsManager::get_content_types_with_results();
-$num_results    = 0;
-$the_query      = null;
+$search_string   = '';
+$allcontentypes  = DIS_ContentsManager::get_content_types_with_results();
+$default_ct_list = array_column( $allcontentypes, 'slug' );
+$num_results     = 0;
+$the_query       = null;
 
 // Set and format the filters for the query.
 if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {
-	$selected_contents = array();
-	$search_string      = '';
+	$selected_contents = $default_ct_list;
+	$search_string     = '';
 } else {
 	if ( isset( $_GET['selected_contents'] ) ) {
 		$selected_contents = $_GET['selected_contents'];
 	} else {
-		$selected_contents = array();
+		$selected_contents = $default_ct_list;
 	}
 	if ( ! is_array( $selected_contents ) ) {
-		$selected_contents = array();
+		$selected_contents = $default_ct_list;
 	}
 	if ( isset( $_GET['search_string'] ) ) {
 		$search_string = sanitize_text_field( $_GET['search_string'] );

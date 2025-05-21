@@ -412,7 +412,12 @@ class DIS_ContentsManager {
 		}
 	}
 
-	public static function searchable_post_types(){
+	/**
+	 * Returns the list of post types that are searchable.
+	 *
+	 * @return array
+	 */
+	public static function searchable_post_types(): array {
 		return array(
 							array(
 								'name' => dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'],

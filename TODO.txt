@@ -1,7 +1,7 @@
 
 * TODO LIST:
 
-- Ricerca e wrapper contenuti.
+- Paginazione nella ricerca.
 - Gestione slug.
 - Rimozione tabella traduzioni personalizzate? Usa funzione in config-pages?
 - HP Featured Events.
