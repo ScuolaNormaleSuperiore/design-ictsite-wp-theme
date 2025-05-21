@@ -427,6 +427,14 @@ class DIS_ContentsManager {
 								'slug' => DIS_OFFICE_POST_TYPE,
 							),
 							array(
+								'name' => dis_ct_data()[DIS_CLUSTER_POST_TYPE]['plural_name'],
+								'slug' => DIS_CLUSTER_POST_TYPE,
+							),
+							array(
+								'name' => dis_ct_data()[DIS_SERVICE_POST_TYPE]['plural_name'],
+								'slug' => DIS_SERVICE_POST_TYPE,
+							),
+							array(
 								'name' => __( 'Pages', 'design_ict_site' ),
 								'slug' => WP_DEFAULT_PAGE,
 							),
@@ -434,10 +442,7 @@ class DIS_ContentsManager {
 								'name' => __( 'Posts', 'design_ict_site' ),
 								'slug' => WP_DEFAULT_POST,
 							),
-							array(
-								'name' => __( 'Services', 'design_ict_site' ),
-								'slug' => DIS_SERVICE_POST_TYPE,
-							),
+
 					);
 	}
 
@@ -489,14 +494,13 @@ class DIS_ContentsManager {
 		$item = null;
 		switch ( $post->post_type ) {
 			case DIS_EVENT_POST_TYPE:
-				$item = self::wrap_event ( $post );
-				break;
 			case DIS_PROJECT_POST_TYPE:
-				$item = self::wrap_project ( $post );
+				$item = self::wrap_event ( $post );
 				break;
 			case DIS_OFFICE_POST_TYPE:
 				$item = self::wrap_office ( $post );
 				break;
+			case DIS_CLUSTER_POST_TYPE:
 			case DIS_SERVICE_POST_TYPE:
 				$item = self::wrap_service ( $post );
 				break;
@@ -529,22 +533,6 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-
-
-	private static function wrap_project( $post ): DIS_Search_Wrapper {
-		$result                = new DIS_Search_Wrapper();
-		$result->id            = $post->ID;
-		$result->title         = $post->post_title;
-		$result->type          = $post->post_type;
-		$result->link          = get_permalink( $post );
-		$result->date          = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
-		$result->description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
-		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = self::get_archive_link( $post->post_type );
-		self::fill_image_data( $post, $result );
-		return $result;
-	}
-
 	private static function wrap_office( $post ): DIS_Search_Wrapper {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
@@ -552,7 +540,7 @@ class DIS_ContentsManager {
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
-		$result->description   =  wp_strip_all_tags( get_the_content( $post ) );
+		$result->description   = wp_strip_all_tags( get_the_content( $post ) );
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->category_link = self::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
@@ -560,7 +548,16 @@ class DIS_ContentsManager {
 	}
 
 	private static function wrap_service( $post ): DIS_Search_Wrapper {
-		$result = new DIS_Search_Wrapper();
+		$result                = new DIS_Search_Wrapper();
+		$result->id            = $post->ID;
+		$result->title         = $post->post_title;
+		$result->type          = $post->post_type;
+		$result->link          = get_permalink( $post );
+		$result->date          = '';
+		$result->description   = wp_strip_all_tags( get_the_content( $post ) );
+		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->category_link = self::get_archive_link( $post->post_type );
+		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
@@ -575,7 +572,7 @@ class DIS_ContentsManager {
 	}
 
 	private static function fill_image_data( $post,&$result ){
-		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/default-image.png' );
+		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/logo-default.png' );
 		$result->image_url   = $image_data['image_url'];
 		$result->image_alt   = $image_data['image_alt'];
 		$result->image_title = $image_data['image_title'];

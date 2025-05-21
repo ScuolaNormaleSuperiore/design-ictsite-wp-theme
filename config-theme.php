@@ -53,6 +53,18 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
+			DIS_CLUSTER_POST_TYPE => array(
+				'type'          => DIS_CLUSTER_POST_TYPE,
+				'singular_name' => _x( 'Service Cluster', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Service Clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'service-clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+			DIS_SERVICE_POST_TYPE => array(
+				'type'          => DIS_SERVICE_POST_TYPE,
+				'singular_name' => _x( 'Service', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'services', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
 		);
 	}
 }

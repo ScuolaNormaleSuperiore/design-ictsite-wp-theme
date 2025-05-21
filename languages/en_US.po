@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-05-21 07:07+0000\n"
+"PO-Revision-Date: 2025-05-21 08:07+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -17,7 +17,7 @@ msgstr ""
 
 #: single-dis-service.php:55
 msgid "Access the service"
-msgstr ""
+msgstr "Access the service"
 
 #: header.php:85
 msgid "Accessory navigation"
@@ -41,6 +41,9 @@ msgstr ""
 
 #: classes/event-manager.php:35 classes/event-manager.php:36
 #: classes/project-manager.php:35 classes/project-manager.php:36
+#: classes/service-cluster-manager.php:38
+#: classes/service-cluster-manager.php:39 classes/service-manager.php:35
+#: classes/service-manager.php:36
 msgid "Add an item"
 msgstr ""
 
@@ -148,10 +151,6 @@ msgstr ""
 
 #: template-parts/header/alert.php:32 template-parts/header/alert.php:33
 msgid "Close alert"
-msgstr ""
-
-#: classes/service-cluster-manager.php:42
-msgid "Cluster image"
 msgstr ""
 
 #: classes/options-manager.php:288
@@ -262,15 +261,35 @@ msgctxt "DIS_PostTypeLabels"
 msgid "projects"
 msgstr "projects"
 
-#: classes/service-cluster-manager.php:36
+#: config-theme.php:64
+msgctxt "DIS_PostTypeLabels"
+msgid "Service"
+msgstr "Service"
+
+#: config-theme.php:58
+msgctxt "DIS_PostTypeLabels"
+msgid "Service Cluster"
+msgstr "Service Cluster"
+
+#: config-theme.php:59
 msgctxt "DIS_PostTypeLabels"
 msgid "Service Clusters"
-msgstr ""
+msgstr "Service Clusters"
 
-#: classes/service-manager.php:33
+#: config-theme.php:60
+msgctxt "DIS_PostTypeLabels"
+msgid "service-clusters"
+msgstr "service-clusters"
+
+#: config-theme.php:65
 msgctxt "DIS_PostTypeLabels"
 msgid "Services"
-msgstr ""
+msgstr "Services"
+
+#: config-theme.php:66
+msgctxt "DIS_PostTypeLabels"
+msgid "services"
+msgstr "services"
 
 #: classes/sponsor-manager.php:33
 msgctxt "DIS_PostTypeLabels"
@@ -292,12 +311,6 @@ msgctxt "DIS_PostTypeSingularName"
 msgid "Add a banner"
 msgstr ""
 
-#: classes/service-cluster-manager.php:38
-#: classes/service-cluster-manager.php:39
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a cluster"
-msgstr ""
-
 #: classes/person-manager.php:72
 msgctxt "DIS_PostTypeSingularName"
 msgid "Add a person"
@@ -306,11 +319,6 @@ msgstr ""
 #: classes/place-manager.php:71
 msgctxt "DIS_PostTypeSingularName"
 msgid "Add a place"
-msgstr ""
-
-#: classes/service-manager.php:35 classes/service-manager.php:36
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a service"
 msgstr ""
 
 #: classes/sponsor-manager.php:35 classes/sponsor-manager.php:36
@@ -363,11 +371,6 @@ msgctxt "DIS_PostTypeSingularName"
 msgid "Edit the banner"
 msgstr ""
 
-#: classes/service-cluster-manager.php:40
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the cluster"
-msgstr ""
-
 #: classes/office-manager.php:37
 msgctxt "DIS_PostTypeSingularName"
 msgid "Edit the item"
@@ -381,11 +384,6 @@ msgstr ""
 #: classes/place-manager.php:72
 msgctxt "DIS_PostTypeSingularName"
 msgid "Edit the place"
-msgstr ""
-
-#: classes/service-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the service"
 msgstr ""
 
 #: classes/sponsor-manager.php:37
@@ -408,16 +406,6 @@ msgctxt "DIS_PostTypeSingularName"
 msgid "Place"
 msgstr ""
 
-#: classes/service-manager.php:34
-msgctxt "DIS_PostTypeSingularName"
-msgid "Service"
-msgstr ""
-
-#: classes/service-cluster-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "Service Cluster"
-msgstr ""
-
 #: classes/sponsor-manager.php:34
 msgctxt "DIS_PostTypeSingularName"
 msgid "Sponsor"
@@ -438,11 +426,6 @@ msgctxt "DIS_PostTypeSingularName"
 msgid "View the banner"
 msgstr ""
 
-#: classes/service-cluster-manager.php:41
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the cluster"
-msgstr ""
-
 #: classes/office-manager.php:38
 msgctxt "DIS_PostTypeSingularName"
 msgid "View the item"
@@ -456,11 +439,6 @@ msgstr ""
 #: classes/place-manager.php:73
 msgctxt "DIS_PostTypeSingularName"
 msgid "View the place"
-msgstr ""
-
-#: classes/service-manager.php:38
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the service"
 msgstr ""
 
 #: classes/sponsor-manager.php:38
@@ -519,6 +497,7 @@ msgid ""
 msgstr ""
 
 #: classes/event-manager.php:37 classes/project-manager.php:37
+#: classes/service-cluster-manager.php:40 classes/service-manager.php:37
 msgid "Edit the item"
 msgstr ""
 
@@ -540,7 +519,7 @@ msgstr ""
 
 #: classes/options-manager.php:963
 msgid "Enable the counter of the views of the service detail page."
-msgstr ""
+msgstr "Enable the counter of the views of the service detail page."
 
 #: classes/options-manager.php:603
 msgid ""
@@ -869,20 +848,16 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: classes/contents-manager.php:422
-msgid "Offices"
-msgstr "Offices"
-
 #: single-dis-service-cluster.php:68 page-templates/service-clusters.php:17
 #: template-parts/home/hp-clusters-section.php:22
 msgid "Our services"
-msgstr ""
+msgstr "Our services"
 
 #: classes/options-manager.php:942
 msgid "Page counters"
 msgstr ""
 
-#: classes/contents-manager.php:426
+#: classes/contents-manager.php:438
 msgid "Pages"
 msgstr ""
 
@@ -919,7 +894,7 @@ msgstr ""
 msgid "Place Type"
 msgstr ""
 
-#: classes/contents-manager.php:430
+#: classes/contents-manager.php:442
 msgid "Posts"
 msgstr ""
 
@@ -942,7 +917,7 @@ msgstr ""
 
 #: single-dis-service.php:215
 msgid "Related services"
-msgstr ""
+msgstr "Related services"
 
 #: classes/menu-manager.php:39 classes/menu-manager.php:40
 #: classes/menu-manager.php:62
@@ -957,20 +932,12 @@ msgstr ""
 msgid "Remove banner image"
 msgstr ""
 
-#: classes/service-cluster-manager.php:44
-msgid "Remove cluster image"
-msgstr ""
-
 #: classes/person-manager.php:77
 msgid "Remove person image"
 msgstr ""
 
 #: classes/place-manager.php:76
 msgid "Remove place image"
-msgstr ""
-
-#: classes/service-manager.php:41
-msgid "Remove service image"
 msgstr ""
 
 #: classes/sponsor-manager.php:41
@@ -1052,35 +1019,19 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: classes/service-manager.php:46
-msgid "Service"
-msgstr ""
-
-#: classes/service-cluster-manager.php:49
-msgid "Service Cluster"
-msgstr ""
-
-#: classes/service-manager.php:39
-msgid "Service image"
-msgstr ""
-
 #: classes/options-manager.php:962
 msgid "Service views counter"
-msgstr ""
+msgstr "Service views counter"
 
 #. Name of the template
 #: page-templates/service-clusters.php:2
 msgid "ServiceClusters"
-msgstr ""
+msgstr "ServiceClusters"
 
 #. Name of the template
 #: page-templates/service-items.php:2
 msgid "ServiceItems"
-msgstr ""
-
-#: classes/contents-manager.php:438
-msgid "Services"
-msgstr ""
+msgstr "ServiceItems"
 
 #: classes/options-manager.php:602
 msgid "Show social media icons"
@@ -1271,20 +1222,12 @@ msgstr ""
 msgid "Use as attachment image"
 msgstr ""
 
-#: classes/service-cluster-manager.php:45
-msgid "Use as cluster image"
-msgstr ""
-
 #: classes/person-manager.php:78
 msgid "Use as person image"
 msgstr ""
 
 #: classes/place-manager.php:77
 msgid "Use as place image"
-msgstr ""
-
-#: classes/service-manager.php:42
-msgid "Use as service image"
 msgstr ""
 
 #: classes/user-status-manager.php:45
@@ -1308,6 +1251,7 @@ msgid "Vai alla pagina: Newsletter"
 msgstr ""
 
 #: classes/event-manager.php:38 classes/project-manager.php:38
+#: classes/service-cluster-manager.php:41 classes/service-manager.php:38
 msgid "View the item"
 msgstr ""
 
@@ -1324,6 +1268,8 @@ msgid ""
 "WordPress theme for building websites that showcase and facilitate the use "
 "of an organization's ICT services."
 msgstr ""
+"WordPress theme for building websites that showcase and facilitate the use "
+"of an organization's ICT services."
 
 #: classes/options-manager.php:901
 msgid "XMLRPC API"
