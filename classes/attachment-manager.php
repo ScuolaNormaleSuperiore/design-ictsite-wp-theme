@@ -33,20 +33,16 @@ class Attachment_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			'singular_name'         => _x( 'Attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the attachment', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( "Attachment image", 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose the attachment image' ),
-			'remove_featured_image' => __( 'Remove attachment image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as attachment image' , 'design_ict_site' ),
+			'name'          => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['singular_name'],
+			'add_new'       => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args   = array(
-			'label'         => __( 'Attachment', 'design_ict_site' ),
+			'label'         => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -56,7 +52,7 @@ class Attachment_Manager {
 			'menu_icon'     => 'dashicons-admin-links',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'attachments' ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['slug'] ),
 		);
 
 		register_post_type( DIS_ATTACHMENT_POST_TYPE, $args );
@@ -65,19 +61,6 @@ class Attachment_Manager {
 		$this->add_fields();
 	}
 
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
 
 	/**
 	 * Add the custom fields of the custom post-type.

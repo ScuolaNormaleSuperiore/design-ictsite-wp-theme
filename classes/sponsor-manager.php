@@ -30,20 +30,16 @@ class Sponsor_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			'singular_name'         => _x( 'Sponsor', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a sponsor', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a sponsor', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the sponsor', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the sponsor', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( 'Sponsor image', 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose sponsor image' ),
-			'remove_featured_image' => __( 'Remove sponsor image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use a sponsor image' , 'design_ict_site' ),
+			'name'          => dis_ct_data()[DIS_SPONSOR_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_SPONSOR_POST_TYPE]['singular_name'],
+			'add_new'       => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args = array(
-			'label'         => __( 'Sponsor', 'design_ict_site' ),
+			'label'         => dis_ct_data()[DIS_SPONSOR_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -53,7 +49,7 @@ class Sponsor_Manager {
 			'menu_icon'     => 'dashicons-megaphone',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'sponsors' ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_SPONSOR_POST_TYPE]['singular_name'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 

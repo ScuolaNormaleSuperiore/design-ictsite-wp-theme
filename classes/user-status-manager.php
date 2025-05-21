@@ -33,20 +33,16 @@ class UserStatus_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'User Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			'singular_name'         => _x( 'User Status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an user status ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the user status', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( "User Status image", 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose user status image' ),
-			'remove_featured_image' => __( 'Remove user status image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as user status image' , 'design_ict_site' ),
+			'name'          => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['singular_name'],
+			'add_new'       => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args   = array(
-			'label'         => __( 'User Status', 'design_ict_site' ),
+			'label'         => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -56,7 +52,7 @@ class UserStatus_Manager {
 			'menu_icon'     => 'dashicons-buddicons-buddypress-logo',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			// 'rewrite'       => array( 'slug' => 'service-status' ),
+			// 'rewrite'       => array( 'slug' => dis_ct_data()[DIS_ATTACHMENT_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
@@ -66,29 +62,12 @@ class UserStatus_Manager {
 		$this->add_fields();
 	}
 
-	// /**
-	//  * Customize the layout of the admin interface.
-	//  *
-	//  * @param Object $post - The custom post.
-	//  * @return string
-	//  */
-	// public function custom_layout( $post ) {
-	// 	if ( EVENT_POST_TYPE === $post->post_type ) {
-	// 		echo '<h1>';
-	// 		_e( 'Descrizione evento', 'design_ict_site' );
-	// 		echo '</h1>';
-	// 	}
-	// }
 
 	/**
 	 * Add the custom fields of the custom post-type.
 	 *
 	 * @return void
 	 */
-	function add_fields() {
-
-
-
-	}
+	function add_fields() {	}
 
 }

@@ -39,7 +39,7 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'type'          => DIS_EVENT_POST_TYPE,
 				'singular_name' => _x( 'Event', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'plural_name'   => _x( 'Events', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x(  'events', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'events', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
 			DIS_PROJECT_POST_TYPE => array(
 				'type'          => DIS_PROJECT_POST_TYPE,
@@ -77,8 +77,30 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'plural_name'   => _x( 'Places', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'places', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
-
-
+			DIS_ATTACHMENT_POST_TYPE => array(
+				'type'          => DIS_ATTACHMENT_POST_TYPE,
+				'singular_name' => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+			DIS_BANNER_POST_TYPE => array(
+				'type'          => DIS_BANNER_POST_TYPE,
+				'singular_name' => _x( 'Banner', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+			DIS_SPONSOR_POST_TYPE => array(
+				'type'          => DIS_SPONSOR_POST_TYPE,
+				'singular_name' => _x( 'Sponsor', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
+			DIS_USER_STATUS_POST_TYPE => array(
+				'type'          => DIS_USER_STATUS_POST_TYPE,
+				'singular_name' => _x( 'User Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Users Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'user-status', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
 			WP_DEFAULT_POST => array(
 				'type'          => WP_DEFAULT_POST,
 				'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),

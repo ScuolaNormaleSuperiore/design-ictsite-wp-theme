@@ -30,20 +30,16 @@ class Banner_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			'singular_name'         => _x( 'Banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add a banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add a banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the banner', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( 'Banner image', 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose banner image' ),
-			'remove_featured_image' => __( 'Remove banner image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use a banner image' , 'design_ict_site' ),
+			'name'          => dis_ct_data()[DIS_BANNER_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_BANNER_POST_TYPE]['singular_name'],
+			'add_new'       => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args = array(
-			'label'         => __( 'Banner', 'design_ict_site' ),
+			'label'         => dis_ct_data()[DIS_BANNER_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -53,7 +49,7 @@ class Banner_Manager {
 			'menu_icon'     => 'dashicons-excerpt-view',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'banners' ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_BANNER_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 

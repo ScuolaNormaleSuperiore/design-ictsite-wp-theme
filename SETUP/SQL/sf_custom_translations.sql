@@ -81,3 +81,15 @@ INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VA
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (72, 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'it', 'Vedi tutti i servizi');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (73, 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'en', 'Get IT Support');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (74, 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'it', 'Ottieni supporto IT');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (75, 'ArticlePageSlug', 'DIS_ActivationItems', 'en', 'articles');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (76, 'ArticlePageSlug', 'DIS_ActivationItems', 'it', 'articoli');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (77, 'ArticlePageTitle', 'DIS_ActivationItems', 'en', 'Articles');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (78, 'ArticlePageTitle', 'DIS_ActivationItems', 'it', 'Articoli');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (79, 'OfficePageSlug', 'DIS_ActivationItems', 'en', 'offices');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (80, 'OfficePageSlug', 'DIS_ActivationItems', 'it', 'uffici');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (81, 'OfficePageTitle', 'DIS_ActivationItems', 'en', 'Offices');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (82, 'OfficePageTitle', 'DIS_ActivationItems', 'it', 'Uffici');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (83, 'PlacePageSlug', 'DIS_ActivationItems', 'en', 'places');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (84, 'PlacePageSlug', 'DIS_ActivationItems', 'it', 'luoghi');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (85, 'PlacePageTitle', 'DIS_ActivationItems', 'en', 'Places');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (86, 'PlacePageTitle', 'DIS_ActivationItems', 'it', 'luoghi');
