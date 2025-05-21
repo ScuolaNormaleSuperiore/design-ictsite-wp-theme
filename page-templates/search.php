@@ -175,9 +175,21 @@ if ( '' !== $search_string ) {
 												}
 												?>
 												<span class="text" style="text-transform: uppercase;">
+													<?php
+													if ( $result->category_link ) {
+													?>
 													<a class="text-decoration-none" href="<?php echo esc_url( $result->category_link ); ?>">
+													<?php
+													}
+													?>
 														<?php echo esc_attr( $result->category ); ?>
+													<?php
+													if ( $result->category_link ) {
+													?>
 													</a>
+													<?php
+													}
+													?>
 												</span>
 												<span>&nbsp;-&nbsp;</span>
 												<a class="text-decoration-none" href="<?php echo esc_url( $result->link ); ?>">

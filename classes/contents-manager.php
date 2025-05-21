@@ -146,10 +146,10 @@ class DIS_ContentsManager {
 	}
 	public static function get_archive_link( $type ){
 		$slug = dis_ct_data()[$type]['slug'];
-		if ( ! $slug ) return null;
-		$page = get_page_by_path($slug);
-		if ( ! $page ) return null;
-		$url = get_permalink($page->ID);
+		if ( ! $slug ) return '';
+		$page = get_page_by_path( $slug );
+		if ( ! $page ) return '';
+		$url = get_permalink( $page->ID );
 		return $url;
 	}
 
@@ -419,7 +419,11 @@ class DIS_ContentsManager {
 								'slug' => DIS_EVENT_POST_TYPE,
 							),
 							array(
-								'name' => __( 'Offices', 'design_ict_site' ),
+								'name' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['plural_name'],
+								'slug' => DIS_PROJECT_POST_TYPE,
+							),
+							array(
+								'name' => dis_ct_data()[DIS_OFFICE_POST_TYPE]['plural_name'],
 								'slug' => DIS_OFFICE_POST_TYPE,
 							),
 							array(
@@ -429,10 +433,6 @@ class DIS_ContentsManager {
 							array(
 								'name' => __( 'Posts', 'design_ict_site' ),
 								'slug' => WP_DEFAULT_POST,
-							),
-							array(
-								'name' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['plural_name'],
-								'slug' => DIS_PROJECT_POST_TYPE,
 							),
 							array(
 								'name' => __( 'Services', 'design_ict_site' ),
@@ -491,11 +491,11 @@ class DIS_ContentsManager {
 			case DIS_EVENT_POST_TYPE:
 				$item = self::wrap_event ( $post );
 				break;
-			case DIS_OFFICE_POST_TYPE:
-				$item = self::wrap_office ( $post );
-				break;
 			case DIS_PROJECT_POST_TYPE:
 				$item = self::wrap_project ( $post );
+				break;
+			case DIS_OFFICE_POST_TYPE:
+				$item = self::wrap_office ( $post );
 				break;
 			case DIS_SERVICE_POST_TYPE:
 				$item = self::wrap_service ( $post );
@@ -529,20 +529,33 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-	private static function fill_image_data( $post,&$result ){
-		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/default-image.png' );
-		$result->image_url   = $image_data['image_url'];
-		$result->image_alt   = $image_data['image_alt'];
-		$result->image_title = $image_data['image_title'];
-	}
 
-	private static function wrap_office( $post ): DIS_Search_Wrapper {
-		$result = new DIS_Search_Wrapper();
+
+	private static function wrap_project( $post ): DIS_Search_Wrapper {
+		$result                = new DIS_Search_Wrapper();
+		$result->id            = $post->ID;
+		$result->title         = $post->post_title;
+		$result->type          = $post->post_type;
+		$result->link          = get_permalink( $post );
+		$result->date          = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
+		$result->description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->category_link = self::get_archive_link( $post->post_type );
+		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
-	private static function wrap_project( $post ): DIS_Search_Wrapper {
-		$result = new DIS_Search_Wrapper();
+	private static function wrap_office( $post ): DIS_Search_Wrapper {
+		$result                = new DIS_Search_Wrapper();
+		$result->id            = $post->ID;
+		$result->title         = $post->post_title;
+		$result->type          = $post->post_type;
+		$result->link          = get_permalink( $post );
+		$result->date          = '';
+		$result->description   =  wp_strip_all_tags( get_the_content( $post ) );
+		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->category_link = self::get_archive_link( $post->post_type );
+		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
@@ -559,6 +572,13 @@ class DIS_ContentsManager {
 	private static function wrap_article( $post ) {
 		$result = new DIS_Search_Wrapper();
 		return $result;
+	}
+
+	private static function fill_image_data( $post,&$result ){
+		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/default-image.png' );
+		$result->image_url   = $image_data['image_url'];
+		$result->image_alt   = $image_data['image_alt'];
+		$result->image_title = $image_data['image_title'];
 	}
 
 }

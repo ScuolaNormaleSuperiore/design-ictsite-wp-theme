@@ -47,6 +47,12 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'plural_name'   => _x( 'Projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
+			DIS_OFFICE_POST_TYPE => array(
+				'type'          => DIS_OFFICE_POST_TYPE,
+				'singular_name' => _x( 'Office', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				'slug'          => _x( 'offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
+			),
 		);
 	}
 }

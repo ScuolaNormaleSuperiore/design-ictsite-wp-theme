@@ -30,20 +30,16 @@ class Office_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'                  => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			'singular_name'         => _x( 'Office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new'               => _x( 'Add an office ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'          => _x( 'Add an office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'             => _x( 'Edit the office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'             => _x( 'View the office', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'featured_image'        => __( 'Office image', 'design_ict_site' ),
-			'set_featured_image'    => __( 'Choose office image' ),
-			'remove_featured_image' => __( 'Remove office image' , 'design_ict_site' ),
-			'use_featured_image'    => __( 'Use as office image' , 'design_ict_site' ),
+			'name'          => dis_ct_data()[DIS_OFFICE_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_OFFICE_POST_TYPE]['singular_name'],
+			'add_new'       => _x( 'Add an item ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new_item'  => _x( 'Add an item', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'edit_item'     => _x( 'Edit the item', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'view_item'     => _x( 'View the item', 'DIS_PostTypeSingularName', 'design_ict_site' ),
 		);
 
-		$args   = array(
-			'label'         => __( 'Office', 'design_ict_site' ),
+		$args = array(
+			'label'         => dis_ct_data()[DIS_OFFICE_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -53,7 +49,7 @@ class Office_Manager {
 			'menu_icon'     => 'dashicons-building',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => 'offices' ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_OFFICE_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
@@ -243,7 +239,6 @@ class Office_Manager {
 		'description' => '',
 		'show_in_rest' => 0,
 	) );
-
 	}
 
 }

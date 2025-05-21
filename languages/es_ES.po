@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-05-20 12:58+0000\n"
+"PO-Revision-Date: 2025-05-21 07:06+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -222,9 +222,19 @@ msgctxt "DIS_PostTypeLabels"
 msgid "events"
 msgstr ""
 
-#: classes/office-manager.php:33
+#: config-theme.php:52
+msgctxt "DIS_PostTypeLabels"
+msgid "Office"
+msgstr ""
+
+#: config-theme.php:53
 msgctxt "DIS_PostTypeLabels"
 msgid "Offices"
+msgstr ""
+
+#: config-theme.php:54
+msgctxt "DIS_PostTypeLabels"
+msgid "offices"
 msgstr ""
 
 #: classes/person-manager.php:69
@@ -315,12 +325,12 @@ msgstr ""
 
 #: classes/office-manager.php:36
 msgctxt "DIS_PostTypeSingularName"
-msgid "Add an office"
+msgid "Add an item"
 msgstr ""
 
 #: classes/office-manager.php:35
 msgctxt "DIS_PostTypeSingularName"
-msgid "Add an office "
+msgid "Add an item "
 msgstr ""
 
 #: classes/user-status-manager.php:39
@@ -360,7 +370,7 @@ msgstr ""
 
 #: classes/office-manager.php:37
 msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the office"
+msgid "Edit the item"
 msgstr ""
 
 #: classes/person-manager.php:73
@@ -386,11 +396,6 @@ msgstr ""
 #: classes/user-status-manager.php:40
 msgctxt "DIS_PostTypeSingularName"
 msgid "Edit the user status"
-msgstr ""
-
-#: classes/office-manager.php:34
-msgctxt "DIS_PostTypeSingularName"
-msgid "Office"
 msgstr ""
 
 #: classes/person-manager.php:70
@@ -440,7 +445,7 @@ msgstr ""
 
 #: classes/office-manager.php:38
 msgctxt "DIS_PostTypeSingularName"
-msgid "View the office"
+msgid "View the item"
 msgstr ""
 
 #: classes/person-manager.php:74
@@ -864,14 +869,6 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: classes/office-manager.php:46
-msgid "Office"
-msgstr ""
-
-#: classes/office-manager.php:39
-msgid "Office image"
-msgstr ""
-
 #: classes/contents-manager.php:422
 msgid "Offices"
 msgstr ""
@@ -962,10 +959,6 @@ msgstr ""
 
 #: classes/service-cluster-manager.php:44
 msgid "Remove cluster image"
-msgstr ""
-
-#: classes/office-manager.php:41
-msgid "Remove office image"
 msgstr ""
 
 #: classes/person-manager.php:77
@@ -1280,10 +1273,6 @@ msgstr ""
 
 #: classes/service-cluster-manager.php:45
 msgid "Use as cluster image"
-msgstr ""
-
-#: classes/office-manager.php:42
-msgid "Use as office image"
 msgstr ""
 
 #: classes/person-manager.php:78

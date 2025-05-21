@@ -2,8 +2,9 @@
 * TODO LIST:
 
 - Ricerca e wrapper contenuti.
-- HP Featured Events.
 - Gestione slug.
+- Rimozione tabella traduzioni personalizzate? Usa funzione in config-pages?
+- HP Featured Events.
 - Gestione Breadcrumbs.
 - Sitemap.
 - Controlla se una sezione HP non ha elementi non la mostrare (es. eventi, progetti, ecc).
