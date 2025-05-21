@@ -32,10 +32,10 @@ class Office_Manager {
 		$labels = array(
 			'name'          => dis_ct_data()[DIS_OFFICE_POST_TYPE]['plural_name'],
 			'singular_name' => dis_ct_data()[DIS_OFFICE_POST_TYPE]['singular_name'],
-			'add_new'       => _x( 'Add an item ', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'add_new_item'  => _x( 'Add an item', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'edit_item'     => _x( 'Edit the item', 'DIS_PostTypeSingularName', 'design_ict_site' ),
-			'view_item'     => _x( 'View the item', 'DIS_PostTypeSingularName', 'design_ict_site' ),
+			'add_new'       => __( 'Add an item ', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args = array(

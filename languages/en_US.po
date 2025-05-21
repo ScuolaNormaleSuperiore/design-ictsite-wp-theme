@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-05-21 08:07+0000\n"
+"PO-Revision-Date: 2025-05-21 10:51+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -39,12 +39,22 @@ msgstr ""
 msgid "Add a Place Type"
 msgstr ""
 
+#: classes/attachment-manager.php:38 classes/attachment-manager.php:39
+#: classes/banner-manager.php:35 classes/banner-manager.php:36
 #: classes/event-manager.php:35 classes/event-manager.php:36
-#: classes/project-manager.php:35 classes/project-manager.php:36
-#: classes/service-cluster-manager.php:38
+#: classes/office-manager.php:36 classes/person-manager.php:71
+#: classes/person-manager.php:72 classes/place-manager.php:70
+#: classes/place-manager.php:71 classes/project-manager.php:35
+#: classes/project-manager.php:36 classes/service-cluster-manager.php:38
 #: classes/service-cluster-manager.php:39 classes/service-manager.php:35
-#: classes/service-manager.php:36
+#: classes/service-manager.php:36 classes/sponsor-manager.php:35
+#: classes/sponsor-manager.php:36 classes/user-status-manager.php:38
+#: classes/user-status-manager.php:39
 msgid "Add an item"
+msgstr ""
+
+#: classes/office-manager.php:35
+msgid "Add an item "
 msgstr ""
 
 #: classes/options-manager.php:300
@@ -88,24 +98,12 @@ msgstr ""
 msgid "Are you sure you want to remove?"
 msgstr ""
 
-#: classes/attachment-manager.php:49
-msgid "Attachment"
-msgstr ""
-
-#: classes/attachment-manager.php:42
-msgid "Attachment image"
-msgstr ""
-
 #: classes/options-manager.php:468
 msgid "Background image"
 msgstr ""
 
-#: classes/banner-manager.php:46 template-parts/home/hp-banners-section.php:28
+#: template-parts/home/hp-banners-section.php:28
 msgid "Banner"
-msgstr ""
-
-#: classes/banner-manager.php:39
-msgid "Banner image"
 msgstr ""
 
 #: classes/options-manager.php:71
@@ -116,12 +114,8 @@ msgstr ""
 msgid "Brevo"
 msgstr ""
 
-#: page-templates/search.php:80
+#: page-templates/search.php:81
 msgid "Cancel"
-msgstr ""
-
-#: classes/person-manager.php:76
-msgid "Choose person image"
 msgstr ""
 
 #: classes/options-manager.php:313
@@ -166,7 +160,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: page-templates/search.php:106
+#: page-templates/search.php:107
 msgid "Content type filter"
 msgstr ""
 
@@ -182,7 +176,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/search.php:73
+#: page-templates/search.php:74
 msgid "Digit the text to search"
 msgstr ""
 
@@ -192,19 +186,64 @@ msgid "dis-event"
 msgstr "dis-event"
 
 #. Name of the template
+#: page-templates/offices.php:2
+msgid "dis-office"
+msgstr ""
+
+#. Name of the template
+#: page-templates/people.php:2
+msgid "dis-person"
+msgstr ""
+
+#. Name of the template
 #: page-templates/projects.php:2
 msgid "dis-project"
 msgstr ""
 
-#: classes/attachment-manager.php:36
+#: config-theme.php:106
+msgctxt "DIS_PostTypeLabels"
+msgid "Article"
+msgstr "Article"
+
+#: config-theme.php:107
+msgctxt "DIS_PostTypeLabels"
+msgid "Articles"
+msgstr "Articles"
+
+#: config-theme.php:108
+msgctxt "DIS_PostTypeLabels"
+msgid "articles"
+msgstr "articles"
+
+#: config-theme.php:82
 msgctxt "DIS_PostTypeLabels"
 msgid "Attachment"
-msgstr ""
+msgstr "Attachment"
 
-#: classes/banner-manager.php:33
+#: config-theme.php:83
+msgctxt "DIS_PostTypeLabels"
+msgid "Attachments"
+msgstr "Attachments"
+
+#: config-theme.php:84
+msgctxt "DIS_PostTypeLabels"
+msgid "attachments"
+msgstr "attachments"
+
+#: config-theme.php:88
+msgctxt "DIS_PostTypeLabels"
+msgid "Banner"
+msgstr "Banner"
+
+#: config-theme.php:89
 msgctxt "DIS_PostTypeLabels"
 msgid "Banners"
-msgstr ""
+msgstr "Banners"
+
+#: config-theme.php:90
+msgctxt "DIS_PostTypeLabels"
+msgid "banners"
+msgstr "banners"
 
 #: config-theme.php:40
 msgctxt "DIS_PostTypeLabels"
@@ -236,15 +275,50 @@ msgctxt "DIS_PostTypeLabels"
 msgid "offices"
 msgstr "offices"
 
-#: classes/person-manager.php:69
+#: config-theme.php:112
+msgctxt "DIS_PostTypeLabels"
+msgid "Page"
+msgstr "Page"
+
+#: config-theme.php:113
+msgctxt "DIS_PostTypeLabels"
+msgid "Pages"
+msgstr "Pages"
+
+#: config-theme.php:114
+msgctxt "DIS_PostTypeLabels"
+msgid "pages"
+msgstr "pages"
+
+#: config-theme.php:72
+msgctxt "DIS_PostTypeLabels"
+msgid "people"
+msgstr "people"
+
+#: config-theme.php:70
+msgctxt "DIS_PostTypeLabels"
+msgid "Person"
+msgstr "Person"
+
+#: config-theme.php:71
 msgctxt "DIS_PostTypeLabels"
 msgid "Persons"
-msgstr ""
+msgstr "Persons"
 
-#: classes/place-manager.php:68
+#: config-theme.php:76
+msgctxt "DIS_PostTypeLabels"
+msgid "Place"
+msgstr "Place"
+
+#: config-theme.php:77
 msgctxt "DIS_PostTypeLabels"
 msgid "Places"
-msgstr ""
+msgstr "Places"
+
+#: config-theme.php:78
+msgctxt "DIS_PostTypeLabels"
+msgid "places"
+msgstr "places"
 
 #: config-theme.php:46
 msgctxt "DIS_PostTypeLabels"
@@ -291,185 +365,55 @@ msgctxt "DIS_PostTypeLabels"
 msgid "services"
 msgstr "services"
 
-#: classes/sponsor-manager.php:33
+#: config-theme.php:94
+msgctxt "DIS_PostTypeLabels"
+msgid "Sponsor"
+msgstr "Sponsor"
+
+#: config-theme.php:95
 msgctxt "DIS_PostTypeLabels"
 msgid "Sponsors"
-msgstr ""
+msgstr "Sponsors"
 
-#: classes/user-status-manager.php:36
+#: config-theme.php:96
+msgctxt "DIS_PostTypeLabels"
+msgid "sponsors"
+msgstr "sponsors"
+
+#: config-theme.php:100
 msgctxt "DIS_PostTypeLabels"
 msgid "User Status"
-msgstr ""
+msgstr "User Status"
 
-#: classes/person-manager.php:71 classes/place-manager.php:70
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a "
-msgstr ""
+#: config-theme.php:102
+msgctxt "DIS_PostTypeLabels"
+msgid "user-status"
+msgstr "user-status"
 
-#: classes/banner-manager.php:35 classes/banner-manager.php:36
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a banner"
-msgstr ""
-
-#: classes/person-manager.php:72
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a person"
-msgstr ""
-
-#: classes/place-manager.php:71
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a place"
-msgstr ""
-
-#: classes/sponsor-manager.php:35 classes/sponsor-manager.php:36
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add a sponsor"
-msgstr ""
-
-#: classes/attachment-manager.php:38 classes/attachment-manager.php:39
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add an attachment"
-msgstr ""
-
-#: classes/office-manager.php:36
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add an item"
-msgstr ""
-
-#: classes/office-manager.php:35
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add an item "
-msgstr ""
-
-#: classes/user-status-manager.php:39
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add an user status"
-msgstr ""
-
-#: classes/user-status-manager.php:38
-msgctxt "DIS_PostTypeSingularName"
-msgid "Add an user status "
-msgstr ""
-
-#: classes/attachment-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "Attachment"
-msgstr ""
-
-#: classes/banner-manager.php:34
-msgctxt "DIS_PostTypeSingularName"
-msgid "Banner"
-msgstr ""
-
-#: classes/attachment-manager.php:40
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the attachment"
-msgstr ""
-
-#: classes/banner-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the banner"
-msgstr ""
-
-#: classes/office-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the item"
-msgstr ""
-
-#: classes/person-manager.php:73
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the person"
-msgstr ""
-
-#: classes/place-manager.php:72
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the place"
-msgstr ""
-
-#: classes/sponsor-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the sponsor"
-msgstr ""
-
-#: classes/user-status-manager.php:40
-msgctxt "DIS_PostTypeSingularName"
-msgid "Edit the user status"
-msgstr ""
-
-#: classes/person-manager.php:70
-msgctxt "DIS_PostTypeSingularName"
-msgid "Person"
-msgstr ""
-
-#: classes/place-manager.php:69
-msgctxt "DIS_PostTypeSingularName"
-msgid "Place"
-msgstr ""
-
-#: classes/sponsor-manager.php:34
-msgctxt "DIS_PostTypeSingularName"
-msgid "Sponsor"
-msgstr ""
-
-#: classes/user-status-manager.php:37
-msgctxt "DIS_PostTypeSingularName"
-msgid "User Status"
-msgstr ""
-
-#: classes/attachment-manager.php:41
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the attachment"
-msgstr ""
-
-#: classes/banner-manager.php:38
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the banner"
-msgstr ""
-
-#: classes/office-manager.php:38
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the item"
-msgstr ""
-
-#: classes/person-manager.php:74
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the person"
-msgstr ""
-
-#: classes/place-manager.php:73
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the place"
-msgstr ""
-
-#: classes/sponsor-manager.php:38
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the sponsor"
-msgstr ""
-
-#: classes/user-status-manager.php:41
-msgctxt "DIS_PostTypeSingularName"
-msgid "View the user status"
-msgstr ""
+#: config-theme.php:101
+msgctxt "DIS_PostTypeLabels"
+msgid "Users Status"
+msgstr "Users Status"
 
 #: classes/person-manager.php:36
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Person Roles"
-msgstr ""
+msgstr "Person Roles"
 
 #: classes/place-manager.php:36
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Place Type"
-msgstr ""
+msgstr "Place Type"
 
 #: classes/person-manager.php:37
 msgctxt "DIS_TaxonomySingularName"
 msgid "Person Role"
-msgstr ""
+msgstr "Person Role"
 
 #: classes/place-manager.php:37
 msgctxt "DIS_TaxonomySingularName"
 msgid "Place Type"
-msgstr ""
+msgstr "Place Type"
 
 #: classes/options-manager.php:950
 msgid "Do not count the views of the robots."
@@ -496,8 +440,12 @@ msgid ""
 "site"
 msgstr ""
 
-#: classes/event-manager.php:37 classes/project-manager.php:37
-#: classes/service-cluster-manager.php:40 classes/service-manager.php:37
+#: classes/attachment-manager.php:40 classes/banner-manager.php:37
+#: classes/event-manager.php:37 classes/office-manager.php:37
+#: classes/person-manager.php:73 classes/place-manager.php:72
+#: classes/project-manager.php:37 classes/service-cluster-manager.php:40
+#: classes/service-manager.php:37 classes/sponsor-manager.php:37
+#: classes/user-status-manager.php:40
 msgid "Edit the item"
 msgstr ""
 
@@ -857,23 +805,6 @@ msgstr "Our services"
 msgid "Page counters"
 msgstr ""
 
-#: classes/contents-manager.php:438
-msgid "Pages"
-msgstr ""
-
-#. Name of the template
-#: page-templates/people.php:2
-msgid "People"
-msgstr ""
-
-#: classes/person-manager.php:82
-msgid "Person"
-msgstr ""
-
-#: classes/person-manager.php:75
-msgid "Person image"
-msgstr ""
-
 #: classes/person-manager.php:44
 msgid "Person Roles"
 msgstr ""
@@ -882,20 +813,13 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: classes/place-manager.php:81
-msgid "Place"
-msgstr ""
-
-#: classes/place-manager.php:74
-msgid "Place image"
-msgstr ""
-
 #: classes/place-manager.php:44
 msgid "Place Type"
 msgstr ""
 
-#: classes/contents-manager.php:442
-msgid "Posts"
+#. Name of the template
+#: page-templates/articles.php:2
+msgid "post"
 msgstr ""
 
 #: classes/options-manager.php:909
@@ -924,36 +848,12 @@ msgstr "Related services"
 msgid "Reload theme data"
 msgstr ""
 
-#: classes/attachment-manager.php:44
-msgid "Remove attachment image"
-msgstr ""
-
-#: classes/banner-manager.php:41
-msgid "Remove banner image"
-msgstr ""
-
-#: classes/person-manager.php:77
-msgid "Remove person image"
-msgstr ""
-
-#: classes/place-manager.php:76
-msgid "Remove place image"
-msgstr ""
-
-#: classes/sponsor-manager.php:41
-msgid "Remove sponsor image"
-msgstr ""
-
 #: classes/options-manager.php:215
 msgid "Remove the message"
 msgstr ""
 
 #: classes/options-manager.php:301
 msgid "Remove the section"
-msgstr ""
-
-#: classes/user-status-manager.php:44
-msgid "Remove user status image"
 msgstr ""
 
 #: single-dis-service.php:100
@@ -964,7 +864,7 @@ msgstr ""
 msgid "REST API"
 msgstr ""
 
-#: page-templates/search.php:139
+#: page-templates/search.php:140
 msgid "Results"
 msgstr ""
 
@@ -972,7 +872,7 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/search.php:83 template-parts/header/site_search.php:11
+#: page-templates/search.php:84 template-parts/header/site_search.php:11
 msgid "Search"
 msgstr ""
 
@@ -991,7 +891,7 @@ msgstr ""
 msgid "Search in the site."
 msgstr ""
 
-#: page-templates/search.php:64 page-templates/search.php:69
+#: page-templates/search.php:65 page-templates/search.php:70
 msgid "Search the site"
 msgstr ""
 
@@ -1086,14 +986,6 @@ msgstr ""
 
 #: classes/options-manager.php:889
 msgid "Some plugin require the REST API to be enabled."
-msgstr ""
-
-#: classes/sponsor-manager.php:46
-msgid "Sponsor"
-msgstr ""
-
-#: classes/sponsor-manager.php:39
-msgid "Sponsor image"
 msgstr ""
 
 #: classes/options-manager.php:230
@@ -1208,50 +1100,22 @@ msgstr ""
 #: classes/options-manager.php:439 classes/options-manager.php:449
 #: classes/options-manager.php:459
 msgid "To translate the text refers to the domain DIS_SiteOptionLabel."
-msgstr ""
-
-#: classes/banner-manager.php:42
-msgid "Use a banner image"
-msgstr ""
-
-#: classes/sponsor-manager.php:42
-msgid "Use a sponsor image"
-msgstr ""
-
-#: classes/attachment-manager.php:45
-msgid "Use as attachment image"
-msgstr ""
-
-#: classes/person-manager.php:78
-msgid "Use as person image"
-msgstr ""
-
-#: classes/place-manager.php:77
-msgid "Use as place image"
-msgstr ""
-
-#: classes/user-status-manager.php:45
-msgid "Use as user status image"
-msgstr ""
+msgstr "To translate the text refers to the domain DIS_SiteOptionLabel."
 
 #: template-parts/menu/useful-links-menu.php:21
 msgid "Useful links menu"
-msgstr ""
-
-#: classes/user-status-manager.php:49
-msgid "User Status"
-msgstr ""
-
-#: classes/user-status-manager.php:42
-msgid "User Status image"
 msgstr ""
 
 #: template-parts/common/newsletter.php:11
 msgid "Vai alla pagina: Newsletter"
 msgstr ""
 
-#: classes/event-manager.php:38 classes/project-manager.php:38
-#: classes/service-cluster-manager.php:41 classes/service-manager.php:38
+#: classes/attachment-manager.php:41 classes/banner-manager.php:38
+#: classes/event-manager.php:38 classes/office-manager.php:38
+#: classes/person-manager.php:74 classes/place-manager.php:73
+#: classes/project-manager.php:38 classes/service-cluster-manager.php:41
+#: classes/service-manager.php:38 classes/sponsor-manager.php:38
+#: classes/user-status-manager.php:41
 msgid "View the item"
 msgstr ""
 
