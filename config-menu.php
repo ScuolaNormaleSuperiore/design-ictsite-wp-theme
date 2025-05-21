@@ -111,6 +111,15 @@ define(
 				'classes'      => 'footer-link',
 				'link'         => '',
 			),
+			array(
+				'slug'         => OFFICES_PAGE_SLUG,
+				'title'        => OFFICES_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
 		),
 	)
 );
