@@ -46,10 +46,6 @@ define( 'OFFICES_PAGE_SLUG', 'OfficePageSlug' );
 define( 'OFFICES_PAGE_TITLE', 'OfficePageTitle' );
 define( 'PLACES_PAGE_SLUG', 'PlacePageSlug' );
 define( 'PLACES_PAGE_TITLE', 'PlacePageTitle' );
-// define( 'BANNERS_PAGE_SLUG', 'BannerPageSlug' );
-// define( 'BANNERS_PAGE_TITLE', 'BannerPageTitle' );
-// define( 'SPONSORS_PAGE_SLUG', 'SponsorPageSlug' );
-// define( 'SPONSORS_PAGE_TITLE', 'SponsorPageTitle' );
 
 define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
 define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );

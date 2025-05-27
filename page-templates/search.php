@@ -77,9 +77,6 @@ if ( '' !== $search_string ) {
 						</div>
 						<div class="row">
 							<div class="form-group col text-left ps-4 mb-2">
-								<button type="reset" value="reset" onclick="resetForm('search_site_form', 'isreset');" class="btn btn-outline-primary">
-									<?php echo esc_html( __( 'Cancel', 'design_ict_site' ) ); ?>
-								</button>
 								<button type="submit" value="submit" class="btn btn-primary">
 									<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
 								</button>
