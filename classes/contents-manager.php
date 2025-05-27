@@ -536,8 +536,10 @@ class DIS_ContentsManager {
 		$result->title         = $post->post_title;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
-		$result->date          = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
-		$result->description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$start_date            = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
+		$result->date          = $start_date ? $start_date : '';
+		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$result->description   = $description ? $description : '';
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->category_link = self::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
