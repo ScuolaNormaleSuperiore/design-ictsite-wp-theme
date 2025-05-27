@@ -3,10 +3,11 @@
 
 - Paginazione nella ricerca.
 - Gestione slug.
-- Rimozione tabella traduzioni personalizzate? Usa funzione in config-pages?
-- HP Featured Events.
 - Gestione Breadcrumbs.
+- Gestione traduzioni get_dis_translation: Rimozione tabella traduzioni personalizzate? Usa funzione in config-pages?
 - Sitemap.
+- Sitemap XML?
+- HP Featured Events.
 - Controlla se una sezione HP non ha elementi non la mostrare (es. eventi, progetti, ecc).
 
 
@@ -14,8 +15,6 @@
 * Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
 B) Configurazione automatica di Polylang con italiano e inglese.
-
-
 
 
 
