@@ -57,10 +57,18 @@ if ( $section_enabled ) {
 					<p class="d-none d-lg-block">
 						<?php echo esc_attr( $hero_text ); ?>
 					</p>
-					<button type="button" class="btn btn-secondary btn-lg btn-me">
+					<?php
+						$search_link  = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+						$cluster_link = DIS_ContentsManager::get_page_link( SERVICE_CLUSTER_PAGE_SLUG );
+					?>
+					<button type="button" class="btn btn-secondary btn-lg btn-me"
+						onclick="location.href='<?php echo esc_url( $cluster_link ); ?>'"
+					>
 						<?php echo esc_attr( $left_button ); ?>
 					</button>
-					<button type="button" class="btn btn-primary btn-lg">
+					<button type="button" class="btn btn-primary btn-lg"
+						onclick="location.href='<?php echo esc_url( $search_link ); ?>'"
+					>
 						<?php echo esc_attr( $right_button ); ?>
 					</button>
 				</div>
