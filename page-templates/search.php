@@ -7,11 +7,16 @@
 global $post;
 get_header();
 
-$search_string   = '';
-$allcontentypes  = DIS_ContentsManager::get_content_types_with_results();
-$default_ct_list = array_column( $allcontentypes, 'slug' );
-$num_results     = 0;
-$the_query       = null;
+$search_string     = '';
+$all_content_types = DIS_ContentsManager::get_content_types_with_results();
+$default_ct_list   = array_column( $all_content_types, 'slug' );
+$num_results       = 0;
+$the_query         = null;
+$per_page          =
+	isset( $_GET['per_page'] ) && is_numeric( $_GET['per_page'] ) ?
+	$_GET['per_page'] :
+	DIS_SITE_SEARCH_CELLS_PER_PAGE;
+$per_page_values  = DIS_PER_PAGE_VALUES;
 
 // Set and format the filters for the query.
 if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {
@@ -43,7 +48,7 @@ if ( '' !== $search_string ) {
 		$the_query = DIS_ContentsManager::get_site_search_query(
 			$selected_contents,
 			$search_string,
-			DIS_SITE_SEARCH_CELLS_PER_PAGE
+			$per_page
 		);
 		$num_results = $the_query->found_posts;
 	}
@@ -98,14 +103,14 @@ if ( '' !== $search_string ) {
 					<div class="col-12 col-lg-3 border-end">
 						<div class="row pt-4">
 						<?php
-							if( count( $allcontentypes ) > 0 ) {
+							if( count( $all_content_types ) > 0 ) {
 						?>
 							<h3 class="h6 text-uppercase border-bottom">
 								<?php echo esc_html( __( 'Content type filter', 'design_ict_site' ) ); ?>
 							</h3>
 							<div>
 									<?php
-										foreach( $allcontentypes as $ct ) {
+										foreach( $all_content_types as $ct ) {
 									?>
 									<div class="form-check">
 										<input type="checkbox" name="selected_contents[]" id="<?php echo esc_attr( $ct['slug'] ); ?>" 
@@ -217,6 +222,21 @@ if ( '' !== $search_string ) {
 				</div>
 			</div>
 		</section>
+
+	<!-- PAGINATION-->
+	<?php
+		get_template_part(
+			'template-parts/common/pagination',
+			null,
+			array(
+				'query'           => $the_query,
+				'per_page'        => $per_page,
+				'per_page_values' => $per_page_values,
+				'num_results'     => $num_results,
+			)
+		);
+	?>
+
 	</div>
 
 </FORM>

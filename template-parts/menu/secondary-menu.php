@@ -36,7 +36,7 @@ if ( has_nav_menu( $location ) ) {
 								<span><?php echo esc_attr( $item['element']->title); ?></span>
 								<svg class="icon icon-xs" role="img" aria-labelledby="Expand">
 									<title>Expand</title>
-									<use href="<?php echo get_template_directory_uri() . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
+									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
 								</svg>
 							</a>
 							<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown1">

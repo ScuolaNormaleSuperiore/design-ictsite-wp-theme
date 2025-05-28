@@ -42,7 +42,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 				$output .= '</span><svg class="icon icon-xs" role="img" aria-labelledby="Expand">
 					<title>Expand</title>
 					<use href="';
-				$output .= get_template_directory_uri() . '/assets/bootstrap-italia/svg/sprites.svg#it-expand';
+				$output .= DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand';
 				$output .= '"></use></svg></a>';
 				$output .= '<div class="dropdown-menu" role="region" aria-labelledby="mainNavDropdown1">
 						<div class="link-list-wrapper">
@@ -56,7 +56,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 				//show sub pages
 				if ( $args->menu ) {
 					$menuitems  = $args->menu ? wp_get_nav_menu_items( $args->menu->term_id, array( 'order' => 'DESC' ) ) : array();
-					$menuitems  = $menuitems  ? dli_menu_tree_by_items( $menuitems ) : array();
+					// $menuitems  = $menuitems  ? dsi_menu_tree_by_items( $menuitems ) : array();
 				}
 				foreach ( $menuitems[$item->ID]['children'] as $subitem ) {
 					$output .= '<li><a class="dropdown-item list-item" href="';

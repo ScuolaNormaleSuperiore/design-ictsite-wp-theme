@@ -238,8 +238,19 @@ define(
 );
 
 // Site Search.
-define( 'DIS_SITE_SEARCH_CELLS_PER_PAGE', 10 );
+# define( 'DIS_SITE_SEARCH_CELLS_PER_PAGE', 10 );
+define( 'DIS_SITE_SEARCH_CELLS_PER_PAGE', 4 );
 define( 'DIS_ACF_SHORT_DESC_LENGTH', 50 );
+
+
+// Pagination.
+
+define( 'DIS_POSTS_PER_PAGE', 2 );
+define( 'DIS_POST_PER_PAGE_VALUES', array( '3', '6', '9' , '12', '24', '48', '96' ) );
+define( 'DIS_POST_PER_PAGE_VALUES_COMBINED', array_combine( DIS_POST_PER_PAGE_VALUES, DIS_POST_PER_PAGE_VALUES ) );
+define( 'DIS_PER_PAGE', 4 );
+define( 'DIS_PER_PAGE_BIG', 10 );
+define( 'DIS_PER_PAGE_VALUES', array( '4', '10', '20', '30', '40', '50' ) );
 
 
 

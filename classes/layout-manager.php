@@ -27,6 +27,8 @@ class DIS_LayoutManager {
 		add_action( 'admin_enqueue_scripts', array( $this, 'upload_admin_scripts' ) );
 		add_action( 'after_setup_theme', array( $this, 'configure_post_options' ) );
 		add_action( 'after_setup_theme', array( $this, 'define_menu_locations' ) );
+		add_action( 'wp_footer', array( $this, 'load_pagination_script' ) );
+		add_filter( 'upload_mimes', array( $this, 'enable_svg_upload' ), 10, 1 );
 		// Setup image sizes.
 		// add_action( 'after_setup_theme', array( $this, 'setup_image_sizes' ) );
 	}
@@ -79,6 +81,62 @@ class DIS_LayoutManager {
 		 * Look also: config-menu.php -> DIS_MENU_LOCATIONS.
 		 */
 		register_nav_menus( DIS_MENU_LOCATIONS );
+	}
+
+	public function enable_svg_upload(){
+		$upload_mimes['svg'] = 'image/svg+xml';
+		return $upload_mimes;
+	}
+
+	public function load_pagination_script() {
+	if ( is_page_template() || is_singular() ) {
+	?>
+		<script>
+			if (document.querySelector('.dropdown-menu.dli-pagination-dropdown')) {
+
+				// Disabilita il comportamento di default del click.
+				var dropdownLinks = document.querySelectorAll('.dropdown-menu.dli-pagination-dropdown a');
+				dropdownLinks.forEach(function(link) {
+					link.addEventListener('click', function(event) {
+						event.preventDefault();
+						// Rimuovi la classe 'active' da tutti i link.
+						dropdownLinks.forEach(function(item) {
+							item.classList.remove('active');
+						});
+						// Aggiungi la classe 'active' al link cliccato.
+						link.classList.add('active');
+					});
+				});
+
+				// Ricarica pagina con il valore per_page selezionato.
+				var pagerDropDown = document.getElementById('pagerChanger');
+				if( pagerDropDown ){
+					pagerDropDown.addEventListener('hidden.bs.dropdown', function (event) {
+						var selectedItem = document.querySelector('.dropdown-menu.dli-pagination-dropdown .active');
+						if (selectedItem) {
+							// Recupera il valore dell'attributo 'data-perpage'.
+							var perPageValue = selectedItem.getAttribute('data-perpage');
+							// Ottiene l'URL corrente e i parametri GET.
+							var currentUrl = new URL(window.location.href);
+							var params = currentUrl.searchParams;
+							const oldPerPage = params.get('per_page');
+							// Per evitare incongruenze,
+							// quando si cambia numero di elementi per pagina,
+							// si riparte dalla pagina numero 1.
+							if (perPageValue != oldPerPage){
+								params.set('paged', 1);
+							}
+							// Aggiunge o aggiorna il parametro per_page.
+							params.set('per_page', perPageValue);
+							// Aggiorna l'URL e ricarica la pagina.
+							window.location.href = currentUrl.toString();
+						}
+					});
+				}
+			}
+		</script>
+	<?php
+	}
 	}
 
 	// public function setup_image_sizes() {
