@@ -19,7 +19,7 @@ if ( $section_enabled ) {
 	$search_label = DIS_MultiLangManager::get_dis_translation( 'MainHeroSearchButtonLabel', $label_domain );
 	$left_button  = DIS_MultiLangManager::get_dis_translation( 'MainHeroLeftButtonLabel', $label_domain );
 	$right_button = DIS_MultiLangManager::get_dis_translation( 'MainHeroRightButtonLabel', $label_domain );
-	$search_link   = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+	$search_link  = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 ?>
 
 <!-- HERO Standard  -->

@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-- Paginazione nella ricerca.
 - Gestione slug.
 - Gestione Breadcrumbs.
 - Gestione traduzioni get_dis_translation: Rimozione tabella traduzioni personalizzate? Usa funzione in config-pages?
