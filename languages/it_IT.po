@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-05-21 13:10+0000\n"
+"PO-Revision-Date: 2025-05-28 12:44+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -114,10 +114,6 @@ msgstr "Opzioni base"
 msgid "Brevo"
 msgstr "Brevo"
 
-#: page-templates/search.php:81
-msgid "Cancel"
-msgstr "Annulla"
-
 #: classes/options-manager.php:313
 msgid "Choose the section."
 msgstr "Scegli la sezione."
@@ -166,7 +162,7 @@ msgstr "Indirizzo e-mail di contatto"
 msgid "Contacts"
 msgstr "Contatti"
 
-#: page-templates/search.php:107
+#: page-templates/search.php:109
 msgid "Content type filter"
 msgstr "Filtro per tipo di contenuto"
 
@@ -182,7 +178,7 @@ msgstr "Design ICT Site"
 msgid "Designed for"
 msgstr "Realizzato per"
 
-#: page-templates/search.php:74
+#: page-templates/search.php:79
 msgid "Digit the text to search"
 msgstr "Scrivi il testo da cercare"
 
@@ -401,6 +397,34 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Users Status"
 msgstr "Stato Utente"
 
+#: template-parts/home/hp-main-hero-section.php:20
+msgctxt "DIS_SiteOptionLabel"
+msgid "MainHeroLeftButtonLabel"
+msgstr "Vedi tutti i servizi"
+
+#: template-parts/home/hp-main-hero-section.php:21
+msgctxt "DIS_SiteOptionLabel"
+msgid "MainHeroRightButtonLabel"
+msgstr "Ottieni supporto IT"
+
+#: template-parts/home/hp-main-hero-section.php:19
+msgctxt "DIS_SiteOptionLabel"
+msgid "MainHeroSearchButtonLabel"
+msgstr "Cerca"
+
+#: template-parts/home/hp-main-hero-section.php:18
+msgctxt "DIS_SiteOptionLabel"
+msgid "MainHeroText"
+msgstr ""
+"Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper "
+"dignissim cras. Dictum sit amet justo donec enim diam vulputate ut. Eu nisl "
+"nunc mi ipsum faucibus."
+
+#: template-parts/home/hp-main-hero-section.php:17
+msgctxt "DIS_SiteOptionLabel"
+msgid "MainHeroTitle"
+msgstr "Come posso aiutarti?"
+
 #: classes/person-manager.php:36
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Person Roles"
@@ -586,8 +610,8 @@ msgstr "Vai alla pagina"
 msgid "Header logo visible"
 msgstr "Logo dell'intestazione visibile"
 
-#: template-parts/home/hp-main-hero-section.php:31
-#: template-parts/home/hp-main-hero-section.php:32
+#: template-parts/home/hp-main-hero-section.php:36
+#: template-parts/home/hp-main-hero-section.php:37
 msgid "Hero image"
 msgstr "Immagine dell'hero"
 
@@ -820,6 +844,11 @@ msgstr "I nostri servizi"
 msgid "Page counters"
 msgstr "Contatori di pagina"
 
+#: template-parts/common/pagination.php:55
+#: template-parts/common/pagination.php:68
+msgid "pagina"
+msgstr ""
+
 #: classes/person-manager.php:44
 msgid "Person Roles"
 msgstr "Ruolo di persona"
@@ -879,7 +908,7 @@ msgstr "Prerequisiti"
 msgid "REST API"
 msgstr "API REST"
 
-#: page-templates/search.php:140
+#: page-templates/search.php:142
 msgid "Results"
 msgstr "Risultati"
 
@@ -887,7 +916,7 @@ msgstr "Risultati"
 msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
-#: page-templates/search.php:84 template-parts/header/site_search.php:11
+#: page-templates/search.php:86 template-parts/header/site_search.php:11
 msgid "Search"
 msgstr "Cerca"
 
@@ -906,7 +935,7 @@ msgstr "Cerca nel sito"
 msgid "Search in the site."
 msgstr "Cerca nel sito."
 
-#: page-templates/search.php:65 page-templates/search.php:70
+#: page-templates/search.php:70 page-templates/search.php:75
 msgid "Search the site"
 msgstr "Cerca nel sito"
 
@@ -969,7 +998,7 @@ msgstr "Configurazioni del sito"
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
-#: template-parts/home/hp-main-hero-section.php:53
+#: template-parts/home/hp-main-hero-section.php:58
 msgid "Site search"
 msgstr "Ricerca nel sito"
 

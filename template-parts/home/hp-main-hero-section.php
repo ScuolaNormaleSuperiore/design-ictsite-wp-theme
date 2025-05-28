@@ -14,11 +14,11 @@ $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
 	$hero_image   = DIS_OptionsManager::dis_get_option( 'main_hero_image', 'dis_opt_main_hero' );
-	$hero_title   = DIS_MultiLangManager::get_dis_translation( 'MainHeroTitle', $label_domain );
-	$hero_text    = DIS_MultiLangManager::get_dis_translation( 'MainHeroText', $label_domain );
-	$search_label = DIS_MultiLangManager::get_dis_translation( 'MainHeroSearchButtonLabel', $label_domain );
-	$left_button  = DIS_MultiLangManager::get_dis_translation( 'MainHeroLeftButtonLabel', $label_domain );
-	$right_button = DIS_MultiLangManager::get_dis_translation( 'MainHeroRightButtonLabel', $label_domain );
+	$hero_title   = _x( 'MainHeroTitle', 'DIS_SiteOptionLabel', 'design_ict_site' );
+	$hero_text    = _x( 'MainHeroText', 'DIS_SiteOptionLabel', 'design_ict_site' );
+	$search_label = _x( 'MainHeroSearchButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
+	$left_button  = _x( 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
+	$right_button = _x( 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$search_link  = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 ?>
 

@@ -71,16 +71,6 @@ INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VA
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (60, 'DocumentationPageTitle', 'DIS_ActivationItems', 'it', 'Documentazione');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (61, 'ReuseLinkTitle', 'DIS_ActivationItems', 'en', 'Reuse');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (62, 'ReuseLinkTitle', 'DIS_ActivationItems', 'it', 'Riuso');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (65, 'MainHeroTitle', 'DIS_SiteOptionLabel', 'en', 'How can I help you?');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (66, 'MainHeroTitle', 'DIS_SiteOptionLabel', 'it', 'Come posso aiutarti?');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (67, 'MainHeroText', 'DIS_SiteOptionLabel', 'en', 'Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo donec enim diam vulputate ut. Eu nisl nunc mi ipsum faucibus.');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (68, 'MainHeroText', 'DIS_SiteOptionLabel', 'it', 'Platea dictumst vestibulum rhoncus est pellentesque elit ullamcorper dignissim cras. Dictum sit amet justo donec enim diam vulputate ut. Eu nisl nunc mi ipsum faucibus.');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (69, 'MainHeroSearchButtonLabel', 'DIS_SiteOptionLabel', 'en', 'Search');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (70, 'MainHeroSearchButtonLabel', 'DIS_SiteOptionLabel', 'it', 'Cerca');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (71, 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'en', 'See all services');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (72, 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'it', 'Vedi tutti i servizi');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (73, 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'en', 'Get IT Support');
-INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (74, 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'it', 'Ottieni supporto IT');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (75, 'ArticlePageSlug', 'DIS_ActivationItems', 'en', 'articles');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (76, 'ArticlePageSlug', 'DIS_ActivationItems', 'it', 'articoli');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (77, 'ArticlePageTitle', 'DIS_ActivationItems', 'en', 'Articles');
