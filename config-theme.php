@@ -34,86 +34,90 @@ define( 'DIS_SPONSOR_POST_TYPE', 'dis-sponsor' );
 // CUSTOM CONTENT BASE DATA.
 if ( ! function_exists( 'dis_ct_data' ) ) {
 	function dis_ct_data() {
-		return array(
-			DIS_EVENT_POST_TYPE => array(
-				'type'          => DIS_EVENT_POST_TYPE,
-				'singular_name' => _x( 'Event', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Events', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'events', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_PROJECT_POST_TYPE => array(
-				'type'          => DIS_PROJECT_POST_TYPE,
-				'singular_name' => _x( 'Project', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_OFFICE_POST_TYPE => array(
-				'type'          => DIS_OFFICE_POST_TYPE,
-				'singular_name' => _x( 'Office', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_SERVICE_CLUSTER_POST_TYPE => array(
-				'type'          => DIS_SERVICE_CLUSTER_POST_TYPE,
-				'singular_name' => _x( 'Service Cluster', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Service Clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'service-clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_SERVICE_ITEM_POST_TYPE => array(
-				'type'          => DIS_SERVICE_ITEM_POST_TYPE,
-				'singular_name' => _x( 'Service', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'services', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_PERSON_POST_TYPE => array(
-				'type'          => DIS_PERSON_POST_TYPE,
-				'singular_name' => _x( 'Person', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Persons', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'people', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_PLACE_POST_TYPE => array(
-				'type'          => DIS_PLACE_POST_TYPE,
-				'singular_name' => _x( 'Place', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Places', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'places', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_ATTACHMENT_POST_TYPE => array(
-				'type'          => DIS_ATTACHMENT_POST_TYPE,
-				'singular_name' => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_BANNER_POST_TYPE => array(
-				'type'          => DIS_BANNER_POST_TYPE,
-				'singular_name' => _x( 'Banner', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_SPONSOR_POST_TYPE => array(
-				'type'          => DIS_SPONSOR_POST_TYPE,
-				'singular_name' => _x( 'Sponsor', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_USER_STATUS_POST_TYPE => array(
-				'type'          => DIS_USER_STATUS_POST_TYPE,
-				'singular_name' => _x( 'User Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Users Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'user-status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_DEFAULT_POST => array(
-				'type'          => DIS_DEFAULT_POST,
-				'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-			DIS_DEFAULT_PAGE => array(
-				'type'          => DIS_DEFAULT_PAGE,
-				'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				'slug'          => _x( 'pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
-			),
-		);
+		global $dis_ct_data;
+		if ( ! isset( $dis_ct_data ) ) {
+			$dis_ct_data = array(
+				DIS_EVENT_POST_TYPE => array(
+					'type'          => DIS_EVENT_POST_TYPE,
+					'singular_name' => _x( 'Event', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Events', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'events', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_PROJECT_POST_TYPE => array(
+					'type'          => DIS_PROJECT_POST_TYPE,
+					'singular_name' => _x( 'Project', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_OFFICE_POST_TYPE => array(
+					'type'          => DIS_OFFICE_POST_TYPE,
+					'singular_name' => _x( 'Office', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_SERVICE_CLUSTER_POST_TYPE => array(
+					'type'          => DIS_SERVICE_CLUSTER_POST_TYPE,
+					'singular_name' => _x( 'Service Cluster', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Service Clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'service-clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_SERVICE_ITEM_POST_TYPE => array(
+					'type'          => DIS_SERVICE_ITEM_POST_TYPE,
+					'singular_name' => _x( 'Service', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'services', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_PERSON_POST_TYPE => array(
+					'type'          => DIS_PERSON_POST_TYPE,
+					'singular_name' => _x( 'Person', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Persons', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'people', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_PLACE_POST_TYPE => array(
+					'type'          => DIS_PLACE_POST_TYPE,
+					'singular_name' => _x( 'Place', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Places', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'places', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_ATTACHMENT_POST_TYPE => array(
+					'type'          => DIS_ATTACHMENT_POST_TYPE,
+					'singular_name' => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_BANNER_POST_TYPE => array(
+					'type'          => DIS_BANNER_POST_TYPE,
+					'singular_name' => _x( 'Banner', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_SPONSOR_POST_TYPE => array(
+					'type'          => DIS_SPONSOR_POST_TYPE,
+					'singular_name' => _x( 'Sponsor', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_USER_STATUS_POST_TYPE => array(
+					'type'          => DIS_USER_STATUS_POST_TYPE,
+					'singular_name' => _x( 'User Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Users Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'user-status', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_DEFAULT_POST => array(
+					'type'          => DIS_DEFAULT_POST,
+					'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_DEFAULT_PAGE => array(
+					'type'          => DIS_DEFAULT_PAGE,
+					'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+			);
+		}
+		return $dis_ct_data;
 	}
 }
 
