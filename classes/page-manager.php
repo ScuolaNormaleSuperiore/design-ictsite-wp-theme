@@ -31,7 +31,7 @@ class Page_Manager {
 	 * @return void
 	 */
 	public function add_excerpt() {
-		add_post_type_support( WP_DEFAULT_PAGE, 'excerpt' );
+		add_post_type_support( DIS_DEFAULT_PAGE, 'excerpt' );
 	}
 
 	/**
@@ -40,13 +40,13 @@ class Page_Manager {
 	 * @return void
 	 */
 	public function edit_excerpt_metabox() {
-		remove_meta_box( 'postexcerpt', WP_DEFAULT_POST, 'normal' );
+		remove_meta_box( 'postexcerpt', DIS_DEFAULT_POST, 'normal' );
 		// Adds the metabox under the main editor.
 		add_meta_box(
 			'postexcerpt',
 			__('Excerpt'),
 			'post_excerpt_meta_box',
-			[WP_DEFAULT_PAGE,],
+			[DIS_DEFAULT_PAGE,],
 			'normal',
 			'high'
 		);

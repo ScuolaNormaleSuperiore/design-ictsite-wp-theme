@@ -15,8 +15,8 @@ $the_query         = null;
 $per_page          =
 	isset( $_GET['per_page'] ) && is_numeric( $_GET['per_page'] ) ?
 	$_GET['per_page'] :
-	DIS_SITE_SEARCH_CELLS_PER_PAGE;
-$per_page_values  = DIS_PER_PAGE_VALUES;
+	DIS_ITEMS_PER_PAGE;
+$per_page_values  = DIS_ITEMS_PER_PAGE_VALUES;
 
 // Set and format the filters for the query.
 if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {

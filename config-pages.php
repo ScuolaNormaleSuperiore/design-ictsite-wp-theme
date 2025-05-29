@@ -33,7 +33,7 @@ define( 'SITE_SEARCH_PAGE_TITLE', 'SiteSearchPageTitle' );
 define( 'MEDIA_POLICY_PAGE_SLUG', 'MediaPolicyPageSlug' );
 define( 'MEDIA_POLICY_PAGE_TITLE', 'MediaPolicyPageTitle' );
 define( 'ABOUT_US_PAGE_SLUG', 'AboutUsPageSlug' );
-define( 'ABOUT_US_PAGE_TITLE', 'AboutUsPagetitle' );
+define( 'ABOUT_US_PAGE_TITLE', 'AboutUsPageTitle' );
 define( 'DOCUMENTATION_PAGE_SLUG', 'DocumentationPageSlug' );
 define( 'DOCUMENTATION_PAGE_TITLE', 'DocumentationPageTitle' );
 define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
@@ -91,7 +91,7 @@ define(
 		PRIVACY_PAGE_SLUG =>
 			array(
 				'content_slug'     => PRIVACY_PAGE_SLUG,
-				'content_file'     => 'assets/html/privacy_xx.html', // To load the initial content of a page from a file (eg. privacy_en.html, privacy_it.html,... ).
+				'content_file'     => 'assets/html/privacy_xx.html',
 				'content_title'    => PRIVACY_PAGE_TITLE,
 				'content'          => '',
 				'content_status'   => 'publish',

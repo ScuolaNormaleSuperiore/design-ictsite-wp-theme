@@ -83,3 +83,7 @@ INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VA
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (84, 'PlacePageSlug', 'DIS_ActivationItems', 'it', 'luoghi');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (85, 'PlacePageTitle', 'DIS_ActivationItems', 'en', 'Places');
 INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (86, 'PlacePageTitle', 'DIS_ActivationItems', 'it', 'luoghi');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (87, 'FaqPageSlug', 'DIS_ActivationItems', 'en', 'faq');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (88, 'FaqPageSlug', 'DIS_ActivationItems', 'it', 'faq-it');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (89, 'FaqPageTitle', 'DIS_ActivationItems', 'en', 'Faq');
+INSERT INTO wp_dis_custom_translations (id, label, domain, lang, translation) VALUES (90, 'FaqPageTitle', 'DIS_ActivationItems', 'it', 'Faq');

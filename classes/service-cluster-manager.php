@@ -33,8 +33,8 @@ class Service_Cluster_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'          => dis_ct_data()[DIS_CLUSTER_POST_TYPE]['plural_name'],
-			'singular_name' => dis_ct_data()[DIS_CLUSTER_POST_TYPE]['singular_name'],
+			'name'          => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['singular_name'],
 			'add_new'       => __( 'Add an item', 'design_ict_site' ),
 			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
 			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
@@ -42,7 +42,7 @@ class Service_Cluster_Manager {
 		);
 
 		$args   = array(
-			'label'         => dis_ct_data()[DIS_CLUSTER_POST_TYPE]['singular_name'],
+			'label'         => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -52,11 +52,11 @@ class Service_Cluster_Manager {
 			'menu_icon'     => 'dashicons-portfolio',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_CLUSTER_POST_TYPE]['slug'] ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
-		register_post_type( DIS_CLUSTER_POST_TYPE, $args );
+		register_post_type( DIS_SERVICE_CLUSTER_POST_TYPE, $args );
 
 		// Add the custom fields.
 		$this->add_fields();

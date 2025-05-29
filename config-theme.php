@@ -14,12 +14,12 @@ define( 'DIS_PLACE_TYPE_TAXONOMY', 'dis-place-type' );
 define( 'DIS_PERSON_ROLE_TAXONOMY', 'dis-person-role' );
 
 // DEFAULT WP POST TYPES.
-define( 'WP_DEFAULT_POST', 'post' );
-define( 'WP_DEFAULT_PAGE', 'page' );
+define( 'DIS_DEFAULT_POST', 'post' );
+define( 'DIS_DEFAULT_PAGE', 'page' );
 
 // CUSTOM CONTENT TYPES.
-define( 'DIS_CLUSTER_POST_TYPE', 'dis-service-cluster' );
-define( 'DIS_SERVICE_POST_TYPE', 'dis-service' );
+define( 'DIS_SERVICE_CLUSTER_POST_TYPE', 'dis-service-cluster' );
+define( 'DIS_SERVICE_ITEM_POST_TYPE', 'dis-service' );
 define( 'DIS_OFFICE_POST_TYPE', 'dis-office' );
 define( 'DIS_PERSON_POST_TYPE', 'dis-person' );
 define( 'DIS_PROJECT_POST_TYPE', 'dis-project' );
@@ -53,14 +53,14 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
-			DIS_CLUSTER_POST_TYPE => array(
-				'type'          => DIS_CLUSTER_POST_TYPE,
+			DIS_SERVICE_CLUSTER_POST_TYPE => array(
+				'type'          => DIS_SERVICE_CLUSTER_POST_TYPE,
 				'singular_name' => _x( 'Service Cluster', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'plural_name'   => _x( 'Service Clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'service-clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
-			DIS_SERVICE_POST_TYPE => array(
-				'type'          => DIS_SERVICE_POST_TYPE,
+			DIS_SERVICE_ITEM_POST_TYPE => array(
+				'type'          => DIS_SERVICE_ITEM_POST_TYPE,
 				'singular_name' => _x( 'Service', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'services', 'DIS_PostTypeLabels', 'design_ict_site' ),
@@ -101,14 +101,14 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				'plural_name'   => _x( 'Users Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'user-status', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
-			WP_DEFAULT_POST => array(
-				'type'          => WP_DEFAULT_POST,
+			DIS_DEFAULT_POST => array(
+				'type'          => DIS_DEFAULT_POST,
 				'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'plural_name'   => _x( 'Articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
 			),
-			WP_DEFAULT_PAGE => array(
-				'type'          => WP_DEFAULT_PAGE,
+			DIS_DEFAULT_PAGE => array(
+				'type'          => DIS_DEFAULT_PAGE,
 				'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				'slug'          => _x( 'pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
@@ -119,20 +119,19 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 
 
 /* MENU */
-define( 'DIS_SLUG_MAIN_MENU', 'DIS_PRIMARY_MENU' );
+// define( 'DIS_SLUG_MAIN_MENU', 'DIS_PRIMARY_MENU' );
 
 /* ROLES AND PERMISSIONS */
 define( 'DIS_EDIT_PERMISSION', 'edit_posts' );
 define( 'DIS_EDIT_THEME_PERMISSION', 'edit_theme_options' );
 
 
-/* MULTILANGUAGE */
-
+/* MULTILANGUAGE constants*/
 define(
 	'MULTILANG_TAXONOMIES',
 	array(
 		DIS_DEFAULT_CATEGORY,
-		WP_DEFAULT_PAGE,
+		DIS_DEFAULT_PAGE,
 		DIS_PLACE_TYPE_TAXONOMY,
 		DIS_PERSON_ROLE_TAXONOMY,
 	)
@@ -141,10 +140,10 @@ define(
 define(
 	'MULTILANG_POST_TYPES',
 	array(
-		WP_DEFAULT_POST,
-		WP_DEFAULT_PAGE,
-		DIS_CLUSTER_POST_TYPE,
-		DIS_SERVICE_POST_TYPE,
+		DIS_DEFAULT_POST,
+		DIS_DEFAULT_PAGE,
+		DIS_SERVICE_CLUSTER_POST_TYPE,
+		DIS_SERVICE_ITEM_POST_TYPE,
 		DIS_PERSON_POST_TYPE,
 		DIS_PROJECT_POST_TYPE,
 		DIS_PLACE_POST_TYPE,
@@ -238,19 +237,11 @@ define(
 );
 
 // Site Search.
-# define( 'DIS_SITE_SEARCH_CELLS_PER_PAGE', 10 );
-define( 'DIS_SITE_SEARCH_CELLS_PER_PAGE', 4 );
 define( 'DIS_ACF_SHORT_DESC_LENGTH', 50 );
 
-
-// Pagination.
-
-define( 'DIS_POSTS_PER_PAGE', 2 );
-define( 'DIS_POST_PER_PAGE_VALUES', array( '3', '6', '9' , '12', '24', '48', '96' ) );
-define( 'DIS_POST_PER_PAGE_VALUES_COMBINED', array_combine( DIS_POST_PER_PAGE_VALUES, DIS_POST_PER_PAGE_VALUES ) );
-define( 'DIS_PER_PAGE', 4 );
-define( 'DIS_PER_PAGE_BIG', 10 );
-define( 'DIS_PER_PAGE_VALUES', array( '4', '10', '20', '30', '40', '50' ) );
+// PAGINATION constants.
+define( 'DIS_ITEMS_PER_PAGE', 10 );
+define( 'DIS_ITEMS_PER_PAGE_VALUES', array( '4', '10', '20', '30', '40', '50' ) );
 
 
 

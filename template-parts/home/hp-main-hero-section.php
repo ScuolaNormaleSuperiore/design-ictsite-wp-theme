@@ -20,6 +20,7 @@ if ( $section_enabled ) {
 	$left_button  = _x( 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$right_button = _x( 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$search_link  = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+	$cluster_link = DIS_ContentsManager::get_archive_link( DIS_SERVICE_CLUSTER_POST_TYPE );
 ?>
 
 <!-- HERO Standard  -->
@@ -64,10 +65,7 @@ if ( $section_enabled ) {
 					<p class="d-none d-lg-block">
 						<?php echo esc_attr( $hero_text ); ?>
 					</p>
-					<?php
-						$search_link  = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
-						$cluster_link = DIS_ContentsManager::get_page_link( SERVICE_CLUSTER_PAGE_SLUG );
-					?>
+
 					<button type="button" class="btn btn-secondary btn-lg btn-me"
 						onclick="location.href='<?php echo esc_url( $cluster_link ); ?>'"
 					>

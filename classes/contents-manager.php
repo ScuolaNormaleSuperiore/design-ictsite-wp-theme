@@ -137,13 +137,26 @@ class DIS_ContentsManager {
 		return $menu_tree;
 	}
 
+	/**
+	 * Get the link of a standard page given the slug.
+	 *
+	 * @param string $page_slug
+	 * @return void
+	 */
 	public static function get_page_link( $page_slug ){
-		$slug_trans = DIS_MultiLangManager::get_dis_translation( $page_slug, 'DIS_ActivationItems', 'en' );
+		$slug_trans = DIS_MultiLangManager::get_dis_translation( $page_slug, 'DIS_ActivationItems' );
 		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
 		if ( ! $post ) return null;
-		$translated_id = DIS_MultiLangManager::get_post( $post->ID );
-		return get_permalink( $translated_id );
+		// $translated_id = DIS_MultiLangManager::get_post( $post->ID );
+		return get_permalink( $post );
 	}
+
+	/**
+	 * Get the archive page given the content-type.
+	 *
+	 * @param string $type
+	 * @return string
+	 */
 	public static function get_archive_link( $type ){
 		$slug = dis_ct_data()[$type]['slug'];
 		if ( ! $slug ) return '';
@@ -177,7 +190,7 @@ class DIS_ContentsManager {
 			$args = array();
 		if ( $order === 'title' ){
 			$args = array(
-				'post_type'      => DIS_CLUSTER_POST_TYPE,
+				'post_type'      => DIS_SERVICE_CLUSTER_POST_TYPE,
 				'posts_per_page' => -1,
 				'post_status'    => 'publish',
 				'order'          => 'ASC',
@@ -185,7 +198,7 @@ class DIS_ContentsManager {
 			);
 		} else {
 			$args = array(
-				'post_type'      => DIS_CLUSTER_POST_TYPE,
+				'post_type'      => DIS_SERVICE_CLUSTER_POST_TYPE,
 				'posts_per_page' => -1,
 				'post_status'    => 'publish',
 				'meta_key'       => 'priority',
@@ -221,7 +234,7 @@ class DIS_ContentsManager {
 		$args = array();
 		if ( $order === 'title' ){
 			$args = array(
-				'post_type'      => DIS_SERVICE_POST_TYPE,
+				'post_type'      => DIS_SERVICE_ITEM_POST_TYPE,
 				'posts_per_page' => -1,
 				'post_status'    => 'publish',
 				'order'          => 'ASC',
@@ -229,7 +242,7 @@ class DIS_ContentsManager {
 			);
 		} else {
 			$args = array(
-				'post_type'      => DIS_SERVICE_POST_TYPE,
+				'post_type'      => DIS_SERVICE_ITEM_POST_TYPE,
 				'posts_per_page' => -1,
 				'post_status'    => 'publish',
 				'meta_key'       => 'priority',
@@ -432,20 +445,20 @@ class DIS_ContentsManager {
 								'slug' => DIS_OFFICE_POST_TYPE,
 							),
 							array(
-								'name' => dis_ct_data()[DIS_CLUSTER_POST_TYPE]['plural_name'],
-								'slug' => DIS_CLUSTER_POST_TYPE,
+								'name' => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['plural_name'],
+								'slug' => DIS_SERVICE_CLUSTER_POST_TYPE,
 							),
 							array(
-								'name' => dis_ct_data()[DIS_SERVICE_POST_TYPE]['plural_name'],
-								'slug' => DIS_SERVICE_POST_TYPE,
+								'name' => dis_ct_data()[DIS_SERVICE_ITEM_POST_TYPE]['plural_name'],
+								'slug' => DIS_SERVICE_ITEM_POST_TYPE,
 							),
 							array(
-								'name' => dis_ct_data()[WP_DEFAULT_PAGE]['plural_name'],
-								'slug' => WP_DEFAULT_PAGE,
+								'name' => dis_ct_data()[DIS_DEFAULT_PAGE]['plural_name'],
+								'slug' => DIS_DEFAULT_PAGE,
 							),
 							array(
-								'name' => dis_ct_data()[WP_DEFAULT_POST]['plural_name'],
-								'slug' => WP_DEFAULT_POST,
+								'name' => dis_ct_data()[DIS_DEFAULT_POST]['plural_name'],
+								'slug' => DIS_DEFAULT_POST,
 							),
 					);
 	}
@@ -511,11 +524,11 @@ class DIS_ContentsManager {
 			case DIS_OFFICE_POST_TYPE:
 				$item = self::wrap_office ( $post );
 				break;
-			case DIS_CLUSTER_POST_TYPE:
-			case DIS_SERVICE_POST_TYPE:
+			case DIS_SERVICE_CLUSTER_POST_TYPE:
+			case DIS_SERVICE_ITEM_POST_TYPE:
 				$item = self::wrap_service ( $post );
 				break;
-			case WP_DEFAULT_PAGE:
+			case DIS_DEFAULT_PAGE:
 				$item = self::wrap_page ( $post );
 				break;
 			default:
