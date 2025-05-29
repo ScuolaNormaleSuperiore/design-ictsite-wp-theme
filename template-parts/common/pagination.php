@@ -18,7 +18,7 @@ $pagination_on   = ( $num_results > intval ( $per_page) )  ? true : false;
 		<!-- Filters column -->
 		<div class="col-md-4 pt-2"></div>
 
-		<!-- Navigazione pagine -->
+		<!-- Pages navigation -->
 		<div class="col-md-3 pt-2">
 			<?php
 			if ( $the_query && $pagination_on ) {
@@ -43,7 +43,7 @@ $pagination_on   = ( $num_results > intval ( $per_page) )  ? true : false;
 			?>
 		</div>
 
-		<!-- Scelta numero elementi per pagina -->
+		<!-- Choose number of results per page -->
 		<div class="col-md-3 dli-dropdown-container">
 			<?php
 			if ( $pagination_on || isset( $_GET['per_page'] ) ) {
@@ -51,8 +51,8 @@ $pagination_on   = ( $num_results > intval ( $per_page) )  ? true : false;
 				<div class="dropdown">
 					<button class="btn btn-dropdown dropdown-toggle" type="button" id="pagerChanger"
 						data-bs-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false" aria-label="Salta alla pagina">
-						<?php echo $per_page; ?>/<?php echo __( 'pagina', 'design_ict_site' ); ?>
+						aria-expanded="false" aria-label="Jump to the page">
+						<?php echo $per_page; ?>/<?php echo __( 'page', 'design_ict_site' ); ?>
 						<svg class="icon icon-primary icon-sm">
 							<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
 						</svg>
@@ -65,7 +65,10 @@ $pagination_on   = ( $num_results > intval ( $per_page) )  ? true : false;
 								?>
 								<li>
 									<a class="dropdown-item list-item <?php if( $is_active ) { echo 'active'; } ?>"
-										href="#" data-perpage="<?php echo $pvalue; ?>"><span><?php echo $pvalue; ?>/<?php echo __( 'pagina', 'design_ict_site' ); ?></span>
+										href="#" data-perpage="<?php echo $pvalue; ?>">
+										<span>
+											<?php echo $pvalue; ?>/<?php echo __( 'page', 'design_ict_site' ); ?>
+										</span>
 									</a>
 									</li>
 								<?php

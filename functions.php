@@ -29,6 +29,7 @@ require DIS_THEME_PATH . '/config-pages.php';
  */
 require DIS_THEME_PATH . '/config-menu.php';
 
+
 /**
  * Defining and managing theme dependencies using TGM.
  */

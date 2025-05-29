@@ -77,10 +77,9 @@ class DIS_MultiLangManager {
 	 * Retrieves the list of the languages supported by the site.
 	 *
 	 * @param [type] $args
-	 * @return string[]
+	 * @return object[]
 	 */
-	public static function get_languages_list(): array {
-		$args = array();
+	public static function get_languages_list( $args=array() ): array {
 		return pll_languages_list( $args );
 	}
 

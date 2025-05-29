@@ -60,22 +60,27 @@ class DIS_ActivationManager {
 
 	private function pages_creation( &$messages ) {
 		array_push( $this->result['data'], '* BEGIN Pages Creation:' );
-		$languages = DIS_MultiLangManager::get_languages_list();
+		$languages = DIS_MultiLangManager::get_languages_list( array('fields' => array() )  );
 		foreach ( DIS_STATIC_PAGES as $slug => $pg ) {
 			$related_posts = array();
+
+			// Save the current locale.
+			$default_locale = get_locale();
 			foreach ( $languages as $lang ) {
-				$slug_trans = DIS_MultiLangManager::get_dis_translation( $slug, 'DIS_ActivationItems', $lang );
+				switch_to_locale( $lang->locale );
+
+				$slug_trans = _x( $pg['content_slug'], 'DIS_ActivationItems', 'design_ict_site' );
 				if ( $slug_trans ) {
-					$check_page   = self::get_content( $slug_trans, $pg['content_type'] );
-					$new_page_id  = $check_page ? $check_page->ID : 0;
+					$check_page  = self::get_content( $slug_trans, $pg['content_type'] );
+					$new_page_id = $check_page ? $check_page->ID : 0;
 					if ( $new_page_id === 0 ) {
 						// Create the page if not exists.
-						$title_trans = DIS_MultiLangManager::get_dis_translation( $pg['content_title'], 'DIS_ActivationItems', $lang );
+						$title_trans = _x( $pg['content_title'], 'DIS_ActivationItems', 'design_ict_site' );
 						if ( $title_trans ) {
 							// Check if a page template exists.
 							$content = '';
 							if ( $pg['content_file'] ) {
-								$file_path = realpath( DIS_THEME_PATH . str_replace( '_xx.html', '_' . $lang . '.html', $pg['content_file'] ) );
+								$file_path = realpath( DIS_THEME_PATH . str_replace( '_xx.html', '_' . $lang->slug . '.html', $pg['content_file'] ) );
 								if ( file_exists( $file_path ) ) {
 									$content = file_get_contents( $file_path );
 								}
@@ -96,18 +101,23 @@ class DIS_ActivationManager {
 								update_post_meta( $new_page_id, '_wp_page_template', $pg['content_template'] );
 							}
 							// Assign the IT language to the page.
-							DIS_MultiLangManager::set_post_language( $new_page_id, $lang );
+							DIS_MultiLangManager::set_post_language( $new_page_id, $lang->slug );
 						}
 						$msg = sprintf(  __( "Successfully created the page: '%s'.", 'design_ict_site' ), $slug_trans );
 						array_push( $messages, $msg );
-						$related_posts[ $lang ] = $new_page_id;
+						$related_posts[ $lang->slug ] = $new_page_id;
 					} else {
 						// $msg = sprintf( __( "Page: '%s' already present", 'design_ict_site' ), $slug_trans );
 						// array_push( $messages, $msg );
-						$related_posts[ $lang ] = $new_page_id;
+						$related_posts[ $lang->slug ] = $new_page_id;
 					}
 				}
 			}
+
+			// Back to the original local.
+			// restore_previous_locale();
+			switch_to_locale( $default_locale );
+
 			DIS_MultiLangManager::save_post_translations( $related_posts );
 		}
 		array_push( $this->result['data'], '* END Pages Creation.' );

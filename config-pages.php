@@ -46,7 +46,6 @@ define( 'OFFICES_PAGE_SLUG', 'OfficePageSlug' );
 define( 'OFFICES_PAGE_TITLE', 'OfficePageTitle' );
 define( 'PLACES_PAGE_SLUG', 'PlacePageSlug' );
 define( 'PLACES_PAGE_TITLE', 'PlacePageTitle' );
-
 define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
 define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );
 define( 'PROJECTS_PAGE_SLUG', 'ProjectPageSlug' );
@@ -285,3 +284,54 @@ define(
 			),
 	)
 );
+
+
+/**
+ *  This feature is used so that translation plugins like Loco Translate 
+ *  can automatically extract these tags from the theme to translate.
+ *  @TODO: Check if it is possible to remove these duplications.
+ */
+if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
+	function dis_translate_data() {
+		// Standard pages.
+		$var = _x( 'ContactsPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ContactsPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'SiteMapPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'SiteMapPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'PrivacyPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'PrivacyPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'NewsletterPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'NewsletterPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'AccessibilityPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'AccessibilityPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'LegalNotesPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'LegalNotesPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'SiteSearchPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'SiteSearchPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'MediaPolicyPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'MediaPolicyPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'AboutUsPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'AboutUsPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'DocumentationPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		// Content type pages.
+		$var = _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'OfficePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'OfficePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'PlacePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'PeoplePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ServiceItemPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'ServiceItemPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+	}
+}
