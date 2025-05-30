@@ -5,7 +5,7 @@
  * @package Design_ICT_Site
  */
 
- class DIS_OG_Wrapper {
+class DIS_OG_Wrapper {
 	public string $id           = '';
 	public string $title        = '';
 	public string $shared_title = '';
@@ -23,20 +23,48 @@
 	public string $domain       = '';
 }
 
+class DIS_Search_Wrapper {
+	public string $id            = '';
+	public string $title         = '';
+	public string $description   = '';
+	public string $link          = '';
+	public string $date          = '';
+	public string $type          = '';
+	public string $category      = '';
+	public string $category_link = '';
+	public string $image_url     = '';
+	public string $image_alt     = '';
+	public string $image_title   = '';
+}
 
-	class DIS_Search_Wrapper {
-		public string $id            = '';
-		public string $title         = '';
-		public string $description   = '';
-		public string $link          = '';
-		public string $date          = '';
-		public string $type          = '';
-		public string $category      = '';
-		public string $category_link = '';
-		public string $image_url     = '';
-		public string $image_alt     = '';
-		public string $image_title   = '';
+class DIS_TreeItem {
+	public string $name;
+	public string $slug;
+	public string $link;
+	public bool   $external;
+	public array  $children;
+
+	public function __construct( $name, $slug, $link, $external=false, $children=array() ) {
+		$this->name     = $name;
+		$this->slug     = $slug;
+		$this->link     = $link;
+		$this->external = $external;
+		$this->children = $children;
 	}
+}
+
+class DIS_BreadItem {
+	public string $label;
+	public string $url;
+	public string $class;
+
+	public function __construct( $label, $url, $class ) {
+		$this->label = $label;
+		$this->url   = $url;
+		$this->class = $class;
+	}
+}
+
 
 /**
  * The manager for the site contents.
@@ -642,28 +670,25 @@ class DIS_ContentsManager {
 	}
 
 	public static function build_content_path( $post ) {
-		$steps = array(
-			array(
-				'label' => 'Home',
-				'url'   => DIS_MultiLangManager::get_home_url(),
-				'class' => 'breadcrumb-item',
-			),
-		);
-		if ( $post ){
+		$home_url = DIS_MultiLangManager::get_home_url();
+		$root     = new DIS_BreadItem( 'Home',  $home_url, 'breadcrumb-item' );
+		$steps    = array();
+		array_push( $steps, $root );
+
+		if ( $post ) {
 			switch ( $post->post_type ) {
-				case 'page':
+				case DIS_DEFAULT_PAGE:
 					$post_parent = $post->post_parent;
 					$post_parents = array();
 					while ( $post_parent !== 0 ) {
 						$post_tmp       = get_post( $post_parent );
-						$post_parents[] = array(
-							'label' => $post_tmp->post_title,
-							'url'   => get_permalink( $post_tmp->ID ),
-							'class' => 'breadcrumb-item',
+						$post_parents[] = new DIS_BreadItem(
+							$post_tmp->post_title,
+							get_permalink( $post_tmp->ID ),
+							'breadcrumb-item'
 						);
-						$post_parent    = $post_tmp->post_parent;
+						$post_parent = $post_tmp->post_parent;
 					}
-					//reverse array
 					$post_parents = count( $post_parents ) > 1 ? array_reverse( $post_parents ) : $post_parents;
 					foreach ( $post_parents as $parent ) {
 						array_push(
@@ -673,20 +698,29 @@ class DIS_ContentsManager {
 					}
 					array_push(
 						$steps,
-						array(
-							'label' => $post->post_title,
-							'url'   => $post->post_url,
-							'class' => 'breadcrumb-item active',
+						new DIS_BreadItem(
+							$post->post_title,
+							$post->post_url,
+							'breadcrumb-item active'
 						),
 					);
 					break;
-				case 'post':
-					array_push( 
-						$steps, 
-						array(
-							'label' => 'Blog',
-							'url'   => get_site_url() . '/blog',
-							'class' => 'breadcrumb-item active',
+				case DIS_DEFAULT_POST:
+					$ct    = self::get_archive_page( $post->post_type );
+					array_push(
+						$steps,
+						$post_parents[] = new DIS_BreadItem(
+							$ct->post_title,
+							get_permalink( $ct ),
+							'breadcrumb-item'
+						),
+					);
+					array_push(
+						$steps,
+						$post_parents[] = new DIS_BreadItem(
+							$post->post_title,
+							'',
+							'breadcrumb-item active'
 						),
 					);
 					break;
@@ -694,21 +728,87 @@ class DIS_ContentsManager {
 					$ct = self::get_archive_page( $post->post_type );
 					array_push(
 						$steps,
-						array(
-							'label' => get_the_title( $ct->ID ),
-							'url'   => get_permalink( $ct->ID ),
-							'class' => 'breadcrumb-item',
+						$post_parents[] = new DIS_BreadItem(
+							$ct->post_title,
+							get_permalink( $ct ),
+							'breadcrumb-item'
 						),
-						array(
-							'label' => $post->post_title,
-							'url'   => $post->post_url,
-							'class' => 'breadcrumb-item active',
+					);
+					array_push(
+						$steps,
+						$post_parents[] = new DIS_BreadItem(
+							$post->post_title,
+							'',
+							'breadcrumb-item active'
 						),
 					);
 					break;
-			}
+				}
 		}
 		return $steps;
 	}
+
+	// public static function get_site_tree() {
+	// 	$pt = array(); // Page Tree.
+	// 	$site_url = get_site_url();
+		
+	// 	// 1 - Home Page.
+	// 	$home     =  new DIS_TreeItem(
+	// 		DIS_HOMEPAGE_NAME,
+	// 		DIS_HOMEPAGE_SLUG,
+	// 		$site_url
+	// 	);
+	// 	$pt[DIS_HOMEPAGE_SLUG] = $home;
+
+	// 	// 2 - Network Page.
+	// 	$network_url  = dis_get_option( 'site_network_url', 'dis_opt_options' );
+	// 	if ( $network_url ) {
+	// 		$network_name = dis_get_option( 'site_network_name', 'dis_opt_options' );
+	// 		$network_name =  $network_name ? $network_name : DIS_NETWORK_NAME;
+	// 		$network      =  new DIS_TreeItem(
+	// 			$network_name,
+	// 			DIS_NETWORK_SLUG,
+	// 			$network_url,
+	// 			true
+	// 		);
+	// 		$pt[DIS_HOMEPAGE_SLUG]->children[DIS_NETWORK_SLUG] = $network;
+	// 	}
+
+	// 	// The list of the defined menus.
+	// 	$menus = wp_get_nav_menus();
+	
+	// 	if ( ! empty( $menus ) ) {
+
+	// 		foreach ( $menus as $menu ) {
+
+	// 			// Add each menu to the site map.
+	// 			$menu_items = wp_get_nav_menu_items( $menu->term_id );
+	// 			$menu_el = new DIS_TreeItem(
+	// 				$menu->name,
+	// 				$menu->slug,
+	// 				''
+	// 			);
+	// 			$pt[DIS_HOMEPAGE_SLUG]->children[$menu->slug] = $menu_el;
+				
+
+	// 			if ( ! empty( $menu_items ) ) {
+	// 				// The list of the items of this menu.
+	// 				foreach ( $menu_items as $menu_item ) {
+
+	// 					// Add each menu item to the site map.
+	// 					$page_el = self::get_tree_item( $menu_item );
+	// 					if ( $page_el ) {
+	// 						$pt[DIS_HOMEPAGE_SLUG]->children[$menu->slug]->children[$page_el->slug] = $page_el;
+
+	// 					}
+	// 				}
+
+	// 			}
+	// 		}
+
+	// 	}
+
+	// 	return $pt;
+	// }
 
 }

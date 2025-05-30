@@ -10,9 +10,13 @@ html {
 	background-color: white;
 }
 
+/* Breadcrumbs */
+
+.breadcrumb-item .active a {
+	text-decoration: none;
+}
 
 /* CUSTOM PAGINATION */
-* CUSTOM PAGINATION */
 
 #pagination_links {
 	text-align: center;
