@@ -7,8 +7,7 @@
 
 	global $post;
 	if ( ! is_home() ) {
-		// $steps = DIS_ContentsManager::build_content_path( $post );
-		$steps = array();
+		$steps = DIS_ContentsManager::build_content_path( $post );
 		$index = 0;
 ?>
 
@@ -31,7 +30,6 @@
 				$index++;
 				}
 			?>
-			<li class="breadcrumb-item"><a href="#">Home</a><span class="separator">&gt;</span></li>
 		</ol>
 	</nav>
 

@@ -1,9 +1,7 @@
 
 * TODO LIST:
 
-- Gestione slug.
-- Gestione Breadcrumbs.
-- Gestione traduzioni get_dis_translation: Rimozione tabella traduzioni personalizzate? Usa funzione in config-pages?
+- Ricontrollo e riconfigurazione di phpcs.
 - Sitemap.
 - Sitemap XML?
 - HP Featured Events.

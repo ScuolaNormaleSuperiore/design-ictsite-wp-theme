@@ -152,18 +152,29 @@ class DIS_ContentsManager {
 	}
 
 	/**
-	 * Get the archive page given the content-type.
+	 * Get the archive page url given the content-type.
 	 *
 	 * @param string $type
 	 * @return string
 	 */
 	public static function get_archive_link( $type ){
-		$slug = dis_ct_data()[$type]['slug'];
-		if ( ! $slug ) return '';
-		$page = get_page_by_path( $slug );
+		$page =self::get_Archive_page( $type );
 		if ( ! $page ) return '';
 		$url = get_permalink( $page->ID );
 		return $url;
+	}
+
+	/**
+	 * Get the archive page given the content-type.
+	 *
+	 * @param string $type
+	 * @return object
+	 */
+	public static function get_archive_page( $type ){
+		$slug = dis_ct_data()[$type]['slug'];
+		if ( ! $slug ) return '';
+		$page = get_page_by_path( $slug );
+		return $page;
 	}
 
 	public static function get_hp_office_list(){
@@ -628,6 +639,76 @@ class DIS_ContentsManager {
 		$result->image_url   = $image_data['image_url'];
 		$result->image_alt   = $image_data['image_alt'];
 		$result->image_title = $image_data['image_title'];
+	}
+
+	public static function build_content_path( $post ) {
+		$steps = array(
+			array(
+				'label' => 'Home',
+				'url'   => DIS_MultiLangManager::get_home_url(),
+				'class' => 'breadcrumb-item',
+			),
+		);
+		if ( $post ){
+			switch ( $post->post_type ) {
+				case 'page':
+					$post_parent = $post->post_parent;
+					$post_parents = array();
+					while ( $post_parent !== 0 ) {
+						$post_tmp       = get_post( $post_parent );
+						$post_parents[] = array(
+							'label' => $post_tmp->post_title,
+							'url'   => get_permalink( $post_tmp->ID ),
+							'class' => 'breadcrumb-item',
+						);
+						$post_parent    = $post_tmp->post_parent;
+					}
+					//reverse array
+					$post_parents = count( $post_parents ) > 1 ? array_reverse( $post_parents ) : $post_parents;
+					foreach ( $post_parents as $parent ) {
+						array_push(
+							$steps,
+							$parent,
+						);
+					}
+					array_push(
+						$steps,
+						array(
+							'label' => $post->post_title,
+							'url'   => $post->post_url,
+							'class' => 'breadcrumb-item active',
+						),
+					);
+					break;
+				case 'post':
+					array_push( 
+						$steps, 
+						array(
+							'label' => 'Blog',
+							'url'   => get_site_url() . '/blog',
+							'class' => 'breadcrumb-item active',
+						),
+					);
+					break;
+				default:
+					$ct = self::get_archive_page( $post->post_type );
+					array_push(
+						$steps,
+						array(
+							'label' => get_the_title( $ct->ID ),
+							'url'   => get_permalink( $ct->ID ),
+							'class' => 'breadcrumb-item',
+						),
+						array(
+							'label' => $post->post_title,
+							'url'   => $post->post_url,
+							'class' => 'breadcrumb-item active',
+						),
+					);
+					break;
+			}
+		}
+		return $steps;
 	}
 
 }
