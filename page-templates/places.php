@@ -1,5 +1,5 @@
 <?php
-/* Template Name: dis-office
+/* Template Name: dis-place
 *
 * @package Design_ICT_Site
 */
@@ -9,7 +9,7 @@ get_header();
 
 ?>
 
-*** Content of the page: OFFICES ***
+*** Content of the page: PLACES ***
 
 <?php
 get_footer();

@@ -230,6 +230,32 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
+		OFFICES_PAGE_SLUG =>
+			array(
+				'content_slug'     => OFFICES_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => OFFICES_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/offices.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
+		PLACES_PAGE_SLUG =>
+			array(
+				'content_slug'     => PLACES_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => PLACES_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/places.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
 		MEDIA_POLICY_PAGE_SLUG =>
 			array(
 				'content_slug'     => MEDIA_POLICY_PAGE_SLUG,
