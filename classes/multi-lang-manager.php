@@ -79,7 +79,7 @@ class DIS_MultiLangManager {
 	 * @param [type] $args
 	 * @return object[]
 	 */
-	public static function get_languages_list( $args=array() ): array {
+	public static function get_languages_list( $args=[] ): array {
 		return pll_languages_list( $args );
 	}
 
@@ -141,11 +141,11 @@ class DIS_MultiLangManager {
 		if ( is_home() ) {
 
 			// Home Page.
-			foreach( $languages_list as $lang_slug ) {
-				if ( $lang_slug != $default_language ) {
+			foreach ( $languages_list as $lang_slug ) {
+				if ( $lang_slug !== $default_language ) {
 					$url = $site_url . '/' . $lang_slug;
 				} else {
-					$url =  $site_url;
+					$url = $site_url;
 				}
 				array_push(
 					$selectors,
@@ -201,35 +201,6 @@ class DIS_MultiLangManager {
 	 */
 	public static function get_post( $post_id, $lang = '' ): int {
 		return pll_get_post( $post_id, $lang );
-	}
-
-	/**
-	 * Returns the custom translation if exists, otherwise returns an empty string.
-	 *
-	 * @param string $text
-	 * @param string $domain
-	 * @param string $lang
-	 * @return string
-	 */
-	public static function get_dis_translation( $text, $domain = null, $lang = null ) {
-		global $wpdb;
-		if ( $lang === null ) {
-			$lang = self::get_current_language();
-		}
-		$table       = $wpdb->prefix . 'dis_custom_translations';
-		$translation = $wpdb->get_var( $wpdb->prepare(
-			"SELECT translation FROM $table WHERE label = %s AND domain = %s AND lang = %s LIMIT 1",
-			$text,
-			$domain,
-			$lang
-		));
-		// Se esiste una traduzione personalizzata, restituiscila.
-		if ( ! empty( $translation ) ) {
-				return $translation;
-		} else {
-			// Altrimenti, restituisci la traduzione standard fatta con gettext.
-			return '';
-		}
 	}
 
 }

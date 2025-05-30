@@ -35,9 +35,6 @@ class DIS_ActivationManager {
 		// Create the menus of the site, if not exist.
 		$this->menu_creation( $this->result['data'] );
 
-		// Create the custom tables, if not exist.
-		$this->create_the_tables( $this->result['data'] );
-
 		$this->result['status'] = 1;
 		array_push( $this->result['data'], '*** END THEME ACTIVATION ***' );
 		return $this->result;
@@ -60,7 +57,7 @@ class DIS_ActivationManager {
 
 	private function pages_creation( &$messages ) {
 		array_push( $this->result['data'], '* BEGIN Pages Creation:' );
-		$languages = DIS_MultiLangManager::get_languages_list( array('fields' => array() )  );
+		$languages = DIS_MultiLangManager::get_languages_list( array( 'fields' => array() ) );
 		foreach ( DIS_STATIC_PAGES as $slug => $pg ) {
 			$related_posts = array();
 
@@ -134,48 +131,23 @@ class DIS_ActivationManager {
 		array_push( $this->result['data'], '* BEGIN Menu Creation:' );
 
 		// Creation of all the site menus: each menu is replicated for each available language.
-		$languages = DIS_MultiLangManager::get_languages_list();
+		$languages      = DIS_MultiLangManager::get_languages_list( array( 'fields' => array() ) );
+		$default_locale = get_locale();
+
 		foreach ( $languages as $lang ) {
-			$this->build_the_menu( $messages, DIS_PRIMARY_MENU, $lang );
-			$this->build_the_menu( $messages, DIS_SECONDARY_MENU, $lang );
-			$this->build_the_menu( $messages, DIS_HEADER_MENU, $lang );
-			$this->build_the_menu( $messages, DIS_FOOTER_MENU, $lang );
-			$this->build_the_menu( $messages, DIS_USEFUL_LINKS_MENU, $lang );
+			switch_to_locale( $lang->locale );
+			$this->build_the_menu( $messages, DIS_PRIMARY_MENU, $lang->slug );
+			$this->build_the_menu( $messages, DIS_SECONDARY_MENU, $lang->slug );
+			$this->build_the_menu( $messages, DIS_HEADER_MENU, $lang->slug );
+			$this->build_the_menu( $messages, DIS_FOOTER_MENU, $lang->slug );
+			$this->build_the_menu( $messages, DIS_USEFUL_LINKS_MENU, $lang->slug );
 		}
+		switch_to_locale( $default_locale );
 
 		array_push( $this->result['data'], '* END Menu Creation.' );
 		return true;
 	}
 
-	/**
-	 * Create the custom tables.
-	 *
-	 * @return bool
-	 */
-	private function create_the_tables( &$messages ) {
-		global $wpdb;
-		$table_name = $wpdb->prefix . 'dis_custom_translations';
-		if ( $wpdb->get_var( "SHOW TABLES LIKE '$table_name'" ) !== $table_name ) {
-			require_once ABSPATH . 'wp-admin/includes/upgrade.php';
-			$charset_collate = $wpdb->get_charset_collate();
-			$sql = "CREATE TABLE $table_name (
-					id          BIGINT(20) UNSIGNED NOT NULL AUTO_INCREMENT,
-					label       TEXT NOT NULL,
-					domain      VARCHAR(100) NOT NULL,
-					lang        VARCHAR(4) NOT NULL,
-					translation TEXT NOT NULL,
-				PRIMARY KEY (id),
-				KEY idx_text_domain (domain)
-				) ENGINE=InnoDB $charset_collate;";
-			dbDelta( $sql );
-			$msg = sprintf( __( "Table '%s successfully created.", 'design_ict_site' ), $table_name );
-			array_push( $messages, $msg );
-		} else {
-			$msg = sprintf( __( "Table '%s' already present.", 'design_ict_site' ), $table_name );
-			array_push( $messages, $msg );
-		}
-		return true;
-	}
 
 	private function build_the_menu( &$messages, $menu, $lang ) {
 		$menu_name     = $menu['name'] . ' [' . strtoupper( $lang ) . ']';
@@ -190,15 +162,15 @@ class DIS_ActivationManager {
 			$menu_id = $menu_object->term_id;
 			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
 		} else {
-			$menu_id  = wp_create_nav_menu( $menu_name );
-			$menu     = get_term_by( 'id', $menu_id, 'nav_menu' );
+			$menu_id = wp_create_nav_menu( $menu_name );
+			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
 			foreach ( $menu_items as $menu_item ) {
 				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
 					// Link to pages or posts.
-					$slug_trans = DIS_MultiLangManager::get_dis_translation( $menu_item['slug'], 'DIS_ActivationItems', $lang );
+					$slug_trans = _x( $menu_item['slug'], 'DIS_ActivationItems', 'design_ict_site' );
 					if ( $slug_trans ) {
-						$result      = self::get_content( $slug_trans, $menu_item['content_type'] );
-						$title_trans = DIS_MultiLangManager::get_dis_translation( $menu_item['title'], 'DIS_ActivationItems', $lang );
+						$result      = self::get_content( $slug_trans, $menu_item['content_type'] );;
+						$title_trans = _x($menu_item ['title'], 'DIS_ActivationItems', 'design_ict_site' );
 						if ( $result ) {
 							$menu_item_id = $result->ID;
 							wp_update_nav_menu_item(
@@ -217,7 +189,7 @@ class DIS_ActivationManager {
 					}
 				} else {
 					// External links.
-					$title_trans  = DIS_MultiLangManager::get_dis_translation( $menu_item['title'], 'DIS_ActivationItems', $lang );
+					$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' );
 					if ( $title_trans ) {
 						wp_update_nav_menu_item(
 							$menu->term_id,

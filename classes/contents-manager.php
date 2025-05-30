@@ -144,7 +144,7 @@ class DIS_ContentsManager {
 	 * @return void
 	 */
 	public static function get_page_link( $page_slug ){
-		$slug_trans = DIS_MultiLangManager::get_dis_translation( $page_slug, 'DIS_ActivationItems' );
+		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
 		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
 		if ( ! $post ) return null;
 		// $translated_id = DIS_MultiLangManager::get_post( $post->ID );
