@@ -7,6 +7,12 @@
  * @package Design_ICT_Site
  */
 
+// Site Map.
+define( 'DIS_HOMEPAGE_SLUG', 'homepage' );
+define( 'DIS_HOMEPAGE_NAME', 'Home Page' );
+define( 'DIS_NETWORK_SLUG', 'network' );
+define( 'DIS_NETWORK_NAME', 'Network' );
+
 // DEFAULT WP TAXONOMIES.
 define( 'DIS_DEFAULT_CATEGORY', 'category' );
 define( 'DIS_DEFAULT_TAGS', 'post-tag' );

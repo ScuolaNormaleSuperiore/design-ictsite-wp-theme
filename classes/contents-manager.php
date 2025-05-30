@@ -27,6 +27,7 @@ class DIS_Search_Wrapper {
 	public string $id            = '';
 	public string $title         = '';
 	public string $description   = '';
+	public string $slug          = '';
 	public string $link          = '';
 	public string $date          = '';
 	public string $type          = '';
@@ -35,34 +36,6 @@ class DIS_Search_Wrapper {
 	public string $image_url     = '';
 	public string $image_alt     = '';
 	public string $image_title   = '';
-}
-
-class DIS_TreeItem {
-	public string $name;
-	public string $slug;
-	public string $link;
-	public bool   $external;
-	public array  $children;
-
-	public function __construct( $name, $slug, $link, $external=false, $children=array() ) {
-		$this->name     = $name;
-		$this->slug     = $slug;
-		$this->link     = $link;
-		$this->external = $external;
-		$this->children = $children;
-	}
-}
-
-class DIS_BreadItem {
-	public string $label;
-	public string $url;
-	public string $class;
-
-	public function __construct( $label, $url, $class ) {
-		$this->label = $label;
-		$this->url   = $url;
-		$this->class = $class;
-	}
 }
 
 
@@ -586,6 +559,7 @@ class DIS_ContentsManager {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
+		$result->slug          = $post->post_name;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$start_date            = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
@@ -602,6 +576,7 @@ class DIS_ContentsManager {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
+		$result->slug          = $post->$post->post_name;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
@@ -616,6 +591,7 @@ class DIS_ContentsManager {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
+		$result->slug          = $post->$post->post_name;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
@@ -630,6 +606,7 @@ class DIS_ContentsManager {
 		$result        = new DIS_Search_Wrapper();
 		$result->id    = $post->ID;
 		$result->title = $post->post_title;
+		$result->slug  = $post->$post->post_name;
 		$result->type  = $post->post_type;
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
@@ -648,6 +625,7 @@ class DIS_ContentsManager {
 		$result        = new DIS_Search_Wrapper();
 		$result->id    = $post->ID;
 		$result->title = $post->post_title;
+		$result->slug  = $post->$post->post_name;
 		$result->type  = $post->post_type;
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
@@ -669,146 +647,24 @@ class DIS_ContentsManager {
 		$result->image_title = $image_data['image_title'];
 	}
 
-	public static function build_content_path( $post ) {
-		$home_url = DIS_MultiLangManager::get_home_url();
-		$root     = new DIS_BreadItem( 'Home',  $home_url, 'breadcrumb-item' );
-		$steps    = array();
-		array_push( $steps, $root );
-
-		if ( $post ) {
-			switch ( $post->post_type ) {
-				case DIS_DEFAULT_PAGE:
-					$post_parent = $post->post_parent;
-					$post_parents = array();
-					while ( $post_parent !== 0 ) {
-						$post_tmp       = get_post( $post_parent );
-						$post_parents[] = new DIS_BreadItem(
-							$post_tmp->post_title,
-							get_permalink( $post_tmp->ID ),
-							'breadcrumb-item'
-						);
-						$post_parent = $post_tmp->post_parent;
-					}
-					$post_parents = count( $post_parents ) > 1 ? array_reverse( $post_parents ) : $post_parents;
-					foreach ( $post_parents as $parent ) {
-						array_push(
-							$steps,
-							$parent,
-						);
-					}
-					array_push(
-						$steps,
-						new DIS_BreadItem(
-							$post->post_title,
-							$post->post_url,
-							'breadcrumb-item active'
-						),
-					);
-					break;
-				case DIS_DEFAULT_POST:
-					$ct    = self::get_archive_page( $post->post_type );
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
-							$ct->post_title,
-							get_permalink( $ct ),
-							'breadcrumb-item'
-						),
-					);
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
-							$post->post_title,
-							'',
-							'breadcrumb-item active'
-						),
-					);
-					break;
-				default:
-					$ct = self::get_archive_page( $post->post_type );
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
-							$ct->post_title,
-							get_permalink( $ct ),
-							'breadcrumb-item'
-						),
-					);
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
-							$post->post_title,
-							'',
-							'breadcrumb-item active'
-						),
-					);
-					break;
-				}
-		}
-		return $steps;
-	}
-
-	// public static function get_site_tree() {
-	// 	$pt = array(); // Page Tree.
-	// 	$site_url = get_site_url();
-		
-	// 	// 1 - Home Page.
-	// 	$home     =  new DIS_TreeItem(
-	// 		DIS_HOMEPAGE_NAME,
-	// 		DIS_HOMEPAGE_SLUG,
-	// 		$site_url
-	// 	);
-	// 	$pt[DIS_HOMEPAGE_SLUG] = $home;
-
-	// 	// 2 - Network Page.
-	// 	$network_url  = dis_get_option( 'site_network_url', 'dis_opt_options' );
-	// 	if ( $network_url ) {
-	// 		$network_name = dis_get_option( 'site_network_name', 'dis_opt_options' );
-	// 		$network_name =  $network_name ? $network_name : DIS_NETWORK_NAME;
-	// 		$network      =  new DIS_TreeItem(
-	// 			$network_name,
-	// 			DIS_NETWORK_SLUG,
-	// 			$network_url,
-	// 			true
-	// 		);
-	// 		$pt[DIS_HOMEPAGE_SLUG]->children[DIS_NETWORK_SLUG] = $network;
-	// 	}
-
-	// 	// The list of the defined menus.
-	// 	$menus = wp_get_nav_menus();
 	
-	// 	if ( ! empty( $menus ) ) {
-
-	// 		foreach ( $menus as $menu ) {
-
-	// 			// Add each menu to the site map.
-	// 			$menu_items = wp_get_nav_menu_items( $menu->term_id );
-	// 			$menu_el = new DIS_TreeItem(
-	// 				$menu->name,
-	// 				$menu->slug,
-	// 				''
-	// 			);
-	// 			$pt[DIS_HOMEPAGE_SLUG]->children[$menu->slug] = $menu_el;
-				
-
-	// 			if ( ! empty( $menu_items ) ) {
-	// 				// The list of the items of this menu.
-	// 				foreach ( $menu_items as $menu_item ) {
-
-	// 					// Add each menu item to the site map.
-	// 					$page_el = self::get_tree_item( $menu_item );
-	// 					if ( $page_el ) {
-	// 						$pt[DIS_HOMEPAGE_SLUG]->children[$menu->slug]->children[$page_el->slug] = $page_el;
-
-	// 					}
-	// 				}
-
-	// 			}
-	// 		}
-
-	// 	}
-
-	// 	return $pt;
-	// }
+	/**
+	 * Return the list of the post of a certain type to show in the sitemap.
+	 * 
+	 * @param array $post_type
+	 * @return array of slugs (strings)
+	 */
+	public static function get_sitemap_posts(  $post_type ){
+		$query = new WP_Query(
+			array(
+				'posts_per_page' => -1,
+				'post_type'      => $post_type,
+				'post_status'    => 'publish',
+				'orderby'        => 'post_date',
+				'order'          => 'DESC',
+			)
+		);
+		return $query->posts;
+	}
 
 }

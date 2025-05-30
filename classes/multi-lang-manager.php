@@ -203,4 +203,40 @@ class DIS_MultiLangManager {
 		return pll_get_post( $post_id, $lang );
 	}
 
+	/**
+	* Retrieves the ID of the page in the current language.
+	*
+	* @param string $id
+	* @return int
+	*/
+	public static function get_page_by_id( $id ):int {
+		$id           = intval( $id );
+		$page_id      = 0;
+		$current_lang = pll_current_language();
+		$page_id      = pll_get_post( $id , $current_lang );
+		return $page_id;
+	}
+
+	public static function get_all_menus_by_lang( $lang ) {
+		$options        = get_option( 'polylang' );
+		$menu_locations = $options['nav_menus']['design-ictsite-wp-theme'];
+		$items = array();
+		$ids   = array();
+		foreach ( $menu_locations as $name => $menu_langs ) {
+			foreach ( $menu_langs as $ml_lang => $ml_id ) {
+				if ( ! in_array( $ml_id, $ids ) ) {
+					if ( isset( $items[ $ml_lang ] ) ) {
+						array_push( $items[$ml_lang], array( $name => $ml_id ) );
+						array_push( $ids, $ml_id );
+					} else {
+						$items[$ml_lang] = array();
+						array_push( $items[ $ml_lang ], array( $name => $ml_id ) );
+						array_push( $ids, $ml_id );
+					}
+				}
+			}
+		}
+		return $items[ $lang ];
+	}
+
 }

@@ -27,6 +27,9 @@ if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 if ( ! class_exists( 'DIS_ContentsManager' ) ) {
 	include_once 'contents-manager.php';
 }
+if ( ! class_exists( 'DIS_NavigationManager' ) ) {
+	include_once 'navigation-manager.php';
+}
 if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
 	include_once 'service-cluster-manager.php';
 }

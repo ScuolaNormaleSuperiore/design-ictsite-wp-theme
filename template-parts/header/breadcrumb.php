@@ -7,7 +7,7 @@
 
 global $post;
 if ( ! is_home() ) {
-	$steps = DIS_ContentsManager::build_content_path( $post );
+	$steps = DIS_NavigationManager::build_content_path( $post );
 	$index = 0;
 ?>
 
