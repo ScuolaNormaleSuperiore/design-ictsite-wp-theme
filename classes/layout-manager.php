@@ -28,7 +28,7 @@ class DIS_LayoutManager {
 		add_action( 'after_setup_theme', array( $this, 'configure_post_options' ) );
 		add_action( 'after_setup_theme', array( $this, 'define_menu_locations' ) );
 		add_action( 'wp_footer', array( $this, 'load_pagination_script' ) );
-		add_filter( 'upload_mimes', array( $this, 'enable_svg_upload' ), 10, 1 );
+		// add_filter( 'upload_mimes', array( $this, 'enable_svg_upload' ), 10, 1 );
 		// Setup image sizes.
 		// add_action( 'after_setup_theme', array( $this, 'setup_image_sizes' ) );
 	}
@@ -83,10 +83,10 @@ class DIS_LayoutManager {
 		register_nav_menus( DIS_MENU_LOCATIONS );
 	}
 
-	public function enable_svg_upload(){
-		$upload_mimes['svg'] = 'image/svg+xml';
-		return $upload_mimes;
-	}
+	// public function enable_svg_upload(){
+	// 	$upload_mimes['svg'] = 'image/svg+xml';
+	// 	return $upload_mimes;
+	// }
 
 	public function load_pagination_script() {
 	if ( is_page_template() || is_singular() ) {
