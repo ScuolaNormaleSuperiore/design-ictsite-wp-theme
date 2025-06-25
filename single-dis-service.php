@@ -17,9 +17,8 @@ $rates             = DIS_CustomFieldsManager::get_field( 'rates' , $post->ID );
 $get_started       = DIS_CustomFieldsManager::get_field( 'get_started' , $post->ID );
 $related_doc       = DIS_CustomFieldsManager::get_field( 'related_documents' , $post->ID );
 $related_services  = DIS_CustomFieldsManager::get_field( 'related_services' , $post->ID );
-$offices           = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
-$designed_for      = '';
-$get_help          = '';
+$designed_for      = DIS_CustomFieldsManager::get_field( 'related_user_status' , $post->ID );
+$get_help          = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 // Increment the counter of the visits.
 DIS_ContentsManager::increment_visit_counter( $post->ID );
@@ -108,6 +107,11 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 
 				<?php
 				if ( $designed_for ) {
+					$df_array = array();
+					foreach ( $designed_for as $df ) {
+						array_push( $df_array, $df->post_title );
+					}
+					$df_string = join( ', ', $df_array );
 				?>
 					<!-- DESIGNED FOR -->
 					<h3 class="h4 service-paragraph">
@@ -115,7 +119,7 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 						<?php echo __( 'Designed for', 'design_ict_site' ); ?>
 					</h3>
 					<p class="">
-						<?php echo $designed_for; ?>
+						<?php echo $df_string; ?>
 					</p>
 				<?php
 				}
@@ -153,6 +157,13 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 
 				<?php
 				if ( $get_help ) {
+					$gh_array = array();
+					foreach ( $get_help as $gh ) {
+						// $email = DIS_CustomFieldsManager::get_field( 'email' , $gh->ID );
+						$txt  = '<a href="' . get_permalink( $gh ) . '">' . $gh->post_title . '</a>';
+						array_push( $gh_array, $txt );
+					}
+					$gh_string = join( ', ', $gh_array );
 				?>
 					<!-- GET HELP -->
 					<h3 class="h4 service-paragraph">
@@ -160,7 +171,7 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 						<?php echo __( 'Get help', 'design_ict_site' ); ?>
 					</h3>
 					<p class="">
-						<?php echo $get_help; ?>
+						<?php echo $gh_string; ?>
 					</p>
 				<?php
 				}
