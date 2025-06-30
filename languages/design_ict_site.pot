@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-29 14:14+0000\n"
+"POT-Creation-Date: 2025-06-30 14:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,7 +16,7 @@ msgstr ""
 "X-Loco-Version: 2.7.1; wp-6.7.2\n"
 "X-Domain: design_ict_site"
 
-#: single-dis-service.php:55
+#: single-dis-service.php:54
 msgid "Access the service"
 msgstr ""
 
@@ -43,6 +43,7 @@ msgstr ""
 #: classes/attachment-manager.php:38 classes/attachment-manager.php:39
 #: classes/banner-manager.php:35 classes/banner-manager.php:36
 #: classes/event-manager.php:35 classes/event-manager.php:36
+#: classes/faq-manager.php:35 classes/faq-manager.php:36
 #: classes/office-manager.php:36 classes/person-manager.php:71
 #: classes/person-manager.php:72 classes/place-manager.php:70
 #: classes/place-manager.php:71 classes/project-manager.php:35
@@ -169,7 +170,7 @@ msgstr ""
 msgid "Design ICT Site"
 msgstr ""
 
-#: single-dis-service.php:115
+#: single-dis-service.php:119
 msgid "Designed for"
 msgstr ""
 
@@ -193,392 +194,407 @@ msgid "dis-person"
 msgstr ""
 
 #. Name of the template
+#: page-templates/places.php:2
+msgid "dis-place"
+msgstr ""
+
+#. Name of the template
 #: page-templates/projects.php:2
 msgid "dis-project"
 msgstr ""
 
-#: config-pages.php:313
+#: config-pages.php:339
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageSlug"
 msgstr ""
 
-#: config-pages.php:314
+#: config-pages.php:340
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageTitle"
 msgstr ""
 
-#: config-pages.php:305
+#: config-pages.php:331
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageSlug"
 msgstr ""
 
-#: config-pages.php:306
+#: config-pages.php:332
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageTitle"
 msgstr ""
 
-#: config-pages.php:320
+#: config-pages.php:346
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageSlug"
 msgstr ""
 
-#: config-pages.php:321
+#: config-pages.php:347
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageTitle"
 msgstr ""
 
-#: config-pages.php:297
+#: config-pages.php:323
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageSlug"
 msgstr ""
 
-#: config-pages.php:298
+#: config-pages.php:324
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageTitle"
 msgstr ""
 
-#: config-pages.php:315
+#: config-pages.php:341
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageSlug"
 msgstr ""
 
-#: config-pages.php:316
+#: config-pages.php:342
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageTitle"
 msgstr ""
 
-#: config-pages.php:326
+#: config-pages.php:352
 msgctxt "DIS_ActivationItems"
 msgid "EventPageSlug"
 msgstr ""
 
-#: config-pages.php:327
+#: config-pages.php:353
 msgctxt "DIS_ActivationItems"
 msgid "EventPageTitle"
 msgstr ""
 
-#: config-pages.php:317
+#: config-pages.php:343
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageSlug"
 msgstr ""
 
-#: config-pages.php:318
+#: config-pages.php:344
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageTitle"
 msgstr ""
 
-#: config-pages.php:307
+#: config-pages.php:333
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageSlug"
 msgstr ""
 
-#: config-pages.php:308
+#: config-pages.php:334
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageTitle"
 msgstr ""
 
-#: config-pages.php:311
+#: config-pages.php:337
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageSlug"
 msgstr ""
 
-#: config-pages.php:312
+#: config-pages.php:338
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageTitle"
 msgstr ""
 
-#: config-pages.php:303
+#: config-pages.php:329
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageSlug"
 msgstr ""
 
-#: config-pages.php:304
+#: config-pages.php:330
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageTitle"
 msgstr ""
 
-#: config-pages.php:322
+#: config-pages.php:348
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageSlug"
 msgstr ""
 
-#: config-pages.php:323
+#: config-pages.php:349
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageTitle"
 msgstr ""
 
-#: config-pages.php:330
+#: config-pages.php:356
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageSlug"
 msgstr ""
 
-#: config-pages.php:331
+#: config-pages.php:357
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageTitle"
 msgstr ""
 
-#: config-pages.php:324
+#: config-pages.php:350
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageSlug"
 msgstr ""
 
-#: config-pages.php:325
+#: config-pages.php:351
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageTitle"
 msgstr ""
 
-#: config-pages.php:301
+#: config-pages.php:327
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageSlug"
 msgstr ""
 
-#: config-pages.php:302
+#: config-pages.php:328
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageTitle"
 msgstr ""
 
-#: config-pages.php:328
+#: config-pages.php:354
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageSlug"
 msgstr ""
 
-#: config-pages.php:329
+#: config-pages.php:355
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageTitle"
 msgstr ""
 
-#: config-pages.php:332
+#: config-pages.php:358
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageSlug"
 msgstr ""
 
-#: config-pages.php:333
+#: config-pages.php:359
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageTitle"
 msgstr ""
 
-#: config-pages.php:334
+#: config-pages.php:360
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageSlug"
 msgstr ""
 
-#: config-pages.php:335
+#: config-pages.php:361
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageTitle"
 msgstr ""
 
-#: config-pages.php:299
+#: config-pages.php:325
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageSlug"
 msgstr ""
 
-#: config-pages.php:300
+#: config-pages.php:326
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageTitle"
 msgstr ""
 
-#: config-pages.php:309
+#: config-pages.php:335
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageSlug"
 msgstr ""
 
-#: config-pages.php:310
+#: config-pages.php:336
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr ""
 
-#: config-theme.php:108
+#: config-theme.php:115
 msgctxt "DIS_PostTypeLabels"
 msgid "Article"
 msgstr ""
 
-#: config-theme.php:109
+#: config-theme.php:116
 msgctxt "DIS_PostTypeLabels"
 msgid "Articles"
 msgstr ""
 
-#: config-theme.php:110
+#: config-theme.php:117
 msgctxt "DIS_PostTypeLabels"
 msgid "articles"
 msgstr ""
 
-#: config-theme.php:84
+#: config-theme.php:91
 msgctxt "DIS_PostTypeLabels"
 msgid "Attachment"
 msgstr ""
 
-#: config-theme.php:85
+#: config-theme.php:92
 msgctxt "DIS_PostTypeLabels"
 msgid "Attachments"
 msgstr ""
 
-#: config-theme.php:86
+#: config-theme.php:93
 msgctxt "DIS_PostTypeLabels"
 msgid "attachments"
 msgstr ""
 
-#: config-theme.php:90
+#: config-theme.php:97
 msgctxt "DIS_PostTypeLabels"
 msgid "Banner"
 msgstr ""
 
-#: config-theme.php:91
+#: config-theme.php:98
 msgctxt "DIS_PostTypeLabels"
 msgid "Banners"
 msgstr ""
 
-#: config-theme.php:92
+#: config-theme.php:99
 msgctxt "DIS_PostTypeLabels"
 msgid "banners"
 msgstr ""
 
-#: config-theme.php:42 page-templates/people.php:19
+#: config-theme.php:49 page-templates/people.php:19
 #: page-templates/people.php:24 page-templates/people.php:29
 msgctxt "DIS_PostTypeLabels"
 msgid "Event"
 msgstr ""
 
-#: config-theme.php:43
+#: config-theme.php:50
 msgctxt "DIS_PostTypeLabels"
 msgid "Events"
 msgstr ""
 
-#: config-theme.php:44
+#: config-theme.php:51
 msgctxt "DIS_PostTypeLabels"
 msgid "events"
 msgstr ""
 
-#: config-theme.php:54
+#: config-theme.php:127 config-theme.php:128
 msgctxt "DIS_PostTypeLabels"
-msgid "Office"
+msgid "Faq"
 msgstr ""
 
-#: config-theme.php:55
+#: config-theme.php:129
 msgctxt "DIS_PostTypeLabels"
-msgid "Offices"
-msgstr ""
-
-#: config-theme.php:56
-msgctxt "DIS_PostTypeLabels"
-msgid "offices"
-msgstr ""
-
-#: config-theme.php:114
-msgctxt "DIS_PostTypeLabels"
-msgid "Page"
-msgstr ""
-
-#: config-theme.php:115
-msgctxt "DIS_PostTypeLabels"
-msgid "Pages"
-msgstr ""
-
-#: config-theme.php:116
-msgctxt "DIS_PostTypeLabels"
-msgid "pages"
-msgstr ""
-
-#: config-theme.php:74
-msgctxt "DIS_PostTypeLabels"
-msgid "people"
-msgstr ""
-
-#: config-theme.php:72
-msgctxt "DIS_PostTypeLabels"
-msgid "Person"
-msgstr ""
-
-#: config-theme.php:73
-msgctxt "DIS_PostTypeLabels"
-msgid "Persons"
-msgstr ""
-
-#: config-theme.php:78
-msgctxt "DIS_PostTypeLabels"
-msgid "Place"
-msgstr ""
-
-#: config-theme.php:79
-msgctxt "DIS_PostTypeLabels"
-msgid "Places"
-msgstr ""
-
-#: config-theme.php:80
-msgctxt "DIS_PostTypeLabels"
-msgid "places"
-msgstr ""
-
-#: config-theme.php:48
-msgctxt "DIS_PostTypeLabels"
-msgid "Project"
-msgstr ""
-
-#: config-theme.php:49
-msgctxt "DIS_PostTypeLabels"
-msgid "Projects"
-msgstr ""
-
-#: config-theme.php:50
-msgctxt "DIS_PostTypeLabels"
-msgid "projects"
-msgstr ""
-
-#: config-theme.php:66
-msgctxt "DIS_PostTypeLabels"
-msgid "Service"
-msgstr ""
-
-#: config-theme.php:60
-msgctxt "DIS_PostTypeLabels"
-msgid "Service Cluster"
+msgid "faq"
 msgstr ""
 
 #: config-theme.php:61
 msgctxt "DIS_PostTypeLabels"
-msgid "Service Clusters"
+msgid "Office"
 msgstr ""
 
 #: config-theme.php:62
 msgctxt "DIS_PostTypeLabels"
-msgid "service-clusters"
+msgid "Offices"
+msgstr ""
+
+#: config-theme.php:63
+msgctxt "DIS_PostTypeLabels"
+msgid "offices"
+msgstr ""
+
+#: config-theme.php:121
+msgctxt "DIS_PostTypeLabels"
+msgid "Page"
+msgstr ""
+
+#: config-theme.php:122
+msgctxt "DIS_PostTypeLabels"
+msgid "Pages"
+msgstr ""
+
+#: config-theme.php:123
+msgctxt "DIS_PostTypeLabels"
+msgid "pages"
+msgstr ""
+
+#: config-theme.php:81
+msgctxt "DIS_PostTypeLabels"
+msgid "people"
+msgstr ""
+
+#: config-theme.php:79
+msgctxt "DIS_PostTypeLabels"
+msgid "Person"
+msgstr ""
+
+#: config-theme.php:80
+msgctxt "DIS_PostTypeLabels"
+msgid "Persons"
+msgstr ""
+
+#: config-theme.php:85
+msgctxt "DIS_PostTypeLabels"
+msgid "Place"
+msgstr ""
+
+#: config-theme.php:86
+msgctxt "DIS_PostTypeLabels"
+msgid "Places"
+msgstr ""
+
+#: config-theme.php:87
+msgctxt "DIS_PostTypeLabels"
+msgid "places"
+msgstr ""
+
+#: config-theme.php:55
+msgctxt "DIS_PostTypeLabels"
+msgid "Project"
+msgstr ""
+
+#: config-theme.php:56
+msgctxt "DIS_PostTypeLabels"
+msgid "Projects"
+msgstr ""
+
+#: config-theme.php:57
+msgctxt "DIS_PostTypeLabels"
+msgid "projects"
+msgstr ""
+
+#: config-theme.php:73
+msgctxt "DIS_PostTypeLabels"
+msgid "Service"
 msgstr ""
 
 #: config-theme.php:67
 msgctxt "DIS_PostTypeLabels"
-msgid "Services"
+msgid "Service Cluster"
 msgstr ""
 
 #: config-theme.php:68
 msgctxt "DIS_PostTypeLabels"
+msgid "Service Clusters"
+msgstr ""
+
+#: config-theme.php:69
+msgctxt "DIS_PostTypeLabels"
+msgid "service-clusters"
+msgstr ""
+
+#: config-theme.php:74
+msgctxt "DIS_PostTypeLabels"
+msgid "Services"
+msgstr ""
+
+#: config-theme.php:75
+msgctxt "DIS_PostTypeLabels"
 msgid "services"
 msgstr ""
 
-#: config-theme.php:96
+#: config-theme.php:103
 msgctxt "DIS_PostTypeLabels"
 msgid "Sponsor"
 msgstr ""
 
-#: config-theme.php:97
+#: config-theme.php:104
 msgctxt "DIS_PostTypeLabels"
 msgid "Sponsors"
 msgstr ""
 
-#: config-theme.php:98
+#: config-theme.php:105
 msgctxt "DIS_PostTypeLabels"
 msgid "sponsors"
 msgstr ""
 
-#: config-theme.php:102
+#: config-theme.php:109
 msgctxt "DIS_PostTypeLabels"
 msgid "User Status"
 msgstr ""
 
-#: config-theme.php:104
+#: config-theme.php:111
 msgctxt "DIS_PostTypeLabels"
 msgid "user-status"
 msgstr ""
 
-#: config-theme.php:103
+#: config-theme.php:110
 msgctxt "DIS_PostTypeLabels"
 msgid "Users Status"
 msgstr ""
@@ -633,7 +649,7 @@ msgid "Do not count the views of the robots."
 msgstr ""
 
 #. Name of the template
-#: single-dis-service.php:175 page-templates/documentation.php:2
+#: single-dis-service.php:186 page-templates/documentation.php:2
 msgid "Documentation"
 msgstr ""
 
@@ -654,11 +670,11 @@ msgid ""
 msgstr ""
 
 #: classes/attachment-manager.php:40 classes/banner-manager.php:37
-#: classes/event-manager.php:37 classes/office-manager.php:37
-#: classes/person-manager.php:73 classes/place-manager.php:72
-#: classes/project-manager.php:37 classes/service-cluster-manager.php:40
-#: classes/service-manager.php:37 classes/sponsor-manager.php:37
-#: classes/user-status-manager.php:40
+#: classes/event-manager.php:37 classes/faq-manager.php:37
+#: classes/office-manager.php:37 classes/person-manager.php:73
+#: classes/place-manager.php:72 classes/project-manager.php:37
+#: classes/service-cluster-manager.php:40 classes/service-manager.php:37
+#: classes/sponsor-manager.php:37 classes/user-status-manager.php:40
 msgid "Edit the item"
 msgstr ""
 
@@ -726,7 +742,7 @@ msgstr ""
 msgid "Faq"
 msgstr ""
 
-#: single-dis-service.php:85
+#: single-dis-service.php:84
 msgid "Features"
 msgstr ""
 
@@ -758,11 +774,11 @@ msgstr ""
 msgid "From a to z"
 msgstr ""
 
-#: single-dis-service.php:160
+#: single-dis-service.php:171
 msgid "Get help"
 msgstr ""
 
-#: single-dis-service.php:130
+#: single-dis-service.php:134
 msgid "Get started"
 msgstr ""
 
@@ -867,7 +883,7 @@ msgstr ""
 msgid "Insert here the links to your social media."
 msgstr ""
 
-#: classes/theme-manager.php:248
+#: classes/theme-manager.php:257
 msgid "Invalid username or password"
 msgstr ""
 
@@ -876,7 +892,7 @@ msgid "Language selection: selected language"
 msgstr ""
 
 #: single-dis-event.php:59 single-dis-office.php:59 single-dis-place.php:59
-#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:237
+#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:248
 msgid "Last modification"
 msgstr ""
 
@@ -958,7 +974,7 @@ msgstr ""
 msgid "Multilanguage"
 msgstr ""
 
-#: template-parts/header/breadcrumb.php:15
+#: template-parts/header/breadcrumb.php:14
 msgid "Navigation path"
 msgstr ""
 
@@ -970,7 +986,7 @@ msgstr ""
 msgid "Network url"
 msgstr ""
 
-#: classes/activation-manager.php:229
+#: classes/activation-manager.php:210
 #, php-format
 msgid "NEW menu '%s' created."
 msgstr ""
@@ -1051,11 +1067,11 @@ msgstr ""
 msgid "Projects"
 msgstr ""
 
-#: single-dis-service.php:145
+#: single-dis-service.php:149
 msgid "Rates"
 msgstr ""
 
-#: single-dis-service.php:215
+#: single-dis-service.php:226
 msgid "Related services"
 msgstr ""
 
@@ -1072,7 +1088,7 @@ msgstr ""
 msgid "Remove the section"
 msgstr ""
 
-#: single-dis-service.php:100
+#: single-dis-service.php:99
 msgid "Requirements"
 msgstr ""
 
@@ -1208,19 +1224,9 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: classes/activation-manager.php:102
+#: classes/activation-manager.php:103
 #, php-format
 msgid "Successfully created the page: '%s'."
-msgstr ""
-
-#: classes/activation-manager.php:162
-#, php-format
-msgid "Table '%s successfully created."
-msgstr ""
-
-#: classes/activation-manager.php:165
-#, php-format
-msgid "Table '%s' already present."
 msgstr ""
 
 #: classes/options-manager.php:104
@@ -1255,7 +1261,7 @@ msgstr ""
 msgid "The hero section of the Home Page."
 msgstr ""
 
-#: classes/theme-manager.php:229
+#: classes/theme-manager.php:238
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr ""
 
@@ -1263,7 +1269,7 @@ msgstr ""
 msgid "The logo of the site, please load an SVG image."
 msgstr ""
 
-#: classes/activation-manager.php:179
+#: classes/activation-manager.php:160
 #, php-format
 msgid "The menu '%s' already exists."
 msgstr ""
@@ -1276,7 +1282,7 @@ msgstr ""
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: classes/theme-manager.php:233
+#: classes/theme-manager.php:242
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
@@ -1327,11 +1333,11 @@ msgid "Vai alla pagina: Newsletter"
 msgstr ""
 
 #: classes/attachment-manager.php:41 classes/banner-manager.php:38
-#: classes/event-manager.php:38 classes/office-manager.php:38
-#: classes/person-manager.php:74 classes/place-manager.php:73
-#: classes/project-manager.php:38 classes/service-cluster-manager.php:41
-#: classes/service-manager.php:38 classes/sponsor-manager.php:38
-#: classes/user-status-manager.php:41
+#: classes/event-manager.php:38 classes/faq-manager.php:38
+#: classes/office-manager.php:38 classes/person-manager.php:74
+#: classes/place-manager.php:73 classes/project-manager.php:38
+#: classes/service-cluster-manager.php:41 classes/service-manager.php:38
+#: classes/sponsor-manager.php:38 classes/user-status-manager.php:41
 msgid "View the item"
 msgstr ""
 

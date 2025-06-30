@@ -69,6 +69,9 @@ if ( ! class_exists( 'Banner_Manager' ) ) {
 if ( ! class_exists( 'Sponsor_Manager' ) ) {
 	include_once 'sponsor-manager.php';
 }
+if ( ! class_exists( 'Faq_Manager' ) ) {
+	include_once 'faq-manager.php';
+}
 
 /**
  * The manager that builds the tool and configures Wordpress.
@@ -196,6 +199,9 @@ class DIS_ThemeManager {
 		$spm = new Sponsor_Manager();
 		$spm->setup();
 
+		// Setup of the Faq post-type.
+		$fqm = new Faq_Manager();
+		$fqm->setup();
 	}
 
 	/**

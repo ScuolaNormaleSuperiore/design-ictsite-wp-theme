@@ -35,6 +35,7 @@ define( 'DIS_USER_STATUS_POST_TYPE', 'dis-user-status' );
 define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
 define( 'DIS_BANNER_POST_TYPE', 'dis-banner' );
 define( 'DIS_SPONSOR_POST_TYPE', 'dis-sponsor' );
+define( 'DIS_FAQ_POST_TYPE', 'dis-faq' );
 
 
 // CUSTOM CONTENT BASE DATA.
@@ -120,6 +121,12 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 					'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_ict_site' ),
 					'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
 					'slug'          => _x( 'pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
+				),
+				DIS_FAQ_POST_TYPE => array(
+					'type'          => DIS_FAQ_POST_TYPE,
+					'singular_name' => _x( 'Faq', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'Faq', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'faq', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				),
 			);
 		}
