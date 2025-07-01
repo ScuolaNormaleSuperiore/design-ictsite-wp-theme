@@ -248,23 +248,25 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 				<?php
 				if ( $related_faqs ) {
 				?>
-					<h3 class="h4 service-paragraph">
-						<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>
+					<h3 class="h4">
+						<i class="bi bi-question-circle" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'FAQ', 'design_ict_site' ); ?>
 					</h3>
 					<div class="accordion accordion-left-icon" id="accordionExampleLft">
 					<?php
-					foreach ( $related_faqs as $faq ) {
+					foreach ( $related_faqs as $i => $faq ) {
 					?>
 						<div class="accordion-item">
-							<h4 class="accordion-header " id="heading1l">
-							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1l"
-								aria-expanded="false" aria-controls="collapse1l">
+							<h4 class="accordion-header " id="<?php echo 'heading' . $i . 'l'; ?> ">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" 
+								data-bs-target="<?php echo '#collapse' . $i . 'l'; ?>"
+								aria-expanded="false" aria-controls="<?php echo 'collapse' . $i . 'l'; ?>">
 								<?php echo esc_attr( $faq->post_title ); ?>
 							</button>
 							</h4>
-							<div id="collapse1l" class="accordion-collapse collapse" data-bs-parent="#accordionExampleLft" role="region"
-								aria-labelledby="heading1l">
+							<div id="<?php echo 'collapse' . $i . 'l'; ?>"
+								class="accordion-collapse collapse" data-bs-parent="#accordionExampleLft" role="region"
+								aria-labelledby="<?php echo 'heading' . $i . 'l'; ?>">
 								<div class="accordion-body">
 									<?php echo apply_filters( 'the_content', $faq->post_content ); ?>
 								</div>
