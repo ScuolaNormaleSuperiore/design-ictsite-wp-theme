@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-06-30 14:33+0000\n"
+"PO-Revision-Date: 2025-07-01 07:48+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -15,7 +15,7 @@ msgstr ""
 "X-Loco-Version: 2.7.2; wp-6.8.1\n"
 "X-Domain: design_ict_site"
 
-#: single-dis-service.php:54
+#: single-dis-service.php:55
 msgid "Access the service"
 msgstr "Access the service"
 
@@ -47,10 +47,9 @@ msgstr ""
 #: classes/person-manager.php:72 classes/place-manager.php:70
 #: classes/place-manager.php:71 classes/project-manager.php:35
 #: classes/project-manager.php:36 classes/service-cluster-manager.php:38
-#: classes/service-cluster-manager.php:39 classes/service-manager.php:35
-#: classes/service-manager.php:36 classes/sponsor-manager.php:35
-#: classes/sponsor-manager.php:36 classes/user-status-manager.php:38
-#: classes/user-status-manager.php:39
+#: classes/service-cluster-manager.php:39 classes/service-manager.php:63
+#: classes/service-manager.php:64 classes/sponsor-manager.php:35
+#: classes/sponsor-manager.php:36
 msgid "Add an item"
 msgstr ""
 
@@ -169,7 +168,7 @@ msgstr ""
 msgid "Design ICT Site"
 msgstr ""
 
-#: single-dis-service.php:119
+#: single-dis-service.php:120
 msgid "Designed for"
 msgstr ""
 
@@ -392,20 +391,15 @@ msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr "Site search"
 
-#: config-theme.php:115
+#: config-theme.php:109
 msgctxt "DIS_PostTypeLabels"
 msgid "Article"
 msgstr "Article"
 
-#: config-theme.php:116
+#: config-theme.php:110
 msgctxt "DIS_PostTypeLabels"
 msgid "Articles"
 msgstr "Articles"
-
-#: config-theme.php:117
-msgctxt "DIS_PostTypeLabels"
-msgid "articles"
-msgstr "articles"
 
 #: config-theme.php:91
 msgctxt "DIS_PostTypeLabels"
@@ -417,11 +411,6 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Attachments"
 msgstr "Attachments"
 
-#: config-theme.php:93
-msgctxt "DIS_PostTypeLabels"
-msgid "attachments"
-msgstr "attachments"
-
 #: config-theme.php:97
 msgctxt "DIS_PostTypeLabels"
 msgid "Banner"
@@ -431,11 +420,6 @@ msgstr "Banner"
 msgctxt "DIS_PostTypeLabels"
 msgid "Banners"
 msgstr "Banners"
-
-#: config-theme.php:99
-msgctxt "DIS_PostTypeLabels"
-msgid "banners"
-msgstr "banners"
 
 #: config-theme.php:49 page-templates/people.php:19
 #: page-templates/people.php:24 page-templates/people.php:29
@@ -448,20 +432,10 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Events"
 msgstr "Events"
 
-#: config-theme.php:51
-msgctxt "DIS_PostTypeLabels"
-msgid "events"
-msgstr "events"
-
-#: config-theme.php:127 config-theme.php:128
+#: config-theme.php:121 config-theme.php:122
 msgctxt "DIS_PostTypeLabels"
 msgid "Faq"
 msgstr "Faq"
-
-#: config-theme.php:129
-msgctxt "DIS_PostTypeLabels"
-msgid "faq"
-msgstr "faq"
 
 #: config-theme.php:61
 msgctxt "DIS_PostTypeLabels"
@@ -473,30 +447,15 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Offices"
 msgstr "Offices"
 
-#: config-theme.php:63
-msgctxt "DIS_PostTypeLabels"
-msgid "offices"
-msgstr "offices"
-
-#: config-theme.php:121
+#: config-theme.php:115
 msgctxt "DIS_PostTypeLabels"
 msgid "Page"
 msgstr "Page"
 
-#: config-theme.php:122
+#: config-theme.php:116
 msgctxt "DIS_PostTypeLabels"
 msgid "Pages"
 msgstr "Pages"
-
-#: config-theme.php:123
-msgctxt "DIS_PostTypeLabels"
-msgid "pages"
-msgstr "pages"
-
-#: config-theme.php:81
-msgctxt "DIS_PostTypeLabels"
-msgid "people"
-msgstr "people"
 
 #: config-theme.php:79
 msgctxt "DIS_PostTypeLabels"
@@ -518,11 +477,6 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Places"
 msgstr "Places"
 
-#: config-theme.php:87
-msgctxt "DIS_PostTypeLabels"
-msgid "places"
-msgstr "places"
-
 #: config-theme.php:55
 msgctxt "DIS_PostTypeLabels"
 msgid "Project"
@@ -532,11 +486,6 @@ msgstr "Project"
 msgctxt "DIS_PostTypeLabels"
 msgid "Projects"
 msgstr "Projects"
-
-#: config-theme.php:57
-msgctxt "DIS_PostTypeLabels"
-msgid "projects"
-msgstr "projects"
 
 #: config-theme.php:73
 msgctxt "DIS_PostTypeLabels"
@@ -553,20 +502,10 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Service Clusters"
 msgstr "Service Clusters"
 
-#: config-theme.php:69
-msgctxt "DIS_PostTypeLabels"
-msgid "service-clusters"
-msgstr "service-clusters"
-
 #: config-theme.php:74
 msgctxt "DIS_PostTypeLabels"
 msgid "Services"
 msgstr "Services"
-
-#: config-theme.php:75
-msgctxt "DIS_PostTypeLabels"
-msgid "services"
-msgstr "services"
 
 #: config-theme.php:103
 msgctxt "DIS_PostTypeLabels"
@@ -578,25 +517,83 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Sponsors"
 msgstr "Sponsors"
 
+#: config-theme.php:111
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "articles"
+msgstr "articles"
+
+#: config-theme.php:93
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "attachments"
+msgstr "attachments"
+
+#: config-theme.php:99
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "banners"
+msgstr "banners"
+
+#: config-theme.php:51
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "events"
+msgstr "events"
+
+#: config-theme.php:123
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "faq"
+msgstr "faq"
+
+#: config-theme.php:63
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "offices"
+msgstr "offices"
+
+#: config-theme.php:117
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "pages"
+msgstr "pages"
+
+#: config-theme.php:81
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "people"
+msgstr "people"
+
+#: config-theme.php:87
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "places"
+msgstr "places"
+
+#: config-theme.php:57
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "projects"
+msgstr "projects"
+
+#: config-theme.php:69
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "service-clusters"
+msgstr "service-clusters"
+
+#: config-theme.php:75
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
+msgid "services"
+msgstr "services"
+
 #: config-theme.php:105
-msgctxt "DIS_PostTypeLabels"
+#, fuzzy
+msgctxt "DIS_PostTypeSlugs"
 msgid "sponsors"
 msgstr "sponsors"
-
-#: config-theme.php:109
-msgctxt "DIS_PostTypeLabels"
-msgid "User Status"
-msgstr "User Status"
-
-#: config-theme.php:111
-msgctxt "DIS_PostTypeLabels"
-msgid "user-status"
-msgstr "user-status"
-
-#: config-theme.php:110
-msgctxt "DIS_PostTypeLabels"
-msgid "Users Status"
-msgstr "Users Status"
 
 #: template-parts/home/hp-main-hero-section.php:20
 msgctxt "DIS_SiteOptionLabel"
@@ -636,6 +633,11 @@ msgctxt "DIS_TaxonomyGeneralName"
 msgid "Place Type"
 msgstr "Place Type"
 
+#: classes/service-manager.php:36
+msgctxt "DIS_TaxonomyGeneralName"
+msgid "User Status"
+msgstr "User Status"
+
 #: classes/person-manager.php:37
 msgctxt "DIS_TaxonomySingularName"
 msgid "Person Role"
@@ -646,12 +648,17 @@ msgctxt "DIS_TaxonomySingularName"
 msgid "Place Type"
 msgstr "Place Type"
 
+#: classes/service-manager.php:37
+msgctxt "DIS_TaxonomySingularName"
+msgid "User Status"
+msgstr "User_Status"
+
 #: classes/options-manager.php:950
 msgid "Do not count the views of the robots."
 msgstr ""
 
 #. Name of the template
-#: single-dis-service.php:186 page-templates/documentation.php:2
+#: single-dis-service.php:188 page-templates/documentation.php:2
 msgid "Documentation"
 msgstr ""
 
@@ -675,8 +682,8 @@ msgstr ""
 #: classes/event-manager.php:37 classes/faq-manager.php:37
 #: classes/office-manager.php:37 classes/person-manager.php:73
 #: classes/place-manager.php:72 classes/project-manager.php:37
-#: classes/service-cluster-manager.php:40 classes/service-manager.php:37
-#: classes/sponsor-manager.php:37 classes/user-status-manager.php:40
+#: classes/service-cluster-manager.php:40 classes/service-manager.php:65
+#: classes/sponsor-manager.php:37
 msgid "Edit the item"
 msgstr ""
 
@@ -739,12 +746,16 @@ msgstr ""
 msgid "Enter your email address to receive updates"
 msgstr ""
 
+#: single-dis-service.php:253
+msgid "FAQ"
+msgstr ""
+
 #. Name of the template
 #: page-templates/faq.php:2
 msgid "Faq"
 msgstr ""
 
-#: single-dis-service.php:84
+#: single-dis-service.php:85
 msgid "Features"
 msgstr ""
 
@@ -778,11 +789,11 @@ msgstr "ICT Projects and Services Area"
 msgid "From a to z"
 msgstr ""
 
-#: single-dis-service.php:171
+#: single-dis-service.php:173
 msgid "Get help"
 msgstr ""
 
-#: single-dis-service.php:134
+#: single-dis-service.php:136
 msgid "Get started"
 msgstr ""
 
@@ -887,7 +898,7 @@ msgstr ""
 msgid "Insert here the links to your social media."
 msgstr ""
 
-#: classes/theme-manager.php:257
+#: classes/theme-manager.php:250
 msgid "Invalid username or password"
 msgstr ""
 
@@ -896,7 +907,7 @@ msgid "Language selection: selected language"
 msgstr ""
 
 #: single-dis-event.php:59 single-dis-office.php:59 single-dis-place.php:59
-#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:248
+#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:275
 msgid "Last modification"
 msgstr ""
 
@@ -1071,11 +1082,11 @@ msgstr ""
 msgid "Projects"
 msgstr "Projects"
 
-#: single-dis-service.php:149
+#: single-dis-service.php:151
 msgid "Rates"
 msgstr ""
 
-#: single-dis-service.php:226
+#: single-dis-service.php:228
 msgid "Related services"
 msgstr "Related services"
 
@@ -1092,7 +1103,7 @@ msgstr ""
 msgid "Remove the section"
 msgstr ""
 
-#: single-dis-service.php:99
+#: single-dis-service.php:100
 msgid "Requirements"
 msgstr ""
 
@@ -1265,7 +1276,7 @@ msgstr ""
 msgid "The hero section of the Home Page."
 msgstr ""
 
-#: classes/theme-manager.php:238
+#: classes/theme-manager.php:231
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr ""
 
@@ -1286,7 +1297,7 @@ msgstr ""
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: classes/theme-manager.php:242
+#: classes/theme-manager.php:235
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
@@ -1340,8 +1351,8 @@ msgstr ""
 #: classes/event-manager.php:38 classes/faq-manager.php:38
 #: classes/office-manager.php:38 classes/person-manager.php:74
 #: classes/place-manager.php:73 classes/project-manager.php:38
-#: classes/service-cluster-manager.php:41 classes/service-manager.php:38
-#: classes/sponsor-manager.php:38 classes/user-status-manager.php:41
+#: classes/service-cluster-manager.php:41 classes/service-manager.php:66
+#: classes/sponsor-manager.php:38
 msgid "View the item"
 msgstr ""
 
