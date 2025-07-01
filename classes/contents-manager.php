@@ -144,7 +144,7 @@ class DIS_ContentsManager {
 	 * @param string $page_slug
 	 * @return void
 	 */
-	public static function get_page_link( $page_slug ){
+	public static function get_page_link( $page_slug) {
 		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
 		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
 		if ( ! $post ) return null;
@@ -158,7 +158,7 @@ class DIS_ContentsManager {
 	 * @param string $type
 	 * @return string
 	 */
-	public static function get_archive_link( $type ){
+	public static function get_archive_link( $type) {
 		$page =self::get_Archive_page( $type );
 		if ( ! $page ) return '';
 		$url = get_permalink( $page->ID );
@@ -171,7 +171,7 @@ class DIS_ContentsManager {
 	 * @param string $type
 	 * @return object
 	 */
-	public static function get_archive_page( $type ){
+	public static function get_archive_page( $type) {
 		$slug = dis_ct_data()[$type]['slug'];
 		if ( ! $slug ) return '';
 		$page = get_page_by_path( $slug );
@@ -198,9 +198,9 @@ class DIS_ContentsManager {
 		return array();
 	}
 
-	public static function get_cluster_list( $hp=false, $order='title' ){
+	public static function get_cluster_list( $hp=false, $order='title') {
 			$args = array();
-		if ( $order === 'title' ){
+		if ( $order === 'title') {
 			$args = array(
 				'post_type'      => DIS_SERVICE_CLUSTER_POST_TYPE,
 				'posts_per_page' => -1,
@@ -242,9 +242,9 @@ class DIS_ContentsManager {
 	 * @param string $order ( 'title' || 'priority' )
 	 * @return array
 	 */
-	public static function get_service_list( $order='title', $cluster_id=null ){
+	public static function get_service_list( $order='title', $cluster_id=null) {
 		$args = array();
-		if ( $order === 'title' ){
+		if ( $order === 'title') {
 			$args = array(
 				'post_type'      => DIS_SERVICE_ITEM_POST_TYPE,
 				'posts_per_page' => -1,
@@ -391,7 +391,7 @@ class DIS_ContentsManager {
 		$clean_text = wp_strip_all_tags( $text );
 		// Truncate tags.
 		if ( strlen( $clean_text ) > $size ) {
-			if ( $split ){
+			if ( $split) {
 				$truncated_text = substr( $clean_text, 0, $size ) . '...';
 			} else {
 				$truncated_text = mb_substr( $clean_text, 0, $size );
@@ -406,7 +406,7 @@ class DIS_ContentsManager {
 		return $truncated_text;
 	}
 
-	public static function increment_visit_counter( $page_id ){
+	public static function increment_visit_counter( $page_id) {
 		if ( DIS_OptionsManager::dis_get_option( 'service_page_counter_enabled', 'dis_opt_advanced_settings' ) === 'true' ) {
 			// Ignore ADMIN visits.
 			if ( current_user_can( 'manage_options' ) ) {
@@ -504,7 +504,7 @@ class DIS_ContentsManager {
 		return self::sort_by_name( $content_types_with_results );
 	}
 
-	public static function get_site_search_query( $selected_contents, $search_string, $page_size ){
+	public static function get_site_search_query( $selected_contents, $search_string, $page_size) {
 		$params = array(
 			'paged'          => get_query_var( 'paged', 1 ),
 			'post_status'    => 'publish',
@@ -640,7 +640,7 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-	private static function fill_image_data( $post,&$result ){
+	private static function fill_image_data( $post,&$result) {
 		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/logo-default.png' );
 		$result->image_url   = $image_data['image_url'];
 		$result->image_alt   = $image_data['image_alt'];
@@ -654,7 +654,7 @@ class DIS_ContentsManager {
 	 * @param array $post_type
 	 * @return array of slugs (strings)
 	 */
-	public static function get_sitemap_posts(  $post_type ){
+	public static function get_sitemap_posts(  $post_type) {
 		$query = new WP_Query(
 			array(
 				'posts_per_page' => -1,
@@ -667,4 +667,27 @@ class DIS_ContentsManager {
 		return $query->posts;
 	}
 
+	public static function get_related_faq(  $post ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_FAQ_POST_TYPE,
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'service',
+					'value'   => '"' . $post->ID . '"',
+					'compare' => 'LIKE'
+				)
+				),
+			'orderby' => 'title',
+			'order'   => 'ASC',
+		);
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
+
+	
 }

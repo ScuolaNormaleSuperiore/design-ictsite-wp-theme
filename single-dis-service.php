@@ -22,6 +22,7 @@ $get_help          = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 // Increment the counter of the visits.
 DIS_ContentsManager::increment_visit_counter( $post->ID );
+$related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 ?>
 
 	<!-- CONTENT HERO -->
@@ -75,10 +76,10 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 					<?php echo get_the_content() ?>
 				</p>
 
+				<!-- FEATURES-->
 				<?php
 				if ( $features ) {
 				?>
-					<!-- FEATURES-->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-check-circle" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Features', 'design_ict_site' ); ?>
@@ -90,10 +91,10 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+				<!-- REQUIREMENTS-->
 				<?php
 				if ( $requirements ) {
 				?>
-					<!-- REQUIREMENTS-->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-list-check" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Requirements', 'design_ict_site' ); ?>
@@ -105,6 +106,7 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+				<!-- DESIGNED FOR -->
 				<?php
 				if ( $designed_for ) {
 					$df_array = array();
@@ -113,7 +115,6 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 					}
 					$df_string = join( ', ', $df_array );
 				?>
-					<!-- DESIGNED FOR -->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-people" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Designed for', 'design_ict_site' ); ?>
@@ -125,10 +126,11 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+
+				<!-- GET STARTED-->
 				<?php
 				if ( $get_started ) {
 				?>
-					<!-- GET STARTED-->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-rocket" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Get started', 'design_ict_site' ); ?>
@@ -140,10 +142,10 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+				<!-- RATES -->
 				<?php
 				if ( $rates ) {
 				?>
-					<!-- RATES -->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-credit-card" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Rates', 'design_ict_site' ); ?>
@@ -155,6 +157,7 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+				<!-- GET HELP -->
 				<?php
 				if ( $get_help ) {
 					$gh_array = array();
@@ -165,7 +168,6 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 					}
 					$gh_string = join( ', ', $gh_array );
 				?>
-					<!-- GET HELP -->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-question-circle" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Get help', 'design_ict_site' ); ?>
@@ -177,10 +179,10 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+				<!-- Related Documents -->
 				<?php
 				if ( $related_doc ) {
 				?>
-					<!-- Related Documents -->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-info-circle" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Documentation', 'design_ict_site' ); ?>
@@ -217,10 +219,10 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 				}
 				?>
 
+				<!-- Related Services -->
 				<?php
 				if ( $related_services ) {
 				?>
-					<!-- Related Services -->
 					<h3 class="h4 service-paragraph">
 						<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'Related services', 'design_ict_site' ); ?>
@@ -232,6 +234,31 @@ DIS_ContentsManager::increment_visit_counter( $post->ID );
 						<li>
 							<a href="<?php echo get_permalink( $service ); ?>">
 								<?php echo esc_attr( $service->post_title ); ?>
+							</a>
+						</li>
+					<?php
+					}
+					?>
+					</ul>
+				<?php
+				}
+				?>
+
+				<!-- Related FAQS -->
+				<?php
+				if ( $related_faqs ) {
+				?>
+					<h3 class="h4 service-paragraph">
+						<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>
+						<?php echo __( 'FAQ', 'design_ict_site' ); ?>
+					</h3>
+					<ul>
+					<?php
+					foreach ( $related_faqs as $faq ) {
+					?>
+						<li>
+							<a href="<?php echo get_permalink( $faq ); ?>">
+								<?php echo esc_attr( $faq->post_title ); ?>
 							</a>
 						</li>
 					<?php
