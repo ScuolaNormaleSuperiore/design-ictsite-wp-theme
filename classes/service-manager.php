@@ -18,8 +18,36 @@ class Service_Manager {
 	 * @return void
 	 */
 	public function setup() {
+		// Register the taxonomies used by this post type.
+		add_action( 'init', array( $this, 'add_taxonomies' ) );
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
+	}
+
+	/**
+	 * Register the taxonomies.
+	 *
+	 * @return void
+	 */
+	public function add_taxonomies() {
+		// aggiungo la tassonomia tipologia luogo.
+
+		$user_status_labels = array(
+			'name'              => _x( 'User Status', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
+			'singular_name'     => _x( 'User Status', 'DIS_TaxonomySingularName', 'design_ict_site' ),
+		);
+
+		$user_status_args = array(
+			'hierarchical'      => true,
+			'labels'            => $user_status_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => DIS_USER_STATUS_TAXONOMY ),
+			'show_in_rest'      => true,
+		);
+
+		register_taxonomy( DIS_USER_STATUS_TAXONOMY, array( DIS_SERVICE_ITEM_POST_TYPE ), $user_status_args );
 	}
 
 	/**
@@ -360,37 +388,6 @@ class Service_Manager {
 				'min' => '',
 				'max' => '',
 				'allow_in_bindings' => 1,
-				'elements' => '',
-				'bidirectional' => 0,
-				'bidirectional_target' => array(
-				),
-			),
-			array(
-				'key' => 'field_682aeaad47146',
-				'label' => 'Related user status',
-				'name' => 'related_user_status',
-				'aria-label' => '',
-				'type' => 'relationship',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'post_type' => array(
-					0 => 'dis-user-status',
-				),
-				'post_status' => '',
-				'taxonomy' => '',
-				'filters' => array(
-					0 => 'search',
-				),
-				'return_format' => 'object',
-				'min' => '',
-				'max' => '',
-				'allow_in_bindings' => 0,
 				'elements' => '',
 				'bidirectional' => 0,
 				'bidirectional_target' => array(

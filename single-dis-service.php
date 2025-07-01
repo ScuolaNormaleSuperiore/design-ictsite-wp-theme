@@ -17,7 +17,7 @@ $rates             = DIS_CustomFieldsManager::get_field( 'rates' , $post->ID );
 $get_started       = DIS_CustomFieldsManager::get_field( 'get_started' , $post->ID );
 $related_doc       = DIS_CustomFieldsManager::get_field( 'related_documents' , $post->ID );
 $related_services  = DIS_CustomFieldsManager::get_field( 'related_services' , $post->ID );
-$designed_for      = DIS_CustomFieldsManager::get_field( 'related_user_status' , $post->ID );
+$designed_for      = get_the_terms( $post->ID, 'dis-user-status' );
 $get_help          = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 // Increment the counter of the visits.
@@ -111,7 +111,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 				if ( $designed_for ) {
 					$df_array = array();
 					foreach ( $designed_for as $df ) {
-						array_push( $df_array, $df->post_title );
+						array_push( $df_array, $df->name );
 					}
 					$df_string = join( ', ', $df_array );
 				?>

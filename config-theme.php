@@ -18,6 +18,7 @@ define( 'DIS_DEFAULT_CATEGORY', 'category' );
 define( 'DIS_DEFAULT_TAGS', 'post-tag' );
 define( 'DIS_PLACE_TYPE_TAXONOMY', 'dis-place-type' );
 define( 'DIS_PERSON_ROLE_TAXONOMY', 'dis-person-role' );
+define( 'DIS_USER_STATUS_TAXONOMY', 'dis-user-status' );
 
 // DEFAULT WP POST TYPES.
 define( 'DIS_DEFAULT_POST', 'post' );
@@ -31,7 +32,6 @@ define( 'DIS_PERSON_POST_TYPE', 'dis-person' );
 define( 'DIS_PROJECT_POST_TYPE', 'dis-project' );
 define( 'DIS_PLACE_POST_TYPE', 'dis-place' );
 define( 'DIS_EVENT_POST_TYPE', 'dis-event' );
-define( 'DIS_USER_STATUS_POST_TYPE', 'dis-user-status' );
 define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
 define( 'DIS_BANNER_POST_TYPE', 'dis-banner' );
 define( 'DIS_SPONSOR_POST_TYPE', 'dis-sponsor' );
@@ -104,12 +104,6 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 					'plural_name'   => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
 					'slug'          => _x( 'sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
 				),
-				DIS_USER_STATUS_POST_TYPE => array(
-					'type'          => DIS_USER_STATUS_POST_TYPE,
-					'singular_name' => _x( 'User Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Users Status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'user-status', 'DIS_PostTypeLabels', 'design_ict_site' ),
-				),
 				DIS_DEFAULT_POST => array(
 					'type'          => DIS_DEFAULT_POST,
 					'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),
@@ -151,6 +145,7 @@ define(
 		DIS_DEFAULT_PAGE,
 		DIS_PLACE_TYPE_TAXONOMY,
 		DIS_PERSON_ROLE_TAXONOMY,
+		DIS_USER_STATUS_TAXONOMY,
 	)
 );
 
@@ -166,7 +161,6 @@ define(
 		DIS_PLACE_POST_TYPE,
 		DIS_OFFICE_POST_TYPE,
 		DIS_EVENT_POST_TYPE,
-		DIS_USER_STATUS_POST_TYPE,
 		DIS_ATTACHMENT_POST_TYPE,
 		DIS_SPONSOR_POST_TYPE,
 		DIS_BANNER_POST_TYPE,
