@@ -252,19 +252,28 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 						<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>
 						<?php echo __( 'FAQ', 'design_ict_site' ); ?>
 					</h3>
-					<ul>
+					<div class="accordion accordion-left-icon" id="accordionExampleLft">
 					<?php
 					foreach ( $related_faqs as $faq ) {
 					?>
-						<li>
-							<a href="<?php echo get_permalink( $faq ); ?>">
+						<div class="accordion-item">
+							<h4 class="accordion-header " id="heading1l">
+							<button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1l"
+								aria-expanded="false" aria-controls="collapse1l">
 								<?php echo esc_attr( $faq->post_title ); ?>
-							</a>
-						</li>
+							</button>
+							</h4>
+							<div id="collapse1l" class="accordion-collapse collapse" data-bs-parent="#accordionExampleLft" role="region"
+								aria-labelledby="heading1l">
+								<div class="accordion-body">
+									<?php echo apply_filters( 'the_content', $faq->post_content ); ?>
+								</div>
+							</div>
+						</div>
 					<?php
 					}
 					?>
-					</ul>
+					</div>
 				<?php
 				}
 				?>
