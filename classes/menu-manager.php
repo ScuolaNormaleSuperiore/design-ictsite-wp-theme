@@ -22,10 +22,8 @@ class DIS_MenuManager {
 	 * @return void
 	 */
 	public function setup() {
-
-		// Register the menu.
+		// Register 'Reload data' menu.
 		add_action( 'admin_menu', array( $this, 'register_update_theme_link' ) );
-
 	}
 
 	/**
@@ -40,16 +38,17 @@ class DIS_MenuManager {
 			esc_html__( 'Reload theme data', 'design_ict_site'),
 			DIS_EDIT_THEME_PERMISSION,
 			'dis-reload-data-theme-options',
-			array( $this, 'get_reloadthemedata_page' ),
+			array( $this, 'get_reload_theme_data_page' ),
 		);
 	}
+
 
 	/**
 	 * Render the Settings page.
 	 *
 	 * @return void
 	 */
-	public function get_reloadthemedata_page() {
+	public function get_reload_theme_data_page() {
 		// @TODO: check the user permission.
 		$result_activation = false;
 		$is_reload         = false;

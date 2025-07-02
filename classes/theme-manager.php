@@ -18,6 +18,9 @@ if ( ! class_exists( 'DIS_LayoutManager' ) ) {
 if ( ! class_exists( 'DIS_OptionsManager' ) ) {
 	include_once 'options-manager.php';
 }
+if ( ! class_exists( 'DIS_ExportManager' ) ) {
+	include_once 'export-manager.php';
+}
 if ( ! class_exists( 'DIS_MenuManager' ) ) {
 	include_once 'menu-manager.php';
 }
@@ -135,6 +138,10 @@ class DIS_ThemeManager {
 		// Setup of the Options Configuration Section of the the.
 		$this->cnm = new DIS_OptionsManager();
 		$this->cnm->build_conf_menu();
+
+		// Setup the export manager.
+		$exm = new DIS_ExportManager();
+		$exm->setup();
 
 		// Setup the menus of the theme.
 		$mnm = new DIS_MenuManager();
