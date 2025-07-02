@@ -12,7 +12,9 @@
  */
 class DIS_ActivationManager {
 
-	private $result = array(
+	private static string $main_page = 'dis-reload-data-theme-options';
+
+	public static $result = array(
 		'status' => 0,       // 1: success, 0: error.
 		'data'   => array(), // Array of string to write.
 	);
@@ -22,22 +24,89 @@ class DIS_ActivationManager {
 	 */
 	public function __construct() {}
 
-	public function reload_data() {
+	/**
+	 * Setup the Settings and the menu of the plugin.
+	 *
+	 * @return void
+	 */
+	public function setup() {
+		// Register 'Reload data' menu.
+		add_action( 'admin_menu', array( $this, 'register_menu_link' ) );
+
+		// @TODO: Use button and manage_submit_action not href, see: export-manager.php.
+		// Register 'Reload data' actions.
+		// add_action( 'admin_init', array( $this, 'manage_submit_action' ) );
+	}
+
+	/**
+	 * Creation of the link to load default theme data: Reload default theme data.
+	 * WP->Appearance->Reload theme data.
+	 *
+	 * @return void
+	 */
+	public function register_menu_link() {
+		add_theme_page(
+			esc_html__( 'Reload theme data', 'design_ict_site'),
+			esc_html__( 'Reload theme data', 'design_ict_site'),
+			DIS_EDIT_THEME_PERMISSION,
+			self::$main_page,
+			[self::class, 'get_page_code']
+		);
+	}
+
+	/**
+	 * Render the Settings page.
+	 *
+	 * @return void
+	 */
+	public static function get_page_code() {
+		$result_activation = false;
+		$is_reload         = false;
+		if( isset( $_GET['action'] ) && 'reload' === $_GET['action'] ) {
+			$is_reload         = true;
+			$result_activation = self::reload_data();
+		}
+		echo "<DIV class='wrap'>";
+		echo '<H1>' . __( 'Reload theme data', 'design_ict_site' ) .'</H1>';
+		echo '<DIV class="dis_admin_reload_data">';
+		echo '<P>' . __( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ). '</P>';
+		// @TODO: Change link with button.
+		echo '<A HREF="admin.php?page=' . self::$main_page . '&action=reload" class="button button-primary">Reload data</A>';
+		echo '</DIV>';
+		if ( $is_reload ) {
+			if ( ( $result_activation ) && ( $result_activation['code']= 1 ) ) {
+				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><em>' . __( 'Theme data loaded successfully', 'design_ict_site' ) .'</EM><DIV class="dis_admin_reload_result_text">';
+				echo '<H3>' . __( 'List of all activations', 'design_ict_site' ) . ':</H3>';
+				echo '<UL>';
+				foreach ($result_activation['data'] as $msg ) {
+					echo '<LI>' . $msg . '</LI>';
+				}
+				echo '</UL>';
+				echo '</DIV></DIV>';
+			} else {
+				echo '<DIV class="dis_admin_reload_result text-danger"><EM>' . __( 'Theme data not reloaded', 'design_ict_site' ) . '</EM>.</DIV>';
+			}
+		}
+		echo '</DIV>';
+	}
+
+	private static function reload_data() {
+		if ( ! current_user_can( DIS_EDIT_THEME_PERMISSION, ) ) return;
 		error_log( '*** ACTION RELOAD DATA ***' );
-		array_push( $this->result['data'], '*** BEGIN THEME ACTIVATION ***' );
+		array_push( self::$result['data'], '*** BEGIN THEME ACTIVATION ***' );
 
 		// Create the pages of the site, if not exist.
-		$this->pages_creation( $this->result['data'] );
+		self::pages_creation( self::$result['data'] );
 
 		// Create the taxonomies of the site, if not exist.
-		$this->taxonomies_creation( $this->result['data'] );
+		self::taxonomies_creation( self::$result['data'] );
 
 		// Create the menus of the site, if not exist.
-		$this->menu_creation( $this->result['data'] );
+		self::menu_creation( self::$result['data'] );
 
-		$this->result['status'] = 1;
-		array_push( $this->result['data'], '*** END THEME ACTIVATION ***' );
-		return $this->result;
+		self::$result['status'] = 1;
+		array_push( self::$result['data'], '*** END THEME ACTIVATION ***' );
+		return self::$result;
 	}
 
 	private static function get_content( $slug, $content_type ) {
@@ -55,8 +124,8 @@ class DIS_ActivationManager {
 		return 0;
 	}
 
-	private function pages_creation( &$messages ) {
-		array_push( $this->result['data'], '* BEGIN Pages Creation:' );
+	private static function pages_creation( &$messages ) {
+		array_push( self::$result['data'], '* BEGIN Pages Creation:' );
 		$languages = DIS_MultiLangManager::get_languages_list( array( 'fields' => array() ) );
 		foreach ( DIS_STATIC_PAGES as $slug => $pg ) {
 			$related_posts = array();
@@ -117,18 +186,18 @@ class DIS_ActivationManager {
 
 			DIS_MultiLangManager::save_post_translations( $related_posts );
 		}
-		array_push( $this->result['data'], '* END Pages Creation.' );
+		array_push( self::$result['data'], '* END Pages Creation.' );
 		return true;
 	}
 
-	private function taxonomies_creation( &$messages ) {
-		array_push( $this->result['data'], '* BEGIN Taxonomies Creation:' );
-		array_push( $this->result['data'], '* END Taxonomies Creation:' );
+	private static function taxonomies_creation( &$messages ) {
+		array_push( self::$result['data'], '* BEGIN Taxonomies Creation:' );
+		array_push( self::$result['data'], '* END Taxonomies Creation:' );
 		return true;
 	}
 
-	private function menu_creation( &$messages ) {
-		array_push( $this->result['data'], '* BEGIN Menu Creation:' );
+	private static function menu_creation( &$messages ) {
+		array_push( self::$result['data'], '* BEGIN Menu Creation:' );
 
 		// Creation of all the site menus: each menu is replicated for each available language.
 		$languages      = DIS_MultiLangManager::get_languages_list( array( 'fields' => array() ) );
@@ -136,20 +205,20 @@ class DIS_ActivationManager {
 
 		foreach ( $languages as $lang ) {
 			switch_to_locale( $lang->locale );
-			$this->build_the_menu( $messages, DIS_PRIMARY_MENU, $lang->slug );
-			$this->build_the_menu( $messages, DIS_SECONDARY_MENU, $lang->slug );
-			$this->build_the_menu( $messages, DIS_HEADER_MENU, $lang->slug );
-			$this->build_the_menu( $messages, DIS_FOOTER_MENU, $lang->slug );
-			$this->build_the_menu( $messages, DIS_USEFUL_LINKS_MENU, $lang->slug );
+			self::build_the_menu( $messages, DIS_PRIMARY_MENU, $lang->slug );
+			self::build_the_menu( $messages, DIS_SECONDARY_MENU, $lang->slug );
+			self::build_the_menu( $messages, DIS_HEADER_MENU, $lang->slug );
+			self::build_the_menu( $messages, DIS_FOOTER_MENU, $lang->slug );
+			self::build_the_menu( $messages, DIS_USEFUL_LINKS_MENU, $lang->slug );
 		}
 		switch_to_locale( $default_locale );
 
-		array_push( $this->result['data'], '* END Menu Creation.' );
+		array_push( self::$result['data'], '* END Menu Creation.' );
 		return true;
 	}
 
 
-	private function build_the_menu( &$messages, $menu, $lang ) {
+	private static function build_the_menu( &$messages, $menu, $lang ) {
 		$menu_name     = $menu['name'] . ' [' . strtoupper( $lang ) . ']';
 		$menu_items    = $menu['items'];
 		$menu_location = $menu['location'];

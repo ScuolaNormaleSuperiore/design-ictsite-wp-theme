@@ -28,7 +28,7 @@ class DIS_ExportManager {
 	 */
 	public function setup() {
 		// Register 'Export data' menu.
-		add_action( 'admin_menu', array( $this, 'register_export_data_link' ) );
+		add_action( 'admin_menu', array( $this, 'register_menu_link' ) );
 
 		// Register 'Export data' actions.
 		add_action( 'admin_init', array( $this, 'manage_submit_action' ) );
@@ -39,13 +39,13 @@ class DIS_ExportManager {
 	 *
 	 * @return void
 	 */
-	public function register_export_data_link() {
+	public function register_menu_link() {
 		add_theme_page(
 			esc_html__( 'Export data', 'design_ict_site'),
 			esc_html__( 'Export data', 'design_ict_site'),
 			DIS_EDIT_THEME_PERMISSION,
 			self::$main_page,
-			[self::class, 'get_export_data_page'],
+			[self::class, 'get_export_data_page']
 		);
 	}
 

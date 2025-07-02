@@ -21,9 +21,6 @@ if ( ! class_exists( 'DIS_OptionsManager' ) ) {
 if ( ! class_exists( 'DIS_ExportManager' ) ) {
 	include_once 'export-manager.php';
 }
-if ( ! class_exists( 'DIS_MenuManager' ) ) {
-	include_once 'menu-manager.php';
-}
 if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 	include_once 'activation-manager.php';
 }
@@ -143,9 +140,9 @@ class DIS_ThemeManager {
 		$exm = new DIS_ExportManager();
 		$exm->setup();
 
-		// Setup the menus of the theme.
-		$mnm = new DIS_MenuManager();
-		$mnm->setup();
+		// Setup the reload data section
+		$acm = new DIS_ActivationManager();
+		$acm->setup();
 
 		/***
 		 * Setup custom post types and associated taxonomies.
