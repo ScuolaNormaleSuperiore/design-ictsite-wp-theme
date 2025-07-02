@@ -60,8 +60,10 @@ class DIS_ExportManager {
 			<p><?php echo __( 'Export in JSON format', 'design_ict_site' ); ?>:</p>
 			<form method="post">
 				<?php wp_nonce_field('export_ict_nonce_action', 'export_ict_nonce'); ?>
-				<input type="submit" name="export_faq" class="button button-primary" value="Esporta FAQ" />
-				<input type="submit" name="export_services" class="button button-secondary" value="Esporta Servizi" />
+				<input type="submit" name="export_faq" class="button button-primary"
+					value="<?php echo __( 'Export FAQ', 'design_ict_site' ); ?>" />
+				<input type="submit" name="export_services" class="button button-secondary"
+					value="<?php echo __( 'Export Services', 'design_ict_site' ); ?>" />
 			</form>
 		</div>
 	<?php

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-07-01 07:51+0000\n"
+"PO-Revision-Date: 2025-07-02 12:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -133,7 +133,7 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: classes/menu-manager.php:64
+#: classes/menu-manager.php:63
 msgid ""
 "Click the button to reload theme data: post-types, taxonomies, sections, "
 "pages, menu, etc. "
@@ -730,6 +730,26 @@ msgstr ""
 msgid "Enter your email address to receive updates"
 msgstr ""
 
+#: classes/export-manager.php:44 classes/export-manager.php:45
+msgid "Export data"
+msgstr ""
+
+#: classes/export-manager.php:64
+msgid "Export FAQ"
+msgstr ""
+
+#: classes/export-manager.php:59
+msgid "Export ICT data"
+msgstr ""
+
+#: classes/export-manager.php:60
+msgid "Export in JSON format"
+msgstr ""
+
+#: classes/export-manager.php:66
+msgid "Export Services"
+msgstr ""
+
 #: single-dis-service.php:253
 msgid "FAQ"
 msgstr ""
@@ -882,7 +902,7 @@ msgstr ""
 msgid "Insert here the links to your social media."
 msgstr ""
 
-#: classes/theme-manager.php:250
+#: classes/theme-manager.php:257
 msgid "Invalid username or password"
 msgstr ""
 
@@ -891,7 +911,7 @@ msgid "Language selection: selected language"
 msgstr ""
 
 #: single-dis-event.php:59 single-dis-office.php:59 single-dis-place.php:59
-#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:275
+#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:286
 msgid "Last modification"
 msgstr ""
 
@@ -911,7 +931,7 @@ msgstr ""
 msgid "List ID"
 msgstr ""
 
-#: classes/menu-manager.php:70
+#: classes/menu-manager.php:69
 msgid "List of all activations"
 msgstr ""
 
@@ -1074,8 +1094,8 @@ msgstr ""
 msgid "Related services"
 msgstr ""
 
-#: classes/menu-manager.php:39 classes/menu-manager.php:40
-#: classes/menu-manager.php:62
+#: classes/menu-manager.php:37 classes/menu-manager.php:38
+#: classes/menu-manager.php:61
 msgid "Reload theme data"
 msgstr ""
 
@@ -1260,7 +1280,7 @@ msgstr ""
 msgid "The hero section of the Home Page."
 msgstr ""
 
-#: classes/theme-manager.php:231
+#: classes/theme-manager.php:238
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr ""
 
@@ -1281,7 +1301,7 @@ msgstr ""
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: classes/theme-manager.php:235
+#: classes/theme-manager.php:242
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
@@ -1305,11 +1325,11 @@ msgstr ""
 msgid "The url of the network the site is part of."
 msgstr ""
 
-#: classes/menu-manager.php:69
+#: classes/menu-manager.php:68
 msgid "Theme data loaded successfully"
 msgstr ""
 
-#: classes/menu-manager.php:78
+#: classes/menu-manager.php:77
 msgid "Theme data not reloaded"
 msgstr ""
 

@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-01 07:50+0000\n"
+"PO-Revision-Date: 2025-07-02 12:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -137,7 +137,7 @@ msgstr ""
 msgid "City"
 msgstr "Città"
 
-#: classes/menu-manager.php:64
+#: classes/menu-manager.php:63
 msgid ""
 "Click the button to reload theme data: post-types, taxonomies, sections, "
 "pages, menu, etc. "
@@ -761,9 +761,29 @@ msgstr "Inserisci il codice di analytics."
 msgid "Enter your email address to receive updates"
 msgstr "Inserisci il tuo indirizzo email per ricevere gli aggiornamenti"
 
+#: classes/export-manager.php:44 classes/export-manager.php:45
+msgid "Export data"
+msgstr "Esporta i dati"
+
+#: classes/export-manager.php:64
+msgid "Export FAQ"
+msgstr "Esporta le FAQ"
+
+#: classes/export-manager.php:59
+msgid "Export ICT data"
+msgstr "Esportazione dati ICT"
+
+#: classes/export-manager.php:60
+msgid "Export in JSON format"
+msgstr "Esporta nel formato JSON"
+
+#: classes/export-manager.php:66
+msgid "Export Services"
+msgstr "Esporta i servizi"
+
 #: single-dis-service.php:253
 msgid "FAQ"
-msgstr ""
+msgstr "FAQ"
 
 #. Name of the template
 #: page-templates/faq.php:2
@@ -913,7 +933,7 @@ msgstr "Informazioni"
 msgid "Insert here the links to your social media."
 msgstr "Inserisci qui i link ai tuoi social media."
 
-#: classes/theme-manager.php:250
+#: classes/theme-manager.php:257
 msgid "Invalid username or password"
 msgstr "Nome utente o password non validi"
 
@@ -922,7 +942,7 @@ msgid "Language selection: selected language"
 msgstr "Selezione lingua: lingua selezionata"
 
 #: single-dis-event.php:59 single-dis-office.php:59 single-dis-place.php:59
-#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:275
+#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:286
 msgid "Last modification"
 msgstr "Ultima modifica"
 
@@ -942,7 +962,7 @@ msgstr "Collegamento ad una pagina più approfondita, anche esterna al sito"
 msgid "List ID"
 msgstr "ID lella lista"
 
-#: classes/menu-manager.php:70
+#: classes/menu-manager.php:69
 msgid "List of all activations"
 msgstr "Elenco di tutte le attivazioni"
 
@@ -1105,8 +1125,8 @@ msgstr "Tariffe"
 msgid "Related services"
 msgstr "Servizi correlati"
 
-#: classes/menu-manager.php:39 classes/menu-manager.php:40
-#: classes/menu-manager.php:62
+#: classes/menu-manager.php:37 classes/menu-manager.php:38
+#: classes/menu-manager.php:61
 msgid "Reload theme data"
 msgstr "Ricarica i dati del tema"
 
@@ -1291,7 +1311,7 @@ msgstr "L'e-mail del sito."
 msgid "The hero section of the Home Page."
 msgstr "La sezione dedicata agli eroi della Home Page."
 
-#: classes/theme-manager.php:231
+#: classes/theme-manager.php:238
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr "L'immagine è troppo grande. Il massimo consentito è 1 MB."
 
@@ -1312,7 +1332,7 @@ msgstr "Nome della rete di cui il sito fa parte."
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr "Il nome che deve comparire nelle e-mail inviate dal sito."
 
-#: classes/theme-manager.php:235
+#: classes/theme-manager.php:242
 #, fuzzy
 #| msgid "The PDf file is too big. the maximum allowed is: 2MB."
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
@@ -1339,11 +1359,11 @@ msgstr "Il titolo del sito."
 msgid "The url of the network the site is part of."
 msgstr "L'URL della rete di cui il sito fa parte."
 
-#: classes/menu-manager.php:69
+#: classes/menu-manager.php:68
 msgid "Theme data loaded successfully"
 msgstr "Dati del tema caricati correttamente"
 
-#: classes/menu-manager.php:78
+#: classes/menu-manager.php:77
 msgid "Theme data not reloaded"
 msgstr "Dati del tema non ricaricati"
 
