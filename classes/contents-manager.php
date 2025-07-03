@@ -258,6 +258,28 @@ class DIS_ContentsManager {
 	}
 
 	/**
+	 * Return generic post type list.
+	 *
+	 * @param string $post_type
+	 * @param string $order
+	 * @return array
+	 */
+	public static function get_generic_post_list( $post_type, $order='title' ) {
+		$args = array(
+			'post_type'      => $post_type,
+			'posts_per_page' => -1,
+			'post_status'    => 'publish',
+			'order'          => 'ASC',
+			'orderby'        => $order,
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+	/**
 	 * Get service list order by title or by priority-title.
 	 *
 	 * @param string $order ( 'title' || 'priority' )
@@ -285,7 +307,6 @@ class DIS_ContentsManager {
 				),
 			);
 		}
-
 		if ( $cluster_id ) {
 			$args['meta_query'] = array(
 				array(
@@ -295,7 +316,6 @@ class DIS_ContentsManager {
 				)
 			);
 		}
-
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			return $query->posts;
@@ -303,6 +323,12 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+
+	/**
+	 * Get Home Page events.
+	 *
+	 * @return array
+	 */
 	public static function get_hp_events_list(){
 		$args = array(
 			'post_type'      => DIS_EVENT_POST_TYPE,
@@ -323,6 +349,11 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+	/**
+	 * Get Home Page projects.
+	 *
+	 * @return array
+	 */
 	public static function get_hp_project_list(){
 		$args = array(
 			'post_type'      => DIS_PROJECT_POST_TYPE,
@@ -346,6 +377,11 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+	/**
+	 * Get Home Page banners.
+	 *
+	 * @return array
+	 */
 	public static function get_hp_banner_list(){
 		$args = array(
 			'post_type'      => DIS_BANNER_POST_TYPE,
@@ -362,6 +398,11 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+	/**
+	 * Get Home Page sponsors.
+	 *
+	 * @return array
+	 */
 	public static function get_hp_sponsor_list(){
 		$args = array(
 			'post_type'      => DIS_SPONSOR_POST_TYPE,
@@ -403,6 +444,55 @@ class DIS_ContentsManager {
 		}
 		return $result;
 	}
+
+
+
+	// RELATED ITEMS
+
+	public static function get_related_faq(  $post ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_FAQ_POST_TYPE,
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'service',
+					'value'   => '"' . $post->ID . '"',
+					'compare' => 'LIKE'
+				)
+				),
+			'orderby' => 'title',
+			'order'   => 'ASC',
+		);
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
+
+	public static function get_related_offices(  $post ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_OFFICE_POST_TYPE,
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'members',
+					'value'   => '"' . $post->ID . '"',
+					'compare' => 'LIKE'
+				)
+				),
+			'orderby' => 'title',
+			'order'   => 'ASC',
+		);
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
+
 
 
 	// UTILITIES.
@@ -688,48 +778,5 @@ class DIS_ContentsManager {
 		return $query->posts;
 	}
 
-	public static function get_related_faq(  $post ) {
-		$results = array();
-		$args    = array(
-			'post_type'      => DIS_FAQ_POST_TYPE,
-			'posts_per_page' => -1,
-			'meta_query'     => array(
-				array(
-					'key'     => 'service',
-					'value'   => '"' . $post->ID . '"',
-					'compare' => 'LIKE'
-				)
-				),
-			'orderby' => 'title',
-			'order'   => 'ASC',
-		);
-		$query = new WP_Query($args);
-		if ( $query->have_posts() ) {
-			$results = $query->posts;
-		}
-		return $results;
-	}
-
-	public static function get_related_offices(  $post ) {
-		$results = array();
-		$args    = array(
-			'post_type'      => DIS_OFFICE_POST_TYPE,
-			'posts_per_page' => -1,
-			'meta_query'     => array(
-				array(
-					'key'     => 'members',
-					'value'   => '"' . $post->ID . '"',
-					'compare' => 'LIKE'
-				)
-				),
-			'orderby' => 'title',
-			'order'   => 'ASC',
-		);
-		$query = new WP_Query($args);
-		if ( $query->have_posts() ) {
-			$results = $query->posts;
-		}
-		return $results;
-	}
 	
 }
