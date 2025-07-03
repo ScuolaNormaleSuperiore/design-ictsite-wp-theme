@@ -7,6 +7,7 @@
 global $post;
 get_header();
 
+
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">

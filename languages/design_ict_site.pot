@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-02 12:55+0000\n"
+"POT-Creation-Date: 2025-07-03 09:53+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -99,6 +99,10 @@ msgstr ""
 msgid "Are you sure you want to remove?"
 msgstr ""
 
+#: single-dis-person.php:55
+msgid "Area/Service"
+msgstr ""
+
 #: classes/options-manager.php:468
 msgid "Background image"
 msgstr ""
@@ -134,7 +138,7 @@ msgstr ""
 msgid "City"
 msgstr ""
 
-#: classes/menu-manager.php:63
+#: classes/activation-manager.php:72
 msgid ""
 "Click the button to reload theme data: post-types, taxonomies, sections, "
 "pages, menu, etc. "
@@ -153,7 +157,7 @@ msgid "Contact email address"
 msgstr ""
 
 #. Name of the template
-#: page-templates/contacts.php:2
+#: single-dis-office.php:37 page-templates/contacts.php:2
 msgid "Contacts"
 msgstr ""
 
@@ -422,8 +426,7 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Banners"
 msgstr ""
 
-#: config-theme.php:49 page-templates/people.php:19
-#: page-templates/people.php:24 page-templates/people.php:29
+#: config-theme.php:49
 msgctxt "DIS_PostTypeLabels"
 msgid "Event"
 msgstr ""
@@ -647,6 +650,7 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
+#: single-dis-office.php:45 single-dis-person.php:63
 #: classes/options-manager.php:530
 msgid "E-mail"
 msgstr ""
@@ -901,7 +905,7 @@ msgstr ""
 msgid "Insert here the links to your social media."
 msgstr ""
 
-#: classes/theme-manager.php:257
+#: classes/theme-manager.php:254
 msgid "Invalid username or password"
 msgstr ""
 
@@ -909,8 +913,8 @@ msgstr ""
 msgid "Language selection: selected language"
 msgstr ""
 
-#: single-dis-event.php:59 single-dis-office.php:59 single-dis-place.php:59
-#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:286
+#: single-dis-event.php:59 single-dis-place.php:59 single-dis-post.php:59
+#: single-dis-project.php:61 single-dis-service.php:286
 msgid "Last modification"
 msgstr ""
 
@@ -930,7 +934,7 @@ msgstr ""
 msgid "List ID"
 msgstr ""
 
-#: classes/menu-manager.php:69
+#: classes/activation-manager.php:79
 msgid "List of all activations"
 msgstr ""
 
@@ -1004,7 +1008,7 @@ msgstr ""
 msgid "Network url"
 msgstr ""
 
-#: classes/activation-manager.php:210
+#: classes/activation-manager.php:279
 #, php-format
 msgid "NEW menu '%s' created."
 msgstr ""
@@ -1055,6 +1059,10 @@ msgstr ""
 msgid "Page counters"
 msgstr ""
 
+#: single-dis-office.php:75
+msgid "People"
+msgstr ""
+
 #: classes/person-manager.php:44
 msgid "Person Roles"
 msgstr ""
@@ -1093,8 +1101,8 @@ msgstr ""
 msgid "Related services"
 msgstr ""
 
-#: classes/menu-manager.php:37 classes/menu-manager.php:38
-#: classes/menu-manager.php:61
+#: classes/activation-manager.php:49 classes/activation-manager.php:50
+#: classes/activation-manager.php:70
 msgid "Reload theme data"
 msgstr ""
 
@@ -1139,6 +1147,10 @@ msgstr ""
 #. Name of the template
 #: page-templates/search.php:2
 msgid "Search in the site."
+msgstr ""
+
+#: single-dis-office.php:77 page-templates/people.php:16
+msgid "Search results"
 msgstr ""
 
 #: page-templates/search.php:70 page-templates/search.php:75
@@ -1195,6 +1207,10 @@ msgstr ""
 msgid "Sign me up"
 msgstr ""
 
+#: single-dis-office.php:61
+msgid "Site"
+msgstr ""
+
 #: classes/options-manager.php:85
 msgid "Site configurations"
 msgstr ""
@@ -1242,13 +1258,17 @@ msgstr ""
 msgid "Success"
 msgstr ""
 
-#: classes/activation-manager.php:103
+#: classes/activation-manager.php:172
 #, php-format
 msgid "Successfully created the page: '%s'."
 msgstr ""
 
 #: classes/options-manager.php:104
 msgid "Tagline"
+msgstr ""
+
+#: single-dis-office.php:53 single-dis-person.php:71
+msgid "Telephone"
 msgstr ""
 
 #: classes/options-manager.php:775
@@ -1279,7 +1299,7 @@ msgstr ""
 msgid "The hero section of the Home Page."
 msgstr ""
 
-#: classes/theme-manager.php:238
+#: classes/theme-manager.php:235
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr ""
 
@@ -1287,7 +1307,7 @@ msgstr ""
 msgid "The logo of the site, please load an SVG image."
 msgstr ""
 
-#: classes/activation-manager.php:160
+#: classes/activation-manager.php:229
 #, php-format
 msgid "The menu '%s' already exists."
 msgstr ""
@@ -1300,7 +1320,7 @@ msgstr ""
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: classes/theme-manager.php:242
+#: classes/theme-manager.php:239
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
@@ -1324,11 +1344,11 @@ msgstr ""
 msgid "The url of the network the site is part of."
 msgstr ""
 
-#: classes/menu-manager.php:68
+#: classes/activation-manager.php:78
 msgid "Theme data loaded successfully"
 msgstr ""
 
-#: classes/menu-manager.php:77
+#: classes/activation-manager.php:87
 msgid "Theme data not reloaded"
 msgstr ""
 
@@ -1365,6 +1385,10 @@ msgstr ""
 
 #: classes/options-manager.php:862
 msgid "Web Analytics Code"
+msgstr ""
+
+#: single-dis-person.php:77
+msgid "Web site"
 msgstr ""
 
 #. Description of the theme

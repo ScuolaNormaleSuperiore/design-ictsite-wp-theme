@@ -68,13 +68,13 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1' , $post->ID )
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'Telefono' , 'design_ict_site' ); ?>:
+								<?php echo __( 'Telephone' , 'design_ict_site' ); ?>:
 							</dt>
 							<dd><?php echo esc_attr( $phone ); ?></dd>
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'Sito web' , 'design_ict_site' ); ?>:
+								<?php echo __( 'Web site' , 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<a href="<?php echo esc_url( $website ); ?>"><?php echo esc_url( $website ); ?></a>
