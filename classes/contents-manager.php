@@ -144,7 +144,7 @@ class DIS_ContentsManager {
 	 * @param string $page_slug
 	 * @return void
 	 */
-	public static function get_page_link( $page_slug) {
+	public static function get_page_link( $page_slug ) {
 		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
 		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
 		if ( ! $post ) return null;
@@ -158,7 +158,7 @@ class DIS_ContentsManager {
 	 * @param string $type
 	 * @return string
 	 */
-	public static function get_archive_link( $type) {
+	public static function get_archive_link( $type ) {
 		$page =self::get_Archive_page( $type );
 		if ( ! $page ) return '';
 		$url = get_permalink( $page->ID );
@@ -171,7 +171,7 @@ class DIS_ContentsManager {
 	 * @param string $type
 	 * @return object
 	 */
-	public static function get_archive_page( $type) {
+	public static function get_archive_page( $type ) {
 		$slug = dis_ct_data()[$type]['slug'];
 		if ( ! $slug ) return '';
 		$page = get_page_by_path( $slug );
@@ -198,7 +198,7 @@ class DIS_ContentsManager {
 		return array();
 	}
 
-	public static function get_cluster_list( $hp=false, $order='title') {
+	public static function get_cluster_list( $hp=false, $order='title' ) {
 			$args = array();
 		if ( $order === 'title') {
 			$args = array(
@@ -229,6 +229,27 @@ class DIS_ContentsManager {
 				)
 			);
 		}
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+	/**
+	 * Return ICT people.
+	 *
+	 * @param string $order
+	 * @return array
+	 */
+	public static function get_person_list( $order='title' ) {
+		$args = array(
+			'post_type'      => DIS_PERSON_POST_TYPE,
+			'posts_per_page' => -1,
+			'post_status'    => 'publish',
+			'order'          => 'ASC',
+			'orderby'        => $order,
+		);
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			return $query->posts;
@@ -689,5 +710,26 @@ class DIS_ContentsManager {
 		return $results;
 	}
 
+	public static function get_related_offices(  $post ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_OFFICE_POST_TYPE,
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'members',
+					'value'   => '"' . $post->ID . '"',
+					'compare' => 'LIKE'
+				)
+				),
+			'orderby' => 'title',
+			'order'   => 'ASC',
+		);
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
 	
 }
