@@ -95,12 +95,14 @@ class Person_Manager {
 		$this->add_fields();
 	}
 
+
 	/**
 	 * Add the custom fields of the custom post-type.
 	 *
 	 * @return void
 	 */
 	function add_fields() {
+
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
@@ -231,24 +233,6 @@ class Person_Manager {
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_68662c6ef74b9',
-				'label' => 'Profile URL',
-				'name' => 'profile_url',
-				'aria-label' => '',
-				'type' => 'url',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-			),
-			array(
 				'key' => 'field_67dad1da91ed3',
 				'label' => 'Attachment 1',
 				'name' => 'attachment_1',
@@ -319,8 +303,8 @@ class Person_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
-
+		)
+	);
 	}
 
 }

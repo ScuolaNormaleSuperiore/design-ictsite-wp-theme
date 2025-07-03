@@ -125,24 +125,6 @@
                 "placeholder": ""
             },
             {
-                "key": "field_68662c6ef74b9",
-                "label": "Profile URL",
-                "name": "profile_url",
-                "aria-label": "",
-                "type": "url",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "allow_in_bindings": 0,
-                "placeholder": ""
-            },
-            {
                 "key": "field_67dad1da91ed3",
                 "label": "Attachment 1",
                 "name": "attachment_1",
