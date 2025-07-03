@@ -2,7 +2,6 @@
 * TODO LIST:
 
 - Ricontrollo e riconfigurazione di phpcs.
-- Sitemap.
 - Sitemap XML?
 - HP Featured Events.
 - Controlla se una sezione HP non ha elementi non la mostrare (es. eventi, progetti, ecc).
