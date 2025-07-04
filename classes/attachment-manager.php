@@ -72,32 +72,11 @@ class Attachment_Manager {
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
-	
+
 		acf_add_local_field_group( array(
 		'key' => 'group_67f52d0006c80',
 		'title' => 'Attachment Fields',
 		'fields' => array(
-			array(
-				'key' => 'field_67f52d0011c86',
-				'label' => 'Short description',
-				'name' => 'short_description',
-				'aria-label' => '',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 1,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'maxlength' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
 			array(
 				'key' => 'field_67f52d00156c1',
 				'label' => 'Link',
@@ -156,7 +135,7 @@ class Attachment_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
+		) );
 
 	}
 
