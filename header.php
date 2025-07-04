@@ -148,9 +148,9 @@ $locations = get_nav_menu_locations();
 				<div class="row">
 					<div class="col-12">
 						<!--start nav-->
-						<nav class="navbar navbar-expand-lg has-megamenu" aria-label="Navigazione principale">
+						<nav class="navbar navbar-expand-lg has-megamenu" aria-label="<?php echo __( 'Main navigation', 'design_ict_site' ); ?>">
 							<button class="custom-navbar-toggler" type="button" aria-controls="nav1" aria-expanded="false"
-								aria-label="Mostra/Nascondi la navigazione" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
+								aria-label="<?php echo __( 'Show/Hide navigation', 'design_ict_site' ); ?>" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
 								<svg class="icon">
 									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-burger'; ?>"></use>
 								</svg>
@@ -159,7 +159,7 @@ $locations = get_nav_menu_locations();
 								<div class="overlay" style="display: none;"></div>
 								<div class="close-div">
 									<button class="btn close-menu" type="button">
-										<span class="visually-hidden">Nascondi la navigazione</span>
+										<span class="visually-hidden"><?php echo __( 'Hide navigation', 'design_ict_site' ); ?></span>
 										<svg class="icon">
 											<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-close-big'; ?>"></use>
 										</svg>

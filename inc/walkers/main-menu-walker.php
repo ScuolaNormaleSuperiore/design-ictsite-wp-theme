@@ -18,6 +18,23 @@
 
 class Main_Menu_Walker extends Walker_Nav_Menu {
 
+	private static function menu_tree_by_items( $menuitems ) {
+		$menu_tree = array();
+		foreach ( $menuitems As $item ) {
+			if ( $item->menu_item_parent === '0' ) {
+				$menu_tree[$item->ID] = array(
+					'element'  => $item,
+					'children' => array(),
+				);
+			} else {
+				if( array_key_exists( $item->menu_item_parent, $menu_tree ) && $menu_tree[$item->menu_item_parent] !== null ) {
+					array_push( $menu_tree[$item->menu_item_parent]['children'], $item );
+				}
+			}
+		}
+		return $menu_tree;
+	}
+
 	function start_el( &$output, $item, $depth=0, $args=[], $id=0 ) {
 		// set active tab
 		// $group = $args->current_group;
@@ -55,8 +72,8 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 								<li><span class="divider"></span></li>';
 				//show sub pages
 				if ( $args->menu ) {
-					$menuitems  = $args->menu ? wp_get_nav_menu_items( $args->menu->term_id, array( 'order' => 'DESC' ) ) : array();
-					// $menuitems  = $menuitems  ? dsi_menu_tree_by_items( $menuitems ) : array();
+					$menuitems = $args->menu ? wp_get_nav_menu_items( $args->menu->term_id, array( 'order' => 'DESC' ) ) : array();
+					$menuitems = $menuitems ? Main_Menu_Walker::menu_tree_by_items( $menuitems ) : array();
 				}
 				foreach ( $menuitems[$item->ID]['children'] as $subitem ) {
 					$output .= '<li><a class="dropdown-item list-item" href="';
@@ -69,7 +86,7 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 			}
 			else if ( !$args->walker->has_children && $item->menu_item_parent === '0' ) {
 				$output .= "<li class='nav-item'>";
-				$output .= '<a class="nav-link '.$active_class.'" href="' . $item->url . '" data-element="'.$data_element.'">';
+				$output .= '<a class="nav-link '. $active_class.'" href="' . $item->url . '" data-element="'.$data_element.'">';
 			}
 		}
  
