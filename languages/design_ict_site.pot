@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-03 09:53+0000\n"
+"POT-Creation-Date: 2025-07-04 09:59+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -32,30 +32,38 @@ msgstr ""
 msgid "Add a message"
 msgstr ""
 
-#: classes/person-manager.php:42
+#: classes/person-manager.php:34
 msgid "Add a person role"
 msgstr ""
 
-#: classes/place-manager.php:42
+#: classes/place-manager.php:36
 msgid "Add a Place Type"
+msgstr ""
+
+#: classes/faq-manager.php:34
+msgid "Add a topic"
 msgstr ""
 
 #: classes/attachment-manager.php:38 classes/attachment-manager.php:39
 #: classes/banner-manager.php:35 classes/banner-manager.php:36
 #: classes/event-manager.php:35 classes/event-manager.php:36
-#: classes/faq-manager.php:35 classes/faq-manager.php:36
-#: classes/office-manager.php:36 classes/person-manager.php:71
-#: classes/person-manager.php:72 classes/place-manager.php:70
-#: classes/place-manager.php:71 classes/project-manager.php:35
+#: classes/faq-manager.php:59 classes/faq-manager.php:60
+#: classes/office-manager.php:36 classes/person-manager.php:60
+#: classes/person-manager.php:61 classes/place-manager.php:63
+#: classes/place-manager.php:64 classes/project-manager.php:35
 #: classes/project-manager.php:36 classes/service-cluster-manager.php:38
-#: classes/service-cluster-manager.php:39 classes/service-manager.php:63
-#: classes/service-manager.php:64 classes/sponsor-manager.php:35
+#: classes/service-cluster-manager.php:39 classes/service-manager.php:65
+#: classes/service-manager.php:66 classes/sponsor-manager.php:35
 #: classes/sponsor-manager.php:36
 msgid "Add an item"
 msgstr ""
 
 #: classes/office-manager.php:35
 msgid "Add an item "
+msgstr ""
+
+#: classes/service-manager.php:38
+msgid "Add an user status"
 msgstr ""
 
 #: classes/options-manager.php:300
@@ -79,14 +87,6 @@ msgstr ""
 msgid "All events"
 msgstr ""
 
-#: classes/person-manager.php:39
-msgid "All person roles"
-msgstr ""
-
-#: classes/place-manager.php:39
-msgid "All Place Types"
-msgstr ""
-
 #: template-parts/home/hp-projects-section.php:73
 msgid "All projects"
 msgstr ""
@@ -99,7 +99,7 @@ msgstr ""
 msgid "Are you sure you want to remove?"
 msgstr ""
 
-#: single-dis-person.php:55
+#: single-dis-person.php:56
 msgid "Area/Service"
 msgstr ""
 
@@ -396,192 +396,192 @@ msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr ""
 
-#: config-theme.php:109
+#: config-theme.php:110
 msgctxt "DIS_PostTypeLabels"
 msgid "Article"
 msgstr ""
 
-#: config-theme.php:110
+#: config-theme.php:111
 msgctxt "DIS_PostTypeLabels"
 msgid "Articles"
 msgstr ""
 
-#: config-theme.php:91
+#: config-theme.php:92
 msgctxt "DIS_PostTypeLabels"
 msgid "Attachment"
 msgstr ""
 
-#: config-theme.php:92
+#: config-theme.php:93
 msgctxt "DIS_PostTypeLabels"
 msgid "Attachments"
 msgstr ""
 
-#: config-theme.php:97
+#: config-theme.php:98
 msgctxt "DIS_PostTypeLabels"
 msgid "Banner"
 msgstr ""
 
-#: config-theme.php:98
+#: config-theme.php:99
 msgctxt "DIS_PostTypeLabels"
 msgid "Banners"
 msgstr ""
 
-#: config-theme.php:49
+#: config-theme.php:50
 msgctxt "DIS_PostTypeLabels"
 msgid "Event"
 msgstr ""
 
-#: config-theme.php:50
+#: config-theme.php:51
 msgctxt "DIS_PostTypeLabels"
 msgid "Events"
 msgstr ""
 
-#: config-theme.php:121 config-theme.php:122
+#: config-theme.php:122 config-theme.php:123
 msgctxt "DIS_PostTypeLabels"
 msgid "Faq"
 msgstr ""
 
-#: config-theme.php:61
+#: config-theme.php:62
 msgctxt "DIS_PostTypeLabels"
 msgid "Office"
 msgstr ""
 
-#: config-theme.php:62
+#: config-theme.php:63
 msgctxt "DIS_PostTypeLabels"
 msgid "Offices"
 msgstr ""
 
-#: config-theme.php:115
+#: config-theme.php:116
 msgctxt "DIS_PostTypeLabels"
 msgid "Page"
 msgstr ""
 
-#: config-theme.php:116
+#: config-theme.php:117
 msgctxt "DIS_PostTypeLabels"
 msgid "Pages"
 msgstr ""
 
-#: config-theme.php:79
+#: config-theme.php:80
 msgctxt "DIS_PostTypeLabels"
 msgid "Person"
 msgstr ""
 
-#: config-theme.php:80
+#: config-theme.php:81
 msgctxt "DIS_PostTypeLabels"
 msgid "Persons"
 msgstr ""
 
-#: config-theme.php:85
+#: config-theme.php:86
 msgctxt "DIS_PostTypeLabels"
 msgid "Place"
 msgstr ""
 
-#: config-theme.php:86
+#: config-theme.php:87
 msgctxt "DIS_PostTypeLabels"
 msgid "Places"
 msgstr ""
 
-#: config-theme.php:55
+#: config-theme.php:56
 msgctxt "DIS_PostTypeLabels"
 msgid "Project"
 msgstr ""
 
-#: config-theme.php:56
+#: config-theme.php:57
 msgctxt "DIS_PostTypeLabels"
 msgid "Projects"
 msgstr ""
 
-#: config-theme.php:73
+#: config-theme.php:74
 msgctxt "DIS_PostTypeLabels"
 msgid "Service"
 msgstr ""
 
-#: config-theme.php:67
+#: config-theme.php:68
 msgctxt "DIS_PostTypeLabels"
 msgid "Service Cluster"
 msgstr ""
 
-#: config-theme.php:68
+#: config-theme.php:69
 msgctxt "DIS_PostTypeLabels"
 msgid "Service Clusters"
 msgstr ""
 
-#: config-theme.php:74
+#: config-theme.php:75
 msgctxt "DIS_PostTypeLabels"
 msgid "Services"
 msgstr ""
 
-#: config-theme.php:103
+#: config-theme.php:104
 msgctxt "DIS_PostTypeLabels"
 msgid "Sponsor"
 msgstr ""
 
-#: config-theme.php:104
+#: config-theme.php:105
 msgctxt "DIS_PostTypeLabels"
 msgid "Sponsors"
 msgstr ""
 
-#: config-theme.php:111
+#: config-theme.php:112
 msgctxt "DIS_PostTypeSlugs"
 msgid "articles"
 msgstr ""
 
-#: config-theme.php:93
+#: config-theme.php:94
 msgctxt "DIS_PostTypeSlugs"
 msgid "attachments"
 msgstr ""
 
-#: config-theme.php:99
+#: config-theme.php:100
 msgctxt "DIS_PostTypeSlugs"
 msgid "banners"
 msgstr ""
 
-#: config-theme.php:51
+#: config-theme.php:52
 msgctxt "DIS_PostTypeSlugs"
 msgid "events"
 msgstr ""
 
-#: config-theme.php:123
+#: config-theme.php:124
 msgctxt "DIS_PostTypeSlugs"
 msgid "faq"
 msgstr ""
 
-#: config-theme.php:63
+#: config-theme.php:64
 msgctxt "DIS_PostTypeSlugs"
 msgid "offices"
 msgstr ""
 
-#: config-theme.php:117
+#: config-theme.php:118
 msgctxt "DIS_PostTypeSlugs"
 msgid "pages"
 msgstr ""
 
-#: config-theme.php:81
+#: config-theme.php:82
 msgctxt "DIS_PostTypeSlugs"
 msgid "people"
 msgstr ""
 
-#: config-theme.php:87
+#: config-theme.php:88
 msgctxt "DIS_PostTypeSlugs"
 msgid "places"
 msgstr ""
 
-#: config-theme.php:57
+#: config-theme.php:58
 msgctxt "DIS_PostTypeSlugs"
 msgid "projects"
 msgstr ""
 
-#: config-theme.php:69
+#: config-theme.php:70
 msgctxt "DIS_PostTypeSlugs"
 msgid "service-clusters"
 msgstr ""
 
-#: config-theme.php:75
+#: config-theme.php:76
 msgctxt "DIS_PostTypeSlugs"
 msgid "services"
 msgstr ""
 
-#: config-theme.php:105
+#: config-theme.php:106
 msgctxt "DIS_PostTypeSlugs"
 msgid "sponsors"
 msgstr ""
@@ -611,14 +611,19 @@ msgctxt "DIS_SiteOptionLabel"
 msgid "MainHeroTitle"
 msgstr ""
 
-#: classes/person-manager.php:36
+#: classes/person-manager.php:32
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Person Roles"
 msgstr ""
 
-#: classes/place-manager.php:36
+#: classes/place-manager.php:34
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Place Type"
+msgstr ""
+
+#: classes/faq-manager.php:32
+msgctxt "DIS_TaxonomyGeneralName"
+msgid "Topics"
 msgstr ""
 
 #: classes/service-manager.php:36
@@ -626,14 +631,19 @@ msgctxt "DIS_TaxonomyGeneralName"
 msgid "User Status"
 msgstr ""
 
-#: classes/person-manager.php:37
+#: classes/person-manager.php:33
 msgctxt "DIS_TaxonomySingularName"
 msgid "Person Role"
 msgstr ""
 
-#: classes/place-manager.php:37
+#: classes/place-manager.php:35
 msgctxt "DIS_TaxonomySingularName"
 msgid "Place Type"
+msgstr ""
+
+#: classes/faq-manager.php:33
+msgctxt "DIS_TaxonomySingularName"
+msgid "Topic"
 msgstr ""
 
 #: classes/service-manager.php:37
@@ -650,7 +660,7 @@ msgstr ""
 msgid "Documentation"
 msgstr ""
 
-#: single-dis-office.php:45 single-dis-person.php:63
+#: single-dis-office.php:45 single-dis-person.php:64
 #: classes/options-manager.php:530
 msgid "E-mail"
 msgstr ""
@@ -668,20 +678,12 @@ msgid ""
 msgstr ""
 
 #: classes/attachment-manager.php:40 classes/banner-manager.php:37
-#: classes/event-manager.php:37 classes/faq-manager.php:37
-#: classes/office-manager.php:37 classes/person-manager.php:73
-#: classes/place-manager.php:72 classes/project-manager.php:37
-#: classes/service-cluster-manager.php:40 classes/service-manager.php:65
+#: classes/event-manager.php:37 classes/faq-manager.php:61
+#: classes/office-manager.php:37 classes/person-manager.php:62
+#: classes/place-manager.php:65 classes/project-manager.php:37
+#: classes/service-cluster-manager.php:40 classes/service-manager.php:67
 #: classes/sponsor-manager.php:37
 msgid "Edit the item"
-msgstr ""
-
-#: classes/person-manager.php:41
-msgid "Edit the person role Type"
-msgstr ""
-
-#: classes/place-manager.php:41
-msgid "Edit the Place Type"
 msgstr ""
 
 #: classes/options-manager.php:928
@@ -963,14 +965,6 @@ msgstr ""
 msgid "Logo of the site"
 msgstr ""
 
-#: classes/person-manager.php:38
-msgid "Look for a person role"
-msgstr ""
-
-#: classes/place-manager.php:38
-msgid "Look for a Place Type"
-msgstr ""
-
 #: classes/options-manager.php:392 classes/options-manager.php:398
 #: classes/options-manager.php:410
 msgid "Main hero"
@@ -982,14 +976,6 @@ msgstr ""
 
 #: classes/options-manager.php:213
 msgid "Message"
-msgstr ""
-
-#: classes/person-manager.php:40
-msgid "Modify the person role"
-msgstr ""
-
-#: classes/place-manager.php:40
-msgid "Modify the Place Type"
 msgstr ""
 
 #: classes/options-manager.php:842
@@ -1011,14 +997,6 @@ msgstr ""
 #: classes/activation-manager.php:279
 #, php-format
 msgid "NEW menu '%s' created."
-msgstr ""
-
-#: classes/person-manager.php:43
-msgid "New person role"
-msgstr ""
-
-#: classes/place-manager.php:43
-msgid "New Place Type"
 msgstr ""
 
 #. Name of the template
@@ -1063,7 +1041,7 @@ msgstr ""
 msgid "People"
 msgstr ""
 
-#: classes/person-manager.php:44
+#: classes/person-manager.php:35
 msgid "Person Roles"
 msgstr ""
 
@@ -1071,7 +1049,7 @@ msgstr ""
 msgid "Phone number"
 msgstr ""
 
-#: classes/place-manager.php:44
+#: classes/place-manager.php:37
 msgid "Place Type"
 msgstr ""
 
@@ -1267,7 +1245,7 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: single-dis-office.php:53 single-dis-person.php:71
+#: single-dis-office.php:53 single-dis-person.php:72
 msgid "Telephone"
 msgstr ""
 
@@ -1362,8 +1340,16 @@ msgstr ""
 msgid "To translate the text refers to the domain DIS_SiteOptionLabel."
 msgstr ""
 
+#: classes/faq-manager.php:35
+msgid "Topics"
+msgstr ""
+
 #: template-parts/menu/useful-links-menu.php:21
 msgid "Useful links menu"
+msgstr ""
+
+#: classes/service-manager.php:39
+msgid "User Status"
 msgstr ""
 
 #: template-parts/common/newsletter.php:11
@@ -1371,10 +1357,10 @@ msgid "Vai alla pagina: Newsletter"
 msgstr ""
 
 #: classes/attachment-manager.php:41 classes/banner-manager.php:38
-#: classes/event-manager.php:38 classes/faq-manager.php:38
-#: classes/office-manager.php:38 classes/person-manager.php:74
-#: classes/place-manager.php:73 classes/project-manager.php:38
-#: classes/service-cluster-manager.php:41 classes/service-manager.php:66
+#: classes/event-manager.php:38 classes/faq-manager.php:62
+#: classes/office-manager.php:38 classes/person-manager.php:63
+#: classes/place-manager.php:66 classes/project-manager.php:38
+#: classes/service-cluster-manager.php:41 classes/service-manager.php:68
 #: classes/sponsor-manager.php:38
 msgid "View the item"
 msgstr ""
@@ -1387,7 +1373,7 @@ msgstr ""
 msgid "Web Analytics Code"
 msgstr ""
 
-#: single-dis-person.php:77
+#: single-dis-person.php:78
 msgid "Web site"
 msgstr ""
 
