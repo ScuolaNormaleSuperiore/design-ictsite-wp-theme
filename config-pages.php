@@ -306,7 +306,7 @@ define(
 				'content_template' => 'page-templates/faq.php',
 				'content_type'     => 'page',
 				'content_parent'   => null,
-				'content_category' => DIS_CUSTOM_PAGE_CAT,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
 	)
 );

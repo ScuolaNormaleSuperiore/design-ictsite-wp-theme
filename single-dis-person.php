@@ -6,6 +6,7 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
 $name         = DIS_CustomFieldsManager::get_field( 'name' , $post->ID );
@@ -17,10 +18,10 @@ $phone        = DIS_CustomFieldsManager::get_field( 'telephone' , $post->ID );
 $roles        = get_the_terms( $post->ID, DIS_PERSON_ROLE_TAXONOMY );
 $photo        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/person.png' );
 $offices      = DIS_ContentsManager::get_related_offices( $post );
-$full_name    = trim( join ( ' ', array( $honorific, $name, $surname ) ) );
-$full_roles   = $roles ? implode(', ', wp_list_pluck( $roles, 'name' ) ) : '';
-$full_offices = $offices ? implode(', ', wp_list_pluck( $offices, 'post_title') ) : '';
-$attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1' , $post->ID );
+$full_name    = trim( join( ' ', array( $honorific, $name, $surname ) ) );
+$full_roles   = $roles ? implode( ', ', wp_list_pluck( $roles, 'name' ) ) : '';
+$full_offices = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_title' ) ) : '';
+$attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 ?>
 
 
@@ -33,11 +34,11 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1' , $post->ID )
 					<div class="it-card-profile">
 						<h2 class="it-card-profile-name ">
 							<a href="#">
-								<?php echo $full_name; ?>
+								<?php echo esc_attr( $full_name ); ?>
 							</a>
 						</h2>
 						<p class="it-card-profile-role">
-							<?php echo $full_roles; ?>
+							<?php echo esc_attr( $full_roles ); ?>
 						</p>
 					</div>
 					<div class="avatar size-xxl">

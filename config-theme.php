@@ -19,6 +19,7 @@ define( 'DIS_DEFAULT_TAGS', 'post-tag' );
 define( 'DIS_PLACE_TYPE_TAXONOMY', 'dis-place-type' );
 define( 'DIS_PERSON_ROLE_TAXONOMY', 'dis-person-role' );
 define( 'DIS_USER_STATUS_TAXONOMY', 'dis-user-status' );
+define( 'DIS_FAQ_TOPIC_TAXONOMY', 'dis-faq-topic' );
 
 // DEFAULT WP POST TYPES.
 define( 'DIS_DEFAULT_POST', 'post' );

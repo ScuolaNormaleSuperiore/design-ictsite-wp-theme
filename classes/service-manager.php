@@ -35,6 +35,8 @@ class Service_Manager {
 		$user_status_labels = array(
 			'name'              => _x( 'User Status', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
 			'singular_name'     => _x( 'User Status', 'DIS_TaxonomySingularName', 'design_ict_site' ),
+			'add_new_item'      => __( 'Add an user status', 'design_ict_site' ),
+			'menu_name'         => __( 'User Status', 'design_ict_site' ),
 		);
 
 		$user_status_args = array(
@@ -477,7 +479,7 @@ class Service_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
+		) );
 
 	}
 

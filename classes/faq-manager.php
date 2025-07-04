@@ -4,8 +4,6 @@
  *
  * @package Design_ICT_Site
  */
-
-
 class Faq_Manager {
 	/**
 	 * Constructor of the Manager.
@@ -18,8 +16,34 @@ class Faq_Manager {
 	 * @return void
 	 */
 	public function setup() {
+		// Register the taxonomies used by this post type.
+		add_action( 'init', array( $this, 'add_taxonomies' ) );
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
+	}
+
+	/**
+	 * Register the taxonomies.
+	 *
+	 * @return void
+	 */
+	public function add_taxonomies() {
+		$taxonomy_labels = array(
+			'name'              => _x( 'Topics', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
+			'singular_name'     => _x( 'Topic', 'DIS_TaxonomySingularName', 'design_ict_site' ),
+			'add_new_item'      => __( 'Add a topic', 'design_ict_site' ),
+			'menu_name'         => __( 'Topics', 'design_ict_site' ),
+		);
+		$taxonomy_args = array(
+			'hierarchical'      => true,
+			'labels'            => $taxonomy_labels,
+			'show_ui'           => true,
+			'show_admin_column' => true,
+			'query_var'         => true,
+			'rewrite'           => array( 'slug' => DIS_FAQ_TOPIC_TAXONOMY ),
+			'show_in_rest'      => true,
+		);
+		register_taxonomy( DIS_FAQ_TOPIC_TAXONOMY, array( DIS_FAQ_POST_TYPE ), $taxonomy_args );
 	}
 
 	/**
@@ -30,8 +54,8 @@ class Faq_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'          => dis_ct_data()[DIS_FAQ_POST_TYPE]['plural_name'],
-			'singular_name' => dis_ct_data()[DIS_FAQ_POST_TYPE]['singular_name'],
+			'name'          => dis_ct_data()[ DIS_FAQ_POST_TYPE ]['plural_name'],
+			'singular_name' => dis_ct_data()[ DIS_FAQ_POST_TYPE ]['singular_name'],
 			'add_new'       => __( 'Add an item', 'design_ict_site' ),
 			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
 			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
@@ -39,7 +63,7 @@ class Faq_Manager {
 		);
 
 		$args   = array(
-			'label'         => dis_ct_data()[DIS_FAQ_POST_TYPE]['singular_name'],
+			'label'         => dis_ct_data()[ DIS_FAQ_POST_TYPE ]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -124,7 +148,7 @@ class Faq_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
+		) );
 
 	}
 

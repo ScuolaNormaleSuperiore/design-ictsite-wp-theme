@@ -4,8 +4,6 @@
  *
  * @package Design_ICT_Site
  */
-
-
 class Person_Manager {
 	/**
 	 * Constructor of the Manager.
@@ -30,20 +28,12 @@ class Person_Manager {
 	 * @return void
 	 */
 	public function add_taxonomies() {
-		// aggiungo la tassonomia tipologia luogo.
-
 		$person_role_labels = array(
 			'name'              => _x( 'Person Roles', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
 			'singular_name'     => _x( 'Person Role', 'DIS_TaxonomySingularName', 'design_ict_site' ),
-			'search_items'      => __( 'Look for a person role', 'design_ict_site' ),
-			'all_items'         => __( 'All person roles', 'design_ict_site' ),
-			'edit_item'         => __( 'Modify the person role', 'design_ict_site' ),
-			'update_item'       => __( 'Edit the person role Type', 'design_ict_site' ),
 			'add_new_item'      => __( 'Add a person role', 'design_ict_site' ),
-			'new_item_name'     => __( 'New person role', 'design_ict_site' ),
 			'menu_name'         => __( 'Person Roles', 'design_ict_site' ),
 		);
-
 		$person_role_args = array(
 			'hierarchical'      => true,
 			'labels'            => $person_role_labels,
@@ -53,7 +43,6 @@ class Person_Manager {
 			'rewrite'           => array( 'slug' => DIS_PERSON_ROLE_TAXONOMY ),
 			'show_in_rest'      => true,
 		);
-
 		register_taxonomy( DIS_PERSON_ROLE_TAXONOMY, array( DIS_PERSON_POST_TYPE ), $person_role_args );
 	}
 
@@ -66,8 +55,8 @@ class Person_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'          => dis_ct_data()[DIS_PERSON_POST_TYPE]['plural_name'],
-			'singular_name' => dis_ct_data()[DIS_PERSON_POST_TYPE]['singular_name'],
+			'name'          => dis_ct_data()[ DIS_PERSON_POST_TYPE ]['plural_name'],
+			'singular_name' => dis_ct_data()[ DIS_PERSON_POST_TYPE ]['singular_name'],
 			'add_new'       => __( 'Add an item', 'design_ict_site' ),
 			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
 			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
@@ -75,7 +64,7 @@ class Person_Manager {
 		);
 
 		$args   = array(
-			'label'         => dis_ct_data()[DIS_PERSON_POST_TYPE]['singular_name'],
+			'label'         => dis_ct_data()[ DIS_PERSON_POST_TYPE ]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
@@ -85,7 +74,7 @@ class Person_Manager {
 			'menu_icon'     => 'dashicons-businessperson',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_PERSON_POST_TYPE]['slug'] ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[ DIS_PERSON_POST_TYPE ]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
@@ -304,7 +293,7 @@ class Person_Manager {
 		'description' => '',
 		'show_in_rest' => 0,
 		)
-	);
+		);
 	}
 
 }
