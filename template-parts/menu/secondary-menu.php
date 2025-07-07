@@ -5,8 +5,6 @@
  * @package Design_ICT_Site
  */
 
-require_once DIS_THEME_PATH . '/inc/walkers/secondary-menu-walker.php';
-
 $locations  = $args['locations'];
 $location   = SECONDARY_LOCATION_SLUG;
 $menu_items = array();
@@ -26,10 +24,11 @@ if ( has_nav_menu( $location ) ) {
 					<?php
 					foreach ( $menuitems as $item ) {
 						$active_class = '';
-						if ( get_permalink() == $item['element']->url ) {
+						// if ( get_permalink() == $item['element']->url ) {
+						if ( strpos( get_permalink(), $item['element']->url ) !== false ) {
 							$active_class = 'active';
-							}
-							if ( count( $item['children'] ) > 0 ) {
+						}
+						if ( count( $item['children'] ) > 0 ) {
 					?>
 						<li class="nav-item dropdown">
 							<a class="nav-link dropdown-toggle <?php echo $active_class;?>" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavDropdown1">
@@ -45,11 +44,14 @@ if ( has_nav_menu( $location ) ) {
 										<li><a class="dropdown-item list-item" href="<?php echo esc_attr( $item['element']->url ); ?>"><span><?php echo esc_attr( $item['element']->title ); ?></span></a></li>
 										<li><span class="divider"></span></li>
 										<?php
-											foreach ( $item['children'] as $subitem ) {
+										foreach ( $item['children'] as $subitem ) {
 										?>
-										<li><a class="dropdown-item list-item" href="<?php echo esc_attr( $subitem->url); ?>"><span><?php echo esc_attr( $subitem->title ); ?></span></a></li>
+										<li>
+											<a class="dropdown-item list-item" href="<?php echo esc_attr( $subitem->url ); ?>">
+											<span><?php echo esc_attr( $subitem->title ); ?></span>
+										</a></li>
 										<?php
-											} // foreach
+										} // foreach
 										?>
 									</ul>
 								</div>

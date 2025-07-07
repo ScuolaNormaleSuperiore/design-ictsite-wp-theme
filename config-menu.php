@@ -64,8 +64,8 @@ define(
 				'link'         => '',
 			),
 			array(
-				'slug'         => FAQ_PAGE_SLUG,
-				'title'        => FAQ_PAGE_TITLE,
+				'slug'         => HOW_TO_PAGE_SLUG,
+				'title'        => HOW_TO_PAGE_TITLE,
 				'content_type' => 'page',
 				'post_type'    => 'post_type',
 				'status'       => 'publish',
@@ -85,6 +85,15 @@ define(
 			array(
 				'slug'         => PROJECTS_PAGE_SLUG,
 				'title'        => PROJECTS_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
+			array(
+				'slug'         => FAQ_PAGE_SLUG,
+				'title'        => FAQ_PAGE_TITLE,
 				'content_type' => 'page',
 				'post_type'    => 'post_type',
 				'status'       => 'publish',

@@ -38,6 +38,8 @@ define( 'DOCUMENTATION_PAGE_SLUG', 'DocumentationPageSlug' );
 define( 'DOCUMENTATION_PAGE_TITLE', 'DocumentationPageTitle' );
 define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
 define( 'FAQ_PAGE_TITLE', 'FaqPageTitle' );
+define( 'HOW_TO_PAGE_SLUG', 'HowToPageSlug' );
+define( 'HOW_TO_PAGE_TITLE', 'HowToPageTitle' );
 
 // POST TYPE SLUGS.
 define( 'ARTICLES_PAGE_SLUG', 'ArticlePageSlug' );
@@ -308,6 +310,19 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
+		HOW_TO_PAGE_SLUG =>
+			array(
+				'content_slug'     => HOW_TO_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => HOW_TO_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/how-to.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
 	)
 );
 
@@ -342,6 +357,8 @@ if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
 		$var = _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
 		$var = _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
 		$var = _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
+		$var = _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
 		// Content type pages.
 		$var = _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
 		$var = _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_ict_site' );

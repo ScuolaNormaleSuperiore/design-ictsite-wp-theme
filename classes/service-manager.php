@@ -213,7 +213,7 @@ class Service_Manager {
 			array(
 				'key' => 'field_67d2f2caf054f',
 				'label' => 'How-to title',
-				'name' => 'how_to_title',
+				'name' => 'HOW_TO_PAGE_TITLE',
 				'aria-label' => '',
 				'type' => 'text',
 				'instructions' => '',

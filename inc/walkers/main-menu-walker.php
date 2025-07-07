@@ -36,19 +36,18 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 	}
 
 	function start_el( &$output, $item, $depth=0, $args=[], $id=0 ) {
-		// set active tab
-		// $group = $args->current_group;
 		$active_class = '';
-		if ( $item->url == get_permalink( ) ) {
+		// if ( $item->url == get_permalink() ) {
+		if ( strpos( get_permalink(), $item->url ) !== false ) {
 			$active_class = 'active';
 		}
 
 		// set data-element for crawler
 		$data_element = '';
-		if ( $item->title == 'Persone' ) $data_element .= 'people'; 
-		if ( $item->title == 'Progetti' ) $data_element .= 'projects'; 
-		if ( $item->title == 'Attività di ricerca' ) $data_element .= 'research'; 
-		if ( $item->title == 'Pubblicazioni' ) $data_element .= 'publications'; 
+		if ( $item->title === 'Persone' ) $data_element .= 'people'; 
+		if ( $item->title === 'Progetti' ) $data_element .= 'projects'; 
+		if ( $item->title === 'Attività di ricerca' ) $data_element .= 'research'; 
+		if ( $item->title === 'Pubblicazioni' ) $data_element .= 'publications'; 
  
 		if ( $item->url && $item->url != '#' ) {
 			if ( $args->walker->has_children && $depth === 0 && $item->menu_item_parent === '0' ) {

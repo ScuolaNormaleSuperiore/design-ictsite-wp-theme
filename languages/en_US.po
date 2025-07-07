@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-04 10:00+0000\n"
+"PO-Revision-Date: 2025-07-07 12:32+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -205,192 +205,202 @@ msgstr ""
 msgid "dis-project"
 msgstr ""
 
-#: config-pages.php:339
+#: config-pages.php:354
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageSlug"
 msgstr "about-us"
 
-#: config-pages.php:340
+#: config-pages.php:355
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageTitle"
 msgstr "About us"
 
-#: config-pages.php:331
+#: config-pages.php:346
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageSlug"
 msgstr "accessibility"
 
-#: config-pages.php:332
+#: config-pages.php:347
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageTitle"
 msgstr "Accessibility"
 
-#: config-pages.php:346
+#: config-pages.php:363
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageSlug"
 msgstr "articles"
 
-#: config-pages.php:347
+#: config-pages.php:364
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageTitle"
 msgstr "Articles"
 
-#: config-pages.php:323
+#: config-pages.php:338
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageSlug"
 msgstr "contacts"
 
-#: config-pages.php:324
+#: config-pages.php:339
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageTitle"
 msgstr "Contacts"
 
-#: config-pages.php:341
+#: config-pages.php:356
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageSlug"
 msgstr "documentation"
 
-#: config-pages.php:342
+#: config-pages.php:357
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageTitle"
 msgstr "Documentation"
 
-#: config-pages.php:352
+#: config-pages.php:369
 msgctxt "DIS_ActivationItems"
 msgid "EventPageSlug"
 msgstr "events"
 
-#: config-pages.php:353
+#: config-pages.php:370
 msgctxt "DIS_ActivationItems"
 msgid "EventPageTitle"
 msgstr "Events"
 
-#: config-pages.php:343
+#: config-pages.php:358
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageSlug"
 msgstr "faq"
 
-#: config-pages.php:344
+#: config-pages.php:359
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageTitle"
 msgstr "Faq"
 
-#: config-pages.php:333
+#: config-pages.php:360
+msgctxt "DIS_ActivationItems"
+msgid "HowToPageSlug"
+msgstr "how-to"
+
+#: config-pages.php:361
+msgctxt "DIS_ActivationItems"
+msgid "HowToPageTitle"
+msgstr "How to"
+
+#: config-pages.php:348
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageSlug"
 msgstr "legal-notes"
 
-#: config-pages.php:334
+#: config-pages.php:349
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageTitle"
 msgstr "Legal notes"
 
-#: config-pages.php:337
+#: config-pages.php:352
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageSlug"
 msgstr "media-policy"
 
-#: config-pages.php:338
+#: config-pages.php:353
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageTitle"
 msgstr "Media policy"
 
-#: config-pages.php:329
+#: config-pages.php:344
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageSlug"
 msgstr "newsletter"
 
-#: config-pages.php:330
+#: config-pages.php:345
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageTitle"
 msgstr "Newsletter"
 
-#: config-pages.php:348
+#: config-pages.php:365
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageSlug"
 msgstr "offices"
 
-#: config-pages.php:349
+#: config-pages.php:366
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageTitle"
 msgstr "Offices"
 
-#: config-pages.php:356
+#: config-pages.php:373
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageSlug"
 msgstr "people"
 
-#: config-pages.php:357
+#: config-pages.php:374
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageTitle"
 msgstr "People"
 
-#: config-pages.php:350
+#: config-pages.php:367
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageSlug"
 msgstr "places"
 
-#: config-pages.php:351
+#: config-pages.php:368
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageTitle"
 msgstr "Places"
 
-#: config-pages.php:327
+#: config-pages.php:342
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageSlug"
 msgstr "privacy"
 
-#: config-pages.php:328
+#: config-pages.php:343
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageTitle"
 msgstr "Privacy policy "
 
-#: config-pages.php:354
+#: config-pages.php:371
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageSlug"
 msgstr "projects"
 
-#: config-pages.php:355
+#: config-pages.php:372
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageTitle"
 msgstr "Projects"
 
-#: config-pages.php:358
+#: config-pages.php:375
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageSlug"
 msgstr "service-clusters"
 
-#: config-pages.php:359
+#: config-pages.php:376
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageTitle"
 msgstr "Service clusters"
 
-#: config-pages.php:360
+#: config-pages.php:377
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageSlug"
 msgstr "services"
 
-#: config-pages.php:361
+#: config-pages.php:378
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageTitle"
 msgstr "Services"
 
-#: config-pages.php:325
+#: config-pages.php:340
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageSlug"
 msgstr "site-map"
 
-#: config-pages.php:326
+#: config-pages.php:341
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageTitle"
 msgstr "Site map"
 
-#: config-pages.php:335
+#: config-pages.php:350
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageSlug"
 msgstr "site-search"
 
-#: config-pages.php:336
+#: config-pages.php:351
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr "Site search"
@@ -844,6 +854,10 @@ msgstr ""
 msgid "Hero image"
 msgstr ""
 
+#: header.php:162
+msgid "Hide navigation"
+msgstr ""
+
 #: classes/options-manager.php:201
 msgid "Home Page alerts"
 msgstr ""
@@ -985,6 +999,10 @@ msgstr ""
 #: classes/options-manager.php:392 classes/options-manager.php:398
 #: classes/options-manager.php:410
 msgid "Main hero"
+msgstr ""
+
+#: header.php:151
+msgid "Main navigation"
 msgstr ""
 
 #: classes/options-manager.php:242
@@ -1196,6 +1214,10 @@ msgstr ""
 
 #: classes/options-manager.php:338
 msgid "Show the section title"
+msgstr ""
+
+#: header.php:153
+msgid "Show/Hide navigation"
 msgstr ""
 
 #: template-parts/common/newsletter.php:35

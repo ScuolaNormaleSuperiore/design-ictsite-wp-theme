@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-04 09:59+0000\n"
+"POT-Creation-Date: 2025-07-07 12:31+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -206,192 +206,202 @@ msgstr ""
 msgid "dis-project"
 msgstr ""
 
-#: config-pages.php:339
+#: config-pages.php:354
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageSlug"
 msgstr ""
 
-#: config-pages.php:340
+#: config-pages.php:355
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageTitle"
 msgstr ""
 
-#: config-pages.php:331
+#: config-pages.php:346
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageSlug"
 msgstr ""
 
-#: config-pages.php:332
+#: config-pages.php:347
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageTitle"
 msgstr ""
 
-#: config-pages.php:346
+#: config-pages.php:363
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageSlug"
 msgstr ""
 
-#: config-pages.php:347
+#: config-pages.php:364
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageTitle"
 msgstr ""
 
-#: config-pages.php:323
+#: config-pages.php:338
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageSlug"
 msgstr ""
 
-#: config-pages.php:324
+#: config-pages.php:339
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageTitle"
 msgstr ""
 
-#: config-pages.php:341
+#: config-pages.php:356
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageSlug"
 msgstr ""
 
-#: config-pages.php:342
+#: config-pages.php:357
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageTitle"
 msgstr ""
 
-#: config-pages.php:352
+#: config-pages.php:369
 msgctxt "DIS_ActivationItems"
 msgid "EventPageSlug"
 msgstr ""
 
-#: config-pages.php:353
+#: config-pages.php:370
 msgctxt "DIS_ActivationItems"
 msgid "EventPageTitle"
 msgstr ""
 
-#: config-pages.php:343
+#: config-pages.php:358
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageSlug"
 msgstr ""
 
-#: config-pages.php:344
+#: config-pages.php:359
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageTitle"
 msgstr ""
 
-#: config-pages.php:333
-msgctxt "DIS_ActivationItems"
-msgid "LegalNotesPageSlug"
-msgstr ""
-
-#: config-pages.php:334
-msgctxt "DIS_ActivationItems"
-msgid "LegalNotesPageTitle"
-msgstr ""
-
-#: config-pages.php:337
-msgctxt "DIS_ActivationItems"
-msgid "MediaPolicyPageSlug"
-msgstr ""
-
-#: config-pages.php:338
-msgctxt "DIS_ActivationItems"
-msgid "MediaPolicyPageTitle"
-msgstr ""
-
-#: config-pages.php:329
-msgctxt "DIS_ActivationItems"
-msgid "NewsletterPageSlug"
-msgstr ""
-
-#: config-pages.php:330
-msgctxt "DIS_ActivationItems"
-msgid "NewsletterPageTitle"
-msgstr ""
-
-#: config-pages.php:348
-msgctxt "DIS_ActivationItems"
-msgid "OfficePageSlug"
-msgstr ""
-
-#: config-pages.php:349
-msgctxt "DIS_ActivationItems"
-msgid "OfficePageTitle"
-msgstr ""
-
-#: config-pages.php:356
-msgctxt "DIS_ActivationItems"
-msgid "PeoplePageSlug"
-msgstr ""
-
-#: config-pages.php:357
-msgctxt "DIS_ActivationItems"
-msgid "PeoplePageTitle"
-msgstr ""
-
-#: config-pages.php:350
-msgctxt "DIS_ActivationItems"
-msgid "PlacePageSlug"
-msgstr ""
-
-#: config-pages.php:351
-msgctxt "DIS_ActivationItems"
-msgid "PlacePageTitle"
-msgstr ""
-
-#: config-pages.php:327
-msgctxt "DIS_ActivationItems"
-msgid "PrivacyPageSlug"
-msgstr ""
-
-#: config-pages.php:328
-msgctxt "DIS_ActivationItems"
-msgid "PrivacyPageTitle"
-msgstr ""
-
-#: config-pages.php:354
-msgctxt "DIS_ActivationItems"
-msgid "ProjectPageSlug"
-msgstr ""
-
-#: config-pages.php:355
-msgctxt "DIS_ActivationItems"
-msgid "ProjectPageTitle"
-msgstr ""
-
-#: config-pages.php:358
-msgctxt "DIS_ActivationItems"
-msgid "ServiceClusterPageSlug"
-msgstr ""
-
-#: config-pages.php:359
-msgctxt "DIS_ActivationItems"
-msgid "ServiceClusterPageTitle"
-msgstr ""
-
 #: config-pages.php:360
 msgctxt "DIS_ActivationItems"
-msgid "ServiceItemPageSlug"
+msgid "HowToPageSlug"
 msgstr ""
 
 #: config-pages.php:361
 msgctxt "DIS_ActivationItems"
+msgid "HowToPageTitle"
+msgstr ""
+
+#: config-pages.php:348
+msgctxt "DIS_ActivationItems"
+msgid "LegalNotesPageSlug"
+msgstr ""
+
+#: config-pages.php:349
+msgctxt "DIS_ActivationItems"
+msgid "LegalNotesPageTitle"
+msgstr ""
+
+#: config-pages.php:352
+msgctxt "DIS_ActivationItems"
+msgid "MediaPolicyPageSlug"
+msgstr ""
+
+#: config-pages.php:353
+msgctxt "DIS_ActivationItems"
+msgid "MediaPolicyPageTitle"
+msgstr ""
+
+#: config-pages.php:344
+msgctxt "DIS_ActivationItems"
+msgid "NewsletterPageSlug"
+msgstr ""
+
+#: config-pages.php:345
+msgctxt "DIS_ActivationItems"
+msgid "NewsletterPageTitle"
+msgstr ""
+
+#: config-pages.php:365
+msgctxt "DIS_ActivationItems"
+msgid "OfficePageSlug"
+msgstr ""
+
+#: config-pages.php:366
+msgctxt "DIS_ActivationItems"
+msgid "OfficePageTitle"
+msgstr ""
+
+#: config-pages.php:373
+msgctxt "DIS_ActivationItems"
+msgid "PeoplePageSlug"
+msgstr ""
+
+#: config-pages.php:374
+msgctxt "DIS_ActivationItems"
+msgid "PeoplePageTitle"
+msgstr ""
+
+#: config-pages.php:367
+msgctxt "DIS_ActivationItems"
+msgid "PlacePageSlug"
+msgstr ""
+
+#: config-pages.php:368
+msgctxt "DIS_ActivationItems"
+msgid "PlacePageTitle"
+msgstr ""
+
+#: config-pages.php:342
+msgctxt "DIS_ActivationItems"
+msgid "PrivacyPageSlug"
+msgstr ""
+
+#: config-pages.php:343
+msgctxt "DIS_ActivationItems"
+msgid "PrivacyPageTitle"
+msgstr ""
+
+#: config-pages.php:371
+msgctxt "DIS_ActivationItems"
+msgid "ProjectPageSlug"
+msgstr ""
+
+#: config-pages.php:372
+msgctxt "DIS_ActivationItems"
+msgid "ProjectPageTitle"
+msgstr ""
+
+#: config-pages.php:375
+msgctxt "DIS_ActivationItems"
+msgid "ServiceClusterPageSlug"
+msgstr ""
+
+#: config-pages.php:376
+msgctxt "DIS_ActivationItems"
+msgid "ServiceClusterPageTitle"
+msgstr ""
+
+#: config-pages.php:377
+msgctxt "DIS_ActivationItems"
+msgid "ServiceItemPageSlug"
+msgstr ""
+
+#: config-pages.php:378
+msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageTitle"
 msgstr ""
 
-#: config-pages.php:325
+#: config-pages.php:340
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageSlug"
 msgstr ""
 
-#: config-pages.php:326
+#: config-pages.php:341
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageTitle"
 msgstr ""
 
-#: config-pages.php:335
+#: config-pages.php:350
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageSlug"
 msgstr ""
 
-#: config-pages.php:336
+#: config-pages.php:351
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr ""
@@ -827,6 +837,10 @@ msgstr ""
 msgid "Hero image"
 msgstr ""
 
+#: header.php:162
+msgid "Hide navigation"
+msgstr ""
+
 #: classes/options-manager.php:201
 msgid "Home Page alerts"
 msgstr ""
@@ -968,6 +982,10 @@ msgstr ""
 #: classes/options-manager.php:392 classes/options-manager.php:398
 #: classes/options-manager.php:410
 msgid "Main hero"
+msgstr ""
+
+#: header.php:151
+msgid "Main navigation"
 msgstr ""
 
 #: classes/options-manager.php:242
@@ -1179,6 +1197,10 @@ msgstr ""
 
 #: classes/options-manager.php:338
 msgid "Show the section title"
+msgstr ""
+
+#: header.php:153
+msgid "Show/Hide navigation"
 msgstr ""
 
 #: template-parts/common/newsletter.php:35
