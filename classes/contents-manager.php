@@ -124,7 +124,12 @@ class DIS_ContentsManager {
 	public static function get_menu_tree_by_items( $menuitems ) {
 		$menu_tree = array();
 		foreach ( $menuitems As $item ) {
-			if ( $item->menu_item_parent === '0' ) {
+			if ( strpos( $item->url, 'how-to' ) !== false ) {
+				$menu_tree[$item->ID] = array(
+					'element'  => $item,
+					'children' => self::get_how_to_posts(),
+				);
+			} else if ( $item->menu_item_parent === '0' ) {
 				$menu_tree[$item->ID] = array(
 					'element'  => $item,
 					'children' => array(),
@@ -136,6 +141,35 @@ class DIS_ContentsManager {
 			}
 		}
 		return $menu_tree;
+	}
+
+
+	/**
+	 * Get all the service with the field how_to_title filled.
+	 *
+	 * @return array
+	 */
+	public static function get_how_to_posts() {
+		$result = array();
+		$args = array(
+			'post_type'      => DIS_SERVICE_ITEM_POST_TYPE,
+			'posts_per_page' => -1,
+			'post_status'    => 'publish',
+			'order'          => 'ASC',
+			'orderby'        => 'title',
+			'meta_query'     => array(
+				array(
+					'key'     => 'how_to_title',
+					'value'   => '',
+					'compare' => '!=',
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return $result;
 	}
 
 	/**
