@@ -27,15 +27,15 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 					'children' => array(),
 				);
 			} else {
-				if( array_key_exists( $item->menu_item_parent, $menu_tree ) && $menu_tree[$item->menu_item_parent] !== null ) {
-					array_push( $menu_tree[$item->menu_item_parent]['children'], $item );
+				if( array_key_exists( $item->menu_item_parent, $menu_tree ) && $menu_tree[ $item->menu_item_parent ] !== null ) {
+					array_push( $menu_tree[ $item->menu_item_parent ]['children'], $item );
 				}
 			}
 		}
 		return $menu_tree;
 	}
 
-	function start_el( &$output, $item, $depth=0, $args=[], $id=0 ) {
+	public function start_el( &$output, $item, $depth=0, $args=[], $id=0 ) {
 		$active_class = '';
 		// if ( $item->url == get_permalink() ) {
 		if ( strpos( get_permalink(), $item->url ) !== false ) {
@@ -44,15 +44,10 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 
 		// set data-element for crawler
 		$data_element = '';
-		if ( $item->title === 'Persone' ) $data_element .= 'people'; 
-		if ( $item->title === 'Progetti' ) $data_element .= 'projects'; 
-		if ( $item->title === 'Attività di ricerca' ) $data_element .= 'research'; 
-		if ( $item->title === 'Pubblicazioni' ) $data_element .= 'publications'; 
- 
 		if ( $item->url && $item->url != '#' ) {
 			if ( $args->walker->has_children && $depth === 0 && $item->menu_item_parent === '0' ) {
 				$output .= '<li class="nav-item dropdown">';
-				$output .= '<a class="nav-link ' .$active_class. ' dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavDropdown1">
+				$output .= '<a class="nav-link ' . $active_class. ' dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavDropdown1">
 				<span>';
 				$output .= esc_attr( $item->title );
 				$output .= '</span><svg class="icon icon-xs" role="img" aria-labelledby="Expand">
@@ -69,34 +64,36 @@ class Main_Menu_Walker extends Walker_Nav_Menu {
 				$output .= esc_attr( $item->title );
 				$output .= '</span></a></li>
 								<li><span class="divider"></span></li>';
-				//show sub pages
+				// Show sub pages.
 				if ( $args->menu ) {
 					$menuitems = $args->menu ? wp_get_nav_menu_items( $args->menu->term_id, array( 'order' => 'DESC' ) ) : array();
-					$menuitems = $menuitems ? Main_Menu_Walker::menu_tree_by_items( $menuitems ) : array();
+					$menuitems = $menuitems ? self::menu_tree_by_items( $menuitems ) : array();
 				}
-				foreach ( $menuitems[$item->ID]['children'] as $subitem ) {
+				foreach ( $menuitems[ $item->ID ]['children'] as $subitem ) {
 					$output .= '<li><a class="dropdown-item list-item" href="';
 					$output .= esc_attr( $subitem->url );
 					$output .= '"><span>';
 					$output .= esc_attr( $subitem->title );
 					$output .= '</span></a></li>';
-				} // foreach
+				}
 				$output .= '</ul></div></div>';
 			}
-			else if ( !$args->walker->has_children && $item->menu_item_parent === '0' ) {
+
+			else if ( ! $args->walker->has_children && $item->menu_item_parent === '0' ) {
 				$output .= "<li class='nav-item'>";
-				$output .= '<a class="nav-link '. $active_class.'" href="' . $item->url . '" data-element="'.$data_element.'">';
+				$output .= '<a class="nav-link '. $active_class .'" href="' . $item->url . '" data-element="'.$data_element.'">';
 			}
 		}
- 
-		if ( !$args->walker->has_children && $item->menu_item_parent === '0' ) {
+
+		if ( ! $args->walker->has_children && $item->menu_item_parent === '0' ) {
 			$output .= '<span>' . $item->title . '</span>';
 		}
- 
+
 		if ( $item->url && $item->url != '#' ) {
-			if ( !$args->walker->has_children && $item->menu_item_parent === '0' ) {
+			if ( ! $args->walker->has_children && $item->menu_item_parent === '0' ) {
 				$output .= "</a>";
 			}
 		}
+
 	}
 }
