@@ -23,9 +23,10 @@ $user_status = $args['user_status'] ?? '';
 					$status_list     = get_terms( DIS_USER_STATUS_TAXONOMY );
 					$service_profile = DIS_MultiLangManager::get_page_by_label( SERVICE_BY_PROFILE_SLUG );
 					foreach ( $status_list as $sl ) {
+						$active = ( $sl->slug === $user_status ) ? 'active' : '';
 					?>
 					<li>
-						<a class="list-item medium "
+						<a class="list-item medium <?php echo esc_attr( $active ); ?>"
 							href="<?php echo esc_url( get_permalink( $service_profile ) ) . '?user_status=' . $sl->slug; ?>">
 							<span><?php echo esc_attr( $sl->name ); ?></span>
 						</a>
