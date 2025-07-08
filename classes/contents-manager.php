@@ -357,6 +357,57 @@ class DIS_ContentsManager {
 	}
 
 
+	public static function group_services_by_cluster( $services) {
+		$serv_by_cat = array();
+		// Group by category.
+		foreach ( $services as $service ) {
+			$clusters = DIS_CustomFieldsManager::get_field( 'cluster', $service->ID );
+			foreach ( $clusters as $cluster ) {
+				if ( array_key_exists( $cluster->post_title, $serv_by_cat ) ) {
+					array_push( $serv_by_cat[ $cluster->post_title ]['children'], $service );
+				} else {
+					$item = array(
+						'title'    => $cluster->post_title,
+						'item'     => $cluster,
+						'children' => array( $service ),
+					);
+					$serv_by_cat[ $cluster->post_title ] = $item;
+				}
+			}
+		}
+		return $serv_by_cat;
+	}
+
+
+	/**
+	 * Get service list order by the status of the user.
+	 *
+	 * @param string $status
+	 * @return array
+	 */
+	public static function get_service_list_by_user_status( $status ) {
+		$args = [
+			'post_type'      => DIS_SERVICE_ITEM_POST_TYPE,
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'tax_query'      => [
+				[
+				'taxonomy' => DIS_USER_STATUS_TAXONOMY,
+				'field'    => 'slug',
+				'terms'    => $status,
+				]
+			],
+		];
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+
 	/**
 	 * Get Home Page events.
 	 *

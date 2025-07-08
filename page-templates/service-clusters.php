@@ -7,8 +7,9 @@
 global $post;
 get_header();
 
-$clusters = DIS_ContentsManager::get_cluster_list();
-$services = DIS_ContentsManager::get_service_list();
+$clusters    = DIS_ContentsManager::get_cluster_list();
+$services    = DIS_ContentsManager::get_service_list();
+$user_status = '';
 ?>
 
 	<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
@@ -53,7 +54,12 @@ $services = DIS_ContentsManager::get_service_list();
 
 			<!-- SIDEBAR NAVIGATION -->
 			<?php
-				get_template_part( 'template-parts/common/sidebar-navigation' );
+				get_template_part(
+					'template-parts/common/sidebar-navigation',
+					false,
+					array( 'user_status' => $user_status
+					)
+				);
 			?>
 
 		</div>

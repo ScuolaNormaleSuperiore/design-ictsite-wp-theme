@@ -3,6 +3,8 @@
 *
 * @package Design_ICT_Site
 */
+
+$user_status = $args['user_status'] ?? '';
 ?>
 
 <!-- SIDEBAR NAVIGATION LISTS -->
@@ -24,7 +26,7 @@
 					?>
 					<li>
 						<a class="list-item medium "
-							href="<?php echo esc_url( get_permalink( $service_profile ) ) . '#' . $sl->slug; ?>">
+							href="<?php echo esc_url( get_permalink( $service_profile ) ) . '?user_status=' . $sl->slug; ?>">
 							<span><?php echo esc_attr( $sl->name ); ?></span>
 						</a>
 					</li>

@@ -8,23 +8,9 @@ global $post;
 get_header();
 
 $services    = DIS_ContentsManager::get_service_list( 'title', null );
-$serv_by_cat = array();
-// Group by category.
-foreach ( $services as $service ) {
-	$clusters = DIS_CustomFieldsManager::get_field( 'cluster', $service->ID );
-	foreach ( $clusters as $cluster ) {
-		if ( array_key_exists( $cluster->post_title, $serv_by_cat ) ) {
-			array_push( $serv_by_cat[ $cluster->post_title ]['children'], $service );
-		} else {
-			$item = array(
-				'title'    => $cluster->post_title,
-				'item'     => $cluster,
-				'children' => array( $service ),
-			);
-			$serv_by_cat[ $cluster->post_title ] = $item;
-		}
-	}
-}
+$user_status = '';
+$serv_by_cat = DIS_ContentsManager::group_services_by_cluster( $services );
+
 // Order by category.
 ksort( $serv_by_cat );
 ?>
@@ -78,8 +64,14 @@ ksort( $serv_by_cat );
 
 		<!-- SIDEBAR NAVIGATION -->
 		<?php
-			get_template_part( 'template-parts/common/sidebar-navigation' );
+			get_template_part(
+				'template-parts/common/sidebar-navigation',
+				false,
+				array( 'user_status' => $user_status
+				)
+			);
 		?>
+
 
 	</div>
 </div>
