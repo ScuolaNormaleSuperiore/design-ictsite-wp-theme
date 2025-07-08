@@ -84,19 +84,19 @@ $services = DIS_ContentsManager::get_service_list();
 					<div class="sidebar-linklist-wrapper linklist-secondary">
 						<div class="link-list-wrapper">
 						<?php
-						$cluster_list = DIS_MultiLangManager::get_page_by_label( SERVICE_CLUSTER_PAGE_SLUG );
 						$service_list = DIS_MultiLangManager::get_page_by_label( SERVICE_ITEM_PAGE_SLUG );
+						$cluster_list = DIS_MultiLangManager::get_page_by_label( SERVICE_CLUSTER_PAGE_SLUG );
 						?>
 							<ul class="link-list">
 								<li>
-									<a class="list-item" href="<?php echo esc_url( get_permalink( $cluster_list->ID ) ); ?>">
+									<a class="list-item" href="<?php echo esc_url( get_permalink( $service_list->ID ) ); ?>">
 										<span>
 											<?php echo __( 'Full list of services', 'design_ict_site' ); ?>
 										</span>
 									</a>
 								</li>
 								<li>
-									<a class="list-item active" href="<?php echo esc_url( get_permalink( $service_list->ID ) ); ?>">
+									<a class="list-item active" href="<?php echo esc_url( get_permalink( $cluster_list->ID ) ); ?>">
 										<span>
 											<?php echo __( 'List of services by category', 'design_ict_site' ); ?>
 										</span>
