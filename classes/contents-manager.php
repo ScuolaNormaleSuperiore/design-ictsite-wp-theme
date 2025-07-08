@@ -648,10 +648,6 @@ class DIS_ContentsManager {
 								'slug' => DIS_PROJECT_POST_TYPE,
 							),
 							array(
-								'name' => dis_ct_data()[DIS_OFFICE_POST_TYPE]['plural_name'],
-								'slug' => DIS_OFFICE_POST_TYPE,
-							),
-							array(
 								'name' => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['plural_name'],
 								'slug' => DIS_SERVICE_CLUSTER_POST_TYPE,
 							),
