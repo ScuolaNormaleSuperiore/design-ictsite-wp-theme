@@ -1,6 +1,10 @@
 
 * TODO LIST:
 
+- Rifare cerca.
+- Rifare Home Page.
+- Eventi.
+
 - Ricontrollo e riconfigurazione di phpcs.
 - Sitemap XML?
 - HP Featured Events.
