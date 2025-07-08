@@ -15,7 +15,7 @@ if ( $user_status ) {
 	$serv_by_cat = DIS_ContentsManager::group_services_by_cluster( $services );
 	// Order by category.
 	ksort( $serv_by_cat );
-	$user_status_obj = 
+	$status_taxonomy = get_term_by( 'slug', $user_status, DIS_USER_STATUS_TAXONOMY );
 ?>
 
 	<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
@@ -24,7 +24,7 @@ if ( $user_status ) {
 			<!-- SERVIZI -->
 			<div class="col">
 				<h2 class="pb-2">
-					<?php echo __( 'Services for', 'design_ict_site' ) . ' ' . $user_status ; ?> 
+					<?php echo __( 'Services for', 'design_ict_site' ) . ' ' . strtolower( $status_taxonomy->name ) ; ?> 
 				</h2>
 				<!-- SERVICES BY CATEGORY -->
 				<div class="link-list-wrapper">
