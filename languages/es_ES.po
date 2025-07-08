@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-07-07 12:32+0000\n"
+"PO-Revision-Date: 2025-07-08 08:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -118,6 +118,10 @@ msgstr ""
 msgid "Brevo"
 msgstr ""
 
+#: page-templates/service-clusters.php:63
+msgid "Browse by profile"
+msgstr ""
+
 #: classes/options-manager.php:313
 msgid "Choose the section."
 msgstr ""
@@ -205,202 +209,212 @@ msgstr ""
 msgid "dis-project"
 msgstr ""
 
-#: config-pages.php:354
+#: config-pages.php:357
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageSlug"
 msgstr ""
 
-#: config-pages.php:355
+#: config-pages.php:358
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageTitle"
 msgstr ""
 
-#: config-pages.php:346
+#: config-pages.php:349
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageSlug"
 msgstr ""
 
-#: config-pages.php:347
+#: config-pages.php:350
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageTitle"
 msgstr ""
 
-#: config-pages.php:363
+#: config-pages.php:368
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageSlug"
 msgstr ""
 
-#: config-pages.php:364
+#: config-pages.php:369
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageTitle"
 msgstr ""
 
-#: config-pages.php:338
+#: config-pages.php:341
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageSlug"
 msgstr ""
 
-#: config-pages.php:339
+#: config-pages.php:342
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageTitle"
 msgstr ""
 
-#: config-pages.php:356
+#: config-pages.php:359
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageSlug"
 msgstr ""
 
-#: config-pages.php:357
+#: config-pages.php:360
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageTitle"
 msgstr ""
 
-#: config-pages.php:369
+#: config-pages.php:374
 msgctxt "DIS_ActivationItems"
 msgid "EventPageSlug"
 msgstr ""
 
-#: config-pages.php:370
+#: config-pages.php:375
 msgctxt "DIS_ActivationItems"
 msgid "EventPageTitle"
 msgstr ""
 
-#: config-pages.php:358
+#: config-pages.php:361
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageSlug"
 msgstr ""
 
-#: config-pages.php:359
+#: config-pages.php:362
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageTitle"
 msgstr ""
 
-#: config-pages.php:360
+#: config-pages.php:363
 msgctxt "DIS_ActivationItems"
 msgid "HowToPageSlug"
 msgstr ""
 
-#: config-pages.php:361
+#: config-pages.php:364
 msgctxt "DIS_ActivationItems"
 msgid "HowToPageTitle"
 msgstr ""
 
-#: config-pages.php:348
+#: config-pages.php:351
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageSlug"
 msgstr ""
 
-#: config-pages.php:349
+#: config-pages.php:352
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageTitle"
 msgstr ""
 
-#: config-pages.php:352
+#: config-pages.php:355
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageSlug"
 msgstr ""
 
-#: config-pages.php:353
+#: config-pages.php:356
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageTitle"
 msgstr ""
 
-#: config-pages.php:344
+#: config-pages.php:347
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageSlug"
 msgstr ""
 
-#: config-pages.php:345
+#: config-pages.php:348
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageTitle"
 msgstr ""
 
-#: config-pages.php:365
+#: config-pages.php:370
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageSlug"
 msgstr ""
 
-#: config-pages.php:366
+#: config-pages.php:371
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageTitle"
 msgstr ""
 
-#: config-pages.php:373
+#: config-pages.php:378
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageSlug"
 msgstr ""
 
-#: config-pages.php:374
+#: config-pages.php:379
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageTitle"
 msgstr ""
 
-#: config-pages.php:367
+#: config-pages.php:372
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageSlug"
 msgstr ""
 
-#: config-pages.php:368
+#: config-pages.php:373
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageTitle"
 msgstr ""
 
-#: config-pages.php:342
+#: config-pages.php:345
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageSlug"
 msgstr ""
 
-#: config-pages.php:343
+#: config-pages.php:346
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageTitle"
 msgstr ""
 
-#: config-pages.php:371
+#: config-pages.php:376
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageSlug"
 msgstr ""
 
-#: config-pages.php:372
+#: config-pages.php:377
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageTitle"
 msgstr ""
 
-#: config-pages.php:375
+#: config-pages.php:365
+msgctxt "DIS_ActivationItems"
+msgid "ServiceByProfileSlug"
+msgstr ""
+
+#: config-pages.php:366
+msgctxt "DIS_ActivationItems"
+msgid "ServiceByProfileTitle"
+msgstr ""
+
+#: config-pages.php:380
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageSlug"
 msgstr ""
 
-#: config-pages.php:376
+#: config-pages.php:381
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageTitle"
 msgstr ""
 
-#: config-pages.php:377
+#: config-pages.php:382
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageSlug"
 msgstr ""
 
-#: config-pages.php:378
+#: config-pages.php:383
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageTitle"
 msgstr ""
 
-#: config-pages.php:340
+#: config-pages.php:343
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageSlug"
 msgstr ""
 
-#: config-pages.php:341
+#: config-pages.php:344
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageTitle"
 msgstr ""
 
-#: config-pages.php:350
+#: config-pages.php:353
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageSlug"
 msgstr ""
 
-#: config-pages.php:351
+#: config-pages.php:354
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr ""
@@ -805,8 +819,8 @@ msgstr "Helpdesk"
 msgid "FooterOfficesLabel"
 msgstr ""
 
-#: page-templates/service-clusters.php:65
-msgid "From a to z"
+#: page-templates/service-clusters.php:85
+msgid "Full list of services"
 msgstr ""
 
 #: single-dis-service.php:173
@@ -953,6 +967,10 @@ msgstr ""
 
 #: classes/activation-manager.php:79
 msgid "List of all activations"
+msgstr ""
+
+#: page-templates/service-clusters.php:92
+msgid "List of services by category"
 msgstr ""
 
 #: classes/options-manager.php:822 template-parts/header/login_button.php:14

@@ -58,6 +58,8 @@ define( 'SERVICE_CLUSTER_PAGE_SLUG', 'ServiceClusterPageSlug' );
 define( 'SERVICE_CLUSTER_PAGE_TITLE', 'ServiceClusterPageTitle' );
 define( 'SERVICE_ITEM_PAGE_SLUG', 'ServiceItemPageSlug' );
 define( 'SERVICE_ITEM_PAGE_TITLE', 'ServiceItemPageTitle' );
+define( 'SERVICE_BY_PROFILE_SLUG', 'ServiceByProfileSlug' );
+define( 'SERVICE_BY_PROFILE_TITLE', 'ServiceByProfileTitle' );
 
 /* PAGES */
 define(
@@ -189,6 +191,19 @@ define(
 				'content_status'   => 'publish',
 				'content_author'   => 1,
 				'content_template' => 'page-templates/service-items.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
+		SERVICE_BY_PROFILE_SLUG =>
+			array(
+				'content_slug'     => SERVICE_BY_PROFILE_SLUG,
+				'content_file'     => '',
+				'content_title'    => SERVICE_BY_PROFILE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/service-profile.php',
 				'content_type'     => 'page',
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
@@ -328,53 +343,57 @@ define(
 
 
 /**
- *  This feature is used so that translation plugins like Loco Translate 
+ *  This feature is used so that translation plugins like Loco Translate
  *  can automatically extract these tags from the theme to translate.
  *  @TODO: Check if it is possible to remove these duplications.
  */
 if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
 	function dis_translate_data() {
 		// Standard pages.
-		$var = _x( 'ContactsPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ContactsPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'SiteMapPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'SiteMapPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'PrivacyPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'PrivacyPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'NewsletterPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'NewsletterPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'AccessibilityPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'AccessibilityPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'LegalNotesPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'LegalNotesPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'SiteSearchPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'SiteSearchPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'MediaPolicyPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'MediaPolicyPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'AboutUsPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'AboutUsPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'DocumentationPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		// Content type pages.
-		$var = _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'OfficePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'OfficePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'PlacePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'PeoplePageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ServiceItemPageSlug', 'DIS_ActivationItems', 'design_ict_site' );
-		$var = _x( 'ServiceItemPageTitle', 'DIS_ActivationItems', 'design_ict_site' );
+		return array(
+			'ContactsPageSlug'        => _x( 'ContactsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ContactsPageTitle'       => _x( 'ContactsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'SiteMapPageSlug'         => _x( 'SiteMapPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'SiteMapPageTitle'        => _x( 'SiteMapPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'PrivacyPageSlug'         => _x( 'PrivacyPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'PrivacyPageTitle'        => _x( 'PrivacyPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'NewsletterPageSlug'      => _x( 'NewsletterPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'NewsletterPageTitle'     => _x( 'NewsletterPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'AccessibilityPageSlug'   => _x( 'AccessibilityPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'AccessibilityPageTitle'  => _x( 'AccessibilityPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'LegalNotesPageSlug'      => _x( 'LegalNotesPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'LegalNotesPageTitle'     => _x( 'LegalNotesPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'SiteSearchPageSlug'      => _x( 'SiteSearchPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'SiteSearchPageTitle'     => _x( 'SiteSearchPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'MediaPolicyPageSlug'     => _x( 'MediaPolicyPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'MediaPolicyPageTitle'    => _x( 'MediaPolicyPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'AboutUsPageSlug'         => _x( 'AboutUsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'AboutUsPageTitle'        => _x( 'AboutUsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'DocumentationPageSlug'   => _x( 'DocumentationPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'DocumentationPageTitle'  => _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'FaqPageSlug'             => _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'FaqPageTitle'            => _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'HowToPageSlug'           => _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'HowToPageTitle'          => _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			// Content type pages.
+			'ArticlePageSlug'         => _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ArticlePageTitle'        => _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'OfficePageSlug'          => _x( 'OfficePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'OfficePageTitle'         => _x( 'OfficePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'PlacePageSlug'           => _x( 'PlacePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'PlacePageTitle'          => _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'EventPageSlug'           => _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'EventPageTitle'          => _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ProjectPageSlug'         => _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ProjectPageTitle'        => _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'PeoplePageSlug'          => _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'PeoplePageTitle'         => _x( 'PeoplePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ServiceClusterPageSlug'  => _x( 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ServiceClusterPageTitle' => _x( 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ServiceItemPageSlug'     => _x( 'ServiceItemPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ServiceItemPageTitle'    => _x( 'ServiceItemPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ServiceByProfileSlug'    => _x( 'ServiceByProfileSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ServiceByProfileTitle'   => _x( 'ServiceByProfileTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+		);
 	}
 }
