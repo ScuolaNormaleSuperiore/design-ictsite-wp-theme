@@ -23,48 +23,21 @@ if ( $user_status ) {
 
 			<!-- SERVIZI -->
 			<div class="col">
+
 				<h2 class="pb-2">
 					<?php echo __( 'Services for', 'design_ict_site' ) . ' ' . strtolower( $status_taxonomy->name ) ; ?> 
 				</h2>
+	
 				<!-- SERVICES BY CATEGORY -->
-				<div class="link-list-wrapper">
-					<ul class="link-list">
-						<?php
-						foreach( $serv_by_cat as $cat ) {
-						?>
-						<li>
-							<a class="list-item large medium icon-right"
-								href="<?php echo get_permalink( $cat['item']->ID ); ?>">
-								<span class="list-item-title-icon-wrapper">
-								<span class="list-item-title">
-									<?php echo esc_attr( $cat['title'] ); ?>
-								</span>
-								<svg class="icon icon-primary">
-									<title><?php echo esc_attr( $cat['title'] ); ?></title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-link'; ?>"></use>
-								</svg>
-								</span>
-							</a>
-							<ul class="link-sublist">
-								<?php
-								foreach ( $cat['children'] as $srv ) {
-								?>
-								<li>
-									<a class="list-item"
-										href="<?php echo esc_url( get_permalink( $srv->ID ) ); ?>">
-										<span><?php echo esc_attr( $srv->post_title ); ?></span>
-									</a>
-								</li>
-								<?php
-								}
-								?>
-							</ul>
-						</li>
-						<?php
-						}
-						?>
-					</ul>
-				</div>
+				<?php
+					get_template_part(
+						'template-parts/common/services-by-category',
+						false,
+						array( 'serv_by_cat' => $serv_by_cat
+						)
+					);
+				?>
+
 			</div>
 
 			<!-- SIDEBAR NAVIGATION -->
