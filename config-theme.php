@@ -256,7 +256,7 @@ define( 'DIS_ACF_SHORT_DESC_LENGTH', 30 );
 define( 'DIS_ITEMS_PER_PAGE', 10 );
 define(
 	'DIS_ITEMS_PER_PAGE_VALUES',
-	array( '4', '10', '20', '30', '40', '50' )
+	array( '10', '20', '30', '40', '50' )
 );
 
 // Bot definitions.

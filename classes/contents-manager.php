@@ -655,10 +655,10 @@ class DIS_ContentsManager {
 								'name' => dis_ct_data()[DIS_SERVICE_ITEM_POST_TYPE]['plural_name'],
 								'slug' => DIS_SERVICE_ITEM_POST_TYPE,
 							),
-							array(
-								'name' => dis_ct_data()[DIS_DEFAULT_PAGE]['plural_name'],
-								'slug' => DIS_DEFAULT_PAGE,
-							),
+							// array(
+							// 	'name' => dis_ct_data()[DIS_DEFAULT_PAGE]['plural_name'],
+							// 	'slug' => DIS_DEFAULT_PAGE,
+							// ),
 							array(
 								'name' => dis_ct_data()[DIS_DEFAULT_POST]['plural_name'],
 								'slug' => DIS_DEFAULT_POST,
@@ -700,10 +700,12 @@ class DIS_ContentsManager {
 			'paged'          => get_query_var( 'paged', 1 ),
 			'post_status'    => 'publish',
 			'posts_per_page' => $page_size,
-			's'              => $search_string,
 			'orderby'        => 'title',
 			'order'          => 'ASC',
 		);
+		if ( $search_string ) {
+			$params['s'] = $search_string;
+		}
 		if( count( $selected_contents ) > 0 ) {
 			$params['post_type'] = $selected_contents;
 		}
@@ -786,7 +788,9 @@ class DIS_ContentsManager {
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
-		$result->description   = wp_strip_all_tags( get_the_content( $post ) );
+		// $result->description   = wp_strip_all_tags( get_the_content( $post ) );
+		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$result->description   = $description;
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->category_link = self::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
@@ -821,9 +825,11 @@ class DIS_ContentsManager {
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
 		$description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
-		if ( ! $description ) {
-			$description = wp_strip_all_tags( get_the_content( $post ) );
-		}
+		// if ( ! $description ) {
+		// 	$description = wp_strip_all_tags( get_the_content( $post ) );
+		// }
+		// $result->description   = $description;
+		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description;
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->category_link = self::get_archive_link( $post->post_type );

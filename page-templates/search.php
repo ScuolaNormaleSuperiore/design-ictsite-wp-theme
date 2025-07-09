@@ -48,21 +48,17 @@ if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 
 }
 
 // Execute the query if the NONCE is valid.
-if ( '' !== $search_string ) {
-	// NONCE CHECK.
-	if (
-		isset( $_GET['site_search_nonce_field'] ) &&
-		wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' )
-	) {
-		$the_query = DIS_ContentsManager::get_site_search_query(
-			$selected_contents,
-			$search_string,
-			$per_page
-		);
-		$num_results = $the_query->found_posts;
-	}
-} else {
-	$num_results = 0;
+if (
+	isset( $_GET['site_search_nonce_field'] ) &&
+	wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' )
+) {
+	// EXECUTE THE QUERY .
+	$the_query = DIS_ContentsManager::get_site_search_query(
+		$selected_contents,
+		$search_string,
+		$per_page
+	);
+	$num_results = $the_query->found_posts;
 }
 $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_results );
 ?>
@@ -251,8 +247,6 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 		
 	</div>
 </div>
-
-
 
 
 <?php

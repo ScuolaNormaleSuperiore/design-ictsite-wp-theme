@@ -15,11 +15,8 @@ $pagination_on   = ( $num_results > intval ( $per_page) )  ? true : false;
 <nav class="pagination-wrapper justify-content-center mt-3" aria-label="Centered navigation">
 	<div class="row w-100" id='pagination_links'>
 
-		<!-- Filters column -->
-		<div class="col-md-4 pt-2"></div>
-
 		<!-- Pages navigation -->
-		<div class="col-md-3 pt-2">
+		<div class="col-md-9 pt-2">
 			<?php
 			if ( $the_query && $pagination_on ) {
 				$prev_label =
@@ -83,8 +80,7 @@ $pagination_on   = ( $num_results > intval ( $per_page) )  ? true : false;
 			?>
 		</div>
 
-		<!-- Right empty column -->
-		<div class="col-md-2 pt-2"></div>
+
 
 	</div>
 </nav>
