@@ -2,8 +2,10 @@
 * TODO LIST:
 
 - Rifare cerca.
+- Gestione dei font.
 - Rifare Home Page.
-- Eventi.
+- Progetti
+- News
 
 - Ricontrollo e riconfigurazione di phpcs.
 - Sitemap XML?
@@ -21,27 +23,3 @@ B) Configurazione automatica di Polylang con italiano e inglese.
 * Problema caricamento multiplo:
 - upload_scripts: viene invocato una sola volta
 - add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) ) --> viene invocato 3 volte
-
-
-* Code examples:
-
-	$site_title = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
-
-	$languages = DIS_MultiLangManager::get_languages_list();
-	echo 'Languages defined:' . count($languages);
-
-
-	$tm  = DIS_ThemeManager::get_instance();
-	$txt = $tm->cfm->get_name();
-	echo '--->' . $txt;
-
-
-	<svg class="icon icon-success">
-		<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-user' ?>"></use>
-	</svg>
-
-
-	// Check if is the first installation.
-	$dis_has_installed = get_option( 'kdis_has_installed' );
-	// Set installation executed.
-	update_option( 'dis_has_installed', true );
