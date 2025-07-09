@@ -83,140 +83,57 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 			</p>
 
 			<!-- SEARCH RESULTS LIST -->
-			<ul class="it-card-list row" aria-label="<?php echo __( 'Search results', 'design_ict_site' ); ?>">
+			<?php
+			if ( ( $num_results > 0 ) ) {
+			?>
+			<ul class="it-card-list row"
+				aria-label="<?php echo __( 'Search results', 'design_ict_site' ); ?>">
+				<?php
+				// The main loop of the page.
+				$post_index = 0;
+				while ( $the_query->have_posts() ) {
+					$the_query->the_post();
+					$result = DIS_ContentsManager::wrap_search_result( $post );
+				?>
 				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
 					<!--start it-card-->
 					<article class="it-card it-card-height-full rounded shadow-sm border">
 						<!--card first child is the title (link)-->
 						<h3 class="it-card-title ">
-							<a href="#">Primo risultato</a>
+							<a href="<?php echo esc_url( $result->link ); ?>">
+								<?php echo esc_attr( $result->title ); ?>
+							</a>
 						</h3>
 						<!--card body content-->
 						<div class="it-card-body">
-							<p class="it-card-text">Questo è un testo breve che riassume il contenuto della pagina di destinazione
-								in massimo tre o quattro righe, senza troncamento.</p>
+							<p class="it-card-text">
+								<?php echo esc_attr( wp_trim_words( $result->description , DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
+							</p>
 						</div>
 						<!--finally the card footer metadata-->
 						<footer class="it-card-related it-card-footer">
 							<div class="it-card-taxonomy">
-								<a href="#" class="it-card-category it-card-link link-secondary"><span
-										class="visually-hidden">Categoria correlata: </span>TIPOLOGIA</a>
+								<a href="<?php echo esc_url( $result->category_link ); ?>"
+									class="it-card-category it-card-link link-secondary">
+									<span class="visually-hidden">
+										<?php echo __( 'Related category', 'design_ict_site' ); ?>
+									</span>
+									<?php echo esc_attr( $result->category ); ?>
+								</a>
 							</div>
 						</footer>
 					</article>
 					<!--end it-card-->
 				</li>
-				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-					<!--start it-card-->
-					<article class="it-card rounded shadow-sm border">
-						<!--card first child is the title (link)-->
-						<h3 class="it-card-title ">
-							<a href="#">Secondo risultato</a>
-						</h3>
-						<!--card body content-->
-						<div class="it-card-body">
-							<p class="it-card-text">Questo è un testo breve che riassume il contenuto della pagina di destinazione
-								in massimo tre o quattro righe, senza troncamento.</p>
-						</div>
-						<!--finally the card footer metadata-->
-						<footer class="it-card-related it-card-footer">
-							<div class="it-card-taxonomy">
-								<a href="#" class="it-card-category it-card-link link-secondary"><span
-										class="visually-hidden">Categoria correlata: </span>TIPOLOGIA</a>
-							</div>
-						</footer>
-					</article>
-					<!--end it-card-->
-				</li>
-				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-					<!--start it-card-->
-					<article class="it-card it-card-height-full rounded shadow-sm border">
-						<!--card first child is the title (link)-->
-						<h3 class="it-card-title ">
-							<a href="#">Terzo risultato</a>
-						</h3>
-						<!--card body content-->
-						<div class="it-card-body">
-							<p class="it-card-text">Questo è un testo breve che riassume il contenuto della pagina di destinazione
-								in massimo tre o quattro righe, senza troncamento.</p>
-						</div>
-						<!--finally the card footer metadata-->
-						<footer class="it-card-related it-card-footer">
-							<div class="it-card-taxonomy">
-								<a href="#" class="it-card-category it-card-link link-secondary"><span
-										class="visually-hidden">Categoria correlata: </span>TIPOLOGIA</a>
-							</div>
-						</footer>
-					</article>
-					<!--end it-card-->
-				</li>
-				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-					<!--start it-card-->
-					<article class="it-card rounded shadow-sm border">
-						<!--card first child is the title (link)-->
-						<h3 class="it-card-title ">
-							<a href="#">Quarto risultato</a>
-						</h3>
-						<!--card body content-->
-						<div class="it-card-body">
-							<p class="it-card-text">Questo è un testo breve che riassume il contenuto della pagina di destinazione
-								in massimo tre o quattro righe, senza troncamento.</p>
-						</div>
-						<!--finally the card footer metadata-->
-						<footer class="it-card-related it-card-footer">
-							<div class="it-card-taxonomy">
-								<a href="#" class="it-card-category it-card-link link-secondary"><span
-										class="visually-hidden">Categoria correlata: </span>TIPOLOGIA</a>
-							</div>
-						</footer>
-					</article>
-					<!--end it-card-->
-				</li>
-				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-					<!--start it-card-->
-					<article class="it-card it-card-height-full rounded shadow-sm border">
-						<!--card first child is the title (link)-->
-						<h3 class="it-card-title ">
-							<a href="#">Quinto risultato</a>
-						</h3>
-						<!--card body content-->
-						<div class="it-card-body">
-							<p class="it-card-text">Questo è un testo breve che riassume il contenuto della pagina di destinazione
-								in massimo tre o quattro righe, senza troncamento.</p>
-						</div>
-						<!--finally the card footer metadata-->
-						<footer class="it-card-related it-card-footer">
-							<div class="it-card-taxonomy">
-								<a href="#" class="it-card-category it-card-link link-secondary"><span
-										class="visually-hidden">Categoria correlata: </span>TIPOLOGIA</a>
-							</div>
-						</footer>
-					</article>
-					<!--end it-card-->
-				</li>
-				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-					<!--start it-card-->
-					<article class="it-card rounded shadow-sm border">
-						<!--card first child is the title (link)-->
-						<h3 class="it-card-title ">
-							<a href="#">Sesto risultato</a>
-						</h3>
-						<!--card body content-->
-						<div class="it-card-body">
-							<p class="it-card-text">Questo è un testo breve che riassume il contenuto della pagina di destinazione
-								in massimo tre o quattro righe, senza troncamento.</p>
-						</div>
-						<!--finally the card footer metadata-->
-						<footer class="it-card-related it-card-footer">
-							<div class="it-card-taxonomy">
-								<a href="#" class="it-card-category it-card-link link-secondary"><span
-										class="visually-hidden">Categoria correlata: </span>TIPOLOGIA</a>
-							</div>
-						</footer>
-					</article>
-					<!--end it-card-->
-				</li>
+				<?php
+					$post_index++;
+				}
+				wp_reset_postdata();
+				?>
 			</ul>
+			<?php
+			}
+			?>
 
 			<!-- Results pagination-->
 			<nav class="pagination-wrapper justify-content-center" aria-label="Esempio di navigazione con page changer">
@@ -357,14 +274,15 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 							?>
 						</fieldset>
 					</div>
+
+					<!-- Submit the form -->
 					<div class="p-4 pt-lg-0">
-
-					<!-- <button type="button" class="btn btn-primary">Applica filtri</button>-->
-					<button type="submit" value="submit" class="btn btn-primary">
-						<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
-					</button>
-
+						<!-- <button type="button" class="btn btn-primary">Applica filtri</button>-->
+						<button type="submit" value="submit" class="btn btn-primary">
+							<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
+						</button>
 					</div>
+
 				</FORM>
 			</div>
 		</div>

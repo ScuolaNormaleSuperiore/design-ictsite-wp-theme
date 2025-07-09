@@ -767,7 +767,7 @@ class DIS_ContentsManager {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
-		$result->slug          = $post->$post->post_name;
+		$result->slug          = $post->post_name;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
@@ -782,7 +782,7 @@ class DIS_ContentsManager {
 		$result                = new DIS_Search_Wrapper();
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
-		$result->slug          = $post->$post->post_name;
+		$result->slug          = $post->post_name;
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
@@ -797,7 +797,7 @@ class DIS_ContentsManager {
 		$result        = new DIS_Search_Wrapper();
 		$result->id    = $post->ID;
 		$result->title = $post->post_title;
-		$result->slug  = $post->$post->post_name;
+		$result->slug  = $post->post_name;
 		$result->type  = $post->post_type;
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
@@ -816,7 +816,7 @@ class DIS_ContentsManager {
 		$result        = new DIS_Search_Wrapper();
 		$result->id    = $post->ID;
 		$result->title = $post->post_title;
-		$result->slug  = $post->$post->post_name;
+		$result->slug  = $post->post_name;
 		$result->type  = $post->post_type;
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );

@@ -250,7 +250,7 @@ define(
 );
 
 // Site Search.
-define( 'DIS_ACF_SHORT_DESC_LENGTH', 50 );
+define( 'DIS_ACF_SHORT_DESC_LENGTH', 30 );
 
 // PAGINATION constants.
 define( 'DIS_ITEMS_PER_PAGE', 10 );
