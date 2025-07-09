@@ -644,6 +644,10 @@ class DIS_ContentsManager {
 								'slug' => DIS_EVENT_POST_TYPE,
 							),
 							array(
+								'name' => dis_ct_data()[DIS_NEWS_POST_TYPE]['plural_name'],
+								'slug' => DIS_NEWS_POST_TYPE,
+							),
+							array(
 								'name' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['plural_name'],
 								'slug' => DIS_PROJECT_POST_TYPE,
 							),
@@ -723,7 +727,6 @@ class DIS_ContentsManager {
 		$item = null;
 		switch ( $post->post_type ) {
 			case DIS_EVENT_POST_TYPE:
-			case DIS_PROJECT_POST_TYPE:
 				$item = self::wrap_event ( $post );
 				break;
 			case DIS_OFFICE_POST_TYPE:
@@ -731,6 +734,9 @@ class DIS_ContentsManager {
 				break;
 			case DIS_SERVICE_CLUSTER_POST_TYPE:
 			case DIS_SERVICE_ITEM_POST_TYPE:
+			case DIS_PROJECT_POST_TYPE:
+			case DIS_NEWS_POST_TYPE:
+			case DIS_PLACE_POST_TYPE:
 				$item = self::wrap_service ( $post );
 				break;
 			case DIS_DEFAULT_PAGE:
@@ -788,7 +794,6 @@ class DIS_ContentsManager {
 		$result->type          = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$result->date          = '';
-		// $result->description   = wp_strip_all_tags( get_the_content( $post ) );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description;
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
@@ -824,7 +829,6 @@ class DIS_ContentsManager {
 		$result->type  = $post->post_type;
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
-		$description   = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		// if ( ! $description ) {
 		// 	$description = wp_strip_all_tags( get_the_content( $post ) );
 		// }

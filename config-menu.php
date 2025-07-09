@@ -120,6 +120,15 @@ define(
 				'link'         => '',
 			),
 			array(
+				'slug'         => NEWS_PAGE_SLUG,
+				'title'        => NEWS_PAGE_TITLE,
+				'content_type' => 'page',
+				'post_type'    => 'post_type',
+				'status'       => 'publish',
+				'classes'      => 'footer-link',
+				'link'         => '',
+			),
+			array(
 				'slug'         => ARTICLES_PAGE_SLUG,
 				'title'        => ARTICLES_PAGE_TITLE,
 				'content_type' => 'page',

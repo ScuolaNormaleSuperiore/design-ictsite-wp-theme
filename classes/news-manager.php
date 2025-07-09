@@ -1,12 +1,12 @@
 <?php
 /**
- * Definition of the Event Manager.
+ * Definition of the News Manager.
  *
  * @package Design_ICT_Site
  */
 
 
-class Event_Manager {
+class News_Manager {
 	/**
 	 * Constructor of the Manager.
 	 */
@@ -30,8 +30,8 @@ class Event_Manager {
 	public function add_post_type() {
 
 		$labels = array(
-			'name'          => dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'],
-			'singular_name' => dis_ct_data()[DIS_EVENT_POST_TYPE]['singular_name'],
+			'name'          => dis_ct_data()[DIS_NEWS_POST_TYPE]['plural_name'],
+			'singular_name' => dis_ct_data()[DIS_NEWS_POST_TYPE]['singular_name'],
 			'add_new'       => __( 'Add an item', 'design_ict_site' ),
 			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
 			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
@@ -39,21 +39,21 @@ class Event_Manager {
 		);
 
 		$args = array(
-			'label'         => dis_ct_data()[DIS_EVENT_POST_TYPE]['singular_name'],
+			'label'         => dis_ct_data()[DIS_NEWS_POST_TYPE]['singular_name'],
 			'labels'        => $labels,
 			'supports'      => array( 'title', 'editor', 'thumbnail' ),
 			'hierarchical'  => false,
 			'public'        => true,
 			'show_in_menu'  => true,
 			'menu_position' => 6,
-			'menu_icon'     => 'dashicons-calendar',
+			'menu_icon'     => 'dashicons-welcome-widgets-menus',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_EVENT_POST_TYPE]['slug'] ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_NEWS_POST_TYPE]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
-		register_post_type( DIS_EVENT_POST_TYPE, $args );
+		register_post_type( DIS_NEWS_POST_TYPE, $args );
 
 		// Add the custom fields.
 		$this->add_fields();
@@ -70,13 +70,13 @@ class Event_Manager {
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
-	
+
 		acf_add_local_field_group( array(
-		'key' => 'group_67dd2497b30b1',
-		'title' => 'Event Fields',
+		'key' => 'group_686e79909c4f3',
+		'title' => 'News Fields',
 		'fields' => array(
 			array(
-				'key' => 'field_67dd249707c61',
+				'key' => 'field_686e7990a5b4c',
 				'label' => 'Short description',
 				'name' => 'short_description',
 				'aria-label' => '',
@@ -96,170 +96,7 @@ class Event_Manager {
 				'rows' => '',
 			),
 			array(
-				'key' => 'field_67dd250307c62',
-				'label' => 'Start date',
-				'name' => 'start_date',
-				'aria-label' => '',
-				'type' => 'date_picker',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'display_format' => 'd/m/Y',
-				'return_format' => 'd/m/Y',
-				'first_day' => 1,
-				'allow_in_bindings' => 0,
-			),
-			array(
-				'key' => 'field_67dd258d07c64',
-				'label' => 'Start hour',
-				'name' => 'start_hour',
-				'aria-label' => '',
-				'type' => 'time_picker',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'display_format' => 'H:i',
-				'return_format' => 'H:i',
-				'allow_in_bindings' => 0,
-			),
-			array(
-				'key' => 'field_67dd257707c63',
-				'label' => 'End date',
-				'name' => 'end_date',
-				'aria-label' => '',
-				'type' => 'date_picker',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'display_format' => 'd/m/Y',
-				'return_format' => 'd/m/Y',
-				'first_day' => 1,
-				'allow_in_bindings' => 0,
-			),
-			array(
-				'key' => 'field_67dd25e807c65',
-				'label' => 'End hour',
-				'name' => 'end_hour',
-				'aria-label' => '',
-				'type' => 'time_picker',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'display_format' => 'H:i',
-				'return_format' => 'H:i',
-				'allow_in_bindings' => 0,
-			),
-			array(
-				'key' => 'field_67dd26e207c66',
-				'label' => 'Email',
-				'name' => 'email',
-				'aria-label' => '',
-				'type' => 'email',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_67dd26f007c67',
-				'label' => 'Telephone',
-				'name' => 'telephone',
-				'aria-label' => '',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'maxlength' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'center_lat' => 53.550640000000001,
-				'center_lng' => 10.00065,
-				'zoom' => 12,
-				'height' => 400,
-				'return_format' => 'leaflet',
-				'allow_map_layers' => 1,
-				'max_markers' => '',
-				'layers' => array(
-					0 => 'OpenStreetMap.Mapnik',
-				),
-				'key' => 'field_682c2dad7be11',
-				'label' => 'GPS Position',
-				'name' => 'gps_position',
-				'aria-label' => '',
-				'type' => 'open_street_map',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'allow_in_bindings' => 0,
-				'leaflet_map' => '{"lat":53.550640000000001,"lng":10.00065,"zoom":12,"layers":["OpenStreetMap.Mapnik"],"markers":[]}',
-			),
-			array(
-				'key' => 'field_67dd271307c69',
-				'label' => 'Location',
-				'name' => 'location',
-				'aria-label' => '',
-				'type' => 'text',
-				'instructions' => '',
-				'required' => 0,
-				'conditional_logic' => 0,
-				'wrapper' => array(
-					'width' => '',
-					'class' => '',
-					'id' => '',
-				),
-				'default_value' => '',
-				'maxlength' => '',
-				'allow_in_bindings' => 0,
-				'placeholder' => '',
-				'prepend' => '',
-				'append' => '',
-			),
-			array(
-				'key' => 'field_67dd270707c68',
+				'key' => 'field_686e7990bb27d',
 				'label' => 'Website',
 				'name' => 'website',
 				'aria-label' => '',
@@ -277,7 +114,7 @@ class Event_Manager {
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_67dd275f07c6b',
+				'key' => 'field_686e7990bdd58',
 				'label' => 'Attachment 1',
 				'name' => 'attachment_1',
 				'aria-label' => '',
@@ -298,7 +135,7 @@ class Event_Manager {
 				'allow_in_bindings' => 0,
 			),
 			array(
-				'key' => 'field_67dd2cba02589',
+				'key' => 'field_686e7990be025',
 				'label' => 'Detail link',
 				'name' => 'detail_link',
 				'aria-label' => '',
@@ -329,7 +166,7 @@ class Event_Manager {
 				'save_options' => 0,
 			),
 			array(
-				'key' => 'field_67dd276f07c6c',
+				'key' => 'field_686e7990be3d3',
 				'label' => 'Video',
 				'name' => 'video',
 				'aria-label' => '',
@@ -346,7 +183,7 @@ class Event_Manager {
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_67dd29ea07c6d',
+				'key' => 'field_686e7990be9ab',
 				'label' => 'Show in carousel',
 				'name' => 'show_in_carousel',
 				'aria-label' => '',
@@ -367,7 +204,7 @@ class Event_Manager {
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_67dd29fc07c6e',
+				'key' => 'field_686e7990c0e9a',
 				'label' => 'Show in Home Page',
 				'name' => 'show_in_home_page',
 				'aria-label' => '',
@@ -388,7 +225,7 @@ class Event_Manager {
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_67dd2a0f07c6f',
+				'key' => 'field_686e7990c438d',
 				'label' => 'Related items',
 				'name' => 'related_items',
 				'aria-label' => '',
@@ -405,6 +242,7 @@ class Event_Manager {
 					0 => 'post',
 					1 => 'page',
 					2 => 'dis-event',
+					3 => 'dis-news',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -421,7 +259,7 @@ class Event_Manager {
 				),
 			),
 			array(
-				'key' => 'field_67dd2d9ac6514',
+				'key' => 'field_686e7990c4bdf',
 				'label' => 'Office',
 				'name' => 'office',
 				'aria-label' => '',
@@ -457,7 +295,7 @@ class Event_Manager {
 				array(
 					'param' => 'post_type',
 					'operator' => '==',
-					'value' => 'dis-event',
+					'value' => 'dis-news',
 				),
 			),
 		),

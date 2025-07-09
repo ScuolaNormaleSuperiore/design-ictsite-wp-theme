@@ -33,11 +33,11 @@ define( 'DIS_PERSON_POST_TYPE', 'dis-person' );
 define( 'DIS_PROJECT_POST_TYPE', 'dis-project' );
 define( 'DIS_PLACE_POST_TYPE', 'dis-place' );
 define( 'DIS_EVENT_POST_TYPE', 'dis-event' );
+define( 'DIS_NEWS_POST_TYPE', 'dis-news' );
 define( 'DIS_ATTACHMENT_POST_TYPE', 'dis-attachment' );
 define( 'DIS_BANNER_POST_TYPE', 'dis-banner' );
 define( 'DIS_SPONSOR_POST_TYPE', 'dis-sponsor' );
 define( 'DIS_FAQ_POST_TYPE', 'dis-faq' );
-
 
 // CUSTOM CONTENT BASE DATA.
 if ( ! function_exists( 'dis_ct_data' ) ) {
@@ -50,6 +50,12 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 					'singular_name' => _x( 'Event', 'DIS_PostTypeLabels', 'design_ict_site' ),
 					'plural_name'   => _x( 'Events', 'DIS_PostTypeLabels', 'design_ict_site' ),
 					'slug'          => _x( 'events', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+				),
+				DIS_NEWS_POST_TYPE => array(
+					'type'          => DIS_NEWS_POST_TYPE,
+					'singular_name' => _x( 'News', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'News', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'slug'          => _x( 'news', 'DIS_PostTypeSlugs', 'design_ict_site' ),
 				),
 				DIS_PROJECT_POST_TYPE => array(
 					'type'          => DIS_PROJECT_POST_TYPE,
@@ -162,6 +168,7 @@ define(
 		DIS_PLACE_POST_TYPE,
 		DIS_OFFICE_POST_TYPE,
 		DIS_EVENT_POST_TYPE,
+		DIS_NEWS_POST_TYPE,
 		DIS_ATTACHMENT_POST_TYPE,
 		DIS_SPONSOR_POST_TYPE,
 		DIS_BANNER_POST_TYPE,

@@ -48,6 +48,9 @@ if ( ! class_exists( 'Project_Manager' ) ) {
 if ( ! class_exists( 'Event_Manager' ) ) {
 	include_once 'event-manager.php';
 }
+if ( ! class_exists( 'News_Manager' ) ) {
+	include_once 'news-manager.php';
+}
 if ( ! class_exists( 'Place_Manager' ) ) {
 	include_once 'place-manager.php';
 }
@@ -172,6 +175,10 @@ class DIS_ThemeManager {
 		$evnm = new Event_Manager();
 		$evnm->setup();
 
+		// Setup of the DIS-News post-type.
+		$nwsm = new News_Manager();
+		$nwsm->setup();
+		
 		// Setup of the Place post-type.
 		$plcm = new Place_Manager();
 		$plcm->setup();

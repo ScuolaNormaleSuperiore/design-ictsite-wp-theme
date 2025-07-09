@@ -50,6 +50,8 @@ define( 'PLACES_PAGE_SLUG', 'PlacePageSlug' );
 define( 'PLACES_PAGE_TITLE', 'PlacePageTitle' );
 define( 'EVENTS_PAGE_SLUG', 'EventPageSlug' );
 define( 'EVENTS_PAGE_TITLE', 'EventPageTitle' );
+define( 'NEWS_PAGE_SLUG', 'NewsPageSlug' );
+define( 'NEWS_PAGE_TITLE', 'NewsPageTitle' );
 define( 'PROJECTS_PAGE_SLUG', 'ProjectPageSlug' );
 define( 'PROJECTS_PAGE_TITLE', 'ProjectPageTitle' );
 define( 'PEOPLE_PAGE_SLUG', 'PeoplePageSlug' );
@@ -221,6 +223,19 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
+		NEWS_PAGE_SLUG =>
+			array(
+				'content_slug'     => NEWS_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => NEWS_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/news.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
 		ARTICLES_PAGE_SLUG =>
 			array(
 				'content_slug'     => ARTICLES_PAGE_SLUG,
@@ -384,6 +399,8 @@ if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
 			'PlacePageTitle'          => _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'EventPageSlug'           => _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'EventPageTitle'          => _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'NewsPageSlug'           => _x( 'NewsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'NewsPageTitle'          => _x( 'NewsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'ProjectPageSlug'         => _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'ProjectPageTitle'        => _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'PeoplePageSlug'          => _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
