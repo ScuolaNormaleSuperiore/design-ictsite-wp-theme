@@ -11,11 +11,11 @@ $search_string     = '';
 $all_content_types = DIS_ContentsManager::get_content_types_with_results();
 $default_ct_list   = array_column( $all_content_types, 'slug' );
 $all_clusters      = DIS_ContentsManager::get_cluster_list();
-$default_cl_list = array_map( function( $cluster ) { return $cluster->post_name; }, $all_clusters ); 
+$default_cl_list   = array_map( function( $cluster ) { return $cluster->post_name; }, $all_clusters ); 
 
-$num_results       = 0;
-$the_query         = null;
-$per_page          =
+$num_results = 0;
+$the_query   = null;
+$per_page    =
 	isset( $_GET['per_page'] ) && is_numeric( $_GET['per_page'] ) ?
 	$_GET['per_page'] :
 	DIS_ITEMS_PER_PAGE;
@@ -135,56 +135,19 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 			}
 			?>
 
-			<!-- Results pagination-->
-			<nav class="pagination-wrapper justify-content-center" aria-label="Esempio di navigazione con page changer">
-				<ul class="pagination text-center">
-					<li class="page-item">
-						<a class="page-link" href="#">
-							<svg class="icon icon-primary">
-								<use href="/bootstrap-italia/svg/sprites.svg#it-chevron-left"></use>
-							</svg>
-							<span class="visually-hidden">Pagina precedente</span>
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">1</a></li>
-
-					<li class="page-item active">
-						<a class="page-link" href="#" aria-current="page">
-							<span class="d-inline-block d-sm-none">Pagina </span>26
-						</a>
-					</li>
-					<li class="page-item"><a class="page-link" href="#">27</a></li>
-					<li class="page-item"><a class="page-link" href="#">28</a></li>
-					<li class="page-item"><span class="page-link">...</span></li>
-					<li class="page-item"><a class="page-link" href="#">50</a></li>
-					<li class="page-item">
-						<a class="page-link" href="#">
-							<span class="visually-hidden">Pagina successiva</span>
-							<svg class="icon icon-primary">
-								<use href="/bootstrap-italia/svg/sprites.svg#it-chevron-right"></use>
-							</svg>
-						</a>
-					</li>
-				</ul>
-				<div class="dropdown">
-					<button class="btn btn-dropdown dropdown-toggle" type="button" id="pagerChanger" data-bs-toggle="dropdown"
-						aria-haspopup="true" aria-expanded="false" aria-label="Salta alla pagina">
-						10/pagina
-						<svg class="icon icon-primary icon-sm">
-							<use href="/bootstrap-italia/svg/sprites.svg#it-expand"></use>
-						</svg>
-					</button>
-					<div class="dropdown-menu" aria-labelledby="pagerChanger">
-						<div class="link-list-wrapper">
-							<ul class="link-list">
-								<li><a class="list-item active" href="#" aria-current="page"><span>20/pagina</span></a></li>
-								<li><a class="dropdown-item list-item" href="#"><span>50/pagina</span></a></li>
-								<li><a class="dropdown-item list-item" href="#"><span>100/pagina</span></a></li>
-							</ul>
-						</div>
-					</div>
-				</div>
-			</nav>
+			<!-- Results PAGINATION-->
+			<?php
+				get_template_part(
+					'template-parts/common/pagination',
+					null,
+					array(
+						'query'           => $the_query,
+						'per_page'        => $per_page,
+						'per_page_values' => $per_page_values,
+						'num_results'     => $num_results,
+					)
+				);
+			?>
 
 		</div>
 
@@ -207,13 +170,11 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 							<input type="text" id="search_string" name="search_string" class="form-control" 
 									value="<?php echo esc_attr( $search_string ? $search_string : '' );  ?>"
 									placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>">
-							<!--
 							<div class="input-group-append">
 								<button type="submit" value="submit" class="btn btn-primary">
 									<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
 								</button>
 							</div>
-							-->
 						</div>
 					</div>
 
