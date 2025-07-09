@@ -10,11 +10,6 @@ html {
 	background-color: white;
 }
 
-/* Breadcrumbs */
-
-.breadcrumb-item .active a {
-	text-decoration: none;
-}
 
 /* CUSTOM PAGINATION */
 
@@ -104,16 +99,16 @@ html {
 
 
 @media only screen and (max-width: 450px) {
-	.it-brand-title h1.h3 {
-		font-size: 1em !important;
-		line-height: 1.25rem;
-	}
+		.it-brand-title h1.h3 {
+				font-size: 1em !important;
+				line-height: 1.25rem;
+		}
 	}
 
 
 .it-brand-tagline {
 	font-size: 1rem !important;
-	
+		
 }
 
 .display_block {
@@ -208,33 +203,34 @@ html {
 
 
 /* card progetti */
-.dsi_card_progetti .head-tags {
+.dli_card_progetti .head-tags {
 	display: flex;
 	flex-wrap: wrap;
 	gap: 8px; /* Spazio tra i bottoni */
 }
 
-.dsi_card_progetti .card-tag {
+.dli_card_progetti .card-tag {
 	/* flex: 1 1 100%;  Occupa l'intera larghezza disponibile */
 }
 
-.dsi_card_progetti a {
+.dli_card_progetti a {
 	text-align: center;
 }
 
-/* REMOVES ORVERLAPPIng  */
+/* RIMUOVE ORVERLAPPIng  */
 @media (min-width: 1400px) {
-	.it-hero-wrapper.it-bottom-overlapping-content+.container .card-wrapper .card-body {
-		padding-top: 0px;
-	}
+		.it-hero-wrapper.it-bottom-overlapping-content+.container .card-wrapper .card-body {
+				padding-top: 0px;
+		}
 }
 
-/* CARD BORDER */
+/* BORDO CARD */
+
 .bordo-card {
 	border-top: 3px solid;
 }
 
 .service-paragraph {
-	padding: 0.25em 0;
-	border-bottom: 1px solid #c5c7c9;
+	padding:0.25em 0;
+	border-bottom: .5px solid ;
 }
