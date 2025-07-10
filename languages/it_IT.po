@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-10 08:11+0000\n"
+"PO-Revision-Date: 2025-07-10 09:10+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -84,9 +84,12 @@ msgid "Alert"
 msgstr "Avviso"
 
 #: template-parts/home/hp-events-section.php:70
-#: template-parts/home/hp-news-section.php:71
 msgid "All events"
 msgstr "Tutti gli eventi"
+
+#: template-parts/home/hp-news-section.php:99
+msgid "All news"
+msgstr "Tutte le notizie"
 
 #: template-parts/home/hp-projects-section.php:73
 msgid "All projects"
@@ -1185,7 +1188,7 @@ msgstr "Progetti"
 msgid "Rates"
 msgstr "Tariffe"
 
-#: page-templates/search.php:115
+#: page-templates/search.php:115 template-parts/home/hp-news-section.php:79
 msgid "Related category"
 msgstr "Categoria relativa"
 

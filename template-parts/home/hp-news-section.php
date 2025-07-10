@@ -24,7 +24,7 @@ if ( $section_enabled ) {
 				<h2 class="pb-4">
 				<?php
 				if ( $show_title ) {
-					echo dis_ct_data()[ DIS_NEWS_POST_TYPE ]['plural_name'];
+					echo esc_attr( dis_ct_data()[ DIS_NEWS_POST_TYPE ]['plural_name'] );
 				}
 				?>
 				</h2>
@@ -34,7 +34,7 @@ if ( $section_enabled ) {
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
 						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
 						$post_date  = get_the_date( 'j F Y', $item->ID );
-						$categories = get_the_category( $post->ID );
+						$categories = get_the_category( $item->ID );
 						$category   = null;
 						if ( $categories ) {
 							$category = ( count( $categories ) > 0 ) ? $categories[0] : $categories;
@@ -96,7 +96,7 @@ if ( $section_enabled ) {
 				</div>
 				<div class="text-center pt-5 pb-5">
 					<a href="<?php echo esc_url( $all_items_link ); ?>" class="btn btn-secondary">
-						<?php echo __( 'All events', 'design_ict_site' ); ?>
+						<?php echo __( 'All news', 'design_ict_site' ); ?>
 					</a>
 				</div>
 			</div>
