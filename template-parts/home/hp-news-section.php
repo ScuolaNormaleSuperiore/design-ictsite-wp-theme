@@ -11,11 +11,15 @@ $show_title_par  = $args['show_title'] ?? '';
 $show_title      = ( $show_title_par === 'true' ) ? true : false;
 $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
+echo $section_enabled;
+
 if ( $section_enabled ) {
 	$items          = DIS_ContentsManager::get_hp_item_list( DIS_NEWS_POST_TYPE );
 	$all_items_link = DIS_MultiLangManager::get_archive_link( DIS_NEWS_POST_TYPE );
 	if ( count( $items ) ) {
 ?>
+
+<?php echo count( $items ) ;?>
 
 	<!-- NEWS SECTION-->
 	<section id="blocco-news" class="section pt-5 pb-3">
@@ -32,7 +36,7 @@ if ( $section_enabled ) {
 					<?php
 					foreach ( $items as $item ) {
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
-						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
+						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $item->ID );
 						$post_date  = get_the_date( 'j F Y', $item->ID );
 						$categories = get_the_category( $item->ID );
 						$category   = null;

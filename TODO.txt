@@ -1,10 +1,12 @@
 
 * TODO LIST:
 
-- Rifare cerca.
-- Gestione dei font.
-- Progetti
+- Progetti.
+- Dettaglio progetti.
 - News
+- Dettaglio news.
+- Gestione dei font.
+
 
 - Ricontrollo e riconfigurazione di phpcs.
 - Sitemap XML?
