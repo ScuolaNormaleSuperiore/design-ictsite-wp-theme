@@ -17,7 +17,7 @@ if ( $section_enabled ) {
 	if ( count( $items ) ) {
 ?>
 
- <!-- ARTICLES SECTION-->
+	<!-- ARTICLES SECTION-->
 	<section id="articles-block" class="section pt-5 pb-3">
 		<div class="section-content">
 			<div class="container">
