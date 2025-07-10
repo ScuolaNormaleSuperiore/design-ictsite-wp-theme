@@ -3,7 +3,6 @@
 
 - Rifare cerca.
 - Gestione dei font.
-- Rifare Home Page.
 - Progetti
 - News
 
