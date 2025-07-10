@@ -691,7 +691,7 @@ class DIS_ContentsManager {
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description ? $description : '';
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = self::get_archive_link( $post->post_type );
+		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
@@ -706,7 +706,7 @@ class DIS_ContentsManager {
 		$result->date          = '';
 		$result->description   = wp_strip_all_tags( get_the_content( $post ) );
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = self::get_archive_link( $post->post_type );
+		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
@@ -722,7 +722,7 @@ class DIS_ContentsManager {
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description;
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = self::get_archive_link( $post->post_type );
+		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
@@ -741,7 +741,7 @@ class DIS_ContentsManager {
 		}
 		$result->description   = $description;
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = self::get_archive_link( $post->post_type );
+		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
@@ -761,7 +761,7 @@ class DIS_ContentsManager {
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description;
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = self::get_archive_link( $post->post_type );
+		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );
 		return $result;
 	}

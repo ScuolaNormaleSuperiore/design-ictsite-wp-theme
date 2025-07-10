@@ -218,7 +218,8 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 							<div class="form-check">
 								<input type="checkbox" name="selected_contents[]" id="<?php echo esc_attr( $ct['slug'] ); ?>" 
 									value="<?php echo esc_attr( $ct['slug'] ); ?>"
-									<?php if (count( $selected_contents ) > 0 && in_array( $ct['slug'], $selected_contents ) ) {
+									<?php
+										if ( count( $selected_contents ) > 0 && in_array( $ct['slug'], $selected_contents ) ) {
 										echo "checked='checked'";
 									} ?>
 								>

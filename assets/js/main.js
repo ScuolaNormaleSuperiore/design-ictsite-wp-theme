@@ -4,5 +4,3 @@ function resetForm($idForm, $idReset) {
 	reset.value = "yes";
 	form.submit();
 }
-
-

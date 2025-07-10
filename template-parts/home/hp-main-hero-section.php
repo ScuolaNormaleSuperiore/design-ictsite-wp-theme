@@ -29,8 +29,8 @@ if ( $section_enabled ) {
 		<div class="img-responsive">
 			<div class="img-wrapper">
 				<img src="<?php echo esc_url( $hero_image ); ?>"
-					title="<?php echo __( 'Hero image', 'design_ict_site' ); ?>"
-					alt="<?php echo __( 'Hero image', 'design_ict_site' ); ?>">
+					title="<?php echo esc_attr( __( 'Hero image', 'design_ict_site' ) ); ?>"
+					alt="<?php echo esc_attr( __( 'Hero image', 'design_ict_site' ) ); ?>">
 			</div>
 		</div>
 	</div>
@@ -46,36 +46,43 @@ if ( $section_enabled ) {
 						?>
 					</h2>
 
-					<!-- SEARCH FORM -->
+					<!-- HERO SEARCH FORM -->
 					<div class="form-group">
-						<FORM action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+						<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
 							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 							<div class="input-group">
-								<label class="visually-hidden" for="search_string"><?php echo __( 'Site search', 'design_ict_site' ); ?></label>
+								<label class="visually-hidden" for="search_string">
+									<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
+								</label>
 								<input type="text" class="form-control" id="search_string" name="search_string">
 								<div class="input-group-append">
-									<button class="btn btn-primary btn-lg" type="submit" value="submit" id="button-1">
-										<?php echo esc_attr( $search_label ); ?>
+									<button class="btn btn-primary btn-lg" type="submit" id="hero_search_submit_button">
+											<?php echo esc_attr( $search_label ); ?>
 									</button>
 								</div>
 							</div>
 						</FORM>
 					</div>
 
+					<!-- HERO TEXT -->
 					<p class="d-none d-lg-block">
 						<?php echo esc_attr( $hero_text ); ?>
 					</p>
 
-					<button type="button" class="btn btn-secondary btn-lg btn-me"
-						onclick="location.href='<?php echo esc_url( $cluster_link ); ?>'"
-					>
-						<?php echo esc_attr( $left_button ); ?>
+					<!-- HERO BUTTONS -->
+					<button type="button" class="btn btn-secondary btn-lg btn-me">
+						<a href="<?php echo esc_url( $cluster_link ); ?>"
+							style="color:white">
+							<?php echo esc_attr( $left_button ); ?>
+						</a>
 					</button>
-					<button type="button" class="btn btn-primary btn-lg"
-						onclick="location.href='<?php echo esc_url( $search_link ); ?>'"
-					>
-						<?php echo esc_attr( $right_button ); ?>
+					<button type="button" class="btn btn-primary btn-lg">
+						<a href="<?php echo esc_url( $search_link ); ?>"
+							style="color:white">
+							<?php echo esc_attr( $right_button ); ?>
+						</a>
 					</button>
+
 				</div>
 			</div>
 		</div>
