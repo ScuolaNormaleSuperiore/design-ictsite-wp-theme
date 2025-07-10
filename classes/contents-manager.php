@@ -415,7 +415,7 @@ class DIS_ContentsManager {
 	 *
 	 * @return array
 	 */
-	public static function get_hp_events_list(){
+	public static function get_hp_event_list(){
 		$args = array(
 			'post_type'      => DIS_EVENT_POST_TYPE,
 			'posts_per_page' => 4,
@@ -440,7 +440,7 @@ class DIS_ContentsManager {
 	 *
 	 * @return array
 	 */
-	public static function get_hp_articles_list(){
+	public static function get_hp_article_list(){
 		$args = array(
 			'post_type'      => DIS_DEFAULT_POST,
 			'posts_per_page' => 4,
