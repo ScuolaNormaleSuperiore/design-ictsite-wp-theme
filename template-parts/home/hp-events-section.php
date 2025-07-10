@@ -17,14 +17,14 @@ if ( $section_enabled ) {
 	if ( count( $items ) ) {
 ?>
 
- <!-- EVENTS SECTION-->
-	<section id="blocco-events" class="section pt-5 pb-3">
+	<!-- EVENTS SECTION-->
+	<section id="events-block" class="section pt-5 pb-3">
 		<div class="section-content">
 			<div class="container">
 				<h2 class="pb-4">
 				<?php
 				if ( $show_title ) {
-					echo dis_ct_data()[ DIS_EVENT_POST_TYPE ]['plural_name'];
+					echo esc_attr( dis_ct_data()[ DIS_EVENT_POST_TYPE ]['plural_name'] );
 				}
 				?>
 				</h2>

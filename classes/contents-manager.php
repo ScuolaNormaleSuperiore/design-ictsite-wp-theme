@@ -186,20 +186,22 @@ class DIS_ContentsManager {
 	}
 
 	/**
-	 * Get the archive page url given the content-type.
+	 * Get the archive page url given the content-type in the right language.
+	 * @TODO: Verificare se va spostato in muliti-lang-manager.
 	 *
 	 * @param string $type
 	 * @return string
 	 */
 	public static function get_archive_link( $type ) {
-		$page =self::get_Archive_page( $type );
+		$page = self::get_archive_page( $type );
 		if ( ! $page ) return '';
 		$url = get_permalink( $page->ID );
 		return $url;
 	}
 
 	/**
-	 * Get the archive page given the content-type.
+	 * Get the archive page given the content-type in the right language.
+	 * @TODO: Verificare se va spostato in muliti-lang-manager.
 	 *
 	 * @param string $type
 	 * @return object
@@ -416,6 +418,31 @@ class DIS_ContentsManager {
 	public static function get_hp_events_list(){
 		$args = array(
 			'post_type'      => DIS_EVENT_POST_TYPE,
+			'posts_per_page' => 4,
+			'post_status'    => 'publish',
+			'meta_query'     => array(
+				array(
+					'key'     => 'show_in_home_page',
+					'value'   => '1',
+					'compare' => '='
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+	/**
+	 * Get Home Page articles.
+	 *
+	 * @return array
+	 */
+	public static function get_hp_articles_list(){
+		$args = array(
+			'post_type'      => DIS_DEFAULT_POST,
 			'posts_per_page' => 4,
 			'post_status'    => 'publish',
 			'meta_query'     => array(
