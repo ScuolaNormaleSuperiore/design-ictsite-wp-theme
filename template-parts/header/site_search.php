@@ -5,7 +5,7 @@
  * @package Design_ICT_Site
  */
 
-$search_link = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+$search_link = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 $nonce       = wp_create_nonce( 'sf_site_search_nonce' );
 $search_url  = add_query_arg( 
 	array(

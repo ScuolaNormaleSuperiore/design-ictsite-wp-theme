@@ -13,7 +13,7 @@ $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
 	$items          = DIS_ContentsManager::get_hp_event_list();
-	$all_items_link = DIS_ContentsManager::get_archive_link( DIS_EVENT_POST_TYPE );
+	$all_items_link = DIS_MultiLangManager::get_archive_link( DIS_EVENT_POST_TYPE );
 	if ( count( $items ) ) {
 ?>
 

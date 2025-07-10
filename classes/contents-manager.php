@@ -172,47 +172,6 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-	/**
-	 * Get the link of a standard page given the slug.
-	 *
-	 * @param string $page_slug
-	 * @return void
-	 */
-	public static function get_page_link( $page_slug ) {
-		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
-		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
-		if ( ! $post ) return null;
-		return get_permalink( $post );
-	}
-
-	/**
-	 * Get the archive page url given the content-type in the right language.
-	 * @TODO: Verificare se va spostato in muliti-lang-manager.
-	 *
-	 * @param string $type
-	 * @return string
-	 */
-	public static function get_archive_link( $type ) {
-		$page = self::get_archive_page( $type );
-		if ( ! $page ) return '';
-		$url = get_permalink( $page->ID );
-		return $url;
-	}
-
-	/**
-	 * Get the archive page given the content-type in the right language.
-	 * @TODO: Verificare se va spostato in muliti-lang-manager.
-	 *
-	 * @param string $type
-	 * @return object
-	 */
-	public static function get_archive_page( $type ) {
-		$slug = dis_ct_data()[$type]['slug'];
-		if ( ! $slug ) return '';
-		$page = get_page_by_path( $slug );
-		return $page;
-	}
-
 	public static function get_hp_office_list(){
 		$args = array(
 			'post_type'      => DIS_OFFICE_POST_TYPE,

@@ -19,8 +19,8 @@ if ( $section_enabled ) {
 	$search_label = _x( 'MainHeroSearchButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$left_button  = _x( 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$right_button = _x( 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
-	$search_link  = DIS_ContentsManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
-	$cluster_link = DIS_ContentsManager::get_archive_link( DIS_SERVICE_CLUSTER_POST_TYPE );
+	$search_link  = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+	$cluster_link = DIS_MultiLangManager::get_archive_link( DIS_SERVICE_CLUSTER_POST_TYPE );
 ?>
 
 <!-- HERO Standard  -->

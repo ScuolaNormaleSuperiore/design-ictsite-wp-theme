@@ -182,68 +182,6 @@ class DIS_MultiLangManager {
 		return $selectors;
 	}
 
-	/**
-	 * Retrieve the translations of a post by id.
-	 *
-	 * @param id $post_id
-	 * @return array
-	 */
-	public static function get_post_translations( $post_id ): array {
-		return pll_get_post_translations( $post_id );
-	}
-
-	/**
-	 * Retrieve a page given the 'DIS_ActivationItems' label used in dis_translate_data.
-	 *
-	 * @param string $label
-	 * @return object
-	 */
-	public static function get_page_by_label( string $label ):object {
-		$translated_label = dis_translate_data()[ $label ];
-		return get_page_by_path( $translated_label, OBJECT, 'page' );
-	}
-
-
-	// /**
-	//  * Retrieves the post in the $lang version.
-	//  *
-	//  * @param int $post_id
-	//  * @param string $lang
-	//  * @return int
-	//  */
-	// public static function get_post( $post_id, $lang = '' ): int {
-	// 	return pll_get_post( $post_id, $lang );
-	// }
-
-	// /**
-	//  * Retrieve the ID of the page in the current language.
-	//  *
-	//  * @param string $id
-	//  * @return int
-	//  */
-	// public static function get_page_by_id( $id ):int {
-	// 	$id           = intval( $id );
-	// 	$current_lang = pll_current_language();
-	// 	$page_id      = pll_get_post( $id, $current_lang );
-	// 	return $page_id;
-	// }
-
-	// /**
-	//  * Retrieve the the page in the current language by english slug.
-	//  *
-	//  * @param string $slug
-	//  * @return int
-	//  */
-	// public static function get_page_id_by_slug( $slug ):int {
-	// 	$page_id            = 0;
-	// 	$english_post       = get_page_by_path( $slug, OBJECT, 'page' );
-	// 	if ( $english_post ) {
-	// 		$page_id = pll_get_post( $english_post->ID, pll_current_language() );
-	// 	}
-	// 	return $page_id;
-	// }
-
-
 	public static function get_all_menus_by_lang( $lang ) {
 		$options        = get_option( 'polylang' );
 		$menu_locations = $options['nav_menus']['design-ictsite-wp-theme'];
@@ -265,5 +203,66 @@ class DIS_MultiLangManager {
 		}
 		return $items[ $lang ];
 	}
+
+	/**
+	 * Retrieve the translations of a post by id.
+	 *
+	 * @param id $post_id
+	 * @return array
+	 */
+	public static function get_post_translations( $post_id ): array {
+		return pll_get_post_translations( $post_id );
+	}
+
+	/**
+	 * Retrieve a page given the 'DIS_ActivationItems' label used in dis_translate_data.
+	 *
+	 * @param string $label
+	 * @return object
+	 */
+	public static function get_page_by_label( string $label ):object {
+		$translated_label = dis_translate_data()[ $label ];
+		return get_page_by_path( $translated_label, OBJECT, 'page' );
+	}
+
+	/**
+	 * Get the link of a standard page given the slug.
+	 *
+	 * @param string $page_slug
+	 * @return void
+	 */
+	public static function get_page_link( $page_slug ) {
+		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
+		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
+		if ( ! $post ) return null;
+		return get_permalink( $post );
+	}
+
+	/**
+	 * Get the archive page url given the content-type in the right language.
+	 *
+	 * @param string $type
+	 * @return string
+	 */
+	public static function get_archive_link( $type ) {
+		$page = self::get_archive_page( $type );
+		if ( ! $page ) return '';
+		$url = get_permalink( $page->ID );
+		return $url;
+	}
+
+	/**
+	 * Get the archive page given the content-type in the right language.
+	 *
+	 * @param string $type
+	 * @return object
+	 */
+	public static function get_archive_page( $type ) {
+		$slug = dis_ct_data()[$type]['slug'];
+		if ( ! $slug ) return '';
+		$page = get_page_by_path( $slug );
+		return $page;
+	}
+
 
 }

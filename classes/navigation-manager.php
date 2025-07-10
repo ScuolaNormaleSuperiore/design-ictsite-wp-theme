@@ -87,7 +87,7 @@ class DIS_NavigationManager {
 					);
 					break;
 				case DIS_DEFAULT_POST:
-					$ct    = DIS_ContentsManager::get_archive_page( $post->post_type );
+					$ct    = DIS_MultiLangManager::get_archive_page( $post->post_type );
 					array_push(
 						$steps,
 						$post_parents[] = new DIS_BreadItem(
@@ -106,7 +106,7 @@ class DIS_NavigationManager {
 					);
 					break;
 				default:
-					$ct = DIS_ContentsManager::get_archive_page( $post->post_type );
+					$ct = DIS_MultiLangManager::get_archive_page( $post->post_type );
 					array_push(
 						$steps,
 						$post_parents[] = new DIS_BreadItem(

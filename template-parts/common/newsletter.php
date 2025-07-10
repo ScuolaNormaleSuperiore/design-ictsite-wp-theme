@@ -5,7 +5,7 @@ if ( $newsletter_enabled === 'true' ) {
 	$current_lang = $args['current_lang'] ?? '';
 	$site_title   = $args['site_title'] ?? '';
 	$tagline      = $args['site_tagline'] ?? '';
-	$page_url     = DIS_ContentsManager::get_page_link( NEWSLETTER_PAGE_SLUG );
+	$page_url     = DIS_MultiLangManager::get_page_link( NEWSLETTER_PAGE_SLUG );
 ?>
 	<h4>
 		<a href="#" title="<?php echo __( 'Vai alla pagina: Newsletter', 'design_ict_site' ); ?>">
