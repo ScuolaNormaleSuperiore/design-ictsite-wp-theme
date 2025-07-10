@@ -5,7 +5,7 @@
  * @package Design_ICT_Site
  */
 
-$offices = DIS_ContentsManager::get_hp_office_list();
+$offices = DIS_ContentsManager::get_office_list();
 if ( count( $offices ) > 0 ) {
 ?>
 

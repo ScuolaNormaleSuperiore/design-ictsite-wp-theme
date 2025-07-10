@@ -12,7 +12,7 @@ $show_title      = ( $show_title_par === 'true' ) ? true : false;
 $section_enabled = ( $enabled_par === 'true' ) ? true : false;
 
 if ( $section_enabled ) {
-	$items          = DIS_ContentsManager::get_hp_news_list();
+	$items          = DIS_ContentsManager::get_hp_item_list( DIS_NEWS_POST_TYPE );
 	$all_items_link = DIS_MultiLangManager::get_archive_link( DIS_NEWS_POST_TYPE );
 	if ( count( $items ) ) {
 ?>

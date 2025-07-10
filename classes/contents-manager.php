@@ -172,18 +172,11 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-	public static function get_hp_office_list(){
+	public static function get_office_list(){
 		$args = array(
 			'post_type'      => DIS_OFFICE_POST_TYPE,
 			'posts_per_page' => -1,
 			'post_status'    => 'publish',
-			'meta_query'     => array(
-				array(
-					'key'     => 'show_in_home_page',
-					'value'   => '1',
-					'compare' => '='
-				)
-			)
 		);
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
@@ -368,95 +361,16 @@ class DIS_ContentsManager {
 		return array();
 	}
 
-
 	/**
-	 * Get Home Page events.
+	 * Get Home Page items by post-type.
 	 *
 	 * @return array
 	 */
-	public static function get_hp_event_list(){
+	public static function get_hp_item_list( $type ){
 		$args = array(
-			'post_type'      => DIS_EVENT_POST_TYPE,
+			'post_type'      => $type,
 			'posts_per_page' => 4,
 			'post_status'    => 'publish',
-			'meta_query'     => array(
-				array(
-					'key'     => 'show_in_home_page',
-					'value'   => '1',
-					'compare' => '='
-				)
-			)
-		);
-		$query = new WP_Query( $args );
-		if ( $query->have_posts() ) {
-			return $query->posts;
-		}
-		return array();
-	}
-
-	/**
-	 * Get Home Page articles.
-	 *
-	 * @return array
-	 */
-	public static function get_hp_article_list(){
-		$args = array(
-			'post_type'      => DIS_DEFAULT_POST,
-			'posts_per_page' => 4,
-			'post_status'    => 'publish',
-			'meta_query'     => array(
-				array(
-					'key'     => 'show_in_home_page',
-					'value'   => '1',
-					'compare' => '='
-				)
-			)
-		);
-		$query = new WP_Query( $args );
-		if ( $query->have_posts() ) {
-			return $query->posts;
-		}
-		return array();
-	}
-
-	/**
-	 * Get Home Page news.
-	 *
-	 * @return array
-	 */
-	public static function get_hp_news_list(){
-		$args = array(
-			'post_type'      => DIS_NEWS_POST_TYPE,
-			'posts_per_page' => 4,
-			'post_status'    => 'publish',
-			'meta_query'     => array(
-				array(
-					'key'     => 'show_in_home_page',
-					'value'   => '1',
-					'compare' => '='
-				)
-			)
-		);
-		$query = new WP_Query( $args );
-		if ( $query->have_posts() ) {
-			return $query->posts;
-		}
-		return array();
-	}
-
-	/**
-	 * Get Home Page projects.
-	 *
-	 * @return array
-	 */
-	public static function get_hp_project_list(){
-		$args = array(
-			'post_type'      => DIS_PROJECT_POST_TYPE,
-			'posts_per_page' => 3,
-			'post_status'    => 'publish',
-			'orderby'        => 'meta_value_num',
-			'meta_key'       => 'priority',
-			'order'          => 'ASC',
 			'meta_query'     => array(
 				array(
 					'key'     => 'show_in_home_page',
