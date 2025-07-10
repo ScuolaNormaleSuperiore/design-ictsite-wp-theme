@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-07-09 14:02+0000\n"
+"PO-Revision-Date: 2025-07-10 08:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -47,6 +47,7 @@ msgstr ""
 #: classes/banner-manager.php:35 classes/banner-manager.php:36
 #: classes/event-manager.php:35 classes/event-manager.php:36
 #: classes/faq-manager.php:59 classes/faq-manager.php:60
+#: classes/news-manager.php:35 classes/news-manager.php:36
 #: classes/office-manager.php:36 classes/person-manager.php:60
 #: classes/person-manager.php:61 classes/place-manager.php:63
 #: classes/place-manager.php:64 classes/project-manager.php:35
@@ -82,7 +83,8 @@ msgstr ""
 msgid "Alert"
 msgstr ""
 
-#: template-parts/home/hp-events-section.php:71
+#: template-parts/home/hp-events-section.php:70
+#: template-parts/home/hp-news-section.php:71
 msgid "All events"
 msgstr ""
 
@@ -479,9 +481,14 @@ msgctxt "DIS_PostTypeLabels"
 msgid "Faq"
 msgstr ""
 
-#: config-theme.php:56 config-theme.php:57
+#: config-theme.php:56
 msgctxt "DIS_PostTypeLabels"
 msgid "News"
+msgstr ""
+
+#: config-theme.php:57
+msgctxt "DIS_PostTypeLabels"
+msgid "News-plural"
 msgstr ""
 
 #: config-theme.php:68
@@ -727,10 +734,10 @@ msgstr ""
 
 #: classes/attachment-manager.php:40 classes/banner-manager.php:37
 #: classes/event-manager.php:37 classes/faq-manager.php:61
-#: classes/office-manager.php:37 classes/person-manager.php:62
-#: classes/place-manager.php:65 classes/project-manager.php:37
-#: classes/service-cluster-manager.php:40 classes/service-manager.php:67
-#: classes/sponsor-manager.php:37
+#: classes/news-manager.php:37 classes/office-manager.php:37
+#: classes/person-manager.php:62 classes/place-manager.php:65
+#: classes/project-manager.php:37 classes/service-cluster-manager.php:40
+#: classes/service-manager.php:67 classes/sponsor-manager.php:37
 msgid "Edit the item"
 msgstr ""
 
@@ -971,7 +978,7 @@ msgstr ""
 msgid "Insert here the links to your social media."
 msgstr ""
 
-#: classes/theme-manager.php:254
+#: classes/theme-manager.php:261
 msgid "Invalid username or password"
 msgstr ""
 
@@ -1363,7 +1370,7 @@ msgstr ""
 msgid "The hero section of the Home Page."
 msgstr ""
 
-#: classes/theme-manager.php:235
+#: classes/theme-manager.php:242
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr ""
 
@@ -1384,7 +1391,7 @@ msgstr ""
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: classes/theme-manager.php:239
+#: classes/theme-manager.php:246
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
@@ -1444,10 +1451,10 @@ msgstr ""
 
 #: classes/attachment-manager.php:41 classes/banner-manager.php:38
 #: classes/event-manager.php:38 classes/faq-manager.php:62
-#: classes/office-manager.php:38 classes/person-manager.php:63
-#: classes/place-manager.php:66 classes/project-manager.php:38
-#: classes/service-cluster-manager.php:41 classes/service-manager.php:68
-#: classes/sponsor-manager.php:38
+#: classes/news-manager.php:38 classes/office-manager.php:38
+#: classes/person-manager.php:63 classes/place-manager.php:66
+#: classes/project-manager.php:38 classes/service-cluster-manager.php:41
+#: classes/service-manager.php:68 classes/sponsor-manager.php:38
 msgid "View the item"
 msgstr ""
 

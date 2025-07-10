@@ -54,7 +54,7 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 				DIS_NEWS_POST_TYPE => array(
 					'type'          => DIS_NEWS_POST_TYPE,
 					'singular_name' => _x( 'News', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'News', 'DIS_PostTypeLabels', 'design_ict_site' ),
+					'plural_name'   => _x( 'News-plural', 'DIS_PostTypeLabels', 'design_ict_site' ),
 					'slug'          => _x( 'news', 'DIS_PostTypeSlugs', 'design_ict_site' ),
 				),
 				DIS_PROJECT_POST_TYPE => array(
@@ -222,6 +222,12 @@ define(
 				'id'       => 'events_section',
 				'name'     => 'Events',
 				'template' => 'template-parts/home/hp-events-section',
+			),
+		'news_section' =>
+			array(
+				'id'       => 'news_section',
+				'name'     => 'News',
+				'template' => 'template-parts/home/hp-news-section',
 			),
 		'projects_section' =>
 			array(

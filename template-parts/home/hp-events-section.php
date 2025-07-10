@@ -1,6 +1,6 @@
 <?php
 /**
- * The HP News list section.
+ * The HP Events list section.
  *
  * @package Design_ICT_Site
  */
@@ -24,15 +24,14 @@ if ( $section_enabled ) {
 				<h2 class="pb-4">
 				<?php
 				if ( $show_title ) {
-					echo dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'];
+					echo dis_ct_data()[ DIS_EVENT_POST_TYPE ]['plural_name'];
 				}
 				?>
 				</h2>
 				<div class="row">
 					<?php
-					foreach ( $items as $item ){
+					foreach ( $items as $item ) {
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
-						// $short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
 					?>
 					<div class="col-12 col-lg-3">
 						<div class="card-wrapper">

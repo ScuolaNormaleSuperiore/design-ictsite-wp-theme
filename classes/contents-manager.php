@@ -434,6 +434,31 @@ class DIS_ContentsManager {
 	}
 
 	/**
+	 * Get Home Page news.
+	 *
+	 * @return array
+	 */
+	public static function get_hp_news_list(){
+		$args = array(
+			'post_type'      => DIS_NEWS_POST_TYPE,
+			'posts_per_page' => 4,
+			'post_status'    => 'publish',
+			'meta_query'     => array(
+				array(
+					'key'     => 'show_in_home_page',
+					'value'   => '1',
+					'compare' => '='
+				)
+			)
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			return $query->posts;
+		}
+		return array();
+	}
+
+	/**
 	 * Get Home Page projects.
 	 *
 	 * @return array
