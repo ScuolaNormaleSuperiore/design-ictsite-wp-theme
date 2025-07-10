@@ -70,7 +70,7 @@ class Event_Manager {
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
-	
+
 		acf_add_local_field_group( array(
 		'key' => 'group_67dd2497b30b1',
 		'title' => 'Event Fields',
@@ -388,9 +388,9 @@ class Event_Manager {
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_67dd2a0f07c6f',
-				'label' => 'Related items',
-				'name' => 'related_items',
+				'key' => 'field_67dd2d9ac6514',
+				'label' => 'Office',
+				'name' => 'office',
 				'aria-label' => '',
 				'type' => 'relationship',
 				'instructions' => '',
@@ -402,9 +402,7 @@ class Event_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'post',
-					1 => 'page',
-					2 => 'dis-event',
+					0 => 'dis-office',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -421,9 +419,9 @@ class Event_Manager {
 				),
 			),
 			array(
-				'key' => 'field_67dd2d9ac6514',
-				'label' => 'Office',
-				'name' => 'office',
+				'key' => 'field_686f674707a24',
+				'label' => 'Related items',
+				'name' => 'related_items',
 				'aria-label' => '',
 				'type' => 'relationship',
 				'instructions' => '',
@@ -435,7 +433,10 @@ class Event_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'dis-office',
+					0 => 'dis-news',
+					1 => 'post',
+					2 => 'page',
+					3 => 'dis-event',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -470,7 +471,7 @@ class Event_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
+		) );
 
 	}
 

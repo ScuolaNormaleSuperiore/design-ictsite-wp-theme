@@ -63,7 +63,7 @@ class Page_Manager {
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
-	
+
 		acf_add_local_field_group( array(
 		'key' => 'group_67dd2f3b83454',
 		'title' => 'Page Fields',
@@ -83,9 +83,10 @@ class Page_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'event',
-					1 => 'post',
-					2 => 'page',
+					0 => 'post',
+					1 => 'page',
+					2 => 'dis-event',
+					3 => 'dis-news',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -120,7 +121,7 @@ class Page_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
+		) );
 
 	}
 

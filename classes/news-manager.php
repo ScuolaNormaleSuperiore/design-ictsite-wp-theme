@@ -72,11 +72,11 @@ class News_Manager {
 		}
 
 		acf_add_local_field_group( array(
-		'key' => 'group_686e79909c4f3',
+		'key' => 'group_686f687226329',
 		'title' => 'News Fields',
 		'fields' => array(
 			array(
-				'key' => 'field_686e7990a5b4c',
+				'key' => 'field_686f68722f3df',
 				'label' => 'Short description',
 				'name' => 'short_description',
 				'aria-label' => '',
@@ -96,7 +96,7 @@ class News_Manager {
 				'rows' => '',
 			),
 			array(
-				'key' => 'field_686e7990bb27d',
+				'key' => 'field_686f68725031e',
 				'label' => 'Website',
 				'name' => 'website',
 				'aria-label' => '',
@@ -114,7 +114,7 @@ class News_Manager {
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_686e7990bdd58',
+				'key' => 'field_686f687253e05',
 				'label' => 'Attachment 1',
 				'name' => 'attachment_1',
 				'aria-label' => '',
@@ -135,7 +135,7 @@ class News_Manager {
 				'allow_in_bindings' => 0,
 			),
 			array(
-				'key' => 'field_686e7990be025',
+				'key' => 'field_686f68725775e',
 				'label' => 'Detail link',
 				'name' => 'detail_link',
 				'aria-label' => '',
@@ -166,7 +166,7 @@ class News_Manager {
 				'save_options' => 0,
 			),
 			array(
-				'key' => 'field_686e7990be3d3',
+				'key' => 'field_686f68725b4b2',
 				'label' => 'Video',
 				'name' => 'video',
 				'aria-label' => '',
@@ -183,7 +183,7 @@ class News_Manager {
 				'placeholder' => '',
 			),
 			array(
-				'key' => 'field_686e7990be9ab',
+				'key' => 'field_686f68725f098',
 				'label' => 'Show in carousel',
 				'name' => 'show_in_carousel',
 				'aria-label' => '',
@@ -204,7 +204,7 @@ class News_Manager {
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_686e7990c0e9a',
+				'key' => 'field_686f687262cb6',
 				'label' => 'Show in Home Page',
 				'name' => 'show_in_home_page',
 				'aria-label' => '',
@@ -225,9 +225,9 @@ class News_Manager {
 				'ui_off_text' => '',
 			),
 			array(
-				'key' => 'field_686e7990c438d',
-				'label' => 'Related items',
-				'name' => 'related_items',
+				'key' => 'field_686f6872667d3',
+				'label' => 'Office',
+				'name' => 'office',
 				'aria-label' => '',
 				'type' => 'relationship',
 				'instructions' => '',
@@ -239,10 +239,7 @@ class News_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'post',
-					1 => 'page',
-					2 => 'dis-event',
-					3 => 'dis-news',
+					0 => 'dis-office',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -259,9 +256,9 @@ class News_Manager {
 				),
 			),
 			array(
-				'key' => 'field_686e7990c4bdf',
-				'label' => 'Office',
-				'name' => 'office',
+				'key' => 'field_686f68726a251',
+				'label' => 'Related items',
+				'name' => 'related_items',
 				'aria-label' => '',
 				'type' => 'relationship',
 				'instructions' => '',
@@ -273,7 +270,10 @@ class News_Manager {
 					'id' => '',
 				),
 				'post_type' => array(
-					0 => 'dis-office',
+					0 => 'dis-news',
+					1 => 'post',
+					2 => 'page',
+					3 => 'dis-event',
 				),
 				'post_status' => '',
 				'taxonomy' => '',
@@ -308,7 +308,7 @@ class News_Manager {
 		'active' => true,
 		'description' => '',
 		'show_in_rest' => 0,
-	) );
+		) );
 
 	}
 

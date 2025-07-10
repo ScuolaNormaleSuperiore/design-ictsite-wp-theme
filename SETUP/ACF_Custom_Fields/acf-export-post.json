@@ -80,9 +80,10 @@
                     "id": ""
                 },
                 "post_type": [
-                    "event",
                     "post",
-                    "page"
+                    "page",
+                    "dis-event",
+                    "dis-news"
                 ],
                 "post_status": "",
                 "taxonomy": "",

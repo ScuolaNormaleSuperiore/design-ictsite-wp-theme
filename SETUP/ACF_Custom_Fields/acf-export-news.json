@@ -1,10 +1,10 @@
 [
     {
-        "key": "group_67dd2497b30b1",
-        "title": "Event Fields",
+        "key": "group_686f687226329",
+        "title": "News Fields",
         "fields": [
             {
-                "key": "field_67dd249707c61",
+                "key": "field_686f68722f3df",
                 "label": "Short description",
                 "name": "short_description",
                 "aria-label": "",
@@ -24,170 +24,7 @@
                 "rows": ""
             },
             {
-                "key": "field_67dd250307c62",
-                "label": "Start date",
-                "name": "start_date",
-                "aria-label": "",
-                "type": "date_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "d\/m\/Y",
-                "return_format": "d\/m\/Y",
-                "first_day": 1,
-                "allow_in_bindings": 0
-            },
-            {
-                "key": "field_67dd258d07c64",
-                "label": "Start hour",
-                "name": "start_hour",
-                "aria-label": "",
-                "type": "time_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "H:i",
-                "return_format": "H:i",
-                "allow_in_bindings": 0
-            },
-            {
-                "key": "field_67dd257707c63",
-                "label": "End date",
-                "name": "end_date",
-                "aria-label": "",
-                "type": "date_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "d\/m\/Y",
-                "return_format": "d\/m\/Y",
-                "first_day": 1,
-                "allow_in_bindings": 0
-            },
-            {
-                "key": "field_67dd25e807c65",
-                "label": "End hour",
-                "name": "end_hour",
-                "aria-label": "",
-                "type": "time_picker",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "display_format": "H:i",
-                "return_format": "H:i",
-                "allow_in_bindings": 0
-            },
-            {
-                "key": "field_67dd26e207c66",
-                "label": "Email",
-                "name": "email",
-                "aria-label": "",
-                "type": "email",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_67dd26f007c67",
-                "label": "Telephone",
-                "name": "telephone",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "center_lat": 53.550640000000001,
-                "center_lng": 10.00065,
-                "zoom": 12,
-                "height": 400,
-                "return_format": "leaflet",
-                "allow_map_layers": 1,
-                "max_markers": "",
-                "layers": [
-                    "OpenStreetMap.Mapnik"
-                ],
-                "key": "field_682c2dad7be11",
-                "label": "GPS Position",
-                "name": "gps_position",
-                "aria-label": "",
-                "type": "open_street_map",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "allow_in_bindings": 0,
-                "leaflet_map": "{\"lat\":53.550640000000001,\"lng\":10.00065,\"zoom\":12,\"layers\":[\"OpenStreetMap.Mapnik\"],\"markers\":[]}"
-            },
-            {
-                "key": "field_67dd271307c69",
-                "label": "Location",
-                "name": "location",
-                "aria-label": "",
-                "type": "text",
-                "instructions": "",
-                "required": 0,
-                "conditional_logic": 0,
-                "wrapper": {
-                    "width": "",
-                    "class": "",
-                    "id": ""
-                },
-                "default_value": "",
-                "maxlength": "",
-                "allow_in_bindings": 0,
-                "placeholder": "",
-                "prepend": "",
-                "append": ""
-            },
-            {
-                "key": "field_67dd270707c68",
+                "key": "field_686f68725031e",
                 "label": "Website",
                 "name": "website",
                 "aria-label": "",
@@ -205,7 +42,7 @@
                 "placeholder": ""
             },
             {
-                "key": "field_67dd275f07c6b",
+                "key": "field_686f687253e05",
                 "label": "Attachment 1",
                 "name": "attachment_1",
                 "aria-label": "",
@@ -226,7 +63,7 @@
                 "allow_in_bindings": 0
             },
             {
-                "key": "field_67dd2cba02589",
+                "key": "field_686f68725775e",
                 "label": "Detail link",
                 "name": "detail_link",
                 "aria-label": "",
@@ -257,7 +94,7 @@
                 "save_options": 0
             },
             {
-                "key": "field_67dd276f07c6c",
+                "key": "field_686f68725b4b2",
                 "label": "Video",
                 "name": "video",
                 "aria-label": "",
@@ -274,7 +111,7 @@
                 "placeholder": ""
             },
             {
-                "key": "field_67dd29ea07c6d",
+                "key": "field_686f68725f098",
                 "label": "Show in carousel",
                 "name": "show_in_carousel",
                 "aria-label": "",
@@ -295,7 +132,7 @@
                 "ui_off_text": ""
             },
             {
-                "key": "field_67dd29fc07c6e",
+                "key": "field_686f687262cb6",
                 "label": "Show in Home Page",
                 "name": "show_in_home_page",
                 "aria-label": "",
@@ -316,7 +153,7 @@
                 "ui_off_text": ""
             },
             {
-                "key": "field_67dd2d9ac6514",
+                "key": "field_686f6872667d3",
                 "label": "Office",
                 "name": "office",
                 "aria-label": "",
@@ -346,7 +183,7 @@
                 "bidirectional_target": []
             },
             {
-                "key": "field_686f674707a24",
+                "key": "field_686f68726a251",
                 "label": "Related items",
                 "name": "related_items",
                 "aria-label": "",
@@ -384,7 +221,7 @@
                 {
                     "param": "post_type",
                     "operator": "==",
-                    "value": "dis-event"
+                    "value": "dis-news"
                 }
             ]
         ],
