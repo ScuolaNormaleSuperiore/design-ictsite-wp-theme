@@ -24,7 +24,7 @@ if ( $section_enabled ) {
 				<h2 class="pb-4">
 				<?php
 				if ( $show_title ) {
-					echo __( 'Projects' , 'design_ict_site' );
+					echo esc_attr( __( 'Projects', 'design_ict_site' ) );
 				}
 				?>
 				</h2>
@@ -71,7 +71,7 @@ if ( $section_enabled ) {
 				</div>
 				<div class="text-center pt-5 pb-5">
 					<a href="<?php echo esc_url( $all_items_link ); ?>" class="btn btn-secondary">
-						<?php echo __( 'All projects', 'design_ict_site' ); ?>
+						<?php echo esc_attr( __( 'All projects', 'design_ict_site' ) ); ?>
 					</a>
 				</div>
 
