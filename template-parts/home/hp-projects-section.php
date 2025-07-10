@@ -31,38 +31,39 @@ if ( $section_enabled ) {
 				<div class="row">
 
 					<?php
-					foreach ( $items as $item ){
+					foreach ( $items as $item ) {
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
-						// $short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
+						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
 					?>
-					<div class="col-12 col-lg-4">
-						<div class="card-wrapper">
-							<div class="card card-img no-after">
-								<a
-									href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>"
-									title="<?php echo esc_attr( $item->post_title ); ?>"
-									alt="<?php echo esc_attr( $item->post_title ); ?>"
-								>
-									<div class="img-responsive-wrapper">
-										<div class="img-responsive">
-											<figure class="img-wrapper">
-												<img
-														src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-														title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-														alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
-													>
-											</figure>
-										</div>
+						<div class="col-12 col-lg-4">
+							<article class="it-card it-card-image it-card-height-full">
+								<h3 class="it-card-title ">
+									<a
+										href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>"
+										title="<?php echo esc_attr( $item->post_title ); ?>"
+										alt="<?php echo esc_attr( $item->post_title ); ?>"
+									>
+										<?php echo esc_attr( $item->post_title ); ?>
+									</a>
+								</h3>
+								<div class="it-card-image-wrapper">
+									<div class="ratio ratio-16x9">
+										<figure class="figure img-full">
+											<img
+													src="<?php echo esc_url( $image_data['image_url'] ); ?>"
+													title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
+													alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+												>
+										</figure>
 									</div>
-									<div class="card-body">
-										<h3 class="card-title h4">
-											<?php echo esc_attr( $item->post_title ); ?>
-										</h3>
-									</div>
-								</a>
-							</div>
+								</div>
+								<div class="it-card-body">
+								<p class="it-card-text">
+									<?php echo esc_attr( $short_desc ); ?>
+								</p>
+								</div>
+							</article>
 						</div>
-					</div>
 					<?php
 					}
 					?>
