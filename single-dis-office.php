@@ -10,11 +10,11 @@ global $post;
 get_header();
 
 $image_data  = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
-$persons     =  DIS_CustomFieldsManager::get_field( 'members' , $post->ID );
-$email       = DIS_CustomFieldsManager::get_field( 'email' , $post->ID );
-$phone       = DIS_CustomFieldsManager::get_field( 'telephone' , $post->ID );
-$places      = DIS_CustomFieldsManager::get_field( 'places' , $post->ID );
-$full_places = $places ? implode(', ', wp_list_pluck( $places, 'post_title') ) : '';
+$persons     = DIS_CustomFieldsManager::get_field( 'members', $post->ID );
+$email       = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$phone       = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$places      = DIS_CustomFieldsManager::get_field( 'places', $post->ID );
+$full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) ) : '';
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
