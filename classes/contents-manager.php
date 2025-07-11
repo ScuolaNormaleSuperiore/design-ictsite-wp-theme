@@ -266,6 +266,21 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+	public static function get_generic_post_query( $params ) {
+		$args = array(
+			'post_type'      => $params['post_type'],
+			'post_status'    => $params['post_status'] ?? 'publish',
+			'order'          => $params['order'] ?? 'ASC',
+			'orderby'        => $params['orderby'] ?? 'title' ,
+			'paged'          => $params['paged'] ?? 1,
+			'posts_per_page' => $params['per_page'] ?? -1,
+		);
+		if ( $params['search_string'] ) {
+			$args['s'] = $params['search_string'];
+		}
+		return new WP_Query( $args );
+	}
+
 	/**
 	 * Get service list order by title or by priority-title.
 	 *

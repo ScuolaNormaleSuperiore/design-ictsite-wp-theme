@@ -15,9 +15,9 @@ $default_cl_list   = array_map( function( $cluster ) { return $cluster->post_nam
 
 $num_results = 0;
 $the_query   = null;
-$per_page    =
-	isset( $_GET['per_page'] ) && is_numeric( $_GET['per_page'] ) ?
-	$_GET['per_page'] :
+$posts_per_page    =
+	isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ?
+	$_GET['posts_per_page'] :
 	DIS_ITEMS_PER_PAGE;
 $per_page_values  = DIS_ITEMS_PER_PAGE_VALUES;
 
@@ -56,7 +56,7 @@ if (
 	$the_query = DIS_ContentsManager::get_site_search_query(
 		$selected_contents,
 		$search_string,
-		$per_page
+		$posts_per_page
 	);
 	$num_results = $the_query->found_posts;
 }
@@ -138,7 +138,7 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 					null,
 					array(
 						'query'           => $the_query,
-						'per_page'        => $per_page,
+						'posts_per_page'        => $posts_per_page,
 						'per_page_values' => $per_page_values,
 						'num_results'     => $num_results,
 					)

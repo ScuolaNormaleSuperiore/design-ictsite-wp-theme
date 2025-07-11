@@ -7,35 +7,62 @@
 global $post;
 get_header();
 
-$items = DIS_ContentsManager::get_generic_post_list( DIS_PROJECT_POST_TYPE );
-if ( count( $items ) > 0 ){
+// Check parameters.
+$posts_per_page  = strval( DIS_ITEMS_PER_PAGE );
+$per_page_values = DIS_ITEMS_PER_PAGE_VALUES;
+if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
+	$posts_per_page = sanitize_text_field( $_GET['posts_per_page'] );
+}
+if ( isset( $_GET['paged'] ) && is_numeric( $_GET['paged'] ) ) {
+	$paged = 1;
+} else {
+	$paged = sanitize_text_field( get_query_var( 'paged', 1 ) );
+}
+
+
+// Prepare the query.
+$params = array(
+	'post_type'      => DIS_PROJECT_POST_TYPE,
+	'search_string'  => '',
+	'posts_per_page' => $posts_per_page,
+	'paged'          => $paged,
+	'order'          => 'ASC',
+);
+
+// Execute the query.
+$the_query   = DIS_ContentsManager::get_generic_post_query( $params );
+$num_results = $the_query->found_posts;
 ?>
 
-	<!-- ARCHIVE PAGE -->
-	<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
-		<div class="row">
-			<div class="col">
-				<h2 class="pb-2">
-					<?php echo esc_attr( get_the_title() ); ?>
-				</h2>
+<!-- ARCHIVE PAGE -->
+<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
+	<div class="row">
+		<div class="col">
+			<h2 class="pb-2">
+				<?php echo esc_attr( get_the_title() ); ?>
+			</h2>
 
+			<?php
+			if ( $num_results ) {
+			?>
 				<!-- RESULT LIST  -->
 				<ul class="it-card-list row" aria-label="Lista delle news">
 					<?php
-					foreach ( $items as $item ) {
-						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'full' );
-						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						$image_data = DIS_ContentsManager::get_image_metadata( $post, 'full' );
+						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 					?>
 					<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
 						<article class="it-card it-card-image it-card-height-full">
 							<!-- Title -->
 							<h3 class="it-card-title ">
 								<a
-									href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>"
-									title="<?php echo esc_attr( $item->post_title ); ?>"
-									alt="<?php echo esc_attr( $item->post_title ); ?>"
+									href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"
+									title="<?php echo esc_attr( $post->post_title ); ?>"
+									alt="<?php echo esc_attr( $post->post_title ); ?>"
 								>
-									<?php echo esc_attr( $item->post_title ); ?>
+									<?php echo esc_attr( $post->post_title ); ?>
 								</a>
 							</h3>
 							<!-- Image -->
@@ -60,30 +87,38 @@ if ( count( $items ) > 0 ){
 					</li>
 					<?php
 					}
+					wp_reset_postdata();
 					?>
 				</ul>
-
-
-			<!-- paginazione risultati
 			<?php
-				get_template_part(
-					'template-parts/common/pagination',
-					null,
-					array(
-						'query'           => $the_query,
-						'per_page'        => $per_page,
-						'per_page_values' => $per_page_values,
-						'num_results'     => $num_results,
-					)
-				);
+			} else {
 			?>
- -->
- 
-			</div> <!-- col -->
-		</div>
+				<div class="col-12 col-lg-8">
+					<div clas="row pt-2">
+						<em><?php echo esc_attr( __( 'No results found', 'design_ict_site' ) ); ?></em>
+					</div>
+				</div>
+			<?php
+			}
+			?>
+
+
+			<!-- Results pagination-->
+			<!--php
+				$args = array(
+					'query'           => $the_query,
+					'posts_per_page'        => $posts_per_page,
+					'per_page_values' => $per_page_values,
+					'num_results'     => $num_results,
+				);
+				get_template_part( 'template-parts/common/pagination', null, $args );
+		-->
+
+
+		</div> <!-- col -->
 	</div>
+</div>
 
 
 <?php
-}
 get_footer();

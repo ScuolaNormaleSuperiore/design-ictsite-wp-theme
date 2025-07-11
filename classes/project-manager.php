@@ -49,7 +49,7 @@ class Project_Manager {
 			'menu_icon'     => 'dashicons-share-alt',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['slug'] ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['slug'], 'with_front' => true ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 
