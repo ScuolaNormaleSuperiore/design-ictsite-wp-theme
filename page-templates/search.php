@@ -189,9 +189,11 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 							<div class="form-check">
 								<input type="checkbox" name="selected_clusters[]" id="<?php echo esc_attr( $cl->post_name ); ?>" 
 									value="<?php echo esc_attr( $cl->post_name ); ?>"
-									<?php if (count( $selected_clusters ) > 0 && in_array( $cl->post_name, $selected_clusters ) ) {
-										echo "checked='checked'";
-									} ?>
+									<?php
+										if ( count( $selected_clusters ) > 0 && in_array( $cl->post_name, $selected_clusters ) ) {
+											echo "checked='checked'";
+										}
+									?>
 								>
 								<label for="<?php echo esc_attr( $cl->post_name ) ; ?>">
 									<?php echo esc_attr( $cl->post_title ); ?>

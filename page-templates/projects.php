@@ -26,6 +26,7 @@ $params = array(
 	'search_string'  => '',
 	'posts_per_page' => $posts_per_page,
 	'paged'          => $paged,
+	'orderby'        => 'title',
 	'order'          => 'ASC',
 );
 
