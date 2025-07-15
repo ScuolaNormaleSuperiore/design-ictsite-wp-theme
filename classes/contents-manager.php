@@ -661,7 +661,7 @@ class DIS_ContentsManager {
 		if ( $search_string ) {
 			$params['s'] = $search_string;
 		}
-		if( count( $selected_contents ) > 0 ) {
+		if ( count( $selected_contents ) > 0 ) {
 			$params['post_type'] = $selected_contents;
 		}
 		$the_query = new WP_Query( $params );
@@ -780,12 +780,8 @@ class DIS_ContentsManager {
 		$result->type  = $post->post_type;
 		$result->link  = get_permalink( $post );
 		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
-		// if ( ! $description ) {
-		// 	$description = wp_strip_all_tags( get_the_content( $post ) );
-		// }
-		// $result->description   = $description;
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
-		$result->description   = $description;
+		$result->description   = $description ? $description : '';
 		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		self::fill_image_data( $post, $result );

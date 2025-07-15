@@ -15,7 +15,7 @@ $default_cat_list = array_column( $all_categories, 'slug' );
 if ( isset( $_GET['selected_categories'] ) && is_array( $_GET['selected_categories'] ) ) {
 	$selected_categories = array_map( 'sanitize_text_field', $_GET['selected_categories'] );
 } else {
-	$selected_categories = $default_cat_list;
+	$selected_categories = array();
 }
 
 // Prepare the query.
@@ -26,9 +26,13 @@ $params = array(
 	'paged'          => $paged,
 	'orderby'        => 'post_date',
 	'order'          => 'DESC',
-	'taxonomy'        => DIS_DEFAULT_CATEGORY,
-	'terms'          => $selected_categories
 );
+
+// Add category filter, if selected.
+if ( count($selected_categories) > 0 ) {
+	$params['taxonomy'] = DIS_DEFAULT_CATEGORY;
+	$params['terms']    = $selected_categories;
+}
 
 // Execute the query.
 $the_query   = DIS_ContentsManager::get_generic_post_query( $params );

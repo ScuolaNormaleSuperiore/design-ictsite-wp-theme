@@ -29,16 +29,18 @@ if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 
 } else {
 	if ( isset( $_GET['selected_contents'] ) ) {
 		$selected_contents = $_GET['selected_contents'];
+		$searchable_ct     = $selected_contents;
 	} else {
-		$selected_contents = $default_ct_list;
+		$selected_contents = array();
+		$searchable_ct     = $default_ct_list;
 	}
 	if ( isset( $_GET['selected_clusters'] ) ) {
 		$selected_clusters = $_GET['selected_clusters'];
 	} else {
-		$selected_clusters = $default_cl_list;
+		$selected_clusters = array();
 	}
 	if ( ! is_array( $selected_contents ) ) {
-		$selected_contents = $default_ct_list;
+		$selected_contents = array();
 	}
 	if ( isset( $_GET['search_string'] ) ) {
 		$search_string = sanitize_text_field( $_GET['search_string'] );
@@ -54,7 +56,7 @@ if (
 ) {
 	// EXECUTE THE QUERY .
 	$the_query = DIS_ContentsManager::get_site_search_query(
-		$selected_contents,
+		$searchable_ct,
 		$search_string,
 		$posts_per_page
 	);
