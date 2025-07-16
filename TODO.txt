@@ -5,21 +5,17 @@
 - Dettaglio eventi.
 - Dove siamo (luoghi)
 - Dettaglio luogo.
--Dettaglio ufficio.
+- Dettaglio ufficio.
 - Gestione dei font.
 
 
 - Ricontrollo e riconfigurazione di phpcs.
 - Sitemap XML?
-- HP Featured Events.
-- Controlla se una sezione HP non ha elementi non la mostrare (es. eventi, progetti, ecc).
-
 
 
 * Procedure da fare:
 A) Verifica dei plugin obbligatori installati nello header: check_mandatory_plugins.
 B) Configurazione automatica di Polylang con italiano e inglese.
-
 
 
 * Problema caricamento multiplo:
