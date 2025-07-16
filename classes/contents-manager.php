@@ -30,7 +30,10 @@ class DIS_Search_Wrapper {
 	public string $slug          = '';
 	public string $link          = '';
 	public string $date          = '';
+	public string $long_date     = '';
+	public string $content_type  = '';
 	public string $type          = '';
+	public string $type_link     = '';
 	public string $category      = '';
 	public string $category_link = '';
 	public string $image_url     = '';
@@ -668,6 +671,36 @@ class DIS_ContentsManager {
 		return $the_query;
 	}
 
+
+	public static function get_main_category( $post ){
+		$categories = get_the_category();
+		if ( ! empty( $categories ) ) {
+			return $categories[0];
+		}
+		return null;
+	}
+
+	public static function format_long_date(string $date_str): string {
+		if ( ! $date_str ) return '';
+		try {
+			$data = DateTime::createFromFormat('j/n/Y', $date_str);
+			if ( ! $data ) {
+					return '';
+			}
+			$formatter = new IntlDateFormatter(
+					'it_IT', 
+					IntlDateFormatter::LONG,
+					IntlDateFormatter::NONE,
+					'Europe/Rome',
+					IntlDateFormatter::GREGORIAN,
+					'd MMMM yyyy'
+			);
+			return $formatter->format($data);
+		} catch ( Exception $e ) {
+			return '';
+		}
+	}
+
 	/**
 	 * Wrap a specific content type into a generic Search Wrapper.
 	 * 
@@ -710,14 +743,18 @@ class DIS_ContentsManager {
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
 		$result->slug          = $post->post_name;
-		$result->type          = $post->post_type;
+		$result->content_type  = $post->post_type;
 		$result->link          = get_permalink( $post );
 		$start_date            = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
 		$result->date          = $start_date ? $start_date : '';
+		$result->long_date     = self::format_long_date( $result->date );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description ? $description : '';
-		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$category              = self::get_main_category( $post );
+		$result->category      = $category ? $category->name : '';
+		$result->category_link = $category ? DIS_MultiLangManager::get_archive_link( $post->post_type ) . '?category=' .  $category->name : '';
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
@@ -727,12 +764,16 @@ class DIS_ContentsManager {
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
 		$result->slug          = $post->post_name;
-		$result->type          = $post->post_type;
+		$result->content_type  = $post->post_type;
 		$result->link          = get_permalink( $post );
-		$result->date          = '';
+		$result->date          = get_the_date( 'j/n/Y' );
+		$result->long_date     = get_the_date( 'j F Y' );
 		$result->description   = wp_strip_all_tags( get_the_content( $post ) );
-		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$category              = self::get_main_category( $post );
+		$result->category      = $category ? $category->name : '';
+		$result->category_link = $category ? DIS_MultiLangManager::get_archive_link( $post->post_type ) . '?category=' .  $category->name : '';
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
@@ -742,48 +783,60 @@ class DIS_ContentsManager {
 		$result->id            = $post->ID;
 		$result->title         = $post->post_title;
 		$result->slug          = $post->post_name;
-		$result->type          = $post->post_type;
+		$result->content_type  = $post->post_type;
 		$result->link          = get_permalink( $post );
-		$result->date          = '';
+		$result->date          = get_the_date( 'j/n/Y' );
+		$result->long_date     = get_the_date( 'j F Y' );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description;
-		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$category              = self::get_main_category( $post );
+		$result->category      = $category ? $category->name : '';
+		$result->category_link = $category ? DIS_MultiLangManager::get_archive_link( $post->post_type ) . '?category=' .  $category->name : '';
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
 	private static function wrap_page( $post ): DIS_Search_Wrapper {
-		$result        = new DIS_Search_Wrapper();
-		$result->id    = $post->ID;
-		$result->title = $post->post_title;
-		$result->slug  = $post->post_name;
-		$result->type  = $post->post_type;
-		$result->link  = get_permalink( $post );
-		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
-		$description   = get_the_excerpt( $post->ID );
+		$result                = new DIS_Search_Wrapper();
+		$result->id            = $post->ID;
+		$result->title         = $post->post_title;
+		$result->slug          = $post->post_name;
+		$result->content_type  = $post->post_type;
+		$result->link          = get_permalink( $post );
+		$result->date          = get_the_date( 'j/n/Y' );
+		$result->long_date     = get_the_date( 'j F Y' );
+		$description           = get_the_excerpt( $post->ID );
 		if ( ! $description ) {
 			$description = wp_strip_all_tags( get_the_content( $post ) );
 		}
 		$result->description   = $description;
-		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$category              = self::get_main_category( $post );
+		$result->category      = $category ? $category->name : '';
+		$result->category_link = $category ? DIS_MultiLangManager::get_archive_link( $post->post_type ) . '?category=' .  $category->name : '';
 		self::fill_image_data( $post, $result );
 		return $result;
 	}
 
 	private static function wrap_article( $post ) {
-		$result        = new DIS_Search_Wrapper();
-		$result->id    = $post->ID;
-		$result->title = $post->post_title;
-		$result->slug  = $post->post_name;
-		$result->type  = $post->post_type;
-		$result->link  = get_permalink( $post );
-		$result->date  = date_i18n( 'd/m/Y', strtotime( $post->post_date ) );
+		$result                = new DIS_Search_Wrapper();
+		$result->id            = $post->ID;
+		$result->title         = $post->post_title;
+		$result->slug          = $post->post_name;
+		$result->content_type  = $post->post_type;
+		$result->link          = get_permalink( $post );
+		$result->date          = get_the_date( 'j/n/Y' );
+		$result->long_date     = get_the_date( 'j F Y' );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
 		$result->description   = $description ? $description : '';
-		$result->category      = dis_ct_data()[$post->post_type]['plural_name'];
-		$result->category_link = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
+		$category              = self::get_main_category( $post );
+		$result->category      = $category ? $category->name : '';
+		$result->category_link = $category ? DIS_MultiLangManager::get_archive_link( $post->post_type ) . '?category=' .  $category->name : '';
 		self::fill_image_data( $post, $result );
 		return $result;
 	}

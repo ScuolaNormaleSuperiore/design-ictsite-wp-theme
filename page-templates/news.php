@@ -112,7 +112,7 @@ $num_results = $the_query->found_posts;
 									}
 									?>
 								</div>
-								<time class="it-card-date" datetime="2025-04-22">
+								<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
 									<?php echo get_the_date( 'j/n/Y' ); ?>
 								</time>
 							</footer>

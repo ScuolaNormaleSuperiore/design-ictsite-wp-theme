@@ -1,10 +1,12 @@
 
 * TODO LIST:
 
-- Progetti.
-- Dettaglio progetti.
-- News
-- Dettaglio news.
+- Dettaglio notizie.
+- Eventi.
+- Dettaglio eventi.
+- Dove siamo (luoghi)
+- Dettaglio luogo.
+-Dettaglio ufficio.
 - Gestione dei font.
 
 

@@ -91,32 +91,32 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 				$post_index = 0;
 				while ( $the_query->have_posts() ) {
 					$the_query->the_post();
-					$result = DIS_ContentsManager::wrap_search_result( $post );
+					$wrapper = DIS_ContentsManager::wrap_search_result( $post );
 				?>
 				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
 					<!--start it-card-->
 					<article class="it-card it-card-height-full rounded shadow-sm border">
 						<!--card first child is the title (link)-->
 						<h3 class="it-card-title ">
-							<a href="<?php echo esc_url( $result->link ); ?>">
-								<?php echo esc_attr( $result->title ); ?>
+							<a href="<?php echo esc_url( $wrapper->link ); ?>">
+								<?php echo esc_attr( $wrapper->title ); ?>
 							</a>
 						</h3>
 						<!--card body content-->
 						<div class="it-card-body">
 							<p class="it-card-text">
-								<?php echo esc_attr( wp_trim_words( $result->description , DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
+								<?php echo esc_attr( wp_trim_words( $wrapper->description , DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
 							</p>
 						</div>
 						<!--finally the card footer metadata-->
 						<footer class="it-card-related it-card-footer">
 							<div class="it-card-taxonomy">
-								<a href="<?php echo esc_url( $result->category_link ); ?>"
+								<a href="<?php echo esc_url( $wrapper->type_link ); ?>"
 									class="it-card-category it-card-link link-secondary">
 									<span class="visually-hidden">
 										<?php echo __( 'Related category', 'design_ict_site' ); ?>
 									</span>
-									<?php echo esc_attr( $result->category ); ?>
+									<?php echo esc_attr( $wrapper->type ); ?>
 								</a>
 							</div>
 						</footer>
