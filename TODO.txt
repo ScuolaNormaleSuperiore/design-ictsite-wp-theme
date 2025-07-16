@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-- Dettaglio notizie.
 - Eventi.
 - Dettaglio eventi.
 - Dove siamo (luoghi)

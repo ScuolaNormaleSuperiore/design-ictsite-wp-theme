@@ -57,7 +57,9 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 		'template-parts/common/related-contents',
 		false,
 		array(
-			'items' => $related,
+			'items'     => $related,
+			'all_label' => __( 'All news', 'design_ict_site' ),
+			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)
 	);
 ?>

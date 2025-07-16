@@ -4,7 +4,10 @@
 * @package Design_ICT_Site
 */
 
-$items = $args['items'] ?? array();
+$items     = $args['items'] ?? array();
+$all_label = $args['all_label'] ?? '';
+$all_link  = $args['all_link'] ?? '';
+
 if ( count ( $items ) > 0 ) {
 ?>
 <section id="blocco-events" class="section pt-5 pb-3">
@@ -72,8 +75,8 @@ if ( count ( $items ) > 0 ) {
 
 			<!--Button -->
 			<div class="text-center pt-5 pb-5">
-				<a href="elenco-news.html" class="btn btn-secondary">
-					Tutte le news
+				<a href="<?php echo esc_url( $all_link ); ?>" class="btn btn-secondary">
+					<?php echo esc_attr( $all_label ); ?>
 				</a>
 			</div>
 		</div>
