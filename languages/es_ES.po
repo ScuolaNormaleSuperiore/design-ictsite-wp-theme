@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-07-10 09:10+0000\n"
+"PO-Revision-Date: 2025-07-17 07:18+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -83,20 +83,28 @@ msgstr ""
 msgid "Alert"
 msgstr ""
 
-#: template-parts/home/hp-events-section.php:70
+#: template-parts/home/hp-articles-section.php:70
+msgid "All articles"
+msgstr ""
+
+#: template-parts/home/hp-events-section.php:106
 msgid "All events"
 msgstr ""
 
-#: template-parts/home/hp-news-section.php:99
+#: single-dis-news.php:61 template-parts/home/hp-news-section.php:100
 msgid "All news"
 msgstr ""
 
-#: template-parts/home/hp-projects-section.php:73
+#: template-parts/home/hp-projects-section.php:74
 msgid "All projects"
 msgstr ""
 
 #: classes/options-manager.php:751
 msgid "API token"
+msgstr ""
+
+#: page-templates/news.php:181
+msgid "Apply filters"
 msgstr ""
 
 #: classes/options-manager.php:218 classes/options-manager.php:304
@@ -169,8 +177,12 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: page-templates/search.php:209
+#: page-templates/search.php:213
 msgid "Content types"
+msgstr ""
+
+#: single-dis-project.php:49
+msgid "Contributors"
 msgstr ""
 
 #: classes/options-manager.php:229
@@ -185,7 +197,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/search.php:168
+#: page-templates/search.php:170
 msgid "Digit the text to search"
 msgstr ""
 
@@ -206,7 +218,7 @@ msgstr ""
 
 #. Name of the template
 #: page-templates/people.php:2
-msgid "dis-person"
+msgid "dis-person."
 msgstr ""
 
 #. Name of the template
@@ -828,7 +840,11 @@ msgstr ""
 msgid "Features"
 msgstr ""
 
-#: page-templates/search.php:184 page-templates/search.php:213
+#: page-templates/news.php:150 page-templates/news.php:154
+msgid "Filter by category"
+msgstr ""
+
+#: page-templates/search.php:186 page-templates/search.php:217
 msgid "Filters for selecting search results"
 msgstr ""
 
@@ -858,7 +874,7 @@ msgstr "Helpdesk"
 msgid "FooterOfficesLabel"
 msgstr ""
 
-#: page-templates/search.php:63
+#: page-templates/search.php:65
 #, php-format
 msgid "Found %s results."
 msgstr ""
@@ -989,8 +1005,8 @@ msgstr ""
 msgid "Language selection: selected language"
 msgstr ""
 
-#: single-dis-event.php:59 single-dis-news.php:59 single-dis-place.php:59
-#: single-dis-post.php:59 single-dis-project.php:61 single-dis-service.php:286
+#: single-dis-event.php:59 single-dis-place.php:59 single-dis-post.php:59
+#: single-dis-project.php:137 single-dis-service.php:286
 msgid "Last modification"
 msgstr ""
 
@@ -1004,6 +1020,14 @@ msgstr ""
 
 #: classes/options-manager.php:255
 msgid "Link to a more in-depth page, even external to the site"
+msgstr ""
+
+#: single-dis-project.php:116
+msgid "Link to the repository of the project"
+msgstr ""
+
+#: single-dis-project.php:96
+msgid "Link to the websiste of the project"
 msgstr ""
 
 #: classes/options-manager.php:761
@@ -1105,13 +1129,17 @@ msgstr ""
 msgid "No"
 msgstr ""
 
+#: page-templates/news.php:131 page-templates/projects.php:99
+msgid "No results found"
+msgstr ""
+
 #: single-dis-service-cluster.php:68 page-templates/service-clusters.php:18
 #: template-parts/home/hp-clusters-section.php:22
 msgid "Our services"
 msgstr ""
 
-#: template-parts/common/pagination.php:52
-#: template-parts/common/pagination.php:67
+#: template-parts/common/pagination.php:51
+#: template-parts/common/pagination.php:66
 msgid "page"
 msgstr ""
 
@@ -1121,6 +1149,10 @@ msgstr ""
 
 #: single-dis-office.php:75
 msgid "People"
+msgstr ""
+
+#: template-parts/common/people-section.php:13
+msgid "People list"
 msgstr ""
 
 #: classes/person-manager.php:35
@@ -1157,8 +1189,15 @@ msgstr ""
 msgid "Rates"
 msgstr ""
 
-#: page-templates/search.php:115 template-parts/home/hp-news-section.php:79
+#: page-templates/events.php:107 page-templates/news.php:107
+#: page-templates/search.php:117 template-parts/home/hp-events-section.php:86
+#: template-parts/home/hp-news-section.php:80
 msgid "Related category"
+msgstr ""
+
+#: template-parts/common/related-contents.php:17
+#: template-parts/common/related-contents.php:60
+msgid "Related contents"
 msgstr ""
 
 #: single-dis-service.php:228
@@ -1178,6 +1217,10 @@ msgstr ""
 msgid "Remove the section"
 msgstr ""
 
+#: single-dis-project.php:112
+msgid "Repository"
+msgstr ""
+
 #: single-dis-service.php:100
 msgid "Requirements"
 msgstr ""
@@ -1190,7 +1233,7 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/search.php:171 page-templates/search.php:239
+#: page-templates/search.php:173 page-templates/search.php:244
 #: template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
@@ -1210,12 +1253,12 @@ msgstr ""
 msgid "Search in the site."
 msgstr ""
 
-#: single-dis-office.php:77 page-templates/people.php:16
-#: page-templates/search.php:73 page-templates/search.php:86
+#: single-dis-office.php:77 page-templates/search.php:75
+#: page-templates/search.php:88
 msgid "Search results"
 msgstr ""
 
-#: page-templates/search.php:164
+#: page-templates/search.php:166
 msgid "Search the site"
 msgstr ""
 
@@ -1243,7 +1286,7 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: page-templates/search.php:180
+#: page-templates/search.php:182
 msgid "Service clusters"
 msgstr ""
 
@@ -1294,7 +1337,7 @@ msgstr ""
 msgid "Site contacts"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:54
+#: template-parts/home/hp-main-hero-section.php:55
 msgid "Site search"
 msgstr ""
 
@@ -1326,6 +1369,10 @@ msgstr ""
 
 #: classes/options-manager.php:889
 msgid "Some plugin require the REST API to be enabled."
+msgstr ""
+
+#: page-templates/events.php:123
+msgid "Subscribe the event"
 msgstr ""
 
 #: classes/options-manager.php:230
@@ -1471,6 +1518,10 @@ msgstr ""
 
 #: single-dis-person.php:78
 msgid "Web site"
+msgstr ""
+
+#: single-dis-project.php:92
+msgid "Website"
 msgstr ""
 
 #. Description of the theme

@@ -8,7 +8,7 @@ global $post;
 get_header();
 
 // Get default values.
-$all_categories  = get_categories( array( 'hide_empty' => true ) );
+$all_categories   = get_categories( array( 'hide_empty' => true ) );
 $default_cat_list = array_column( $all_categories, 'slug' );
 
 // Check parameters.
@@ -29,7 +29,7 @@ $params = array(
 );
 
 // Add category filter, if selected.
-if ( count($selected_categories) > 0 ) {
+if ( count( $selected_categories ) > 0 ) {
 	$params['taxonomy'] = DIS_DEFAULT_CATEGORY;
 	$params['terms']    = $selected_categories;
 }
@@ -64,59 +64,60 @@ $num_results = $the_query->found_posts;
 							$category = ( count( $categories ) > 0 ) ? $categories[0] : $categories;
 						}
 					?>
-					<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-						<article class="it-card it-card-image it-card-height-full rounded shadow-sm">
-							<!-- Title -->
-							<h3 class="it-card-title ">
-								<a
-									href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"
-									title="<?php echo esc_attr( $post->post_title ); ?>"
-									alt="<?php echo esc_attr( $post->post_title ); ?>"
-								>
-									<?php echo esc_attr( $post->post_title ); ?>
-								</a>
-							</h3>
-							<!-- Image -->
-							<div class="it-card-image-wrapper">
-								<div class="ratio ratio-16x9">
-									<figure class="figure img-full">
-										<img
-												src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-												title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-												alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
-											>
-									</figure>
-								</div>
-							</div>
-							<!-- Body -->
-							<div class="it-card-body">
-								<p class="it-card-text">
-									<?php echo esc_attr( $short_desc ); ?>
-								</p>
-							</div>
-							<!-- Footer -->
-							<footer class="it-card-related it-card-footer">
-								<div class="it-card-taxonomy">
-									<?php
-									if ( $category ) {
-										$list_page = DIS_MultiLangManager::get_page_by_label( NEWS_PAGE_SLUG );
-									?>
-									<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . $category->slug; ?>"
-										class="it-card-category it-card-link link-secondary">
-										<span class="visually-hidden">
-											<?php echo __( 'Related category', 'design_ict_site' ); ?>:&nbsp;
-										</span>
-										<?php echo esc_attr( $category->name ); ?>
+						<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
+							<article class="it-card it-card-image it-card-height-full rounded shadow-sm">
+								<!-- Title -->
+								<h3 class="it-card-title ">
+									<a
+										href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"
+										title="<?php echo esc_attr( $post->post_title ); ?>"
+										alt="<?php echo esc_attr( $post->post_title ); ?>"
+									>
+										<?php echo esc_attr( $post->post_title ); ?>
 									</a>
-									<?php
-									}
-									?>
+								</h3>
+								<!-- Image -->
+								<div class="it-card-image-wrapper">
+									<div class="ratio ratio-16x9">
+										<figure class="figure img-full">
+											<img
+													src="<?php echo esc_url( $image_data['image_url'] ); ?>"
+													title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
+													alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+												>
+										</figure>
+									</div>
 								</div>
-								<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
-									<?php echo get_the_date( 'j/n/Y' ); ?>
-								</time>
-							</footer>
-						</article>
+								<!-- Body -->
+								<div class="it-card-body">
+									<p class="it-card-text">
+										<?php echo esc_attr( $short_desc ); ?>
+									</p>
+								</div>
+								<!-- Footer -->
+								<footer class="it-card-related it-card-footer">
+									<div class="it-card-taxonomy">
+										<?php
+										if ( $category ) {
+											$list_page = DIS_MultiLangManager::get_page_by_label( NEWS_PAGE_SLUG );
+										?>
+										<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . $category->slug; ?>"
+											class="it-card-category it-card-link link-secondary">
+											<span class="visually-hidden">
+												<?php echo __( 'Related category', 'design_ict_site' ); ?>:&nbsp;
+											</span>
+											<?php echo esc_attr( $category->name ); ?>
+										</a>
+										<?php
+										}
+										?>
+									</div>
+									<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
+										<?php echo get_the_date( 'j/n/Y' ); ?>
+									</time>
+								</footer>
+							</article>
+						</li>
 					<?php
 					}
 					wp_reset_postdata();
@@ -135,7 +136,7 @@ $num_results = $the_query->found_posts;
 			?>
 
 
-				<!-- Results pagination-->
+			<!-- Results pagination-->
 		</div>
 
 		<!-- SIDEBAR FILTERS -->
