@@ -45,7 +45,6 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 
 			<!-- CONTRIBUTORS -->
 			<div class="row">
-
 				<!-- People -->
 				<?php
 				if ( $persons ){
