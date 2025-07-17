@@ -158,9 +158,11 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 					<!-- Filter by TEXT -->
 					<div class="form-group">
 						<div class="input-group">
-							<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
-									<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
-								</svg></span>
+							<span class="input-group-text">
+								<svg class="icon icon-sm" aria-hidden="true">
+									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
+								</svg>
+							</span>
 							<label for="search_string">
 								<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
 							</label>

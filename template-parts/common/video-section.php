@@ -26,7 +26,7 @@ $msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You c
 			<div class="acceptoverlay-inner">
 				<div class="acceptoverlay-icon">
 					<svg class="icon icon-xl">
-						<use href="<?php echo DIS_THEME_URL . '/bootstrap-italia/dist/svg/sprites.svg#it-video'; ?>"></use>
+						<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/dist/svg/sprites.svg#it-video'; ?>"></use>
 					</svg>
 				</div>
 				<p>

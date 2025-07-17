@@ -44,13 +44,16 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 			</section>
 
 			<!-- CONTRIBUTORS -->
-			<h3 class="h4 service-paragraph mt-3">
-				<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;
-				<?php echo esc_attr( __( 'Contributors', 'design_ict_site' ) ); ?>
-			</h3>
 			<div class="row">
 
 				<!-- People -->
+				<?php
+				if ( $persons ){
+				?>
+				<h3 class="h4 service-paragraph mt-3">
+					<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;
+					<?php echo esc_attr( __( 'Contributors', 'design_ict_site' ) ); ?>
+				</h3>
 				<?php
 					get_template_part(
 						'template-parts/common/people-section',
@@ -61,8 +64,14 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 						)
 					);
 				?>
+				<?php
+				}
+				?>
 
 				<!-- VIDEO -->
+				<?php
+				if ( $video ){
+				?>
 				<?php
 					get_template_part(
 						'template-parts/common/video-section',
@@ -70,7 +79,9 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 						array( 'video' => $video )
 					);
 				?>
-
+				<?php
+				}
+				?>
 
 			</div> <!-- row -->
 
@@ -95,7 +106,7 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 										<title>
 											<?php echo esc_attr( __( 'Link to the websiste of the project', 'design_ict_site' ) ); ?>
 										</title>
-										<use href="<?php echo DIS_THEME_URL . '/bootstrap-italia/svg/sprites.svg#it-external-link'; ?>"></use>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link'; ?>"></use>
 									</svg>
 								</div>
 							</a>
@@ -115,7 +126,7 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 										<title>
 											<?php echo esc_attr( __( 'Link to the repository of the project', 'design_ict_site' ) ); ?>
 										</title>
-										<use href="<?php echo DIS_THEME_URL . '/bootstrap-italia/svg/sprites.svg#it-code-circle'; ?>"></use>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-code-circle'; ?>"></use>
 									</svg>
 								</div>
 							</a>
