@@ -12,14 +12,13 @@ $all_content_types = DIS_ContentsManager::get_content_types_with_results();
 $default_ct_list   = array_column( $all_content_types, 'slug' );
 $all_clusters      = DIS_ContentsManager::get_cluster_list();
 $default_cl_list   = array_map( function( $cluster ) { return $cluster->post_name; }, $all_clusters ); 
-
-$num_results = 0;
-$the_query   = null;
+$num_results       = 0;
+$the_query         = null;
 $posts_per_page    =
 	isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ?
 	$_GET['posts_per_page'] :
 	DIS_ITEMS_PER_PAGE;
-$per_page_values  = DIS_ITEMS_PER_PAGE_VALUES;
+$per_page_values   = DIS_ITEMS_PER_PAGE_VALUES;
 
 // Set and format the filters for the query.
 if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {
@@ -166,7 +165,7 @@ $result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_re
 								<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
 							</label>
 							<input type="text" id="search_string" name="search_string" class="form-control" 
-									value="<?php echo esc_attr( $search_string ? $search_string : '' );  ?>"
+									value="<?php echo esc_attr( $search_string ?? '' ); ?>"
 									placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>">
 							<div class="input-group-append">
 								<button type="submit" value="submit" class="btn btn-primary">

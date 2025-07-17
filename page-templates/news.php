@@ -11,9 +11,9 @@ get_header();
 $all_categories   = get_categories( array( 'hide_empty' => true ) );
 $default_cat_list = array_column( $all_categories, 'slug' );
 
-// Check parameters.
+// Check and sanitize parameters.
 if ( isset( $_GET['selected_categories'] ) && is_array( $_GET['selected_categories'] ) ) {
-	$selected_categories = array_map( 'sanitize_text_field', $_GET['selected_categories'] );
+	$selected_categories = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_categories'] ) );
 } else {
 	$selected_categories = array();
 }
@@ -143,7 +143,6 @@ $num_results = $the_query->found_posts;
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
 				<FORM action="." id="search_site_form" method="GET">
-					<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 
 					<div class="p-4 pt-lg-0">
 						<h3 class="p-0">
@@ -155,19 +154,19 @@ $num_results = $the_query->found_posts;
 							</legend>
 
 							<?php
-							foreach( $all_categories as $cat ){
+							foreach ( $all_categories as $ctg ) {
 							?>
 							<div class="form-check">
-								<input type="checkbox"  name="selected_categories[]" id="<?php echo esc_attr( $cat->slug ); ?>" 
-									value="<?php echo esc_attr( $cat->slug ); ?>"
+								<input type="checkbox"  name="selected_categories[]" id="<?php echo esc_attr( $ctg->slug ); ?>" 
+									value="<?php echo esc_attr( $ctg->slug ); ?>"
 									<?php
-										if ( count( $selected_categories ) > 0 && in_array( $cat->slug, $selected_categories ) ) {
-											echo "checked='checked'";
-										}
+									if ( count( $selected_categories ) > 0 && in_array( $ctg->slug, $selected_categories ) ) {
+										echo "checked='checked'";
+									}
 									?>
 									>
-								<label for="<?php echo esc_attr( $cat->slug ); ?>">
-									<?php echo esc_attr( $cat->name ); ?>
+								<label for="<?php echo esc_attr( $ctg->slug ); ?>">
+									<?php echo esc_attr( $ctg->name ); ?>
 								</label>
 							</div>
 							<?php
@@ -176,6 +175,7 @@ $num_results = $the_query->found_posts;
 
 						</fieldset>
 					</div>
+					<!-- Submit the form -->
 					<div class="p-4 pt-lg-0">
 						<button type="submit" value="submit" class="btn btn-primary">
 							<?php echo esc_attr( __( 'Apply filters', 'design_ict_site' ) ); ?>
