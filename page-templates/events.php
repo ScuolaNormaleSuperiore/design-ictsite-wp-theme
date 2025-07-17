@@ -1,8 +1,8 @@
 <?php
-/* Template Name: dis-event
-*
-* @package Design_ICT_Site
-*/
+/** Template Name: dis-event
+ *
+ * @package Design_ICT_Site
+ */
 
 global $post;
 get_header();
@@ -115,7 +115,7 @@ $num_results = $the_query->found_posts;
 											<?php
 											if ( $category ) {
 												$list_page = DIS_MultiLangManager::get_page_by_label( EVENTS_PAGE_SLUG );
-											?>
+												?>
 											<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . esc_attr( $category->slug ); ?>"
 												class="it-card-category it-card-link link-secondary">
 												<span class="visually-hidden">
@@ -123,9 +123,9 @@ $num_results = $the_query->found_posts;
 												</span>
 												<?php echo esc_attr( $category->name ); ?>
 											</a>
-											<?php
+												<?php
 											}
-											?>
+										  ?>
 										</div>
 										<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
 											<?php echo get_the_date( 'j/n/Y' ); ?>
@@ -133,13 +133,6 @@ $num_results = $the_query->found_posts;
 									</footer>
 								</div>
 								<!-- Subscribe the event -->
-								<!--
-								<div class="it-card-footer" aria-label="Link correlati:">
-									<a href="#" class="it-card-link">
-										<?php echo esc_attr( __( 'Subscribe the event', 'design_ict_site' ) ); ?>
-									</a>
-								</div>
-								-->
 							</article>
 						</li>
 					<?php
