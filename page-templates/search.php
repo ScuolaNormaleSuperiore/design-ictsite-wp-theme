@@ -61,7 +61,7 @@ if (
 	);
 	$num_results = $the_query->found_posts;
 }
-$result_message = sprintf( __( "Found %s results.", 'design_ict_site' ), $num_results );
+$result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">

@@ -680,27 +680,6 @@ class DIS_ContentsManager {
 		return null;
 	}
 
-	// public static function format_long_date(string $date_str): string {
-	// 	if ( ! $date_str ) return '';
-	// 	try {
-	// 		$data = DateTime::createFromFormat('j/n/Y', $date_str);
-	// 		if ( ! $data ) {
-	// 				return '';
-	// 		}
-	// 		$formatter = new IntlDateFormatter(
-	// 				'it_IT', 
-	// 				IntlDateFormatter::LONG,
-	// 				IntlDateFormatter::NONE,
-	// 				'Europe/Rome',
-	// 				IntlDateFormatter::GREGORIAN,
-	// 				'd MMMM yyyy'
-	// 		);
-	// 		return $formatter->format($data);
-	// 	} catch ( Exception $e ) {
-	// 		return '';
-	// 	}
-	// }
-
 	public static function format_long_date( string $date_str, bool $include_year = true ): string {
 		if ( $date_str === '' ) {
 			return '';

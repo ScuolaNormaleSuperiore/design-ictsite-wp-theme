@@ -29,7 +29,7 @@
 	<arg name="parallel" value="8"/>
 
 	<!-- Only check the PHP, CSS and SCSS files. JS files are checked separately with JSCS and JSHint. -->
-	<arg name="extensions" value="php,css,scss/css"/>
+	<arg name="extensions" value="php,css,scss"/>
 
 	<!-- Check all files in this directory and the directories below it. -->
 	<file>.</file>
@@ -41,7 +41,9 @@
 	#############################################################################
 	-->
 
-	<rule ref="WordPress"/>
+	<rule ref="WordPress">
+		<exclude name="WordPress.PHP.YodaConditions"/>
+	</rule>
 
 
 	<!--
@@ -114,7 +116,6 @@
 	</rule>
 
 	<!-- Custom rules -->
-	<!-- Disallow Yoda conditions in your codebase. -->
-	<rule ref="Generic.ControlStructures.DisallowYodaConditions"/>
+
 
 </ruleset>

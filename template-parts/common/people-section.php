@@ -4,7 +4,7 @@
 * @package Design_ICT_Site
 */
 
-$persons = $args['persons'] ?? array();
+$persons = ( is_array( $args['persons'] ?? null ) ) ? $args['persons'] : array();
 $format  = $args['format'] ?? 'full';
 $col_lg  = ( $args['format'] === 'full' ) ? 'col-lg-4' : 'col-lg-6';
 ?>
