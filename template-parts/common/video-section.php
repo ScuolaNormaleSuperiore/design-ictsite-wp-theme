@@ -50,6 +50,7 @@ $msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You c
 		<div>
 			<video controls data-bs-video id="vid1" class="video-js" width="640" height="264">
 			</video>
+			<!--
 			<div class="vjs-transcription accordion">
 				<div class="accordion-item">
 					<h2 class="accordion-header " id="transcription-head9">
@@ -66,6 +67,7 @@ $msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You c
 					</div>
 				</div>
 			</div>
+			-->
 		</div>
 	</div>
 </div>
