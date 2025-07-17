@@ -4,7 +4,7 @@
 * @package Design_ICT_Site
 */
 
-$items     = $args['items'] ?? array();
+$items     = isset( $args['items'] ) && is_array( $args['items'] ) ? $args['items'] : array();
 $all_label = $args['all_label'] ?? '';
 $all_link  = $args['all_link'] ?? '';
 
