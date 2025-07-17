@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-17 07:14+0000\n"
+"POT-Creation-Date: 2025-07-17 10:22+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -16,11 +16,23 @@ msgstr ""
 "X-Loco-Version: 2.7.1; wp-6.7.2\n"
 "X-Domain: design_ict_site"
 
+#: template-parts/common/video-section.php:39
+msgid "Accept"
+msgstr ""
+
+#: template-parts/common/video-section.php:10
+#, php-format
+msgid ""
+"Accept the Youtube cookies to watch the video. You can manage the "
+"preferences into the <a target=\"_blank\" href=\"%s\" class=\"text-white\">"
+"%s</a>."
+msgstr ""
+
 #: single-dis-service.php:55
 msgid "Access the service"
 msgstr ""
 
-#: header.php:85
+#: header.php:91
 msgid "Accessory navigation"
 msgstr ""
 
@@ -92,7 +104,7 @@ msgstr ""
 msgid "All events"
 msgstr ""
 
-#: single-dis-news.php:61 template-parts/home/hp-news-section.php:100
+#: single-dis-news.php:66 template-parts/home/hp-news-section.php:100
 msgid "All news"
 msgstr ""
 
@@ -104,7 +116,7 @@ msgstr ""
 msgid "API token"
 msgstr ""
 
-#: page-templates/news.php:181
+#: page-templates/events.php:188 page-templates/news.php:181
 msgid "Apply filters"
 msgstr ""
 
@@ -178,7 +190,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: page-templates/search.php:213
+#: page-templates/search.php:212
 msgid "Content types"
 msgstr ""
 
@@ -198,7 +210,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/search.php:170
+#: page-templates/search.php:169
 msgid "Digit the text to search"
 msgstr ""
 
@@ -841,11 +853,12 @@ msgstr ""
 msgid "Features"
 msgstr ""
 
-#: page-templates/news.php:150 page-templates/news.php:154
+#: page-templates/events.php:156 page-templates/events.php:160
+#: page-templates/news.php:149 page-templates/news.php:153
 msgid "Filter by category"
 msgstr ""
 
-#: page-templates/search.php:186 page-templates/search.php:217
+#: page-templates/search.php:185 page-templates/search.php:216
 msgid "Filters for selecting search results"
 msgstr ""
 
@@ -873,9 +886,14 @@ msgstr ""
 msgid "FooterOfficesLabel"
 msgstr ""
 
-#: page-templates/search.php:65
+#: page-templates/search.php:64
 #, php-format
 msgid "Found %s results."
+msgstr ""
+
+#: single-dis-event.php:36 page-templates/events.php:100
+#, php-format
+msgid "From %s to %s"
 msgstr ""
 
 #: page-templates/service-items.php:22
@@ -891,11 +909,11 @@ msgstr ""
 msgid "Get started"
 msgstr ""
 
-#: header.php:74
+#: header.php:77
 msgid "Go to the footer"
 msgstr ""
 
-#: header.php:73
+#: header.php:74
 msgid "Go to the main content"
 msgstr ""
 
@@ -912,7 +930,7 @@ msgstr ""
 msgid "Hero image"
 msgstr ""
 
-#: header.php:162
+#: header.php:168
 msgid "Hide navigation"
 msgstr ""
 
@@ -1004,7 +1022,7 @@ msgstr ""
 msgid "Language selection: selected language"
 msgstr ""
 
-#: single-dis-event.php:59 single-dis-place.php:59 single-dis-post.php:59
+#: single-dis-event.php:170 single-dis-place.php:59 single-dis-post.php:59
 #: single-dis-project.php:137 single-dis-service.php:286
 msgid "Last modification"
 msgstr ""
@@ -1071,7 +1089,7 @@ msgstr ""
 msgid "Main hero"
 msgstr ""
 
-#: header.php:151
+#: header.php:157
 msgid "Main navigation"
 msgstr ""
 
@@ -1180,6 +1198,10 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
+#: template-parts/common/video-section.php:8
+msgid "Privacy Policy"
+msgstr ""
+
 #: template-parts/home/hp-projects-section.php:27
 msgid "Projects"
 msgstr ""
@@ -1188,8 +1210,8 @@ msgstr ""
 msgid "Rates"
 msgstr ""
 
-#: page-templates/events.php:107 page-templates/news.php:107
-#: page-templates/search.php:117 template-parts/home/hp-events-section.php:86
+#: page-templates/events.php:120 page-templates/news.php:107
+#: page-templates/search.php:116 template-parts/home/hp-events-section.php:86
 #: template-parts/home/hp-news-section.php:80
 msgid "Related category"
 msgstr ""
@@ -1206,6 +1228,10 @@ msgstr ""
 #: classes/activation-manager.php:49 classes/activation-manager.php:50
 #: classes/activation-manager.php:70
 msgid "Reload theme data"
+msgstr ""
+
+#: template-parts/common/video-section.php:44
+msgid "Remember for all videos"
 msgstr ""
 
 #: classes/options-manager.php:215
@@ -1232,7 +1258,7 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/search.php:173 page-templates/search.php:244
+#: page-templates/search.php:172 page-templates/search.php:243
 #: template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
@@ -1252,12 +1278,12 @@ msgstr ""
 msgid "Search in the site."
 msgstr ""
 
-#: single-dis-office.php:77 page-templates/search.php:75
-#: page-templates/search.php:88
+#: single-dis-office.php:77 page-templates/search.php:74
+#: page-templates/search.php:87
 msgid "Search results"
 msgstr ""
 
-#: page-templates/search.php:166
+#: page-templates/search.php:165
 msgid "Search the site"
 msgstr ""
 
@@ -1285,7 +1311,7 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: page-templates/search.php:182
+#: page-templates/search.php:181
 msgid "Service clusters"
 msgstr ""
 
@@ -1315,7 +1341,7 @@ msgstr ""
 msgid "Show the section title"
 msgstr ""
 
-#: header.php:153
+#: header.php:159
 msgid "Show/Hide navigation"
 msgstr ""
 
@@ -1368,10 +1394,6 @@ msgstr ""
 
 #: classes/options-manager.php:889
 msgid "Some plugin require the REST API to be enabled."
-msgstr ""
-
-#: page-templates/events.php:123
-msgid "Subscribe the event"
 msgstr ""
 
 #: classes/options-manager.php:230
@@ -1484,6 +1506,14 @@ msgstr ""
 
 #: classes/faq-manager.php:35
 msgid "Topics"
+msgstr ""
+
+#: template-parts/common/video-section.php:58
+msgid "Transcription"
+msgstr ""
+
+#: template-parts/common/video-section.php:64
+msgid "Transcription text"
 msgstr ""
 
 #: template-parts/menu/useful-links-menu.php:21

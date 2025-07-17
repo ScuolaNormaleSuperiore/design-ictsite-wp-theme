@@ -1,13 +1,11 @@
 
 * TODO LIST:
 
-- Eventi.
-- Dettaglio eventi.
 - Dove siamo (luoghi)
 - Dettaglio luogo.
 - Dettaglio ufficio.
 - Gestione dei font.
-
+- Controllare tutti i link sprites.svg
 
 - Ricontrollo e riconfigurazione di phpcs.
 - Sitemap XML?

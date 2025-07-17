@@ -4,7 +4,13 @@
 * @package Design_ICT_Site
 */
 
-$video = $args['video'] ?? null;
+$video      = $args['video'] ?? null;
+$page_label = __( 'Privacy Policy', 'design_ict_site' );
+$page_link  = DIS_MultiLangManager::get_page_link( PRIVACY_PAGE_SLUG );
+$msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You can manage the preferences into the <a target="_blank" href="%s" class="text-white">%s</a>.', 'design_ict_site' ), 
+	$page_link, 
+	$page_label
+);
 ?>
 
 <div class="mt-3">
@@ -20,23 +26,22 @@ $video = $args['video'] ?? null;
 			<div class="acceptoverlay-inner">
 				<div class="acceptoverlay-icon">
 					<svg class="icon icon-xl">
-						<use href="/bootstrap-italia/dist/svg/sprites.svg#it-video"></use>
+						<use href="<?php echo DIS_THEME_URL . '/bootstrap-italia/dist/svg/sprites.svg#it-video'; ?>"></use>
 					</svg>
 				</div>
 				<p>
-					Accetta i cookie di YouTube per vedere il video. Puoi gestire le preferenze nella <a href="#"
-					class="text-white">cookie policy</a>.
+					<?php echo $msg_text; ?>
 				</p>
 				<div class="acceptoverlay-buttons bg-dark">
 					<button type="button" class="btn btn-primary"
 						data-bs-accept-from="youtube.com"
-						onclick="loadYouTubeVideo('https://youtu.be/_0j7ZQ67KtY')">
-						Accetta
+						onclick="loadYouTubeVideo('<?php echo esc_url( $video ); ?>')">
+						<?php echo __( 'Accept', 'design_ict_site' ); ?>
 					</button>
 					<div class="form-check">
 						<input id="chk-remember" type="checkbox" data-bs-accept-remember>
 						<label for="chk-remember">
-							Ricorda per tutti i video
+							<?php echo __( 'Remember for all videos', 'design_ict_site' ); ?>
 						</label>
 					</div>
 				</div>
@@ -50,15 +55,13 @@ $video = $args['video'] ?? null;
 					<h2 class="accordion-header " id="transcription-head9">
 						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
 							data-bs-target="#transcription9" aria-expanded="true" aria-controls="transcription">
-							Trascrizione
+							<?php echo __( 'Transcription', 'design_ict_site' ); ?>
 						</button>
 					</h2>
 					<div id="transcription9" class="accordion-collapse collapse" role="region"
 						aria-labelledby="transcription-head9">
 						<div class="accordion-body">
-							Vestibulum hendrerit ultrices nibh, sed pharetra lacus ultrices eget. Morbi et ipsum et sapien
-							dapibus facilisis. Integer eget semper nibh. Proin enim nulla, egestas ac rutrum eget,
-							ullamcorper nec turpis.
+							<?php echo __( 'Transcription text', 'design_ict_site' ); ?>
 						</div>
 					</div>
 				</div>

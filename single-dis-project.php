@@ -67,7 +67,7 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 					get_template_part(
 						'template-parts/common/video-section',
 						false,
-						array()
+						array( 'video' => $video )
 					);
 				?>
 

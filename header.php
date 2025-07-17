@@ -70,8 +70,12 @@ $locations = get_nav_menu_locations();
 <header class="it-header-wrapper" >
 	<!-- TOP BAR -->
 	<div class="skiplinks">
-		<a class="visually-hidden-focusable" href="#it-hero-wrapper"><?php echo __( 'Go to the main content', 'design_ict_site' ); ?></a>
-		<a class="visually-hidden-focusable" href="#it-footer"><?php echo __( 'Go to the footer', 'design_ict_site' ); ?></a>
+		<a class="visually-hidden-focusable" href="#it-hero-wrapper">
+			<?php echo __( 'Go to the main content', 'design_ict_site' ); ?>
+		</a>
+		<a class="visually-hidden-focusable" href="#it-footer">
+			<?php echo __( 'Go to the footer', 'design_ict_site' ); ?>
+		</a>
 	</div>
 	<div class="it-header-slim-wrapper">
 		<div class="container-xxl">
@@ -79,7 +83,9 @@ $locations = get_nav_menu_locations();
 				<div class="col-12">
 					<div class="it-header-slim-wrapper-content">
 						<!-- Left-->
-						<a class="d-none d-lg-block navbar-brand" href="<?php echo esc_url( $network_url ); ?>"><?php echo esc_attr( $network_name ); ?></a>
+						<a class="d-none d-lg-block navbar-brand" href="<?php echo esc_url( $network_url ); ?>">
+							<?php echo esc_attr( $network_name ); ?>
+						</a>
 						<!--Right -->
 						<div class="nav-mobile">
 							<nav aria-label="<?php echo __( 'Accessory navigation', 'design_ict_site' ); ?>">

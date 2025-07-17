@@ -94,18 +94,16 @@ $num_results = $the_query->found_posts;
 								</div>
 								<!-- Body -->
 								<div class="it-card-body">
-									<?php
-									if ( $start_date_lng && $end_date_lng ) {
-										$date_string = sprintf( __( 'From %s to %s', 'design_ict_site' ), $start_date_lng, $end_date_lng );
-									?>
-										<p class="it-card-subtitle"><?php echo esc_attr( $date_string ); ?></p>
-									<?php
-									} else if ( $start_date_lng ) {
-									?>
-										<p class="it-card-subtitle"><?php echo esc_attr( $start_date_lng ); ?></p>
-									<?php
-									}
-									?>
+									<p class="it-card-subtitle">
+										<?php
+										if ( $start_date_lng && $end_date_lng ) {
+											$date_string = sprintf( __( 'From %s to %s', 'design_ict_site' ), $start_date_lng, $end_date_lng );
+											echo esc_attr( $date_string );
+										} else if ( $start_date_lng ) {
+											echo esc_attr( $start_date_lng );
+										}
+										?>
+									</p>
 									<p class="it-card-text">
 										<?php echo esc_attr( $short_desc ); ?>
 									</p>
