@@ -44,6 +44,8 @@ $num_results = $the_query->found_posts;
 	<div class="row">
 
 		<div class="col">
+			
+			<!-- Title -->
 			<h2 class="pb-2">
 				<?php echo esc_attr( get_the_title() ); ?>
 			</h2>
@@ -136,7 +138,7 @@ $num_results = $the_query->found_posts;
 			?>
 
 
-			<!-- Results pagination-->
+			<!-- @TODO: Results pagination-->
 		</div>
 
 		<!-- SIDEBAR FILTERS -->

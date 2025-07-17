@@ -47,7 +47,7 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 			<div class="row">
 				<!-- People -->
 				<?php
-				if ( $persons ){
+				if ( $persons ) {
 				?>
 				<h3 class="h4 service-paragraph mt-3">
 					<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;

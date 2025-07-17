@@ -104,7 +104,7 @@ $num_results = $the_query->found_posts;
 			?>
 
 
-			<!-- Results pagination-->
+			<!-- @TODO: Results pagination-->
 			<!--php
 				$args = array(
 					'query'           => $the_query,
