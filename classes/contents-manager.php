@@ -680,22 +680,52 @@ class DIS_ContentsManager {
 		return null;
 	}
 
-	public static function format_long_date(string $date_str): string {
-		if ( ! $date_str ) return '';
+	// public static function format_long_date(string $date_str): string {
+	// 	if ( ! $date_str ) return '';
+	// 	try {
+	// 		$data = DateTime::createFromFormat('j/n/Y', $date_str);
+	// 		if ( ! $data ) {
+	// 				return '';
+	// 		}
+	// 		$formatter = new IntlDateFormatter(
+	// 				'it_IT', 
+	// 				IntlDateFormatter::LONG,
+	// 				IntlDateFormatter::NONE,
+	// 				'Europe/Rome',
+	// 				IntlDateFormatter::GREGORIAN,
+	// 				'd MMMM yyyy'
+	// 		);
+	// 		return $formatter->format($data);
+	// 	} catch ( Exception $e ) {
+	// 		return '';
+	// 	}
+	// }
+
+	public static function format_long_date( string $date_str, bool $include_year = true ): string {
+		if ( $date_str === '' ) {
+			return '';
+		}
 		try {
-			$data = DateTime::createFromFormat('j/n/Y', $date_str);
-			if ( ! $data ) {
-					return '';
+			$tz   = new DateTimeZone( 'Europe/Rome' );
+			$date = DateTime::createFromFormat( 'j/n/Y', $date_str, $tz );
+			if ( ! $date ) {
+				return '';
 			}
-			$formatter = new IntlDateFormatter(
-					'it_IT', 
+			// Pattern based on the parameter.
+			$pattern = $include_year ? 'd MMMM yyyy' : 'd MMMM';
+			// Per performance, reuse IntlDateFormatter in static cache.
+			static $formatters = [];
+			if ( ! isset( $formatters[ $pattern ] ) ) {
+				$formatters[ $pattern ] = new IntlDateFormatter(
+					'it_IT',
 					IntlDateFormatter::LONG,
 					IntlDateFormatter::NONE,
 					'Europe/Rome',
 					IntlDateFormatter::GREGORIAN,
-					'd MMMM yyyy'
-			);
-			return $formatter->format($data);
+					$pattern
+				);
+			}
+			return $formatters[ $pattern ]->format( $date );
 		} catch ( Exception $e ) {
 			return '';
 		}

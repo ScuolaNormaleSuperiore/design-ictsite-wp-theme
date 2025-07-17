@@ -56,10 +56,14 @@ $num_results = $the_query->found_posts;
 					<?php
 					while ( $the_query->have_posts() ) {
 						$the_query->the_post();
-						$image_data = DIS_ContentsManager::get_image_metadata( $post, 'full' );
-						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-						$categories = get_the_category( $post->ID );
-						$category   = null;
+						$image_data     = DIS_ContentsManager::get_image_metadata( $post, 'full' );
+						$short_desc     = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+						$categories     = get_the_category( $post->ID );
+						$start_date     = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
+						$end_date       = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
+						$start_date_lng = $start_date ? DIS_ContentsManager::format_long_date( $start_date, false ) : '';
+						$end_date_lng   = $end_date ? DIS_ContentsManager::format_long_date( $end_date, false ) : '';
+						$category       = null;
 						if ( $categories ) {
 							$category = ( count( $categories ) > 0 ) ? $categories[0] : $categories;
 						}
@@ -90,7 +94,18 @@ $num_results = $the_query->found_posts;
 								</div>
 								<!-- Body -->
 								<div class="it-card-body">
-									<p class="it-card-subtitle">Dal 4 al 6 agosto</p>
+									<?php
+									if ( $start_date_lng && $end_date_lng ) {
+										$date_string = sprintf( __( "From %s to %s", 'design_ict_site' ), $start_date_lng, $end_date_lng );
+									?>
+										<p class="it-card-subtitle"><?php echo esc_attr( $date_string ); ?></p>
+									<?php
+									} else if ( $start_date_lng ) {
+									?>
+										<p class="it-card-subtitle"><?php echo esc_attr( $start_date_lng ); ?></p>
+									<?php
+									}
+									?>
 									<p class="it-card-text">
 										<?php echo esc_attr( $short_desc ); ?>
 									</p>
