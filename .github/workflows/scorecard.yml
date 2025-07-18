@@ -9,7 +9,7 @@ on:
       - dev
 
 permissions:
-  security-events: write   # per pubblicare SARIF
+  security-events: write
   id-token: write
   contents: read
 
@@ -18,14 +18,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
       - name: Run OpenSSF Scorecard
-        uses: ossf/scorecard-action@v2
+        uses: ossf/scorecard-action@v2.3.3
         with:
           results_file: results.sarif
           results_format: sarif
-          publish_results: true  # invia i dati a GitHub Security tab
+          publish_results: true
 
       - name: Upload SARIF results
         uses: github/codeql-action/upload-sarif@v2
@@ -33,12 +33,10 @@ jobs:
           sarif_file: results.sarif
 
       - name: Save JSON report as artifact
-        run: |
-          cp results.sarif scorecard-results.json
-        shell: bash
+        run: cp results.sarif scorecard-results.json
 
       - name: Upload JSON artifact
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: scorecard-json
           path: scorecard-results.json
