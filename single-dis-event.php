@@ -6,6 +6,7 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
 
@@ -34,7 +35,7 @@ $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_ti
 	<div class="row">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1 m-auto">
 			<div class="row">
-				<!-- Titolo -->
+				<!-- Title -->
 				<h2>
 					<?php echo esc_attr( $post->post_title ); ?>
 				</h2>
@@ -48,7 +49,9 @@ $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_ti
 					} else if ( $start_date_lng ) {
 						echo esc_attr( $start_date_lng );
 					}
-					if ( $hour_string ) echo ', ' . $hour_string;
+					if ( $hour_string ) {
+						echo ', ' . esc_attr( $hour_string );
+					}
 					?>
 				</p>
 
@@ -79,142 +82,117 @@ $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_ti
 				<?php the_content(); ?>
 			</div>
 
-			<?php
-			if ( $video ){
-			?>
-			<div class="row">
-				<!-- VIDEO -->
-				<?php
-					get_template_part(
-						'template-parts/common/video-section',
-						false,
-						array( 'video' => $video )
-					);
-				?>
-			</div>
-			<?php
-			}
-			?>
+			<?php if ( $video ) : ?>
+				<div class="row">
+					<!-- VIDEO -->
+					<?php
+						get_template_part(
+							'template-parts/common/video-section',
+							false,
+							array( 'video' => $video )
+						);
+					?>
+				</div>
+			<?php endif ?>
 
 		</div> <!-- col -->
 
-		<!-- SIDEBAR servizio -->
+		<!-- SIDEBAR LIST -->
 		<div class="col">
 			<div class="sidebar-wrapper it-line-left-side ps-4">
 				<div class="it-list-wrapper">
 					<ul class="it-list">
-						<?php
-						if ( $location ) {
-						?>
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text">
-									<?php echo esc_attr( $location ); ?>
-								</span>
-								<svg class="icon">
-									<title>
-										<?php __( 'Position', 'design_ict_site' ); ?>
-									</title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker'; ?>"></use>
-								</svg>
-							</div>
-					</li>
-						<?php
-						} 
-						if ( $telephone ) {
-						?>
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text">
-									<?php echo esc_attr( $telephone ); ?>
-								</span>
-								<svg class="icon">
-									<title>
-										<?php echo esc_attr( __( 'Telephone', 'design_ict_site' ) ); ?>
-									</title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
-								</svg>
-							</div>
-						</li>
-						<?php
-						}
-						if ( $email ) {
-						?>
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text">
-									<?php echo esc_attr( $email ); ?>
-								</span>
-								<svg class="icon">
-									<title>
-										<?php echo esc_attr( __( 'E-mail', 'design_ict_site' ) ); ?>
-									</title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail'; ?>"></use>
-								</svg>
-							</div>
-						</li>
-						<?php
-						}
-						if ( $website ) {
-						?>
-						<li>
-							<a target="_blank" href="<?php echo esc_url( $website ); ?>" class="list-item">
-								<div class="it-right-zone">
-								<span class="text">
-									<?php echo esc_attr( __( 'Website', 'design_ict_site' ) ); ?>
-								</span>
-									<svg class="icon">
-										<title>Link al sito web del progetto</title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link'; ?>"></use>
-									</svg>
-								</div>
-							</a>
-						</li>
-						<?php
-						}
-						if ( $attachment1 ) {
-						?>
-						<li>
-							<a target="_blank" href="<?php echo esc_url( $attachment1['url'] ); ?>" class="list-item">
+						<?php if ( $location ) : ?>
+							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_attr( $attachment1['title'] ); ?>
+										<?php echo esc_attr( $location ); ?>
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_attr( __( 'Attachment', 'design_ict_site' ) ); ?>
+											<?php __( 'Position', 'design_ict_site' ); ?>
 										</title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clip'; ?>"></use>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker'; ?>"></use>
 									</svg>
 								</div>
-							</a>
 						</li>
-						<?php
-						}
-						if ( $attachment1 ) {
-						?>
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text">
-									<?php echo esc_attr( $full_offices ); ?>
-								</span>
-								<svg class="icon">
-									<title>
-										<?php __( 'Office', 'design_ict_site' ); ?>
-									</title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-pa'; ?>"></use>
-								</svg>
-							</div>
-					</li>
-						<?php
-						}
-						?>
+						<?php endif; if ( $telephone ) : ?>
+							<li class="list-item">
+								<div class="it-right-zone">
+									<span class="text">
+										<?php echo esc_attr( $telephone ); ?>
+									</span>
+									<svg class="icon">
+										<title>
+											<?php echo esc_attr( __( 'Telephone', 'design_ict_site' ) ); ?>
+										</title>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
+									</svg>
+								</div>
+							</li>
+						<?php endif; if ( $email ) : ?>
+							<li class="list-item">
+								<div class="it-right-zone">
+									<span class="text">
+										<?php echo esc_attr( $email ); ?>
+									</span>
+									<svg class="icon">
+										<title>
+											<?php echo esc_attr( __( 'E-mail', 'design_ict_site' ) ); ?>
+										</title>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail'; ?>"></use>
+									</svg>
+								</div>
+							</li>
+						<?php endif; if ( $website ) : ?>
+							<li>
+								<a target="_blank" href="<?php echo esc_url( $website ); ?>" class="list-item">
+									<div class="it-right-zone">
+									<span class="text">
+										<?php echo esc_attr( __( 'Website', 'design_ict_site' ) ); ?>
+									</span>
+										<svg class="icon">
+											<title>Link al sito web del progetto</title>
+											<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link'; ?>"></use>
+										</svg>
+									</div>
+								</a>
+							</li>
+						<?php endif; if ( $attachment1 ) : ?>
+							<li>
+								<a target="_blank" href="<?php echo esc_url( $attachment1['url'] ); ?>" class="list-item">
+									<div class="it-right-zone">
+										<span class="text">
+											<?php echo esc_attr( $attachment1['title'] ); ?>
+										</span>
+										<svg class="icon">
+											<title>
+												<?php echo esc_attr( __( 'Attachment', 'design_ict_site' ) ); ?>
+											</title>
+											<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clip'; ?>"></use>
+										</svg>
+									</div>
+								</a>
+							</li>
+						<?php endif; if ( $full_offices ) : ?>
+							<li class="list-item">
+								<div class="it-right-zone">
+									<span class="text">
+										<?php echo esc_attr( $full_offices ); ?>
+									</span>
+									<svg class="icon">
+										<title>
+											<?php __( 'Office', 'design_ict_site' ); ?>
+										</title>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-pa'; ?>"></use>
+									</svg>
+								</div>
+							</li>
+						<?php endif ?>
 					</ul>
 				</div>
-
 			</div>
-
-		</div>
+		</div> <!-- col -->
 	</div> <!-- row -->
 
 	<!-- Last modification -->
@@ -240,7 +218,7 @@ $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_ti
 			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)
 	);
-?>
+	?>
 
 <?php
 get_footer();
