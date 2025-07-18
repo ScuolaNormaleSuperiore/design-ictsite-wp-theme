@@ -40,6 +40,8 @@ define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
 define( 'FAQ_PAGE_TITLE', 'FaqPageTitle' );
 define( 'HOW_TO_PAGE_SLUG', 'HowToPageSlug' );
 define( 'HOW_TO_PAGE_TITLE', 'HowToPageTitle' );
+define( 'HELP_DESK_PAGE_SLUG', 'HelpDeskPageSlug' );
+define( 'HELP_DESK_PAGE_TITLE', 'HelpDeskPageTitle' );
 
 // POST TYPE SLUGS.
 define( 'ARTICLES_PAGE_SLUG', 'ArticlePageSlug' );
@@ -353,6 +355,19 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
+		HELP_DESK_PAGE_SLUG =>
+			array(
+				'content_slug'     => HELP_DESK_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => HELP_DESK_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/help-desk.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
 	)
 );
 
@@ -390,6 +405,8 @@ if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
 			'FaqPageTitle'            => _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'HowToPageSlug'           => _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'HowToPageTitle'          => _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'HelpDeskPageSlug'        => _x( 'HelpDeskPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'HelpDeskPageTitle'       => _x( 'HelpDeskPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			// Content type pages.
 			'ArticlePageSlug'         => _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'ArticlePageTitle'        => _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
@@ -399,8 +416,8 @@ if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
 			'PlacePageTitle'          => _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'EventPageSlug'           => _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'EventPageTitle'          => _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'NewsPageSlug'           => _x( 'NewsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'NewsPageTitle'          => _x( 'NewsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'NewsPageSlug'            => _x( 'NewsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'NewsPageTitle'           => _x( 'NewsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'ProjectPageSlug'         => _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'ProjectPageTitle'        => _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'PeoplePageSlug'          => _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
