@@ -17,28 +17,28 @@ define( 'DIS_THEME_URL', get_template_directory_uri() );
 /**
  * Defining the theme parameters and the theme configurations.
  */
-require DIS_THEME_PATH . '/config-theme.php';
+require_once DIS_THEME_PATH . '/config-theme.php';
 
 /**
  * Defining the pages of the site.
  */
-require DIS_THEME_PATH . '/config-pages.php';
+require_once DIS_THEME_PATH . '/config-pages.php';
 
 /**
  * Defining the menus of the site.
  */
-require DIS_THEME_PATH . '/config-menu.php';
+require_once DIS_THEME_PATH . '/config-menu.php';
 
 
 /**
  * Defining and managing theme dependencies using TGM.
  */
-require DIS_THEME_PATH . '/inc/theme-dependencies.php';
+require_once DIS_THEME_PATH . '/inc/theme-dependencies.php';
 
 /**
  * Import CMB2 libraries.
  */
-require DIS_THEME_PATH . '/inc/cmb2.php';
+require_once DIS_THEME_PATH . '/inc/cmb2.php';
 
 
 
