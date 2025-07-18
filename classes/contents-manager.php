@@ -553,6 +553,27 @@ class DIS_ContentsManager {
 		return $results;
 	}
 
+	public static function get_office_projects( $post ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_PROJECT_POST_TYPE,
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'office',
+					'value'   => '"' . $post->ID . '"',
+					'compare' => 'LIKE'
+				)
+				),
+			'orderby' => 'title',
+			'order'   => 'ASC',
+		);
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
 
 	// UTILITIES.
 
