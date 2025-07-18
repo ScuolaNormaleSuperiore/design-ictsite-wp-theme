@@ -1,14 +1,14 @@
 
 * TODO LIST:
 
-- Dove siamo (luoghi)
-- Dettaglio luogo.
 - Dettaglio ufficio.
 - Gestione dei font.
 - Controllare tutti i link sprites.svg
 
 - Ricontrollo e riconfigurazione di phpcs.
 - Sitemap XML?
+
+- Rivedere codice in base a regole WordPress.
 
 
 * Procedure da fare:
