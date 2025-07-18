@@ -15,21 +15,21 @@ if ( $section_enabled ) {
 	$items = DIS_ContentsManager::get_hp_banner_list();
 	foreach ( $items as $item ) {
 		$image_data = DIS_ContentsManager::get_image_metadata( $item, 'full', '/assets/img/default-background.png' );
-		$section      = DIS_CustomFieldsManager::get_field( 'section' , $item->ID );
-		$button_label = DIS_CustomFieldsManager::get_field( 'button_label' , $item->ID );
-		$button_link  = DIS_CustomFieldsManager::get_field( 'button_link' , $item->ID );
-		$new_window   = DIS_CustomFieldsManager::get_field( 'new_window' , $item->ID );
+		$section      = DIS_CustomFieldsManager::get_field( 'section', $item->ID );
+		$button_label = DIS_CustomFieldsManager::get_field( 'button_label', $item->ID );
+		$button_link  = DIS_CustomFieldsManager::get_field( 'button_link', $item->ID );
+		$new_window   = DIS_CustomFieldsManager::get_field( 'new_window', $item->ID );
 ?>
 
 	<div class="container-banner-home">
 		<?php
 			if ( $show_title ) {
 		?>
-		<h2 class="pb-4"><?php echo __( 'Banner' , 'design_ict_site' );?></h2>
+		<h2 class="pb-4"><?php echo __( 'Banner', 'design_ict_site' );?></h2>
 		<?php
 			} else {
 		?>
-		<h2 class="visually-hidden"><?php echo __( 'Activity banner' , 'design_ict_site' );?></h2>
+		<h2 class="visually-hidden"><?php echo __( 'Activity banner', 'design_ict_site' );?></h2>
 		<?php
 			}
 		?>

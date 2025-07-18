@@ -9,7 +9,7 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 ?>
 
@@ -57,7 +57,7 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 
 <!-- Related contents -->
 <?php
-	$related = DIS_CustomFieldsManager::get_field( 'related_items' , $post->ID );
+	$related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
 	get_template_part(
 		'template-parts/common/related-contents',
 		false,

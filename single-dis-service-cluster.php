@@ -33,7 +33,7 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 						<div class="card-wrapper card-teaser-wrapper card-tease">
 							<?php
 							foreach ( $services as $service ) {
-								$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $service->ID );
+								$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $service->ID );
 							?>
 							<!--start card-->
 							<div class="card card-teaser rounded shadow">
@@ -65,7 +65,7 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 						<div class="link-list-wrapper">
 							<ul class="link-list">
 								<li>
-									<h3><?php echo __( 'Our services' , 'design_ict_site' ); ?></h3>
+									<h3><?php echo __( 'Our services', 'design_ict_site' ); ?></h3>
 								</li>
 								<?php
 								foreach ( $clusters as $cluster ) {

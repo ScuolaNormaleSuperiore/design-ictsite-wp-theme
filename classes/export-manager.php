@@ -86,7 +86,7 @@ class DIS_ExportManager {
 			// $text = apply_filters('the_content', $post->post_content),
 			$text     = wp_strip_all_tags( apply_filters( 'the_content', $post->post_content ) );
 			$related  = array();
-			$services = DIS_CustomFieldsManager::get_field( 'service' , $post->ID );
+			$services = DIS_CustomFieldsManager::get_field( 'service', $post->ID );
 			if ( $services ){
 				foreach( $services as $s ) {
 					array_push(
@@ -126,7 +126,7 @@ class DIS_ExportManager {
 		foreach ( $services as $post ) {
 			$text     = wp_strip_all_tags( apply_filters( 'the_content', $post->post_content ) );
 			// $related  = array();
-			// $services = DIS_CustomFieldsManager::get_field( 'service' , $post->ID );
+			// $services = DIS_CustomFieldsManager::get_field( 'service', $post->ID );
 			// if ( $services ){
 			// 	foreach( $services as $s ) {
 			// 		array_push(

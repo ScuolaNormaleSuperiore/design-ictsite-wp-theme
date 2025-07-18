@@ -274,7 +274,7 @@ class DIS_ContentsManager {
 			'post_type'      => $params['post_type'],
 			'post_status'    => $params['post_status'] ?? 'publish',
 			'order'          => $params['order'] ?? 'ASC',
-			'orderby'        => $params['orderby'] ?? 'title' ,
+			'orderby'        => $params['orderby'] ?? 'title',
 			'paged'          => $params['paged'] ?? 1,
 			'posts_per_page' => $params['per_page'] ?? -1,
 		);
@@ -597,7 +597,7 @@ class DIS_ContentsManager {
 				}
 			}
 			// Get actual value.
-			$visits = DIS_CustomFieldsManager::get_field( 'visit_counter' , $page_id );
+			$visits = DIS_CustomFieldsManager::get_field( 'visit_counter', $page_id );
 			if ( ! is_numeric( $visits ) ) {
 				$visits = 0;
 			}
@@ -775,10 +775,10 @@ class DIS_ContentsManager {
 		$result->slug          = $post->post_name;
 		$result->content_type  = $post->post_type;
 		$result->link          = get_permalink( $post );
-		$start_date            = DIS_CustomFieldsManager::get_field( 'start_date' , $post->ID );
+		$start_date            = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
 		$result->date          = $start_date ? $start_date : '';
 		$result->long_date     = self::format_long_date( $result->date );
-		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$description           = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 		$result->description   = $description ? $description : '';
 		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
@@ -817,7 +817,7 @@ class DIS_ContentsManager {
 		$result->link          = get_permalink( $post );
 		$result->date          = get_the_date( 'j/n/Y' );
 		$result->long_date     = get_the_date( 'j F Y' );
-		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$description           = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 		$result->description   = $description;
 		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
@@ -860,7 +860,7 @@ class DIS_ContentsManager {
 		$result->link          = get_permalink( $post );
 		$result->date          = get_the_date( 'j/n/Y' );
 		$result->long_date     = get_the_date( 'j F Y' );
-		$description           = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+		$description           = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 		$result->description   = $description ? $description : '';
 		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );

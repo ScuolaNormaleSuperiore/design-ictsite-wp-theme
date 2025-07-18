@@ -12,7 +12,7 @@ if ( $serv_by_cat ) {
 		<ul class="link-list">
 			<?php
 			foreach( $serv_by_cat as $cat ) {
-				$icon_code = DIS_CustomFieldsManager::get_field( 'icon_code' , $cat['item']->ID );
+				$icon_code = DIS_CustomFieldsManager::get_field( 'icon_code', $cat['item']->ID );
 			?>
 			<li>
 				<a class="list-item large medium icon-right"

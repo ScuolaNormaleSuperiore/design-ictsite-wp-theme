@@ -9,16 +9,16 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
-$service_link      = DIS_CustomFieldsManager::get_field( 'service_link' , $post->ID );
-$features          = DIS_CustomFieldsManager::get_field( 'features' , $post->ID );
-$requirements      = DIS_CustomFieldsManager::get_field( 'requirements' , $post->ID );
-$rates             = DIS_CustomFieldsManager::get_field( 'rates' , $post->ID );
-$get_started       = DIS_CustomFieldsManager::get_field( 'get_started' , $post->ID );
-$related_doc       = DIS_CustomFieldsManager::get_field( 'related_documents' , $post->ID );
-$related_services  = DIS_CustomFieldsManager::get_field( 'related_services' , $post->ID );
+$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$service_link      = DIS_CustomFieldsManager::get_field( 'service_link', $post->ID );
+$features          = DIS_CustomFieldsManager::get_field( 'features', $post->ID );
+$requirements      = DIS_CustomFieldsManager::get_field( 'requirements', $post->ID );
+$rates             = DIS_CustomFieldsManager::get_field( 'rates', $post->ID );
+$get_started       = DIS_CustomFieldsManager::get_field( 'get_started', $post->ID );
+$related_doc       = DIS_CustomFieldsManager::get_field( 'related_documents', $post->ID );
+$related_services  = DIS_CustomFieldsManager::get_field( 'related_services', $post->ID );
 $designed_for      = get_the_terms( $post->ID, DIS_USER_STATUS_TAXONOMY );
-$get_help          = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
+$get_help          = DIS_CustomFieldsManager::get_field( 'office', $post->ID );
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 // Increment the counter of the visits.
 DIS_ContentsManager::increment_visit_counter( $post->ID );
@@ -162,7 +162,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 				if ( $get_help ) {
 					$gh_array = array();
 					foreach ( $get_help as $gh ) {
-						// $email = DIS_CustomFieldsManager::get_field( 'email' , $gh->ID );
+						// $email = DIS_CustomFieldsManager::get_field( 'email', $gh->ID );
 						$txt  = '<a href="' . get_permalink( $gh ) . '">' . $gh->post_title . '</a>';
 						array_push( $gh_array, $txt );
 					}
@@ -189,7 +189,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 					</h3>
 					<?php
 					foreach ( $related_doc as $doc ) {
-						$link = DIS_CustomFieldsManager::get_field( 'link' , $doc->ID );
+						$link = DIS_CustomFieldsManager::get_field( 'link', $doc->ID );
 					?>
 						<ul>
 							<?php

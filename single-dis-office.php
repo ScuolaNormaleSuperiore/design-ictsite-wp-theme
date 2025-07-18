@@ -34,7 +34,7 @@ $full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) )
 	<!-- CONTACTS -->
 	<div class="col-12 col-md-12 col-lg-12 mb-3 mb-md-4">
 		<h3 class="pb-2">
-			<?php echo __( 'Contacts' , 'design_ict_site' ); ?>
+			<?php echo __( 'Contacts', 'design_ict_site' ); ?>
 		</h3>
 		<article
 			class="it-card it-card-profile it-card-height-full it-card-border-top it-card-border-top-secondary rounded shadow-sm border">
@@ -42,7 +42,7 @@ $full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) )
 				<dl class="it-card-description-list">
 					<div>
 						<dt>
-							<?php echo __( 'E-mail' , 'design_ict_site' ); ?>:
+							<?php echo __( 'E-mail', 'design_ict_site' ); ?>:
 						</dt>
 						<dd>
 							<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_attr( $email ); ?></a>
@@ -50,7 +50,7 @@ $full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) )
 					</div>
 					<div>
 						<dt>
-							<?php echo __( 'Telephone' , 'design_ict_site' ); ?>:
+							<?php echo __( 'Telephone', 'design_ict_site' ); ?>:
 						</dt>
 						<dd>
 							<?php echo esc_attr( $phone ); ?>
@@ -58,7 +58,7 @@ $full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) )
 					</div>
 						<div>
 						<dt>
-							<?php echo __( 'Site' , 'design_ict_site' ); ?>:
+							<?php echo __( 'Site', 'design_ict_site' ); ?>:
 						</dt>
 						<dd>
 							<?php echo esc_attr( $full_places ); ?>
@@ -72,23 +72,23 @@ $full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) )
 	<!-- PEOPLE-->
 	<div class="row">
 		<h3 class="pb-2">
-			<?php echo __( 'People' , 'design_ict_site' ); ?>
+			<?php echo __( 'People', 'design_ict_site' ); ?>
 		</h3>
-		<ul class="it-card-list row" aria-label="<?php echo __( 'Search results' , 'design_ict_site' ); ?>:">
+		<ul class="it-card-list row" aria-label="<?php echo __( 'Search results', 'design_ict_site' ); ?>:">
 			<?php
 			foreach ( $persons as $p ) {
-				$name         = DIS_CustomFieldsManager::get_field( 'name' , $p->ID );
-				$surname      = DIS_CustomFieldsManager::get_field( 'surname' , $p->ID );
-				$honorific    = DIS_CustomFieldsManager::get_field( 'honorific' , $p->ID );
-				$detail_link  = DIS_CustomFieldsManager::get_field( 'detail_link' , $p->ID );
-				$website      = DIS_CustomFieldsManager::get_field( 'website' , $p->ID );
+				$name         = DIS_CustomFieldsManager::get_field( 'name', $p->ID );
+				$surname      = DIS_CustomFieldsManager::get_field( 'surname', $p->ID );
+				$honorific    = DIS_CustomFieldsManager::get_field( 'honorific', $p->ID );
+				$detail_link  = DIS_CustomFieldsManager::get_field( 'detail_link', $p->ID );
+				$website      = DIS_CustomFieldsManager::get_field( 'website', $p->ID );
 				$roles        = get_the_terms( $p->ID, DIS_PERSON_ROLE_TAXONOMY );
 				$photo        = DIS_ContentsManager::get_image_metadata( $p, 'thumbnail', '/assets/img/person.png' );
 				$offices      = DIS_ContentsManager::get_person_offices( $p );
 				$full_name    = trim( join ( ' ', array( $honorific, $name, $surname ) ) );
 				$full_roles   = $roles ? implode(', ', wp_list_pluck( $roles, 'name' ) ) : '';
 				$full_offices = $offices ? implode(', ', wp_list_pluck( $offices, 'post_title') ) : '';
-				$attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1' , $p->ID );
+				$attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $p->ID );
 				$target       = ( $detail_link === 'detail_page' ) ? '_self' : '_blank';
 				if ( $detail_link === 'detail_page' ) {
 					$full_link = get_permalink( $p );

@@ -25,8 +25,8 @@ $user_status = '';
 
 				<?php
 				foreach ( $clusters as $cluster ) {
-					$icon_code         = DIS_CustomFieldsManager::get_field( 'icon_code' , $cluster->ID );
-					$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $cluster->ID );
+					$icon_code         = DIS_CustomFieldsManager::get_field( 'icon_code', $cluster->ID );
+					$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $cluster->ID );
 				?>
 					<!--start card-->
 					<div class="card card-bg rounded card-teaser bg-white" style="border-top: 3px solid">

@@ -32,8 +32,8 @@ if ( $section_enabled ) {
 					<?php
 					foreach ( $items as $item ) {
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
-						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
-						$start_date = DIS_CustomFieldsManager::get_field( 'start_date' , $item->ID );
+						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $item->ID );
+						$start_date = DIS_CustomFieldsManager::get_field( 'start_date', $item->ID );
 						if ( $start_date ) {
 							$timestamp   = strtotime( $start_date );
 							$string_date = date_i18n( 'j F Y', $timestamp );

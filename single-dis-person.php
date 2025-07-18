@@ -9,12 +9,12 @@
 
 global $post;
 get_header();
-$name         = DIS_CustomFieldsManager::get_field( 'name' , $post->ID );
-$surname      = DIS_CustomFieldsManager::get_field( 'surname' , $post->ID );
-$honorific    = DIS_CustomFieldsManager::get_field( 'honorific' , $post->ID );
-$website      = DIS_CustomFieldsManager::get_field( 'website' , $post->ID );
-$email        = DIS_CustomFieldsManager::get_field( 'email' , $post->ID );
-$phone        = DIS_CustomFieldsManager::get_field( 'telephone' , $post->ID );
+$name         = DIS_CustomFieldsManager::get_field( 'name', $post->ID );
+$surname      = DIS_CustomFieldsManager::get_field( 'surname', $post->ID );
+$honorific    = DIS_CustomFieldsManager::get_field( 'honorific', $post->ID );
+$website      = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
+$email        = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$phone        = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
 $roles        = get_the_terms( $post->ID, DIS_PERSON_ROLE_TAXONOMY );
 $photo        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/person.png' );
 $offices      = DIS_ContentsManager::get_person_offices( $post );
@@ -53,7 +53,7 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 					<dl class="it-card-description-list">
 						<div>
 							<dt>
-								<?php echo __( 'Area/Service' , 'design_ict_site' ); ?>:
+								<?php echo __( 'Area/Service', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<?php echo $full_offices; ?>
@@ -61,7 +61,7 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'E-mail' , 'design_ict_site' ); ?>:
+								<?php echo __( 'E-mail', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_attr( $email ); ?></a>
@@ -69,13 +69,13 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'Telephone' , 'design_ict_site' ); ?>:
+								<?php echo __( 'Telephone', 'design_ict_site' ); ?>:
 							</dt>
 							<dd><?php echo esc_attr( $phone ); ?></dd>
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'Web site' , 'design_ict_site' ); ?>:
+								<?php echo __( 'Web site', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<a href="<?php echo esc_url( $website ); ?>"><?php echo esc_url( $website ); ?></a>

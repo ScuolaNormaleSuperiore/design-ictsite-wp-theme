@@ -19,7 +19,7 @@ if ( $section_enabled ) {
 		<h2 class="pb-2">
 		<?php
 		if ( $show_title ) {
-			echo __( 'Our services' , 'design_ict_site' );
+			echo __( 'Our services', 'design_ict_site' );
 		}
 		?>
 		</h2>
@@ -28,7 +28,7 @@ if ( $section_enabled ) {
 
 			<?php
 			foreach ( $items as $item ) {
-				$icon_code = DIS_CustomFieldsManager::get_field( 'icon_code' , $item->ID );
+				$icon_code = DIS_CustomFieldsManager::get_field( 'icon_code', $item->ID );
 			?>
 				<!--start card-->
 				<div class="card card-bg rounded card-teaser bg-white"

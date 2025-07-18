@@ -23,7 +23,7 @@ if ( $section_enabled ) {
 					<?php
 					foreach ( $items as $item ) {
 						$image_data    = DIS_ContentsManager::get_image_metadata( $item, 'full', '/assets/img/default-background.png' );
-						$external_link = DIS_CustomFieldsManager::get_field( 'external_link' , $item->ID );
+						$external_link = DIS_CustomFieldsManager::get_field( 'external_link', $item->ID );
 					?>
 					<div class="col-6 col-lg-3">
 						<div class="it-grid-item-wrapper">

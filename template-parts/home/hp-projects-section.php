@@ -33,7 +33,7 @@ if ( $section_enabled ) {
 					<?php
 					foreach ( $items as $item ) {
 						$image_data = DIS_ContentsManager::get_image_metadata( $item, 'medium' );
-						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description' , $item->ID );
+						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $item->ID );
 					?>
 						<div class="col-12 col-lg-4">
 							<article class="it-card it-card-image it-card-height-full">
