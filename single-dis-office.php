@@ -14,7 +14,7 @@ $persons     = DIS_CustomFieldsManager::get_field( 'members', $post->ID );
 $email       = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
 $telephone   = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
 $places      = DIS_CustomFieldsManager::get_field( 'places', $post->ID );
-$full_places = $places ? implode( ', ', wp_list_pluck( $places, 'post_title' ) ) : '';
+$full_places = DIS_ContentsManager::get_string_list_from_posts( $places, true );
 $projects    = DIS_ContentsManager::get_office_projects( $post );
 ?>
 
@@ -86,7 +86,9 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text">
-									<a href="scheda-luogo.html">Nome del luogo in relazione con link</a>
+									<a href="scheda-luogo.html">
+										<?php echo wp_kses_post( $full_places ); ?>
+									</a>
 								</span>
 								<svg class="icon">
 									<title><?php echo esc_attr( __( 'Address', 'design_ict_site' ) ); ?></title>

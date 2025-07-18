@@ -1,7 +1,10 @@
 
 * TODO LIST:
 
-- Dettaglio ufficio.
+- FAQ
+- Helpdesk
+- Documentazione
+- Pagina base.
 - Gestione dei font.
 - Controllare tutti i link sprites.svg
 

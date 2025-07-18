@@ -577,6 +577,34 @@ class DIS_ContentsManager {
 
 	// UTILITIES.
 
+	/**
+	 * Get the string of the objects.
+	 *
+	 * @param object $posts
+	 * @param boolean $with_link
+	 * @return string
+	 */
+	public static function get_string_list_from_posts( $posts, $with_link=false ): string {
+		if ( ! empty( $posts ) && is_array( $posts ) ) {
+			// Return list without links.
+			if ( $with_link === false ) {
+				return implode( ', ', wp_list_pluck( $posts, 'post_title' ) ) ;
+			}
+			// Return the list with the links.
+			$links = array();
+			foreach ( $posts as $item ) {
+				$links[] = sprintf(
+					'<a href="%1$s">%2$s</a>',
+					esc_url( get_permalink( $item ) ),
+					esc_html( get_the_title( $item ) )
+				);
+			}
+			return implode( ', ', $links );
+		};
+		return'';
+	}
+
+
 	public static function clean_and_truncate_text( $text, $size=500, $split=false ) {
 		// Remove HTML tags.
 		$clean_text = wp_strip_all_tags( $text );

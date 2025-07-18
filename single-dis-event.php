@@ -26,7 +26,7 @@ $telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID 
 $website           = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
 $attachment1       = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 $offices           = DIS_CustomFieldsManager::get_field( 'office', $post->ID );
-$full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_title' ) ) : '';
+$full_offices      = DIS_ContentsManager::get_string_list_from_posts( $offices, true );
 ?>
 
 
@@ -178,7 +178,7 @@ $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_ti
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_attr( $full_offices ); ?>
+										<?php echo wp_kses_post( $full_offices ); ?>
 									</span>
 									<svg class="icon">
 										<title>

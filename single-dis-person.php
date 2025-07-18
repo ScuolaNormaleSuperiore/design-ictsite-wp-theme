@@ -20,7 +20,7 @@ $photo        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets
 $offices      = DIS_ContentsManager::get_person_offices( $post );
 $full_name    = trim( join( ' ', array( $honorific, $name, $surname ) ) );
 $full_roles   = $roles ? implode( ', ', wp_list_pluck( $roles, 'name' ) ) : '';
-$full_offices = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_title' ) ) : '';
+$full_offices = DIS_ContentsManager::get_string_list_from_posts( $offices, true );
 $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 ?>
 
@@ -56,7 +56,7 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 								<?php echo __( 'Area/Service', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
-								<?php echo $full_offices; ?>
+								<?php echo wp_kses_post( $full_offices ); ?>
 							</dd>
 						</div>
 						<div>

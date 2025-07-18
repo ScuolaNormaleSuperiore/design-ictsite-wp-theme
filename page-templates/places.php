@@ -68,18 +68,7 @@ $num_results = $the_query->found_posts;
 
 						// Manage offices.
 						$offices        = DIS_ContentsManager::get_place_offices( $post );
-						$offices_string = '';
-						if ( ! empty( $offices ) && is_array( $offices ) ) :
-							$links = array();
-							foreach ( $offices as $office ) :
-								$links[] = sprintf(
-									'<a href="%1$s">%2$s</a>',
-									esc_url( get_permalink( $office ) ),
-									esc_html( get_the_title( $office ) )
-								);
-							endforeach;
-							$offices_string = implode( ', ', $links );
-						endif;
+						$offices_string = DIS_ContentsManager::get_string_list_from_posts( $offices, true );
 						?>
 						<li class="col-12 col-md-12 col-lg-12 mb-3 mb-md-4">
 						<article class="it-card it-card-profile it-card-height-full it-card-border-top it-card-border-top-secondary rounded shadow-sm border mb-3">
@@ -100,7 +89,7 @@ $num_results = $the_query->found_posts;
 									<?php if ( $offices_string ) : ?>
 									<dl class="it-card-description-list">
 											<p>
-												<?php echo $offices_string; ?>
+												<?php echo wp_kses_post( $offices_string ); ?>
 											</p>
 									</dl>
 									<?php endif ?>

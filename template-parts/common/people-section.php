@@ -1,8 +1,8 @@
 <?php
-/* People list.
-*
-* @package Design_ICT_Site
-*/
+/** People list.
+ *
+ * @package Design_ICT_Site
+ */
 
 $persons = ( is_array( $args['persons'] ?? null ) ) ? $args['persons'] : array();
 $format  = $args['format'] ?? 'full';
@@ -23,7 +23,7 @@ $col_lg  = ( $args['format'] === 'full' ) ? 'col-lg-4' : 'col-lg-6';
 		$offices      = DIS_ContentsManager::get_person_offices( $p );
 		$full_name    = trim( join( ' ', array( $honorific, $name, $surname ) ) );
 		$full_roles   = $roles ? implode( ', ', wp_list_pluck( $roles, 'name' ) ) : '';
-		$full_offices = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_title' ) ) : '';
+		$full_offices = DIS_ContentsManager::get_string_list_from_posts( $offices, true );
 		$attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $p->ID );
 		$target       = ( $detail_link === 'detail_page' ) ? '_self' : '_blank';
 		if ( $detail_link === 'detail_page' ) {
@@ -33,31 +33,24 @@ $col_lg  = ( $args['format'] === 'full' ) ? 'col-lg-4' : 'col-lg-6';
 		} else {
 			$full_link = $website ?? '';
 		}
-	?>
+		?>
+
 		<!-- Card item -->
 		<li class="col-12 col-md-6 <?php echo esc_attr( $col_lg ); ?> mb-md-4">
 			<article class="it-card it-card-profile it-card-height-full it-card-border-top it-card-border-top-secondary rounded shadow-sm border">
 				<div class="it-card-profile-header">
 					<div class="it-card-profile">
 						<h4 class="it-card-profile-name ">
-							<?php
-							if ( $detail_link !== 'no_link' ) {
-							?>
-							<a
-								target="<?php echo $target; ?>"
-								href="<?php echo $full_link; ?>"
-							>
-							<?php
-							}
-							?>
-								<?php echo esc_attr( $full_name ); ?>
-							<?php
-							if ( $detail_link !== 'no_link' ) {
-							?>
+							<?php if ( $detail_link !== 'no_link' ) : ?>
+								<a
+									target="<?php echo esc_attr( $target ); ?>"
+									href="<?php echo esc_url( $full_link ); ?>"
+								>
+							<?php endif ?>
+							<?php echo esc_attr( $full_name ); ?>
+							<?php if ( $detail_link !== 'no_link' ) : ?>
 							</a>
-							<?php
-							}
-							?>
+							<?php endif ?>
 						</h4>
 						<p class="it-card-profile-role">
 							<?php echo esc_attr( $full_roles ); ?>
@@ -75,14 +68,14 @@ $col_lg  = ( $args['format'] === 'full' ) ? 'col-lg-4' : 'col-lg-6';
 					<dl class="it-card-description-list">
 						<div>
 							<dd>
-								<?php echo esc_attr( $full_offices ); ?>
+								<?php echo wp_kses_post( $full_offices ); ?>
 							</dd>
 						</div>
 					</dl>
 				</div>
 			</article>
 		</li>
-	<?php
+		<?php
 	}
 	?>
 </ul>
