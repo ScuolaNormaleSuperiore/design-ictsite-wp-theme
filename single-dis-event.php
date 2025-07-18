@@ -9,7 +9,7 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description' , $post->ID );
+$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 $start_date        = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
 $end_date          = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
@@ -17,14 +17,14 @@ $start_date_lng    = $start_date ? DIS_ContentsManager::format_long_date( $start
 $end_date_lng      = $end_date ? DIS_ContentsManager::format_long_date( $end_date, false ) : '';
 $start_hour        = DIS_CustomFieldsManager::get_field( 'start_hour', $post->ID );
 $end_hour          = DIS_CustomFieldsManager::get_field( 'end_hour', $post->ID );
-$hour_string       = ( $start_hour && $end_hour ) ? $start_hour . ' - ' . $end_hour :	( $start_hour ?? '' );
-$video             = DIS_CustomFieldsManager::get_field( 'video' , $post->ID );
-$location          = DIS_CustomFieldsManager::get_field( 'location' , $post->ID );
-$email             = DIS_CustomFieldsManager::get_field( 'email' , $post->ID );
-$telephone         = DIS_CustomFieldsManager::get_field( 'telephone' , $post->ID );
-$website           = DIS_CustomFieldsManager::get_field( 'website' , $post->ID );
-$attachment1       = DIS_CustomFieldsManager::get_field( 'attachment_1' , $post->ID );
-$offices           = DIS_CustomFieldsManager::get_field( 'office' , $post->ID );
+$hour_string       = ( $start_hour && $end_hour ) ? $start_hour . ' - ' . $end_hour : ( $start_hour ?? '' );
+$video             = DIS_CustomFieldsManager::get_field( 'video', $post->ID );
+$location          = DIS_CustomFieldsManager::get_field( 'location', $post->ID );
+$email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$website           = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
+$attachment1       = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
+$offices           = DIS_CustomFieldsManager::get_field( 'office', $post->ID );
 $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_title' ) ) : '';
 ?>
 
@@ -230,7 +230,7 @@ $full_offices      = $offices ? implode( ', ', wp_list_pluck( $offices, 'post_ti
 
 <!-- Related contents -->
 <?php
-	$related = DIS_CustomFieldsManager::get_field( 'related_items' , $post->ID );
+	$related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
 	get_template_part(
 		'template-parts/common/related-contents',
 		false,

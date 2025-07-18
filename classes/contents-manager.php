@@ -509,7 +509,7 @@ class DIS_ContentsManager {
 		return $results;
 	}
 
-	public static function get_related_offices(  $post ) {
+	public static function get_person_offices( $post ) {
 		$results = array();
 		$args    = array(
 			'post_type'      => DIS_OFFICE_POST_TYPE,
@@ -531,6 +531,27 @@ class DIS_ContentsManager {
 		return $results;
 	}
 
+	public static function get_place_offices( $post ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_OFFICE_POST_TYPE,
+			'posts_per_page' => -1,
+			'meta_query'     => array(
+				array(
+					'key'     => 'places',
+					'value'   => '"' . $post->ID . '"',
+					'compare' => 'LIKE'
+				)
+				),
+			'orderby' => 'title',
+			'order'   => 'ASC',
+		);
+		$query = new WP_Query($args);
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
 
 
 	// UTILITIES.
