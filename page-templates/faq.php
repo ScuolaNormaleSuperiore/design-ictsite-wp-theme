@@ -7,7 +7,41 @@
 global $post;
 get_header();
 
-$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE );
+// Get default values.
+$all_topics       = get_terms(
+	array(
+		'taxonomy'   => DIS_FAQ_TOPIC_TAXONOMY,
+		'hide_empty' => true,
+	)
+);
+$default_topic_list = array_column( $all_topics, 'slug' );
+$search_string      = '';
+
+// Check and sanitize parameters.
+if ( isset( $_GET['selected_topics'] ) && is_array( $_GET['selected_topics'] ) ) {
+	$selected_topics = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_topics'] ) );
+} else {
+	$selected_topics = array();
+}
+
+$params = array();
+// Add category filter, if selected.
+if ( count( $selected_topics ) > 0 ) {
+	$params['taxonomy'] = DIS_FAQ_TOPIC_TAXONOMY;
+	$params['terms']   = $selected_topics;
+} else {
+	$params['taxonomy'] = '';
+	$params['terms']   = array();
+}
+
+// Add search string, if present.
+if ( isset( $_GET['search_string'] ) ) {
+	$params['search_string'] = sanitize_text_field( $_GET['search_string'] );
+} else {
+	$search_string = '';
+}
+
+$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
 $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_TOPIC_TAXONOMY );
 ?>
 
@@ -107,35 +141,51 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 		<!-- SIDEBAR ELENCO -->
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
-				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
-								<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
-							</svg></span>
-						<label for="input-group-3">Cerca nelle FAQ</label>
-						<input type="text" class="form-control" id="input-group-3" name="input-group-3">
-						<div class="input-group-append">
-							<button class="btn btn-primary" type="button" id="button-3"><a href="faq-risultati-ricerca.html" class="text-white">Cerca</a></button>
+				<FORM action="." id="search_faq_form" method="GET">
+					
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
+									<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
+								</svg></span>
+							<label for="input-group-3">
+								<?php echo esc_attr( __( 'Search the FAQ', 'design_ict_site' ) ); ?>
+							</label>
+							<input type="text" id="search_string" name="search_string" class="form-control">
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="submit" value="submit">
+									<?php echo esc_attr( __( 'Search', 'design_ict_site' ) ); ?>
+								</button>
+							</div>
 						</div>
 					</div>
-				</div>
-				<div class="sidebar-linklist-wrapper">
-					<div class="link-list-wrapper">
-						<ul class="link-list">
-							<li>
-								<h3>Naviga per argomento</h3>
-							</li>
-							<li><a class="list-item medium active" href="#Argomento1"><span>Argomento 1</span></a>
-							</li>
-							<li><a class="list-item medium" href="#Argomento2"><span>Argomento 2</span></a>
-							</li>
-							<li><a class="list-item medium" href="#Argomento3"><span>Argomento 3</span></a>
-							</li>
-						</ul>
+					<div class="sidebar-linklist-wrapper">
+						<div class="link-list-wrapper">
+							<!-- TOPICS -->
+							<ul class="link-list">
+								<li>
+									<h3>
+										<?php echo esc_attr( __( 'Filter by topic', 'design_ict_site' ) ); ?>
+									</h3>
+								</li>
+								<?php
+								$page_link  = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
+								foreach ( $all_topics as $tp ) {
+									$active = in_array ( $tp->slug, $selected_topics ) ? 'active' : '';
+								?>
+								<li>
+									<a class="list-item medium <?php echo $active; ?>" href="<?php echo $page_link . '?selected_topics[]=' .  esc_attr( $tp->slug ); ?>">
+										<span><?php echo esc_attr( $tp->name ); ?></span>
+									</a>
+								</li>
+								<?php
+								}
+								?>
+							</ul>
+						</div>
 					</div>
-				</div>
 
-
+				</FORM>
 			</div>
 		</div>
 

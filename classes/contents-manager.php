@@ -254,7 +254,7 @@ class DIS_ContentsManager {
 	 * @param string $order
 	 * @return array
 	 */
-	public static function get_generic_post_list( $post_type, $order='title' ) {
+	public static function get_generic_post_list( $post_type, $order='title', $params=array() ) {
 		$args = array(
 			'post_type'      => $post_type,
 			'posts_per_page' => -1,
@@ -262,6 +262,21 @@ class DIS_ContentsManager {
 			'order'          => 'ASC',
 			'orderby'        => $order,
 		);
+		// Add taxonomy filter, if selected.
+		if ( array_key_exists( 'taxonomy', $params ) && $params['taxonomy'] !=='' ) {
+			$args['tax_query'] = array(
+				array(
+					'taxonomy' => $params['taxonomy'],
+					'field'    => 'slug',
+					'terms'    => $params['terms'],
+				),
+			);
+		}
+		// Add text check, if present.
+		if ( array_key_exists( 'search_string', $params ) && $params['search_string'] !=='' ) {
+			$args['s'] = $params['search_string'];
+		}
+		// Execute the query.
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			return $query->posts;

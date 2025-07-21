@@ -144,7 +144,7 @@ $num_results = $the_query->found_posts;
 		<!-- SIDEBAR FILTERS -->
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
-				<FORM action="." id="search_site_form" method="GET">
+				<FORM action="." id="search_news_form" method="GET">
 
 					<div class="p-4 pt-lg-0">
 						<h3 class="p-0">
