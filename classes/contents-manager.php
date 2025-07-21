@@ -269,6 +269,29 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+	/**
+	 * Group posts by category name.
+	 *
+	 * @param WP_Post[] $items.
+	 * @return array Array.
+	 */
+	public static function items_per_category( array $items, string $taxonomy ): array {
+		$items_per_category = [];
+		foreach ( $items as $item ) {
+			$terms = get_the_terms( $item->ID, $taxonomy );
+			if ( empty( $terms ) || is_wp_error( $terms ) ) {
+				continue;
+			}
+			foreach ( $terms as $term ) {
+				$items_per_category[ $term->name ][] = $item;
+			}
+		}
+		ksort( $items_per_category );
+		return $items_per_category;
+	}
+
+
+
 	public static function get_generic_post_query( $params ) {
 		$args = array(
 			'post_type'      => $params['post_type'],
