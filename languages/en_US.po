@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-22 08:40+0000\n"
+"PO-Revision-Date: 2025-07-22 09:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -153,6 +153,10 @@ msgstr ""
 msgid "Browse by profile"
 msgstr ""
 
+#: page-templates/faq.php:176
+msgid "Browse by topic"
+msgstr ""
+
 #: classes/options-manager.php:313
 msgid "Choose the section."
 msgstr ""
@@ -219,7 +223,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/faq.php:159 page-templates/search.php:174
+#: page-templates/faq.php:161 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr ""
 
@@ -897,10 +901,6 @@ msgstr ""
 msgid "Filter by place type"
 msgstr ""
 
-#: page-templates/faq.php:174
-msgid "Filter by topic"
-msgstr ""
-
 #: page-templates/search.php:191 page-templates/search.php:222
 msgid "Filters for selecting search results"
 msgstr ""
@@ -1320,7 +1320,7 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/faq.php:163 page-templates/search.php:178
+#: page-templates/faq.php:165 page-templates/search.php:178
 #: page-templates/search.php:249 template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
@@ -1344,7 +1344,7 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: page-templates/faq.php:152
+#: page-templates/faq.php:154
 msgid "Search the FAQ"
 msgstr ""
 

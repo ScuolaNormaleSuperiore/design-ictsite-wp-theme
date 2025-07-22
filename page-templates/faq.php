@@ -60,33 +60,35 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 
 				<!-- ARGUMENT LIST -->
 				<?php
-				$arg_index = 0;
+				$tpc_index = 0;
 				foreach ( $items_per_category as $category => $faq_list ) {
 					$sanitized_cat = sanitize_title( $category );
 					// Loading the page open the first accordion.
-					$arg_show      = ( $arg_index === 0 ) ? 'show' : ' ';
-					$arg_collapsed = ( $arg_index === 0 ) ? ' ' : 'collapsed';
-					$arg_expanded  = ( $arg_index === 0 ) ? 'true' : 'false';
+					$tpc_show      = ( $tpc_index === 0 ) ? 'show' : ' ';
+					$tpc_collapsed = ( $tpc_index === 0 ) ? ' ' : 'collapsed';
+					$tpc_expanded  = ( $tpc_index === 0 ) ? 'true' : 'false';
+					$tpc_term      = get_term_by( 'name', $category, DIS_FAQ_TOPIC_TAXONOMY ) ?? null;
+					$tpc_slug      = $tpc_term ? $tpc_term->slug : '';
 				?>
-				<div class="accordion-item">
-					<h3 class="accordion-header " id="<?php echo 'heading' . $arg_index . 'a'; ?>">
+				<div class="accordion-item" id="<?php echo esc_attr( $tpc_slug ); ?>">
+					<h3 class="accordion-header " id="<?php echo 'heading' . $tpc_index . 'a'; ?>">
 						<button
-							class="accordion-button <?php echo $arg_collapsed; ?>"
+							class="accordion-button <?php echo $tpc_collapsed; ?>"
 							type="button"
 							data-bs-toggle="collapse"
-							data-bs-target="<?php echo '#collapse' . $arg_index . 'a'; ?>"
-							aria-expanded="<?php echo $arg_expanded; ?>"
-							aria-controls="<?php echo 'collapse' . $arg_index . 'a'; ?>">
+							data-bs-target="<?php echo '#collapse' . $tpc_index . 'a'; ?>"
+							aria-expanded="<?php echo $tpc_expanded; ?>"
+							aria-controls="<?php echo 'collapse' . $tpc_index . 'a'; ?>">
 							<?php echo esc_attr( $category ); ?>
 						</button>
 					</h3>
 
 					<!-- FAQ LIST -->
-					<div id="<?php echo 'collapse' . $arg_index . 'a'; ?>"
-						class="accordion-collapse collapse <?php echo $arg_show; ?>"
+					<div id="<?php echo 'collapse' . $tpc_index . 'a'; ?>"
+						class="accordion-collapse collapse <?php echo $tpc_show; ?>"
 						data-bs-parent="#accordionExample2"
 						role="region"
-						aria-labelledby="<?php echo 'heading' . $arg_index . 'a'; ?>">
+						aria-labelledby="<?php echo 'heading' . $tpc_index . 'a'; ?>">
 						<div class="accordion-body">
 							<div class="accordion" id="accordionExample2N">
 
@@ -131,7 +133,7 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 
 				</div>
 				<?php
-					$arg_index++;
+					$tpc_index++;
 				}
 				?>
 
@@ -171,16 +173,16 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 							<ul class="link-list">
 								<li>
 									<h3>
-										<?php echo esc_attr( __( 'Filter by topic', 'design_ict_site' ) ); ?>
+										<?php echo esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
 									</h3>
 								</li>
 								<?php
 								$page_link  = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
 								foreach ( $all_topics as $tp ) {
-									$active = in_array ( $tp->slug, $selected_topics ) ? 'active' : '';
+									$active = in_array( $tp->slug, $selected_topics ) ? 'active' : '';
 								?>
 								<li>
-									<a class="list-item medium <?php echo $active; ?>" href="<?php echo $page_link . '?selected_topics[]=' .  esc_attr( $tp->slug ); ?>">
+									<a class="list-item medium <?php echo $active; ?>" href="<?php echo esc_url( $page_link . '#' .  $tp->slug ); ?>">
 										<span><?php echo esc_attr( $tp->name ); ?></span>
 									</a>
 								</li>
