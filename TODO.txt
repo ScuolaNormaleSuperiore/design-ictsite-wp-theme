@@ -1,16 +1,12 @@
 
 * TODO LIST:
 
-- FAQ
-- Helpdesk
-- Documentazione
+- Helpdesk.
+- Documentazione.
 - Pagina base.
+- Paginazione.
 - Gestione dei font.
-- Controllare tutti i link sprites.svg
-
-- Ricontrollo e riconfigurazione di phpcs.
-- Sitemap XML?
-
+- Controllare tutti i link sprites.svg (percorso assoluto e 'assets').
 - Rivedere codice in base a regole WordPress.
 
 
@@ -20,5 +16,5 @@ B) Configurazione automatica di Polylang con italiano e inglese.
 
 
 * Problema caricamento multiplo:
-- upload_scripts: viene invocato una sola volta
-- add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) ) --> viene invocato 3 volte
+- upload_scripts: viene invocato una sola volta.
+- add_action( 'wp_enqueue_scripts', array( $this, 'upload_scripts' ) ) --> viene invocato 3 volte.
