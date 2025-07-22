@@ -66,6 +66,7 @@ $num_results = $the_query->found_posts;
 							$category = ( count( $categories ) > 0 ) ? $categories[0] : $categories;
 						}
 					?>
+						<!-- SINGLE ITEM -->
 						<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
 							<article class="it-card it-card-image it-card-height-full rounded shadow-sm">
 								<!-- Title -->

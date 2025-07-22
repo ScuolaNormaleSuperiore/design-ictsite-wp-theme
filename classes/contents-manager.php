@@ -67,7 +67,7 @@ class DIS_ContentsManager {
 			$site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
 			$site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
 			$item_title   = is_home() ? $site_title : $post->post_title;
-			$item_desc    = is_home() ? $site_tagline: self::clean_and_truncate_text( $post->post_content, 256 );
+			$item_desc    = is_home() ? $site_tagline: self::clean_and_truncate_text( $post->post_content, DIS_ACF_SHORT_TEXT_LENGTH );
 			$item_url     = get_permalink();
 			$img_id       = is_home() ? null : get_post_thumbnail_id( $item_id );
 			$img_array    = wp_get_attachment_image_src( $img_id, 'large' );

@@ -16,33 +16,38 @@ $all_topics       = get_terms(
 );
 $default_topic_list = array_column( $all_topics, 'slug' );
 
-// Check and sanitize parameters.
-if ( isset( $_GET['selected_topics'] ) && is_array( $_GET['selected_topics'] ) ) {
-	$selected_topics = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_topics'] ) );
-} else {
-	$selected_topics = array();
-}
+// // Check and sanitize parameters.
+// if ( isset( $_GET['selected_topics'] ) && is_array( $_GET['selected_topics'] ) ) {
+// 	$selected_topics = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_topics'] ) );
+// } else {
+// 	$selected_topics = array();
+// }
 
-$params = array();
-// Add category filter, if selected.
-if ( count( $selected_topics ) > 0 ) {
-	$params['taxonomy'] = DIS_FAQ_TOPIC_TAXONOMY;
-	$params['terms']   = $selected_topics;
-} else {
-	$params['taxonomy'] = '';
-	$params['terms']   = array();
-}
+// $params = array();
+// // Add category filter, if selected.
+// if ( count( $selected_topics ) > 0 ) {
+// 	$params['taxonomy'] = DIS_FAQ_TOPIC_TAXONOMY;
+// 	$params['terms']   = $selected_topics;
+// } else {
+// 	$params['taxonomy'] = '';
+// 	$params['terms']   = array();
+// }
 
 // Add search string, if present.
 if ( isset( $_GET['search_string'] ) ) {
 	$params['search_string'] = sanitize_text_field( $_GET['search_string'] );
 	$search_string           = $params['search_string'];
+	$is_submission = true;
 } else {
 	$search_string = '';
+	$is_submission = false;
 }
 
-$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
+// $items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
+$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title' );
 $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_TOPIC_TAXONOMY );
+$current_url        = get_permalink();
+$result_message     = sprintf( __( 'Found %s results.', 'design_ict_site' ), count( $items ) );
 ?>
 
 <!-- FAQ PAGE -->
@@ -143,9 +148,9 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 		<!-- SIDEBAR ELENCO -->
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
-				<FORM action="." id="search_faq_form" method="GET">
-					
-					<div class="form-group">
+				
+				<div class="form-group">
+					<FORM action="." id="search_faq_form" method="GET">
 						<div class="input-group">
 							<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
 									<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
@@ -166,34 +171,56 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 								</button>
 							</div>
 						</div>
-					</div>
-					<div class="sidebar-linklist-wrapper">
-						<div class="link-list-wrapper">
-							<!-- TOPICS -->
-							<ul class="link-list">
-								<li>
-									<h3>
-										<?php echo esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
-									</h3>
-								</li>
-								<?php
-								$page_link  = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
-								foreach ( $all_topics as $tp ) {
-									$active = in_array( $tp->slug, $selected_topics ) ? 'active' : '';
-								?>
-								<li>
-									<a class="list-item medium <?php echo $active; ?>" href="<?php echo esc_url( $page_link . '#' .  $tp->slug ); ?>">
-										<span><?php echo esc_attr( $tp->name ); ?></span>
-									</a>
-								</li>
-								<?php
-								}
-								?>
-							</ul>
-						</div>
-					</div>
+					</FORM>
+				</div> <!-- form-group -->
 
-				</FORM>
+				<!-- RESET FORM -->
+				<?php if ( $is_submission ) : ?>
+					<div class="link-list-wrapper">
+						<ul class="link-list">
+							<li>
+								<h3 class="visually-hidden">
+									<?php echo esc_attr( __( 'Back to the full list', 'design_ict_site' ) ); ?>
+								</h3>
+							</li>
+							<li>
+								<a class="list-item medium active" href="<?php echo esc_url ( $current_url ); ?>">
+									<span>
+										<?php echo esc_attr( __( 'Back to the full list', 'design_ict_site' ) ); ?>
+									</span>
+								</a>
+							</li>
+						</ul>
+					</div>
+				<?php endif ?>
+
+				<div class="sidebar-linklist-wrapper">
+					<div class="link-list-wrapper">
+						<!-- TOPICS -->
+						<ul class="link-list">
+							<li>
+								<h3>
+									<?php echo esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
+								</h3>
+							</li>
+							<?php
+							$page_link  = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
+							foreach ( $all_topics as $tp ) {
+								// $active = in_array( $tp->slug, $selected_topics ) ? 'active' : '';
+								$active = '';
+							?>
+							<li>
+								<a class="list-item medium <?php echo $active; ?>" href="<?php echo esc_url( $page_link . '#' .  $tp->slug ); ?>">
+									<span><?php echo esc_attr( $tp->name ); ?></span>
+								</a>
+							</li>
+							<?php
+							}
+							?>
+						</ul>
+					</div>
+				</div>
+
 			</div>
 		</div>
 

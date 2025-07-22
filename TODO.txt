@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-- Help-desk.
 - Documentazione.
 - In documentazione e Faq:
 	- inserire "Trovati 2 risultati",

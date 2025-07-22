@@ -104,7 +104,7 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 						<!--card body content-->
 						<div class="it-card-body">
 							<p class="it-card-text">
-								<?php echo esc_attr( wp_trim_words( $wrapper->description , DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
+								<?php echo esc_attr( wp_trim_words( $wrapper->description, DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
 							</p>
 						</div>
 						<!--finally the card footer metadata-->

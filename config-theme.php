@@ -265,6 +265,7 @@ define(
 
 // Site Search.
 define( 'DIS_ACF_SHORT_DESC_LENGTH', 30 );
+define( 'DIS_ACF_SHORT_TEXT_LENGTH', 256 );
 
 // PAGINATION constants.
 define( 'DIS_ITEMS_PER_PAGE', 10 );

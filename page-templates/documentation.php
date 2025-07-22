@@ -7,127 +7,91 @@
 global $post;
 get_header();
 
+// Prepare the query.
+$params = array(
+	'post_type'      => DIS_ATTACHMENT_POST_TYPE,
+	'search_string'  => '',
+	'posts_per_page' => $posts_per_page,
+	'paged'          => $paged,
+	'orderby'        => 'title',
+	'order'          => 'DESC',
+);
+
+// Add search string, if present.
+if ( isset( $_GET['search_string'] ) ) {
+	$params['search_string'] = sanitize_text_field( $_GET['search_string'] );
+	$search_string           = $params['search_string'];
+	$is_submission = true;
+} else {
+	$search_string = '';
+	$is_submission = false;
+}
+
+// Execute the query.
+$the_query      = DIS_ContentsManager::get_generic_post_query( $params );
+$num_results    = $the_query->found_posts;
+$current_url    = get_permalink();
+$result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
 ?>
 
+<!-- ATTACHMENTS -->
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
 	<div class="row">
-		<!-- SERVIZI -->
-		<div class="col">
-			<h2 class="pb-2">Documentazione</h2>
-			<!-- ELENCO DELLA DOCUMENTAZIONE  -->
 
+		<div class="col">
+			<!-- Title -->
+			<h2 class="pb-2">
+				<?php echo esc_attr( get_the_title() ); ?>
+			</h2>
+
+			<!-- Number of results found -->
+			<?php if ( $is_submission ) : ?>
+				<p><small><?php echo esc_attr( $result_message ); ?></small></p> 
+			<?php endif ?>
+
+			<!-- RESULT LIST -->
 			<div class="link-list-wrapper multiline">
 				<ul class="link-list">
+					<?php
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						$attachment_file    = DIS_CustomFieldsManager::get_field( 'file', $post->ID );
+						$attachment_link    = DIS_CustomFieldsManager::get_field( 'link', $post->ID );
+						$documentation_link = $attachment_file ? $attachment_file['url'] : $attachment_link;
+						$description        = DIS_ContentsManager::clean_and_truncate_text( $post->post_content, DIS_ACF_SHORT_TEXT_LENGTH );
+						// $description        = wp_trim_words( $wrapper->description, DIS_ACF_SHORT_DESC_LENGTH );
+					?>
+					<!-- SINGLE ITEM -->
 					<li>
-						<a class="list-item active icon-right" href="#">
+						<a class="list-item active icon-right" target="_blank"
+							href="<?php echo esc_url( $documentation_link ); ?>">
 							<span class="list-item-title-icon-wrapper">
-								<h4 class="list-item-title">Manuale di istruzioni (PDF)</h4>
+								<h4 class="list-item-title">
+									<?php echo esc_attr( $post->post_title ); ?>
+								</h4>
 								<svg class="icon icon-primary">
-									<title>Codice</title>
-									<use href="/bootstrap-italia/svg/sprites.svg#it-file"></use>
+									<title>
+										<?php echo esc_attr( $post->post_title ); ?>
+									</title>
+									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-file'; ?>"></use>
 								</svg>
 							</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit… Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit… Lorem ipsum dolor sit amet, consectetur adipiscing elit…</p>
+							<p>
+								<?php echo esc_attr( $description ); ?>
+							</p>
 						</a>
 					</li>
 					<li>
 						<span class="divider" role="separator"></span>
 					</li>
-					<li>
-						<a class="list-item icon-right" href="#">
-							<span class="list-item-title-icon-wrapper">
-								<h4 class="list-item-title">Collegamento a risorsa esterna</h4>
-								<svg class="icon icon-primary">
-									<title>Codice</title>
-									<use href="/bootstrap-italia/svg/sprites.svg#it-link"></use>
-								</svg>
-							</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit…</p>
-						</a>
-					</li>
-					<li><span class="divider"></span>
-					</li>
-					<li>
-						<a class="list-item active icon-right" href="#">
-							<span class="list-item-title-icon-wrapper">
-								<h4 class="list-item-title">Manuale di istruzioni (PDF)</h4>
-								<svg class="icon icon-primary">
-									<title>Codice</title>
-									<use href="/bootstrap-italia/svg/sprites.svg#it-file"></use>
-								</svg>
-							</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit… Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit… Lorem ipsum dolor sit amet, consectetur adipiscing elit…</p>
-						</a>
-					</li>
-					<li>
-						<span class="divider" role="separator"></span>
-					</li>
-					<li>
-						<a class="list-item icon-right" href="#">
-							<span class="list-item-title-icon-wrapper">
-								<h4 class="list-item-title">Collegamento a risorsa esterna</h4>
-								<svg class="icon icon-primary">
-									<title>Codice</title>
-									<use href="/bootstrap-italia/svg/sprites.svg#it-link"></use>
-								</svg>
-							</span>
-							<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit…</p>
-						</a>
-					</li>
-					<li><span class="divider"></span>
-					</li>
+					<?php
+					}
+					wp_reset_postdata();
+					?>
 				</ul>
-				<nav class="pagination-wrapper  justify-content-center" aria-label="Esempio di navigazione con page changer">
-					<ul class="pagination">
-						<li class="page-item">
-							<a class="page-link" href="#">
-								<svg class="icon icon-primary">
-									<use href="/bootstrap-italia/svg/sprites.svg#it-chevron-left"></use>
-								</svg>
-								<span class="visually-hidden">Pagina precedente</span>
-							</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">1</a></li>
 
-						<li class="page-item active">
-							<a class="page-link" href="#" aria-current="page">
-								<span class="d-inline-block d-sm-none">Pagina </span>26
-							</a>
-						</li>
-						<li class="page-item"><a class="page-link" href="#">27</a></li>
-						<li class="page-item"><a class="page-link" href="#">28</a></li>
-						<li class="page-item"><span class="page-link">...</span></li>
-						<li class="page-item"><a class="page-link" href="#">50</a></li>
-						<li class="page-item">
-							<a class="page-link" href="#">
-								<span class="visually-hidden">Pagina successiva</span>
-								<svg class="icon icon-primary">
-									<use href="/bootstrap-italia/svg/sprites.svg#it-chevron-right"></use>
-								</svg>
-							</a>
-						</li>
-					</ul>
-					<div class="dropdown">
-						<button class="btn btn-dropdown dropdown-toggle" type="button" id="pagerChanger" data-bs-toggle="dropdown"
-							aria-haspopup="true" aria-expanded="false" aria-label="Salta alla pagina">
-							10/pagina
-							<svg class="icon icon-primary icon-sm">
-								<use href="/bootstrap-italia/svg/sprites.svg#it-expand"></use>
-							</svg>
-						</button>
-						<div class="dropdown-menu" aria-labelledby="pagerChanger">
-							<div class="link-list-wrapper">
-								<ul class="link-list">
-									<li><a class="list-item active" href="#" aria-current="page"><span>20/pagina</span></a></li>
-									<li><a class="dropdown-item list-item" href="#"><span>50/pagina</span></a></li>
-									<li><a class="dropdown-item list-item" href="#"><span>100/pagina</span></a></li>
-								</ul>
-							</div>
-						</div>
-					</div>
-				</nav>
+
+				<!-- @TODO: Results pagination-->
 
 			</div>
 
@@ -135,22 +99,59 @@ get_header();
 		<!-- SIDEBAR ELENCO -->
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
+
 				<div class="form-group">
-					<div class="input-group">
-						<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
-								<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
-							</svg></span>
-						<label for="input-group-3">Cerca nella documentazione</label>
-						<input type="text" class="form-control" id="input-group-3" name="input-group-3">
-						<div class="input-group-append">
-							<button class="btn btn-primary" type="button" id="button-3"><a href="documentazione-risultati-ricerca.html" class="text-white">Cerca</a></button>
+					<FORM action="." id="search_faq_form" method="GET">
+						<div class="input-group">
+							<span class="input-group-text">
+								<svg class="icon icon-sm" aria-hidden="true">
+									<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
+								</svg>
+							</span>
+							<label for="search_string">
+								<?php echo esc_attr( __( 'Search the Documentation', 'design_ict_site' ) ); ?>
+							</label>
+							<input type="text"
+								id="search_string"
+								name="search_string"
+								class="form-control"
+								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
+								placeholder="<?php echo esc_html( __( 'Search in the documentation', 'design_ict_site' ) ); ?>"
+							>
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="submit" value="submit">
+									<?php echo esc_attr( __( 'Search', 'design_ict_site' ) ); ?>
+								</button>
+							</div>
 						</div>
+					</FORM>
+				</div> <!-- form-group -->
+
+				<!-- RESET FORM -->
+				<?php if ( $is_submission ) : ?>
+					<div class="link-list-wrapper">
+						<ul class="link-list">
+							<li>
+								<h3 class="visually-hidden">
+									<?php echo esc_attr( __( 'Back to the full list', 'design_ict_site' ) ); ?>
+								</h3>
+							</li>
+							<li>
+								<a class="list-item medium active" href="<?php echo esc_url ( $current_url ); ?>">
+									<span>
+										<?php echo esc_attr( __( 'Back to the full list', 'design_ict_site' ) ); ?>
+									</span>
+								</a>
+							</li>
+						</ul>
 					</div>
-				</div>
+				<?php endif ?>
+
 			</div>
 		</div>
+
 	</div>
-  </div>
+</div>
 
 <?php
 get_footer();
