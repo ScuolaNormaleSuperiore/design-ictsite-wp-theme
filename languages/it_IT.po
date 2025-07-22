@@ -747,7 +747,7 @@ msgstr "Ruoli delle persone"
 #: classes/place-manager.php:34
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Place Type"
-msgstr "Tipo di luoho"
+msgstr "Tipo di luogo"
 
 #: classes/faq-manager.php:32
 msgctxt "DIS_TaxonomyGeneralName"
