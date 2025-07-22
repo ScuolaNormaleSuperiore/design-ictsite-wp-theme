@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-18 12:57+0000\n"
+"PO-Revision-Date: 2025-07-22 08:41+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -203,7 +203,7 @@ msgstr "Indirizzo e-mail di contatto"
 msgid "Contacts"
 msgstr "Contatti"
 
-#: page-templates/search.php:214
+#: page-templates/search.php:218
 msgid "Content types"
 msgstr "Tipi di contenuto"
 
@@ -227,7 +227,7 @@ msgstr "Design ICT Site"
 msgid "Designed for"
 msgstr "Realizzato per"
 
-#: page-templates/search.php:171
+#: page-templates/faq.php:159 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr "Scrivi il testo da cercare"
 
@@ -916,7 +916,11 @@ msgstr "Filtra per categoria"
 msgid "Filter by place type"
 msgstr "Filtra per tipo di luogo"
 
-#: page-templates/search.php:187 page-templates/search.php:218
+#: page-templates/faq.php:174
+msgid "Filter by topic"
+msgstr "Filtra per argomento"
+
+#: page-templates/search.php:191 page-templates/search.php:222
 msgid "Filters for selecting search results"
 msgstr "Filtri per selezionare i risultati della ricerca"
 
@@ -1335,8 +1339,8 @@ msgstr "API REST"
 msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
-#: page-templates/search.php:174 page-templates/search.php:245
-#: template-parts/header/site_search.php:18
+#: page-templates/faq.php:163 page-templates/search.php:178
+#: page-templates/search.php:249 template-parts/header/site_search.php:18
 msgid "Search"
 msgstr "Cerca"
 
@@ -1358,6 +1362,10 @@ msgstr "Cerca nel sito."
 #: page-templates/search.php:74 page-templates/search.php:87
 msgid "Search results"
 msgstr "Risultati della ricerca"
+
+#: page-templates/faq.php:152
+msgid "Search the FAQ"
+msgstr "Cerca nelle FAQ"
 
 #: page-templates/search.php:167
 msgid "Search the site"
@@ -1387,7 +1395,7 @@ msgstr "Selezione del programma utilizzato per gestire la newsletter del sito"
 msgid "SEO"
 msgstr "SEO"
 
-#: page-templates/search.php:183
+#: page-templates/search.php:187
 msgid "Service clusters"
 msgstr "Gruppi di servizi"
 

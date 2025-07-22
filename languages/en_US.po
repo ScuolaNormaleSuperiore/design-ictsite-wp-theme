@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-18 12:55+0000\n"
+"PO-Revision-Date: 2025-07-22 08:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -195,7 +195,7 @@ msgstr ""
 msgid "Contacts"
 msgstr ""
 
-#: page-templates/search.php:214
+#: page-templates/search.php:218
 msgid "Content types"
 msgstr ""
 
@@ -219,7 +219,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/search.php:171
+#: page-templates/faq.php:159 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr ""
 
@@ -897,7 +897,11 @@ msgstr ""
 msgid "Filter by place type"
 msgstr ""
 
-#: page-templates/search.php:187 page-templates/search.php:218
+#: page-templates/faq.php:174
+msgid "Filter by topic"
+msgstr ""
+
+#: page-templates/search.php:191 page-templates/search.php:222
 msgid "Filters for selecting search results"
 msgstr ""
 
@@ -1316,8 +1320,8 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/search.php:174 page-templates/search.php:245
-#: template-parts/header/site_search.php:18
+#: page-templates/faq.php:163 page-templates/search.php:178
+#: page-templates/search.php:249 template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
 
@@ -1338,6 +1342,10 @@ msgstr ""
 
 #: page-templates/search.php:74 page-templates/search.php:87
 msgid "Search results"
+msgstr ""
+
+#: page-templates/faq.php:152
+msgid "Search the FAQ"
 msgstr ""
 
 #: page-templates/search.php:167
@@ -1368,7 +1376,7 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: page-templates/search.php:183
+#: page-templates/search.php:187
 msgid "Service clusters"
 msgstr ""
 
