@@ -1,8 +1,8 @@
 <?php
-/* Template Name: Faq
-*
-* @package Design_ICT_Site
-*/
+/** Template Name: Faq
+ *
+ * @package Design_ICT_Site
+ */
 
 global $post;
 get_header();
@@ -15,7 +15,6 @@ $all_topics       = get_terms(
 	)
 );
 $default_topic_list = array_column( $all_topics, 'slug' );
-$search_string      = '';
 
 // Check and sanitize parameters.
 if ( isset( $_GET['selected_topics'] ) && is_array( $_GET['selected_topics'] ) ) {
@@ -37,6 +36,7 @@ if ( count( $selected_topics ) > 0 ) {
 // Add search string, if present.
 if ( isset( $_GET['search_string'] ) ) {
 	$params['search_string'] = sanitize_text_field( $_GET['search_string'] );
+	$search_string           = $params['search_string'];
 } else {
 	$search_string = '';
 }
@@ -91,7 +91,7 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 							<div class="accordion" id="accordionExample2N">
 
 								<!-- FAQ ITEM -->
-								<?
+								<?php
 								$faq_index = 0;
 								foreach ( $faq_list as $faq ) {
 									$faq_show      = ( $faq_index === 0 ) ? 'show' : ' ';
@@ -148,10 +148,16 @@ $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_T
 							<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
 									<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
 								</svg></span>
-							<label for="input-group-3">
+							<label for="search_string">
 								<?php echo esc_attr( __( 'Search the FAQ', 'design_ict_site' ) ); ?>
 							</label>
-							<input type="text" id="search_string" name="search_string" class="form-control">
+							<input type="text"
+								id="search_string"
+								name="search_string"
+								class="form-control"
+								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
+								placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
+							>
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="submit" value="submit">
 									<?php echo esc_attr( __( 'Search', 'design_ict_site' ) ); ?>

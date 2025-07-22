@@ -166,9 +166,13 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 							<label for="search_string">
 								<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
 							</label>
-							<input type="text" id="search_string" name="search_string" class="form-control" 
-									value="<?php echo esc_attr( $search_string ?? '' ); ?>"
-									placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>">
+							<input type="text"
+								id="search_string"
+								name="search_string"
+								class="form-control"
+								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
+								placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
+							>
 							<div class="input-group-append">
 								<button type="submit" value="submit" class="btn btn-primary">
 									<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
