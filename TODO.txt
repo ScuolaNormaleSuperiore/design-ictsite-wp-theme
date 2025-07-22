@@ -1,8 +1,12 @@
 
 * TODO LIST:
 
-- Helpdesk.
+- Help-desk.
 - Documentazione.
+- In documentazione e Faq:
+	- inserire "Trovati 2 risultati",
+	- cambiare titolo se ricerca,
+	- Torna all'elenco completo.
 - Pagina base.
 - Paginazione.
 - Gestione dei font.
