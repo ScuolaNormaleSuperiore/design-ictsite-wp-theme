@@ -18,9 +18,13 @@ get_header();
 	<div class="row">
 
 		<div class="col">
-			<h2 class="pb-2">Titolo pagina base di primo livello</h2>
+			<!-- Title -->
+			<h2 class="pb-2">
+				<?php echo esc_attr( get_the_title() ); ?>
+			</h2>
+			<!-- Body -->
 			<div class="p-5">
-				...
+				<?php the_content(); ?>
 			</div>
 		</div> <!-- col -->
 
