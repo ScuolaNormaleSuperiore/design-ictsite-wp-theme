@@ -1,7 +1,6 @@
 
 * TODO LIST:
 
-- Pagina base.
 - Paginazione.
 - Gestione dei font.
 - Controllare tutti i link sprites.svg (percorso assoluto e 'assets').
