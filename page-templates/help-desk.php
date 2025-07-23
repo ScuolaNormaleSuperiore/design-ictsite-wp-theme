@@ -1,5 +1,5 @@
 <?php
-/** Template Name: Help-desk.
+/** Template Name: Help-desk
  *
  * @package Design_ICT_Site
  */

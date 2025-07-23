@@ -1,5 +1,5 @@
 <?php
-/** Template Name: Documentation.
+/** Template Name: Documentation
  *
  * @package Design_ICT_Site
  */
@@ -109,14 +109,14 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 								</svg>
 							</span>
 							<label for="search_string">
-								<?php echo esc_attr( __( 'Search the Documentation', 'design_ict_site' ) ); ?>
+								<?php echo esc_attr( __( 'Search the documentation', 'design_ict_site' ) ); ?>
 							</label>
 							<input type="text"
 								id="search_string"
 								name="search_string"
 								class="form-control"
 								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
-								placeholder="<?php echo esc_html( __( 'Search in the documentation', 'design_ict_site' ) ); ?>"
+								placeholder="<?php echo esc_html( __( 'Search the documentation', 'design_ict_site' ) ); ?>"
 							>
 							<div class="input-group-append">
 								<button class="btn btn-primary" type="submit" value="submit">

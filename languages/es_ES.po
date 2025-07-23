@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-07-22 09:42+0000\n"
+"PO-Revision-Date: 2025-07-23 06:31+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -116,7 +116,7 @@ msgstr ""
 msgid "API token"
 msgstr ""
 
-#: page-templates/events.php:188 page-templates/news.php:183
+#: page-templates/events.php:188 page-templates/news.php:184
 #: page-templates/places.php:151
 msgid "Apply filters"
 msgstr ""
@@ -131,6 +131,11 @@ msgstr ""
 
 #: single-dis-event.php:170
 msgid "Attachment"
+msgstr ""
+
+#: page-templates/documentation.php:136 page-templates/documentation.php:142
+#: page-templates/faq.php:183 page-templates/faq.php:189
+msgid "Back to the full list"
 msgstr ""
 
 #: classes/options-manager.php:468
@@ -153,7 +158,7 @@ msgstr ""
 msgid "Browse by profile"
 msgstr ""
 
-#: page-templates/faq.php:176
+#: page-templates/faq.php:203
 msgid "Browse by topic"
 msgstr ""
 
@@ -223,7 +228,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/faq.php:161 page-templates/search.php:174
+#: page-templates/faq.php:166 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr ""
 
@@ -761,9 +766,13 @@ msgstr ""
 msgid "Do not count the views of the robots."
 msgstr ""
 
-#. Name of the template
-#: single-dis-service.php:188 page-templates/documentation.php:2
+#: single-dis-service.php:188 page-templates/help-desk.php:51
 msgid "Documentation"
+msgstr ""
+
+#. Name of the template
+#: page-templates/documentation.php:2
+msgid "Documentation."
 msgstr ""
 
 #: single-dis-event.php:141 single-dis-office.php:117 single-dis-person.php:64
@@ -863,7 +872,7 @@ msgstr ""
 msgid "Export Services"
 msgstr ""
 
-#: single-dis-service.php:253
+#: single-dis-service.php:253 page-templates/help-desk.php:44
 msgid "FAQ"
 msgstr ""
 
@@ -877,7 +886,7 @@ msgid "Features"
 msgstr ""
 
 #: page-templates/events.php:156 page-templates/events.php:160
-#: page-templates/news.php:151 page-templates/news.php:155
+#: page-templates/news.php:152 page-templates/news.php:156
 msgid "Filter by category"
 msgstr ""
 
@@ -915,6 +924,7 @@ msgstr "Helpdesk"
 msgid "FooterOfficesLabel"
 msgstr ""
 
+#: page-templates/documentation.php:34 page-templates/faq.php:50
 #: page-templates/search.php:64
 #, php-format
 msgid "Found %s results."
@@ -952,6 +962,11 @@ msgstr ""
 
 #: classes/options-manager.php:128
 msgid "Header logo visible"
+msgstr ""
+
+#. Name of the template
+#: page-templates/help-desk.php:2
+msgid "Help-desk."
 msgstr ""
 
 #: template-parts/home/hp-main-hero-section.php:32
@@ -1084,6 +1099,10 @@ msgstr ""
 msgid "Link to the websiste of the project"
 msgstr ""
 
+#: page-templates/help-desk.php:38
+msgid "Linked pages"
+msgstr ""
+
 #: classes/options-manager.php:761
 msgid "List ID"
 msgstr ""
@@ -1183,7 +1202,7 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: page-templates/news.php:133 page-templates/places.php:108
+#: page-templates/news.php:134 page-templates/places.php:108
 #: page-templates/projects.php:99
 msgid "No results found"
 msgstr ""
@@ -1256,7 +1275,7 @@ msgstr ""
 msgid "Rates"
 msgstr ""
 
-#: page-templates/events.php:120 page-templates/news.php:109
+#: page-templates/events.php:120 page-templates/news.php:110
 #: page-templates/search.php:116 template-parts/home/hp-events-section.php:86
 #: template-parts/home/hp-news-section.php:80
 msgid "Related category"
@@ -1304,13 +1323,18 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/faq.php:165 page-templates/search.php:178
-#: page-templates/search.php:249 template-parts/header/site_search.php:18
+#: page-templates/documentation.php:123 page-templates/faq.php:170
+#: page-templates/search.php:178 page-templates/search.php:249
+#: template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
 
 #: classes/options-manager.php:438
 msgid "Search button label"
+msgstr ""
+
+#: page-templates/documentation.php:119
+msgid "Search in the documentation"
 msgstr ""
 
 #: template-parts/header/site_search.php:20
@@ -1328,7 +1352,11 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: page-templates/faq.php:154
+#: page-templates/documentation.php:112
+msgid "Search the Documentation"
+msgstr ""
+
+#: page-templates/faq.php:159
 msgid "Search the FAQ"
 msgstr ""
 

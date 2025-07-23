@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-22 09:42+0000\n"
+"PO-Revision-Date: 2025-07-23 06:33+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -118,7 +118,7 @@ msgstr "Tutti i progetti"
 msgid "API token"
 msgstr "Token dell'API"
 
-#: page-templates/events.php:188 page-templates/news.php:183
+#: page-templates/events.php:188 page-templates/news.php:184
 #: page-templates/places.php:151
 msgid "Apply filters"
 msgstr "Applica i filtri"
@@ -134,6 +134,11 @@ msgstr "Area/Servizio"
 #: single-dis-event.php:170
 msgid "Attachment"
 msgstr "Allegato"
+
+#: page-templates/documentation.php:136 page-templates/documentation.php:142
+#: page-templates/faq.php:183 page-templates/faq.php:189
+msgid "Back to the full list"
+msgstr "Torna all'elenco completo"
 
 #: classes/options-manager.php:468
 msgid "Background image"
@@ -155,7 +160,7 @@ msgstr "Brevo"
 msgid "Browse by profile"
 msgstr "Naviga per profilo"
 
-#: page-templates/faq.php:176
+#: page-templates/faq.php:203
 msgid "Browse by topic"
 msgstr "Naviga per argomento"
 
@@ -231,7 +236,7 @@ msgstr "Design ICT Site"
 msgid "Designed for"
 msgstr "Realizzato per"
 
-#: page-templates/faq.php:161 page-templates/search.php:174
+#: page-templates/faq.php:166 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr "Scrivi il testo da cercare"
 
@@ -789,6 +794,7 @@ msgstr "Non contare le visualizzazioni dei robot."
 
 #. Name of the template
 #: single-dis-service.php:188 page-templates/documentation.php:2
+#: page-templates/help-desk.php:51
 msgid "Documentation"
 msgstr "Documentazione"
 
@@ -898,7 +904,7 @@ msgstr "Esporta nel formato JSON"
 msgid "Export Services"
 msgstr "Esporta i servizi"
 
-#: single-dis-service.php:253
+#: single-dis-service.php:253 page-templates/help-desk.php:44
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -912,7 +918,7 @@ msgid "Features"
 msgstr "Funzionalità"
 
 #: page-templates/events.php:156 page-templates/events.php:160
-#: page-templates/news.php:151 page-templates/news.php:155
+#: page-templates/news.php:152 page-templates/news.php:156
 msgid "Filter by category"
 msgstr "Filtra per categoria"
 
@@ -950,6 +956,7 @@ msgstr "Helpdesk"
 msgid "FooterOfficesLabel"
 msgstr "Area Progetti e Servizi ICT"
 
+#: page-templates/documentation.php:34 page-templates/faq.php:50
 #: page-templates/search.php:64
 #, php-format
 msgid "Found %s results."
@@ -988,6 +995,13 @@ msgstr "Vai alla pagina"
 #: classes/options-manager.php:128
 msgid "Header logo visible"
 msgstr "Logo dell'intestazione visibile"
+
+#. Name of the template
+#: page-templates/help-desk.php:2
+#, fuzzy
+#| msgid "Help-desk."
+msgid "Help-desk"
+msgstr "Help-desk"
 
 #: template-parts/home/hp-main-hero-section.php:32
 #: template-parts/home/hp-main-hero-section.php:33
@@ -1119,6 +1133,10 @@ msgstr "Link al repository del progetto"
 msgid "Link to the websiste of the project"
 msgstr "Link al sito web del progetto"
 
+#: page-templates/help-desk.php:38
+msgid "Linked pages"
+msgstr "Pagine collegate"
+
 #: classes/options-manager.php:761
 msgid "List ID"
 msgstr "ID lella lista"
@@ -1218,7 +1236,7 @@ msgstr "Opzioni della Newsletter"
 msgid "No"
 msgstr "No"
 
-#: page-templates/news.php:133 page-templates/places.php:108
+#: page-templates/news.php:134 page-templates/places.php:108
 #: page-templates/projects.php:99
 msgid "No results found"
 msgstr "Nessun risultato trovato"
@@ -1291,7 +1309,7 @@ msgstr "Progetti"
 msgid "Rates"
 msgstr "Tariffe"
 
-#: page-templates/events.php:120 page-templates/news.php:109
+#: page-templates/events.php:120 page-templates/news.php:110
 #: page-templates/search.php:116 template-parts/home/hp-events-section.php:86
 #: template-parts/home/hp-news-section.php:80
 msgid "Related category"
@@ -1339,8 +1357,9 @@ msgstr "API REST"
 msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
-#: page-templates/faq.php:165 page-templates/search.php:178
-#: page-templates/search.php:249 template-parts/header/site_search.php:18
+#: page-templates/documentation.php:123 page-templates/faq.php:170
+#: page-templates/search.php:178 page-templates/search.php:249
+#: template-parts/header/site_search.php:18
 msgid "Search"
 msgstr "Cerca"
 
@@ -1363,7 +1382,13 @@ msgstr "Cerca nel sito."
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
-#: page-templates/faq.php:154
+#: page-templates/documentation.php:112 page-templates/documentation.php:119
+#, fuzzy
+#| msgid "Search the Documentation"
+msgid "Search the documentation"
+msgstr "Cerca nella documentazione"
+
+#: page-templates/faq.php:159
 msgid "Search the FAQ"
 msgstr "Cerca nelle FAQ"
 
