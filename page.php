@@ -87,7 +87,7 @@ get_header();
 											</span>
 										</a>
 									</li>
-								<?
+								<?php
 									}
 								?>
 							</ul>
