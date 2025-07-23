@@ -70,8 +70,8 @@ class Page_Manager {
 		'fields' => array(
 			array(
 				'key' => 'field_67dd2f3b1320c',
-				'label' => 'Related fields',
-				'name' => 'related_fields',
+				'label' => 'Related items',
+				'name' => 'related_items',
 				'aria-label' => '',
 				'type' => 'relationship',
 				'instructions' => '',

@@ -22,7 +22,7 @@ if ( count ( $items ) > 0 ) {
 				<?php
 				foreach ( $items as $item ){
 					$wrapper    = DIS_ContentsManager::wrap_search_result( $item );
-					$image_data = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+					$image_data = DIS_ContentsManager::get_image_metadata( $item, 'full', '/assets/img/default-background.png' );
 				?>
 				<!-- Item -->
 				<div class="col-12 col-lg-4">
@@ -74,11 +74,13 @@ if ( count ( $items ) > 0 ) {
 			</div>
 
 			<!--Button -->
-			<div class="text-center pt-5 pb-5">
-				<a href="<?php echo esc_url( $all_link ); ?>" class="btn btn-secondary">
-					<?php echo esc_attr( $all_label ); ?>
-				</a>
-			</div>
+			<?php if ( $all_link ) : ?>
+				<div class="text-center pt-5 pb-5">
+					<a href="<?php echo esc_url( $all_link ); ?>" class="btn btn-secondary">
+						<?php echo esc_attr( $all_label ); ?>
+					</a>
+				</div>
+			<?php endif ?>
 		</div>
 	</div>
 </section>
