@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-23 06:31+0000\n"
+"PO-Revision-Date: 2025-07-23 07:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -782,13 +782,10 @@ msgstr "User_Status"
 msgid "Do not count the views of the robots."
 msgstr ""
 
-#: single-dis-service.php:188 page-templates/help-desk.php:51
-msgid "Documentation"
-msgstr ""
-
 #. Name of the template
-#: page-templates/documentation.php:2
-msgid "Documentation."
+#: single-dis-service.php:188 page-templates/documentation.php:2
+#: page-templates/help-desk.php:51
+msgid "Documentation"
 msgstr ""
 
 #: single-dis-event.php:141 single-dis-office.php:117 single-dis-person.php:64
@@ -964,6 +961,10 @@ msgstr ""
 msgid "Get started"
 msgstr ""
 
+#: page.php:55 page.php:58 page.php:63
+msgid "Go back"
+msgstr ""
+
 #: header.php:77
 msgid "Go to the footer"
 msgstr ""
@@ -982,7 +983,7 @@ msgstr ""
 
 #. Name of the template
 #: page-templates/help-desk.php:2
-msgid "Help-desk."
+msgid "Help-desk"
 msgstr ""
 
 #: template-parts/home/hp-main-hero-section.php:32
@@ -1302,6 +1303,10 @@ msgstr ""
 msgid "Related contents"
 msgstr ""
 
+#: page.php:75
+msgid "Related pages"
+msgstr ""
+
 #: single-dis-service.php:228
 msgid "Related services"
 msgstr "Related services"
@@ -1349,10 +1354,6 @@ msgstr ""
 msgid "Search button label"
 msgstr ""
 
-#: page-templates/documentation.php:119
-msgid "Search in the documentation"
-msgstr ""
-
 #: template-parts/header/site_search.php:20
 #: template-parts/header/site_search.php:23
 #: template-parts/header/site_search.php:24
@@ -1368,8 +1369,8 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: page-templates/documentation.php:112
-msgid "Search the Documentation"
+#: page-templates/documentation.php:112 page-templates/documentation.php:119
+msgid "Search the documentation"
 msgstr ""
 
 #: page-templates/faq.php:159

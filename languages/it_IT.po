@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-23 06:33+0000\n"
+"PO-Revision-Date: 2025-07-23 07:58+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -980,6 +980,10 @@ msgstr "Supporto"
 msgid "Get started"
 msgstr "Per iniziare"
 
+#: page.php:55 page.php:58 page.php:63
+msgid "Go back"
+msgstr "Torna indietro"
+
 #: header.php:77
 msgid "Go to the footer"
 msgstr "Vai al piè pagina"
@@ -1319,6 +1323,10 @@ msgstr "Categoria relativa"
 #: template-parts/common/related-contents.php:60
 msgid "Related contents"
 msgstr "Contenuti collegati"
+
+#: page.php:75
+msgid "Related pages"
+msgstr "Pagine correlate"
 
 #: single-dis-service.php:228
 msgid "Related services"

@@ -47,10 +47,13 @@ get_header();
 			<div class="sidebar-wrapper it-line-left-side">
 
 				<!-- Back to the parent -->
-				<? if ( $parent_item ) : ?>
+				<?php if ( $parent_item ) : ?>
 					<a href="<?php echo get_permalink( $parent_item ); ?>"
 						class="btn btn-primary btn-xs btn-me m-4 " role="button" data-focus-mouse="false">
-						<svg class="icon icon-sm icon-white me-2" role="img" aria-labelledby="Torna indietro">
+						<svg class="icon icon-sm icon-white me-2"
+							role="img"
+							aria-labelledby="<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>"
+						>
 							<title>
 								<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>
 							</title>
