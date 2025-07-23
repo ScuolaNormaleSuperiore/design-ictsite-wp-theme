@@ -521,7 +521,22 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-
+	/**
+	 * Get page anchestor.
+	 *
+	 * @param WP_Post $page
+	 * @return int
+	 */
+	public static function get_page_anchestor_id( $page ) {
+		if ( $page->post_parent) {
+			$ancestors = get_post_ancestors( $page->ID );
+			$root      = count( $ancestors ) - 1;
+			$parent    = $ancestors[ $root ];
+		} else {
+			$parent = $page->ID;
+		}
+		return $parent;
+	}
 
 	// RELATED ITEMS
 

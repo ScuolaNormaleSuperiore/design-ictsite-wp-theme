@@ -29,27 +29,69 @@ get_header();
 		</div> <!-- col -->
 
 		<!-- SIDEBAR LIST (Menu-related pages)-->
+		<?php
+			$page_parent_id = DIS_ContentsManager::get_page_anchestor_id( $post );
+			$page_ancestors = get_post_ancestors( $post->ID );
+			$page_children  = get_pages(
+				array(
+					'child_of'    => $page_parent_id,
+					'offset'      => 0,
+					'parent'      => $page_parent_id,
+					'sort_order'  => 'ASC',
+					'sort_column' => 'menu_order',
+				)
+			);
+			$parent_item = ( $page_parent_id === $post->ID ) ? null : get_post( $page_parent_id );
+		?>
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
-				<div class="sidebar-linklist-wrapper">
-					<div class="link-list-wrapper">
-						<ul class="link-list">
-							<li>
-								<h3>Pagine collegate</h3>
-							</li>
-							<li>
-								<a class="list-item medium" href="paginabase-secondolivello.html">
-									<span>Pagina secondo livello</span>
-								</a>
-							</li>
-							<li>
-								<a class="list-item medium" href="paginabase-secondolivello.html">
-									<span>Pagina secondo livello</span>
-								</a>
-							</li>
-						</ul>
+
+				<!-- Back to the parent -->
+				<? if ( $parent_item ) : ?>
+					<a href="<?php echo get_permalink( $parent_item ); ?>"
+						class="btn btn-primary btn-xs btn-me m-4 " role="button" data-focus-mouse="false">
+						<svg class="icon icon-sm icon-white me-2" role="img" aria-labelledby="Torna indietro">
+							<title>
+								<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>
+							</title>
+							<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-left'; ?>"></use>
+						</svg>
+						<span>
+							<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>
+						</span>
+					</a>
+				<?php endif ?>
+
+				<!-- Children list-->
+				<?php if ( $page_children && count( $page_children ) > 0 ) : ?>
+					<div class="sidebar-linklist-wrapper">
+						<div class="link-list-wrapper">
+							<ul class="link-list">
+								<li>
+									<h3>
+										<?php echo esc_attr( __( 'Related pages', 'design_ict_site' ) ); ?>
+									</h3>
+								</li>
+								<?php
+									foreach ( $page_children as $p ) {
+										$active = ( get_permalink() === get_permalink( $p ) ) ? 'active' : '';
+								?>
+									<li>
+										<a class="list-item medium <?php echo $active ?>"
+											href="<?php echo get_permalink( $p ); ?>">
+											<span>
+												<?php echo esc_attr( $p->post_title ); ?>
+											</span>
+										</a>
+									</li>
+								<?
+									}
+								?>
+							</ul>
+						</div>
 					</div>
-				</div>
+				<?php endif ?>
+
 			</div>
 		</div> <!-- sidebar -->
 
