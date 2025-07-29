@@ -217,7 +217,7 @@ define(
 				'post_type'    => '',
 				'status'       => 'publish',
 				'classes'      => 'footer-link',
-				'link'         => 'https://developers.italia.it/it/software/sns_pi-scuolanormalesuperiore-design-laboratori-wordpress-theme',
+				'link'         => 'https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36',
 			),
 		),
 	)
