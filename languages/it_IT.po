@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-23 07:58+0000\n"
+"PO-Revision-Date: 2025-07-29 13:22+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -29,7 +29,7 @@ msgstr ""
 "Accetta i cookie di YouTube per vedere il video. Puoi gestire le preferenze "
 "nella <a target=\"_blank\" href=\"%s\" class=\"text-white\">%s</a>."
 
-#: single-dis-service.php:55
+#: single-dis-service.php:46
 msgid "Access the service"
 msgstr "Accedi al servizio"
 
@@ -135,8 +135,8 @@ msgstr "Area/Servizio"
 msgid "Attachment"
 msgstr "Allegato"
 
-#: page-templates/documentation.php:136 page-templates/documentation.php:142
-#: page-templates/faq.php:183 page-templates/faq.php:189
+#: page-templates/documentation.php:135 page-templates/documentation.php:141
+#: page-templates/faq.php:182 page-templates/faq.php:188
 msgid "Back to the full list"
 msgstr "Torna all'elenco completo"
 
@@ -160,7 +160,7 @@ msgstr "Brevo"
 msgid "Browse by profile"
 msgstr "Naviga per profilo"
 
-#: page-templates/faq.php:203
+#: page-templates/faq.php:202
 msgid "Browse by topic"
 msgstr "Naviga per argomento"
 
@@ -232,11 +232,11 @@ msgstr "Descrizione"
 msgid "Design ICT Site"
 msgstr "Design ICT Site"
 
-#: single-dis-service.php:120
+#: single-dis-service.php:89
 msgid "Designed for"
 msgstr "Realizzato per"
 
-#: page-templates/faq.php:166 page-templates/search.php:174
+#: page-templates/faq.php:165 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr "Scrivi il testo da cercare"
 
@@ -793,7 +793,7 @@ msgid "Do not count the views of the robots."
 msgstr "Non contare le visualizzazioni dei robot."
 
 #. Name of the template
-#: single-dis-service.php:188 page-templates/documentation.php:2
+#: single-dis-service.php:183 page-templates/documentation.php:2
 #: page-templates/help-desk.php:51
 msgid "Documentation"
 msgstr "Documentazione"
@@ -904,7 +904,7 @@ msgstr "Esporta nel formato JSON"
 msgid "Export Services"
 msgstr "Esporta i servizi"
 
-#: single-dis-service.php:253 page-templates/help-desk.php:44
+#: single-dis-service.php:137 page-templates/help-desk.php:44
 msgid "FAQ"
 msgstr "FAQ"
 
@@ -913,7 +913,7 @@ msgstr "FAQ"
 msgid "Faq"
 msgstr "Faq"
 
-#: single-dis-service.php:85
+#: single-dis-service.php:58
 msgid "Features"
 msgstr "Funzionalità"
 
@@ -956,7 +956,12 @@ msgstr "Helpdesk"
 msgid "FooterOfficesLabel"
 msgstr "Area Progetti e Servizi ICT"
 
-#: page-templates/documentation.php:34 page-templates/faq.php:50
+#: single-dis-service.php:244
+#, php-format
+msgid "For support contact the %s"
+msgstr "Per supporto contatta l'%s"
+
+#: page-templates/documentation.php:34 page-templates/faq.php:49
 #: page-templates/search.php:64
 #, php-format
 msgid "Found %s results."
@@ -972,11 +977,13 @@ msgstr "Dal %s al %s"
 msgid "Full list of services"
 msgstr "Elenco completo dei servizi"
 
-#: single-dis-service.php:173
-msgid "Get help"
+#: single-dis-service.php:230
+#, fuzzy
+#| msgid "Get help"
+msgid "Get Help"
 msgstr "Supporto"
 
-#: single-dis-service.php:136
+#: single-dis-service.php:104
 msgid "Get started"
 msgstr "Per iniziare"
 
@@ -1113,7 +1120,7 @@ msgid "Language selection: selected language"
 msgstr "Selezione lingua: lingua selezionata"
 
 #: single-dis-event.php:202 single-dis-post.php:59 single-dis-project.php:147
-#: single-dis-service.php:286
+#: single-dis-service.php:260
 msgid "Last modification"
 msgstr "Ultima modifica"
 
@@ -1309,7 +1316,7 @@ msgstr "Privacy Policy"
 msgid "Projects"
 msgstr "Progetti"
 
-#: single-dis-service.php:151
+#: single-dis-service.php:119
 msgid "Rates"
 msgstr "Tariffe"
 
@@ -1328,7 +1335,7 @@ msgstr "Contenuti collegati"
 msgid "Related pages"
 msgstr "Pagine correlate"
 
-#: single-dis-service.php:228
+#: single-dis-service.php:212
 msgid "Related services"
 msgstr "Servizi correlati"
 
@@ -1353,7 +1360,7 @@ msgstr "Rimuovi la sezione"
 msgid "Repository"
 msgstr "Repository"
 
-#: single-dis-service.php:100
+#: single-dis-service.php:71
 msgid "Requirements"
 msgstr "Prerequisiti"
 
@@ -1365,7 +1372,7 @@ msgstr "API REST"
 msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
-#: page-templates/documentation.php:123 page-templates/faq.php:170
+#: page-templates/documentation.php:122 page-templates/faq.php:169
 #: page-templates/search.php:178 page-templates/search.php:249
 #: template-parts/header/site_search.php:18
 msgid "Search"
@@ -1390,13 +1397,13 @@ msgstr "Cerca nel sito."
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
-#: page-templates/documentation.php:112 page-templates/documentation.php:119
+#: page-templates/documentation.php:111 page-templates/documentation.php:118
 #, fuzzy
 #| msgid "Search the Documentation"
 msgid "Search the documentation"
 msgstr "Cerca nella documentazione"
 
-#: page-templates/faq.php:159
+#: page-templates/faq.php:158
 msgid "Search the FAQ"
 msgstr "Cerca nelle FAQ"
 
@@ -1542,6 +1549,12 @@ msgstr "L'indirizzo del sito."
 #: classes/options-manager.php:515
 msgid "The city of the site."
 msgstr "La città del sito."
+
+#: single-dis-service.php:234
+#, php-format
+#| msgid "The competent service is %s"
+msgid "The competent office is %s"
+msgstr "L'ufficio competente è %s"
 
 #: classes/options-manager.php:507
 msgid "The contact shown in the footer."

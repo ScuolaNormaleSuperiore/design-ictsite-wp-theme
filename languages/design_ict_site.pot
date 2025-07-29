@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-07-23 07:58+0000\n"
+"POT-Creation-Date: 2025-07-29 13:20+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -28,7 +28,7 @@ msgid ""
 "%s</a>."
 msgstr ""
 
-#: single-dis-service.php:55
+#: single-dis-service.php:46
 msgid "Access the service"
 msgstr ""
 
@@ -134,8 +134,8 @@ msgstr ""
 msgid "Attachment"
 msgstr ""
 
-#: page-templates/documentation.php:136 page-templates/documentation.php:142
-#: page-templates/faq.php:183 page-templates/faq.php:189
+#: page-templates/documentation.php:135 page-templates/documentation.php:141
+#: page-templates/faq.php:182 page-templates/faq.php:188
 msgid "Back to the full list"
 msgstr ""
 
@@ -159,7 +159,7 @@ msgstr ""
 msgid "Browse by profile"
 msgstr ""
 
-#: page-templates/faq.php:203
+#: page-templates/faq.php:202
 msgid "Browse by topic"
 msgstr ""
 
@@ -225,11 +225,11 @@ msgstr ""
 msgid "Design ICT Site"
 msgstr ""
 
-#: single-dis-service.php:120
+#: single-dis-service.php:89
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/faq.php:166 page-templates/search.php:174
+#: page-templates/faq.php:165 page-templates/search.php:174
 msgid "Digit the text to search"
 msgstr ""
 
@@ -768,7 +768,7 @@ msgid "Do not count the views of the robots."
 msgstr ""
 
 #. Name of the template
-#: single-dis-service.php:188 page-templates/documentation.php:2
+#: single-dis-service.php:183 page-templates/documentation.php:2
 #: page-templates/help-desk.php:51
 msgid "Documentation"
 msgstr ""
@@ -870,7 +870,7 @@ msgstr ""
 msgid "Export Services"
 msgstr ""
 
-#: single-dis-service.php:253 page-templates/help-desk.php:44
+#: single-dis-service.php:137 page-templates/help-desk.php:44
 msgid "FAQ"
 msgstr ""
 
@@ -879,7 +879,7 @@ msgstr ""
 msgid "Faq"
 msgstr ""
 
-#: single-dis-service.php:85
+#: single-dis-service.php:58
 msgid "Features"
 msgstr ""
 
@@ -920,7 +920,12 @@ msgstr ""
 msgid "FooterOfficesLabel"
 msgstr ""
 
-#: page-templates/documentation.php:34 page-templates/faq.php:50
+#: single-dis-service.php:244
+#, php-format
+msgid "For support contact the %s"
+msgstr ""
+
+#: page-templates/documentation.php:34 page-templates/faq.php:49
 #: page-templates/search.php:64
 #, php-format
 msgid "Found %s results."
@@ -936,11 +941,11 @@ msgstr ""
 msgid "Full list of services"
 msgstr ""
 
-#: single-dis-service.php:173
-msgid "Get help"
+#: single-dis-service.php:230
+msgid "Get Help"
 msgstr ""
 
-#: single-dis-service.php:136
+#: single-dis-service.php:104
 msgid "Get started"
 msgstr ""
 
@@ -1075,7 +1080,7 @@ msgid "Language selection: selected language"
 msgstr ""
 
 #: single-dis-event.php:202 single-dis-post.php:59 single-dis-project.php:147
-#: single-dis-service.php:286
+#: single-dis-service.php:260
 msgid "Last modification"
 msgstr ""
 
@@ -1271,7 +1276,7 @@ msgstr ""
 msgid "Projects"
 msgstr ""
 
-#: single-dis-service.php:151
+#: single-dis-service.php:119
 msgid "Rates"
 msgstr ""
 
@@ -1290,7 +1295,7 @@ msgstr ""
 msgid "Related pages"
 msgstr ""
 
-#: single-dis-service.php:228
+#: single-dis-service.php:212
 msgid "Related services"
 msgstr ""
 
@@ -1315,7 +1320,7 @@ msgstr ""
 msgid "Repository"
 msgstr ""
 
-#: single-dis-service.php:100
+#: single-dis-service.php:71
 msgid "Requirements"
 msgstr ""
 
@@ -1327,7 +1332,7 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
-#: page-templates/documentation.php:123 page-templates/faq.php:170
+#: page-templates/documentation.php:122 page-templates/faq.php:169
 #: page-templates/search.php:178 page-templates/search.php:249
 #: template-parts/header/site_search.php:18
 msgid "Search"
@@ -1352,11 +1357,11 @@ msgstr ""
 msgid "Search results"
 msgstr ""
 
-#: page-templates/documentation.php:112 page-templates/documentation.php:119
+#: page-templates/documentation.php:111 page-templates/documentation.php:118
 msgid "Search the documentation"
 msgstr ""
 
-#: page-templates/faq.php:159
+#: page-templates/faq.php:158
 msgid "Search the FAQ"
 msgstr ""
 
@@ -1501,6 +1506,11 @@ msgstr ""
 
 #: classes/options-manager.php:515
 msgid "The city of the site."
+msgstr ""
+
+#: single-dis-service.php:234
+#, php-format
+msgid "The competent office is %s"
 msgstr ""
 
 #: classes/options-manager.php:507

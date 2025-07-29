@@ -231,7 +231,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 				</h3>
 				<?php
 				if ( $offices ) {
-					$get_help_string = sprintf( __( 'The competent service is %s', 'design_ict_site' ), $full_offices );
+					$get_help_string = sprintf( __( 'The competent office is %s', 'design_ict_site' ), $full_offices );
 
 				?>
 					<p class="ps-4">
