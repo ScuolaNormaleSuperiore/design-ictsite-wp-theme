@@ -311,7 +311,7 @@ define(
 				'content'          => '',
 				'content_status'   => 'publish',
 				'content_author'   => 1,
-				'content_template' => '',
+				'content_template' => 'page-templates/about-us.php',
 				'content_type'     => 'page',
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
