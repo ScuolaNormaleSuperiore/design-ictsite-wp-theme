@@ -23,7 +23,7 @@ $default_topic_list = array_column( $all_topics, 'slug' );
 // 	$selected_topics = array();
 // }
 
-// $params = array();
+$params = array();
 // // Add category filter, if selected.
 // if ( count( $selected_topics ) > 0 ) {
 // 	$params['taxonomy'] = DIS_FAQ_TOPIC_TAXONOMY;
