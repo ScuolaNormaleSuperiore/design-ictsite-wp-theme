@@ -43,8 +43,7 @@ if ( isset( $_GET['search_string'] ) ) {
 	$is_submission = false;
 }
 
-// $items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
-$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title' );
+$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
 $items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_TOPIC_TAXONOMY );
 $current_url        = get_permalink();
 $result_message     = sprintf( __( 'Found %s results.', 'design_ict_site' ), count( $items ) );
