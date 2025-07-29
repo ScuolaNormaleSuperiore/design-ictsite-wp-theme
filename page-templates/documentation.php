@@ -59,7 +59,6 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 						$attachment_link    = DIS_CustomFieldsManager::get_field( 'link', $post->ID );
 						$documentation_link = $attachment_file ? $attachment_file['url'] : $attachment_link;
 						$description        = DIS_ContentsManager::clean_and_truncate_text( $post->post_content, DIS_ACF_SHORT_TEXT_LENGTH );
-						// $description        = wp_trim_words( $wrapper->description, DIS_ACF_SHORT_DESC_LENGTH );
 					?>
 					<!-- SINGLE ITEM -->
 					<li>

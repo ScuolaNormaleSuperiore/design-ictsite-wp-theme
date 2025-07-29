@@ -284,6 +284,7 @@ class DIS_ContentsManager {
 		return array();
 	}
 
+
 	/**
 	 * Group posts by category name.
 	 *
@@ -538,7 +539,7 @@ class DIS_ContentsManager {
 		return $parent;
 	}
 
-	// RELATED ITEMS
+	// RELATED ITEMS.
 
 	public static function get_related_faq(  $post ) {
 		$results = array();
@@ -555,7 +556,7 @@ class DIS_ContentsManager {
 			'orderby' => 'title',
 			'order'   => 'ASC',
 		);
-		$query = new WP_Query($args);
+		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			$results = $query->posts;
 		}
@@ -571,13 +572,13 @@ class DIS_ContentsManager {
 				array(
 					'key'     => 'members',
 					'value'   => '"' . $post->ID . '"',
-					'compare' => 'LIKE'
-				)
+					'compare' => 'LIKE',
 				),
+			),
 			'orderby' => 'title',
 			'order'   => 'ASC',
 		);
-		$query = new WP_Query($args);
+		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			$results = $query->posts;
 		}
@@ -593,13 +594,13 @@ class DIS_ContentsManager {
 				array(
 					'key'     => 'places',
 					'value'   => '"' . $post->ID . '"',
-					'compare' => 'LIKE'
+					'compare' => 'LIKE',
 				)
 				),
 			'orderby' => 'title',
 			'order'   => 'ASC',
 		);
-		$query = new WP_Query($args);
+		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			$results = $query->posts;
 		}
@@ -615,13 +616,13 @@ class DIS_ContentsManager {
 				array(
 					'key'     => 'office',
 					'value'   => '"' . $post->ID . '"',
-					'compare' => 'LIKE'
+					'compare' => 'LIKE',
 				)
-				),
+			),
 			'orderby' => 'title',
 			'order'   => 'ASC',
 		);
-		$query = new WP_Query($args);
+		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			$results = $query->posts;
 		}
@@ -654,11 +655,11 @@ class DIS_ContentsManager {
 			}
 			return implode( ', ', $links );
 		};
-		return'';
+		return '';
 	}
 
 
-	public static function clean_and_truncate_text( $text, $size=500, $split=false ) {
+	public static function clean_and_truncate_text( $text, $size = 500, $split = false ) {
 		// Remove HTML tags.
 		$clean_text = wp_strip_all_tags( $text );
 		// Truncate tags.
@@ -678,7 +679,7 @@ class DIS_ContentsManager {
 		return $truncated_text;
 	}
 
-	public static function increment_visit_counter( $page_id) {
+	public static function increment_visit_counter( $page_id ) {
 		if ( DIS_OptionsManager::dis_get_option( 'service_page_counter_enabled', 'dis_opt_advanced_settings' ) === 'true' ) {
 			// Ignore ADMIN visits.
 			if ( current_user_can( 'manage_options' ) ) {
@@ -690,7 +691,7 @@ class DIS_ContentsManager {
 			}
 			if ( DIS_OptionsManager::dis_get_option( 'ignore_robots', 'dis_opt_advanced_settings' ) === 'true' ) {
 				// Ignore some bots.
-				$user_agent = $_SERVER['HTTP_USER_AGENT'] ?? '';
+				$user_agent = $_SERVER['HTTP_USER_AGENT'] ? sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ) : '';
 				$bots       = BOT_LABEL;
 				foreach ( $bots as $bot ) {
 					if ( stripos( $user_agent, $bot ) !== false ) {
@@ -716,41 +717,37 @@ class DIS_ContentsManager {
 	 */
 	public static function searchable_post_types(): array {
 		return array(
-							array(
-								'name' => dis_ct_data()[DIS_EVENT_POST_TYPE]['plural_name'],
-								'slug' => DIS_EVENT_POST_TYPE,
-							),
-							array(
-								'name' => dis_ct_data()[DIS_NEWS_POST_TYPE]['plural_name'],
-								'slug' => DIS_NEWS_POST_TYPE,
-							),
-							array(
-								'name' => dis_ct_data()[DIS_PROJECT_POST_TYPE]['plural_name'],
-								'slug' => DIS_PROJECT_POST_TYPE,
-							),
-							array(
-								'name' => dis_ct_data()[DIS_SERVICE_CLUSTER_POST_TYPE]['plural_name'],
-								'slug' => DIS_SERVICE_CLUSTER_POST_TYPE,
-							),
-							array(
-								'name' => dis_ct_data()[DIS_SERVICE_ITEM_POST_TYPE]['plural_name'],
-								'slug' => DIS_SERVICE_ITEM_POST_TYPE,
-							),
-							// array(
-							// 	'name' => dis_ct_data()[DIS_DEFAULT_PAGE]['plural_name'],
-							// 	'slug' => DIS_DEFAULT_PAGE,
-							// ),
-							array(
-								'name' => dis_ct_data()[DIS_DEFAULT_POST]['plural_name'],
-								'slug' => DIS_DEFAULT_POST,
-							),
-					);
+			array(
+				'name' => dis_ct_data()[ DIS_EVENT_POST_TYPE ]['plural_name'],
+				'slug' => DIS_EVENT_POST_TYPE,
+			),
+			array(
+				'name' => dis_ct_data()[ DIS_NEWS_POST_TYPE ]['plural_name'],
+				'slug' => DIS_NEWS_POST_TYPE,
+			),
+			array(
+				'name' => dis_ct_data()[ DIS_PROJECT_POST_TYPE ]['plural_name'],
+				'slug' => DIS_PROJECT_POST_TYPE,
+			),
+			array(
+				'name' => dis_ct_data()[ DIS_SERVICE_CLUSTER_POST_TYPE ]['plural_name'],
+				'slug' => DIS_SERVICE_CLUSTER_POST_TYPE,
+			),
+			array(
+				'name' => dis_ct_data()[ DIS_SERVICE_ITEM_POST_TYPE ]['plural_name'],
+				'slug' => DIS_SERVICE_ITEM_POST_TYPE,
+			),
+			array(
+				'name' => dis_ct_data()[ DIS_DEFAULT_POST ]['plural_name'],
+				'slug' => DIS_DEFAULT_POST,
+			),
+	);
 	}
 
 	private static function sort_by_name( array $items ) {
 		usort(
 			$items,
-			function( $a, $b ) {
+			function ( $a, $b ) {
 				return strcmp( strtolower( $a['name'] ), strtolower( $b['name'] ) );
 			}
 		);
@@ -835,7 +832,7 @@ class DIS_ContentsManager {
 
 	/**
 	 * Wrap a specific content type into a generic Search Wrapper.
-	 * 
+	 *
 	 * @param mixed $post
 	 * @return DIS_Search_Wrapper
 	 */
@@ -843,23 +840,23 @@ class DIS_ContentsManager {
 		$item = null;
 		switch ( $post->post_type ) {
 			case DIS_EVENT_POST_TYPE:
-				$item = self::wrap_event ( $post );
+				$item = self::wrap_event( $post );
 				break;
 			case DIS_OFFICE_POST_TYPE:
-				$item = self::wrap_office ( $post );
+				$item = self::wrap_office( $post );
 				break;
 			case DIS_SERVICE_CLUSTER_POST_TYPE:
 			case DIS_SERVICE_ITEM_POST_TYPE:
 			case DIS_PROJECT_POST_TYPE:
 			case DIS_NEWS_POST_TYPE:
 			case DIS_PLACE_POST_TYPE:
-				$item = self::wrap_service ( $post );
+				$item = self::wrap_service( $post );
 				break;
 			case DIS_DEFAULT_PAGE:
-				$item = self::wrap_page ( $post );
+				$item = self::wrap_page( $post );
 				break;
 			default:
-				$item = self::wrap_article ( $post );
+				$item = self::wrap_article( $post );
 				break;
 		}
 		return $item;
@@ -882,7 +879,7 @@ class DIS_ContentsManager {
 		$result->long_date     = self::format_long_date( $result->date );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 		$result->description   = $description ? $description : '';
-		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type          = dis_ct_data()[ $post->post_type ]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		$category              = self::get_main_category( $post );
 		$result->category      = $category ? $category->name : '';
@@ -901,7 +898,7 @@ class DIS_ContentsManager {
 		$result->date          = get_the_date( 'j/n/Y' );
 		$result->long_date     = get_the_date( 'j F Y' );
 		$result->description   = wp_strip_all_tags( get_the_content( $post ) );
-		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type          = dis_ct_data()[ $post->post_type ]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		$category              = self::get_main_category( $post );
 		$result->category      = $category ? $category->name : '';
@@ -921,7 +918,7 @@ class DIS_ContentsManager {
 		$result->long_date     = get_the_date( 'j F Y' );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 		$result->description   = $description;
-		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type          = dis_ct_data()[ $post->post_type ]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		$category              = self::get_main_category( $post );
 		$result->category      = $category ? $category->name : '';
@@ -944,7 +941,7 @@ class DIS_ContentsManager {
 			$description = wp_strip_all_tags( get_the_content( $post ) );
 		}
 		$result->description   = $description;
-		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type          = dis_ct_data()[ $post->post_type ]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		$category              = self::get_main_category( $post );
 		$result->category      = $category ? $category->name : '';
@@ -964,7 +961,7 @@ class DIS_ContentsManager {
 		$result->long_date     = get_the_date( 'j F Y' );
 		$description           = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 		$result->description   = $description ? $description : '';
-		$result->type          = dis_ct_data()[$post->post_type]['plural_name'];
+		$result->type          = dis_ct_data()[ $post->post_type ]['plural_name'];
 		$result->type_link     = DIS_MultiLangManager::get_archive_link( $post->post_type );
 		$category              = self::get_main_category( $post );
 		$result->category      = $category ? $category->name : '';
@@ -973,21 +970,21 @@ class DIS_ContentsManager {
 		return $result;
 	}
 
-	private static function fill_image_data( $post,&$result) {
+	private static function fill_image_data( $post, &$result) {
 		$image_data          = self::get_image_metadata( $post, 'thumbnail', '/assets/img/logo-default.png' );
 		$result->image_url   = $image_data['image_url'];
 		$result->image_alt   = $image_data['image_alt'];
 		$result->image_title = $image_data['image_title'];
 	}
 
-	
+
 	/**
 	 * Return the list of the post of a certain type to show in the sitemap.
 	 * 
 	 * @param array $post_type
 	 * @return array of slugs (strings)
 	 */
-	public static function get_sitemap_posts(  $post_type) {
+	public static function get_sitemap_posts( $post_type ) {
 		$query = new WP_Query(
 			array(
 				'posts_per_page' => -1,
@@ -1000,5 +997,5 @@ class DIS_ContentsManager {
 		return $query->posts;
 	}
 
-	
+
 }
