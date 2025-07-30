@@ -214,7 +214,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 				<ul>
 					<?php foreach ( $related_services as $serv ) : ?>
 						<li>
-							<a href="<?php esc_url( get_permalink( $serv ) ); ?>">
+							<a href="<?php echo esc_url( get_permalink( $serv ) ); ?>">
 								<?php echo esc_attr( $serv->post_title ); ?>
 							</a>
 						</li>

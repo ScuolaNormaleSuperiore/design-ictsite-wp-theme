@@ -19,7 +19,8 @@ if ( $section_enabled ) {
 	$search_label = _x( 'MainHeroSearchButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$left_button  = _x( 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$right_button = _x( 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
-	$search_link  = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+	// $search_link  = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+	$help_link    = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 	$cluster_link = DIS_MultiLangManager::get_archive_link( DIS_SERVICE_CLUSTER_POST_TYPE );
 ?>
 
@@ -48,7 +49,7 @@ if ( $section_enabled ) {
 
 					<!-- HERO SEARCH FORM -->
 					<div class="form-group">
-						<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+						<FORM id="hero_search_form" action="<?php echo esc_url( $help_link ); ?>" METHOD="GET">
 							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 							<div class="input-group">
 								<label class="visually-hidden" for="search_string">
@@ -77,7 +78,7 @@ if ( $section_enabled ) {
 						</a>
 					</button>
 					<button type="button" class="btn btn-primary btn-lg">
-						<a href="<?php echo esc_url( $search_link ); ?>"
+						<a href="<?php echo esc_url( $help_link ); ?>"
 							style="color:white">
 							<?php echo esc_attr( $right_button ); ?>
 						</a>
