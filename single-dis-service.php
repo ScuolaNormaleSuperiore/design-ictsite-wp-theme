@@ -30,7 +30,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 	<div class="row">
 		<div class="col-12 col-md-10 offset-md-1 col-lg-8 offset-lg-1 m-auto">
 
-			<!-- Titolo -->
+			<!-- Title -->
 			<h2>
 				<?php echo esc_attr( $post->post_title ); ?>
 			</h2>
@@ -240,7 +240,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 				<?php
 				}
 				$support_page_link = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
-				$support_link      = '<a href="'. $support_page_link . '">Help Desk</a>';
+				$support_link      = '<a href="' . $support_page_link . '">Help Desk</a>';
 				$support_string    = sprintf( __( 'For support contact the %s', 'design_ict_site' ), $support_link );
 				?>
 				<p class="ps-4">

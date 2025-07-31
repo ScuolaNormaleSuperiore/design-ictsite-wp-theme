@@ -634,11 +634,11 @@ class DIS_ContentsManager {
 	/**
 	 * Get the string of the objects.
 	 *
-	 * @param object $posts
+	 * @param [object] $posts
 	 * @param boolean $with_link
 	 * @return string
 	 */
-	public static function get_string_list_from_posts( $posts, $with_link=false ): string {
+	public static function get_string_list_from_posts( $posts, $with_link = false ): string {
 		if ( ! empty( $posts ) && is_array( $posts ) ) {
 			// Return list without links.
 			if ( $with_link === false ) {
@@ -658,6 +658,34 @@ class DIS_ContentsManager {
 		return '';
 	}
 
+	/**
+	 * Get a string of topics with the link.
+	 *
+	 * @param [object] $terms
+	 * @param boolean $with_link
+	 * @return string
+	 */
+	public static function get_topic_string_from_terms( $terms, $with_link = false ): string {
+		if ( ! empty( $terms ) && is_array( $terms ) ) {
+			// Return list without links.
+			if ( $with_link === false ) {
+				return implode( ', ', wp_list_pluck( $terms, 'post_title' ) ) ;
+			}
+			// Return the list with the links.
+			$links    = array();
+			$faq_page = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
+			foreach ( $terms as $item ) {
+				$full_link = $faq_page . '#' . $item->slug;
+				$links[] = sprintf(
+					'<a href="%1$s">%2$s</a>',
+					esc_url( $full_link ),
+					esc_html( $item->name )
+				);
+			}
+			return implode( ', ', $links );
+		};
+		return '';
+	}
 
 	public static function clean_and_truncate_text( $text, $size = 500, $split = false ) {
 		// Remove HTML tags.
