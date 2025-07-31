@@ -7,9 +7,9 @@
  * @package Design_ICT_Site
  */
 
- /*
-* Constants.
-*/
+/**
+ * Constants.
+ */
 define( 'DIS_THEME_PATH', plugin_dir_path( __FILE__ ) );
 define( 'DIS_THEME_URL', get_template_directory_uri() );
 
@@ -53,7 +53,7 @@ if ( ! class_exists( 'DIS_ThemeManager' ) ) {
 if ( class_exists( 'DIS_ThemeManager' ) ) {
 	add_action(
 		'after_setup_theme',
-		function() {
+		function () {
 			remove_action( 'after_setup_theme', __FUNCTION__ );
 			$theme_manager = DIS_ThemeManager::get_instance();
 			$theme_manager->theme_setup();
@@ -62,10 +62,9 @@ if ( class_exists( 'DIS_ThemeManager' ) ) {
 	);
 }
 
-// ////// SETUP THE THEME //////
-// if ( class_exists( 'DIS_ThemeManager' ) ) {
-// 	include_once get_template_directory() . '/classes/theme-manager.php';
-// 	global $theme_manager;
-// 	$theme_manager = new DIS_ThemeManager();
-// 	$theme_manager->theme_setup();
-// }
+// // @DEBUG:
+// add_filter( 'template_include', function( $template ) {
+// 		echo 'Template in uso: ' . basename( $template );
+// 		return $template;
+// 	}
+// );
