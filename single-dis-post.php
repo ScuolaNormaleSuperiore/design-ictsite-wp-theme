@@ -1,11 +1,12 @@
 <?php
 /**
- * Detail page for the post-type: post standard.
+ * Detail page for the post-type: post
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
 
@@ -46,22 +47,16 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 	<div class="container shadow rounded p-4 mb-5 mt-2">
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1 col-lg-7 offset-lg-1 m-auto">
-
 				<!-- DESCRIPTION -->
 				<p class="lead">
 					<?php echo get_the_content() ?>
 				</p>
-
-
-				<!-- Last modification -->
-				<div class="pt-4">
-					<p class="it-text-centered">
-						<?php echo __( 'Last modification', 'design_ict_site' ); ?>: <?php the_modified_date('d/m/Y'); ?>
-					</p>
-				</div>
-
 			</div>
-		</div>
+		</div> <!-- row -->
+
+
+		<!-- Last modification -->
+		<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
 	</div>
 
 

@@ -1,6 +1,6 @@
 <?php
 /**
- * Detail page for the post-type: dis-event.
+ * Detail page for the post-type: dis-event
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -196,13 +196,7 @@ $full_offices      = DIS_ContentsManager::get_string_list_from_posts( $offices, 
 	</div> <!-- row -->
 
 	<!-- Last modification -->
-	<div class="row">
-		<div class="col-12 pt-3">
-			<p class="small text-center">
-				<?php echo __( 'Last modification', 'design_ict_site' ); ?>:&nbsp;<?php the_modified_date('d/m/Y'); ?>
-			</p>
-		</div>
-	</div>
+	<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
 
 </div> <!-- container -->
 

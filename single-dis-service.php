@@ -254,14 +254,7 @@ $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 	</div> <!-- row-->
 
 	<!-- Last modification -->
-	<div class="row">
-		<div class="col-12 pt-3">
-			<p class="small text-center">
-				<?php echo esc_attr( __( 'Last modification', 'design_ict_site' ) ); ?>:&nbsp;
-				<?php the_modified_date( 'd/m/Y' ); ?>
-			</p>
-		</div>
-	</div>
+	<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
 
 </div>
 

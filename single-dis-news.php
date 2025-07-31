@@ -1,6 +1,6 @@
 <?php
 /**
- * Detail page for the post-type: dis-news.
+ * Detail page for the post-type: dis-news
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
