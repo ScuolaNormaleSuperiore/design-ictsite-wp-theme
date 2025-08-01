@@ -7,7 +7,7 @@
 global $post;
 get_header();
 
-// Check parameters.
+// Check pagination parameters.
 $posts_per_page  = strval( DIS_ITEMS_PER_PAGE );
 $per_page_values = DIS_ITEMS_PER_PAGE_VALUES;
 if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
@@ -105,16 +105,6 @@ $num_results = $the_query->found_posts;
 
 
 			<!-- @TODO: Results pagination-->
-			<!--php
-				$args = array(
-					'query'           => $the_query,
-					'posts_per_page'        => $posts_per_page,
-					'per_page_values' => $per_page_values,
-					'num_results'     => $num_results,
-				);
-				get_template_part( 'template-parts/common/pagination', null, $args );
-		-->
-
 
 		</div> <!-- col -->
 	</div>

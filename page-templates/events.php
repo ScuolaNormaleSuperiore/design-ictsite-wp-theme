@@ -7,6 +7,20 @@
 global $post;
 get_header();
 
+// Check pagination parameters.
+$posts_per_page  = strval( DIS_ITEMS_PER_PAGE );
+$per_page_values = DIS_ITEMS_PER_PAGE_VALUES;
+if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
+	$posts_per_page = sanitize_text_field( $_GET['posts_per_page'] );
+}
+if ( isset( $_GET['paged'] ) && is_numeric( $_GET['paged'] ) ) {
+	$paged = 1;
+} else {
+	$paged = sanitize_text_field( get_query_var( 'paged', 1 ) );
+}
+
+
+
 // Get default values.
 $all_categories   = get_categories( array( 'hide_empty' => true ) );
 $default_cat_list = array_column( $all_categories, 'slug' );
@@ -144,6 +158,18 @@ $num_results = $the_query->found_posts;
 			?>
 
 			<!-- @TODO: Results pagination-->
+			<?php
+				get_template_part(
+					'template-parts/common/pagination',
+					null,
+					array(
+						'query'           => $the_query,
+						'posts_per_page'  => $posts_per_page,
+						'per_page_values' => $per_page_values,
+						'num_results'     => $num_results,
+					)
+				);
+			?>
 		</div>
 
 		<!-- SIDEBAR FILTERS -->

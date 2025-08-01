@@ -2,6 +2,7 @@
 * TODO LIST:
 
 - Paginazione.
+- Elenco articoli.
 - Gestione dei font.
 - Controllare tutti i link sprites.svg (percorso assoluto e 'assets').
 - Rivedere codice in base a regole WordPress.
