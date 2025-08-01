@@ -19,13 +19,11 @@ if ( isset( $_GET['paged'] ) && is_numeric( $_GET['paged'] ) ) {
 	$paged = sanitize_text_field( get_query_var( 'paged', 1 ) );
 }
 
-
-
-// Get default values.
+// Parameters: get default values.
 $all_categories   = get_categories( array( 'hide_empty' => true ) );
 $default_cat_list = array_column( $all_categories, 'slug' );
 
-// Check and sanitize parameters.
+// Parameters: check and sanitize values.
 if ( isset( $_GET['selected_categories'] ) && is_array( $_GET['selected_categories'] ) ) {
 	$selected_categories = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_categories'] ) );
 } else {
