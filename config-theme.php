@@ -137,11 +137,16 @@ if ( ! function_exists( 'dis_ct_data' ) ) {
 
 
 /* MENU */
-// define( 'DIS_SLUG_MAIN_MENU', 'DIS_PRIMARY_MENU' );
 
 /* ROLES AND PERMISSIONS */
 define( 'DIS_EDIT_PERMISSION', 'edit_posts' );
 define( 'DIS_EDIT_THEME_PERMISSION', 'edit_theme_options' );
+define( 'DIS_EDIT_CONFIG_PERMISSION', 'dis_edit_site_configuration' );
+define( 'DIS_ADMIN_EDIT_CONFIG_PERMISSION', 'manage_options' );
+
+/* Define Super Editor */
+define( 'DIS_SUPER_EDITOR_ROLE_SLUG', 'dis_super_editor' );
+define( 'DIS_SUPER_EDITOR_ROLE_NAME', 'Super Editor' );
 
 
 /* MULTILANGUAGE constants*/
