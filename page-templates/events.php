@@ -13,11 +13,12 @@ $per_page_values = DIS_ITEMS_PER_PAGE_VALUES;
 if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
 	$posts_per_page = sanitize_text_field( $_GET['posts_per_page'] );
 }
-if ( isset( $_GET['paged'] ) && is_numeric( $_GET['paged'] ) ) {
-	$paged = 1;
-} else {
-	$paged = sanitize_text_field( get_query_var( 'paged', 1 ) );
-}
+// if ( isset( $_GET['num_page'] ) && is_numeric( $_GET['num_page'] ) ) {
+// 	$num_page = sanitize_text_field( get_query_var( 'num_page', 1 ) );
+// } else {
+// 	$num_page = 1;
+// }
+$current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Parameters: get default values.
 $all_categories   = get_categories( array( 'hide_empty' => true ) );
@@ -35,7 +36,7 @@ $params = array(
 	'post_type'      => DIS_EVENT_POST_TYPE,
 	'search_string'  => '',
 	'posts_per_page' => $posts_per_page,
-	'paged'          => $paged,
+	'current_page'   => $current_page,
 	'orderby'        => 'post_date',
 	'order'          => 'DESC',
 );
@@ -165,6 +166,7 @@ $num_results = $the_query->found_posts;
 						'posts_per_page'  => $posts_per_page,
 						'per_page_values' => $per_page_values,
 						'num_results'     => $num_results,
+						'current_page'    => $current_page,
 					)
 				);
 			?>

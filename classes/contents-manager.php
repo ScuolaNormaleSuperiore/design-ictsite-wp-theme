@@ -313,7 +313,7 @@ class DIS_ContentsManager {
 			'post_status'    => $params['post_status'] ?? 'publish',
 			'order'          => $params['order'] ?? 'ASC',
 			'orderby'        => $params['orderby'] ?? 'title',
-			'paged'          => $params['paged'] ?? 1,
+			'paged'          => $params['current_page'] ?? 1,
 			'posts_per_page' => $params['posts_per_page'] ?? -1,
 		);
 		// Search for a string.

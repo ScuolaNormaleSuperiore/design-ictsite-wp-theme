@@ -9,6 +9,7 @@ $posts_per_page  = $args['posts_per_page'];
 $per_page_values = $args['per_page_values'];
 $num_results     = $args['num_results'];
 $pagination_on   = ( $num_results > intval( $posts_per_page ) ) ? true : false;
+$current_page    = $args['current_page'];
 ?>
 
 <nav class="pagination-wrapper justify-content-center mt-3" aria-label="Centered navigation">
@@ -26,8 +27,12 @@ $pagination_on   = ( $num_results > intval( $posts_per_page ) ) ? true : false;
 					'<svg class="icon icon-primary" role="img" aria-labelledby="Chevron Right"><title>Chevron Right</title><use href="' .
 					DIS_THEME_URL .
 					'/assets/bootstrap-italia/svg/sprites.svg#it-chevron-right"></use></svg>';
+				$big = 999999999;
 				echo paginate_links(
 					array(
+						'base'      => add_query_arg( 'num_page', '%#%' ),
+						'format'    => '',
+						'current'   => $current_page,
 						'total'     => $the_query->max_num_pages,
 						'prev_text' => $prev_label,
 						'next_text' => $next_label,
