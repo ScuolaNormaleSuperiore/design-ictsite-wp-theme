@@ -1306,7 +1306,7 @@ msgstr "Sarebbe preferibile disattivarlo."
 #. Name of the template
 #: page-templates/privacy.php:2
 msgid "Privacy"
-msgstr "Provacy"
+msgstr "Privacy"
 
 #: template-parts/common/video-section.php:8
 msgid "Privacy Policy"
