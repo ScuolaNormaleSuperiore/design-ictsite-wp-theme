@@ -8,7 +8,7 @@ $the_query       = $args['query'];
 $posts_per_page  = $args['posts_per_page'];
 $per_page_values = $args['per_page_values'];
 $num_results     = $args['num_results'];
-$pagination_on   = ( $num_results > intval ( $posts_per_page) )  ? true : false;
+$pagination_on   = ( $num_results > intval( $posts_per_page) )  ? true : false;
 ?>
 
 <nav class="pagination-wrapper justify-content-center mt-3" aria-label="Centered navigation">

@@ -125,7 +125,7 @@ $num_results = $the_query->found_posts;
 											<?php
 											if ( $category ) {
 												$list_page = DIS_MultiLangManager::get_page_by_label( EVENTS_PAGE_SLUG );
-												?>
+											?>
 											<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . esc_attr( $category->slug ); ?>"
 												class="it-card-category it-card-link link-secondary">
 												<span class="visually-hidden">
@@ -133,9 +133,9 @@ $num_results = $the_query->found_posts;
 												</span>
 												<?php echo esc_attr( $category->name ); ?>
 											</a>
-												<?php
+											<?php
 											}
-										  ?>
+											?>
 										</div>
 										<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
 											<?php echo get_the_date( 'j/n/Y' ); ?>

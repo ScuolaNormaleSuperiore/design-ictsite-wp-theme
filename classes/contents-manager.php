@@ -314,14 +314,14 @@ class DIS_ContentsManager {
 			'order'          => $params['order'] ?? 'ASC',
 			'orderby'        => $params['orderby'] ?? 'title',
 			'paged'          => $params['paged'] ?? 1,
-			'posts_per_page' => $params['per_page'] ?? -1,
+			'posts_per_page' => $params['posts_per_page'] ?? -1,
 		);
 		// Search for a string.
 		if ( $params['search_string'] ) {
 			$args['s'] = $params['search_string'];
 		}
 		// Filter by taxonomy.
-		if ( ! empty( $params['taxonomy'] ) && !empty( $params['terms'] ) ) {
+		if ( ! empty( $params['taxonomy'] ) && ! empty( $params['terms'] ) ) {
 			$args['tax_query'] = array(
 				array(
 					'taxonomy' => $params['taxonomy'],
