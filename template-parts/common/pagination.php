@@ -61,7 +61,8 @@ $current_page    = $args['current_page'];
 					<div class="dropdown-menu dli-pagination-dropdown" aria-labelledby="pagerChanger">
 						<div class="link-list-wrapper">
 							<ul class="link-list">
-								<?php foreach( $per_page_values as $pvalue ) {
+								<?php
+								foreach( $per_page_values as $pvalue ) {
 									$is_active = ( $pvalue === $posts_per_page );
 								?>
 								<li>

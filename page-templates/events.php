@@ -13,11 +13,6 @@ $per_page_values = DIS_ITEMS_PER_PAGE_VALUES;
 if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
 	$posts_per_page = sanitize_text_field( $_GET['posts_per_page'] );
 }
-// if ( isset( $_GET['num_page'] ) && is_numeric( $_GET['num_page'] ) ) {
-// 	$num_page = sanitize_text_field( get_query_var( 'num_page', 1 ) );
-// } else {
-// 	$num_page = 1;
-// }
 $current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Parameters: get default values.

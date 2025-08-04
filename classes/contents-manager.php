@@ -231,7 +231,7 @@ class DIS_ContentsManager {
 	 * @param string $order
 	 * @return array
 	 */
-	public static function get_person_list( $order='title' ) {
+	public static function get_person_list( $order = 'title' ) {
 		$args = array(
 			'post_type'      => DIS_PERSON_POST_TYPE,
 			'posts_per_page' => -1,
@@ -339,7 +339,7 @@ class DIS_ContentsManager {
 	 * @param string $order ( 'title' || 'priority' )
 	 * @return array
 	 */
-	public static function get_service_list( $order='title', $cluster_id=null) {
+	public static function get_service_list( $order = 'title', $cluster_id = null ) {
 		$args = array();
 		if ( $order === 'title') {
 			$args = array(

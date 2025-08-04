@@ -83,11 +83,6 @@ class DIS_LayoutManager {
 		register_nav_menus( DIS_MENU_LOCATIONS );
 	}
 
-	// public function enable_svg_upload(){
-	// 	$upload_mimes['svg'] = 'image/svg+xml';
-	// 	return $upload_mimes;
-	// }
-
 	public function load_pagination_script() {
 	if ( is_page_template() || is_singular() ) {
 	?>
@@ -108,7 +103,7 @@ class DIS_LayoutManager {
 					});
 				});
 
-				// Ricarica pagina con il valore per_page selezionato.
+				// Ricarica pagina con il valore posts_per_page selezionato.
 				var pagerDropDown = document.getElementById('pagerChanger');
 				if( pagerDropDown ){
 					pagerDropDown.addEventListener('hidden.bs.dropdown', function (event) {
@@ -119,15 +114,15 @@ class DIS_LayoutManager {
 							// Ottiene l'URL corrente e i parametri GET.
 							var currentUrl = new URL(window.location.href);
 							var params = currentUrl.searchParams;
-							const oldPerPage = params.get('per_page');
+							const oldPerPage = params.get('posts_per_page');
 							// Per evitare incongruenze,
 							// quando si cambia numero di elementi per pagina,
 							// si riparte dalla pagina numero 1.
 							if (perPageValue != oldPerPage){
-								params.set('paged', 1);
+								params.set('num_page', 1);
 							}
-							// Aggiunge o aggiorna il parametro per_page.
-							params.set('per_page', perPageValue);
+							// Aggiunge o aggiorna il parametro posts_per_page.
+							params.set('posts_per_page', perPageValue);
 							// Aggiorna l'URL e ricarica la pagina.
 							window.location.href = currentUrl.toString();
 						}
@@ -139,11 +134,5 @@ class DIS_LayoutManager {
 	}
 	}
 
-	// public function setup_image_sizes() {
-	// 	// Image size.
-	// 	if ( function_exists( 'add_image_size' ) ) {
-	// 		add_image_size( 'item-card-list', 305, 190 , true );
-	// 	}
-	// }
 
 }
