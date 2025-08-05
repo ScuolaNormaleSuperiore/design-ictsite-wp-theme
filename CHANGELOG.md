@@ -20,4 +20,5 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 ### Fixed
 - Translated: How to update Bootstrap Italia.md
 - Labels translation.
+- Dockerfile fixed and updated.
 ### Changed

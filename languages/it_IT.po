@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-07-29 13:22+0000\n"
+"PO-Revision-Date: 2025-08-05 10:47+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -14,6 +14,11 @@ msgstr ""
 "X-Generator: Loco https://localise.biz/\n"
 "X-Loco-Version: 2.8.0; wp-6.8.2; php-8.3.11\n"
 "X-Domain: design_ict_site"
+
+#. Name of the template
+#: page-templates/about-us.php:2
+msgid "About us"
+msgstr "Chi siamo"
 
 #: template-parts/common/video-section.php:39
 msgid "Accept"
@@ -102,7 +107,7 @@ msgstr "Avviso"
 msgid "All articles"
 msgstr "tutti gli articoli"
 
-#: single-dis-event.php:217 template-parts/home/hp-events-section.php:106
+#: single-dis-event.php:211 template-parts/home/hp-events-section.php:106
 msgid "All events"
 msgstr "Tutti gli eventi"
 
@@ -118,8 +123,8 @@ msgstr "Tutti i progetti"
 msgid "API token"
 msgstr "Token dell'API"
 
-#: page-templates/events.php:188 page-templates/news.php:184
-#: page-templates/places.php:151
+#: page-templates/articles.php:204 page-templates/events.php:209
+#: page-templates/news.php:204 page-templates/places.php:173
 msgid "Apply filters"
 msgstr "Applica i filtri"
 
@@ -135,7 +140,7 @@ msgstr "Area/Servizio"
 msgid "Attachment"
 msgstr "Allegato"
 
-#: page-templates/documentation.php:135 page-templates/documentation.php:141
+#: page-templates/documentation.php:154 page-templates/documentation.php:160
 #: page-templates/faq.php:182 page-templates/faq.php:188
 msgid "Back to the full list"
 msgstr "Torna all'elenco completo"
@@ -220,11 +225,15 @@ msgstr "Tipi di contenuto"
 msgid "Contributors"
 msgstr "Partecipanti"
 
+#: page-templates/privacy.php:29
+msgid "Cookies management"
+msgstr "Gestione dei cookie"
+
 #: classes/options-manager.php:229
 msgid "Danger"
 msgstr "Pericolo"
 
-#: single-dis-office.php:32 single-dis-place.php:39
+#: single-dis-faq.php:29 single-dis-office.php:32 single-dis-place.php:39
 msgid "Description"
 msgstr "Descrizione"
 
@@ -258,8 +267,8 @@ msgstr "dis-office"
 #. Name of the template
 #: page-templates/people.php:2
 #, fuzzy
-#| msgid "dis-person"
-msgid "dis-person."
+#| msgid "dis-person."
+msgid "dis-person"
 msgstr "dis-person"
 
 #. Name of the template
@@ -917,12 +926,13 @@ msgstr "Faq"
 msgid "Features"
 msgstr "Funzionalità"
 
-#: page-templates/events.php:156 page-templates/events.php:160
-#: page-templates/news.php:152 page-templates/news.php:156
+#: page-templates/articles.php:172 page-templates/articles.php:176
+#: page-templates/events.php:177 page-templates/events.php:181
+#: page-templates/news.php:172 page-templates/news.php:176
 msgid "Filter by category"
 msgstr "Filtra per categoria"
 
-#: page-templates/places.php:124 page-templates/places.php:128
+#: page-templates/places.php:146 page-templates/places.php:150
 msgid "Filter by place type"
 msgstr "Filtra per tipo di luogo"
 
@@ -961,13 +971,13 @@ msgstr "Area Progetti e Servizi ICT"
 msgid "For support contact the %s"
 msgstr "Per supporto contatta l'%s"
 
-#: page-templates/documentation.php:34 page-templates/faq.php:49
+#: page-templates/documentation.php:41 page-templates/faq.php:49
 #: page-templates/search.php:64
 #, php-format
 msgid "Found %s results."
 msgstr "Trovati %s risultati."
 
-#: single-dis-event.php:47 page-templates/events.php:100
+#: single-dis-event.php:47 page-templates/events.php:107
 #, php-format
 msgid "From %s to %s"
 msgstr "Dal %s al %s"
@@ -987,7 +997,8 @@ msgstr "Supporto"
 msgid "Get started"
 msgstr "Per iniziare"
 
-#: page.php:55 page.php:58 page.php:63
+#: page.php:55 page.php:58 page.php:63 page-templates/privacy.php:82
+#: page-templates/privacy.php:85 page-templates/privacy.php:90
 msgid "Go back"
 msgstr "Torna indietro"
 
@@ -1014,8 +1025,8 @@ msgstr "Logo dell'intestazione visibile"
 msgid "Help-desk"
 msgstr "Help-desk"
 
-#: template-parts/home/hp-main-hero-section.php:32
 #: template-parts/home/hp-main-hero-section.php:33
+#: template-parts/home/hp-main-hero-section.php:34
 msgid "Hero image"
 msgstr "Immagine dell'hero"
 
@@ -1111,7 +1122,7 @@ msgstr "Informazioni"
 msgid "Insert here the links to your social media."
 msgstr "Inserisci qui i link ai tuoi social media."
 
-#: classes/theme-manager.php:261
+#: classes/theme-manager.php:264
 msgid "Invalid username or password"
 msgstr "Nome utente o password non validi"
 
@@ -1119,8 +1130,7 @@ msgstr "Nome utente o password non validi"
 msgid "Language selection: selected language"
 msgstr "Selezione lingua: lingua selezionata"
 
-#: single-dis-event.php:202 single-dis-post.php:59 single-dis-project.php:147
-#: single-dis-service.php:260
+#: template-parts/footer/last_modification.php:14
 msgid "Last modification"
 msgstr "Ultima modifica"
 
@@ -1247,8 +1257,8 @@ msgstr "Opzioni della Newsletter"
 msgid "No"
 msgstr "No"
 
-#: page-templates/news.php:134 page-templates/places.php:108
-#: page-templates/projects.php:99
+#: page-templates/articles.php:141 page-templates/news.php:141
+#: page-templates/places.php:117 page-templates/projects.php:93
 msgid "No results found"
 msgstr "Nessun risultato trovato"
 
@@ -1261,8 +1271,8 @@ msgstr "Ufficio"
 msgid "Our services"
 msgstr "I nostri servizi"
 
-#: template-parts/common/pagination.php:51
-#: template-parts/common/pagination.php:66
+#: template-parts/common/pagination.php:56
+#: template-parts/common/pagination.php:72
 msgid "page"
 msgstr "pagina"
 
@@ -1320,8 +1330,9 @@ msgstr "Progetti"
 msgid "Rates"
 msgstr "Tariffe"
 
-#: page-templates/events.php:120 page-templates/news.php:110
-#: page-templates/search.php:116 template-parts/home/hp-events-section.php:86
+#: page-templates/articles.php:117 page-templates/events.php:127
+#: page-templates/news.php:117 page-templates/search.php:116
+#: template-parts/home/hp-events-section.php:86
 #: template-parts/home/hp-news-section.php:80
 msgid "Related category"
 msgstr "Categoria relativa"
@@ -1331,7 +1342,7 @@ msgstr "Categoria relativa"
 msgid "Related contents"
 msgstr "Contenuti collegati"
 
-#: page.php:75
+#: page.php:75 page-templates/privacy.php:102
 msgid "Related pages"
 msgstr "Pagine correlate"
 
@@ -1368,11 +1379,15 @@ msgstr "Prerequisiti"
 msgid "REST API"
 msgstr "API REST"
 
+#: page-templates/privacy.php:45
+msgid "Revoke"
+msgstr "Revoca"
+
 #: classes/options-manager.php:458
 msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
-#: page-templates/documentation.php:122 page-templates/faq.php:169
+#: page-templates/documentation.php:141 page-templates/faq.php:169
 #: page-templates/search.php:178 page-templates/search.php:249
 #: template-parts/header/site_search.php:18
 msgid "Search"
@@ -1397,7 +1412,7 @@ msgstr "Cerca nel sito."
 msgid "Search results"
 msgstr "Risultati della ricerca"
 
-#: page-templates/documentation.php:111 page-templates/documentation.php:118
+#: page-templates/documentation.php:130 page-templates/documentation.php:137
 #, fuzzy
 #| msgid "Search the Documentation"
 msgid "Search the documentation"
@@ -1482,7 +1497,7 @@ msgstr "Configurazioni del sito"
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
-#: template-parts/home/hp-main-hero-section.php:55
+#: template-parts/home/hp-main-hero-section.php:56
 msgid "Site search"
 msgstr "Ricerca nel sito"
 
@@ -1568,7 +1583,7 @@ msgstr "L'e-mail del sito."
 msgid "The hero section of the Home Page."
 msgstr "La sezione dedicata agli eroi della Home Page."
 
-#: classes/theme-manager.php:242
+#: classes/theme-manager.php:245
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr "L'immagine è troppo grande. Il massimo consentito è 1 MB."
 
@@ -1589,7 +1604,7 @@ msgstr "Nome della rete di cui il sito fa parte."
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr "Il nome che deve comparire nelle e-mail inviate dal sito."
 
-#: classes/theme-manager.php:246
+#: classes/theme-manager.php:249
 #, fuzzy
 #| msgid "The PDf file is too big. the maximum allowed is: 2MB."
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
@@ -1635,7 +1650,7 @@ msgid "To translate the text refers to the domain DIS_SiteOptionLabel."
 msgstr ""
 "Per tradurre il testo si fa riferimento al dominio DIS_SiteOptionLabel."
 
-#: classes/faq-manager.php:35
+#: single-dis-faq.php:32 classes/faq-manager.php:35
 msgid "Topics"
 msgstr "Argomenti"
 
@@ -1713,3 +1728,15 @@ msgstr "Sì, se il logo deve essere visualizzato nel piè di pagina."
 #: classes/options-manager.php:129
 msgid "Yes if the logo needs to be shown in the header."
 msgstr "Sì, se il logo deve essere visualizzato nel piè di pagina."
+
+#: page-templates/privacy.php:39
+msgid "You have installed the following third-party cookies:"
+msgstr "Hai installato i seguenti cookie di terze parti:"
+
+#: page-templates/privacy.php:35
+msgid "You have not installed third-party cookies"
+msgstr "Non hai installato cookie di terze parti"
+
+#: page-templates/privacy.php:42
+msgid "Youtube for video viewing"
+msgstr "Youtube per la visione di video"

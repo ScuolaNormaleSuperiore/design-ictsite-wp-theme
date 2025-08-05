@@ -1,6 +1,6 @@
 <?php
 /**
- * Detail page for the post-type: dis-person.
+ * Detail page for the post-type: dis-person
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
