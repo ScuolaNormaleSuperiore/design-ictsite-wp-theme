@@ -152,7 +152,7 @@ $result_message     = sprintf( __( 'Found %s results.', 'design_ict_site' ), cou
 					<FORM action="." id="search_faq_form" method="GET">
 						<div class="input-group">
 							<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
-									<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
+									<use href=<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
 								</svg></span>
 							<label for="search_string">
 								<?php echo esc_attr( __( 'Search the FAQ', 'design_ict_site' ) ); ?>
