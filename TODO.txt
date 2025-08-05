@@ -1,6 +1,7 @@
 
 * TODO LIST:
 
+- Tradurre: How to update Bootstrap Italia.md
 - Elenco articoli.
 - Gestione dei font.
 - Rivedere codice in base a regole WordPress.
