@@ -1,15 +1,12 @@
 # ![developers.italia](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "developers.italia") Theme for ICT sites
-**WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***. WordPress theme for building websites that showcase and facilitate the use of an organization’s ICT services. WordPress theme for building websites that showcase and facilitate the use of an organization’s ICT services.
+**WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***.
 
 ## Project status
 The project is in beta testing.
 
 
-
-![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/badge)
-
 ## Credits
-This project uses the library [***Bootstrap Italia 2.16.0***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-laboratori-wordpress-theme/blob/main/CREDITS.txt).
+This project uses the library [***Bootstrap Italia 2.16.0***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CREDITS.txt).
 
 ## Features
 	- Automatic site population (pages and menu).
@@ -39,7 +36,7 @@ This is an open-source project. [Here](https://github.com/ScuolaNormaleSuperiore
 
 
 ## Reuse Catalogue
-The project is published in the Developers Italia reuse catalog. The project home page is [this](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36).
+The project is published in the Developers Italia reuse catalog. [This](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36) the project Home Page.
 
 ## Documentation
    - [User manual (IT)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/wiki).
@@ -91,7 +88,7 @@ Installing the theme adds a role called **Super Editor**, which has the same per
 After installing WordPress on a server, follow these steps to install and configure the **Design ICT site** theme:
 
 1. Download the theme ["Design ICT site"](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme).
-2. Copy the ***design-laboratori-wordpress-theme*** folder to *<wordpress_installation>/wp-content/themes/*
+2. Copy the ***design-ictsite-wp-theme*** folder to *<wordpress_installation>/wp-content/themes/*
 3. Activate the theme (automatic creation of default content and menus).
 4. Install and activate dependent plugins (a popup displays the list of required plugins).
 5. Configure Polylang using the plugin wizard:
@@ -127,10 +124,10 @@ Other guides on this topic:
 * [Google Fonts](https://fonts.google.com).
 
 ## Tickets and bug fixes
-To report bugs, please use the [Issues](https://github.com/ScuolaNormaleSuperiore/design-laboratori-wordpress-theme/issues) section of the project repository.
+To report bugs, please use the [Issues](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/issues) section of the project repository.
 
 ## Verify publiccode.yml file
-The ***publiccode.yml*** file is used to publish the project in the [reuse catalog](https://developers.italia.it/it/software/sns_pi-scuolanormalesuperiore-design-laboratori-wordpress-theme.html). To verify its correctness, you can use this [procedure](https://github.com/italia/publiccode-parser-go).
+The ***publiccode.yml*** file is used to publish the project in the [reuse catalog](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36). To verify its correctness, you can use this [procedure](https://github.com/italia/publiccode-parser-go).
 ```
 go install github.com/italia/publiccode-parser-go/v4/publiccode-parser@latest
 cd <plugin_folder_root>
@@ -151,3 +148,7 @@ publiccode-parser publiccode.yml
 ![configure](assets/screenshots/documentation.png)
 **Immagine 6:** FAQ.
 ![configure](assets/screenshots/faq.png)
+
+
+## Automatic checks
+![OpenSSF Scorecard](https://api.securityscorecards.dev/projects/github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/badge)
