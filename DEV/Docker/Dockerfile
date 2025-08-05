@@ -106,7 +106,8 @@ RUN curl -o /tmp/${WP_ARCHIVE} https://wordpress.org/${WP_ARCHIVE} && \
 	unzip /tmp/${PLG_CAPTCHA}  && \
 	cp -f /tmp/wp-config.php  /var/www/html/wp-config.php && \
 	cp /tmp/.htaccess /var/www/html/.htaccess && \
-	unzip /tmp/uploads.zip -d /var/www/html/wp-content/uploads/ && \
+	rm -rf /var/www/html/wp-content/uploads && \
+	unzip /tmp/uploads.zip -d /var/www/html/wp-content/ && \
 	wget ${ADMINER} -O /var/www/html/adminer.php && \
 	chown -R www-data:www-data /var/www/html/*
 
