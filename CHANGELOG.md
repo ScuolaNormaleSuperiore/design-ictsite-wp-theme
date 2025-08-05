@@ -13,6 +13,10 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Check wp_enqueue_scripts (how many time is called?).
 - Check font management.
 
+## [DEV-0.143] - 2025-08-08
+### Added
+### Fixed
+### Changed
 
 ## [DEV-0.1.3] - 2025-08-05
 ### Added
