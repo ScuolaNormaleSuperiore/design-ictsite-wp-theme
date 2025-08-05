@@ -18,7 +18,7 @@ $posts_per_page    =
 	isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ?
 	$_GET['posts_per_page'] :
 	DIS_ITEMS_PER_PAGE;
-$per_page_values   = DIS_ITEMS_PER_PAGE_VALUES;
+$per_page_values   = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
 
 // Set and format the filters for the query.
 if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {

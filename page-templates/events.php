@@ -8,11 +8,10 @@ global $post;
 get_header();
 
 // Check pagination parameters.
-$posts_per_page  = strval( DIS_ITEMS_PER_PAGE );
-$per_page_values = DIS_ITEMS_PER_PAGE_VALUES;
+$posts_per_page  = strval( DIS_ITEMS_PER_PAGE_EVEN );
+$per_page_values = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
 if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	$posts_per_page = sanitize_text_field( $_GET['posts_per_page'] );
-}
+	$posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );}
 $current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Parameters: get default values.
@@ -59,112 +58,113 @@ $num_results = $the_query->found_posts;
 			<?php
 			if ( $num_results ) {
 			?>
-				<!-- RESULT LIST  -->
-				<ul class="it-card-list row" aria-label="Lista delle news">
-					<?php
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						$image_data     = DIS_ContentsManager::get_image_metadata( $post, 'full' );
-						$short_desc     = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-						$categories     = get_the_category( $post->ID );
-						$start_date     = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
-						$end_date       = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
-						$start_date_lng = $start_date ? DIS_ContentsManager::format_long_date( $start_date, false ) : '';
-						$end_date_lng   = $end_date ? DIS_ContentsManager::format_long_date( $end_date, false ) : '';
-						$category       = null;
-						if ( $categories ) {
-							$category = ( count( $categories ) > 0 ) ? $categories[0] : $categories;
-						}
-					?>
-						<li class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
-							<article class="it-card it-card-image it-card-height-full rounded border shadow-sm mb-3">
-								<!-- Title -->
-								<h3 class="it-card-title ">
-									<a
-										href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"
-										title="<?php echo esc_attr( $post->post_title ); ?>"
-										alt="<?php echo esc_attr( $post->post_title ); ?>"
-									>
-										<?php echo esc_attr( $post->post_title ); ?>
-									</a>
-								</h3>
-								<!-- Image -->
-								<div class="it-card-image-wrapper">
-									<div class="ratio ratio-16x9">
-										<figure class="figure img-full">
-											<img
-													src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-													title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-													alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
-												>
-										</figure>
-									</div>
+			<!-- RESULT LIST  -->
+			<ul class="it-card-list row" aria-label="Lista delle news">
+				<?php
+				while ( $the_query->have_posts() ) {
+					$the_query->the_post();
+					$image_data     = DIS_ContentsManager::get_image_metadata( $post, 'full' );
+					$short_desc     = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+					$categories     = get_the_category( $post->ID );
+					$start_date     = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
+					$end_date       = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
+					$start_date_lng = $start_date ? DIS_ContentsManager::format_long_date( $start_date, false ) : '';
+					$end_date_lng   = $end_date ? DIS_ContentsManager::format_long_date( $end_date, false ) : '';
+					$category       = null;
+					if ( $categories ) {
+						$category = ( count( $categories ) > 0 ) ? $categories[0] : $categories;
+					}
+				?>
+					<li class="col-12 col-md-6 col-lg-6 mb-3 mb-md-4">
+						<article class="it-card it-card-image it-card-height-full rounded border shadow-sm mb-3">
+							<!-- Title -->
+							<h3 class="it-card-title ">
+								<a
+									href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"
+									title="<?php echo esc_attr( $post->post_title ); ?>"
+									alt="<?php echo esc_attr( $post->post_title ); ?>"
+								>
+									<?php echo esc_attr( $post->post_title ); ?>
+								</a>
+							</h3>
+							<!-- Image -->
+							<div class="it-card-image-wrapper">
+								<div class="ratio ratio-16x9">
+									<figure class="figure img-full">
+										<img
+												src="<?php echo esc_url( $image_data['image_url'] ); ?>"
+												title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
+												alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+											>
+									</figure>
 								</div>
-								<!-- Body -->
-								<div class="it-card-body">
-									<p class="it-card-subtitle">
+							</div>
+							<!-- Body -->
+							<div class="it-card-body">
+								<p class="it-card-subtitle">
+									<?php
+									if ( $start_date_lng && $end_date_lng ) {
+										$date_string = sprintf( __( 'From %s to %s', 'design_ict_site' ), $start_date_lng, $end_date_lng );
+										echo esc_attr( $date_string );
+									} else if ( $start_date_lng ) {
+										echo esc_attr( $start_date_lng );
+									}
+									?>
+								</p>
+								<p class="it-card-text">
+									<?php echo esc_attr( $short_desc ); ?>
+								</p>
+								<!-- Footer -->
+								<footer class="it-card-related">
+									<div class="it-card-taxonomy">
 										<?php
-										if ( $start_date_lng && $end_date_lng ) {
-											$date_string = sprintf( __( 'From %s to %s', 'design_ict_site' ), $start_date_lng, $end_date_lng );
-											echo esc_attr( $date_string );
-										} else if ( $start_date_lng ) {
-											echo esc_attr( $start_date_lng );
+										if ( $category ) {
+											$list_page = DIS_MultiLangManager::get_page_by_label( EVENTS_PAGE_SLUG );
+										?>
+										<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . esc_attr( $category->slug ); ?>"
+											class="it-card-category it-card-link link-secondary">
+											<span class="visually-hidden">
+												<?php echo __( 'Related category', 'design_ict_site' ); ?>:&nbsp;
+											</span>
+											<?php echo esc_attr( $category->name ); ?>
+										</a>
+										<?php
 										}
 										?>
-									</p>
-									<p class="it-card-text">
-										<?php echo esc_attr( $short_desc ); ?>
-									</p>
-									<!-- Footer -->
-									<footer class="it-card-related">
-										<div class="it-card-taxonomy">
-											<?php
-											if ( $category ) {
-												$list_page = DIS_MultiLangManager::get_page_by_label( EVENTS_PAGE_SLUG );
-											?>
-											<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . esc_attr( $category->slug ); ?>"
-												class="it-card-category it-card-link link-secondary">
-												<span class="visually-hidden">
-													<?php echo __( 'Related category', 'design_ict_site' ); ?>:&nbsp;
-												</span>
-												<?php echo esc_attr( $category->name ); ?>
-											</a>
-											<?php
-											}
-											?>
-										</div>
-										<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
-											<?php echo get_the_date( 'j/n/Y' ); ?>
-										</time>
-									</footer>
-								</div>
-								<!-- Subscribe the event -->
-							</article>
-						</li>
-					<?php
-					}
-					wp_reset_postdata();
-					?>
+									</div>
+									<time class="it-card-date" datetime="<?php echo get_the_date( 'j/n/Y' ); ?>">
+										<?php echo get_the_date( 'j/n/Y' ); ?>
+									</time>
+								</footer>
+							</div>
+							<!-- Subscribe the event -->
+						</article>
+					</li>
+				<?php
+				}
+				wp_reset_postdata();
+				?>
 
-				</ul>
+			</ul>
 			<?php
 			}
 			?>
 
-			<!-- @TODO: Results pagination-->
+			<!-- Results pagination-->
 			<?php
-				get_template_part(
-					'template-parts/common/pagination',
-					null,
-					array(
-						'query'           => $the_query,
-						'posts_per_page'  => $posts_per_page,
-						'per_page_values' => $per_page_values,
-						'num_results'     => $num_results,
-						'current_page'    => $current_page,
-					)
-				);
+			get_template_part(
+				'template-parts/common/pagination',
+				null,
+				array(
+					'query'           => $the_query,
+					'posts_per_page'  => $posts_per_page,
+					'per_page_values' => $per_page_values,
+					'num_results'     => $num_results,
+					'current_page'    => $current_page,
+				)
+			);
 			?>
+
 		</div>
 
 		<!-- SIDEBAR FILTERS -->

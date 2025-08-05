@@ -273,11 +273,10 @@ define( 'DIS_ACF_SHORT_DESC_LENGTH', 30 );
 define( 'DIS_ACF_SHORT_TEXT_LENGTH', 256 );
 
 // PAGINATION constants.
-define( 'DIS_ITEMS_PER_PAGE', 10 );
-define(
-	'DIS_ITEMS_PER_PAGE_VALUES',
-	array( '4', '10', '20', '30', '40', '50' )
-);
+define( 'DIS_ITEMS_PER_PAGE_EVEN', 10 );
+define( 'DIS_ITEMS_PER_PAGE_VALUES_EVEN', array( '4', '10', '20', '30', '40', '50' ) );
+define( 'DIS_ITEMS_PER_PAGE_ODD', 3 );
+define( 'DIS_ITEMS_PER_PAGE_VALUES_ODD', array( '3', '9', '12', '24', '48' ) );
 
 // Bot definitions.
 define(

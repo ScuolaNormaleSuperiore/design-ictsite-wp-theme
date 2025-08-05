@@ -7,6 +7,15 @@
 global $post;
 get_header();
 
+// Check pagination parameters.
+$posts_per_page  = strval( DIS_ITEMS_PER_PAGE_ODD );
+$per_page_values = DIS_ITEMS_PER_PAGE_VALUES_ODD;
+if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
+	$posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
+}
+$current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
+
+
 // Get default values.
 $all_types   = get_terms(
 	array(
@@ -28,7 +37,7 @@ $params = array(
 	'post_type'      => DIS_PLACE_POST_TYPE,
 	'search_string'  => '',
 	'posts_per_page' => $posts_per_page,
-	'paged'          => $paged,
+	'current_page'   => $current_page,
 	'orderby'        => 'post_date',
 	'order'          => 'DESC',
 );
@@ -111,7 +120,20 @@ $num_results = $the_query->found_posts;
 			<?php endif ?>
 
 
-			<!-- @TODO: Results pagination-->
+			<!-- Pagination results-->
+			<?php
+			get_template_part(
+				'template-parts/common/pagination',
+				null,
+				array(
+					'query'           => $the_query,
+					'posts_per_page'  => $posts_per_page,
+					'per_page_values' => $per_page_values,
+					'num_results'     => $num_results,
+					'current_page'    => $current_page,
+				)
+			);
+			?>
 		</div> <!-- col -->
 
 		<!-- SIDEBAR FILTERS -->
