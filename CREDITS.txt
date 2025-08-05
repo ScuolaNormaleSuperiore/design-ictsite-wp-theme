@@ -1,0 +1,22 @@
+
+*** Libraries used in the theme ***
+
+- [Bootstrap Italia](https://italia.github.io/bootstrap-italia/)
+- [CMB2](https://github.com/CMB2/CMB2)
+- [TGM-Plugin-Activation](http://tgmpluginactivation.com/)
+
+
+** Plugins used by the theme ***
+
+- [Polylang](https://it.wordpress.org/plugins/polylang/)
+- [Advanced Custom Fields](https://wordpress.org/plugins/advanced-custom-fields/)
+- [ACF OpenStreetMap Field](https://wordpress.org/plugins/acf-openstreetmap-field/)
+- [WP Mail SMTP](https://it.wordpress.org/plugins/wp-mail-smtp/)
+- [Really Simple CAPTCHA](https://it.wordpress.org/plugins/really-simple-captcha/)
+
+
+*** Useful plugins for development ***
+
+- [Manual Image Crop](https://wordpress.org/plugins/manual-image-crop/)
+- [Regenerate Thumbnails](https://it.wordpress.org/plugins/regenerate-thumbnails/)
+- [Loco Translate](https://it.wordpress.org/plugins/loco-translate/)
