@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-08-05 10:45+0000\n"
+"POT-Creation-Date: 2025-08-05 10:56+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -240,36 +240,6 @@ msgstr ""
 
 #: page-templates/faq.php:165 page-templates/search.php:174
 msgid "Digit the text to search"
-msgstr ""
-
-#. Name of the template
-#: page-templates/events.php:2
-msgid "dis-event"
-msgstr ""
-
-#. Name of the template
-#: page-templates/news.php:2
-msgid "dis-news"
-msgstr ""
-
-#. Name of the template
-#: page-templates/offices.php:2
-msgid "dis-office"
-msgstr ""
-
-#. Name of the template
-#: page-templates/people.php:2
-msgid "dis-person"
-msgstr ""
-
-#. Name of the template
-#: page-templates/places.php:2
-msgid "dis-place"
-msgstr ""
-
-#. Name of the template
-#: page-templates/projects.php:2
-msgid "dis-project"
 msgstr ""
 
 #: config-pages.php:400
@@ -859,6 +829,11 @@ msgstr ""
 msgid "Enter your email address to receive updates"
 msgstr ""
 
+#. Name of the template
+#: page-templates/events.php:2
+msgid "Events"
+msgstr ""
+
 #: classes/export-manager.php:44 classes/export-manager.php:45
 msgid "Export data"
 msgstr ""
@@ -1012,6 +987,11 @@ msgstr ""
 
 #: single-dis-place.php:83
 msgid "Hours"
+msgstr ""
+
+#. Name of the template
+#: page-templates/how-to.php:2
+msgid "How to"
 msgstr ""
 
 #: single-dis-place.php:49
@@ -1194,6 +1174,11 @@ msgid "NEW menu '%s' created."
 msgstr ""
 
 #. Name of the template
+#: page-templates/news.php:2
+msgid "News"
+msgstr ""
+
+#. Name of the template
 #: classes/options-manager.php:719 page-templates/newsletter.php:2
 #: template-parts/common/newsletter.php:12
 msgid "Newsletter"
@@ -1226,6 +1211,11 @@ msgstr ""
 msgid "Office"
 msgstr ""
 
+#. Name of the template
+#: page-templates/offices.php:2
+msgid "Offices"
+msgstr ""
+
 #: single-dis-service-cluster.php:68 page-templates/service-clusters.php:18
 #: template-parts/home/hp-clusters-section.php:22
 msgid "Our services"
@@ -1240,7 +1230,8 @@ msgstr ""
 msgid "Page counters"
 msgstr ""
 
-#: single-dis-office.php:42
+#. Name of the template
+#: single-dis-office.php:42 page-templates/people.php:2
 msgid "People"
 msgstr ""
 
@@ -1260,13 +1251,18 @@ msgstr ""
 msgid "Place Type"
 msgstr ""
 
+#. Name of the template
+#: page-templates/places.php:2
+msgid "Places"
+msgstr ""
+
 #: single-dis-event.php:113 single-dis-place.php:115
 msgid "Position"
 msgstr ""
 
 #. Name of the template
 #: page-templates/articles.php:2
-msgid "post"
+msgid "Post"
 msgstr ""
 
 #: classes/options-manager.php:909
@@ -1282,7 +1278,9 @@ msgstr ""
 msgid "Privacy Policy"
 msgstr ""
 
-#: single-dis-office.php:63 template-parts/home/hp-projects-section.php:27
+#. Name of the template
+#: single-dis-office.php:63 page-templates/projects.php:2
+#: template-parts/home/hp-projects-section.php:27
 msgid "Projects"
 msgstr ""
 
@@ -1347,9 +1345,10 @@ msgstr ""
 msgid "Right button label"
 msgstr ""
 
+#. Name of the template
 #: page-templates/documentation.php:141 page-templates/faq.php:169
-#: page-templates/search.php:178 page-templates/search.php:249
-#: template-parts/header/site_search.php:18
+#: page-templates/search.php:2 page-templates/search.php:178
+#: page-templates/search.php:249 template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
 
@@ -1361,11 +1360,6 @@ msgstr ""
 #: template-parts/header/site_search.php:23
 #: template-parts/header/site_search.php:24
 msgid "Search in the site"
-msgstr ""
-
-#. Name of the template
-#: page-templates/search.php:2
-msgid "Search in the site."
 msgstr ""
 
 #: page-templates/search.php:74 page-templates/search.php:87
@@ -1422,8 +1416,13 @@ msgid "ServiceClusters"
 msgstr ""
 
 #. Name of the template
-#: page-templates/service-items.php:2 page-templates/service-profile.php:2
+#: page-templates/service-items.php:2
 msgid "ServiceItems"
+msgstr ""
+
+#. Name of the template
+#: page-templates/service-profile.php:2
+msgid "ServiceProfile"
 msgstr ""
 
 #: page-templates/service-profile.php:28

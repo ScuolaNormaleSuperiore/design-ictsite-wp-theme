@@ -1,5 +1,5 @@
 <?php
-/* Template Name: post
+/* Template Name: Post
 *
 * @package Design_ICT_Site
 */

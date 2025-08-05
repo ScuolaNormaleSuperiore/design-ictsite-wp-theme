@@ -1,5 +1,5 @@
 <?php
-/* Template Name: Search in the site.
+/* Template Name: Search
 *
 * @package Design_ICT_Site
 */

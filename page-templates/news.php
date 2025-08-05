@@ -1,5 +1,5 @@
 <?php
-/* Template Name: dis-news
+/* Template Name: News
 *
 * @package Design_ICT_Site
 */

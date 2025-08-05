@@ -1,5 +1,5 @@
 <?php
-/** Template Name: dis-event
+/** Template Name: Events
  *
  * @package Design_ICT_Site
  */

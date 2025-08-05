@@ -1,5 +1,5 @@
 <?php
-/* Template Name: dis-office
+/* Template Name: Offices
 *
 * @package Design_ICT_Site
 */

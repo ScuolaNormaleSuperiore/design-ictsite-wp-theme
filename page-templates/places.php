@@ -1,5 +1,5 @@
 <?php
-/* Template Name: dis-place
+/* Template Name: Places
 *
 * @package Design_ICT_Site
 */

@@ -1,5 +1,5 @@
 <?php
-/* Template Name: ServiceItems
+/* Template Name: ServiceProfile
 *
 * @package Design_ICT_Site
 */
