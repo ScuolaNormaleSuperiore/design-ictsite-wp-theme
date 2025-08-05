@@ -4,7 +4,7 @@
 
 publiccodeYmlVersion: '0.4.0'
 applicationSuite: WordPress
-softwareVersion: DEV-0.1.1
+softwareVersion: DEV-0.1.2
 categories:
   - website-builder
 description:
@@ -13,15 +13,37 @@ description:
       https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/README.md
     features:
       - Popolamento automatico del sito (pagine e menu).
+      - Sezione per la configurazione di temi e contenuti.
+      - Personalizzazione del layout della home page.
+      - Gestione del personale ICT.
+      - Gestione dei progetti ICT.
+      - Gestione di news ed eventi.
+      - Gestione delle sedi del sito.
+      - Gestione delle FAQ e dei documenti ICT.
+      - Gestione degli articoli del blog.
+      - Pagine di archivio con impaginazione.
+      - Ricerca in tutti i contenuti del sito.
+      - Gestione degli avvisi del sito.
+      - Gestione dei cookie.
+      - Mappa del sito.
+      - Gestione della sezione Hero in home page.
+      - Gestione di eventi, news e sezioni articoli in home page.
+      - Gestione dei banner in home page.
+      - Supporto multilingua.
     localisedName: Design ICT Site
     longDescription: >
-      WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
-      WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
-      WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
+      Tema WordPress per la creazione di siti web che presentano e facilitano l'utilizzo dei servizi ICT di un'organizzazione.
+      Il sito offre una serie di tipi di contenuto personalizzati per pubblicare servizi, faq, documentazione ecc.
     screenshots:
       - assets/screenshots/homepage.png
+      - assets/screenshots/hp-service-cluster.png
+      - assets/screenshots/service-cluster.png
+      - assets/screenshots/service-item.png
+      - assets/screenshots/faq.png
+      - assets/screenshots/documentation.png
+      - assets/screenshots/backoffice.png
     shortDescription: >-
-        WordPress theme for building websites that showcase and facilitate the use of an organization's ICT services.
+        Tema WordPress per la creazione di siti web che presentano e facilitano l'utilizzo dei servizi ICT di un'organizzazione.
 developmentStatus: development 
 intendedAudience:
   countries:

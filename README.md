@@ -26,7 +26,7 @@ This project uses the library [***Bootstrap Italia 2.16.0***](https://italia.git
 	- Hero section management on the home page.
 	- Management of events, news, and article sections on the home page.
 	- Banner management on the home page.
-	- Multilanguage support.
+	- Multi-language support.
 
 ## Requirements
 1. WordPress (version >= 6.1.1).
