@@ -70,11 +70,20 @@ $locations = get_nav_menu_locations();
 <header class="it-header-wrapper" >
 	<!-- TOP BAR -->
 	<div class="skiplinks">
-		<a class="visually-hidden-focusable" href="#it-hero-wrapper">
-			<?php echo __( 'Go to the main content', 'design_ict_site' ); ?>
+		<a class="visually-hidden-focusable" href="#main-menu">
+			<?php echo __( 'Go to the menu', 'design_ict_site' ); ?>
+		</a>
+		<a class="visually-hidden-focusable" href="#main-content">
+			<?php echo __( 'Go to the content', 'design_ict_site' ); ?>
 		</a>
 		<a class="visually-hidden-focusable" href="#it-footer">
 			<?php echo __( 'Go to the footer', 'design_ict_site' ); ?>
+		</a>
+		<?php
+		$accessibility_page = DIS_MultiLangManager::get_page_link( ACCESSIBILITY_PAGE_SLUG );
+		?>
+		<a class="visually-hidden-focusable" href="<?php echo esc_url( $accessibility_page ); ?>">
+			<?php echo __( 'Go to the accessibility statement', 'design_ict_site' ); ?>
 		</a>
 	</div>
 	<div class="it-header-slim-wrapper">
@@ -171,7 +180,7 @@ $locations = get_nav_menu_locations();
 										</svg>
 									</button>
 								</div>
-								<div class="menu-wrapper">
+								<div class="menu-wrapper" id="main-menu">
 									<!-- PRIMARY MENU -->
 									<?php
 									echo get_template_part( 'template-parts/menu/primary-menu', false, array( 'locations' => $locations ) );

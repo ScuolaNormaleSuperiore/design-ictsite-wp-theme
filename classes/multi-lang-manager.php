@@ -229,12 +229,12 @@ class DIS_MultiLangManager {
 	 * Get the link of a standard page given the slug.
 	 *
 	 * @param string $page_slug
-	 * @return void
+	 * @return string
 	 */
 	public static function get_page_link( $page_slug ) {
 		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
 		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
-		if ( ! $post ) return null;
+		if ( ! $post ) return '';
 		return get_permalink( $post );
 	}
 

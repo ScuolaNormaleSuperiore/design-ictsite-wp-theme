@@ -16,30 +16,30 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 
 	<!-- CONTENT HERO -->
 	<div class="container">
-		<section class="it-hero-wrapper it-dark it-overlay it-text-centered">
-		<div class="img-responsive-wrapper">
-			<div class="img-responsive">
-				<div class="img-wrapper">
-					<img
-						src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-						title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-						alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
-					>
-				</div>
-			</div>
-		</div>
-		<div class="container">
-			<div class="row">
-				<div class="col-12">
-					<div class="it-hero-text-wrapper bg-dark it-text-centered">
-						<h2><?php echo esc_html( $post->post_title ); ?></h2>
-						<p class="d-none d-lg-block">
-							<?php echo esc_html( $short_description ); ?>
-						</p>
+		<section class="it-hero-wrapper it-dark it-overlay it-text-centered" id="it-hero-wrapper">
+			<div class="img-responsive-wrapper">
+				<div class="img-responsive">
+					<div class="img-wrapper">
+						<img
+							src="<?php echo esc_url( $image_data['image_url'] ); ?>"
+							title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
+							alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+						>
 					</div>
 				</div>
 			</div>
-		</div>
+			<div class="container">
+				<div class="row">
+					<div class="col-12">
+						<div class="it-hero-text-wrapper bg-dark it-text-centered">
+							<h2><?php echo esc_html( $post->post_title ); ?></h2>
+							<p class="d-none d-lg-block">
+								<?php echo esc_html( $short_description ); ?>
+							</p>
+						</div>
+					</div>
+				</div>
+			</div>
 		</section>
 	</div>
 

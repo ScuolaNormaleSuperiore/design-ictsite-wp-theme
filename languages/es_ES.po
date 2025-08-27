@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2025-08-05 10:57+0000\n"
+"PO-Revision-Date: 2025-08-27 10:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -36,7 +36,7 @@ msgstr ""
 msgid "Access the service"
 msgstr ""
 
-#: header.php:91
+#: header.php:100
 msgid "Accessory navigation"
 msgstr "Área de Proyectos y Servicios TIC"
 
@@ -940,12 +940,20 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
+#: header.php:86
+msgid "Go to the accessibility statement"
+msgstr ""
+
 #: header.php:77
+msgid "Go to the content"
+msgstr ""
+
+#: header.php:80
 msgid "Go to the footer"
 msgstr ""
 
 #: header.php:74
-msgid "Go to the main content"
+msgid "Go to the menu"
 msgstr ""
 
 #: template-parts/footer/offices-section.php:21
@@ -966,7 +974,7 @@ msgstr ""
 msgid "Hero image"
 msgstr ""
 
-#: header.php:168
+#: header.php:177
 msgid "Hide navigation"
 msgstr ""
 
@@ -1141,7 +1149,7 @@ msgstr ""
 msgid "Main hero"
 msgstr ""
 
-#: header.php:157
+#: header.php:166
 msgid "Main navigation"
 msgstr ""
 
@@ -1438,7 +1446,7 @@ msgstr ""
 msgid "Show the section title"
 msgstr ""
 
-#: header.php:159
+#: header.php:168
 msgid "Show/Hide navigation"
 msgstr ""
 

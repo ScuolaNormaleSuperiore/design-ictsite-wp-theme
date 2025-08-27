@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-08-05 10:57+0000\n"
+"PO-Revision-Date: 2025-08-27 10:54+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -38,7 +38,7 @@ msgstr ""
 msgid "Access the service"
 msgstr "Accedi al servizio"
 
-#: header.php:91
+#: header.php:100
 msgid "Accessory navigation"
 msgstr "Navigazione accessoria"
 
@@ -975,13 +975,22 @@ msgstr "Per iniziare"
 msgid "Go back"
 msgstr "Torna indietro"
 
+#: header.php:86
+msgid "Go to the accessibility statement"
+msgstr "Vai alla dichiarazione di accessibilità"
+
 #: header.php:77
+#| msgid "Go to the main content"
+msgid "Go to the content"
+msgstr "Vai al contenuto"
+
+#: header.php:80
 msgid "Go to the footer"
 msgstr "Vai al piè pagina"
 
 #: header.php:74
-msgid "Go to the main content"
-msgstr "Vai al contenuto principale"
+msgid "Go to the menu"
+msgstr "Val al menu"
 
 #: template-parts/footer/offices-section.php:21
 msgid "Go to the page"
@@ -1003,7 +1012,7 @@ msgstr "Help-desk"
 msgid "Hero image"
 msgstr "Immagine dell'hero"
 
-#: header.php:168
+#: header.php:177
 msgid "Hide navigation"
 msgstr "Nascondi la navigazione"
 
@@ -1178,7 +1187,7 @@ msgstr "Logo del sito"
 msgid "Main hero"
 msgstr "Hero principale"
 
-#: header.php:157
+#: header.php:166
 msgid "Main navigation"
 msgstr "Navigazione principale"
 
@@ -1479,7 +1488,7 @@ msgstr "Mostra le icone dei social media"
 msgid "Show the section title"
 msgstr "Mostra il titolo della sezione"
 
-#: header.php:159
+#: header.php:168
 msgid "Show/Hide navigation"
 msgstr "Mostra/Nascondi navigazione"
 
