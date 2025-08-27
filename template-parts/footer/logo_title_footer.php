@@ -11,6 +11,7 @@ if ( $logo_visible === 'true' ) {
 	$site_title   = $args['site_title'] ?? '';
 	$tagline      = $args['site_tagline'] ?? '';
 	$logo_url     = DIS_OptionsManager::dis_get_option( 'footer_logo', 'dis_opt_options' );
+	$site_url     = DIS_MultiLangManager::get_home_url();
 ?>
 
 	<!-- The logo is visible -->
@@ -21,7 +22,7 @@ if ( $logo_visible === 'true' ) {
 			if( pathinfo( $logo_url, PATHINFO_EXTENSION ) !== 'svg' ) {
 		?>
 			<!-- Logo non SVG -->
-			<a href="<?php echo esc_url( site_url() ); ?>">
+			<a href="<?php echo esc_url( $site_url ); ?>">
 				<img src="<?php echo esc_url( $logo_url ); ?>"
 					height="80" class="color-invert"
 					alt="<?php echo __( 'Logo of the site', 'design_ict_site' ); ?>" />
