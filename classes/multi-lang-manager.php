@@ -27,7 +27,7 @@ class DIS_MultiLangManager {
 	/**
 	 * All the post types that must be managed by Polylang.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function add_cpt_to_pll() {
 		return MULTILANG_POST_TYPES;
@@ -36,7 +36,7 @@ class DIS_MultiLangManager {
 	/**
 	 * All the taxonomies that must be managed by Polylang.
 	 *
-	 * @return void
+	 * @return array
 	 */
 	public function add_tax_to_pll() {
 		return MULTILANG_TAXONOMIES;

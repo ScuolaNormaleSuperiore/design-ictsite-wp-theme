@@ -57,23 +57,25 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 			<?php endif ?>
 
 			<!-- Projects -->
-			<div class="row">
-				<h3 class="h4 service-paragraph mt-3">
-					<i class="bi bi-clipboard-data" style="font-size: 1.75rem;"></i>&nbsp;
-					<?php echo esc_attr( __( 'Projects', 'design_ict_site' ) ); ?>
-				</h3>
-				<!-- Projects section -->
-				<?php
-					get_template_part(
-						'template-parts/common/projects-section',
-						false,
-						array(
-							'projects' => $projects,
-							'format'   => 'small',
-						)
-					);
-					?>
-			</div>
+			<?php if ( $projects ) : ?>
+				<div class="row">
+					<h3 class="h4 service-paragraph mt-3">
+						<i class="bi bi-clipboard-data" style="font-size: 1.75rem;"></i>&nbsp;
+						<?php echo esc_attr( __( 'Projects', 'design_ict_site' ) ); ?>
+					</h3>
+					<!-- Projects section -->
+					<?php
+						get_template_part(
+							'template-parts/common/projects-section',
+							false,
+							array(
+								'projects' => $projects,
+								'format'   => 'small',
+							)
+						);
+						?>
+				</div> <!-- row -->
+			<?php endif ?>
 
 		</div>
 
@@ -82,31 +84,43 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 			<div class="sidebar-wrapper it-line-left-side ps-4">
 				<div class="it-list-wrapper">
 					<ul class="it-list">
-						<!-- Place -->
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text">
-									<a href="scheda-luogo.html">
-										<?php echo wp_kses_post( $full_places ); ?>
-									</a>
-								</span>
-								<svg class="icon">
-									<title><?php echo esc_attr( __( 'Address', 'design_ict_site' ) ); ?></title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker'; ?>"></use>
-								</svg>
-							</div>
-						<!-- Telephone -->
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text">
-									<?php echo esc_attr( $telephone ); ?>
-								</span>
-								<svg class="icon">
-									<title><?php echo esc_attr( __( 'Telephone', 'design_ict_site' ) ); ?></title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
-								</svg>
-							</div>
-						</li>
+						<?php
+						if ( $full_places ) {
+						?>
+							<!-- Place -->
+							<li class="list-item">
+								<div class="it-right-zone">
+									<span class="text">
+										<a href="scheda-luogo.html">
+											<?php echo wp_kses_post( $full_places ); ?>
+										</a>
+									</span>
+									<svg class="icon">
+										<title><?php echo esc_attr( __( 'Address', 'design_ict_site' ) ); ?></title>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker'; ?>"></use>
+									</svg>
+								</div>
+							</li>
+						<?
+						}
+						if ( $telephone ) {
+						?>
+							<!-- Telephone -->
+							<li class="list-item">
+								<div class="it-right-zone">
+									<span class="text">
+										<?php echo esc_attr( $telephone ); ?>
+									</span>
+									<svg class="icon">
+										<title><?php echo esc_attr( __( 'Telephone', 'design_ict_site' ) ); ?></title>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
+									</svg>
+								</div>
+							</li>
+						<?
+							}
+							if ( $email ) {
+						?>
 						<!-- E-mail -->
 						<li class="list-item">
 							<div class="it-right-zone">
@@ -119,6 +133,7 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 								</svg>
 							</div>
 						</li>
+						<? } ?>
 					</ul>
 				</div>
 			</div>
