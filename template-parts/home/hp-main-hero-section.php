@@ -38,7 +38,7 @@ if ( $section_enabled ) {
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
-				<div class="it-hero-text-wrapper ">
+				<div class="it-hero-text-wrapper">
 					<h2>
 						<?php
 						if ( $show_title ) {
@@ -48,7 +48,7 @@ if ( $section_enabled ) {
 					</h2>
 
 					<!-- HERO SEARCH FORM -->
-					<div class="form-group">
+					<div class="form-group mb-0">
 						<FORM id="hero_search_form" action="<?php echo esc_url( $help_link ); ?>" METHOD="GET">
 							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 							<div class="input-group">

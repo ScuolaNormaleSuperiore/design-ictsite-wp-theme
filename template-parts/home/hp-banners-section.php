@@ -48,7 +48,7 @@ if ( $section_enabled ) {
 			<div class="container">
 				<div class="row">
 					<div class="col-12">
-						<div class="it-hero-text-wrapper ">
+						<div class="it-hero-text-wrapper">
 							<span class="it-Categoria"><?php echo esc_attr( $section); ?></span>
 							<h2><?php echo esc_attr( $item->post_title ); ?></h2>
 							<p class="d-none d-lg-block">
