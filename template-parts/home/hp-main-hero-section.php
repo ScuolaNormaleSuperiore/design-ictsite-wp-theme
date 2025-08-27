@@ -19,7 +19,7 @@ if ( $section_enabled ) {
 	$search_label = _x( 'MainHeroSearchButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$left_button  = _x( 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$right_button = _x( 'MainHeroRightButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );
-	// $search_link  = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+	$search_link  = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 	$help_link    = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 	$cluster_link = DIS_MultiLangManager::get_archive_link( DIS_SERVICE_CLUSTER_POST_TYPE );
 ?>
@@ -38,6 +38,7 @@ if ( $section_enabled ) {
 	<div class="container">
 		<div class="row">
 			<div class="col-12">
+
 				<div class="it-hero-text-wrapper">
 					<h2>
 						<?php
@@ -49,19 +50,17 @@ if ( $section_enabled ) {
 
 					<!-- HERO SEARCH FORM -->
 					<div class="form-group mb-0">
-						<FORM id="hero_search_form" action="<?php echo esc_url( $help_link ); ?>" METHOD="GET">
+						<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
 							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
-							<div class="input-group">
-								<label class="visually-hidden" for="search_string">
-									<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
-								</label>
-								<input type="text" class="form-control" id="search_string" name="search_string">
-								<div class="input-group-append">
-									<button class="btn btn-primary btn-lg" type="submit" id="hero_search_submit_button">
-											<?php echo esc_attr( $search_label ); ?>
-									</button>
-								</div>
-							</div>
+							<label class="visually-hidden" for="search_string">
+								<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
+							</label>
+							<input type="text" class="form-control" id="search_string" name="search_string">
+							<span class="autocomplete-icon" aria-hidden="true">
+								<svg class="icon icon-sm">
+									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
+								</svg>
+							</span>
 						</FORM>
 					</div>
 
@@ -71,22 +70,25 @@ if ( $section_enabled ) {
 					</p>
 
 					<!-- HERO BUTTONS -->
-					<button type="button" class="btn btn-secondary btn-lg btn-me">
-						<a href="<?php echo esc_url( $cluster_link ); ?>"
-							style="color:white">
+					<div class="it-btn-container  bg-transparent">
+						<a class="btn btn-sm btn-secondary" href="<?php echo esc_url( $cluster_link ); ?>">
 							<?php echo esc_attr( $left_button ); ?>
+							<svg class="icon icon-white ms-2">
+								<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
+							</svg>
 						</a>
-					</button>
-					<button type="button" class="btn btn-primary btn-lg">
-						<a href="<?php echo esc_url( $help_link ); ?>"
-							style="color:white">
+						<a class="btn btn-sm btn-primary ms-3" href="<?php echo esc_url( $help_link ); ?>">
 							<?php echo esc_attr( $right_button ); ?>
+							<svg class="icon icon-white ms-2">
+								<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
+							</svg>
 						</a>
-					</button>
+					</div>
 
 				</div>
-			</div>
-		</div>
+
+			</div> <!-- col -->
+		</div> <!-- row -->
 	</div>
 </section>
 <?php
