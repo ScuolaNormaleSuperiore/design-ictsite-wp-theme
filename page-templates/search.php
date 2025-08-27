@@ -11,17 +11,14 @@ $search_string     = '';
 $all_content_types = DIS_ContentsManager::get_content_types_with_results();
 $default_ct_list   = array_column( $all_content_types, 'slug' );
 $all_clusters      = DIS_ContentsManager::get_cluster_list();
-$default_cl_list   = array_map( function( $cluster ) { return $cluster->post_name; }, $all_clusters ); 
+$default_cl_list   = array_map( function( $cluster ) { return $cluster->post_name; }, $all_clusters );
 $num_results       = 0;
 $the_query         = null;
-$posts_per_page    =
-	isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ?
-	$_GET['posts_per_page'] :
-	DIS_ITEMS_PER_PAGE;
+$posts_per_page    = isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ? sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) ) : DIS_ITEMS_PER_PAGE_EVEN;
 $per_page_values   = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
 
 // Set and format the filters for the query.
-if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( $_GET['isreset'] ) === 'yes' ) ) {
+if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( wp_unslash( $_GET['isreset'] ) ) === 'yes' ) ) {
 	$selected_contents = $default_ct_list;
 	$selected_clusters = $default_cl_list;
 	$search_string     = '';
