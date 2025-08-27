@@ -11,7 +11,8 @@ get_header();
 $posts_per_page  = strval( DIS_ITEMS_PER_PAGE_ODD );
 $per_page_values = DIS_ITEMS_PER_PAGE_VALUES_ODD;
 if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	$posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );}
+	$posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
+}
 $current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Prepare the query.

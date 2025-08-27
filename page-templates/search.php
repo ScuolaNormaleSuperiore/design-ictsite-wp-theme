@@ -14,8 +14,14 @@ $all_clusters      = DIS_ContentsManager::get_cluster_list();
 $default_cl_list   = array_map( function( $cluster ) { return $cluster->post_name; }, $all_clusters );
 $num_results       = 0;
 $the_query         = null;
-$posts_per_page    = isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ? sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) ) : DIS_ITEMS_PER_PAGE_EVEN;
-$per_page_values   = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
+
+// Check pagination parameters.
+$posts_per_page  = strval( DIS_ITEMS_PER_PAGE_EVEN );
+$per_page_values = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
+if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
+	$posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
+}
+$current_page      = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Set and format the filters for the query.
 if ( isset( $_GET['isreset'] ) && ( sanitize_text_field( wp_unslash( $_GET['isreset'] ) ) === 'yes' ) ) {
@@ -136,9 +142,10 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 					null,
 					array(
 						'query'           => $the_query,
-						'posts_per_page'        => $posts_per_page,
+						'posts_per_page'  => $posts_per_page,
 						'per_page_values' => $per_page_values,
 						'num_results'     => $num_results,
+						'current_page'    => $current_page,
 					)
 				);
 			?>
@@ -251,7 +258,7 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 			</div>
 		</div>
 		<!-- END SEARCH SIDEBAR -->
-		
+
 	</div>
 </div>
 
