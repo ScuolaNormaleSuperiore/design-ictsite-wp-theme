@@ -13,10 +13,14 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Check wp_enqueue_scripts (how many time is called?).
 - Check font management.
 
-## [DEV-0.143] - 2025-08-08
+
+## [DEV-0.1.4] - 2025-08-28
 ### Added
+ - Added Video section in Home Page.
+ - Adde visits counter in FAQ post type.
 ### Fixed
-### Changed
+ - Many bug fixes in contents views and archives.
+
 
 ## [DEV-0.1.3] - 2025-08-05
 ### Added
