@@ -495,7 +495,7 @@ class DIS_ContentsManager {
 		return array();
 	}
 
-	public static function get_image_metadata( $item, $image_size = 'full', $default_img_url = '/assets/img/default-image.png' ) {
+	public static function get_image_metadata( $item, $image_size = 'full', $default_img_url = '/assets/img/default-image.png' ): array|null {
 		$result = array(
 			'image_url'     => '',
 			'image_alt'     => '',
@@ -512,11 +512,13 @@ class DIS_ContentsManager {
 			$result['image_alt']     = $image_alt ? $image_alt : $post_title;
 			$image_caption           = wp_get_attachment_caption( $image_id );
 			$result['image_caption'] = $image_caption ? $image_caption :  $post_title;
-		} else {
+		} else if ( $default_img_url ) {
 			$result['image_url']     = DIS_THEME_URL . $default_img_url;
 			$result['image_title']   = $post_title;
 			$result['image_alt']     = $post_title;
 			$result['image_caption'] = $post_title;
+		} else {
+			$result = null;
 		}
 		return $result;
 	}

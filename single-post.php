@@ -11,13 +11,15 @@ global $post;
 get_header();
 
 $short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 ?>
 
 	<!-- CONTENT HERO -->
 	<div class="container">
 		<section class="it-hero-wrapper it-dark it-overlay it-text-centered" id="it-hero-wrapper">
-			<div class="img-responsive-wrapper">
+			
+			<?php if ( $image_data ): ?>
+			<div class="img-responsive-wrapper" aria-label="<?php echo __( 'In evidence', 'design_ict_site' ) ?>">
 				<div class="img-responsive">
 					<div class="img-wrapper">
 						<img
@@ -28,6 +30,8 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 					</div>
 				</div>
 			</div>
+			<?php endif ?>
+
 			<div class="container">
 				<div class="row">
 					<div class="col-12">

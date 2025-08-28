@@ -10,7 +10,7 @@ global $post;
 get_header();
 
 $short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 ?>
 
 <!-- NEWS DETAIL -->
@@ -32,7 +32,8 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 			</p>
 
 			<!-- Featured Image -->
-			<section class="it-hero-wrapper it-hero-small-size"  aria-label="In evidenza">
+			<?php if ( $image_data ): ?>
+			<section class="it-hero-wrapper it-hero-small-size" aria-label="<?php echo __( 'In evidence', 'design_ict_site' ) ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
@@ -45,6 +46,7 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 					</div>
 				</div>
 			</section>
+			<?php endif ?>
 
 			<!-- Body -->
 			<div class="p-5">

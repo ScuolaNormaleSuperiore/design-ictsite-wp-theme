@@ -11,7 +11,7 @@ global $post;
 get_header();
 
 $short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 $start_date        = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
 $end_date          = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
 $start_date_lng    = $start_date ? DIS_ContentsManager::format_long_date( $start_date, false ) : '';
@@ -62,19 +62,21 @@ $full_offices      = DIS_ContentsManager::get_string_list_from_posts( $offices, 
 			</div>
 
 			<!-- Featured Image -->
-			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="In evidenza">
+			<?php if ( $image_data ): ?>
+			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo __( 'In evidence', 'design_ict_site' ) ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
 							<img
-									src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-									title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-									alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
-								>
+								src="<?php echo esc_url( $image_data['image_url'] ); ?>"
+								title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
+								alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+							>
 						</div>
 					</div>
 				</div>
 			</section>
+			<?php endif ?>
 
 
 			<!-- Body -->
