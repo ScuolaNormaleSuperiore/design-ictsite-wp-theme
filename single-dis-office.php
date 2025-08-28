@@ -101,7 +101,7 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 									</svg>
 								</div>
 							</li>
-						<?
+						<?php
 						}
 						if ( $telephone ) {
 						?>
@@ -117,7 +117,7 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 									</svg>
 								</div>
 							</li>
-						<?
+						<?php
 							}
 							if ( $email ) {
 						?>
@@ -133,7 +133,9 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 								</svg>
 							</div>
 						</li>
-						<? } ?>
+						<?
+						}
+						?>
 					</ul>
 				</div>
 			</div>
