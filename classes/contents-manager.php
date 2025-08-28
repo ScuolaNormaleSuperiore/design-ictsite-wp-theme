@@ -706,8 +706,8 @@ class DIS_ContentsManager {
 		return $truncated_text;
 	}
 
-	public static function increment_visit_counter( $page_id ) {
-		if ( DIS_OptionsManager::dis_get_option( 'service_page_counter_enabled', 'dis_opt_advanced_settings' ) === 'true' ) {
+	public static function increment_visit_counter( $counter, $page_id ) {
+		if ( DIS_OptionsManager::dis_get_option( $counter, 'dis_opt_advanced_settings' ) === 'true' ) {
 			// Ignore ADMIN visits.
 			if ( current_user_can( 'manage_options' ) ) {
 				return;

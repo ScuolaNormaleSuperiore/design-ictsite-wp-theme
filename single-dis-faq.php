@@ -12,6 +12,8 @@ get_header();
 
 $topics        = wp_get_post_terms( $post->ID, DIS_FAQ_TOPIC_TAXONOMY );
 $topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, true );
+// Increment the counter of the visits.
+DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post->ID );
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">

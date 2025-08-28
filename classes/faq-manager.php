@@ -89,7 +89,6 @@ class Faq_Manager {
 	 * @return void
 	 */
 	function add_fields() {
-
 		if ( ! function_exists( 'acf_add_local_field_group' ) ) {
 			return;
 		}
@@ -129,6 +128,29 @@ class Faq_Manager {
 				'bidirectional_target' => array(
 				),
 			),
+			array(
+				'key' => 'field_68b02d9f0a680',
+				'label' => 'Visit counter',
+				'name' => 'visit_counter',
+				'aria-label' => '',
+				'type' => 'number',
+				'instructions' => '',
+				'required' => 0,
+				'conditional_logic' => 0,
+				'wrapper' => array(
+					'width' => '',
+					'class' => '',
+					'id' => '',
+				),
+				'default_value' => 0,
+				'min' => '',
+				'max' => '',
+				'allow_in_bindings' => 0,
+				'placeholder' => '',
+				'step' => '',
+				'prepend' => '',
+				'append' => '',
+			),
 		),
 		'location' => array(
 			array(
@@ -151,5 +173,4 @@ class Faq_Manager {
 		) );
 
 	}
-
 }

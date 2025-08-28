@@ -21,7 +21,8 @@ $designed_for      = get_the_terms( $post->ID, DIS_USER_STATUS_TAXONOMY );
 $offices           = DIS_CustomFieldsManager::get_field( 'office', $post->ID );
 $full_offices      = DIS_ContentsManager::get_string_list_from_posts( $offices, false );
 // Increment the counter of the visits.
-DIS_ContentsManager::increment_visit_counter( $post->ID );
+DIS_ContentsManager::increment_visit_counter( 'service_page_counter_enabled', $post->ID );
+// Related items.
 $related_faqs      = DIS_ContentsManager::get_related_faq( $post );
 ?>
 

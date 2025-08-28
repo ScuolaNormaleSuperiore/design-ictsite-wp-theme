@@ -986,7 +986,19 @@ class DIS_OptionsManager {
 				),
 			)
 		);
-
+		$advanced_options->add_field(
+			array(
+				'id'      => 'faq_page_counter_enabled',
+				'name'    => __( 'FAQ views counter', 'design_ict_site' ),
+				'desc'    => __( 'Enable the counter of the views of the FAQ detail page.', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
 
 	}
 
