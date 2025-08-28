@@ -847,7 +847,7 @@ msgstr "Abilita la API XMLRPC "
 
 #: classes/options-manager.php:324
 msgid "Enable this section"
-msgstr "abilita questa sezione"
+msgstr "Abilita questa sezione"
 
 #: classes/options-manager.php:202
 msgid "Enter messages that will be displayed on the homepage"

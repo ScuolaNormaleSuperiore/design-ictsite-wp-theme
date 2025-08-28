@@ -379,6 +379,23 @@ class DIS_OptionsManager {
 			)
 		);
 
+		$home_options->add_field(
+			array(
+				'id'   => 'home_page_video',
+				'name' => __( 'Home Page Video', 'design_ict_site' ),
+				'type' => 'title',
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id'   => 'home_page_video_url',
+				'name' => 'Home Page Video URL',
+				'desc' => __( 'The URL of the video to show in Home Page', 'design_ict_site' ),
+				'type' => 'text_url',
+			)
+		);
+
+
 	}
 
 	/**

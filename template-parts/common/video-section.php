@@ -50,24 +50,6 @@ $msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You c
 		<div>
 			<video controls data-bs-video id="vid1" class="video-js" width="640" height="264">
 			</video>
-			<!--
-			<div class="vjs-transcription accordion">
-				<div class="accordion-item">
-					<h2 class="accordion-header " id="transcription-head9">
-						<button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-							data-bs-target="#transcription9" aria-expanded="true" aria-controls="transcription">
-							<?php echo __( 'Transcription', 'design_ict_site' ); ?>
-						</button>
-					</h2>
-					<div id="transcription9" class="accordion-collapse collapse" role="region"
-						aria-labelledby="transcription-head9">
-						<div class="accordion-body">
-							<?php echo __( 'Transcription text', 'design_ict_site' ); ?>
-						</div>
-					</div>
-				</div>
-			</div>
-			-->
 		</div>
 	</div>
 </div>

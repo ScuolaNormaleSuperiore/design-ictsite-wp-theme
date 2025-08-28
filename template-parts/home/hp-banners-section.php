@@ -22,6 +22,7 @@ if ( $section_enabled ) {
 ?>
 
 	<div class="container-banner-home">
+		<!-- Title -->
 		<?php
 			if ( $show_title ) {
 		?>
@@ -33,6 +34,8 @@ if ( $section_enabled ) {
 		<?php
 			}
 		?>
+
+		<!-- Body -->
 		<section class="it-hero-wrapper it-hero-small-size it-primary it-overlay ">
 			<div class="img-responsive-wrapper">
 				<div class="img-responsive">
