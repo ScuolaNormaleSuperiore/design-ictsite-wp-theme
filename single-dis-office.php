@@ -133,7 +133,7 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 								</svg>
 							</div>
 						</li>
-						<?
+						<?php
 						}
 						?>
 					</ul>
