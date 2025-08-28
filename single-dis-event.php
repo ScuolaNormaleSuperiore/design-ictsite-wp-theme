@@ -57,7 +57,7 @@ $full_offices      = DIS_ContentsManager::get_string_list_from_posts( $offices, 
 
 				<!-- Short description -->
 				<p>
-					<?php echo esc_attr( $short_description ); ?>
+					<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 				</p>
 			</div>
 

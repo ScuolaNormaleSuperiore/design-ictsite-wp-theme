@@ -25,7 +25,7 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 
 			<!-- Short description -->
 			<p class="lead">
-				<?php echo esc_attr( $short_description ); ?>
+				<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 			</p>
 			<p class="data">
 				<?php echo esc_attr( get_the_date( 'j F Y' ) ); ?>

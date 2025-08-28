@@ -39,7 +39,7 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 					<?php echo esc_attr( __( 'Description', 'design_ict_site' ) ); ?>
 				</h3>
 				<p>
-					<?php echo esc_html( $short_description ); ?>
+					<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 				</p>
 			</div>
 
@@ -74,6 +74,9 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 									</svg>
 							</div>
 						</li>
+						<?php
+							if ( $opening_hours ) {
+						?>
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text">
@@ -84,7 +87,11 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clock'; ?>"></use>
 								</svg>
 							</div>
-						</li>  
+						</li>
+						<?php
+							}
+							if ( $telephone ) {
+						?>
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text"><?php echo esc_attr( $telephone ); ?></span>
@@ -93,7 +100,11 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
 									</svg>
 							</div>
-						</li>      
+						</li>
+						<?php
+						}
+						if ( $email ) {
+						?>
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text"><?php echo esc_attr( $email ); ?></span>
@@ -103,6 +114,9 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 									</svg>
 							</div>
 						</li>
+						<?php
+						}
+						?>
 					</ul>
 				</div>
 			</div>

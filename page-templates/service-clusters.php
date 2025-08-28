@@ -39,7 +39,7 @@ $user_status = '';
 									</a>
 								</h3>
 								<p>
-									<?php echo esc_html( $short_description ); ?>
+									<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 								</p>
 							</div>
 						</div>

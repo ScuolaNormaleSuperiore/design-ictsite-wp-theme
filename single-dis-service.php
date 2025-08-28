@@ -9,7 +9,7 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+// $short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 $service_link      = DIS_CustomFieldsManager::get_field( 'service_link', $post->ID );
 $features          = DIS_CustomFieldsManager::get_field( 'features', $post->ID );
 $requirements      = DIS_CustomFieldsManager::get_field( 'requirements', $post->ID );

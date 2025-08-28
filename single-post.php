@@ -34,7 +34,7 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/a
 						<div class="it-hero-text-wrapper bg-dark it-text-centered">
 							<h2><?php echo esc_html( $post->post_title ); ?></h2>
 							<p class="d-none d-lg-block">
-								<?php echo esc_html( $short_description ); ?>
+								<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 							</p>
 						</div>
 					</div>

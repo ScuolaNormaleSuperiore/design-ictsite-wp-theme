@@ -45,7 +45,7 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 									</h3>
 									<div class="card-text font-serif">
 										<p>
-											<?php echo esc_html( $short_description ); ?>
+											<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 										</p>
 									</div>
 								</div>

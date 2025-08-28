@@ -23,7 +23,7 @@ $col_lg   = ( $args['format'] === 'full' ) ? 'col-lg-4' : 'col-lg-6';
 				</h3>
 				<div class="it-card-body">
 					<p class="it-card-text">
-						<?php echo esc_html( $short_description ); ?>
+						<?php echo nl2br( string: esc_html( $short_description ) ); ?>
 					</p>
 				</div>
 			</article>
