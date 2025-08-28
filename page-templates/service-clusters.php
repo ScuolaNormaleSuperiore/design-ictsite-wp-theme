@@ -7,15 +7,15 @@
 global $post;
 get_header();
 
-$clusters    = DIS_ContentsManager::get_cluster_list();
-$services    = DIS_ContentsManager::get_service_list();
+$clusters    = DIS_ContentsManager::get_cluster_list( false, 'priority' );
+$services    = DIS_ContentsManager::get_service_list( 'priority' );
 $user_status = '';
 ?>
 
 	<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
 
 		<h2 class="pb-2">
-			<?php echo __( 'Our services', 'design_ict_site' ); ?>
+			<?php echo __( 'Services', 'design_ict_site' ); ?>
 		</h2>
 
 		<div class="row">

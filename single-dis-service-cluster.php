@@ -9,7 +9,7 @@
 global $post;
 get_header();
 
-$services = DIS_ContentsManager::get_service_list( 'title', $cluster_id=$post->ID );
+$services = DIS_ContentsManager::get_service_list( 'priority', $cluster_id = $post->ID );
 $clusters = DIS_ContentsManager::get_cluster_list();
 ?>
 
@@ -65,7 +65,7 @@ $clusters = DIS_ContentsManager::get_cluster_list();
 						<div class="link-list-wrapper">
 							<ul class="link-list">
 								<li>
-									<h3><?php echo __( 'Our services', 'design_ict_site' ); ?></h3>
+									<h3><?php echo __( 'Services', 'design_ict_site' ); ?></h3>
 								</li>
 								<?php
 								foreach ( $clusters as $cluster ) {

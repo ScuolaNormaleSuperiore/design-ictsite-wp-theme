@@ -7,7 +7,7 @@
 global $post;
 get_header();
 
-$services    = DIS_ContentsManager::get_service_list( 'title', null );
+$services    = DIS_ContentsManager::get_service_list( 'priority', null );
 $serv_by_cat = DIS_ContentsManager::group_services_by_cluster( $services );
 // Order by category.
 ksort( $serv_by_cat );
