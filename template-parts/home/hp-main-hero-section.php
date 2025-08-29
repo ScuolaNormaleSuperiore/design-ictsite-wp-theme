@@ -22,75 +22,75 @@ if ( $section_enabled ) {
 	$search_link  = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
 	$help_link    = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 	$cluster_link = DIS_MultiLangManager::get_archive_link( DIS_SERVICE_CLUSTER_POST_TYPE );
-?>
+	?>
 
-<!-- HERO Standard  -->
-<section class="it-hero-wrapper it-dark it-overlay it-text-centered it-bottom-overlapping-content" id="it-hero-wrapper">
-	<div class="img-responsive-wrapper">
-		<div class="img-responsive">
-			<div class="img-wrapper">
-				<img src="<?php echo esc_url( $hero_image ); ?>"
-					title="<?php echo esc_attr( __( 'Hero image', 'design_ict_site' ) ); ?>"
-					alt="<?php echo esc_attr( __( 'Hero image', 'design_ict_site' ) ); ?>">
+	<!-- HERO Standard  -->
+	<section class="it-hero-wrapper it-dark it-overlay it-text-centered it-bottom-overlapping-content" id="it-hero-wrapper">
+		<div class="img-responsive-wrapper">
+			<div class="img-responsive">
+				<div class="img-wrapper">
+					<img src="<?php echo esc_url( $hero_image ); ?>"
+						title="<?php echo esc_attr( __( 'Hero image', 'design_ict_site' ) ); ?>"
+						alt="<?php echo esc_attr( __( 'Hero image', 'design_ict_site' ) ); ?>">
+				</div>
 			</div>
 		</div>
-	</div>
-	<div class="container">
-		<div class="row">
-			<div class="col-12">
+		<div class="container">
+			<div class="row">
+				<div class="col-12">
 
-				<div class="it-hero-text-wrapper">
-					<h2>
-						<?php
-						if ( $show_title ) {
-							echo esc_attr( $hero_title );
-						}
-						?>
-					</h2>
+					<div class="it-hero-text-wrapper">
+						<h2>
+							<?php
+							if ( $show_title ) {
+								echo esc_attr( $hero_title );
+							}
+							?>
+						</h2>
 
-					<!-- HERO SEARCH FORM -->
-					<div class="form-group mb-0">
-						<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
-							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
-							<label class="visually-hidden" for="search_string">
-								<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
-							</label>
-							<input type="text" class="form-control" id="search_string" name="search_string">
-							<span class="autocomplete-icon" aria-hidden="true">
-								<svg class="icon icon-sm">
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
+						<!-- HERO SEARCH FORM -->
+						<div class="form-group mb-0">
+							<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+								<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+								<label class="visually-hidden" for="search_string">
+									<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
+								</label>
+								<input type="text" class="form-control" id="search_string" name="search_string">
+								<span class="autocomplete-icon" aria-hidden="true">
+									<svg class="icon icon-sm">
+										<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
+									</svg>
+								</span>
+							</FORM>
+						</div>
+
+						<!-- HERO TEXT -->
+						<p class="d-none d-lg-block">
+							<?php echo esc_attr( $hero_text ); ?>
+						</p>
+
+						<!-- HERO BUTTONS -->
+						<div class="it-btn-container  bg-transparent">
+							<a class="btn btn-sm btn-secondary" href="<?php echo esc_url( $cluster_link ); ?>">
+								<?php echo esc_attr( $left_button ); ?>
+								<svg class="icon icon-white ms-2">
+									<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right' ); ?>"></use>
 								</svg>
-							</span>
-						</FORM>
+							</a>
+							<a class="btn btn-sm btn-primary ms-3" href="<?php echo esc_url( $help_link ); ?>">
+								<?php echo esc_attr( $right_button ); ?>
+								<svg class="icon icon-white ms-2">
+									<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right' ); ?>"></use>
+								</svg>
+							</a>
+						</div>
+
 					</div>
 
-					<!-- HERO TEXT -->
-					<p class="d-none d-lg-block">
-						<?php echo esc_attr( $hero_text ); ?>
-					</p>
-
-					<!-- HERO BUTTONS -->
-					<div class="it-btn-container  bg-transparent">
-						<a class="btn btn-sm btn-secondary" href="<?php echo esc_url( $cluster_link ); ?>">
-							<?php echo esc_attr( $left_button ); ?>
-							<svg class="icon icon-white ms-2">
-								<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
-							</svg>
-						</a>
-						<a class="btn btn-sm btn-primary ms-3" href="<?php echo esc_url( $help_link ); ?>">
-							<?php echo esc_attr( $right_button ); ?>
-							<svg class="icon icon-white ms-2">
-								<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
-							</svg>
-						</a>
-					</div>
-
-				</div>
-
-			</div> <!-- col -->
-		</div> <!-- row -->
-	</div>
-</section>
-<?php
+				</div> <!-- col -->
+			</div> <!-- row -->
+		</div>
+	</section>
+	<?php
 }
 ?>
