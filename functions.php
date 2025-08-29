@@ -62,9 +62,69 @@ if ( class_exists( 'DIS_ThemeManager' ) ) {
 	);
 }
 
-// // @DEBUG:
-// add_filter( 'template_include', function( $template ) {
-// 		echo 'Template in uso: ' . basename( $template );
-// 		return $template;
-// 	}
-// );
+
+
+
+
+// @TODO: Refactor the following code.
+
+add_action(
+	'wp_enqueue_scripts',
+	function () {
+		wp_enqueue_script(
+			'theme-autocomplete',
+			get_template_directory_uri() . '/assets/js/dis-theme-autocomplete.js',
+			array(), // dipendenze se necessario.
+			'1.0',
+			true
+		);
+		wp_localize_script(
+			'theme-autocomplete',
+			'themeAutocomplete',
+			array(
+				'ajax_url' => admin_url( 'admin-ajax.php' ),
+				'nonce'    => wp_create_nonce( 'sf_site_search_nonce' ),
+				'action'   => 'theme_autocomplete', // nome azione AJAX.
+			)
+		);
+	}
+);
+
+// AJAX handler.
+add_action( 'wp_ajax_theme_autocomplete', 'theme_autocomplete_callback' );
+add_action( 'wp_ajax_nopriv_theme_autocomplete', 'theme_autocomplete_callback' );
+
+function theme_autocomplete_callback() {
+	error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
+	check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
+
+	$q       = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
+	$results = array();
+
+	if ( strlen( $q ) >= 1 ) {
+		// Esempio: cerca titoli di post che contengono la query (personalizza come vuoi).
+		error_log( '*** Testo:' . $q . ' ***' );
+		$the_query = new WP_Query(
+			array(
+				's'              => $q,
+				// 'post_type'      => DIS_ContentsManager::get_content_types_with_results(),
+				'posts_per_page' => 8,
+				'post_status'    => 'publish',
+			)
+		);
+
+		if ( $the_query->have_posts() ) {
+			foreach ( $the_query->posts as $p ) {
+				$results[] = array(
+					'text' => get_the_title( $p ),
+					'link' => get_permalink( $p ),
+				);
+			}
+		}
+		wp_reset_postdata();
+	}
+
+	// Restituisce un array di oggetti { text: "...", link: "..." }.
+	error_log( '*** Invio ' . json_encode( $results ) );
+	wp_send_json( $results );
+}
