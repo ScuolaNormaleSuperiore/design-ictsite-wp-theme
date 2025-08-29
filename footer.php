@@ -16,6 +16,8 @@ $current_lang = DIS_MultiLangManager::get_current_language();
 $locations    = get_nav_menu_locations();
 ?>
 
+</main> <!-- closing from header.php -->
+
 <!-- START FOOTER -->
 	<footer class="it-footer" id="it-footer">
 		<div class="it-footer-main">

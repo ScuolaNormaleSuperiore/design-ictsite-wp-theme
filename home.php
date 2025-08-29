@@ -14,7 +14,7 @@ $all_sections = DIS_ContentsManager::get_hp_sections();
 $sections     = DIS_ContentsManager::get_hp_section_options( true );
 ?>
 
-<main id="main-container" class="main-container redbrown" role="main">
+<div id="main-container" class="main-container redbrown" role="main">
 
 	<?php
 	foreach ( $sections as $section ) {
@@ -34,7 +34,7 @@ $sections     = DIS_ContentsManager::get_hp_section_options( true );
 	}
 	?>
 
-</main>
+</div>
 
 <?php
 get_footer();

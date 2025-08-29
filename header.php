@@ -202,18 +202,20 @@ $locations = get_nav_menu_locations();
 </header>
 <!-- END HEADER -->
 
+<main id="main-content"> <!-- closed in footer.php -->
+	<?php
+	$messages = DIS_OptionsManager::dis_get_option( 'messages', 'dis_opt_site_alerts' );
+	if ( ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $messages[0] ) ) || ! is_home() ) {
+	?>
+		<section class="container my-12 p-4 pb-0">
 
-<?php
-$messages = DIS_OptionsManager::dis_get_option( 'messages', 'dis_opt_site_alerts' );
-if ( ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $messages[0] ) ) || ! is_home() ) {
-?>
-	<div class="container my-12 p-4 pb-0">
-		<!-- ALERT section -->
-		<?php	get_template_part( 'template-parts/header/alert' );	?>
+			<!-- ALERT section -->
+			<?php	get_template_part( 'template-parts/header/alert' ); ?>
 
-		<!-- BREADCRUMB-->
-		<?php	get_template_part( 'template-parts/header/breadcrumb' );	?>
-	</div>
-<?php
-}
-?>
+			<!-- BREADCRUMB-->
+			<?php	get_template_part( 'template-parts/header/breadcrumb' ); ?>
+
+		</section>
+	<?php
+	}
+	?>
