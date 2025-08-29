@@ -55,14 +55,14 @@ if ( $section_enabled ) {
 								<label class="visually-hidden" for="search_string">
 									<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
 								</label>
-								<input
-									type="search" 
-									class="form-control autocomplete"
-									id="search_string"
-									name="search_string"
-									data-bs-autocomplete='[]'
-									placeholder="<?php echo esc_attr( __( 'Search...', 'design_ict_site' ) ); ?>"
-								>
+									<input
+										type="search" 
+										class="form-control autocomplete"
+										id="search_string"
+										name="search_string"
+										data-bs-autocomplete='[]'
+										placeholder="<?php echo esc_attr( __( 'Search...', 'design_ict_site' ) ); ?>"
+									>
 								<span class="autocomplete-icon" aria-hidden="true">
 									<svg class="icon icon-sm">
 										<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>

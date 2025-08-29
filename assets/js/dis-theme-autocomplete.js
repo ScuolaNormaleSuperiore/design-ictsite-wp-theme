@@ -31,48 +31,30 @@
 	}
 
 
-	function reinitBootstrapItalia(inputEl) {
-		console.log("*** reinitBootstrapItalia ***");
-
-		// recupera la classe corretta
-		const AutocompleteClass = window.bootstrap?.InputSearchAutocomplete || window.bootstrap?.SelectAutocomplete;
-
-		if (!AutocompleteClass) return;
-
-		try {
-				// cerca istanza esistente
-				let inst = AutocompleteClass.getInstance ? AutocompleteClass.getInstance(inputEl) : null;
-
-				if ( inst && typeof inst.dispose === "function" ) {
-						console.log("*** Distruggi istanza", inst);
-						inst.dispose(); // distrugge l'istanza precedente
-				}
-
-				// ricrea nuova istanza
-				// if (typeof AutocompleteClass.getOrCreateInstance === "function") {
-				// 	console.log("*** Crea istanza 1");
-				// 	AutocompleteClass.getOrCreateInstance(inputEl);
-				// } else {
-				// 		console.log("*** Crea istanza");
-				// 		new AutocompleteClass(inputEl);
-				// }
-
-				console.log("Reinit OK su:", inputEl);
-		} catch (e) {
-				console.warn("Reinit Autocomplete failed:", e);
-		}
-}
-
-
 	// converte i risultati server in stringa per data-bs-autocomplete
 	function resultsToDataAttr(results) {
-		// Bootstrap-Italia si aspetta tipicamente array di oggetti { text: "...", link: "..." }
 		try {
 			return JSON.stringify(results || []);
 		} catch (e) {
 			return '[]';
 		}
 	}
+
+	function updateInputAutocomplete(dataString) {
+		var inputElement = document.getElementById( 'search_string' );
+		inputElement.setAttribute( 'data-bs-autocomplete', dataString );
+		// const var1 = bootstrap.Input.getOrCreateInstance(inputElement);
+		// debugger;
+		// const inputSearch = new bootstrap.Input(
+		// 	inputElement,
+		// 	{
+  	// 	autocomplete: dataString
+		// 	}
+		// );
+	}
+
+
+
 
 	document.addEventListener('DOMContentLoaded', function () {
 		var input = document.getElementById('search_string');
@@ -85,25 +67,31 @@
 			var q = input.value || '';
 
 			if (q.length < minChars) {
-				input.setAttribute('data-bs-autocomplete', '[]');
-				reinitBootstrapItalia(input);
+				console.log('*** RESET attribute []');
+				// input.setAttribute('data-bs-autocomplete', '[]');
+				updateInputAutocomplete('[]');
 				return;
 			}
 
-			console.log("***CIAO1");
+			console.log("*** Waiting response:");
 			fetchSuggestions(q).then(function (data) {
-				console.log("***CIAO2");
-				// data è array di oggetti [{text,link}, ...]
-				input.setAttribute('data-bs-autocomplete', resultsToDataAttr(data));
 
-				// se vuoi vedere cosa viene scritto:
+				// Original content:
 				console.log('***updated data-bs-autocomplete:', input.getAttribute('data-bs-autocomplete'));
 
-				// prova a reinizializzare il componente in modo che legga il nuovo attributo
-				reinitBootstrapItalia(input);
+				// Set the attribute: from array to string.
+				// input.setAttribute('data-bs-autocomplete', resultsToDataAttr(data));
+				const dataString = resultsToDataAttr(data);
+				updateInputAutocomplete(dataString);
+
+		
+				// New content:
+				console.log('***updated data-bs-autocomplete:', input.getAttribute('data-bs-autocomplete'));
 			});
 		}, debounceMs);
 
 		input.addEventListener('input', onInput);
 	});
+
+
 })();
