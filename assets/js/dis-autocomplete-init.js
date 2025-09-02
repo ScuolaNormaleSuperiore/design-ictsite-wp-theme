@@ -17,12 +17,12 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 
-	// Get parameters from
+	// Receiving parameters from PHP.
 	const ajaxUrl     = disHpAutocompleteAjax.ajaxUrl;
 	const nonce       = disHpAutocompleteAjax.nonce;
 	const searchLabel = disHpAutocompleteAjax.searchLabel;
-
 	const minChars = 3;
+
 	// Algolia Autocomplete.
 	algoliaModule.autocomplete({
 		container:   '#home_search_autocomplete',
