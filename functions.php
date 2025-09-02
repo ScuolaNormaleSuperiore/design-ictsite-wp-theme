@@ -68,27 +68,34 @@ if ( class_exists( 'DIS_ThemeManager' ) ) {
 
 // @TODO: Refactor the following code.
 
-add_action(
-	'wp_enqueue_scripts',
-	function () {
-		wp_enqueue_script(
-			'theme-autocomplete',
-			get_template_directory_uri() . '/assets/js/dis-theme-autocomplete.js',
-			array(), // dipendenze se necessario.
-			'1.0',
-			true
-		);
-		wp_localize_script(
-			'theme-autocomplete',
-			'themeAutocomplete',
-			array(
-				'ajax_url' => admin_url( 'admin-ajax.php' ),
-				'nonce'    => wp_create_nonce( 'sf_site_search_nonce' ),
-				'action'   => 'theme_autocomplete', // nome azione AJAX.
-			)
-		);
-	}
-);
+function enqueue_algolia_autocomplete() {
+	// Algolia Autocomplete (UMD).
+	wp_enqueue_script(
+		'algolia-autocomplete',
+		'https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@1.19.2/dist/umd/index.production.js',
+		[],
+		null,
+		true
+	);
+
+	// CSS.
+	wp_enqueue_style(
+		'algolia-autocomplete-css',
+		'https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic@1.19.2/dist/theme.min.css',
+		[],
+		null
+	);
+
+	// Script personalizzato.
+	wp_enqueue_script(
+		'autocomplete-init',
+		get_template_directory_uri() . '/assets/js/autocomplete-init.js',
+		[ 'algolia-autocomplete' ],
+		null,
+		true
+	);
+}
+add_action( 'wp_enqueue_scripts', 'enqueue_algolia_autocomplete' );
 
 // AJAX handler.
 add_action( 'wp_ajax_theme_autocomplete', 'theme_autocomplete_callback' );
@@ -96,14 +103,15 @@ add_action( 'wp_ajax_nopriv_theme_autocomplete', 'theme_autocomplete_callback' )
 
 function theme_autocomplete_callback() {
 	error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
-	check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
+	// check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
 
-	$q       = isset( $_GET['q'] ) ? sanitize_text_field( wp_unslash( $_GET['q'] ) ) : '';
+	$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 	$results = array();
+
+	error_log( '*** Testo:' . $q . ' ***' );
 
 	if ( strlen( $q ) >= 1 ) {
 		// Esempio: cerca titoli di post che contengono la query (personalizza come vuoi).
-		error_log( '*** Testo:' . $q . ' ***' );
 		$the_query = new WP_Query(
 			array(
 				's'              => $q,
@@ -126,5 +134,6 @@ function theme_autocomplete_callback() {
 
 	// Restituisce un array di oggetti { text: "...", link: "..." }.
 	error_log( '*** Invio ' . json_encode( $results ) );
+
 	wp_send_json( $results );
 }
