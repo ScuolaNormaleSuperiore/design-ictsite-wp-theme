@@ -69,14 +69,16 @@ class DIS_AutocompleteManager {
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
 
-		error_log( '*** Testo:' . $q . ' ***' );
+		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Esempio: cerca titoli di post che contengono la query (personalizza come vuoi).
-			$the_query = new WP_Query(
+			$types      = DIS_ContentsManager::searchable_post_types();
+			$type_slugs = array_column( $types, 'slug' );
+			$the_query  = new WP_Query(
 				array(
 					's'              => $q,
-					// 'post_type'      => DIS_ContentsManager::get_content_types_with_results(),
+					'post_type'      => $type_slugs,
 					'posts_per_page' => 8,
 					'post_status'    => 'publish',
 				)
@@ -97,8 +99,7 @@ class DIS_AutocompleteManager {
 			wp_reset_postdata();
 		}
 		// Restituisce un array di oggetti { text: "...", link: "..." }.
-		error_log( '*** Invio ' . json_encode( $results ) );
+		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
-
 }

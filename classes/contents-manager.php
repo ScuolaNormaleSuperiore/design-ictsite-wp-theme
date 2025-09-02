@@ -786,7 +786,7 @@ class DIS_ContentsManager {
 	public static function get_content_types_with_results() {
 		$content_types              = self::searchable_post_types();
 		$content_types_with_results = array();
-		foreach ( $content_types as $ct) {
+		foreach ( $content_types as $ct ) {
 			$the_query = new WP_Query(
 				array(
 					'post_type'   => $ct['slug'],
