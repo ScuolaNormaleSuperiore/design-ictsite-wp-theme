@@ -26,7 +26,7 @@ document.addEventListener('DOMContentLoaded', function() {
 	// Algolia Autocomplete.
 	algoliaModule.autocomplete({
 		container:   '#home_search_autocomplete',
-		placeholder: searchLabel + '...',
+		placeholder: searchLabel,
 		openOnFocus: true,
 		debounce:    300,
 		getSources() {

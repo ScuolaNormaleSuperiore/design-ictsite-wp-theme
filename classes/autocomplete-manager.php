@@ -62,7 +62,7 @@ class DIS_AutocompleteManager {
 				array(
 					'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
 					'nonce'       => wp_create_nonce( 'sf_site_search_nonce' ),
-					'searchLabel' => __( 'Search', 'design_ict_site' ),
+					'searchLabel' => __( 'Search...', 'design_ict_site' ),
 				)
 			);
 
