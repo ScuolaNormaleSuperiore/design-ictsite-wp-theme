@@ -394,8 +394,53 @@ class DIS_OptionsManager {
 				'type' => 'text_url',
 			)
 		);
-
-
+		// AUTOCOMPLETE options.
+		$home_options->add_field(
+			array(
+				'id'   => 'autocomplete_sections',
+				'name' => __( 'Autocomplete sections', 'design_ict_site' ),
+				'type' => 'title',
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id'      => 'home_search_autocomplete_enabled',
+				'name'    => __( 'Enable Home Page autocomplete', 'design_ict_site' ),
+				'desc'    => __( 'Enable the autocomplete in the main hero of the Home Page', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id'      => 'site_search_autocomplete_enabled',
+				'name'    => __( 'Enable site search autocomplete', 'design_ict_site' ),
+				'desc'    => __( 'Enable the autocomplete in the site search page', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
+		$home_options->add_field(
+			array(
+				'id'      => 'faq_autocomplete_enabled',
+				'name'    => __( 'Enable site FAQ autocomplete', 'design_ict_site' ),
+				'desc'    => __( 'Enable the autocomplete in the FAQ page', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
 	}
 
 	/**

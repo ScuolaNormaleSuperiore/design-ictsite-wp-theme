@@ -11,6 +11,7 @@ $id_par          = $args['id'] ?? '';
 $show_title_par  = $args['show_title'] ?? '';
 $show_title      = ( $show_title_par === 'true' ) ? true : false;
 $section_enabled = ( $enabled_par === 'true' ) ? true : false;
+$hp_autocomplete = DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' );
 
 if ( $section_enabled ) {
 	$hero_image   = DIS_OptionsManager::dis_get_option( 'main_hero_image', 'dis_opt_main_hero' );
@@ -49,12 +50,31 @@ if ( $section_enabled ) {
 						</h2>
 
 						<!-- HERO SEARCH FORM -->
-						<div class="form-group mb-0">
-							<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
-								<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
-								<div id="home_search_autocomplete"></div>
-							</FORM>
-						</div>
+						<?php if ( $hp_autocomplete == 'true' ) : ?>
+							<div id="home_search_autocomplete"></div>
+						<?php else : ?>
+							<div class="form-group mb-0">
+								<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+									<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+									<label class="visually-hidden" for="search_string">
+										<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
+									</label>
+										<input
+											type="search" 
+											class="form-control autocomplete"
+											id="search_string"
+											name="search_string"
+											data-bs-autocomplete='[]'
+											placeholder="<?php echo esc_attr( __( 'Search...', 'design_ict_site' ) ); ?>"
+										>
+									<span class="autocomplete-icon" aria-hidden="true">
+										<svg class="icon icon-sm">
+											<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
+										</svg>
+									</span>
+								</FORM>
+							</div>
+						<?php endif ?>
 
 						<!-- HERO TEXT -->
 						<p class="d-none d-lg-block">

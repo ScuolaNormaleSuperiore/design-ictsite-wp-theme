@@ -10,6 +10,10 @@ html {
 	background-color: white;
 }
 
+/* CUSTOM ALGOLIA AUTOCOMPLETE */
+#home_search_autocomplete .aa-Label svg{
+	color: #3674B3 !important;
+}
 
 /* CUSTOM PAGINATION */
 

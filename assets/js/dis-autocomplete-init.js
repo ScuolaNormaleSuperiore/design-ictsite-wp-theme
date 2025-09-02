@@ -17,10 +17,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	}
 
 	// const links = [
-	// 	{ text: 'Sito SNS', link: 'https://www.sns.it' },
-	// 	{ text: 'Sito Corriere', link: 'https://www.corriere.it' },
-	// 	{ text: 'Sito Gazzetta', link: 'https://www.gazzetta.it' },
-	// 	{ text: 'Sito Tuttosport', link: 'https://www.tuttosport.com' }
+	// 	{ name: 'Sito SNS', link: 'https://www.sns.it' },
+	// 	{ name: 'Sito Corriere', link: 'https://www.corriere.it' },
+	// 	{ name: 'Sito Gazzetta', link: 'https://www.gazzetta.it' },
+	// 	{ name: 'Sito Tuttosport', link: 'https://www.tuttosport.com' }
 	// ];
 
 
@@ -52,20 +52,29 @@ document.addEventListener('DOMContentLoaded', function() {
               });
               if (!response.ok) throw new Error('Errore nella risposta AJAX');
               const items = await response.json();
-              return items; // array di { text, link }
+              return items; // array di { name, link }
             } catch (error) {
               console.error('Errore durante la richiesta AJAX:', error);
               return []; // in caso di errore ritorna array vuoto
             }
           },
 					templates: {
-						item({ item, html }) {
-							// Usa la funzione html fornita da Algolia per il template
+						item({ item, html, state }) {
+							// Usa la funzione html fornita da Algolia per il template.
+							const query = state.query.trim();
+							let highlightedText = item.name;
+
+							if (query.length > 0) {
+								// Crea una RegExp case-insensitive per evidenziare la query
+								const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+								highlightedText = item.name.replace(regex, '<mark>$1</mark>');
+								objectType = `(<small>${item.type}</small>)`;
+							}
 							return html`<div class="aa-ItemWrapper">
 								<div class="aa-ItemContent">
 									<div class="aa-ItemTitle">
-										<a href="${item.link}" style="text-decoration: underline; color: #0073aa; padding: 8px 12px; display: block;">
-											${item.text}
+										<a href="${item.link}" style="text-decoration: underline; color: #3674B3; padding: 8px 12px; display: block;">
+											${html([highlightedText])} ${html([objectType])}
 										</a>
 									</div>
 								</div>

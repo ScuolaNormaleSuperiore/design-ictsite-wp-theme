@@ -72,7 +72,9 @@ if ( ! class_exists( 'Sponsor_Manager' ) ) {
 if ( ! class_exists( 'Faq_Manager' ) ) {
 	include_once 'faq-manager.php';
 }
-
+if ( ! class_exists( 'DIS_AutocompleteManager' ) ) {
+	include_once 'autocomplete-manager.php';
+}
 /**
  * The manager that builds the tool and configures Wordpress.
  * How to get a manger?
@@ -209,6 +211,10 @@ class DIS_ThemeManager {
 		// Setup of the Faq post-type.
 		$fqm = new Faq_Manager();
 		$fqm->setup();
+
+		// Setup of Autocomplete Manager.
+		$atm = new DIS_AutocompleteManager();
+		$atm->setup();
 	}
 
 	/**

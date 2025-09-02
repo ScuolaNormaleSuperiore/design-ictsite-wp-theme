@@ -770,7 +770,7 @@ class DIS_ContentsManager {
 				'name' => dis_ct_data()[ DIS_DEFAULT_POST ]['plural_name'],
 				'slug' => DIS_DEFAULT_POST,
 			),
-	);
+		);
 	}
 
 	private static function sort_by_name( array $items ) {
