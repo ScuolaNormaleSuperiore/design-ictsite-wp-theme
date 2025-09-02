@@ -42,7 +42,13 @@
 
 	function updateInputAutocomplete(dataString) {
 		var inputElement = document.getElementById( 'search_string' );
+		console.log('** dataString: ', dataString);
 		inputElement.setAttribute( 'data-bs-autocomplete', dataString );
+		//const parser = new DOMParser();
+		// const decoded = parser.parseFromString(dataString, "text/html").documentElement.textContent;
+		// inputElement.setAttribute( 'data-bs-autocomplete', decoded );
+		// Converte la stringa in JSON
+		// const jsonString = JSON.parse(decoded);
 		// const var1 = bootstrap.Input.getOrCreateInstance(inputElement);
 		// debugger;
 		// const inputSearch = new bootstrap.Input(
