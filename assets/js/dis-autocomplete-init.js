@@ -1,63 +1,59 @@
 
 document.addEventListener('DOMContentLoaded', function() {
 
-	// Accedi al modulo Algolia Autocomplete.
+	// Access the module Algolia Autocomplete.
 	const algoliaModule = window['@algolia/autocomplete-js'];
 
 	if (!algoliaModule) {
-		console.error('Modulo Algolia Autocomplete non trovato');
+		console.error('Algolia Autocomplete Module not found');
 		return;
 	}
 
-	// Verifica che esista l'elemento container.
+	// check that the container element exists.
 	const container = document.querySelector('#home_search_autocomplete');
 	if (!container) {
-		console.error('Elemento #autocomplete non trovato nel DOM');
+		console.error('Element #home_search_autocomplete not present in DOM');
 		return;
 	}
 
-	// const links = [
-	// 	{ name: 'Sito SNS', link: 'https://www.sns.it' },
-	// 	{ name: 'Sito Corriere', link: 'https://www.corriere.it' },
-	// 	{ name: 'Sito Gazzetta', link: 'https://www.gazzetta.it' },
-	// 	{ name: 'Sito Tuttosport', link: 'https://www.tuttosport.com' }
-	// ];
 
+	// Get parameters from
+	const ajaxUrl     = disHpAutocompleteAjax.ajaxUrl;
+	const nonce       = disHpAutocompleteAjax.nonce;
+	const searchLabel = disHpAutocompleteAjax.searchLabel;
 
-	const ajaxUrl  = 'http://sitoict.local/wp-admin/admin-ajax.php';
-	const nonce    = '123';
 	const minChars = 3;
 	// Algolia Autocomplete.
 	algoliaModule.autocomplete({
 		container:   '#home_search_autocomplete',
-		placeholder: 'Cerca un sito...',
+		placeholder: searchLabel + '...',
 		openOnFocus: true,
 		debounce:    300,
 		getSources() {
 			return [
 				{
 					sourceId: 'links',
-          getItems: async ({ query }) => {
+					getItems: async ({ query }) => {
 						if (query.length < minChars) return [];
-            try {
+						try {
 							console.log('**Query:', query);
-              const response = await fetch(ajaxUrl, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-                body: new URLSearchParams({
-                  action: 'theme_autocomplete',
-                  nonce: nonce,
-                  q: query
-                }).toString(),
-              });
-              if (!response.ok) throw new Error('Errore nella risposta AJAX');
-              const items = await response.json();
-              return items; // array di { name, link }
-            } catch (error) {
-              console.error('Errore durante la richiesta AJAX:', error);
-              return []; // in caso di errore ritorna array vuoto
-            }
-          },
+							const response = await fetch(ajaxUrl, {
+								method: 'POST',
+								headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+								body: new URLSearchParams({
+									action: 'theme_autocomplete',
+									nonce: nonce,
+									q: query
+								}).toString(),
+							});
+							if (!response.ok) throw new Error('Error in AJAX response');
+							const items = await response.json();
+							return items;
+						} catch (error) {
+							console.error('Error in AJAX request:', error);
+							return []; // in caso di errore ritorna array vuoto
+						}
+					},
 					templates: {
 						item({ item, html, state }) {
 							// Usa la funzione html fornita da Algolia per il template.
@@ -81,10 +77,8 @@ document.addEventListener('DOMContentLoaded', function() {
 							</div>`;
 						}
 					},
-					// Gestisci il click sugli elementi
+					// Manage the click on each element.
 					onSelect({ item, event }) {
-						// Il link si aprirà automaticamente nella stessa pagina
-						// Non serve fare nulla qui se usi il tag <a> normale
 						window.location.href = item.link;
 					}
 				}

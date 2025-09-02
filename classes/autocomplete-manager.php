@@ -41,7 +41,7 @@ class DIS_AutocompleteManager {
 			);
 			// Custom Algolia.
 			wp_enqueue_script(
-				'autocomplete-init',
+				'dis-autocomplete-init',
 				get_template_directory_uri() . '/assets/js/dis-autocomplete-init.js',
 				array( 'dis-algolia-autocomplete' ),
 				null,
@@ -49,11 +49,23 @@ class DIS_AutocompleteManager {
 			);
 			// Algolia CSS.
 			wp_enqueue_style(
-				'algolia-autocomplete-css',
+				'dis-algolia-autocomplete-css',
 				'https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic@1.19.2/dist/theme.min.css',
 				array(),
 				null
 			);
+
+			// Passing variables from PHP to JS.
+			wp_localize_script(
+				'dis-autocomplete-init',
+				'disHpAutocompleteAjax',
+				array(
+					'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
+					'nonce'       => wp_create_nonce( 'sf_site_search_nonce' ),
+					'searchLabel' => __( 'Search', 'design_ict_site' ),
+				)
+			);
+
 		}
 	}
 
@@ -72,7 +84,7 @@ class DIS_AutocompleteManager {
 		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
-			// Esempio: cerca titoli di post che contengono la query (personalizza come vuoi).
+			// Retrieve the posts.
 			$types      = DIS_ContentsManager::searchable_post_types();
 			$type_slugs = array_column( $types, 'slug' );
 			$the_query  = new WP_Query(
