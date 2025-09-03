@@ -120,7 +120,7 @@ $help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 							$topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, true );
 					?>
 					<li>
-						<a class="list-item icon-right" href="scheda-faq.html">
+						<a class="list-item icon-right" href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>">
 							<span class="list-item-title-icon-wrapper">
 								<h4 class="list-item-title">
 									<?php echo esc_attr( $item->post_title ); ?>

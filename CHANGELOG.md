@@ -18,6 +18,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 ## [DEV-0.1.5] - 2025-08-28
 ### Added
 - Added autocomplete in Home Page search.
+- Added the new FAQ page.
 ### Fixed
 - Fixed the link of the logo of the site.
 ### Changed
