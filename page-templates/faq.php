@@ -10,7 +10,7 @@ get_header();
 ?>
 
 <!-- FAQ PAGE -->
-<section class="section pt-5 pb-5" >
+<section class="section pt-0 pb-5" >
 	<div class="container p-4">
 		<h2 class="pb-2">FAQ - Frequently Asked Questions</h2>
 		<p class="lead">
