@@ -6,225 +6,246 @@
 
 global $post;
 get_header();
-
-// Get default values.
-$all_topics       = get_terms(
-	array(
-		'taxonomy'   => DIS_FAQ_TOPIC_TAXONOMY,
-		'hide_empty' => true,
-	)
-);
-$default_topic_list = array_column( $all_topics, 'slug' );
-
-// // Check and sanitize parameters.
-// if ( isset( $_GET['selected_topics'] ) && is_array( $_GET['selected_topics'] ) ) {
-// 	$selected_topics = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_topics'] ) );
-// } else {
-// 	$selected_topics = array();
-// }
-
-$params = array();
-// // Add category filter, if selected.
-// if ( count( $selected_topics ) > 0 ) {
-// 	$params['taxonomy'] = DIS_FAQ_TOPIC_TAXONOMY;
-// 	$params['terms']   = $selected_topics;
-// } else {
-// 	$params['taxonomy'] = '';
-// 	$params['terms']   = array();
-// }
-
-// Add search string, if present.
-if ( isset( $_GET['search_string'] ) ) {
-	$params['search_string'] = sanitize_text_field( $_GET['search_string'] );
-	$search_string           = $params['search_string'];
-	$is_submission = true;
-} else {
-	$search_string = '';
-	$is_submission = false;
-}
-
-$items              = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
-$items_per_category = DIS_ContentsManager::items_per_category( $items, DIS_FAQ_TOPIC_TAXONOMY );
-$current_url        = get_permalink();
-$result_message     = sprintf( __( 'Found %s results.', 'design_ict_site' ), count( $items ) );
+// $items = DIS_ContentsManager::get_generic_post_list( DIS_FAQ_POST_TYPE, 'title', $params );
 ?>
 
 <!-- FAQ PAGE -->
-<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
-	<div class="row">
+<section class="section pt-5 pb-5" >
+	<div class="container p-4">
+		<h2 class="pb-2">FAQ - Frequently Asked Questions</h2>
+		<p class="lead">
+			In questa pagina sono raccolte le domande più frequenti (FAQ) sui servizi informatici di ateneo.
+			Per ogni domanda è possibile visualizzare la risposta cliccando sull'argomento di interesse.
+		</p>
+	</div> <!-- container -->
+</section>
 
-		<div class="col">
-			<!-- Title -->
-			<h2 class="pb-2">
-				<?php echo esc_attr( get_the_title() ); ?>
-			</h2>
-
-			<!-- FAQ Accordions -->
-			<div class="accordion" id="FaqAccordion">
-
-				<!-- ARGUMENT LIST -->
-				<?php
-				$tpc_index = 0;
-				foreach ( $items_per_category as $category => $faq_list ) {
-					$sanitized_cat = sanitize_title( $category );
-					// Loading the page open the first accordion.
-					$tpc_show      = ( $tpc_index === 0 ) ? 'show' : ' ';
-					$tpc_collapsed = ( $tpc_index === 0 ) ? ' ' : 'collapsed';
-					$tpc_expanded  = ( $tpc_index === 0 ) ? 'true' : 'false';
-					$tpc_term      = get_term_by( 'name', $category, DIS_FAQ_TOPIC_TAXONOMY ) ?? null;
-					$tpc_slug      = $tpc_term ? $tpc_term->slug : '';
-				?>
-				<div class="accordion-item" id="<?php echo esc_attr( $tpc_slug ); ?>">
-					<h3 class="accordion-header " id="<?php echo 'heading' . $tpc_index . 'a'; ?>">
-						<button
-							class="accordion-button <?php echo $tpc_collapsed; ?>"
-							type="button"
-							data-bs-toggle="collapse"
-							data-bs-target="<?php echo '#collapse' . $tpc_index . 'a'; ?>"
-							aria-expanded="<?php echo $tpc_expanded; ?>"
-							aria-controls="<?php echo 'collapse' . $tpc_index . 'a'; ?>">
-							<?php echo esc_attr( $category ); ?>
-						</button>
-					</h3>
-
-					<!-- FAQ LIST -->
-					<div id="<?php echo 'collapse' . $tpc_index . 'a'; ?>"
-						class="accordion-collapse collapse <?php echo $tpc_show; ?>"
-						data-bs-parent="#accordionExample2"
-						role="region"
-						aria-labelledby="<?php echo 'heading' . $tpc_index . 'a'; ?>">
-						<div class="accordion-body">
-							<div class="accordion" id="accordionExample2N">
-
-								<!-- FAQ ITEM -->
-								<?php
-								$faq_index = 0;
-								foreach ( $faq_list as $faq ) {
-									$faq_show      = ( $faq_index === 0 ) ? 'show' : ' ';
-									$faq_collapsed = ( $faq_index === 0 ) ? ' ' : 'collapsed';
-									$faq_expanded  = ( $faq_index === 0 ) ? 'true' : 'false';
-								?>
-								<div class="accordion-item">
-									<h4 class="accordion-header " id="<?php echo 'heading' . $faq_index . 'n'; ?>">
-										<button class="accordion-button <?php echo $faq_collapsed; ?>"
-											type="button"
-											data-bs-toggle="collapse"
-											data-bs-target="<?php echo '#collapse' . $faq_index . 'n'; ?>"
-											aria-expanded="<?php echo $faq_expanded; ?>"
-											aria-controls="<?php echo 'collapse' . $faq_index . 'n'; ?>"
-										>
-											<?php echo esc_attr( $faq->post_title ) ?>
-										</button>
-									</h4>
-									<div id="<?php echo 'collapse' . $faq_index . 'n' ?>"
-										class="accordion-collapse collapse <?php echo $faq_show; ?>"
-										data-bs-parent="#accordionExample2N"
-										role="region"
-										aria-labelledby="<?php echo 'heading' . $faq_index . 'n'; ?>">
-										<div class="accordion-body">
-											<?php echo wp_kses_post( $faq->post_content ); ?>
-										</div>
-									</div>
-								</div>
-								<?php
-								$faq_index++;
-								}
-								?>
-
-							</div>
-						</div>
-					</div>
-
-				</div>
-				<?php
-					$tpc_index++;
-				}
-				?>
-
-			</div>
-		</div>
-
-		<!-- SIDEBAR ELENCO -->
-		<div class="col-12 col-lg-4 col-md-5">
-			<div class="sidebar-wrapper it-line-left-side">
-				
+<!-- FAQ SEARCH -->
+<section class="section pt-5 pb-5" >
+	<div class="container p-4">
+		<div class="row">
+			<div class="col-12 col-md-7">
+				<h3 class="mb-3">Cerca tra le FAQ</h3>
 				<div class="form-group">
-					<FORM action="." id="search_faq_form" method="GET">
-						<div class="input-group">
-							<span class="input-group-text"><svg class="icon icon-sm" aria-hidden="true">
-									<use href=<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
-								</svg></span>
-							<label for="search_string">
-								<?php echo esc_attr( __( 'Search the FAQ', 'design_ict_site' ) ); ?>
-							</label>
-							<input type="text"
-								id="search_string"
-								name="search_string"
-								class="form-control"
-								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
-								placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
-							>
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="submit" value="submit">
-									<?php echo esc_attr( __( 'Search', 'design_ict_site' ) ); ?>
-								</button>
-							</div>
+					<div class="input-group">
+						<span class="input-group-text">
+							<svg class="icon icon-sm" aria-hidden="true">
+								<use href="/bootstrap-italia/svg/sprites.svg#it-search"></use>
+							</svg>
+						</span>
+						<label for="input-group-1">Cerca tra le FAQ</label>
+						<input type="text" class="form-control" id="input-group-1" name="input-group-1">
+						<div class="input-group-append">
+							<button class="btn btn-primary" type="button" id="button-1">
+								<a href="faq-risultati-ricerca.html" class="text-white">Cerca</a></button>
 						</div>
-					</FORM>
-				</div> <!-- form-group -->
-
-				<!-- RESET FORM -->
-				<?php if ( $is_submission ) : ?>
-					<div class="link-list-wrapper">
-						<ul class="link-list">
-							<li>
-								<h3 class="visually-hidden">
-									<?php echo esc_attr( __( 'Back to the full list', 'design_ict_site' ) ); ?>
-								</h3>
-							</li>
-							<li>
-								<a class="list-item medium active" href="<?php echo esc_url ( $current_url ); ?>">
-									<span>
-										<?php echo esc_attr( __( 'Back to the full list', 'design_ict_site' ) ); ?>
-									</span>
-								</a>
-							</li>
-						</ul>
-					</div>
-				<?php endif ?>
-
-				<div class="sidebar-linklist-wrapper">
-					<div class="link-list-wrapper">
-						<!-- TOPICS -->
-						<ul class="link-list">
-							<li>
-								<h3>
-									<?php echo esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
-								</h3>
-							</li>
-							<?php
-							$page_link  = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
-							foreach ( $all_topics as $tp ) {
-								// $active = in_array( $tp->slug, $selected_topics ) ? 'active' : '';
-								$active = '';
-							?>
-							<li>
-								<a class="list-item medium <?php echo $active; ?>" href="<?php echo esc_url( $page_link . '#' .  $tp->slug ); ?>">
-									<span><?php echo esc_attr( $tp->name ); ?></span>
-								</a>
-							</li>
-							<?php
-							}
-							?>
-						</ul>
 					</div>
 				</div>
+			</div> <!-- col -->
+		</div> <!-- row -->
+	</div> <!-- container -->
+</section>
 
+<!-- ELENCO ARGOMENTI-->
+<section class="section section-muted pt-5 pb-5">
+	<div class="container p-4">
+		<div class="row">
+			<div class="col-12">
+				<h3 class="mb-3">Esplora per argomento</h3>
+				<p>Le FAQ sono organizzate per argomento. Clicca sull'argomento di interesse per visualizzare le domande e
+					le
+					risposte.</p>
 			</div>
 		</div>
+		<div class="row h-100" role="region" aria-label="Lista argomenti FAQ">
+			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5">
+						<a target="_self"
+							class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+							href="faq-elenco-per-argomento.html" data-focus-mouse="false">Argomento 1</a>
+					</h4>
+					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+				</article>
+			</div>
 
+			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5"><a target="_self"
+							class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+							href="faq-elenco-per-argomento.html" data-focus-mouse="false">Argomento 2</a></h4>
+					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+				</article>
+			</div>
+			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5"><a target="_self"
+							class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+							href="faq-elenco-per-argomento.html" data-focus-mouse="false">Argomento 3</a></h4>
+					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+				</article>
+			</div>
+			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5"><a target="_self"
+							class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+							href="faq-elenco-per-argomento.html" data-focus-mouse="false">Argomento 4</a></h4>
+					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+				</article>
+			</div>
+			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5"><a target="_self"
+							class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+							href="faq-elenco-per-argomento.html" data-focus-mouse="false">Argomento 5</a></h4>
+					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+				</article>
+			</div>
+			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5"><a target="_self"
+							class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+							href="faq-elenco-per-argomento.html" data-focus-mouse="false">Argomento 6</a></h4>
+					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+				</article>
+			</div>
+		</div>
+	</div> <!-- container -->
+</section>
+
+<!-- ELENCO DOMANDE PIù FREQUENTI -->
+<section class="section pt-5 pb-5">
+	<div class="container p-4 pb-0">
+		<div class="col-12">
+			<h3 class="mb-5">Domande frequenti più cercate</h3>
+			<div class="link-list-wrapper multiline">
+				<ul class="link-list">
+					<li>
+						<a class="list-item icon-right" href="scheda-faq.html">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">Titolo faq 1</h4>
+								<svg class="icon icon-primary">
+									<title>Codice</title>
+									<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+								</svg>
+							</span>
+							<p>Argomento 4</p>
+						</a>
+					</li>
+					<li>
+						<span class="divider" role="separator"></span>
+					</li>
+					<li>
+						<a class="list-item icon-right" href="scheda-faq.html">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">Titolo faq 2</h4>
+								<svg class="icon icon-primary">
+									<title>Codice</title>
+									<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+								</svg>
+							</span>
+							<p>Argomento 1</p>
+						</a>
+					</li>
+					<li><span class="divider"></span>
+					</li>
+					<li>
+						<a class="list-item icon-right" href="faq.html" aria-disabled="true">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">Titolo FAQ 3</h4>
+								<svg class="icon icon-primary">
+									<title>Codice</title>
+									<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+								</svg>
+							</span>
+							<p>Argomento 3</p>
+						</a>
+					</li>
+					<li>
+						<span class="divider"></span> 
+					</li>
+					<li>
+						<a class="list-item icon-right" href="scheda-faq.html">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">Titolo faq 1</h4>
+								<svg class="icon icon-primary">
+									<title>Codice</title>
+									<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+								</svg>
+							</span>
+							<p>Argomento 2</p>
+						</a>
+					</li>
+					<li>
+						<span class="divider" role="separator"></span>
+					</li>
+					<li>
+						<a class="list-item icon-right" href="scheda-faq.html">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">Titolo faq 1</h4>
+								<svg class="icon icon-primary">
+									<title>Codice</title>
+									<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+								</svg>
+							</span>
+							<p>Argomento 1</p>
+						</a>
+					</li>
+					<li>
+						<span class="divider" role="separator"></span>
+					</li>
+					<li>
+						<a class="list-item icon-right" href="scheda-faq.html">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">Titolo faq 1</h4>
+								<svg class="icon icon-primary">
+									<title>Codice</title>
+									<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+								</svg>
+							</span>
+							<p>Argomento 4</p>
+						</a>
+					</li>
+					<li>
+						<span class="divider" role="separator"></span>
+					</li>
+				</ul>
+			</div>     
+		</div>
 	</div>
-</div>
+</section>
+
+<!-- CALL TO ACTION CONTATTO SERVIZIO HELPDESK -->
+<section class="section pt-5 pb-5">
+	<div class="container p-4">
+		<div class="row">
+			<div class="col-12">
+				<article class="it-card it-card-banner rounded shadow-sm border">
+						<!--card first child is the title (link)-->
+						<h3 class="it-card-title ">
+							Non hai trovato le risposte che cercavi?
+						</h3>
+						<!--card second child is the icon (optional)-->
+						<div class="it-card-banner-icon-wrapper">
+							<svg class="icon icon-secondary icon-xl" aria-hidden="true"><use href="/bootstrap-italia/svg/sprites.svg#it-help-circle"></use></svg>
+						</div>
+						<!--card body content-->
+						<div class="it-card-body">
+							<p class="it-card-subtitle">Contatta l'help desk per assistenza tecnica.</p>
+						</div>
+						<div class="it-card-footer" aria-label="Link correlati:">
+							<a class="btn btn-sm btn-primary ms-3" href="helpdesk.html">Richiedi supporto
+											<svg class="icon icon-white ms-2">
+												<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
+											</svg>
+										</a>
+						</div>
+				</article>
+			</div>
+		</div>
+	</div>
+</section>
+
 
 <?php
 get_footer();
