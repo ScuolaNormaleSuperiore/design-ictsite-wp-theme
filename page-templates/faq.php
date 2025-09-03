@@ -14,7 +14,7 @@ $all_topics = get_terms(
 		'hide_empty' => true,
 	)
 );
-
+// Get the FAQs.
 $faq_autocomplete = DIS_OptionsManager::dis_get_option( 'faq_autocomplete_enabled', 'dis_opt_hp_layout' );
 $items            = DIS_ContentsManager::get_top_faqs( 6 );
 $help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
@@ -83,22 +83,26 @@ $help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 		<!-- TOPICS -->
 		<div class="row h-100" role="region" aria-label="Lista argomenti FAQ">
 			<?php
-			foreach ( $all_topics as $topic) {
-				$topic_url = '#';
+			if (count($all_topics) > 0 ){
+				foreach ( $all_topics as $topic) {
+					$topic_url = '#';
 			?>
-			<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
-				<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
-					<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5">
-						<a class="CardGeneric_decoration-1__MhYyy flex-grow-1"
-							data-focus-mouse="false"
-							href="<?php echo esc_url( $topic_url ); ?>">
-							<?php echo esc_attr( $topic->name ); ?>
-						</a>
-					</h4>
-					<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
-				</article>
-			</div>
+				<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
+					<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
+						<h4 class="it-card-title fw-semibold pb-3 lh-sm h3 d-flex justify-content-between px-0 h5">
+							<a class="CardGeneric_decoration-1__MhYyy flex-grow-1"
+								data-focus-mouse="false"
+								href="<?php echo esc_url( $topic_url ); ?>">
+								<?php echo esc_attr( $topic->name ); ?>
+							</a>
+						</h4>
+						<div class="it-card-body d-flex flex-column pt-0 pb-0 px-0"></div>
+					</article>
+				</div>
 			<?php
+				} 
+			} else {
+				echo '<em>' . esc_attr( __( 'No results found', 'design_ict_site' ) ) . '</em>';
 			}
 			?>
 		</div>
@@ -113,35 +117,39 @@ $help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 				<?php echo esc_attr( __( 'Most searched frequently asked questions', 'design_ict_site' ) ); ?>
 			</h3>
 			<div class="link-list-wrapper multiline">
-				<ul class="link-list">
-					<?php
-						foreach( $items as $item ) {
-							$topics        = wp_get_post_terms( $item->ID, DIS_FAQ_TOPIC_TAXONOMY );
-							$topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, true );
-					?>
-					<li>
-						<a class="list-item icon-right" href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>">
-							<span class="list-item-title-icon-wrapper">
-								<h4 class="list-item-title">
-									<?php echo esc_attr( $item->post_title ); ?>
-								</h4>
-								<svg class="icon icon-primary">
-									<title>Codice</title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
-								</svg>
-							</span>
-							<p>
-								<?php echo wp_kses_post( $topics_string ); ?>
-							</p>
-						</a>
-					</li>
-					<li>
-						<span class="divider" role="separator"></span>
-					</li>
-					<?php
-					}
-					?>
-				</ul>
+				<?php if (count( $items ) > 0 ): ?>
+					<ul class="link-list">
+						<?php
+							foreach( $items as $item ) {
+								$topics        = wp_get_post_terms( $item->ID, DIS_FAQ_TOPIC_TAXONOMY );
+								$topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, true );
+						?>
+						<li>
+							<a class="list-item icon-right" href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>">
+								<span class="list-item-title-icon-wrapper">
+									<h4 class="list-item-title">
+										<?php echo esc_attr( $item->post_title ); ?>
+									</h4>
+									<svg class="icon icon-primary">
+										<title>Codice</title>
+										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
+									</svg>
+								</span>
+								<p>
+									<?php echo wp_kses_post( $topics_string ); ?>
+								</p>
+							</a>
+						</li>
+						<li>
+							<span class="divider" role="separator"></span>
+						</li>
+						<?php
+						}
+						?>
+					</ul>
+				<?php else: ?>
+						<em><?php echo esc_attr( __( 'No results found', 'design_ict_site' ) ); ?></em>
+				<?php endif ?>
 			</div>
 		</div>
 	</div>
