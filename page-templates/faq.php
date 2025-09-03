@@ -34,33 +34,14 @@ $help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 
 <!-- FAQ SEARCH -->
 <?php if ( $faq_autocomplete === 'true' ): ?>
-	<section class="section pt-5 pb-5" >
+	<section class="section pt-0 pb-10" >
 		<div class="container p-4">
 			<div class="row">
 				<div class="col-12 col-md-7">
 					<h3 class="mb-3">
 						<?php echo esc_attr( __( 'Search the FAQs', 'design_ict_site' ) ); ?>
 					</h3>
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-text">
-								<svg class="icon icon-sm" aria-hidden="true">
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
-								</svg>
-							</span>
-							<label for="input-group-1">
-								<?php echo esc_attr( __( 'Search the FAQs', 'design_ict_site' ) ); ?>
-							</label>
-							<input type="text" class="form-control" id="input-group-1" name="input-group-1">
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="button" id="button-1">
-									<a href="faq-risultati-ricerca.html" class="text-white">
-										<?php echo esc_attr( __( 'Search', 'design_ict_site' ) ); ?>
-									</a>
-								</button>
-							</div>
-						</div>
-					</div>
+					<div id="faq_search_autocomplete"></div>
 				</div> <!-- col -->
 			</div> <!-- row -->
 		</div> <!-- container -->

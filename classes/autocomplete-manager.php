@@ -70,18 +70,29 @@ class DIS_AutocompleteManager {
 	}
 
 	/**
-	 * AJAX endpoint for Home Page autocomplete.
+	 * AJAX endpoint for all theme autocomplete components.
+	 * It choose the right handle according to the selector.
 	 *
 	 * @return object
 	 */
 	public function theme_autocomplete_callback() {
 		error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
-		// check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
+		$selector = isset( $_POST['selector'] ) ? sanitize_text_field( wp_unslash( $_POST['selector'] ) ) : '';
+		if ( $selector === 'home_search_autocomplete' ) {
+			$this->home_search_autocomplete_callback();
+		} elseif ( $selector === 'faq_search_autocomplete' ) {
+			$this->faq_search_autocomplete_callback();
+		} else {
+			return;
+		}
+	}
 
+	public function home_search_autocomplete_callback() {
+		error_log( '*** ECCOMI IN home_search_autocomplete_callback ***' );
+		// check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-
-		// error_log( '*** TEXT:' . $q . ' ***' );
+		error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
@@ -111,7 +122,45 @@ class DIS_AutocompleteManager {
 			wp_reset_postdata();
 		}
 		// Restituisce un array di oggetti { text: "...", link: "..." }.
-		// error_log( '*** SENDING ' . json_encode( $results ) );
+		error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
+
+	public function faq_search_autocomplete_callback() {
+		error_log( '*** ECCOMI IN faq_search_autocomplete_callback ***' );
+		// check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
+		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
+		$results = array();
+		error_log( '*** TEXT:' . $q . ' ***' );
+
+		if ( strlen( $q ) >= 1 ) {
+			// Retrieve the posts.
+			$the_query  = new WP_Query(
+				array(
+					's'              => $q,
+					'post_type'      => DIS_FAQ_POST_TYPE,
+					'posts_per_page' => 8,
+					'post_status'    => 'publish',
+				)
+			);
+
+			if ( $the_query->have_posts() ) {
+				foreach ( $the_query->posts as $p ) {
+					$type = dis_ct_data()[ $p->post_type ]['singular_name'];
+					$results[] = array(
+						'name' => get_the_title( $p ),
+						'text' => '',
+						'icon' => '',
+						'type' => $type,
+						'link' => get_permalink( $p ),
+					);
+				}
+			}
+			wp_reset_postdata();
+		}
+		// Restituisce un array di oggetti { text: "...", link: "..." }.
+		error_log( '*** SENDING ' . json_encode( $results ) );
+		wp_send_json( $results );
+	}
+
 }

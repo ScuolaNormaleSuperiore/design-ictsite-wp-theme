@@ -12,7 +12,18 @@ html {
 
 /* CUSTOM ALGOLIA AUTOCOMPLETE */
 #home_search_autocomplete .aa-Label svg{
-	color: #3674B3 !important;
+	color: #3674B3;
+}
+#faq_search_autocomplete .aa-Label svg{
+	color: #3674B3;
+}
+
+#home_search_autocomplete input[type=search]{
+	border-bottom: 0px;
+}
+
+#faq_search_autocomplete input[type=search]{
+	border-bottom: 0px;
 }
 
 /* CUSTOM PAGINATION */
