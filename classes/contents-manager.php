@@ -547,6 +547,7 @@ class DIS_ContentsManager {
 		$args    = array(
 			'post_type'      => DIS_FAQ_POST_TYPE,
 			'posts_per_page' => -1,
+			'post_status'    => 'publish',
 			'meta_query'     => array(
 				array(
 					'key'     => 'service',
@@ -564,11 +565,29 @@ class DIS_ContentsManager {
 		return $results;
 	}
 
+	public static function get_top_faqs( $max_items ) {
+		$results = array();
+		$args = array(
+			'post_type'      => DIS_FAQ_POST_TYPE,
+			'posts_per_page' => $max_items,
+			'meta_key'       => 'visit_counter',
+			'orderby'        => 'meta_value_num',
+			'order'          => 'DESC',
+			'post_status'    => 'publish',
+		);
+		$query = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
+
 	public static function get_person_offices( $post ) {
 		$results = array();
 		$args    = array(
 			'post_type'      => DIS_OFFICE_POST_TYPE,
 			'posts_per_page' => -1,
+			'post_status'    => 'publish',
 			'meta_query'     => array(
 				array(
 					'key'     => 'members',
@@ -591,6 +610,7 @@ class DIS_ContentsManager {
 		$args    = array(
 			'post_type'      => DIS_OFFICE_POST_TYPE,
 			'posts_per_page' => -1,
+			'post_status'    => 'publish',
 			'meta_query'     => array(
 				array(
 					'key'     => 'places',
@@ -620,8 +640,9 @@ class DIS_ContentsManager {
 					'compare' => 'LIKE',
 				)
 			),
-			'orderby' => 'title',
-			'order'   => 'ASC',
+			'orderby'        => 'title',
+			'order'          => 'ASC',
+			'post_status'    => 'publish',
 		);
 		$query = new WP_Query( $args );
 		if ( $query->have_posts() ) {

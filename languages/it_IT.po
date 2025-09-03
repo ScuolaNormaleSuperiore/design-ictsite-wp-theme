@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-09-02 13:19+0000\n"
+"PO-Revision-Date: 2025-09-03 12:15+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -147,7 +147,7 @@ msgid "Autocomplete sections"
 msgstr "Sezioni di completamento automatico"
 
 #: page-templates/documentation.php:155 page-templates/documentation.php:161
-#: page-templates/faq.php:182 page-templates/faq.php:188
+#: page-templates/faq-old.php:182 page-templates/faq-old.php:188
 msgid "Back to the full list"
 msgstr "Torna all'elenco completo"
 
@@ -171,7 +171,7 @@ msgstr "Brevo"
 msgid "Browse by profile"
 msgstr "Naviga per profilo"
 
-#: page-templates/faq.php:202
+#: page-templates/faq-old.php:202
 msgid "Browse by topic"
 msgstr "Naviga per argomento"
 
@@ -218,6 +218,10 @@ msgstr "Configura le sezioni del sito."
 msgid "Contact email address"
 msgstr "Indirizzo e-mail di contatto"
 
+#: page-templates/faq.php:169
+msgid "Contact the help desk for technical assistance."
+msgstr "Contatta l'help desk per assistenza tecnica."
+
 #. Name of the template
 #: page-templates/contacts.php:2
 msgid "Contacts"
@@ -251,7 +255,11 @@ msgstr "Design ICT Site"
 msgid "Designed for"
 msgstr "Realizzato per"
 
-#: page-templates/faq.php:165 page-templates/search.php:178
+#: page-templates/faq.php:158
+msgid "Didn't find the answers you were looking for?"
+msgstr "Non hai trovato le risposte che cercavi?"
+
+#: page-templates/faq-old.php:165 page-templates/search.php:178
 msgid "Digit the text to search"
 msgstr "Scrivi il testo da cercare"
 
@@ -903,6 +911,10 @@ msgstr "Inserisci il tuo indirizzo email per ricevere gli aggiornamenti"
 msgid "Events"
 msgstr "Eventi"
 
+#: page-templates/faq.php:76
+msgid "Explore by topic"
+msgstr "Esplora per argomento"
+
 #: classes/export-manager.php:44 classes/export-manager.php:45
 msgid "Export data"
 msgstr "Esporta i dati"
@@ -928,7 +940,7 @@ msgid "FAQ"
 msgstr "FAQ"
 
 #. Name of the template
-#: page-templates/faq.php:2
+#: page-templates/faq-old.php:2 page-templates/faq.php:2
 msgid "Faq"
 msgstr "Faq"
 
@@ -985,7 +997,7 @@ msgstr "Area Progetti e Servizi ICT"
 msgid "For support contact the %s"
 msgstr "Per supporto contatta l'%s"
 
-#: page-templates/documentation.php:42 page-templates/faq.php:49
+#: page-templates/documentation.php:42 page-templates/faq-old.php:49
 #: page-templates/search.php:67
 #, php-format
 msgid "Found %s results."
@@ -1248,6 +1260,10 @@ msgstr "Massimo 300 caratteri"
 msgid "Message"
 msgstr "Avviso"
 
+#: page-templates/faq.php:113
+msgid "Most searched frequently asked questions"
+msgstr "Domande frequenti più cercate"
+
 #: classes/options-manager.php:904
 msgid "Multilanguage"
 msgstr "Multilingua"
@@ -1426,6 +1442,10 @@ msgstr "Rimuovi la sezione"
 msgid "Repository"
 msgstr "Repository"
 
+#: page-templates/faq.php:172 page-templates/faq.php:174
+msgid "Request support"
+msgstr "Richiedi supporto"
+
 #: single-dis-service.php:72
 msgid "Requirements"
 msgstr "Prerequisiti"
@@ -1443,8 +1463,8 @@ msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
 #. Name of the template
-#: classes/autocomplete-manager.php:65 page-templates/documentation.php:142
-#: page-templates/faq.php:169 page-templates/search.php:2
+#: page-templates/documentation.php:142 page-templates/faq-old.php:169
+#: page-templates/faq.php:58 page-templates/search.php:2
 #: page-templates/search.php:182 page-templates/search.php:253
 #: template-parts/header/site_search.php:18
 msgid "Search"
@@ -1470,14 +1490,19 @@ msgstr "Risultati della ricerca"
 msgid "Search the documentation"
 msgstr "Cerca nella documentazione"
 
-#: page-templates/faq.php:158
+#: page-templates/faq-old.php:158
 msgid "Search the FAQ"
 msgstr "Cerca nelle FAQ"
+
+#: page-templates/faq.php:42 page-templates/faq.php:52
+msgid "Search the FAQs"
+msgstr "Cerca tra le FAQ"
 
 #: page-templates/search.php:171
 msgid "Search the site"
 msgstr "Cerca nel sito"
 
+#: classes/autocomplete-manager.php:65
 #: template-parts/home/hp-main-hero-section.php:68
 msgid "Search..."
 msgstr "Cerca..."
@@ -1644,6 +1669,14 @@ msgstr "Il contatto mostrato nel piè di pagina."
 #: classes/options-manager.php:593
 msgid "The e-mail of the site."
 msgstr "L'e-mail del sito."
+
+#: page-templates/faq.php:79
+msgid ""
+"The FAQs are organized by topic. Click on the topic of interest to view the "
+"questions and answers."
+msgstr ""
+"Le FAQ sono organizzate per argomento. Clicca sull'argomento di interesse "
+"per visualizzare le domande e le risposte."
 
 #: classes/options-manager.php:473
 msgid "The hero section of the Home Page."
