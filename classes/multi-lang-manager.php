@@ -48,7 +48,13 @@ class DIS_MultiLangManager {
 	 * @return string
 	 */
 	public static function get_home_url() {
-		return pll_home_url();
+		// return pll_home_url();
+		$curr = self::get_current_language();
+		$def  = self::get_default_language();
+		if ( $curr === $def ){
+			return get_site_url();
+		}
+		return get_site_url() . '/' . $curr;
 	}
 
 	/**
