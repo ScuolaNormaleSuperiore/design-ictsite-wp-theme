@@ -40,7 +40,7 @@ class Faq_Manager {
 			'show_ui'           => true,
 			'show_admin_column' => true,
 			'query_var'         => true,
-			'rewrite'           => array( 'slug' => DIS_FAQ_TOPIC_TAXONOMY ),
+			'rewrite'           => array( 'slug' => DIS_FAQ_TOPIC_TAXONOMY, 'with-front' => false ),
 			'show_in_rest'      => true,
 		);
 		register_taxonomy( DIS_FAQ_TOPIC_TAXONOMY, array( DIS_FAQ_POST_TYPE ), $taxonomy_args );
@@ -73,7 +73,11 @@ class Faq_Manager {
 			'menu_icon'     => 'dashicons-code-standards',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
+			'taxonomies'    => array(
+				DIS_DEFAULT_CATEGORY,
+				DIS_DEFAULT_TAGS,
+				DIS_FAQ_TOPIC_TAXONOMY,
+			),
 		);
 
 		register_post_type( DIS_FAQ_POST_TYPE, $args );
