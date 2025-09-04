@@ -694,10 +694,9 @@ class DIS_ContentsManager {
 				return implode( ', ', wp_list_pluck( $terms, 'post_title' ) ) ;
 			}
 			// Return the list with the links.
-			$links    = array();
-			$faq_page = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
+			$links = array();
 			foreach ( $terms as $item ) {
-				$full_link = $faq_page . '#' . $item->slug;
+				$full_link = get_site_url() . '/' . DIS_FAQ_TOPIC_TAXONOMY . '/' . $item->slug;
 				$links[] = sprintf(
 					'<a href="%1$s">%2$s</a>',
 					esc_url( $full_link ),

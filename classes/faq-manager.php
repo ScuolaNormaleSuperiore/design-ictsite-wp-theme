@@ -16,10 +16,10 @@ class Faq_Manager {
 	 * @return void
 	 */
 	public function setup() {
-		// Register the taxonomies used by this post type.
-		add_action( 'init', array( $this, 'add_taxonomies' ) );
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
+		// Register the taxonomies used by this post type.
+		add_action( 'init', array( $this, 'add_taxonomies' ) );
 	}
 
 	/**

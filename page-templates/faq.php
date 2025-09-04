@@ -66,7 +66,7 @@ $help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 			<?php
 			if (count($all_topics) > 0 ){
 				foreach ( $all_topics as $topic) {
-					$topic_url = '#';
+					$topic_url = get_site_url() . '/' . DIS_FAQ_TOPIC_TAXONOMY . '/' . $topic->slug;
 			?>
 				<div class="col-12 col-md-6 pt-4 d-flex flex-column justify-content-stretch">
 					<article class="it-card--generic it-card pb-0 flex-grow-1 bg-transparent border-bottom border-neutral-1-bg-a3">
