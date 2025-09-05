@@ -50,15 +50,15 @@ if ( $section_enabled ) {
 						</h2>
 
 						<!-- HERO SEARCH FORM -->
-						<?php if ( $hp_autocomplete == 'true' ) : ?>
-							<div id="home_search_autocomplete"></div>
-						<?php else : ?>
-							<div class="form-group mb-0">
-								<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
-									<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
-									<label class="visually-hidden" for="search_string">
-										<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
-									</label>
+						<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+							<?php if ( $hp_autocomplete == 'true' ) : ?>
+								<div id="home_search_autocomplete"></div>
+							<?php else : ?>
+								<div class="form-group mb-0">
+										<label class="visually-hidden" for="search_string">
+											<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>
+										</label>
 										<input
 											type="search" 
 											class="form-control autocomplete"
@@ -67,14 +67,14 @@ if ( $section_enabled ) {
 											data-bs-autocomplete='[]'
 											placeholder="<?php echo esc_attr( __( 'Search...', 'design_ict_site' ) ); ?>"
 										>
-									<span class="autocomplete-icon" aria-hidden="true">
-										<svg class="icon icon-sm">
-											<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
-										</svg>
-									</span>
-								</FORM>
-							</div>
-						<?php endif ?>
+										<span class="autocomplete-icon" aria-hidden="true">
+											<svg class="icon icon-sm">
+												<use href="<?php echo esc_attr( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
+											</svg>
+										</span>
+								</div>
+							<?php endif ?>
+						</FORM>
 
 						<!-- HERO TEXT -->
 						<p class="d-none d-lg-block">

@@ -61,7 +61,7 @@ class DIS_AutocompleteManager {
 				'disHpAutocompleteAjax',
 				array(
 					'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
-					'nonce'       => wp_create_nonce( 'sf_site_search_nonce' ),
+					'nonce'       => wp_create_nonce( 'sf_site_autocomplete_nonce' ),
 					'searchLabel' => __( 'Search...', 'design_ict_site' ),
 				)
 			);
@@ -89,7 +89,7 @@ class DIS_AutocompleteManager {
 
 	public function home_search_autocomplete_callback() {
 		error_log( '*** ECCOMI IN home_search_autocomplete_callback ***' );
-		// check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
+		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
 		error_log( '*** TEXT:' . $q . ' ***' );
@@ -128,7 +128,7 @@ class DIS_AutocompleteManager {
 
 	public function faq_search_autocomplete_callback() {
 		error_log( '*** ECCOMI IN faq_search_autocomplete_callback ***' );
-		// check_ajax_referer( 'sf_site_search_nonce', 'nonce' );
+		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
 		error_log( '*** TEXT:' . $q . ' ***' );

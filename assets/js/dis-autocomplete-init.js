@@ -79,6 +79,24 @@ document.addEventListener('DOMContentLoaded', function() {
 						}
 					}
 				];
+			},
+			onSubmit({ state }) {
+				const query = state.query.trim();
+				if (query) {
+					const form = document.getElementById('hero_search_form');
+					if (form) {
+						// opzionale: assicurati che ci sia un input con name="q"
+						let input = form.querySelector('input[name="search_string"]');
+						if (!input) {
+							input = document.createElement('input');
+							input.type = 'hidden';
+							input.name = 'search_string';
+							form.appendChild(input);
+						}
+						input.value = query;
+						form.submit();
+					}
+				}
 			}
 		});
 	}
