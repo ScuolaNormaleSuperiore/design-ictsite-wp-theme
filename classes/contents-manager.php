@@ -145,6 +145,15 @@ class DIS_ContentsManager {
 		return $menu_tree;
 	}
 
+	public static function add_mark_to_text( $text, $search_string ) {
+		if ( empty( $search_string ) ) {
+			return $text;
+		}
+		$pattern     = '/' . preg_quote( $search_string, '/' ) . '/i';
+		$replacement = '<mark>$0</mark>';
+		return preg_replace( $pattern, $replacement, $text );
+	}
+
 
 	/**
 	 * Get all the service with the field how_to_title filled.

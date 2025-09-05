@@ -64,76 +64,125 @@ if (
 	);
 	$num_results = $the_query->found_posts;
 }
-$result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
-?>
+$result_message = sprintf( __( 'Found %s results for %s.', 'design_ict_site' ), $num_results, $search_string);
+?>s
 
-<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
-	<div class="row">
 
-		<!-- RESULTS -->
-		<div class="col">
+<!-- SEARCH BOX -->
+<section class="section pt-5 pb-5">
+	<FORM action="." id="search_site_form" method="GET">
+		<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+		<div class="container p-4">
+			<div class="row">
+				<div class="col-12 col-md-7">
+					<h2 class="mb-3">
+						<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
+					</h2>
+					<div class="form-group">
+						<div class="input-group">
+							<span class="input-group-text">
+								<svg class="icon icon-sm" aria-hidden="true">
+									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
+								</svg>
+							</span>
+							<label for="search_string">
+								<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
+							</label>
+							<input type="text"
+								id="search_string"
+								name="search_string"
+								class="form-control"
+								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
+								placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
+							>
+							<div class="input-group-append">
+								<button class="btn btn-primary" type="submit" id="submit_form">
+									<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
+								</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</FORM>
+</section>
 
-			<h2 class="pb-2">
-				<?php echo __( 'Search results', 'design_ict_site' ); ?>
-			</h2>
 
-			<!-- SEARCH RESULTS NUMBER -->
-			<p>
-				<small><?php echo esc_attr( $result_message ); ?></small>
+<!-- ELENCO RISULTATI -->
+<section class="section section-muted pt-5 pb-5">
+	<div class="container p-4 pb-0">
+		<div class="col-12">
+
+			<!-- Dynamic filters -->
+			<?php
+			if ( ( $num_results > 0 ) ) {
+			?>
+			<fieldset>
+				<legend class="px-0"><?php echo esc_html( __( 'Filter by', 'design_ict_site' ) ); ?>:</legend>
+				<form class="px-0" style="margin-left: -4px;">
+					<div class="form-check form-check-inline"><input class="" id="faq" type="checkbox"><label for="faq"
+							class="form-check-label">Tipo di contenuto 1</label></div>
+					<div class="form-check form-check-inline"><input class="" id="resource" type="checkbox"><label
+							for="resource" class="form-check-label">Tipo di contenuto 2</label></div>
+				</form>
+			</fieldset>
+			<?php
+			}
+			?>
+
+			<?php if ( $search_string ) : ?>
+			<p class="fw-bold mt-5 mb-3" role="status" aria-live="polite">
+				<?php echo esc_attr( $result_message ); ?>
 			</p>
+			<?php endif ?>
 
 			<!-- SEARCH RESULTS LIST -->
 			<?php
 			if ( ( $num_results > 0 ) ) {
 			?>
-			<ul class="it-card-list row"
-				aria-label="<?php echo __( 'Search results', 'design_ict_site' ); ?>">
-				<?php
-				// The main loop of the page.
-				$post_index = 0;
-				while ( $the_query->have_posts() ) {
-					$the_query->the_post();
-					$wrapper = DIS_ContentsManager::wrap_search_result( $post );
-				?>
-				<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
-					<!--start it-card-->
-					<article class="it-card it-card-height-full rounded shadow-sm border">
-						<!--card first child is the title (link)-->
-						<h3 class="it-card-title ">
-							<a href="<?php echo esc_url( $wrapper->link ); ?>">
-								<?php echo esc_attr( $wrapper->title ); ?>
-							</a>
-						</h3>
-						<!--card body content-->
-						<div class="it-card-body">
-							<p class="it-card-text">
-								<?php echo esc_attr( wp_trim_words( $wrapper->description, DIS_ACF_SHORT_DESC_LENGTH ) ); ?>
+			<div class="link-list-wrapper multiline">
+				<ul class="link-list">
+					<?php
+					// The main loop of the page.
+					$post_index = 0;
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						$wrapper       = DIS_ContentsManager::wrap_search_result( $post );
+						$wrapper_title = esc_attr( $wrapper->title );
+						$marked_title  = DIS_ContentsManager::add_mark_to_text( $wrapper_title, $search_string );
+						$wrapper_text  = wp_trim_words( $wrapper->description, DIS_ACF_SHORT_DESC_LENGTH );
+						$marked_text   = DIS_ContentsManager::add_mark_to_text( $wrapper_text, $search_string );
+					?>
+					<li>
+						<a class="list-item icon-right" href="<?php echo esc_url( $wrapper->link ); ?>">
+							<span class="list-item-title-icon-wrapper">
+								<h4 class="list-item-title">
+									<?php echo wp_kses_post( $marked_title ); ?>
+								</h4>
+								<svg class="icon icon-primary">
+									<title><?php echo esc_html( __( 'Code', 'design_ict_site' ) ); ?></title>
+									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right' ); ?>"></use>
+								</svg>
+							</span>
+							<p class="text-muted">
+								<?php echo wp_kses_post( $marked_text ); ?>
 							</p>
-						</div>
-						<!--finally the card footer metadata-->
-						<footer class="it-card-related it-card-footer">
-							<div class="it-card-taxonomy">
-								<a href="<?php echo esc_url( $wrapper->type_link ); ?>"
-									class="it-card-category it-card-link link-secondary">
-									<span class="visually-hidden">
-										<?php echo __( 'Related category', 'design_ict_site' ); ?>
-									</span>
-									<?php echo esc_attr( $wrapper->type ); ?>
-								</a>
-							</div>
-						</footer>
-					</article>
-					<!--end it-card-->
-				</li>
-				<?php
-					$post_index++;
-				}
-				wp_reset_postdata();
-				?>
-			</ul>
-			<?php
-			}
-			?>
+							<p>
+								<?php echo esc_attr( $wrapper->type ); ?>
+							</p>
+						</a>
+					</li>
+						<li>
+							<span class="divider" role="separator"></span>
+						</li>
+					<?php
+						$post_index++;
+					}
+					wp_reset_postdata();
+					?>
+				</ul>
+			</div> <!-- result list -->
 
 			<!-- Results PAGINATION-->
 			<?php
@@ -150,118 +199,17 @@ $result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_re
 				);
 			?>
 
+			<?php
+			}
+			?>
+
 		</div>
-
-
-		<!-- SEARCH SIDEBAR -->
-		<div class="col-12 col-lg-4 col-md-5">
-			<div class="sidebar-wrapper it-line-left-side">
-				<FORM action="." id="search_site_form" method="GET">
-					<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
-
-					<!-- Filter by TEXT -->
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-text">
-								<svg class="icon icon-sm" aria-hidden="true">
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search'; ?>"></use>
-								</svg>
-							</span>
-							<label for="search_string">
-								<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
-							</label>
-							<input type="text"
-								id="search_string"
-								name="search_string"
-								class="form-control"
-								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
-								placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
-							>
-							<div class="input-group-append">
-								<button type="submit" value="submit" class="btn btn-primary">
-									<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
-								</button>
-							</div>
-						</div>
-					</div>
-
-					<!-- Filter by CLUSTER -->
-					<div class="p-4 pt-lg-0">
-						<h3 class="p-0">
-							<?php echo __( 'Service clusters', 'design_ict_site' ); ?>
-						</h3>
-						<fieldset>
-							<legend class="visually-hidden">
-								<?php echo __( 'Filters for selecting search results', 'design_ict_site' ); ?>
-							</legend>
-							<?php
-							foreach( $all_clusters as $cl ) {
-							?>
-							<div class="form-check">
-								<input type="checkbox" name="selected_clusters[]" id="<?php echo esc_attr( $cl->post_name ); ?>" 
-									value="<?php echo esc_attr( $cl->post_name ); ?>"
-									<?php
-										if ( count( $selected_clusters ) > 0 && in_array( $cl->post_name, $selected_clusters ) ) {
-											echo "checked='checked'";
-										}
-									?>
-								>
-								<label for="<?php echo esc_attr( $cl->post_name ) ; ?>">
-									<?php echo esc_attr( $cl->post_title ); ?>
-								</label>
-							</div>
-							<?php
-							}
-							?>
-						</fieldset>
-					</div>
-
-					<!-- Filter by POST TYPE -->
-					<div class="p-4 pt-lg-0">
-						<h3 class="p-0">
-							<?php echo __( 'Content types', 'design_ict_site' ); ?>
-						</h3>
-						<fieldset>
-							<legend class="visually-hidden">
-								<?php echo __( 'Filters for selecting search results', 'design_ict_site' ); ?>
-							</legend>
-							<?php
-							foreach( $all_content_types as $ct ) {
-							?>
-							<div class="form-check">
-								<input type="checkbox" name="selected_contents[]" id="<?php echo esc_attr( $ct['slug'] ); ?>" 
-									value="<?php echo esc_attr( $ct['slug'] ); ?>"
-									<?php
-										if ( count( $selected_contents ) > 0 && in_array( $ct['slug'], $selected_contents ) ) {
-										echo "checked='checked'";
-									} ?>
-								>
-								<label for="<?php echo esc_attr( $ct['slug'] ) ; ?>">
-									<?php echo esc_attr( $ct['name'] ); ?>
-								</label>
-							</div>
-							<?php
-							}
-							?>
-						</fieldset>
-					</div>
-
-					<!-- Submit the form -->
-					<div class="p-4 pt-lg-0">
-						<!-- <button type="button" class="btn btn-primary">Applica filtri</button>-->
-						<button type="submit" value="submit" class="btn btn-primary">
-							<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
-						</button>
-					</div>
-
-				</FORM>
-			</div>
-		</div>
-		<!-- END SEARCH SIDEBAR -->
-
 	</div>
-</div>
+	</div>
+</section>
 
+<!-- CALL TO ACTION CONTACT HELPDESK -->
+<?php get_template_part( 'template-parts/common/help-desk-call-to-action' ); ?>
 
 <?php
 get_footer();
