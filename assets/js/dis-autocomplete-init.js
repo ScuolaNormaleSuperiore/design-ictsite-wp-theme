@@ -13,9 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	const home_container = document.querySelector('#home_search_autocomplete');
 	if (home_container) {
 		// Receiving parameters from PHP.
-		const ajaxUrl     = disHpAutocompleteAjax.ajaxUrl;
-		const nonce       = disHpAutocompleteAjax.nonce;
-		const searchLabel = disHpAutocompleteAjax.searchLabel;
+		const ajaxUrl        = disHpAutocompleteAjax.ajaxUrl;
+		const nonce          = disHpAutocompleteAjax.nonce;
+		const searchLabel    = disHpAutocompleteAjax.searchLabel;
+		const noResultString = disHpAutocompleteAjax.noResultString;
 		const minChars = 3;
 
 		// Algolia Autocomplete.
@@ -71,6 +72,15 @@ document.addEventListener('DOMContentLoaded', function() {
 										</div>
 									</div>
 								</div>`;
+							},
+							noResults({ state, html }) {
+								return html`<div class="aa-ItemWrapper">
+									<div class="aa-ItemContent">
+										<div class="aa-ItemTitle" style="padding: 8px 12px; color: #888;">
+											${noResultString} "<strong>${state.query}</strong>"
+										</div>
+									</div>
+								</div>`;
 							}
 						},
 						// Manage the click on each element.
@@ -105,9 +115,10 @@ document.addEventListener('DOMContentLoaded', function() {
 	const faq_container = document.querySelector('#faq_search_autocomplete');
 	if (faq_container) {
 		// Receiving parameters from PHP.
-		const ajaxUrl     = disHpAutocompleteAjax.ajaxUrl;
-		const nonce       = disHpAutocompleteAjax.nonce;
-		const searchLabel = disHpAutocompleteAjax.searchLabel;
+		const ajaxUrl        = disHpAutocompleteAjax.ajaxUrl;
+		const nonce          = disHpAutocompleteAjax.nonce;
+		const searchLabel    = disHpAutocompleteAjax.searchLabel;
+		const noResultString = disHpAutocompleteAjax.noResultString;
 		const minChars = 3;
 
 		// Algolia Autocomplete.
@@ -160,6 +171,15 @@ document.addEventListener('DOMContentLoaded', function() {
 											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; padding: 8px 12px; display: block;">
 												${html([highlightedText])} ${html([objectType])}
 											</a>
+										</div>
+									</div>
+								</div>`;
+							},
+							noResults({ state, html }) {
+								return html`<div class="aa-ItemWrapper">
+									<div class="aa-ItemContent">
+										<div class="aa-ItemTitle" style="padding: 8px 12px; color: #888;">
+											${noResultString} "<strong>${state.query}</strong>"
 										</div>
 									</div>
 								</div>`;

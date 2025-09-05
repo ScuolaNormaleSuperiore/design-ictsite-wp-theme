@@ -60,9 +60,10 @@ class DIS_AutocompleteManager {
 				'dis-autocomplete-init',
 				'disHpAutocompleteAjax',
 				array(
-					'ajaxUrl'     => admin_url( 'admin-ajax.php' ),
-					'nonce'       => wp_create_nonce( 'sf_site_autocomplete_nonce' ),
-					'searchLabel' => __( 'Search...', 'design_ict_site' ),
+					'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
+					'nonce'          => wp_create_nonce( 'sf_site_autocomplete_nonce' ),
+					'searchLabel'    => __( 'Search...', 'design_ict_site' ),
+					'noResultString' => __( 'No results found for', 'design_ict_site' ),
 				)
 			);
 
@@ -100,7 +101,7 @@ class DIS_AutocompleteManager {
 			$type_slugs = array_column( $types, 'slug' );
 			$the_query  = new WP_Query(
 				array(
-					's'              => $q,
+					'post_title'     => $q,
 					'post_type'      => $type_slugs,
 					'posts_per_page' => 8,
 					'post_status'    => 'publish',
