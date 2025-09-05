@@ -147,9 +147,9 @@ $locations = get_nav_menu_locations();
 							<!--Social and site search section -->
 							<div class="it-right-zone">
 								<!-- social section-->
-								<?php get_template_part( 'template-parts/header/social_list' ); ?>
+								<?php get_template_part( 'template-parts/header/social-list' ); ?>
 								<!-- Site search section -->
-								<?php get_template_part( 'template-parts/header/site_search' ); ?>
+								<?php get_template_part( 'template-parts/header/site-search' ); ?>
 							</div>
 						</div>
 					</div>
