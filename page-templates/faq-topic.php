@@ -12,6 +12,8 @@ $all_topics = get_terms(
 	array(
 		'taxonomy'   => DIS_FAQ_TOPIC_TAXONOMY,
 		'hide_empty' => true,
+		'orderby'    => 'name',
+		'order'      => 'ASC',
 	)
 );
 
@@ -25,9 +27,9 @@ if ( isset( $_GET['topic'] ) ) {
 } else {
 	$topic_name = $def_topic_name;
 }
-$help_link        = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 
 if ( $topic_slug ) {
+	$faqs = DIS_ContentsManager::get_faq_by_topic( $topic_slug );
 ?>
 
 	<!-- FAQ PAGE -->
@@ -42,42 +44,54 @@ if ( $topic_slug ) {
 		</div> <!-- container -->
 	</section>
 
-
-	<!-- ELENCO DOMANDE PIù FREQUENTI CON MENU DI NAVIGAZIONE ARGOMENTI -->
+	<!-- FAQs by TOPIC -->
 	<section class="section pt-5 pb-5">
 		<div class="container pt-0 pb-0">
 			<div class="row">
 
-				<!-- navigazione per argomenti -->
+				<!-- TOPIC LIST -->
 				<div class="col-12 col-lg-4">
 					<nav class="navbar it-navscroll-wrapper navbar-expand-lg it-bottom-navscroll it-left-side" data-bs-navscroll>
 						<button class="custom-navbar-toggler" type="button" aria-controls="navbarNav"
-							aria-label="Apri/Chiudi indice" data-bs-toggle="navbarcollapsible" data-bs-target="#navbarNav"><span
-								class="it-list"></span>Argomenti FAQ
+							aria-label="Apri/Chiudi indice" data-bs-toggle="navbarcollapsible" data-bs-target="#navbarNav">
+							<span class="it-list"></span>
+							<?php esc_attr( __( 'FAQ by topic', 'design_ict_site' ) ); ?>
 						</button>
 						<div class="navbar-collapsable" id="navbarNav" tabindex="-1">
 							<div class="close-div visually-hidden">
 								<button class="btn close-menu" type="button">
-									<span class="it-close"></span>Chiudi
+									<span class="it-close"></span>
+									<?php esc_attr( __( 'Close', 'design_ict_site' ) ); ?>
 								</button>
 							</div>
 							<button type="button" class="it-back-button btn w-100 text-start">
 								<svg class="icon icon-sm icon-primary align-top">
-									<use href="/bootstrap-italia/svg/sprites.svg#it-chevron-left"
-										xlink:href="/bootstrap-italia/svg/sprites.svg#it-chevron-left"></use>
+									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-chevron-left' ); ?>"
+										xlink:href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-chevron-left' ); ?>"></use>
 								</svg>
-								<span>Indietro</span>
+								<span>
+									<?php esc_attr( __( 'Back', 'design_ict_site' ) ); ?>
+								</span>
 							</button>
 							<div class="menu-wrapper" tabindex="-1">
 								<div class="link-list-wrapper">
-									<h3>Naviga per Argomenti</h3>
+									<h3>	
+										<?php esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
+									</h3>
 									<ul class="link-list">
-										<li class="nav-item active">
-											<a class="nav-link active" href="faq-elenco-per-argomento.html"><span>Argomento 1</span></a>
-
-											<a class="nav-link" href="faq-elenco-per-argomento.html"><span>Argomento 2</span></a>
-
-										</li>
+										<?php
+										foreach ( $all_topics as $topic_item ) {
+											$active    = $topic_item->slug === $topic_slug ? 'active' : '';
+											$topic_url = DIS_ContentsManager::get_topic_url_by_slug( $topic_item->slug );
+										?>
+											<li class="nav-item">
+													<a class="nav-link <?php echo esc_attr( $active ); ?>" href="<?php echo esc_url( $topic_url ); ?>">
+														<span><?php echo esc_attr( $topic_item->name ); ?></span>
+													</a>
+											</li>
+										<?php
+										}
+										?>
 									</ul>
 								</div>
 							</div>
@@ -85,97 +99,47 @@ if ( $topic_slug ) {
 					</nav>
 				</div>
 
-					<!-- elenco faq argomento no paginazione -->
-					<div class="col-12 col-lg-8 it-page-sections-container">
-
+				<!-- FAQ LIST -->
+				<div class="col-12 col-lg-8 it-page-sections-container">
 					<div class="link-list-wrapper multiline">
 						<ul class="link-list">
-							<li>
-								<a class="list-item icon-right" href="scheda-faq.html">
-									<span class="list-item-title-icon-wrapper">
-										<h4 class="list-item-title">Titolo faq 1</h4>
-										<svg class="icon icon-primary">
-											<title>Codice</title>
-											<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
-										</svg>
-									</span>
-									<p>Argomento 1</p>
-								</a>
-							</li>
-							<li>
-								<span class="divider" role="separator"></span>
-							</li>
-							<li>
-								<a class="list-item icon-right" href="scheda-faq.html">
-									<span class="list-item-title-icon-wrapper">
-										<h4 class="list-item-title">Titolo faq 2</h4>
-										<svg class="icon icon-primary">
-											<title>Codice</title>
-											<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
-										</svg>
-									</span>
-									<p>Argomento 1</p>
-								</a>
-							</li>
-							<li><span class="divider"></span>
-							</li>
-							<li>
-								<a class="list-item icon-right" href="faq.html" aria-disabled="true">
-									<span class="list-item-title-icon-wrapper">
-										<h4 class="list-item-title">Titolo FAQ 3</h4>
-										<svg class="icon icon-primary">
-											<title>Codice</title>
-											<use href="/bootstrap-italia/svg/sprites.svg#it-arrow-right"></use>
-										</svg>
-									</span>
-									<p>Argomento 1</p>
-								</a>
-							</li>
-							<li>
-								<span class="divider"></span>
-							</li>
+							<?php
+								foreach( $faqs as $faq ) {
+									$topics        = wp_get_post_terms( $faq->ID, DIS_FAQ_TOPIC_TAXONOMY );
+									$topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, false );
+							?>
+								<li>
+									<a class="list-item icon-right" href="<?php echo esc_url( get_permalink( $faq->ID ) ); ?>">
+										<span class="list-item-title-icon-wrapper">
+											<h4 class="list-item-title">
+												<?php echo esc_attr( $faq->post_title ); ?>
+											</h4>
+											<svg class="icon icon-primary">
+												<title>
+													<?php echo esc_attr( __( 'Code', 'design_ict_site' ) ); ?>
+												</title>
+												<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right' ); ?>"></use>
+											</svg>
+										</span>
+										<p><?php echo wp_kses_post( $topics_string ); ?></p>
+									</a>
+								</li>
+								<li>
+									<span class="divider" role="separator"></span>
+								</li>
+							<?php
+								}
+							?>
 						</ul>
 					</div>
 				</div>
-			</div>
-		</div>
+
+			</div> <!-- row -->
+		</div> <!-- container -->
 	</section>
 
 	<!-- CALL TO ACTION CONTACT HELPDESK -->
-	<section class="section pt-5 pb-5">
-		<div class="container p-4">
-			<div class="row">
-				<div class="col-12">
-					<article class="it-card it-card-banner rounded shadow-sm border">
-							<!--card first child is the title (link)-->
-							<h3 class="it-card-title ">
-								<?php echo esc_attr( __( "Didn't find the answers you were looking for?", 'design_ict_site' ) ); ?>
-							</h3>
-							<!--card second child is the icon (optional)-->
-							<div class="it-card-banner-icon-wrapper">
-								<svg class="icon icon-secondary icon-xl" aria-hidden="true">
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-help-circle'; ?>"></use>
-								</svg>
-							</div>
-							<!--card body content-->
-							<div class="it-card-body">
-								<p class="it-card-subtitle">
-									<?php echo esc_attr( __( 'Contact the help desk for technical assistance.', 'design_ict_site' ) ); ?>
-								</p>
-							</div>
-							<div class="it-card-footer" aria-label="<?php echo esc_attr( __( 'Request support', 'design_ict_site' ) ); ?>">
-								<a class="btn btn-sm btn-primary ms-3" href="<?php echo esc_url( $help_link ); ?>">
-									<?php echo esc_attr( __( 'Request support', 'design_ict_site' ) ); ?>
-									<svg class="icon icon-white ms-2">
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right'; ?>"></use>
-									</svg>
-								</a>
-							</div>
-					</article>
-				</div>
-			</div>
-		</div>
-	</section>
+	<?php get_template_part( 'template-parts/common/help-desk-call-to-action' ); ?>
 
 
 <?php

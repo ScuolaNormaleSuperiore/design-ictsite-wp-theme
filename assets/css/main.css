@@ -26,6 +26,10 @@ html {
 	border-bottom: 0px;
 }
 
+.faq-topic-wrapper ul li a {
+	padding: 0px !important;
+}
+
 /* CUSTOM PAGINATION */
 
 #pagination_links {

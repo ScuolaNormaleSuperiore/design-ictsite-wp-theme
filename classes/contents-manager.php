@@ -567,7 +567,7 @@ class DIS_ContentsManager {
 
 	public static function get_top_faqs( $max_items ) {
 		$results = array();
-		$args = array(
+		$args    = array(
 			'post_type'      => DIS_FAQ_POST_TYPE,
 			'posts_per_page' => $max_items,
 			'meta_key'       => 'visit_counter',
@@ -575,7 +575,31 @@ class DIS_ContentsManager {
 			'order'          => 'DESC',
 			'post_status'    => 'publish',
 		);
-		$query = new WP_Query( $args );
+		$query   = new WP_Query( $args );
+		if ( $query->have_posts() ) {
+			$results = $query->posts;
+		}
+		return $results;
+	}
+
+
+	public static function get_faq_by_topic( $topic ) {
+		$results = array();
+		$args    = array(
+			'post_type'      => DIS_FAQ_POST_TYPE,
+			'posts_per_page' => -1,
+			'orderby'        => 'title',
+			'order'          => 'DESC',
+			'post_status'    => 'publish',
+			'tax_query'      => array(
+				array(
+					'taxonomy' => DIS_FAQ_TOPIC_TAXONOMY,
+					'field'    => 'slug',
+					'terms'    => $topic,
+				),
+			),
+		);
+		$query   = new WP_Query( $args );
 		if ( $query->have_posts() ) {
 			$results = $query->posts;
 		}
@@ -691,7 +715,7 @@ class DIS_ContentsManager {
 		if ( ! empty( $terms ) && is_array( $terms ) ) {
 			// Return list without links.
 			if ( $with_link === false ) {
-				return implode( ', ', wp_list_pluck( $terms, 'post_title' ) ) ;
+				return implode( ', ', wp_list_pluck( $terms, 'name' ) ) ;
 			}
 			// Return the list with the links.
 			$links = array();
@@ -705,8 +729,13 @@ class DIS_ContentsManager {
 				);
 			}
 			return implode( ', ', $links );
-		};
+		}
 		return '';
+	}
+
+	public static function get_topic_url_by_slug( $slug ): string {
+		$faq_topic_link = DIS_MultiLangManager::get_page_link( FAQ_TOPIC_PAGE_SLUG );
+		return $faq_topic_link . '?topic=' . $slug;
 	}
 
 	public static function clean_and_truncate_text( $text, $size = 500, $split = false ) {
