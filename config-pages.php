@@ -38,6 +38,8 @@ define( 'DOCUMENTATION_PAGE_SLUG', 'DocumentationPageSlug' );
 define( 'DOCUMENTATION_PAGE_TITLE', 'DocumentationPageTitle' );
 define( 'FAQ_PAGE_SLUG', 'FaqPageSlug' );
 define( 'FAQ_PAGE_TITLE', 'FaqPageTitle' );
+define( 'FAQ_TOPIC_PAGE_SLUG', 'FaqTopicPageSlug' );
+define( 'FAQ_TOPIC_PAGE_TITLE', 'FaqTopicPageTitle' );
 define( 'HOW_TO_PAGE_SLUG', 'HowToPageSlug' );
 define( 'HOW_TO_PAGE_TITLE', 'HowToPageTitle' );
 define( 'HELP_DESK_PAGE_SLUG', 'HelpDeskPageSlug' );
@@ -342,6 +344,19 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
+		FAQ_TOPIC_PAGE_SLUG =>
+			array(
+				'content_slug'     => FAQ_TOPIC_PAGE_SLUG,
+				'content_file'     => '',
+				'content_title'    => FAQ_TOPIC_PAGE_TITLE,
+				'content'          => '',
+				'content_status'   => 'publish',
+				'content_author'   => 1,
+				'content_template' => 'page-templates/faq-topic.php',
+				'content_type'     => 'page',
+				'content_parent'   => null,
+				'content_category' => DIS_ARCHIVE_PAGE_CAT,
+			),
 		HOW_TO_PAGE_SLUG =>
 			array(
 				'content_slug'     => HOW_TO_PAGE_SLUG,
@@ -403,6 +418,8 @@ if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
 			'DocumentationPageTitle'  => _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'FaqPageSlug'             => _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'FaqPageTitle'            => _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'FaqTopicPageSlug'        => _x( 'FaqTopicPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
+			'FaqTopicPageTitle'       => _x( 'FaqTopicPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'HowToPageSlug'           => _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
 			'HowToPageTitle'          => _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
 			'HelpDeskPageSlug'        => _x( 'HelpDeskPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),

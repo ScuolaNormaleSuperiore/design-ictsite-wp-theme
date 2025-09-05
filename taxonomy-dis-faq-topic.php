@@ -11,13 +11,18 @@ global $post;
 global $wp_query;
 get_header();
 
-$taxonomy = get_query_var('taxonomy');
-$term     = get_query_var('term');
-if ( $taxonomy && $term ) {
+$taxonomy_slug = get_query_var( 'taxonomy' );
+$term_slug     = get_query_var( 'term' );
+if ( $taxonomy_slug && $term_slug ) {
 ?>
 
-TAXONOMY: <?php echo $taxonomy ?><br/>
-TERM: <?php echo $term ?><br/>
+
+REDIRECT TO:
+<BR/>
+<?php echo $taxonomy_slug; ?>
+<BR/>
+<?php echo $term_slug; ?>
+<BR/>
 
 
 <?php

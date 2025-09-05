@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-09-03 12:13+0000\n"
+"PO-Revision-Date: 2025-09-05 07:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: English (United States)\n"
 "Language: en_US\n"
@@ -210,7 +210,7 @@ msgstr ""
 msgid "Contact email address"
 msgstr ""
 
-#: page-templates/faq.php:169
+#: page-templates/faq-topic.php:58 page-templates/faq.php:158
 msgid "Contact the help desk for technical assistance."
 msgstr ""
 
@@ -247,7 +247,7 @@ msgstr ""
 msgid "Designed for"
 msgstr ""
 
-#: page-templates/faq.php:158
+#: page-templates/faq-topic.php:47 page-templates/faq.php:147
 msgid "Didn't find the answers you were looking for?"
 msgstr ""
 
@@ -255,232 +255,242 @@ msgstr ""
 msgid "Digit the text to search"
 msgstr ""
 
-#: config-pages.php:400
+#: config-pages.php:415
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageSlug"
 msgstr "about-us"
 
-#: config-pages.php:401
+#: config-pages.php:416
 msgctxt "DIS_ActivationItems"
 msgid "AboutUsPageTitle"
 msgstr "About us"
 
-#: config-pages.php:392
+#: config-pages.php:407
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageSlug"
 msgstr "accessibility"
 
-#: config-pages.php:393
+#: config-pages.php:408
 msgctxt "DIS_ActivationItems"
 msgid "AccessibilityPageTitle"
 msgstr "Accessibility"
 
-#: config-pages.php:411
+#: config-pages.php:428
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageSlug"
 msgstr "articles"
 
-#: config-pages.php:412
+#: config-pages.php:429
 msgctxt "DIS_ActivationItems"
 msgid "ArticlePageTitle"
 msgstr "Articles"
 
-#: config-pages.php:384
+#: config-pages.php:399
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageSlug"
 msgstr "contacts"
 
-#: config-pages.php:385
+#: config-pages.php:400
 msgctxt "DIS_ActivationItems"
 msgid "ContactsPageTitle"
 msgstr "Contacts"
 
-#: config-pages.php:402
+#: config-pages.php:417
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageSlug"
 msgstr "documentation"
 
-#: config-pages.php:403
+#: config-pages.php:418
 msgctxt "DIS_ActivationItems"
 msgid "DocumentationPageTitle"
 msgstr "Documentation"
 
-#: config-pages.php:417
+#: config-pages.php:434
 msgctxt "DIS_ActivationItems"
 msgid "EventPageSlug"
 msgstr "events"
 
-#: config-pages.php:418
+#: config-pages.php:435
 msgctxt "DIS_ActivationItems"
 msgid "EventPageTitle"
 msgstr "Events"
 
-#: config-pages.php:404
+#: config-pages.php:419
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageSlug"
 msgstr "faq"
 
-#: config-pages.php:405
+#: config-pages.php:420
 msgctxt "DIS_ActivationItems"
 msgid "FaqPageTitle"
 msgstr "Faq"
 
-#: config-pages.php:408
+#: config-pages.php:421
+msgctxt "DIS_ActivationItems"
+msgid "FaqTopicPageSlug"
+msgstr "faq-by-topic"
+
+#: config-pages.php:422
+msgctxt "DIS_ActivationItems"
+msgid "FaqTopicPageTitle"
+msgstr "FAQ by topic"
+
+#: config-pages.php:425
 msgctxt "DIS_ActivationItems"
 msgid "HelpDeskPageSlug"
 msgstr "help-desk"
 
-#: config-pages.php:409
+#: config-pages.php:426
 msgctxt "DIS_ActivationItems"
 msgid "HelpDeskPageTitle"
 msgstr "Help Desk"
 
-#: config-pages.php:406
+#: config-pages.php:423
 msgctxt "DIS_ActivationItems"
 msgid "HowToPageSlug"
 msgstr "how-to"
 
-#: config-pages.php:407
+#: config-pages.php:424
 msgctxt "DIS_ActivationItems"
 msgid "HowToPageTitle"
 msgstr "How to"
 
-#: config-pages.php:394
+#: config-pages.php:409
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageSlug"
 msgstr "legal-notes"
 
-#: config-pages.php:395
+#: config-pages.php:410
 msgctxt "DIS_ActivationItems"
 msgid "LegalNotesPageTitle"
 msgstr "Legal notes"
 
-#: config-pages.php:398
+#: config-pages.php:413
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageSlug"
 msgstr "media-policy"
 
-#: config-pages.php:399
+#: config-pages.php:414
 msgctxt "DIS_ActivationItems"
 msgid "MediaPolicyPageTitle"
 msgstr "Media policy"
 
-#: config-pages.php:390
+#: config-pages.php:405
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageSlug"
 msgstr "newsletter"
 
-#: config-pages.php:391
+#: config-pages.php:406
 msgctxt "DIS_ActivationItems"
 msgid "NewsletterPageTitle"
 msgstr "Newsletter"
 
-#: config-pages.php:419
+#: config-pages.php:436
 msgctxt "DIS_ActivationItems"
 msgid "NewsPageSlug"
 msgstr "news"
 
-#: config-pages.php:420
+#: config-pages.php:437
 msgctxt "DIS_ActivationItems"
 msgid "NewsPageTitle"
 msgstr "News"
 
-#: config-pages.php:413
+#: config-pages.php:430
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageSlug"
 msgstr "offices"
 
-#: config-pages.php:414
+#: config-pages.php:431
 msgctxt "DIS_ActivationItems"
 msgid "OfficePageTitle"
 msgstr "Offices"
 
-#: config-pages.php:423
+#: config-pages.php:440
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageSlug"
 msgstr "people"
 
-#: config-pages.php:424
+#: config-pages.php:441
 msgctxt "DIS_ActivationItems"
 msgid "PeoplePageTitle"
 msgstr "People"
 
-#: config-pages.php:415
+#: config-pages.php:432
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageSlug"
 msgstr "places"
 
-#: config-pages.php:416
+#: config-pages.php:433
 msgctxt "DIS_ActivationItems"
 msgid "PlacePageTitle"
 msgstr "Places"
 
-#: config-pages.php:388
+#: config-pages.php:403
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageSlug"
 msgstr "privacy"
 
-#: config-pages.php:389
+#: config-pages.php:404
 msgctxt "DIS_ActivationItems"
 msgid "PrivacyPageTitle"
 msgstr "Privacy policy "
 
-#: config-pages.php:421
+#: config-pages.php:438
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageSlug"
 msgstr "projects"
 
-#: config-pages.php:422
+#: config-pages.php:439
 msgctxt "DIS_ActivationItems"
 msgid "ProjectPageTitle"
 msgstr "Projects"
 
-#: config-pages.php:429
+#: config-pages.php:446
 msgctxt "DIS_ActivationItems"
 msgid "ServiceByProfileSlug"
 msgstr "service-by-profile"
 
-#: config-pages.php:430
+#: config-pages.php:447
 msgctxt "DIS_ActivationItems"
 msgid "ServiceByProfileTitle"
 msgstr "Service by profile"
 
-#: config-pages.php:425
+#: config-pages.php:442
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageSlug"
 msgstr "service-clusters"
 
-#: config-pages.php:426
+#: config-pages.php:443
 msgctxt "DIS_ActivationItems"
 msgid "ServiceClusterPageTitle"
 msgstr "Service clusters"
 
-#: config-pages.php:427
+#: config-pages.php:444
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageSlug"
 msgstr "services"
 
-#: config-pages.php:428
+#: config-pages.php:445
 msgctxt "DIS_ActivationItems"
 msgid "ServiceItemPageTitle"
 msgstr "Services"
 
-#: config-pages.php:386
+#: config-pages.php:401
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageSlug"
 msgstr "site-map"
 
-#: config-pages.php:387
+#: config-pages.php:402
 msgctxt "DIS_ActivationItems"
 msgid "SiteMapPageTitle"
 msgstr "Site map"
 
-#: config-pages.php:396
+#: config-pages.php:411
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageSlug"
 msgstr "site-search"
 
-#: config-pages.php:397
+#: config-pages.php:412
 msgctxt "DIS_ActivationItems"
 msgid "SiteSearchPageTitle"
 msgstr "Site search"
@@ -891,7 +901,7 @@ msgstr ""
 msgid "Events"
 msgstr ""
 
-#: page-templates/faq.php:76
+#: page-templates/faq.php:57
 msgid "Explore by topic"
 msgstr ""
 
@@ -920,7 +930,8 @@ msgid "FAQ"
 msgstr ""
 
 #. Name of the template
-#: page-templates/faq-old.php:2 page-templates/faq.php:2
+#: page-templates/faq-old.php:2 page-templates/faq-topic.php:2
+#: page-templates/faq.php:2
 msgid "Faq"
 msgstr ""
 
@@ -1235,7 +1246,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: page-templates/faq.php:113
+#: page-templates/faq.php:98
 msgid "Most searched frequently asked questions"
 msgstr ""
 
@@ -1291,7 +1302,8 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: page-templates/articles.php:141 page-templates/news.php:142
+#: page-templates/articles.php:141 page-templates/faq.php:86
+#: page-templates/faq.php:132 page-templates/news.php:142
 #: page-templates/places.php:117 page-templates/projects.php:94
 msgid "No results found"
 msgstr ""
@@ -1415,7 +1427,8 @@ msgstr ""
 msgid "Repository"
 msgstr ""
 
-#: page-templates/faq.php:172 page-templates/faq.php:174
+#: page-templates/faq-topic.php:61 page-templates/faq-topic.php:63
+#: page-templates/faq.php:161 page-templates/faq.php:163
 msgid "Request support"
 msgstr ""
 
@@ -1437,9 +1450,8 @@ msgstr ""
 
 #. Name of the template
 #: page-templates/documentation.php:142 page-templates/faq-old.php:169
-#: page-templates/faq.php:58 page-templates/search.php:2
-#: page-templates/search.php:182 page-templates/search.php:253
-#: template-parts/header/site_search.php:18
+#: page-templates/search.php:2 page-templates/search.php:182
+#: page-templates/search.php:253 template-parts/header/site_search.php:18
 msgid "Search"
 msgstr ""
 
@@ -1465,7 +1477,7 @@ msgstr ""
 msgid "Search the FAQ"
 msgstr ""
 
-#: page-templates/faq.php:42 page-templates/faq.php:52
+#: page-templates/faq.php:42
 msgid "Search the FAQs"
 msgstr ""
 
@@ -1640,7 +1652,7 @@ msgstr ""
 msgid "The e-mail of the site."
 msgstr ""
 
-#: page-templates/faq.php:79
+#: page-templates/faq.php:60
 msgid ""
 "The FAQs are organized by topic. Click on the topic of interest to view the "
 "questions and answers."

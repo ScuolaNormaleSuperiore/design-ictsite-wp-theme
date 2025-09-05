@@ -695,8 +695,9 @@ class DIS_ContentsManager {
 			}
 			// Return the list with the links.
 			$links = array();
+			$faq_topic_link = DIS_MultiLangManager::get_page_link( FAQ_TOPIC_PAGE_SLUG );
 			foreach ( $terms as $item ) {
-				$full_link = get_site_url() . '/' . DIS_FAQ_TOPIC_TAXONOMY . '/' . $item->slug;
+				$full_link = $faq_topic_link . '?topic=' . $item->slug;
 				$links[] = sprintf(
 					'<a href="%1$s">%2$s</a>',
 					esc_url( $full_link ),
