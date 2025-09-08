@@ -6,6 +6,8 @@
  */
 
 
+define( 'DIS_AUTCOMPLETE_MAX_CHARS', 200 );
+
 /**
  * The manager that uploads the layout of the theme.
  *
@@ -173,7 +175,7 @@ class DIS_AutocompleteManager {
 	/**
 	 * Returns a snippet of the post containing the first sentence with $search_string,
 	 * or the first sentence of the post if $search_string is not found.
-	 * Limits the output to 200 characters.
+	 * Limits the output to DIS_AUTCOMPLETE_MAX_CHARS characters.
 	 *
 	 * @param string   $search_string The string to search for.
 	 * @param WP_Post  $post          The WordPress post object.
@@ -184,7 +186,7 @@ class DIS_AutocompleteManager {
 				return '';
 		}
 		// Remove HTML tags from the content.
-		$content = strip_tags( $post->post_content );
+		$content = self::clean_post_body( $post->post_content );
 		// Split the content into sentences.
 		$sentences = preg_split( '/(?<=[.?!])\s+/', $content, -1, PREG_SPLIT_NO_EMPTY );
 		$result    = '';
@@ -201,10 +203,10 @@ class DIS_AutocompleteManager {
 			$result = trim( $sentences[0] );
 		}
 
-		// Limit to 200 characters without cutting words in half.
-		if ( strlen( $result ) > 200 ) {
-			$result = substr( $result, 0, 200 );
-			// Cut at the last space before the 200th character.
+		// Limit to DIS_AUTCOMPLETE_MAX_CHARS characters without cutting words in half.
+		if ( strlen( $result ) > DIS_AUTCOMPLETE_MAX_CHARS ) {
+			$result = substr( $result, 0, DIS_AUTCOMPLETE_MAX_CHARS );
+			// Cut at the last space before the DIS_AUTCOMPLETE_MAX_CHARSth character.
 			$last_space = strrpos( $result, ' ' );
 			if ( $last_space !== false ) {
 				$result = substr( $result, 0, $last_space ) . '...';
@@ -216,5 +218,11 @@ class DIS_AutocompleteManager {
 		return $result;
 	}
 
-}
+	public function clean_post_body( $content ) {
+		$plain_text = wp_strip_all_tags( $content );
+		$plain_text = preg_replace( '/&nbsp;/', ' ', $plain_text );
+		$plain_text = html_entity_decode( $plain_text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
+		return $plain_text;
+	}
 
+}
