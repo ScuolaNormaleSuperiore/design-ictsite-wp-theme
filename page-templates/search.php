@@ -59,12 +59,16 @@ if (
 	wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' )
 ) {
 	// EXECUTE THE QUERY .
-	$the_query = DIS_ContentsManager::get_site_search_query(
-		$searchable_ct,
-		$search_string,
-		$posts_per_page
-	);
-	$num_results = $the_query->found_posts;
+	if ( $search_string !== '' ){
+		$the_query = DIS_ContentsManager::get_site_search_query(
+			$searchable_ct,
+			$search_string,
+			$posts_per_page
+		);
+		$num_results = $the_query->found_posts;
+	} else {
+		$num_results = 0;
+	}
 
 	// Execute another query to retrieve all the post_types including the unselected ones.
 	$results_ct = DIS_ContentsManager::get_results_post_types(
@@ -72,7 +76,7 @@ if (
 		$search_string,
 	);
 }
-$result_message_1 = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
+$result_message_1 = sprintf( __( 'You need to enter some text in the search box.', 'design_ict_site' ), $num_results );
 $result_message_2 = sprintf( __( 'Found %1$s results for "%2$s".', 'design_ict_site' ), $num_results, $search_string );
 // Check if autocompletion is enabled.
 $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomplete_enabled', 'dis_opt_hp_layout' );

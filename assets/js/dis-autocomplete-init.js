@@ -180,8 +180,8 @@ document.addEventListener('DOMContentLoaded', function() {
 								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
-										<div class="aa-ItemTitle">
-											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; padding: 8px 12px; display: block;">
+										<div class="aa-ItemTitle" style="padding: 8px 12px;">
+											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;">
 												${html([highlightedName])}
 											</a>
 											<small>${html([highlightedText])}</small>

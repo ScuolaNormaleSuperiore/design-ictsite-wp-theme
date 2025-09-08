@@ -7,6 +7,7 @@
 
 
 define( 'DIS_AUTCOMPLETE_MAX_CHARS', 200 );
+define( 'DIS_AUTCOMPLETE_MAX_NUM_RESULTS', 8 );
 
 /**
  * The manager that uploads the layout of the theme.
@@ -79,7 +80,7 @@ class DIS_AutocompleteManager {
 	 * @return object
 	 */
 	public function theme_autocomplete_callback() {
-		error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
+		// error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
 		$selector = isset( $_POST['selector'] ) ? sanitize_text_field( wp_unslash( $_POST['selector'] ) ) : '';
 		if ( $selector === 'home_search_autocomplete' ) {
 			return $this->home_search_autocomplete_callback();
@@ -91,11 +92,11 @@ class DIS_AutocompleteManager {
 	}
 
 	public function home_search_autocomplete_callback() {
-		error_log( '*** ECCOMI IN home_search_autocomplete_callback ***' );
+		// error_log( '*** ECCOMI IN home_search_autocomplete_callback ***' );
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-		error_log( '*** TEXT:' . $q . ' ***' );
+		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
@@ -105,7 +106,7 @@ class DIS_AutocompleteManager {
 				array(
 					's'              => $q,
 					'post_type'      => $type_slugs,
-					'posts_per_page' => -1,
+					'posts_per_page' => DIS_AUTCOMPLETE_MAX_NUM_RESULTS,
 					'post_status'    => 'publish',
 				)
 			);
@@ -128,7 +129,7 @@ class DIS_AutocompleteManager {
 			wp_reset_postdata();
 		}
 		// Restituisce un array di oggetti { text: "...", link: "..." }.
-		error_log( '*** SENDING ' . json_encode( $results ) );
+		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
 
@@ -145,7 +146,7 @@ class DIS_AutocompleteManager {
 				array(
 					's'              => $q,
 					'post_type'      => DIS_FAQ_POST_TYPE,
-					'posts_per_page' => 8,
+					'posts_per_page' => DIS_AUTCOMPLETE_MAX_NUM_RESULTS,
 					'post_status'    => 'publish',
 				)
 			);
