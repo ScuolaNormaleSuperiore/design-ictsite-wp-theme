@@ -28,9 +28,6 @@ class DIS_LayoutManager {
 		add_action( 'after_setup_theme', array( $this, 'configure_post_options' ) );
 		add_action( 'after_setup_theme', array( $this, 'define_menu_locations' ) );
 		add_action( 'wp_footer', array( $this, 'load_pagination_script' ) );
-		// add_filter( 'upload_mimes', array( $this, 'enable_svg_upload' ), 10, 1 );
-		// Setup image sizes.
-		// add_action( 'after_setup_theme', array( $this, 'setup_image_sizes' ) );
 	}
 
 	public function upload_scripts() {
@@ -58,19 +55,11 @@ class DIS_LayoutManager {
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-		 * Let WordPress manage the document title.
-		 * By adding theme support, we declare that this theme does not use a
-		 * hard-coded <title> tag in the document head, and expect WordPress to
-		 * provide it for us.
-		 */
-		// add_theme_support( 'title-tag' );
-
-		/*
 		 * Enable support for Post Thumbnails on posts and pages.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		add_theme_support( 'post-thumbnails' );
+		// add_theme_support( 'post-thumbnails' );
 	}
 
 	public function define_menu_locations() {
