@@ -74,11 +74,13 @@ if (
 }
 $result_message_1 = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
 $result_message_2 = sprintf( __( 'Found %1$s results for "%2$s".', 'design_ict_site' ), $num_results, $search_string );
+// Check if autocompletion is enabled.
+$search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomplete_enabled', 'dis_opt_hp_layout' );
 ?>
 
 
 
-<FORM action="." id="search_site_form" method="GET">
+<FORM action="." id="main_search_form" method="GET">
 <?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 
 	<!-- SEARCH BOX -->
@@ -89,30 +91,47 @@ $result_message_2 = sprintf( __( 'Found %1$s results for "%2$s".', 'design_ict_s
 					<h2 class="mb-3">
 						<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
 					</h2>
-					<div class="form-group">
-						<div class="input-group">
-							<span class="input-group-text">
-								<svg class="icon icon-sm" aria-hidden="true">
-									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
-								</svg>
-							</span>
-							<label for="search_string">
-								<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
-							</label>
-							<input type="text"
+					<?php if ( $search_autocomplete == 'true' ) : ?>
+						<!-- Search with autocomplete -->
+						<div id="home_search_wrapper" style="display: flex; gap: 6px;">
+							<div id="home_search_autocomplete" style="flex: 1;"></div>
+							<input type="hidden"
 								id="search_string"
 								name="search_string"
 								class="form-control"
 								value="<?php echo esc_attr( $search_string ?? '' ); ?>"
-								placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
 							>
-							<div class="input-group-append">
-								<button class="btn btn-primary" type="submit" id="submit_form">
-									<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
-								</button>
+							<button class="btn btn-primary" type="submit" id="submit_form">
+								<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
+							</button>
+						</div>
+					<?php else : ?>
+						<!-- Simple search -->
+						<div class="form-group">
+							<div class="input-group">
+								<span class="input-group-text">
+									<svg class="icon icon-sm" aria-hidden="true">
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-search' ); ?>"></use>
+									</svg>
+								</span>
+								<label for="search_string">
+									<?php echo esc_html( __( 'Search the site', 'design_ict_site' ) ); ?>
+								</label>
+								<input type="text"
+									id="search_string"
+									name="search_string"
+									class="form-control"
+									value="<?php echo esc_attr( $search_string ?? '' ); ?>"
+									placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
+								>
+								<div class="input-group-append">
+									<button class="btn btn-primary" type="submit" id="submit_form">
+										<?php echo esc_html( __( 'Search', 'design_ict_site' ) ); ?>
+									</button>
+								</div>
 							</div>
 						</div>
-					</div>
+					<?php endif ?>
 				</div>
 			</div>
 		</div>
@@ -242,7 +261,7 @@ $result_message_2 = sprintf( __( 'Found %1$s results for "%2$s".', 'design_ict_s
 <!-- Automatic reload of the search -->
 <script>
 document.addEventListener("DOMContentLoaded", function () {
-	const form = document.getElementById("search_site_form");
+	const form = document.getElementById("main_search_form");
 	if (!form) return;
 	const checkboxes = form.querySelectorAll('input[name="selected_contents[]"]');
 	checkboxes.forEach(cb => {

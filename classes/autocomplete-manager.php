@@ -80,9 +80,9 @@ class DIS_AutocompleteManager {
 		error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
 		$selector = isset( $_POST['selector'] ) ? sanitize_text_field( wp_unslash( $_POST['selector'] ) ) : '';
 		if ( $selector === 'home_search_autocomplete' ) {
-			$this->home_search_autocomplete_callback();
+			return $this->home_search_autocomplete_callback();
 		} elseif ( $selector === 'faq_search_autocomplete' ) {
-			$this->faq_search_autocomplete_callback();
+			return $this->faq_search_autocomplete_callback();
 		} else {
 			return;
 		}
@@ -101,9 +101,9 @@ class DIS_AutocompleteManager {
 			$type_slugs = array_column( $types, 'slug' );
 			$the_query  = new WP_Query(
 				array(
-					'post_title'     => $q,
+					's'              => $q,
 					'post_type'      => $type_slugs,
-					'posts_per_page' => 8,
+					'posts_per_page' => -1,
 					'post_status'    => 'publish',
 				)
 			);
@@ -111,12 +111,15 @@ class DIS_AutocompleteManager {
 			if ( $the_query->have_posts() ) {
 				foreach ( $the_query->posts as $p ) {
 					$type = dis_ct_data()[ $p->post_type ]['singular_name'];
-					$results[] = array(
-						'name' => get_the_title( $p ),
-						'text' => '',
-						'icon' => '',
-						'type' => $type,
-						'link' => get_permalink( $p ),
+					array_push(
+						$results,
+						array(
+							'name' => get_the_title( $p ),
+							'text' => self::get_post_snippet_by_search( $q, $p ),
+							'icon' => '',
+							'type' => $type,
+							'link' => get_permalink( $p ),
+						)
 					);
 				}
 			}
@@ -136,7 +139,7 @@ class DIS_AutocompleteManager {
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
-			$the_query  = new WP_Query(
+			$the_query = new WP_Query(
 				array(
 					's'              => $q,
 					'post_type'      => DIS_FAQ_POST_TYPE,
@@ -148,12 +151,15 @@ class DIS_AutocompleteManager {
 			if ( $the_query->have_posts() ) {
 				foreach ( $the_query->posts as $p ) {
 					$type = dis_ct_data()[ $p->post_type ]['singular_name'];
-					$results[] = array(
-						'name' => get_the_title( $p ),
-						'text' => '',
-						'icon' => '',
-						'type' => $type,
-						'link' => get_permalink( $p ),
+					array_push(
+						$results,
+						array(
+							'name' => get_the_title( $p ),
+							'text' => self::get_post_snippet_by_search( $q, $p ),
+							'icon' => '',
+							'type' => $type,
+							'link' => get_permalink( $p ),
+						)
 					);
 				}
 			}
@@ -164,4 +170,51 @@ class DIS_AutocompleteManager {
 		wp_send_json( $results );
 	}
 
+	/**
+	 * Returns a snippet of the post containing the first sentence with $search_string,
+	 * or the first sentence of the post if $search_string is not found.
+	 * Limits the output to 200 characters.
+	 *
+	 * @param string   $search_string The string to search for.
+	 * @param WP_Post  $post          The WordPress post object.
+	 * @return string                 The desired snippet.
+	 */
+	private function get_post_snippet_by_search( $search_string, $post ) {
+		if ( ! $post instanceof WP_Post ) {
+				return '';
+		}
+		// Remove HTML tags from the content.
+		$content = strip_tags( $post->post_content );
+		// Split the content into sentences.
+		$sentences = preg_split( '/(?<=[.?!])\s+/', $content, -1, PREG_SPLIT_NO_EMPTY );
+		$result    = '';
+
+		// Try to find the first sentence containing the search string.
+		foreach ( $sentences as $sentence ) {
+			if ( stripos( $sentence, $search_string ) !== false ) {
+				$result = trim( $sentence );
+				break;
+			}
+		}
+		// If not found, use the first sentence.
+		if ( empty( $result ) && ! empty( $sentences ) ) {
+			$result = trim( $sentences[0] );
+		}
+
+		// Limit to 200 characters without cutting words in half.
+		if ( strlen( $result ) > 200 ) {
+			$result = substr( $result, 0, 200 );
+			// Cut at the last space before the 200th character.
+			$last_space = strrpos( $result, ' ' );
+			if ( $last_space !== false ) {
+				$result = substr( $result, 0, $last_space ) . '...';
+			} else {
+				$result .= '...';
+			}
+		}
+
+		return $result;
+	}
+
 }
+

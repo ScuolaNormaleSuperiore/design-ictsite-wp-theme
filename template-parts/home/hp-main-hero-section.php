@@ -50,11 +50,13 @@ if ( $section_enabled ) {
 						</h2>
 
 						<!-- HERO SEARCH FORM -->
-						<FORM id="hero_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
+						<FORM id="main_search_form" action="<?php echo esc_url( $search_link ); ?>" METHOD="GET">
 							<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 							<?php if ( $hp_autocomplete == 'true' ) : ?>
+								<!-- Search with autocomplete -->
 								<div id="home_search_autocomplete"></div>
 							<?php else : ?>
+								<!-- Simple search -->
 								<div class="form-group mb-0">
 										<label class="visually-hidden" for="search_string">
 											<?php echo esc_attr( __( 'Site search', 'design_ict_site' ) ); ?>

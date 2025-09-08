@@ -30,6 +30,11 @@ html {
 	padding: 0px !important;
 }
 
+.aa-Source mark, .mark {
+	padding: 0px !important;
+}
+
+
 /* CUSTOM PAGINATION */
 
 #pagination_links {

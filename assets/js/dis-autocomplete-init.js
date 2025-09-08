@@ -13,9 +13,15 @@ document.addEventListener('DOMContentLoaded', function() {
 	const home_container = document.querySelector('#home_search_autocomplete');
 	if (home_container) {
 		// Receiving parameters from PHP.
-		const ajaxUrl        = disHpAutocompleteAjax.ajaxUrl;
-		const nonce          = disHpAutocompleteAjax.nonce;
-		const searchLabel    = disHpAutocompleteAjax.searchLabel;
+		const ajaxUrl     = disHpAutocompleteAjax.ajaxUrl;
+		const nonce       = disHpAutocompleteAjax.nonce;
+		let searchLabel = '';
+		const params        = new URLSearchParams(window.location.search);
+		if (params.has("search_string")) {
+ 			searchLabel = params.get("search_string").trim()
+		} else {
+			searchLabel    = disHpAutocompleteAjax.searchLabel;
+		}
 		const noResultString = disHpAutocompleteAjax.noResultString;
 		const minChars = 3;
 
@@ -32,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						getItems: async ({ query }) => {
 							if (query.length < minChars) return [];
 							try {
-								console.log('**Query:', query);
+								console.log('** home_search_autocomplete - Query:', query);
 								const response = await fetch(ajaxUrl, {
 									method: 'POST',
 									headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -45,30 +51,35 @@ document.addEventListener('DOMContentLoaded', function() {
 								});
 								if (!response.ok) throw new Error('Error in AJAX response');
 								const items = await response.json();
+								console.log('** home_search_autocomplete - Results:', items);
 								return items;
 							} catch (error) {
 								console.error('Error in AJAX request:', error);
-								return []; // in caso di errore ritorna array vuoto
+								return [];
 							}
 						},
 						templates: {
 							item({ item, html, state }) {
 								// Usa la funzione html fornita da Algolia per il template.
 								const query = state.query.trim();
-								let highlightedText = item.name;
+								let highlightedName = item.name;
+								let highlightedText = item.text;
 
 								if (query.length > 0) {
 									// Crea una RegExp case-insensitive per evidenziare la query
 									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-									highlightedText = item.name.replace(regex, '<mark>$1</mark>');
-									objectType = `(<small>${item.type}</small>)`;
+									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
+									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
+									objectType = `<small style="text-transform: uppercase">${item.type}</small>`;
 								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
-										<div class="aa-ItemTitle">
-											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; padding: 8px 12px; display: block;">
-												${html([highlightedText])} ${html([objectType])}
+										<div class="aa-ItemTitle" style="padding: 8px 12px;">
+											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;">
+												${html([highlightedName])}
 											</a>
+											<small>${html([highlightedText])}</small><br/>
+											<small>${html([objectType])}</small>
 										</div>
 									</div>
 								</div>`;
@@ -93,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function() {
 			onSubmit({ state }) {
 				const query = state.query.trim();
 				if (query) {
-					const form = document.getElementById('hero_search_form');
+					const form = document.getElementById('main_search_form');
 					if (form) {
 						// opzionale: assicurati che ci sia un input con name="q"
 						let input = form.querySelector('input[name="search_string"]');
@@ -157,20 +168,23 @@ document.addEventListener('DOMContentLoaded', function() {
 							item({ item, html, state }) {
 								// Usa la funzione html fornita da Algolia per il template.
 								const query = state.query.trim();
-								let highlightedText = item.name;
+								let highlightedName = item.name;
+								let highlightedText = item.text;
 
 								if (query.length > 0) {
 									// Crea una RegExp case-insensitive per evidenziare la query
 									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-									highlightedText = item.name.replace(regex, '<mark>$1</mark>');
-									objectType = `(<small>${item.type}</small>)`;
+									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
+									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
+									objectType = `<small style="text-transform: uppercase">${item.type}</small>`;
 								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle">
 											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; padding: 8px 12px; display: block;">
-												${html([highlightedText])} ${html([objectType])}
+												${html([highlightedName])}
 											</a>
+											<small>${html([highlightedText])}</small>
 										</div>
 									</div>
 								</div>`;
