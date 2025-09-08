@@ -126,7 +126,6 @@ $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomp
 									name="search_string"
 									class="form-control"
 									value="<?php echo esc_attr( $search_string ?? '' ); ?>"
-									placeholder="<?php echo esc_html( __( 'Digit the text to search', 'design_ict_site' ) ); ?>"
 								>
 								<div class="input-group-append">
 									<button class="btn btn-primary" type="submit" id="submit_form">
@@ -142,7 +141,7 @@ $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomp
 	</section>
 
 
-	<!-- ELENCO RISULTATI -->
+	<!-- LIST OF RESULTS -->
 	<section class="section section-muted pt-5 pb-5">
 		<div class="container p-4 pb-0">
 			<div class="col-12">
@@ -259,8 +258,10 @@ $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomp
 
 </FORM>
 
+
 <!-- CALL TO ACTION CONTACT HELPDESK -->
 <?php get_template_part( 'template-parts/common/help-desk-call-to-action' ); ?>
+
 
 <!-- Automatic reload of the search -->
 <script>
