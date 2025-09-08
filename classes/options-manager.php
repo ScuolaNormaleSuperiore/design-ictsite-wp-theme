@@ -441,6 +441,19 @@ class DIS_OptionsManager {
 				),
 			)
 		);
+		$home_options->add_field(
+			array(
+				'id'      => 'doc_autocomplete_enabled',
+				'name'    => __( 'Enable site documentation autocomplete', 'design_ict_site' ),
+				'desc'    => __( 'Enable the autocomplete in the documentation page', 'design_ict_site' ),
+				'type'    => 'radio_inline',
+				'default' => 'false',
+				'options' => array(
+					'true'  => __( 'Yes', 'design_ict_site' ),
+					'false' => __( 'No', 'design_ict_site' ),
+				),
+			)
+		);
 	}
 
 	/**

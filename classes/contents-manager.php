@@ -879,8 +879,33 @@ class DIS_ContentsManager {
 		return $the_query;
 	}
 
+	public static function get_results_post_types( $ct_list, $search_string ): array {
+		$items = array();
+		$tmp   = array();
+		$the_query = self::get_site_search_query(
+			$ct_list,
+			$search_string,
+			-1
+		);
+		if ( $the_query->found_posts ) {
+			$results = $the_query->posts;
+			foreach ( $results as $result ) {
+				if ( ! in_array( $result->post_type, $tmp ) ) {
+					array_push( $tmp, $result->post_type );
+					array_push(
+						$items,
+						array(
+							'name' => dis_ct_data()[ $result->post_type ]['plural_name'],
+							'slug' => $result->post_type,
+						)
+					);
+				}
+			}
+		}
+		return $items;
+	}
 
-	public static function get_main_category( $post ){
+	public static function get_main_category( $post ) {
 		$categories = get_the_category();
 		if ( ! empty( $categories ) ) {
 			return $categories[0];

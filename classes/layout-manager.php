@@ -44,7 +44,6 @@ class DIS_LayoutManager {
 		wp_enqueue_style( 'bootstrap-icons-cdn', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css', array(), '1.11.3' );
 
 		// Import Javascript files.
-		wp_enqueue_script( 'dis-main-js', DIS_THEME_URL . '/assets/js/main.js' );
 		wp_enqueue_script( 'dis-boostrap-italia-js', DIS_THEME_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js', array(), false, true);
 	}
 
