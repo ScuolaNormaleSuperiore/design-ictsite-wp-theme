@@ -59,7 +59,7 @@ if (
 	wp_verify_nonce( sanitize_text_field( $_GET['site_search_nonce_field'] ), 'sf_site_search_nonce' )
 ) {
 	// EXECUTE THE QUERY .
-	if ( $search_string !== '' ){
+	if ( $search_string !== '' ) {
 		$the_query = DIS_ContentsManager::get_site_search_query(
 			$searchable_ct,
 			$search_string,

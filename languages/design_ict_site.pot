@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-09-05 11:09+0000\n"
+"POT-Creation-Date: 2025-09-08 14:13+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -91,12 +91,12 @@ msgid "Add the section"
 msgstr ""
 
 #: single-dis-office.php:99 single-dis-place.php:72
-#: classes/options-manager.php:584
+#: classes/options-manager.php:597
 msgid "Address"
 msgstr ""
 
-#: classes/options-manager.php:858 classes/options-manager.php:861
-#: classes/options-manager.php:875
+#: classes/options-manager.php:871 classes/options-manager.php:874
+#: classes/options-manager.php:888
 msgid "Advanced options"
 msgstr ""
 
@@ -120,7 +120,7 @@ msgstr ""
 msgid "All projects"
 msgstr ""
 
-#: classes/options-manager.php:813
+#: classes/options-manager.php:826
 msgid "API token"
 msgstr ""
 
@@ -153,7 +153,7 @@ msgstr ""
 msgid "Back to the full list"
 msgstr ""
 
-#: classes/options-manager.php:530
+#: classes/options-manager.php:543
 msgid "Background image"
 msgstr ""
 
@@ -165,7 +165,7 @@ msgstr ""
 msgid "Base options"
 msgstr ""
 
-#: classes/options-manager.php:806
+#: classes/options-manager.php:819
 msgid "Brevo"
 msgstr ""
 
@@ -192,7 +192,7 @@ msgid ""
 " It is recommended to upload an image in SVG format."
 msgstr ""
 
-#: classes/options-manager.php:576
+#: classes/options-manager.php:589
 msgid "City"
 msgstr ""
 
@@ -211,6 +211,7 @@ msgid "Close alert"
 msgstr ""
 
 #: page-templates/faq-topic.php:119 page-templates/faq.php:117
+#: page-templates/search.php:213
 msgid "Code"
 msgstr ""
 
@@ -229,10 +230,6 @@ msgstr ""
 #. Name of the template
 #: page-templates/contacts.php:2
 msgid "Contacts"
-msgstr ""
-
-#: page-templates/search.php:222
-msgid "Content types"
 msgstr ""
 
 #: single-dis-project.php:54
@@ -263,7 +260,7 @@ msgstr ""
 msgid "Didn't find the answers you were looking for?"
 msgstr ""
 
-#: page-templates/search.php:178
+#: page-templates/search.php:129
 msgid "Digit the text to search"
 msgstr ""
 
@@ -777,7 +774,7 @@ msgctxt "DIS_TaxonomySingularName"
 msgid "User Status"
 msgstr ""
 
-#: classes/options-manager.php:1012
+#: classes/options-manager.php:1025
 msgid "Do not count the views of the robots."
 msgstr ""
 
@@ -788,7 +785,7 @@ msgid "Documentation"
 msgstr ""
 
 #: single-dis-event.php:143 single-dis-office.php:131 single-dis-person.php:64
-#: single-dis-place.php:112 classes/options-manager.php:592
+#: single-dis-place.php:112 classes/options-manager.php:605
 msgid "E-mail"
 msgstr ""
 
@@ -817,12 +814,16 @@ msgstr ""
 msgid "Enable Home Page autocomplete"
 msgstr ""
 
-#: classes/options-manager.php:990
+#: classes/options-manager.php:1003
 msgid "Enable internal SEO management"
 msgstr ""
 
-#: classes/options-manager.php:911
+#: classes/options-manager.php:924
 msgid "Enable language selector"
+msgstr ""
+
+#: classes/options-manager.php:447
+msgid "Enable site documentation autocomplete"
 msgstr ""
 
 #: classes/options-manager.php:434
@@ -831,6 +832,10 @@ msgstr ""
 
 #: classes/options-manager.php:421
 msgid "Enable site search autocomplete"
+msgstr ""
+
+#: classes/options-manager.php:448
+msgid "Enable the autocomplete in the documentation page"
 msgstr ""
 
 #: classes/options-manager.php:435
@@ -845,34 +850,34 @@ msgstr ""
 msgid "Enable the autocomplete in the site search page"
 msgstr ""
 
-#: classes/options-manager.php:1038
+#: classes/options-manager.php:1051
 msgid "Enable the counter of the views of the FAQ detail page."
 msgstr ""
 
-#: classes/options-manager.php:1025
+#: classes/options-manager.php:1038
 msgid "Enable the counter of the views of the service detail page."
 msgstr ""
 
-#: classes/options-manager.php:665
+#: classes/options-manager.php:678
 msgid ""
 "Enable the display of social media in the header and footer of the page."
 msgstr ""
 
-#: classes/options-manager.php:991
+#: classes/options-manager.php:1004
 msgid ""
 "Enable the internal management of SEO and OG tags or disable it to delegate "
 "this job to an external plugin."
 msgstr ""
 
-#: classes/options-manager.php:788
+#: classes/options-manager.php:801
 msgid "Enable the newsletter"
 msgstr ""
 
-#: classes/options-manager.php:950
+#: classes/options-manager.php:963
 msgid "Enable the REST API"
 msgstr ""
 
-#: classes/options-manager.php:970
+#: classes/options-manager.php:983
 msgid "Enable the XMLRPC API"
 msgstr ""
 
@@ -884,7 +889,7 @@ msgstr ""
 msgid "Enter messages that will be displayed on the homepage"
 msgstr ""
 
-#: classes/options-manager.php:932
+#: classes/options-manager.php:945
 msgid "Enter the analytics code."
 msgstr ""
 
@@ -934,12 +939,16 @@ msgstr ""
 msgid "FAQ by topic"
 msgstr ""
 
-#: classes/options-manager.php:1037
+#: classes/options-manager.php:1050
 msgid "FAQ views counter"
 msgstr ""
 
 #: single-dis-service.php:59
 msgid "Features"
+msgstr ""
+
+#: page-templates/search.php:155
+msgid "Filter by"
 msgstr ""
 
 #: page-templates/articles.php:172 page-templates/articles.php:176
@@ -950,10 +959,6 @@ msgstr ""
 
 #: page-templates/places.php:146 page-templates/places.php:150
 msgid "Filter by place type"
-msgstr ""
-
-#: page-templates/search.php:195 page-templates/search.php:226
-msgid "Filters for selecting search results"
 msgstr ""
 
 #: template-parts/header/social-list.php:13
@@ -985,7 +990,12 @@ msgstr ""
 msgid "For support contact the %s"
 msgstr ""
 
-#: page-templates/documentation.php:42 page-templates/search.php:67
+#: page-templates/search.php:80
+#, php-format
+msgid "Found %1$s results for \"%2$s\"."
+msgstr ""
+
+#: page-templates/documentation.php:42
 #, php-format
 msgid "Found %s results."
 msgstr ""
@@ -1116,11 +1126,11 @@ msgstr ""
 msgid "ICT SNS"
 msgstr ""
 
-#: classes/options-manager.php:824
+#: classes/options-manager.php:837
 msgid "ID of the list associated with the site"
 msgstr ""
 
-#: classes/options-manager.php:838
+#: classes/options-manager.php:851
 msgid "ID of the page template that handles the double OptIn"
 msgstr ""
 
@@ -1132,11 +1142,11 @@ msgstr ""
 msgid "If yes, the title of the section is shown."
 msgstr ""
 
-#: classes/options-manager.php:1011
+#: classes/options-manager.php:1024
 msgid "Ignore robots"
 msgstr ""
 
-#: classes/options-manager.php:531
+#: classes/options-manager.php:544
 msgid "Image in png or jpg format."
 msgstr ""
 
@@ -1148,7 +1158,7 @@ msgstr ""
 msgid "Info"
 msgstr ""
 
-#: classes/options-manager.php:657
+#: classes/options-manager.php:670
 msgid "Insert here the links to your social media."
 msgstr ""
 
@@ -1164,7 +1174,7 @@ msgstr ""
 msgid "Last modification"
 msgstr ""
 
-#: classes/options-manager.php:510
+#: classes/options-manager.php:523
 msgid "Left button label"
 msgstr ""
 
@@ -1188,7 +1198,7 @@ msgstr ""
 msgid "Linked pages"
 msgstr ""
 
-#: classes/options-manager.php:823
+#: classes/options-manager.php:836
 msgid "List ID"
 msgstr ""
 
@@ -1200,11 +1210,11 @@ msgstr ""
 msgid "List of services by category"
 msgstr ""
 
-#: classes/options-manager.php:884 template-parts/header/login_button.php:14
+#: classes/options-manager.php:897 template-parts/header/login_button.php:14
 msgid "Login"
 msgstr ""
 
-#: classes/options-manager.php:891
+#: classes/options-manager.php:904
 msgid "Login visible"
 msgstr ""
 
@@ -1225,8 +1235,8 @@ msgstr ""
 msgid "Logo of the site"
 msgstr ""
 
-#: classes/options-manager.php:454 classes/options-manager.php:460
-#: classes/options-manager.php:472
+#: classes/options-manager.php:467 classes/options-manager.php:473
+#: classes/options-manager.php:485
 msgid "Main hero"
 msgstr ""
 
@@ -1246,7 +1256,7 @@ msgstr ""
 msgid "Most searched frequently asked questions"
 msgstr ""
 
-#: classes/options-manager.php:904
+#: classes/options-manager.php:917
 msgid "Multilanguage"
 msgstr ""
 
@@ -1273,28 +1283,28 @@ msgid "News"
 msgstr ""
 
 #. Name of the template
-#: classes/options-manager.php:781 page-templates/newsletter.php:2
+#: classes/options-manager.php:794 page-templates/newsletter.php:2
 #: template-parts/common/newsletter.php:12
 msgid "Newsletter"
 msgstr ""
 
-#: classes/options-manager.php:800
+#: classes/options-manager.php:813
 msgid "Newsletter manager"
 msgstr ""
 
-#: classes/options-manager.php:764 classes/options-manager.php:767
+#: classes/options-manager.php:777 classes/options-manager.php:780
 msgid "Newsletter options"
 msgstr ""
 
 #: classes/options-manager.php:134 classes/options-manager.php:158
 #: classes/options-manager.php:330 classes/options-manager.php:344
 #: classes/options-manager.php:414 classes/options-manager.php:427
-#: classes/options-manager.php:440 classes/options-manager.php:670
-#: classes/options-manager.php:793 classes/options-manager.php:896
-#: classes/options-manager.php:916 classes/options-manager.php:956
-#: classes/options-manager.php:976 classes/options-manager.php:996
-#: classes/options-manager.php:1017 classes/options-manager.php:1030
-#: classes/options-manager.php:1043
+#: classes/options-manager.php:440 classes/options-manager.php:453
+#: classes/options-manager.php:683 classes/options-manager.php:806
+#: classes/options-manager.php:909 classes/options-manager.php:929
+#: classes/options-manager.php:969 classes/options-manager.php:989
+#: classes/options-manager.php:1009 classes/options-manager.php:1030
+#: classes/options-manager.php:1043 classes/options-manager.php:1056
 msgid "No"
 msgstr ""
 
@@ -1304,7 +1314,7 @@ msgstr ""
 msgid "No results found"
 msgstr ""
 
-#: classes/autocomplete-manager.php:66
+#: classes/autocomplete-manager.php:69
 msgid "No results found for"
 msgstr ""
 
@@ -1322,7 +1332,7 @@ msgstr ""
 msgid "page"
 msgstr ""
 
-#: classes/options-manager.php:1004
+#: classes/options-manager.php:1017
 msgid "Page counters"
 msgstr ""
 
@@ -1339,7 +1349,7 @@ msgstr ""
 msgid "Person Roles"
 msgstr ""
 
-#: classes/options-manager.php:600
+#: classes/options-manager.php:613
 msgid "Phone number"
 msgstr ""
 
@@ -1361,7 +1371,7 @@ msgstr ""
 msgid "Post"
 msgstr ""
 
-#: classes/options-manager.php:971
+#: classes/options-manager.php:984
 msgid "Preferably, it should be disabled."
 msgstr ""
 
@@ -1386,8 +1396,7 @@ msgid "Rates"
 msgstr ""
 
 #: page-templates/articles.php:117 page-templates/events.php:128
-#: page-templates/news.php:118 page-templates/search.php:119
-#: template-parts/home/hp-events-section.php:86
+#: page-templates/news.php:118 template-parts/home/hp-events-section.php:86
 #: template-parts/home/hp-news-section.php:80
 msgid "Related category"
 msgstr ""
@@ -1436,7 +1445,7 @@ msgstr ""
 msgid "Requirements"
 msgstr ""
 
-#: classes/options-manager.php:943
+#: classes/options-manager.php:956
 msgid "REST API"
 msgstr ""
 
@@ -1444,18 +1453,18 @@ msgstr ""
 msgid "Revoke"
 msgstr ""
 
-#: classes/options-manager.php:520
+#: classes/options-manager.php:533
 msgid "Right button label"
 msgstr ""
 
 #. Name of the template
 #: page-templates/documentation.php:142 page-templates/search.php:2
-#: page-templates/search.php:182 page-templates/search.php:253
-#: template-parts/header/site-search.php:18
+#: page-templates/search.php:96 page-templates/search.php:109
+#: page-templates/search.php:133 template-parts/header/site-search.php:18
 msgid "Search"
 msgstr ""
 
-#: classes/options-manager.php:500
+#: classes/options-manager.php:513
 msgid "Search button label"
 msgstr ""
 
@@ -1463,10 +1472,6 @@ msgstr ""
 #: template-parts/header/site-search.php:23
 #: template-parts/header/site-search.php:24
 msgid "Search in the site"
-msgstr ""
-
-#: page-templates/search.php:77 page-templates/search.php:90
-msgid "Search results"
 msgstr ""
 
 #: page-templates/documentation.php:131 page-templates/documentation.php:138
@@ -1477,12 +1482,12 @@ msgstr ""
 msgid "Search the FAQs"
 msgstr ""
 
-#: page-templates/search.php:171
+#: page-templates/search.php:122
 msgid "Search the site"
 msgstr ""
 
-#: classes/autocomplete-manager.php:65
-#: template-parts/home/hp-main-hero-section.php:68
+#: classes/autocomplete-manager.php:68
+#: template-parts/home/hp-main-hero-section.php:70
 msgid "Search..."
 msgstr ""
 
@@ -1490,7 +1495,7 @@ msgstr ""
 msgid "Section"
 msgstr ""
 
-#: classes/options-manager.php:876
+#: classes/options-manager.php:889
 msgid "Section to configure advanced settings."
 msgstr ""
 
@@ -1502,19 +1507,15 @@ msgstr ""
 msgid "selected"
 msgstr ""
 
-#: classes/options-manager.php:801
+#: classes/options-manager.php:814
 msgid "Selection of the program used to manage the site newsletter"
 msgstr ""
 
-#: classes/options-manager.php:983
+#: classes/options-manager.php:996
 msgid "SEO"
 msgstr ""
 
-#: page-templates/search.php:191
-msgid "Service clusters"
-msgstr ""
-
-#: classes/options-manager.php:1024
+#: classes/options-manager.php:1037
 msgid "Service views counter"
 msgstr ""
 
@@ -1542,7 +1543,7 @@ msgstr ""
 msgid "Services for"
 msgstr ""
 
-#: classes/options-manager.php:664
+#: classes/options-manager.php:677
 msgid "Show social media icons"
 msgstr ""
 
@@ -1562,12 +1563,12 @@ msgstr ""
 msgid "Site configurations"
 msgstr ""
 
-#: classes/options-manager.php:552 classes/options-manager.php:558
-#: classes/options-manager.php:568
+#: classes/options-manager.php:565 classes/options-manager.php:571
+#: classes/options-manager.php:581
 msgid "Site contacts"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:60
+#: template-parts/home/hp-main-hero-section.php:62
 msgid "Site search"
 msgstr ""
 
@@ -1580,24 +1581,24 @@ msgstr ""
 msgid "SiteMap"
 msgstr ""
 
-#: classes/options-manager.php:608
+#: classes/options-manager.php:621
 msgid "SMTP"
 msgstr ""
 
-#: classes/options-manager.php:623
+#: classes/options-manager.php:636
 msgid "SMTP sender email"
 msgstr ""
 
-#: classes/options-manager.php:615
+#: classes/options-manager.php:628
 msgid "SMTP sender name"
 msgstr ""
 
-#: classes/options-manager.php:639 classes/options-manager.php:645
-#: classes/options-manager.php:656
+#: classes/options-manager.php:652 classes/options-manager.php:658
+#: classes/options-manager.php:669
 msgid "Social media"
 msgstr ""
 
-#: classes/options-manager.php:951
+#: classes/options-manager.php:964
 msgid "Some plugin require the REST API to be enabled."
 msgstr ""
 
@@ -1619,19 +1620,19 @@ msgstr ""
 msgid "Telephone"
 msgstr ""
 
-#: classes/options-manager.php:837
+#: classes/options-manager.php:850
 msgid "Template ID"
 msgstr ""
 
-#: classes/options-manager.php:241 classes/options-manager.php:490
+#: classes/options-manager.php:241 classes/options-manager.php:503
 msgid "Text"
 msgstr ""
 
-#: classes/options-manager.php:585
+#: classes/options-manager.php:598
 msgid "The address of the site."
 msgstr ""
 
-#: classes/options-manager.php:577
+#: classes/options-manager.php:590
 msgid "The city of the site."
 msgstr ""
 
@@ -1640,11 +1641,11 @@ msgstr ""
 msgid "The competent office is %s"
 msgstr ""
 
-#: classes/options-manager.php:569
+#: classes/options-manager.php:582
 msgid "The contact shown in the footer."
 msgstr ""
 
-#: classes/options-manager.php:593
+#: classes/options-manager.php:606
 msgid "The e-mail of the site."
 msgstr ""
 
@@ -1654,7 +1655,7 @@ msgid ""
 "questions and answers."
 msgstr ""
 
-#: classes/options-manager.php:473
+#: classes/options-manager.php:486
 msgid "The hero section of the Home Page."
 msgstr ""
 
@@ -1675,7 +1676,7 @@ msgstr ""
 msgid "The name of the network the site is part of."
 msgstr ""
 
-#: classes/options-manager.php:616
+#: classes/options-manager.php:629
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
@@ -1683,11 +1684,11 @@ msgstr ""
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr ""
 
-#: classes/options-manager.php:601
+#: classes/options-manager.php:614
 msgid "The phone number of the site."
 msgstr ""
 
-#: classes/options-manager.php:624
+#: classes/options-manager.php:637
 msgid "The provider e-mail that must be used as sender."
 msgstr ""
 
@@ -1715,13 +1716,13 @@ msgstr ""
 msgid "Theme data not reloaded"
 msgstr ""
 
-#: classes/options-manager.php:480
+#: classes/options-manager.php:493
 msgid "Title"
 msgstr ""
 
-#: classes/options-manager.php:481 classes/options-manager.php:491
-#: classes/options-manager.php:501 classes/options-manager.php:511
-#: classes/options-manager.php:521
+#: classes/options-manager.php:494 classes/options-manager.php:504
+#: classes/options-manager.php:514 classes/options-manager.php:524
+#: classes/options-manager.php:534
 msgid "To translate the text refers to the domain DIS_SiteOptionLabel."
 msgstr ""
 
@@ -1758,7 +1759,7 @@ msgstr ""
 msgid "Warning"
 msgstr ""
 
-#: classes/options-manager.php:924
+#: classes/options-manager.php:937
 msgid "Web Analytics Code"
 msgstr ""
 
@@ -1776,19 +1777,19 @@ msgid ""
 "of an organization's ICT services."
 msgstr ""
 
-#: classes/options-manager.php:963
+#: classes/options-manager.php:976
 msgid "XMLRPC API"
 msgstr ""
 
 #: classes/options-manager.php:133 classes/options-manager.php:157
 #: classes/options-manager.php:329 classes/options-manager.php:343
 #: classes/options-manager.php:413 classes/options-manager.php:426
-#: classes/options-manager.php:439 classes/options-manager.php:669
-#: classes/options-manager.php:792 classes/options-manager.php:895
-#: classes/options-manager.php:915 classes/options-manager.php:955
-#: classes/options-manager.php:975 classes/options-manager.php:995
-#: classes/options-manager.php:1016 classes/options-manager.php:1029
-#: classes/options-manager.php:1042
+#: classes/options-manager.php:439 classes/options-manager.php:452
+#: classes/options-manager.php:682 classes/options-manager.php:805
+#: classes/options-manager.php:908 classes/options-manager.php:928
+#: classes/options-manager.php:968 classes/options-manager.php:988
+#: classes/options-manager.php:1008 classes/options-manager.php:1029
+#: classes/options-manager.php:1042 classes/options-manager.php:1055
 msgid "Yes"
 msgstr ""
 
@@ -1806,6 +1807,10 @@ msgstr ""
 
 #: page-templates/privacy.php:35
 msgid "You have not installed third-party cookies"
+msgstr ""
+
+#: page-templates/search.php:79
+msgid "You need to enter some text in the search box."
 msgstr ""
 
 #: page-templates/privacy.php:42
