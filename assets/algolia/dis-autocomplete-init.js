@@ -38,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						getItems: async ({ query }) => {
 							if (query.length < minChars) return [];
 							try {
-								console.log('** home_search_autocomplete - Query:', query);
+								// console.log('** home_search_autocomplete - Query:', query);
 								const response = await fetch(ajaxUrl, {
 									method: 'POST',
 									headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -51,7 +51,7 @@ document.addEventListener('DOMContentLoaded', function() {
 								});
 								if (!response.ok) throw new Error('Error in AJAX response');
 								const items = await response.json();
-								console.log('** home_search_autocomplete - Results:', items);
+								// console.log('** home_search_autocomplete - Results:', items);
 								return items;
 							} catch (error) {
 								console.error('Error in AJAX request:', error);
@@ -145,7 +145,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						getItems: async ({ query }) => {
 							if (query.length < minChars) return [];
 							try {
-								console.log('**Query:', query);
+								// console.log('**Query:', query);
 								const response = await fetch(ajaxUrl, {
 									method: 'POST',
 									headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
@@ -231,7 +231,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						getItems: async ({ query }) => {
 							if (query.length < minChars) return [];
 							try {
-								console.log('**Query:', query);
+								// console.log('**Query:', query);
 								const response = await fetch(ajaxUrl, {
 									method: 'POST',
 									headers: { 'Content-Type': 'application/x-www-form-urlencoded' },

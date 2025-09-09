@@ -22,6 +22,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Fixed the link of the logo of the site.
 - Dockerfile fixed and updated.
 - Fixed font management.
+- Fixed pagination.
 ### Changed
 - Modified the pages: FAQ, Documentation and search.
 - Labels translation.

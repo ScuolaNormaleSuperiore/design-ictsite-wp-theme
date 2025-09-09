@@ -92,7 +92,7 @@ class DIS_ActivationManager {
 
 	private static function reload_data() {
 		if ( ! current_user_can( DIS_EDIT_THEME_PERMISSION, ) ) return;
-		error_log( '*** ACTION RELOAD DATA ***' );
+		// error_log( '*** ACTION RELOAD DATA ***' );
 		array_push( self::$result['data'], '*** BEGIN THEME ACTIVATION ***' );
 
 		// Create the pages of the site, if not exist.

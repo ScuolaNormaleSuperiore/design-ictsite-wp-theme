@@ -88,7 +88,7 @@ class DIS_AutocompleteManager {
 	 * @return object
 	 */
 	public function theme_autocomplete_callback() {
-		error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
+		// error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
 		$selector = isset( $_POST['selector'] ) ? sanitize_text_field( wp_unslash( $_POST['selector'] ) ) : '';
 		if ( $selector === 'home_search_autocomplete' ) {
 			return $this->home_search_autocomplete_callback();
@@ -143,7 +143,7 @@ class DIS_AutocompleteManager {
 	}
 
 	public function faq_search_autocomplete_callback() {
-		error_log( '*** ECCOMI IN faq_search_autocomplete_callback ***' );
+		// error_log( '*** ECCOMI IN faq_search_autocomplete_callback ***' );
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
@@ -177,16 +177,16 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		error_log( '*** SENDING ' . json_encode( $results ) );
+		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
 
 	public function doc_search_autocomplete_callback() {
-		error_log( '*** ECCOMI IN doc_search_autocomplete_callback ***' );
+		// error_log( '*** ECCOMI IN doc_search_autocomplete_callback ***' );
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-		error_log( '*** TEXT:' . $q . ' ***' );
+		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
@@ -219,7 +219,7 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		error_log( '*** SENDING ' . json_encode( $results ) );
+		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
 
