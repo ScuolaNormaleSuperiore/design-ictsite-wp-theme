@@ -9,22 +9,24 @@ This projects uses [Semantic Versioning](http://semver.org/).
 TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [TODO]
-- Rivedere codice in base a regole WordPress.
 - Check wp_enqueue_scripts (how many time is called?).
-- Check font management.
 
 
-
-## [DEV-0.1.5] - 2025-08-28
+## [DEV-0.1.5] - 2025-09-09
 ### Added
 - Added autocomplete in Home Page search.
-- Added the new FAQ page.
+- Added autocomplete in Faq Page.
+- Added autocomplete in Documentation Page.
+- Added FAQs by topic.
 ### Fixed
 - Fixed the link of the logo of the site.
+- Dockerfile fixed and updated.
+- Fixed font management.
 ### Changed
-- 
+- Modified the pages: FAQ, Documentation and search.
+- Labels translation.
 
-
+ 
 ## [DEV-0.1.4] - 2025-08-28
 ### Added
  - Added Video section in Home Page.
@@ -39,4 +41,3 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Translated: How to update Bootstrap Italia.md
 - Labels translation.
 - Dockerfile fixed and updated.
-### Changed

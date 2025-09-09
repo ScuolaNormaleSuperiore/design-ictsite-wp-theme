@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2025-09-08 14:15+0000\n"
+"PO-Revision-Date: 2025-09-09 09:40+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -150,10 +150,6 @@ msgstr "Sezioni di completamento automatico"
 msgid "Back"
 msgstr "Indietro"
 
-#: page-templates/documentation.php:155 page-templates/documentation.php:161
-msgid "Back to the full list"
-msgstr "Torna all'elenco completo"
-
 #: classes/options-manager.php:543
 msgid "Background image"
 msgstr "Immagine di sfondo"
@@ -218,7 +214,7 @@ msgid "Close alert"
 msgstr "Chiudi avviso"
 
 #: page-templates/faq-topic.php:119 page-templates/faq.php:117
-#: page-templates/search.php:213
+#: page-templates/search.php:212
 msgid "Code"
 msgstr "Codice"
 
@@ -266,10 +262,6 @@ msgstr "Realizzato per"
 #: template-parts/common/help-desk-call-to-action.php:16
 msgid "Didn't find the answers you were looking for?"
 msgstr "Non hai trovato le risposte che cercavi?"
-
-#: page-templates/search.php:129
-msgid "Digit the text to search"
-msgstr "Scrivi il testo da cercare"
 
 #: config-pages.php:415
 msgctxt "DIS_ActivationItems"
@@ -803,7 +795,7 @@ msgstr "Non contare le visualizzazioni dei robot."
 
 #. Name of the template
 #: single-dis-service.php:184 page-templates/documentation.php:2
-#: page-templates/help-desk.php:51
+#: page-templates/documentation.php:71 page-templates/help-desk.php:51
 msgid "Documentation"
 msgstr "Documentazione"
 
@@ -1027,12 +1019,12 @@ msgstr "Area Progetti e Servizi ICT"
 msgid "For support contact the %s"
 msgstr "Per supporto contatta l'%s"
 
-#: page-templates/search.php:80
+#: page-templates/documentation.php:56 page-templates/search.php:81
 #, php-format
 msgid "Found %1$s results for \"%2$s\"."
 msgstr "Trovati %1$s risultati per \"%2$s\"."
 
-#: page-templates/documentation.php:42
+#: page-templates/documentation.php:57
 #, php-format
 msgid "Found %s results."
 msgstr "Trovati %s risultati."
@@ -1350,13 +1342,14 @@ msgstr "Opzioni della Newsletter"
 msgid "No"
 msgstr "No"
 
-#: page-templates/articles.php:141 page-templates/faq.php:87
-#: page-templates/faq.php:135 page-templates/news.php:142
-#: page-templates/places.php:117 page-templates/projects.php:94
+#: page-templates/articles.php:141 page-templates/documentation.php:55
+#: page-templates/faq.php:87 page-templates/faq.php:135
+#: page-templates/news.php:142 page-templates/places.php:117
+#: page-templates/projects.php:94
 msgid "No results found"
 msgstr "Nessun risultato trovato"
 
-#: classes/autocomplete-manager.php:69
+#: classes/autocomplete-manager.php:77
 msgid "No results found for"
 msgstr "Nessun risultato per"
 
@@ -1502,9 +1495,10 @@ msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
 #. Name of the template
-#: page-templates/documentation.php:142 page-templates/search.php:2
-#: page-templates/search.php:96 page-templates/search.php:109
-#: page-templates/search.php:133 template-parts/header/site-search.php:18
+#: page-templates/documentation.php:84 page-templates/documentation.php:107
+#: page-templates/search.php:2 page-templates/search.php:97
+#: page-templates/search.php:110 page-templates/search.php:133
+#: template-parts/header/site-search.php:18
 msgid "Search"
 msgstr "Cerca"
 
@@ -1518,7 +1512,7 @@ msgstr "Etichetta del bottone di ricerca"
 msgid "Search in the site"
 msgstr "Cerca nel sito"
 
-#: page-templates/documentation.php:131 page-templates/documentation.php:138
+#: page-templates/documentation.php:97
 #, fuzzy
 #| msgid "Search the Documentation"
 msgid "Search the documentation"
@@ -1528,11 +1522,11 @@ msgstr "Cerca nella documentazione"
 msgid "Search the FAQs"
 msgstr "Cerca tra le FAQ"
 
-#: page-templates/search.php:122
+#: page-templates/search.php:123
 msgid "Search the site"
 msgstr "Cerca nel sito"
 
-#: classes/autocomplete-manager.php:68
+#: classes/autocomplete-manager.php:76
 #: template-parts/home/hp-main-hero-section.php:70
 msgid "Search..."
 msgstr "Cerca..."
@@ -1864,7 +1858,7 @@ msgstr "Hai installato i seguenti cookie di terze parti:"
 msgid "You have not installed third-party cookies"
 msgstr "Non hai installato cookie di terze parti"
 
-#: page-templates/search.php:79
+#: page-templates/search.php:80
 msgid "You need to enter some text in the search box."
 msgstr "E' necessario inserire il testo nella casella di ricerca."
 
