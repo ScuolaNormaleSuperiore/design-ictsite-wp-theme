@@ -22,7 +22,7 @@ ARG PLG_ACF=advanced-custom-fields.6.4.3.zip
 ARG PLG_ARIA_LABEL=better-aria-label-support.0.1.zip
 ARG PLG_POLYLANG=polylang.3.7.3.zip
 ARG PLG_CAPTCHA=really-simple-captcha.zip
-ARG PLG_SMTP=wp-mail-smtp.4.5.0.zip
+ARG PLG_SMTP=wp-mail-smtp.4.6.0.zip
 
 # Plugion facoltativi o di sviluppo
 ARG PLG_LOCO_TRANSLATE=loco-translate.2.8.0.zip
