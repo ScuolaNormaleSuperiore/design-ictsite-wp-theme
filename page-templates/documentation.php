@@ -35,10 +35,20 @@ if ( isset( $_GET['search_string'] ) ) {
 	$is_submission = false;
 }
 
-// Execute the query.
-$the_query      = DIS_ContentsManager::get_generic_post_query( $params );
-$num_results    = $the_query->found_posts;
-$current_url    = get_permalink();
+// Execute the query if the NONCE is valid.
+if (
+	( $search_string === '' ) ||
+	(
+		isset( $_GET['doc_search_nonce_field'] ) &&
+		wp_verify_nonce( sanitize_text_field( $_GET['doc_search_nonce_field'] ), 'sf_doc_search_nonce' )
+	)
+) {
+	// Execute the query.
+	$the_query   = DIS_ContentsManager::get_generic_post_query( $params );
+	$num_results = $the_query->found_posts;
+} else {
+	$num_results = 0;
+}
 // Check if autocomplete is enabled.
 $doc_autocomplete = DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' );
 // Result messages.
@@ -49,9 +59,10 @@ $result_message_3 = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_
 
 
 <!-- DOCUMENTATION SEARCH -->
-<FORM action="." id="main_search_form" method="GET">
+<FORM action="." id="doc_search_form" method="GET">
 	<?php wp_nonce_field( 'sf_doc_search_nonce', 'doc_search_nonce_field' ); ?>
 
+	<!-- SEARCH BOX -->
 	<section class="section pt-0 pb-10" >
 		<div class="container p-4">
 			<div class="row">
@@ -104,6 +115,7 @@ $result_message_3 = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_
 			</div> <!-- row -->
 		</div> <!-- container -->
 	</section>
+
 </FORM>
 
 	<!-- LIST OF RESULTS -->

@@ -32,8 +32,16 @@ class DIS_AutocompleteManager {
 
 	public function upload_scripts() {
 		// Import algolia library for autocompletion.
-		$hp_autocomplete = DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' );
-		if ( $hp_autocomplete === 'true' ) {
+		$hp_autocomplete  = DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' );
+		$doc_autocomplete = DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' );
+		$faq_autocomplete = DIS_OptionsManager::dis_get_option( 'faq_autocomplete_enabled', 'dis_opt_hp_layout' );
+
+		if (
+				( DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' ) ||
+				( DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' ) ||
+				( DIS_OptionsManager::dis_get_option( 'faq_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' ) ||
+				( DIS_OptionsManager::dis_get_option( 'site_search_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' )
+			) {
 			// Algolia library.
 			wp_enqueue_script(
 				'dis-algolia-autocomplete',
@@ -80,12 +88,14 @@ class DIS_AutocompleteManager {
 	 * @return object
 	 */
 	public function theme_autocomplete_callback() {
-		// error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
+		error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
 		$selector = isset( $_POST['selector'] ) ? sanitize_text_field( wp_unslash( $_POST['selector'] ) ) : '';
 		if ( $selector === 'home_search_autocomplete' ) {
 			return $this->home_search_autocomplete_callback();
 		} elseif ( $selector === 'faq_search_autocomplete' ) {
 			return $this->faq_search_autocomplete_callback();
+		} elseif ( $selector === 'doc_search_autocomplete' ) {
+			return $this->doc_search_autocomplete_callback();
 		} else {
 			return;
 		}
@@ -117,8 +127,8 @@ class DIS_AutocompleteManager {
 					array_push(
 						$results,
 						array(
-							'name' => get_the_title( $p ),
-							'text' => self::get_post_snippet_by_search( $q, $p ),
+							'name' => html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ),
+							'text' => html_entity_decode( self::get_post_snippet_by_search( $q, $p ), ENT_QUOTES, 'UTF-8' ),
 							'icon' => '',
 							'type' => $type,
 							'link' => get_permalink( $p ),
@@ -128,7 +138,6 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		// Restituisce un array di oggetti { text: "...", link: "..." }.
 		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
@@ -157,8 +166,8 @@ class DIS_AutocompleteManager {
 					array_push(
 						$results,
 						array(
-							'name' => get_the_title( $p ),
-							'text' => self::get_post_snippet_by_search( $q, $p ),
+							'name' => html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ),
+							'text' => html_entity_decode( self::get_post_snippet_by_search( $q, $p ), ENT_QUOTES, 'UTF-8' ),
 							'icon' => '',
 							'type' => $type,
 							'link' => get_permalink( $p ),
@@ -168,7 +177,48 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		// Restituisce un array di oggetti { text: "...", link: "..." }.
+		error_log( '*** SENDING ' . json_encode( $results ) );
+		wp_send_json( $results );
+	}
+
+	public function doc_search_autocomplete_callback() {
+		error_log( '*** ECCOMI IN doc_search_autocomplete_callback ***' );
+		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
+		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
+		$results = array();
+		error_log( '*** TEXT:' . $q . ' ***' );
+
+		if ( strlen( $q ) >= 1 ) {
+			// Retrieve the posts.
+			$the_query = new WP_Query(
+				array(
+					's'              => $q,
+					'post_type'      => DIS_ATTACHMENT_POST_TYPE,
+					'posts_per_page' => DIS_AUTCOMPLETE_MAX_NUM_RESULTS,
+					'post_status'    => 'publish',
+				)
+			);
+
+			if ( $the_query->have_posts() ) {
+				foreach ( $the_query->posts as $p ) {
+					$type               = dis_ct_data()[ $p->post_type ]['singular_name'];
+					$attachment_file    = DIS_CustomFieldsManager::get_field( 'file', $p->ID );
+					$attachment_link    = DIS_CustomFieldsManager::get_field( 'link', $p->ID );
+					$documentation_link = $attachment_file ? $attachment_file['url'] : $attachment_link;
+					array_push(
+						$results,
+						array(
+							'name' => html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ),
+							'text' => html_entity_decode( self::get_post_snippet_by_search( $q, $p ), ENT_QUOTES, 'UTF-8' ),
+							'icon' => '',
+							'type' => $type,
+							'link' => esc_url( $documentation_link ),
+						)
+					);
+				}
+			}
+			wp_reset_postdata();
+		}
 		error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}

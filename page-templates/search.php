@@ -86,7 +86,7 @@ $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomp
 
 
 <FORM action="." id="main_search_form" method="GET">
-<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
+	<?php wp_nonce_field( 'sf_site_search_nonce', 'site_search_nonce_field' ); ?>
 
 	<!-- SEARCH BOX -->
 	<section class="section pt-5 pb-5">		
@@ -184,7 +184,6 @@ $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomp
 						<?php echo esc_attr( $result_message_1 ); ?>
 					<?php endif ?>
 				</p>
-				
 
 				<!-- SEARCH RESULTS LIST -->
 				<?php

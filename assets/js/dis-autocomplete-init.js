@@ -60,7 +60,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						},
 						templates: {
 							item({ item, html, state }) {
-								// Usa la funzione html fornita da Algolia per il template.
+								// Use the html function provided by Algolia for the template.
 								const query = state.query.trim();
 								let highlightedName = item.name;
 								let highlightedText = item.text;
@@ -161,22 +161,21 @@ document.addEventListener('DOMContentLoaded', function() {
 								return items;
 							} catch (error) {
 								console.error('Error in AJAX request:', error);
-								return []; // in caso di errore ritorna array vuoto
+								return [];
 							}
 						},
 						templates: {
 							item({ item, html, state }) {
-								// Usa la funzione html fornita da Algolia per il template.
+								// Use the html function provided by Algolia for the template.
 								const query = state.query.trim();
 								let highlightedName = item.name;
 								let highlightedText = item.text;
 
 								if (query.length > 0) {
-									// Crea una RegExp case-insensitive per evidenziare la query
+									// Create a case-insensitive RegExp to highlight the query.
 									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
 									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
 									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
-									objectType = `<small style="text-transform: uppercase">${item.type}</small>`;
 								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
@@ -205,6 +204,110 @@ document.addEventListener('DOMContentLoaded', function() {
 						}
 					}
 				];
+			}
+		});
+	}
+
+	// check that the Documentation SEARCH container element exists.
+	const doc_container = document.querySelector('#doc_search_autocomplete');
+	if (doc_container) {
+		// Receiving parameters from PHP.
+		const ajaxUrl        = disHpAutocompleteAjax.ajaxUrl;
+		const nonce          = disHpAutocompleteAjax.nonce;
+		const searchLabel    = disHpAutocompleteAjax.searchLabel;
+		const noResultString = disHpAutocompleteAjax.noResultString;
+		const minChars = 3;
+
+		// Algolia Autocomplete.
+		algoliaModule.autocomplete({
+			container:   '#doc_search_autocomplete',
+			placeholder: searchLabel,
+			openOnFocus: true,
+			debounce:    300,
+			getSources() {
+				return [
+					{
+						sourceId: 'links',
+						getItems: async ({ query }) => {
+							if (query.length < minChars) return [];
+							try {
+								console.log('**Query:', query);
+								const response = await fetch(ajaxUrl, {
+									method: 'POST',
+									headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+									body: new URLSearchParams({
+										action: 'theme_autocomplete',
+										nonce: nonce,
+										selector: 'doc_search_autocomplete',
+										q: query
+									}).toString(),
+								});
+								if (!response.ok) throw new Error('Error in AJAX response');
+								const items = await response.json();
+								return items;
+							} catch (error) {
+								console.error('Error in AJAX request:', error);
+								return [];
+							}
+						},
+						templates: {
+							item({ item, html, state }) {
+								// Use the html function provided by Algolia for the template.
+								const query = state.query.trim();
+								let highlightedName = item.name;
+								let highlightedText = item.text;
+
+								if (query.length > 0) {
+									// Create a case-insensitive RegExp to highlight the query.
+									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
+									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
+									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
+								}
+								return html`<div class="aa-ItemWrapper">
+									<div class="aa-ItemContent">
+										<div class="aa-ItemTitle" style="padding: 8px 12px;">
+											<a target="_blank" href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;">
+												${html([highlightedName])}
+											</a>
+											<small>${html([highlightedText])}</small>
+										</div>
+									</div>
+								</div>`;
+							},
+							noResults({ state, html }) {
+								return html`<div class="aa-ItemWrapper">
+									<div class="aa-ItemContent">
+										<div class="aa-ItemTitle" style="padding: 8px 12px; color: #888;">
+											${noResultString} "<strong>${state.query}</strong>"
+										</div>
+									</div>
+								</div>`;
+							}
+						},
+						// Manage the click on each element.
+						onSelect({ item, event }) {
+							window.location.href = item.link;
+						}
+					}
+				];
+			},
+			onSubmit({ state }) {
+				const query = state.query.trim();
+				if (query) {
+					const form = document.getElementById('doc_search_form');
+					if (form) {
+						// opzionale: assicurati che ci sia un input con name="q"
+						let input = form.querySelector('input[name="search_string"]');
+						if (!input) {
+							input = document.createElement('input');
+							input.type = 'hidden';
+							input.name = 'search_string';
+							form.appendChild(input);
+						}
+						input.value = query;
+						form.submit();
+					}
+				}
 			}
 		});
 	}
