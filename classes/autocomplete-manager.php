@@ -45,7 +45,7 @@ class DIS_AutocompleteManager {
 			// Algolia library.
 			wp_enqueue_script(
 				'dis-algolia-autocomplete',
-				'https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@1.19.2/dist/umd/index.production.js',
+				DIS_THEME_URL . '/assets/algolia/dis-algolia.js',
 				array(),
 				null,
 				true
@@ -53,7 +53,7 @@ class DIS_AutocompleteManager {
 			// Custom Algolia.
 			wp_enqueue_script(
 				'dis-autocomplete-init',
-				get_template_directory_uri() . '/assets/js/dis-autocomplete-init.js',
+				get_template_directory_uri() . '/assets/algolia/dis-autocomplete-init.js',
 				array( 'dis-algolia-autocomplete' ),
 				null,
 				true
@@ -61,7 +61,7 @@ class DIS_AutocompleteManager {
 			// Algolia CSS.
 			wp_enqueue_style(
 				'dis-algolia-autocomplete-css',
-				'https://cdn.jsdelivr.net/npm/@algolia/autocomplete-theme-classic@1.19.2/dist/theme.min.css',
+				DIS_THEME_URL . '/assets/algolia/dis-algolia.css',
 				array(),
 				null
 			);
