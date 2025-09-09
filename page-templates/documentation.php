@@ -39,9 +39,12 @@ if ( isset( $_GET['search_string'] ) ) {
 $the_query      = DIS_ContentsManager::get_generic_post_query( $params );
 $num_results    = $the_query->found_posts;
 $current_url    = get_permalink();
-$result_message = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
 // Check if autocomplete is enabled.
 $doc_autocomplete = DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' );
+// Result messages.
+$result_message_1 = sprintf( __( 'No results found', 'design_ict_site' ), $num_results );
+$result_message_2 = sprintf( __( 'Found %1$s results for "%2$s".', 'design_ict_site' ), $num_results, $search_string );
+$result_message_3 = sprintf( __( 'Found %s results.', 'design_ict_site' ), $num_results );
 ?>
 
 
@@ -108,31 +111,67 @@ $doc_autocomplete = DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enable
 
 		<div class="container p-4 pb-0">
 
-		<!-- ELENCO DELLA DOCUMENTAZIONE RISULTATI  -->
-		<p class="fw-bold " role="status" aria-live="polite">3 Risultati per "stringa cercata"</p>
+			<!-- Result message -->
+			<p class="fw-bold " role="status" aria-live="polite">
+				<?php if ( $num_results ) : ?>
+					<?php if ( $search_string ) : ?>
+						<?php echo esc_attr( $result_message_2 ); ?>
+					<?php else: ?>
+						<?php echo esc_attr( $result_message_3 ); ?>
+					<?php endif ?>
+				<?php else: ?>
+					<?php echo esc_attr( $result_message_1 ); ?>
+				<?php endif ?>
+			</p>
 
+			<!-- SEARCH RESULTS LIST -->
+			<?php
+			if ( ( $num_results > 0 ) ) {
+			?>
 			<div class="link-list-wrapper multiline">
 				<ul class="link-list">
-					<li>
-						<a class="list-item active icon-right" href="#">
-							<span class="list-item-title-icon-wrapper">
-								<h4 class="list-item-title">Manuale di istruzioni (PDF)</h4>
-								<svg class="icon icon-primary">
-									<title>Codice</title>
-									<use href="/bootstrap-italia/svg/sprites.svg#it-file"></use>
-								</svg>
-							</span>
-							<p>
-								Lorem ipsum dolor sit amet, consectetur adipiscing elit… Lorem ipsum dolor sit amet, consectetur
-								adipiscing elit… Lorem ipsum dolor sit amet, consectetur adipiscing elit…
-							</p>
-						</a>
-					</li>
-					<li>
-						<span class="divider" role="separator"></span>
-					</li>
+					<?php
+					// The main loop of the page.
+					$post_index = 0;
+					while ( $the_query->have_posts() ) {
+						$the_query->the_post();
+						$attachment_file    = DIS_CustomFieldsManager::get_field( 'file', $post->ID );
+						$attachment_link    = DIS_CustomFieldsManager::get_field( 'link', $post->ID );
+						$documentation_link = $attachment_file ? $attachment_file['url'] : $attachment_link;
+						$document_title     = esc_attr( $post->post_title );
+						$marked_title       = DIS_ContentsManager::add_mark_to_text( $document_title, $search_string );
+						$description        = DIS_ContentsManager::clean_and_truncate_text( $post->post_content, DIS_ACF_SHORT_TEXT_LENGTH );
+						$marked_text        = DIS_ContentsManager::add_mark_to_text( $description , $search_string );
+					?>
+						<li>
+							<a class="list-item active icon-right" href="<?php echo esc_url( $documentation_link ); ?>">
+								<span class="list-item-title-icon-wrapper">
+									<h4 class="list-item-title">
+										<?php echo wp_kses_post( $marked_title ); ?>
+									</h4>
+									<svg class="icon icon-primary">
+										<title>Codice</title>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-file' ); ?>"></use>
+									</svg>
+								</span>
+								<p>
+									<?php echo wp_kses_post( $marked_text ); ?>
+								</p>
+							</a>
+						</li>
+						<li>
+							<span class="divider" role="separator"></span>
+						</li>
+					<?php
+						$post_index++;
+					}
+					wp_reset_postdata();
+					?>
 				</ul>
 			</div> <!-- result list -->
+			<?php
+			}
+			?>
 
 			<!-- Results PAGINATION-->
 			<?php

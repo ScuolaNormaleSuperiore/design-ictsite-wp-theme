@@ -76,6 +76,7 @@ if (
 		$search_string,
 	);
 }
+// Result messages.
 $result_message_1 = sprintf( __( 'You need to enter some text in the search box.', 'design_ict_site' ), $num_results );
 $result_message_2 = sprintf( __( 'Found %1$s results for "%2$s".', 'design_ict_site' ), $num_results, $search_string );
 // Check if autocompletion is enabled.
@@ -175,7 +176,7 @@ $search_autocomplete = DIS_OptionsManager::dis_get_option( 'site_search_autocomp
 				}
 				?>
 
-				
+				<!-- Result message -->
 				<p class="fw-bold mt-5 mb-3" role="status" aria-live="polite">
 					<?php if ( $search_string ) : ?>
 						<?php echo esc_attr( $result_message_2 ); ?>
