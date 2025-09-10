@@ -239,7 +239,7 @@ class DIS_AutocompleteManager {
 		// Remove HTML tags from the content.
 		$content = self::clean_post_body( $post->post_content );
 		// Split the content into sentences.
-		$sentences = preg_split( '/(?<=[.?!])\s+/', $content, -1, PREG_SPLIT_NO_EMPTY );
+		$sentences = preg_split( '/(?<=[.?!;])\s+/', $content, -1, PREG_SPLIT_NO_EMPTY );
 		$result    = '';
 
 		// Try to find the first sentence containing the search string.
