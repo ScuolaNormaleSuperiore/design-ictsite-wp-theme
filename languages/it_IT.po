@@ -1644,7 +1644,7 @@ msgstr "Alcuni plugin richiedono l'abilitazione dell'API REST."
 
 #: classes/options-manager.php:230
 msgid "Success"
-msgstr "Seccesso"
+msgstr "Successo"
 
 #: classes/activation-manager.php:172
 #, php-format
