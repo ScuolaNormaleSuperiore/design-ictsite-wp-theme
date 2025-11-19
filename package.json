@@ -1,6 +1,6 @@
 {
   "name": "design-ictsite-wp-theme",
-  "version": "DEV-0.1.5",
+  "version": "DEV-0.1.6",
   "description": "WordPress theme for ICT sites",
   "main": "index.js",
   "scripts": {
@@ -24,7 +24,7 @@
   },
   "homepage": "https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/#readme",
   "dependencies": {
-    "bootstrap-italia": "^2.16.0"
+    "bootstrap-italia": "^2.17.0"
   },
   "devDependencies": {
     "clean-css-cli": "^5.6.1",

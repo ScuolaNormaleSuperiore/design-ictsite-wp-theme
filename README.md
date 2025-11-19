@@ -6,7 +6,7 @@ The project is in beta testing.
 
 
 ## Credits
-This project uses the library [***Bootstrap Italia 2.16.0***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CREDITS.txt).
+This project uses the library [***Bootstrap Italia 2.17.0***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CREDITS.txt).
 
 ## Features
 	- Automatic site population (pages and menu).
