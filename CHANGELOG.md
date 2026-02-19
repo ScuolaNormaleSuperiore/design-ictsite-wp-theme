@@ -11,6 +11,14 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 ## [TODO]
 - Check wp_enqueue_scripts (how many time is called?).
 
+
+## [DEV-0.1.7] - 2026-03-10
+## changed
+- Updates Bootstrap Italia to 2.17.0.
+- Updated Dockerfile.
+
+
+
 ## [DEV-0.1.6] - 2025-11-19
 ## changed
 - Updates Bootstrap Italia to 2.17.0.
