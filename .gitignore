@@ -25,7 +25,25 @@ nbproject
 Thumbs.db
 .vscode
 
-# Custom files
+# Node
 node_modules
+
+# Composer
+/vendor/
+composer.lock
+.composer-cache/
+.composer-home/
+
+# Custom files
 assets/css/compiled
 assets/bootstrap-italia/css/bootstrap-italia-custom.min.css
+
+# AI tool temporary directories
+AGENTS
+AGENTS.md
+CLAUDE.md
+AGENTS/ISSUES_TODO.md
+AGENTS/ISSUES_RESOLVED.md
+.codex-tmp/
+.claude
+.tmp
