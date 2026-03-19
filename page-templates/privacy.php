@@ -31,10 +31,10 @@ get_header();
 					</div>
 					<div class="text-image-cta d-flex mb-5">
 						<div class="content w-100">
-							<div id="dli_no_accepted_cookies_msg">
+							<div id="dsi_no_accepted_cookies_msg">
 								<p><?php echo __( 'You have not installed third-party cookies', 'design_ict_site' ); ?>.</p>
 							</div>
-							<div id="dli_deny_cookies_button">
+							<div id="dsi_deny_cookies_button">
 								<p>
 									<?php echo esc_html( __( 'You have installed the following third-party cookies:', 'design_ict_site' ) ); ?>
 								</p>

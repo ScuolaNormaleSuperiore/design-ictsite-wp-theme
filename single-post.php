@@ -10,27 +10,27 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
+$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 ?>
 
 	<!-- CONTENT HERO -->
 	<div class="container">
 		<section class="it-hero-wrapper it-dark it-overlay it-text-centered" id="it-hero-wrapper">
 			
-			<?php if ( $image_data ): ?>
-			<div class="img-responsive-wrapper" aria-label="<?php echo __( 'In evidence', 'design_ict_site' ) ?>">
+			<?php if ( $dsi_image_data ) : ?>
+			<div class="img-responsive-wrapper" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
 				<div class="img-responsive">
 					<div class="img-wrapper">
 						<img
-							src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-							title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-							alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+							src="<?php echo esc_url( $dsi_image_data['image_url'] ); ?>"
+							title="<?php echo esc_attr( $dsi_image_data['image_title'] ); ?>"
+							alt="<?php echo esc_attr( $dsi_image_data['image_alt'] ); ?>"
 						>
 					</div>
 				</div>
 			</div>
-			<?php endif ?>
+			<?php endif; ?>
 
 			<div class="container">
 				<div class="row">
@@ -38,7 +38,7 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' 
 						<div class="it-hero-text-wrapper bg-dark it-text-centered">
 							<h2><?php echo esc_html( $post->post_title ); ?></h2>
 							<p class="d-none d-lg-block">
-								<?php echo nl2br( string: esc_html( $short_description ) ); ?>
+								<?php echo nl2br( esc_html( $dsi_short_description ) ); ?>
 							</p>
 						</div>
 					</div>
@@ -52,9 +52,9 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' 
 		<div class="row">
 			<div class="col-12 col-md-10 offset-md-1 col-lg-7 offset-lg-1 m-auto">
 				<!-- DESCRIPTION -->
-				<p class="lead">
-					<?php echo get_the_content() ?>
-				</p>
+				<div class="lead">
+					<?php the_content(); ?>
+				</div>
 			</div>
 		</div> <!-- row -->
 
