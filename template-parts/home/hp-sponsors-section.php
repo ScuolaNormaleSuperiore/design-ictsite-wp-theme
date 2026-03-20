@@ -30,7 +30,7 @@ if ( $section_enabled ) {
 							<?php
 							if ( $external_link ) {
 							?>
-							<a href="<?php esc_url( $external_link ); ?>">
+							<a href="<?php echo esc_url( $external_link ); ?>">
 							<?php
 							}
 							?>

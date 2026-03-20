@@ -239,9 +239,12 @@ class DIS_ThemeManager {
 	 * @return void
 	 */
 	public function configure_permalink() {
-		update_option( 'permalink_structure', '/%postname%/' );
-		global $wp_rewrite;
-		$wp_rewrite->flush_rules();
+		$desired = '/%postname%/';
+		if ( get_option( 'permalink_structure' ) !== $desired ) {
+			update_option( 'permalink_structure', $desired );
+			global $wp_rewrite;
+			$wp_rewrite->flush_rules();
+		}
 	}
 
 	public function configure_upload_limits( $file ) {
