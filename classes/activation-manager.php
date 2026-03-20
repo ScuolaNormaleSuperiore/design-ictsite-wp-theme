@@ -33,9 +33,8 @@ class DIS_ActivationManager {
 		// Register 'Reload data' menu.
 		add_action( 'admin_menu', array( $this, 'register_menu_link' ) );
 
-		// @TODO: Use button and manage_submit_action not href, see: export-manager.php.
 		// Register 'Reload data' actions.
-		// add_action( 'admin_init', array( $this, 'manage_submit_action' ) );
+		add_action( 'admin_init', array( $this, 'manage_submit_action' ) );
 	}
 
 	/**
@@ -60,34 +59,53 @@ class DIS_ActivationManager {
 	 * @return void
 	 */
 	public static function get_page_code() {
-		$result_activation = false;
-		$is_reload         = false;
-		if( isset( $_GET['action'] ) && 'reload' === $_GET['action'] ) {
-			$is_reload         = true;
-			$result_activation = self::reload_data();
-		}
+		$is_reload = isset( $_GET['reloaded'] );
+		$reloaded_ok = $is_reload && ( '1' === sanitize_text_field( wp_unslash( $_GET['reloaded'] ) ) );
 		echo "<DIV class='wrap'>";
-		echo '<H1>' . __( 'Reload theme data', 'design_ict_site' ) .'</H1>';
+		echo '<H1>' . esc_html__( 'Reload theme data', 'design_ict_site' ) . '</H1>';
 		echo '<DIV class="dis_admin_reload_data">';
-		echo '<P>' . __( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ). '</P>';
-		// @TODO: Change link with button.
-		echo '<A HREF="admin.php?page=' . self::$main_page . '&action=reload" class="button button-primary">Reload data</A>';
+		echo '<P>' . esc_html__( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ) . '</P>';
+		echo '<form method="post">';
+		wp_nonce_field( 'dis_reload_nonce_action', 'dis_reload_nonce' );
+		echo '<button type="submit" name="reload_data" class="button button-primary">' . esc_html__( 'Reload data', 'design_ict_site' ) . '</button>';
+		echo '</form>';
 		echo '</DIV>';
 		if ( $is_reload ) {
-			if ( ( $result_activation ) && ( $result_activation['code'] === 1 ) ) {
-				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><em>' . __( 'Theme data loaded successfully', 'design_ict_site' ) .'</EM><DIV class="dis_admin_reload_result_text">';
-				echo '<H3>' . __( 'List of all activations', 'design_ict_site' ) . ':</H3>';
-				echo '<UL>';
-				foreach ($result_activation['data'] as $msg ) {
-					echo '<LI>' . $msg . '</LI>';
-				}
-				echo '</UL>';
-				echo '</DIV></DIV>';
+			if ( $reloaded_ok ) {
+				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><EM>' . esc_html__( 'Theme data loaded successfully', 'design_ict_site' ) . '</EM></DIV>';
 			} else {
-				echo '<DIV class="dis_admin_reload_result text-danger"><EM>' . __( 'Theme data not reloaded', 'design_ict_site' ) . '</EM>.</DIV>';
+				echo '<DIV class="dis_admin_reload_result text-danger"><EM>' . esc_html__( 'Theme data not reloaded', 'design_ict_site' ) . '</EM></DIV>';
 			}
 		}
 		echo '</DIV>';
+	}
+
+	/**
+	 * Handle POST submission for the reload action.
+	 *
+	 * @return void
+	 */
+	public function manage_submit_action() {
+		if ( ! current_user_can( DIS_EDIT_THEME_PERMISSION ) ) {
+			return;
+		}
+		if (
+			isset( $_POST['reload_data'] ) &&
+			check_admin_referer( 'dis_reload_nonce_action', 'dis_reload_nonce' )
+		) {
+			$result      = self::reload_data();
+			$is_success  = is_array( $result ) && isset( $result['status'] ) && 1 === (int) $result['status'];
+			$status      = $is_success ? '1' : '0';
+			$redirect = add_query_arg(
+				array(
+					'page'     => self::$main_page,
+					'reloaded' => $status,
+				),
+				admin_url( 'admin.php' )
+			);
+			wp_safe_redirect( $redirect );
+			exit;
+		}
 	}
 
 	private static function reload_data() {

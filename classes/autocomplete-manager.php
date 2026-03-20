@@ -147,7 +147,7 @@ class DIS_AutocompleteManager {
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-		error_log( '*** TEXT:' . $q . ' ***' );
+		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
