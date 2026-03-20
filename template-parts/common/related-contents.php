@@ -29,7 +29,7 @@ if ( count ( $items ) > 0 ) {
 					<article class="it-card it-card-image it-card-height-full">
 						<!-- Title -->
 						<h3 class="it-card-title ">
-							<a href="scheda-news.html">
+							<a href="<?php echo esc_url( get_permalink( $item->ID ) ); ?>">
 								<?php echo esc_attr( $wrapper->title ); ?>
 							</a>
 						</h3>
