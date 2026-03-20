@@ -12,13 +12,13 @@ $page_title    = $page_title ? $page_title : $site_title;
 $keywords      = preg_replace( '/[^a-zA-Z0-9\s]/', '', $page_title . ' ' . $tagline );
 ?>
 
-<meta name="resource-type" content="<?php echo $resource_type; ?>" />
-<meta name="description" content="<?php echo $page_title; ?>" />
-<meta name="copyright" content="<?php echo $site_title; ?>" />
-<meta name="keywords" content="<?php echo $keywords; ?>"/>
+<meta name="resource-type" content="<?php echo esc_attr( $resource_type ); ?>" />
+<meta name="description" content="<?php echo esc_attr( $page_title ); ?>" />
+<meta name="copyright" content="<?php echo esc_attr( $site_title ); ?>" />
+<meta name="keywords" content="<?php echo esc_attr( $keywords ); ?>"/>
 <meta name="author" content="ICT Staff">
 <meta name="generator" content="">
 <meta name="robots" content="noindex">
 
-<meta http-equiv="content-type" content="<?php echo $charset; ?>" />
-<meta http-equiv="content-language" content="<?php echo $current_lang; ?>" />
+<meta http-equiv="content-type" content="<?php echo esc_attr( $charset ); ?>" />
+<meta http-equiv="content-language" content="<?php echo esc_attr( $current_lang ); ?>" />
