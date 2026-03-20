@@ -74,7 +74,7 @@ class DIS_ActivationManager {
 		echo '<A HREF="admin.php?page=' . self::$main_page . '&action=reload" class="button button-primary">Reload data</A>';
 		echo '</DIV>';
 		if ( $is_reload ) {
-			if ( ( $result_activation ) && ( $result_activation['code']= 1 ) ) {
+			if ( ( $result_activation ) && ( $result_activation['code'] === 1 ) ) {
 				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><em>' . __( 'Theme data loaded successfully', 'design_ict_site' ) .'</EM><DIV class="dis_admin_reload_result_text">';
 				echo '<H3>' . __( 'List of all activations', 'design_ict_site' ) . ':</H3>';
 				echo '<UL>';
