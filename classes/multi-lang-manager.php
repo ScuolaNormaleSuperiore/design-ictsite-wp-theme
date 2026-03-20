@@ -219,7 +219,7 @@ class DIS_MultiLangManager {
 				}
 			}
 		}
-		return $items[ $lang ];
+		return $items[ $lang ] ?? [];
 	}
 
 	/**

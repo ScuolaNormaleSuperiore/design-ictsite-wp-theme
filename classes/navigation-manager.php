@@ -92,7 +92,7 @@ class DIS_NavigationManager {
 						$steps,
 						new DIS_BreadItem(
 							$post->post_title,
-							$post->post_url,
+							get_permalink( $post->ID ),
 							'breadcrumb-item active'
 						),
 					);
@@ -379,7 +379,7 @@ class DIS_NavigationManager {
 	 * @return void
 	 */
 	private static function collect_sitemap_urls_from_item( DIS_TreeItem $item, array &$urls ) {
-		if ( '' !== $item->link ) {
+		if ( '' !== $item->link && ! $item->external ) {
 			$urls[] = $item->link;
 		}
 
@@ -424,6 +424,12 @@ class DIS_NavigationManager {
 			$html .= '<li>';
 			if ( '' === $item->link ) {
 				$html .= esc_html( $item->name );
+			} elseif ( $item->external ) {
+				$html .= sprintf(
+					'<a href="%1$s" target="_blank" rel="noopener noreferrer">%2$s</a>',
+					esc_url( $item->link ),
+					esc_html( $item->name )
+				);
 			} else {
 				$html .= sprintf(
 					'<a href="%1$s">%2$s</a>',
@@ -496,22 +502,33 @@ class DIS_NavigationManager {
 	 * @return DIS_TreeItem
 	 */
 	private static function build_tree_item_from_menu_item( $menu_item ) {
+		if ( 'custom' === $menu_item->type ) {
+			return new DIS_TreeItem(
+				$menu_item->title,
+				sanitize_title( $menu_item->title ),
+				$menu_item->url ?: '',
+				true
+			);
+		}
+
 		$object = get_post( $menu_item->object_id );
 		$name   = $menu_item->title;
 		$slug   = $menu_item->post_name ?: sanitize_title( $menu_item->title );
 		$link   = $menu_item->url ?: '';
+		$external = true;
 
 		if ( $object instanceof WP_Post ) {
 			$name = $object->post_title;
 			$slug = $object->post_name;
 			$link = get_permalink( $object->ID );
+			$external = false;
 		}
 
 		return new DIS_TreeItem(
 			$name,
 			$slug,
 			$link,
-			true
+			$external
 		);
 	}
 
@@ -535,7 +552,7 @@ class DIS_NavigationManager {
 				$result->post_title,
 				$result->post_name,
 				get_permalink( $result ),
-				true
+				false
 			);
 
 			self::append_service_cluster_post_children( $child_item, $result );
@@ -606,7 +623,7 @@ class DIS_NavigationManager {
 				$service->post_title,
 				$service->post_name,
 				get_permalink( $service ),
-				true
+				false
 			);
 		}
 	}
