@@ -215,6 +215,10 @@ class DIS_ThemeManager {
 		// Setup of Autocomplete Manager.
 		$atm = new DIS_AutocompleteManager();
 		$atm->setup();
+
+		// Setup of sitemap renderers and XML endpoints.
+		$nvm = new DIS_NavigationManager();
+		$nvm->setup();
 	}
 
 	/**

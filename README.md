@@ -6,7 +6,7 @@ The project is in beta testing.
 
 
 ## Credits
-This project uses the library [***Bootstrap Italia 2.17.0***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CREDITS.txt).
+This project uses the library [***Bootstrap Italia***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CREDITS.txt).
 
 ## Features
 	- Automatic site population (pages and menu).
@@ -42,6 +42,15 @@ The project is published in the Developers Italia reuse catalog. [This](https://
    - [User manual (IT)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/wiki).
    - [Post-type and taxonomy schema](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/ICT-SiteContentTypes.pdf).
    - [How to update Bootstrap Italia](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/How%20to%20update%20Bootstrap%20Italia.md).
+
+## Sitemap
+The theme provides both a user-facing HTML sitemap and XML sitemaps for search engines.
+
+- The HTML sitemap is rendered from a shared sitemap tree and is exposed through the dedicated site map page template.
+- The XML sitemap is exposed through dedicated endpoints, not through standard WordPress pages.
+- `sitemap-index.xml` lists one XML sitemap for each language registered in Polylang.
+- Each language sitemap is exposed with the pattern `sitemap-{lang}.xml`, for example `sitemap-it.xml` or `sitemap-en.xml`.
+- HTML and XML outputs share the same internal tree builder so they stay aligned as the site structure evolves.
 
 ## Demo
 ### Docker

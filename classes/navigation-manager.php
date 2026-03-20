@@ -45,6 +45,17 @@ class DIS_NavigationManager {
 	public function __construct() {}
 
 	/**
+	 * Register sitemap XML hooks.
+	 *
+	 * @return void
+	 */
+	public function setup() {
+		add_action( 'init', array( $this, 'register_sitemap_rewrite_rules' ) );
+		add_filter( 'query_vars', array( $this, 'register_sitemap_query_vars' ) );
+		add_action( 'template_redirect', array( $this, 'maybe_render_sitemap_xml' ) );
+	}
+
+	/**
 	 * Return the path of the breadcrumb.
 	 * 
 	 * @param mixed $post
@@ -135,6 +146,15 @@ class DIS_NavigationManager {
 	 * @return DIS_TreeItem[]
 	 */
 	public static function get_site_tree() {
+		return self::get_sitemap_tree();
+	}
+
+	/**
+	 * Build and return the sitemap tree data.
+	 *
+	 * @return DIS_TreeItem[]
+	 */
+	public static function get_sitemap_tree() {
 		$pt       = array(); // Page Tree.
 		$site_url = DIS_MultiLangManager::get_home_url();
 		
@@ -194,6 +214,128 @@ class DIS_NavigationManager {
 		return $pt;
 	}
 
+	/**
+	 * Render the sitemap tree as HTML.
+	 *
+	 * @param DIS_TreeItem[]|null $tree The sitemap tree. When omitted it is built on demand.
+	 * @return string
+	 */
+	public static function render_sitemap_html( ?array $tree = null ) {
+		$tree = is_array( $tree ) ? $tree : self::get_sitemap_tree();
+		if ( empty( $tree[ DIS_HOMEPAGE_SLUG ] ) ) {
+			return '';
+		}
+
+		$html  = '<ul class="menutree">';
+		$html .= '<li>';
+		$html .= sprintf(
+			'<a href="%1$s">%2$s</a>',
+			esc_url( $tree[ DIS_HOMEPAGE_SLUG ]->link ),
+			esc_html( $tree[ DIS_HOMEPAGE_SLUG ]->name )
+		);
+		$html .= '</li>';
+		$html .= self::render_sitemap_html_items( $tree[ DIS_HOMEPAGE_SLUG ]->children );
+		$html .= '</ul>';
+
+		return $html;
+	}
+
+	/**
+	 * Render the sitemap tree as XML.
+	 *
+	 * @param DIS_TreeItem[]|null $tree The sitemap tree. When omitted it is built on demand.
+	 * @return string
+	 */
+	public static function render_sitemap_xml( ?array $tree = null ) {
+		$tree = is_array( $tree ) ? $tree : self::get_sitemap_tree();
+		$urls = self::collect_sitemap_urls( $tree );
+
+		$xml = '<?xml version="1.0" encoding="UTF-8"?>';
+		$xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+		foreach ( $urls as $url ) {
+			$xml .= '<url><loc>' . esc_xml( $url ) . '</loc></url>';
+		}
+		$xml .= '</urlset>';
+
+		return $xml;
+	}
+
+	/**
+	 * Render the sitemap index XML.
+	 *
+	 * @return string
+	 */
+	public static function render_sitemap_index_xml() {
+		$languages = DIS_MultiLangManager::get_languages_list();
+		$xml       = '<?xml version="1.0" encoding="UTF-8"?>';
+		$xml      .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
+
+		foreach ( $languages as $language ) {
+			$xml .= '<sitemap><loc>' . esc_xml( self::get_sitemap_url_for_language( $language ) ) . '</loc></sitemap>';
+		}
+
+		$xml .= '</sitemapindex>';
+
+		return $xml;
+	}
+
+	/**
+	 * Register sitemap rewrite rules.
+	 *
+	 * @return void
+	 */
+	public function register_sitemap_rewrite_rules() {
+		add_rewrite_rule( '^sitemap-index\.xml$', 'index.php?dis_sitemap=index', 'top' );
+		add_rewrite_rule( '^sitemap-([A-Za-z0-9_-]+)\.xml$', 'index.php?dis_sitemap=lang&dis_sitemap_lang=$matches[1]', 'top' );
+	}
+
+	/**
+	 * Register sitemap query vars.
+	 *
+	 * @param array $vars Existing query vars.
+	 * @return array
+	 */
+	public function register_sitemap_query_vars( $vars ) {
+		$vars[] = 'dis_sitemap';
+		$vars[] = 'dis_sitemap_lang';
+
+		return $vars;
+	}
+
+	/**
+	 * Render XML sitemap endpoints when requested.
+	 *
+	 * @return void
+	 */
+	public function maybe_render_sitemap_xml() {
+		$sitemap_type = get_query_var( 'dis_sitemap' );
+		if ( ! $sitemap_type ) {
+			return;
+		}
+
+		status_header( 200 );
+		nocache_headers();
+		header( 'Content-Type: application/xml; charset=' . get_bloginfo( 'charset' ) );
+
+		if ( 'index' === $sitemap_type ) {
+			echo self::render_sitemap_index_xml(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			exit;
+		}
+
+		$lang = get_query_var( 'dis_sitemap_lang' );
+		if ( ! self::is_valid_sitemap_language( $lang ) ) {
+			global $wp_query;
+			$wp_query->set_404();
+			status_header( 404 );
+			echo '<?xml version="1.0" encoding="UTF-8"?><error>Not found</error>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			exit;
+		}
+
+		DIS_MultiLangManager::switch_language( $lang );
+		echo self::render_sitemap_xml( self::get_sitemap_tree() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		exit;
+	}
+
 	private static function get_pt_archive_slugs(){
 		$slugs = array();
 		$items = dis_ct_data();
@@ -212,6 +354,90 @@ class DIS_NavigationManager {
 		}
 
 		return $slugs;
+	}
+
+	/**
+	 * Flatten sitemap tree nodes into a unique URL list.
+	 *
+	 * @param DIS_TreeItem[] $tree The sitemap tree.
+	 * @return string[]
+	 */
+	private static function collect_sitemap_urls( array $tree ) {
+		$urls = array();
+		foreach ( $tree as $item ) {
+			self::collect_sitemap_urls_from_item( $item, $urls );
+		}
+
+		return array_values( array_unique( array_filter( $urls ) ) );
+	}
+
+	/**
+	 * Collect URLs recursively from a tree item.
+	 *
+	 * @param DIS_TreeItem $item The current item.
+	 * @param array        $urls Collected URLs.
+	 * @return void
+	 */
+	private static function collect_sitemap_urls_from_item( DIS_TreeItem $item, array &$urls ) {
+		if ( '' !== $item->link ) {
+			$urls[] = $item->link;
+		}
+
+		foreach ( $item->children as $child ) {
+			self::collect_sitemap_urls_from_item( $child, $urls );
+		}
+	}
+
+	/**
+	 * Get the XML sitemap URL for a language.
+	 *
+	 * @param string $language Language slug.
+	 * @return string
+	 */
+	private static function get_sitemap_url_for_language( $language ) {
+		return home_url( '/sitemap-' . $language . '.xml' );
+	}
+
+	/**
+	 * Validate that the requested sitemap language exists.
+	 *
+	 * @param string $language Language slug.
+	 * @return bool
+	 */
+	private static function is_valid_sitemap_language( $language ) {
+		return in_array( $language, DIS_MultiLangManager::get_languages_list(), true );
+	}
+
+	/**
+	 * Render a list of sitemap items recursively.
+	 *
+	 * @param DIS_TreeItem[] $items The items to render.
+	 * @return string
+	 */
+	private static function render_sitemap_html_items( array $items ) {
+		if ( empty( $items ) ) {
+			return '';
+		}
+
+		$html = '<ul>';
+		foreach ( $items as $item ) {
+			$html .= '<li>';
+			if ( '' === $item->link ) {
+				$html .= esc_html( $item->name );
+			} else {
+				$html .= sprintf(
+					'<a href="%1$s">%2$s</a>',
+					esc_url( $item->link ),
+					esc_html( $item->name )
+				);
+			}
+
+			$html .= self::render_sitemap_html_items( $item->children );
+			$html .= '</li>';
+		}
+		$html .= '</ul>';
+
+		return $html;
 	}
 
 	/**
@@ -385,4 +611,16 @@ class DIS_NavigationManager {
 		}
 	}
 
+}
+
+if ( ! function_exists( 'dis_render_sitemap_html' ) ) {
+	/**
+	 * Public renderer for the sitemap HTML output.
+	 *
+	 * @param DIS_TreeItem[]|null $tree Optional sitemap tree.
+	 * @return string
+	 */
+	function dis_render_sitemap_html( ?array $tree = null ) {
+		return DIS_NavigationManager::render_sitemap_html( $tree );
+	}
 }

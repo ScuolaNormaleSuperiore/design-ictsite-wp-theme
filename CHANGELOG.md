@@ -13,6 +13,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
+
 ## [DEV-0.1.8] - 2026-03-20
 ## Changed
 - Updates Bootstrap Italia to 2.18.0.
@@ -22,9 +23,9 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
+
 ## [DEV-0.1.7] - 2026-03-10
 ## Changed
-- Updates Bootstrap Italia to 2.17.0.
 - Updated Dockerfile.
 
 ## [DEV-0.1.6] - 2025-11-19

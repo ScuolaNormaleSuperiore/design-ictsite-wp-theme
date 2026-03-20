@@ -7,38 +7,7 @@
 
 global $post;
 get_header();
-$dis_pt = DIS_NavigationManager::get_site_tree();
-
-if ( ! function_exists( 'dis_render_sitemap_items' ) ) {
-	/**
-	 * Render the sitemap tree recursively.
-	 *
-	 * @param DIS_TreeItem[] $items The items to render.
-	 * @return void
-	 */
-	function dis_render_sitemap_items( array $items ) {
-		if ( empty( $items ) ) {
-			return;
-		}
-		?>
-		<ul>
-			<?php foreach ( $items as $item ) : ?>
-				<li>
-					<?php if ( '' === $item->link ) : ?>
-						<?php echo esc_html( $item->name ); ?>
-					<?php else : ?>
-						<a href="<?php echo esc_url( $item->link ); ?>">
-							<?php echo esc_html( $item->name ); ?>
-						</a>
-					<?php endif; ?>
-
-					<?php dis_render_sitemap_items( $item->children ); ?>
-				</li>
-			<?php endforeach; ?>
-		</ul>
-		<?php
-	}
-}
+$dis_sitemap_tree = DIS_NavigationManager::get_sitemap_tree();
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
@@ -54,15 +23,8 @@ if ( ! function_exists( 'dis_render_sitemap_items' ) ) {
 			<div class="card-wrapper card-teaser-wrapper card-teaser-block-2">
 
 				<!-- TREE -->
-				<?php if ( count( $dis_pt ) > 0 ) : ?>
-					<ul class="menutree">
-						<li>
-							<a href="<?php echo esc_url( $dis_pt[ DIS_HOMEPAGE_SLUG ]->link ); ?>">
-								<?php echo esc_html( $dis_pt[ DIS_HOMEPAGE_SLUG ]->name ); ?>
-							</a>
-						</li>
-						<?php dis_render_sitemap_items( $dis_pt[ DIS_HOMEPAGE_SLUG ]->children ); ?>
-					</ul>
+				<?php if ( count( $dis_sitemap_tree ) > 0 ) : ?>
+					<?php echo dis_render_sitemap_html( $dis_sitemap_tree ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php endif; ?>
 
 

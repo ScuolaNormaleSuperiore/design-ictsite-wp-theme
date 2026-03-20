@@ -90,6 +90,18 @@ class DIS_MultiLangManager {
 	}
 
 	/**
+	 * Switch the current Polylang language.
+	 *
+	 * @param string $lang Language slug.
+	 * @return void
+	 */
+	public static function switch_language( $lang ) {
+		if ( function_exists( 'pll_switch_language' ) ) {
+			pll_switch_language( $lang );
+		}
+	}
+
+	/**
 	 * Sets the language of a taxonomy term.
 	 *
 	 * @param [type] $term
