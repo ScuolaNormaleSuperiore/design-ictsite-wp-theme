@@ -11,20 +11,20 @@ global $post;
 global $wp_query;
 get_header();
 
-$taxonomy_slug = get_query_var( 'taxonomy' );
-$term_slug     = get_query_var( 'term' );
-if ( $taxonomy_slug && $term_slug ) {
-?>
+$dis_taxonomy_slug = get_query_var( 'taxonomy' );
+$dis_term_slug     = get_query_var( 'term' );
+if ( $dis_taxonomy_slug && $dis_term_slug ) {
+	?>
 
 
 REDIRECT TO:
 <BR/>
-<?php echo $taxonomy_slug; ?>
+	<?php echo esc_html( $dis_taxonomy_slug ); ?>
 <BR/>
-<?php echo $term_slug; ?>
+	<?php echo esc_html( $dis_term_slug ); ?>
 <BR/>
 
 
-<?php
+	<?php
 }
 get_footer();

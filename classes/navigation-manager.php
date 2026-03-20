@@ -179,35 +179,14 @@ class DIS_NavigationManager {
 						true
 					);
 					$pt[$home->slug]->children[$menu->slug] = $element;
-					$menu_items = wp_get_nav_menu_items( $mid, array( 'order' => 'DESC' ) );
-					// Add to the tree the content of each menu voice.
-					foreach( $menu_items as $child ) {
-						$object_id = $child->object_id;
-						$object    = get_post( $object_id );
-						$child_el  = new DIS_TreeItem(
-							$object->post_title,
-							$object->post_name,
-							get_permalink( $object->ID ),
-							true
-						);
-						$pt[$home->slug]->children[$menu->slug]->children[$object->post_title] = $child_el;
-						// For archive pages add all content of that type to the tree.
-						$type = $object->post_type;
-						$name = $object->post_name;
-						$type = isset( $slugs[ $object->post_name ] ) ? $slugs[ $object->post_name ] : '';
-						if ( $type ) {
-							$results = DIS_ContentsManager::get_sitemap_posts( $type );
-							foreach ( $results as $r ){
-								$post_el = new DIS_TreeItem(
-							$r->post_title,
-							$r->post_name,
-							get_permalink( $r ),
-							true
-								);
-								$pt[$home->slug]->children[$menu->slug]->children[$object->post_title]->children[$r->post_name] = $post_el;
-							}
-						}
-					}
+					$menu_items = wp_get_nav_menu_items(
+						$mid,
+						array(
+							'orderby' => 'menu_order',
+							'order'   => 'ASC',
+						)
+					);
+					$pt[$home->slug]->children[$menu->slug]->children = self::build_menu_branch( $menu_items ?: array(), $slugs );
 				}
 			}
 		}
@@ -217,13 +196,193 @@ class DIS_NavigationManager {
 
 	private static function get_pt_archive_slugs(){
 		$slugs = array();
-		$items =  dis_ct_data();
-		foreach( $items as $pt => $items ){
-			if ( $pt !== DIS_DEFAULT_PAGE ) {
-				$slugs[$items['slug']] = $pt;
+		$items = dis_ct_data();
+		foreach ( $items as $post_type => $item ) {
+			if ( DIS_DEFAULT_PAGE === $post_type ) {
+				continue;
+			}
+
+			$archive_page = DIS_MultiLangManager::get_archive_page( $post_type );
+			if ( $archive_page instanceof WP_Post ) {
+				$slugs[ $archive_page->post_name ] = $post_type;
+				continue;
+			}
+
+			$slugs[ $item['slug'] ] = $post_type;
+		}
+
+		return $slugs;
+	}
+
+	/**
+	 * Build a hierarchical tree from WP nav menu items.
+	 *
+	 * @param object[] $menu_items The raw menu items.
+	 * @param array    $archive_slugs Archive-page slug to post-type map.
+	 * @return DIS_TreeItem[]
+	 */
+	private static function build_menu_branch( array $menu_items, array $archive_slugs ) {
+		$children_by_parent = array();
+
+		foreach ( $menu_items as $menu_item ) {
+			$parent_id = (int) $menu_item->menu_item_parent;
+			if ( ! isset( $children_by_parent[ $parent_id ] ) ) {
+				$children_by_parent[ $parent_id ] = array();
+			}
+			$children_by_parent[ $parent_id ][] = $menu_item;
+		}
+
+		return self::build_menu_children( $children_by_parent, 0, $archive_slugs );
+	}
+
+	/**
+	 * Recursively build sitemap nodes from menu items.
+	 *
+	 * @param array $children_by_parent Menu items grouped by parent id.
+	 * @param int   $parent_id Current parent id.
+	 * @param array $archive_slugs Archive-page slug to post-type map.
+	 * @return DIS_TreeItem[]
+	 */
+	private static function build_menu_children( array $children_by_parent, int $parent_id, array $archive_slugs ) {
+		$tree = array();
+
+		foreach ( $children_by_parent[ $parent_id ] ?? array() as $menu_item ) {
+			$tree_item = self::build_tree_item_from_menu_item( $menu_item );
+			$tree_item->children = self::build_menu_children(
+				$children_by_parent,
+				(int) $menu_item->ID,
+				$archive_slugs
+			);
+
+			self::append_archive_children( $tree_item, $menu_item, $archive_slugs );
+			self::append_service_cluster_children( $tree_item, $menu_item );
+
+			$tree[ (string) $menu_item->ID ] = $tree_item;
+		}
+
+		return $tree;
+	}
+
+	/**
+	 * Convert a nav menu item into a sitemap tree item.
+	 *
+	 * @param object $menu_item The WordPress nav menu item.
+	 * @return DIS_TreeItem
+	 */
+	private static function build_tree_item_from_menu_item( $menu_item ) {
+		$object = get_post( $menu_item->object_id );
+		$name   = $menu_item->title;
+		$slug   = $menu_item->post_name ?: sanitize_title( $menu_item->title );
+		$link   = $menu_item->url ?: '';
+
+		if ( $object instanceof WP_Post ) {
+			$name = $object->post_title;
+			$slug = $object->post_name;
+			$link = get_permalink( $object->ID );
+		}
+
+		return new DIS_TreeItem(
+			$name,
+			$slug,
+			$link,
+			true
+		);
+	}
+
+	/**
+	 * Attach archive contents below archive pages included in the menu.
+	 *
+	 * @param DIS_TreeItem $tree_item The tree node to enrich.
+	 * @param object       $menu_item The source nav menu item.
+	 * @param array        $archive_slugs Archive-page slug to post-type map.
+	 * @return void
+	 */
+	private static function append_archive_children( DIS_TreeItem $tree_item, $menu_item, array $archive_slugs ) {
+		$type = self::get_archive_type_from_menu_item( $menu_item, $archive_slugs );
+		if ( ! $type ) {
+			return;
+		}
+
+		$results = DIS_ContentsManager::get_sitemap_posts( $type );
+		foreach ( $results as $result ) {
+			$child_item = new DIS_TreeItem(
+				$result->post_title,
+				$result->post_name,
+				get_permalink( $result ),
+				true
+			);
+
+			self::append_service_cluster_post_children( $child_item, $result );
+
+			$tree_item->children[ $result->post_name ] = $child_item;
+		}
+	}
+
+	/**
+	 * Resolve the archive post type represented by a menu item.
+	 *
+	 * @param object $menu_item The source nav menu item.
+	 * @param array  $archive_slugs Archive-page slug to post-type map.
+	 * @return string
+	 */
+	private static function get_archive_type_from_menu_item( $menu_item, array $archive_slugs ) {
+		$object = get_post( $menu_item->object_id );
+
+		if ( $object instanceof WP_Post ) {
+			$matched_type = $archive_slugs[ $object->post_name ] ?? '';
+			if ( $matched_type ) {
+				return $matched_type;
 			}
 		}
-		return $slugs;
+
+		$menu_path = wp_parse_url( $menu_item->url, PHP_URL_PATH );
+		if ( ! is_string( $menu_path ) || '' === $menu_path ) {
+			return '';
+		}
+
+		$menu_slug = basename( untrailingslashit( $menu_path ) );
+
+		return $archive_slugs[ $menu_slug ] ?? '';
+	}
+
+	/**
+	 * Attach services below service-cluster items included in the menu tree.
+	 *
+	 * @param DIS_TreeItem $tree_item The tree node to enrich.
+	 * @param object       $menu_item The source nav menu item.
+	 * @return void
+	 */
+	private static function append_service_cluster_children( DIS_TreeItem $tree_item, $menu_item ) {
+		$object = get_post( $menu_item->object_id );
+
+		if ( ! $object instanceof WP_Post ) {
+			return;
+		}
+
+		self::append_service_cluster_post_children( $tree_item, $object );
+	}
+
+	/**
+	 * Attach services below a service-cluster post.
+	 *
+	 * @param DIS_TreeItem $tree_item The tree node to enrich.
+	 * @param WP_Post      $cluster_post The service-cluster post.
+	 * @return void
+	 */
+	private static function append_service_cluster_post_children( DIS_TreeItem $tree_item, WP_Post $cluster_post ) {
+		if ( DIS_SERVICE_CLUSTER_POST_TYPE !== $cluster_post->post_type ) {
+			return;
+		}
+
+		$services = DIS_ContentsManager::get_service_list( 'priority', $cluster_post->ID );
+		foreach ( $services as $service ) {
+			$tree_item->children[ $service->post_name ] = new DIS_TreeItem(
+				$service->post_title,
+				$service->post_name,
+				get_permalink( $service ),
+				true
+			);
+		}
 	}
 
 }

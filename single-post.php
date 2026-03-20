@@ -10,22 +10,22 @@
 global $post;
 get_header();
 
-$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
+$dis_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 ?>
 
 	<!-- CONTENT HERO -->
 	<div class="container">
 		<section class="it-hero-wrapper it-dark it-overlay it-text-centered" id="it-hero-wrapper">
 			
-			<?php if ( $dsi_image_data ) : ?>
+			<?php if ( $dis_image_data ) : ?>
 			<div class="img-responsive-wrapper" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
 				<div class="img-responsive">
 					<div class="img-wrapper">
 						<img
-							src="<?php echo esc_url( $dsi_image_data['image_url'] ); ?>"
-							title="<?php echo esc_attr( $dsi_image_data['image_title'] ); ?>"
-							alt="<?php echo esc_attr( $dsi_image_data['image_alt'] ); ?>"
+							src="<?php echo esc_url( $dis_image_data['image_url'] ); ?>"
+							title="<?php echo esc_attr( $dis_image_data['image_title'] ); ?>"
+							alt="<?php echo esc_attr( $dis_image_data['image_alt'] ); ?>"
 						>
 					</div>
 				</div>
@@ -38,7 +38,7 @@ $dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 						<div class="it-hero-text-wrapper bg-dark it-text-centered">
 							<h2><?php echo esc_html( $post->post_title ); ?></h2>
 							<p class="d-none d-lg-block">
-								<?php echo nl2br( esc_html( $dsi_short_description ) ); ?>
+								<?php echo nl2br( esc_html( $dis_short_description ) ); ?>
 							</p>
 						</div>
 					</div>

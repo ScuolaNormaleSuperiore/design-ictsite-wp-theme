@@ -79,6 +79,8 @@ if ( $section_enabled ) {
 										<?php
 										if ( $category ) {
 											$event_list = DIS_MultiLangManager::get_page_by_label( EVENTS_PAGE_SLUG );
+										}
+										if ( $category && $event_list ) {
 										?>
 										<a href="<?php echo esc_url( get_permalink( $event_list ) ) . '?category=' . $category->slug; ?>"
 											class="it-card-category it-card-link link-secondary">

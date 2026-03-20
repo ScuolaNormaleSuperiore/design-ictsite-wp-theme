@@ -1,6 +1,6 @@
 <?php
 /**
- *
+ * Design ICT Site page seed configuration.
  *
  * @link https://developer.wordpress.org/themes/basics/theme-functions/
  *
@@ -71,7 +71,7 @@ define( 'SERVICE_BY_PROFILE_TITLE', 'ServiceByProfileTitle' );
 define(
 	'DIS_STATIC_PAGES',
 	array(
-		CONTACTS_PAGE_SLUG =>
+		CONTACTS_PAGE_SLUG        =>
 			array(
 				'content_slug'     => CONTACTS_PAGE_SLUG,
 				'content_file'     => '',
@@ -84,7 +84,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		SITE_MAP_PAGE_SLUG =>
+		SITE_MAP_PAGE_SLUG        =>
 			array(
 				'content_slug'     => SITE_MAP_PAGE_SLUG,
 				'content_file'     => '',
@@ -97,7 +97,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		PRIVACY_PAGE_SLUG =>
+		PRIVACY_PAGE_SLUG         =>
 			array(
 				'content_slug'     => PRIVACY_PAGE_SLUG,
 				'content_file'     => 'assets/html/privacy_xx.html',
@@ -110,7 +110,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		NEWSLETTER_PAGE_SLUG =>
+		NEWSLETTER_PAGE_SLUG      =>
 			array(
 				'content_slug'     => NEWSLETTER_PAGE_SLUG,
 				'content_file'     => '',
@@ -123,7 +123,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		ACCESSIBILITY_PAGE_SLUG =>
+		ACCESSIBILITY_PAGE_SLUG   =>
 			array(
 				'content_slug'     => ACCESSIBILITY_PAGE_SLUG,
 				'content_file'     => 'assets/html/accessibility_xx.html',
@@ -136,7 +136,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		LEGAL_NOTES_PAGE_SLUG =>
+		LEGAL_NOTES_PAGE_SLUG     =>
 			array(
 				'content_slug'     => LEGAL_NOTES_PAGE_SLUG,
 				'content_file'     => 'assets/html/legal_notes_xx.html',
@@ -149,7 +149,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		SITE_SEARCH_PAGE_SLUG =>
+		SITE_SEARCH_PAGE_SLUG     =>
 			array(
 				'content_slug'     => SITE_SEARCH_PAGE_SLUG,
 				'content_file'     => '',
@@ -162,7 +162,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		PEOPLE_PAGE_SLUG =>
+		PEOPLE_PAGE_SLUG          =>
 			array(
 				'content_slug'     => PEOPLE_PAGE_SLUG,
 				'content_file'     => '',
@@ -188,7 +188,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SERVICE_ITEM_PAGE_SLUG =>
+		SERVICE_ITEM_PAGE_SLUG    =>
 			array(
 				'content_slug'     => SERVICE_ITEM_PAGE_SLUG,
 				'content_file'     => '',
@@ -201,7 +201,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		SERVICE_BY_PROFILE_SLUG =>
+		SERVICE_BY_PROFILE_SLUG   =>
 			array(
 				'content_slug'     => SERVICE_BY_PROFILE_SLUG,
 				'content_file'     => '',
@@ -214,7 +214,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		EVENTS_PAGE_SLUG =>
+		EVENTS_PAGE_SLUG          =>
 			array(
 				'content_slug'     => EVENTS_PAGE_SLUG,
 				'content_file'     => '',
@@ -227,7 +227,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		NEWS_PAGE_SLUG =>
+		NEWS_PAGE_SLUG            =>
 			array(
 				'content_slug'     => NEWS_PAGE_SLUG,
 				'content_file'     => '',
@@ -240,7 +240,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		ARTICLES_PAGE_SLUG =>
+		ARTICLES_PAGE_SLUG        =>
 			array(
 				'content_slug'     => ARTICLES_PAGE_SLUG,
 				'content_file'     => '',
@@ -253,7 +253,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		PROJECTS_PAGE_SLUG =>
+		PROJECTS_PAGE_SLUG        =>
 			array(
 				'content_slug'     => PROJECTS_PAGE_SLUG,
 				'content_file'     => '',
@@ -266,7 +266,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		OFFICES_PAGE_SLUG =>
+		OFFICES_PAGE_SLUG         =>
 			array(
 				'content_slug'     => OFFICES_PAGE_SLUG,
 				'content_file'     => '',
@@ -279,7 +279,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		PLACES_PAGE_SLUG =>
+		PLACES_PAGE_SLUG          =>
 			array(
 				'content_slug'     => PLACES_PAGE_SLUG,
 				'content_file'     => '',
@@ -292,7 +292,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		MEDIA_POLICY_PAGE_SLUG =>
+		MEDIA_POLICY_PAGE_SLUG    =>
 			array(
 				'content_slug'     => MEDIA_POLICY_PAGE_SLUG,
 				'content_file'     => '',
@@ -305,7 +305,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		ABOUT_US_PAGE_SLUG =>
+		ABOUT_US_PAGE_SLUG        =>
 			array(
 				'content_slug'     => ABOUT_US_PAGE_SLUG,
 				'content_file'     => '',
@@ -318,7 +318,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_STATIC_PAGE_CAT,
 			),
-		DOCUMENTATION_PAGE_SLUG =>
+		DOCUMENTATION_PAGE_SLUG   =>
 			array(
 				'content_slug'     => DOCUMENTATION_PAGE_SLUG,
 				'content_file'     => '',
@@ -331,7 +331,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_CUSTOM_PAGE_CAT,
 			),
-		FAQ_PAGE_SLUG =>
+		FAQ_PAGE_SLUG             =>
 			array(
 				'content_slug'     => FAQ_PAGE_SLUG,
 				'content_file'     => '',
@@ -344,7 +344,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		FAQ_TOPIC_PAGE_SLUG =>
+		FAQ_TOPIC_PAGE_SLUG       =>
 			array(
 				'content_slug'     => FAQ_TOPIC_PAGE_SLUG,
 				'content_file'     => '',
@@ -357,7 +357,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		HOW_TO_PAGE_SLUG =>
+		HOW_TO_PAGE_SLUG          =>
 			array(
 				'content_slug'     => HOW_TO_PAGE_SLUG,
 				'content_file'     => '',
@@ -370,7 +370,7 @@ define(
 				'content_parent'   => null,
 				'content_category' => DIS_ARCHIVE_PAGE_CAT,
 			),
-		HELP_DESK_PAGE_SLUG =>
+		HELP_DESK_PAGE_SLUG       =>
 			array(
 				'content_slug'     => HELP_DESK_PAGE_SLUG,
 				'content_file'     => '',
@@ -390,61 +390,67 @@ define(
 /**
  *  This feature is used so that translation plugins like Loco Translate
  *  can automatically extract these tags from the theme to translate.
+ *
  *  @TODO: Check if it is possible to remove these duplications.
  */
-if ( ! function_exists( 'dis_pass_labels_to_translator' ) ) {
+if ( ! function_exists( 'dis_translate_data' ) ) {
+	/**
+	 * Return translatable activation labels for static and archive pages.
+	 *
+	 * @return array<string, string>
+	 */
 	function dis_translate_data() {
 		// Standard pages.
 		return array(
-			'ContactsPageSlug'        => _x( 'ContactsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ContactsPageTitle'       => _x( 'ContactsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'SiteMapPageSlug'         => _x( 'SiteMapPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'SiteMapPageTitle'        => _x( 'SiteMapPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'PrivacyPageSlug'         => _x( 'PrivacyPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'PrivacyPageTitle'        => _x( 'PrivacyPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'NewsletterPageSlug'      => _x( 'NewsletterPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'NewsletterPageTitle'     => _x( 'NewsletterPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'AccessibilityPageSlug'   => _x( 'AccessibilityPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'AccessibilityPageTitle'  => _x( 'AccessibilityPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'LegalNotesPageSlug'      => _x( 'LegalNotesPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'LegalNotesPageTitle'     => _x( 'LegalNotesPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'SiteSearchPageSlug'      => _x( 'SiteSearchPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'SiteSearchPageTitle'     => _x( 'SiteSearchPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'MediaPolicyPageSlug'     => _x( 'MediaPolicyPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'MediaPolicyPageTitle'    => _x( 'MediaPolicyPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'AboutUsPageSlug'         => _x( 'AboutUsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'AboutUsPageTitle'        => _x( 'AboutUsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'DocumentationPageSlug'   => _x( 'DocumentationPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'DocumentationPageTitle'  => _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'FaqPageSlug'             => _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'FaqPageTitle'            => _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'FaqTopicPageSlug'        => _x( 'FaqTopicPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'FaqTopicPageTitle'       => _x( 'FaqTopicPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'HowToPageSlug'           => _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'HowToPageTitle'          => _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'HelpDeskPageSlug'        => _x( 'HelpDeskPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'HelpDeskPageTitle'       => _x( 'HelpDeskPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ContactsPageSlug'        => _x( 'ContactsPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ContactsPageTitle'       => _x( 'ContactsPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'SiteMapPageSlug'         => _x( 'SiteMapPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'SiteMapPageTitle'        => _x( 'SiteMapPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'PrivacyPageSlug'         => _x( 'PrivacyPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'PrivacyPageTitle'        => _x( 'PrivacyPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'NewsletterPageSlug'      => _x( 'NewsletterPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'NewsletterPageTitle'     => _x( 'NewsletterPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'AccessibilityPageSlug'   => _x( 'AccessibilityPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'AccessibilityPageTitle'  => _x( 'AccessibilityPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'LegalNotesPageSlug'      => _x( 'LegalNotesPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'LegalNotesPageTitle'     => _x( 'LegalNotesPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'SiteSearchPageSlug'      => _x( 'SiteSearchPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'SiteSearchPageTitle'     => _x( 'SiteSearchPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'MediaPolicyPageSlug'     => _x( 'MediaPolicyPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'MediaPolicyPageTitle'    => _x( 'MediaPolicyPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'AboutUsPageSlug'         => _x( 'AboutUsPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'AboutUsPageTitle'        => _x( 'AboutUsPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'DocumentationPageSlug'   => _x( 'DocumentationPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'DocumentationPageTitle'  => _x( 'DocumentationPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'FaqPageSlug'             => _x( 'FaqPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'FaqPageTitle'            => _x( 'FaqPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'FaqTopicPageSlug'        => _x( 'FaqTopicPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'FaqTopicPageTitle'       => _x( 'FaqTopicPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'HowToPageSlug'           => _x( 'HowToPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'HowToPageTitle'          => _x( 'HowToPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'HelpDeskPageSlug'        => _x( 'HelpDeskPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'HelpDeskPageTitle'       => _x( 'HelpDeskPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
 			// Content type pages.
-			'ArticlePageSlug'         => _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ArticlePageTitle'        => _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'OfficePageSlug'          => _x( 'OfficePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'OfficePageTitle'         => _x( 'OfficePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'PlacePageSlug'           => _x( 'PlacePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'PlacePageTitle'          => _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'EventPageSlug'           => _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'EventPageTitle'          => _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'NewsPageSlug'            => _x( 'NewsPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'NewsPageTitle'           => _x( 'NewsPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ProjectPageSlug'         => _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ProjectPageTitle'        => _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'PeoplePageSlug'          => _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'PeoplePageTitle'         => _x( 'PeoplePageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ServiceClusterPageSlug'  => _x( 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ServiceClusterPageTitle' => _x( 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ServiceItemPageSlug'     => _x( 'ServiceItemPageSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ServiceItemPageTitle'    => _x( 'ServiceItemPageTitle', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ServiceByProfileSlug'    => _x( 'ServiceByProfileSlug', 'DIS_ActivationItems', 'design_ict_site' ),
-			'ServiceByProfileTitle'   => _x( 'ServiceByProfileTitle', 'DIS_ActivationItems', 'design_ict_site' ),
+			'ArticlePageSlug'         => _x( 'ArticlePageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ArticlePageTitle'        => _x( 'ArticlePageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'OfficePageSlug'          => _x( 'OfficePageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'OfficePageTitle'         => _x( 'OfficePageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'PlacePageSlug'           => _x( 'PlacePageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'PlacePageTitle'          => _x( 'PlacePageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'EventPageSlug'           => _x( 'EventPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'EventPageTitle'          => _x( 'EventPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'NewsPageSlug'            => _x( 'NewsPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'NewsPageTitle'           => _x( 'NewsPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ProjectPageSlug'         => _x( 'ProjectPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ProjectPageTitle'        => _x( 'ProjectPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'PeoplePageSlug'          => _x( 'PeoplePageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'PeoplePageTitle'         => _x( 'PeoplePageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ServiceClusterPageSlug'  => _x( 'ServiceClusterPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ServiceClusterPageTitle' => _x( 'ServiceClusterPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ServiceItemPageSlug'     => _x( 'ServiceItemPageSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ServiceItemPageTitle'    => _x( 'ServiceItemPageTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ServiceByProfileSlug'    => _x( 'ServiceByProfileSlug', 'DIS_ActivationItems', 'design_laboratori_italia' ),
+			'ServiceByProfileTitle'   => _x( 'ServiceByProfileTitle', 'DIS_ActivationItems', 'design_laboratori_italia' ),
 		);
 	}
 }

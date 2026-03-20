@@ -10,8 +10,8 @@
 global $post;
 get_header();
 
-$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
+$dis_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 ?>
 
 <!-- NEWS DETAIL -->
@@ -26,22 +26,22 @@ $dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 
 			<!-- Short description -->
 			<p class="lead">
-				<?php echo nl2br( esc_html( $dsi_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</p>
 			<p class="data">
 				<?php echo esc_attr( get_the_date( 'j F Y' ) ); ?>
 			</p>
 
 			<!-- Featured Image -->
-			<?php if ( $dsi_image_data ) : ?>
+			<?php if ( $dis_image_data ) : ?>
 			<section class="it-hero-wrapper it-hero-small-size" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
 							<img
-								src="<?php echo esc_url( $dsi_image_data['image_url'] ); ?>"
-								title="<?php echo esc_attr( $dsi_image_data['image_title'] ); ?>"
-								alt="<?php echo esc_attr( $dsi_image_data['image_alt'] ); ?>"
+								src="<?php echo esc_url( $dis_image_data['image_url'] ); ?>"
+								title="<?php echo esc_attr( $dis_image_data['image_title'] ); ?>"
+								alt="<?php echo esc_attr( $dis_image_data['image_alt'] ); ?>"
 							>
 						</div>
 					</div>
@@ -60,12 +60,12 @@ $dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 
 <!-- Related contents -->
 <?php
-	$dsi_related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
+	$dis_related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
 	get_template_part(
 		'template-parts/common/related-contents',
 		false,
 		array(
-			'items'     => $dsi_related,
+			'items'     => $dis_related,
 			'all_label' => __( 'All news', 'design_laboratori_italia' ),
 			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)

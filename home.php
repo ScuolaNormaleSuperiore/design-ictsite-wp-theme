@@ -10,24 +10,24 @@
 get_header();
 
 // Retrieve all the sections of this site.
-$all_sections = DIS_ContentsManager::get_hp_sections();
-$sections     = DIS_ContentsManager::get_hp_section_options( true );
+$dis_all_sections = DIS_ContentsManager::get_hp_sections();
+$dis_sections     = DIS_ContentsManager::get_hp_section_options( true );
 ?>
 
 <div id="main-container" class="main-container redbrown" role="main">
 
 	<?php
-	foreach ( $sections as $section ) {
-		$sec_id   = $section['id'];
-		$sec_data = ( $sec_id && array_key_exists( $sec_id, $all_sections ) ) ? $all_sections[ $sec_id ] : null;
-		if ( $sec_data ) {
+	foreach ( $dis_sections as $dis_section ) {
+		$dis_section_id   = $dis_section['id'];
+		$dis_section_data = ( $dis_section_id && array_key_exists( $dis_section_id, $dis_all_sections ) ) ? $dis_all_sections[ $dis_section_id ] : null;
+		if ( $dis_section_data ) {
 			get_template_part(
-				$sec_data['template'],
+				$dis_section_data['template'],
 				null,
 				array(
-					'id'         => $section['id'],
-					'show_title' => $section['show_title'],
-					'enabled'    => $section['enabled'],
+					'id'         => $dis_section['id'],
+					'show_title' => $dis_section['show_title'],
+					'enabled'    => $dis_section['enabled'],
 				)
 			);
 		}

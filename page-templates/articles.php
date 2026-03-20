@@ -110,6 +110,8 @@ $num_results = $the_query->found_posts;
 										<?php
 										if ( $category ) {
 											$list_page = DIS_MultiLangManager::get_page_by_label( NEWS_PAGE_SLUG );
+										}
+										if ( $category && $list_page ) {
 										?>
 										<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . $category->slug; ?>"
 											class="it-card-category it-card-link link-secondary">
@@ -214,4 +216,3 @@ $num_results = $the_query->found_posts;
 
 <?php
 get_footer();
-

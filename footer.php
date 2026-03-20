@@ -10,10 +10,10 @@
  */
 
 // Site options.
-$site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
-$site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
-$current_lang = DIS_MultiLangManager::get_current_language();
-$locations    = get_nav_menu_locations();
+$dis_site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
+$dis_site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
+$dis_current_lang = DIS_MultiLangManager::get_current_language();
+$dis_locations    = get_nav_menu_locations();
 ?>
 
 </main> <!-- closing from header.php -->
@@ -31,9 +31,9 @@ $locations    = get_nav_menu_locations();
 									'template-parts/footer/logo_title_footer',
 									false,
 									array(
-										'site_title'   => $site_title,
-										'site_tagline' => $site_tagline,
-										'current_lang' => $current_lang,
+										'site_title'   => $dis_site_title,
+										'site_tagline' => $dis_site_tagline,
+										'current_lang' => $dis_current_lang,
 									),
 								);
 								?>
@@ -45,13 +45,13 @@ $locations    = get_nav_menu_locations();
 						<!-- Contacts section -->
 						<div class="col-lg-4 col-md-4 pb-2">
 							<?php
-									get_template_part( 'template-parts/footer/contacts-section', false, array( 'locations' => $locations ) );
+									get_template_part( 'template-parts/footer/contacts-section', false, array( 'locations' => $dis_locations ) );
 							?>
 						</div>
 						<!-- USEFUL LINKS MENU -->
 						<div class="col-lg-4 col-md-4 pb-2">
 							<?php
-								get_template_part( 'template-parts/menu/useful-links-menu', false, array( 'locations' => $locations ) );
+								get_template_part( 'template-parts/menu/useful-links-menu', false, array( 'locations' => $dis_locations ) );
 							?>
 						</div>
 
@@ -59,7 +59,7 @@ $locations    = get_nav_menu_locations();
 							<div class="pb-2">
 								<!-- Offices section -->
 								<?php
-									get_template_part( 'template-parts/footer/offices-section', false, array( 'locations' => $locations ) );
+									get_template_part( 'template-parts/footer/offices-section', false, array( 'locations' => $dis_locations ) );
 								?>
 								<!-- Newsletter section -->
 								<?php
@@ -67,12 +67,12 @@ $locations    = get_nav_menu_locations();
 										'template-parts/common/newsletter',
 										false,
 										array(
-											'site_title'   => $site_title,
-											'site_tagline' => $site_tagline,
-											'current_lang' => $current_lang,
+											'site_title'   => $dis_site_title,
+											'site_tagline' => $dis_site_tagline,
+											'current_lang' => $dis_current_lang,
 										),
 									);
-								?>
+									?>
 							</div>
 						</div>
 					</div> <!-- row -->
@@ -82,7 +82,7 @@ $locations    = get_nav_menu_locations();
 		<div class="it-footer-small-prints clearfix">
 			<!-- FOOTER -MENU -->
 			<?php
-				get_template_part( 'template-parts/menu/footer-menu', false, array( 'locations' => $locations ) );
+				get_template_part( 'template-parts/menu/footer-menu', false, array( 'locations' => $dis_locations ) );
 			?>
 		</div>
 	</footer>

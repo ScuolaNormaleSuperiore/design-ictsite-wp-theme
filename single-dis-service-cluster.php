@@ -10,9 +10,9 @@
 global $post;
 get_header();
 
-$dsi_cluster_id = $post->ID;
-$dsi_services   = DIS_ContentsManager::get_service_list( 'priority', $dsi_cluster_id );
-$dsi_clusters   = DIS_ContentsManager::get_cluster_list();
+$dis_cluster_id = $post->ID;
+$dis_services   = DIS_ContentsManager::get_service_list( 'priority', $dis_cluster_id );
+$dis_clusters   = DIS_ContentsManager::get_cluster_list();
 ?>
 
 <div class="container shadow rounded p-4 pt-3 pb-3 mb-5">
@@ -32,18 +32,18 @@ $dsi_clusters   = DIS_ContentsManager::get_cluster_list();
 			</div>
 			<div class="row">
 				<div class="card-wrapper card-teaser-wrapper card-tease">
-					<?php foreach ( $dsi_services as $dsi_service ) : ?>
-						<?php $dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $dsi_service->ID ); ?>
+					<?php foreach ( $dis_services as $dis_service ) : ?>
+						<?php $dis_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $dis_service->ID ); ?>
 						<div class="card card-teaser rounded shadow">
 							<div class="card-body">
 								<h3 class="card-title h5">
-									<a href="<?php echo esc_url( get_permalink( $dsi_service ) ); ?>">
-										<?php echo esc_html( $dsi_service->post_title ); ?>
+									<a href="<?php echo esc_url( get_permalink( $dis_service ) ); ?>">
+										<?php echo esc_html( $dis_service->post_title ); ?>
 									</a>
 								</h3>
 								<div class="card-text font-serif">
 									<p>
-										<?php echo nl2br( esc_html( $dsi_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 									</p>
 								</div>
 							</div>
@@ -62,14 +62,14 @@ $dsi_clusters   = DIS_ContentsManager::get_cluster_list();
 							<li>
 								<h3><?php echo esc_html__( 'Services', 'design_laboratori_italia' ); ?></h3>
 							</li>
-							<?php foreach ( $dsi_clusters as $dsi_cluster ) : ?>
-								<?php $dsi_active = ( (string) $post->ID === (string) $dsi_cluster->ID ) ? 'active' : ''; ?>
+							<?php foreach ( $dis_clusters as $dis_cluster ) : ?>
+								<?php $dis_active = ( (string) $post->ID === (string) $dis_cluster->ID ) ? 'active' : ''; ?>
 								<li>
 									<a
-										class="list-item medium <?php echo esc_attr( $dsi_active ); ?>"
-										href="<?php echo esc_url( get_permalink( $dsi_cluster ) ); ?>"
+										class="list-item medium <?php echo esc_attr( $dis_active ); ?>"
+										href="<?php echo esc_url( get_permalink( $dis_cluster ) ); ?>"
 									>
-										<span><?php echo esc_html( $dsi_cluster->post_title ); ?></span>
+										<span><?php echo esc_html( $dis_cluster->post_title ); ?></span>
 									</a>
 								</li>
 							<?php endforeach; ?>

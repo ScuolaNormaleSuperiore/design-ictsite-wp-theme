@@ -30,70 +30,65 @@ get_header();
 
 		<!-- SIDEBAR LIST (Menu-related pages)-->
 		<?php
-			$page_parent_id = DIS_ContentsManager::get_page_anchestor_id( $post );
-			$page_ancestors = get_post_ancestors( $post->ID );
-			$page_children  = get_pages(
+			$dis_page_parent_id = DIS_ContentsManager::get_page_anchestor_id( $post );
+			$dis_page_children  = get_pages(
 				array(
-					'child_of'    => $page_parent_id,
+					'child_of'    => $dis_page_parent_id,
 					'offset'      => 0,
-					'parent'      => $page_parent_id,
+					'parent'      => $dis_page_parent_id,
 					'sort_order'  => 'ASC',
 					'sort_column' => 'menu_order',
 				)
 			);
-			$parent_item = ( $page_parent_id === $post->ID ) ? null : get_post( $page_parent_id );
-		?>
+			$dis_parent_item    = ( $dis_page_parent_id === $post->ID ) ? null : get_post( $dis_page_parent_id );
+			?>
 		<div class="col-12 col-lg-4 col-md-5">
 			<div class="sidebar-wrapper it-line-left-side">
 
 				<!-- Back to the parent -->
-				<?php if ( $parent_item ) : ?>
-					<a href="<?php echo get_permalink( $parent_item ); ?>"
+				<?php if ( $dis_parent_item ) : ?>
+					<a href="<?php echo esc_url( get_permalink( $dis_parent_item ) ); ?>"
 						class="btn btn-primary btn-xs btn-me m-4 " role="button" data-focus-mouse="false">
 						<svg class="icon icon-sm icon-white me-2"
 							role="img"
-							aria-labelledby="<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>"
+							aria-labelledby="<?php echo esc_attr__( 'Go back', 'design_laboratori_italia' ); ?>"
 						>
 							<title>
-								<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>
+								<?php echo esc_html__( 'Go back', 'design_laboratori_italia' ); ?>
 							</title>
-							<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-left'; ?>"></use>
+							<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-left' ); ?>"></use>
 						</svg>
 						<span>
-							<?php echo esc_attr( __( 'Go back', 'design_ict_site' ) ); ?>
+							<?php echo esc_html__( 'Go back', 'design_laboratori_italia' ); ?>
 						</span>
 					</a>
-				<?php endif ?>
+				<?php endif; ?>
 
 				<!-- Children list-->
-				<?php if ( $page_children && count( $page_children ) > 0 ) : ?>
+				<?php if ( $dis_page_children && count( $dis_page_children ) > 0 ) : ?>
 					<div class="sidebar-linklist-wrapper">
 						<div class="link-list-wrapper">
 							<ul class="link-list">
 								<li>
 									<h3>
-										<?php echo esc_attr( __( 'Related pages', 'design_ict_site' ) ); ?>
+										<?php echo esc_html__( 'Related pages', 'design_laboratori_italia' ); ?>
 									</h3>
 								</li>
-								<?php
-									foreach ( $page_children as $p ) {
-										$active = ( get_permalink() === get_permalink( $p ) ) ? 'active' : '';
-								?>
+								<?php foreach ( $dis_page_children as $dis_page_item ) : ?>
+									<?php $dis_active = ( get_permalink() === get_permalink( $dis_page_item ) ) ? 'active' : ''; ?>
 									<li>
-										<a class="list-item medium <?php echo $active ?>"
-											href="<?php echo get_permalink( $p ); ?>">
+										<a class="list-item medium <?php echo esc_attr( $dis_active ); ?>"
+											href="<?php echo esc_url( get_permalink( $dis_page_item ) ); ?>">
 											<span>
-												<?php echo esc_attr( $p->post_title ); ?>
+												<?php echo esc_html( $dis_page_item->post_title ); ?>
 											</span>
 										</a>
 									</li>
-								<?php
-									}
-								?>
+								<?php endforeach; ?>
 							</ul>
 						</div>
 					</div>
-				<?php endif ?>
+				<?php endif; ?>
 
 			</div>
 		</div> <!-- sidebar -->
@@ -103,12 +98,12 @@ get_header();
 
 <!-- Related contents -->
 <?php
-	$related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
+	$dis_related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
 	get_template_part(
 		'template-parts/common/related-contents',
 		false,
 		array(
-			'items'     => $related,
+			'items'     => $dis_related,
 			'all_label' => '',
 			'all_link'  => '',
 		)
@@ -117,3 +112,4 @@ get_header();
 
 <?php
 get_footer();
+?>

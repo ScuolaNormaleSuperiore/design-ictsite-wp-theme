@@ -22,16 +22,18 @@ $user_status = $args['user_status'] ?? '';
 					<?php
 					$status_list     = get_terms( DIS_USER_STATUS_TAXONOMY );
 					$service_profile = DIS_MultiLangManager::get_page_by_label( SERVICE_BY_PROFILE_SLUG );
-					foreach ( $status_list as $sl ) {
-						$active = ( $sl->slug === $user_status ) ? 'active' : '';
-					?>
-					<li>
-						<a class="list-item medium <?php echo esc_attr( $active ); ?>"
-							href="<?php echo esc_url( get_permalink( $service_profile ) ) . '?user_status=' . $sl->slug; ?>">
-							<span><?php echo esc_attr( $sl->name ); ?></span>
-						</a>
-					</li>
-					<?php
+					if ( $service_profile ) {
+						foreach ( $status_list as $sl ) {
+							$active = ( $sl->slug === $user_status ) ? 'active' : '';
+							?>
+							<li>
+								<a class="list-item medium <?php echo esc_attr( $active ); ?>"
+									href="<?php echo esc_url( get_permalink( $service_profile ) ) . '?user_status=' . $sl->slug; ?>">
+									<span><?php echo esc_attr( $sl->name ); ?></span>
+								</a>
+							</li>
+							<?php
+						}
 					}
 					?>
 				</ul>
@@ -44,26 +46,30 @@ $user_status = $args['user_status'] ?? '';
 					<li>
 						<?php
 						$service_list = DIS_MultiLangManager::get_page_by_label( SERVICE_ITEM_PAGE_SLUG );
-						$active       = ( get_permalink() === get_permalink( $service_list->ID ) ) ? 'active' : '';
+						$active       = ( $service_list && get_permalink() === get_permalink( $service_list->ID ) ) ? 'active' : '';
 						?>
+						<?php if ( $service_list ) : ?>
 						<a class="list-item <?php echo esc_attr( $active ); ?>"
 							href="<?php echo esc_url( get_permalink( $service_list->ID ) ); ?>">
 							<span>
 								<?php echo __( 'Full list of services', 'design_ict_site' ); ?>
 							</span>
 						</a>
+						<?php endif; ?>
 					</li>
 					<li>
 						<?php
 						$cluster_list = DIS_MultiLangManager::get_page_by_label( SERVICE_CLUSTER_PAGE_SLUG );
-						$active       = ( get_permalink() === get_permalink( $cluster_list->ID ) ) ? 'active' : '';
+						$active       = ( $cluster_list && get_permalink() === get_permalink( $cluster_list->ID ) ) ? 'active' : '';
 						?>
+						<?php if ( $cluster_list ) : ?>
 						<a class="list-item <?php echo esc_attr( $active ); ?>"
 							href="<?php echo esc_url( get_permalink( $cluster_list->ID ) ); ?>">
 							<span>
 								<?php echo __( 'List of services by category', 'design_ict_site' ); ?>
 							</span>
 						</a>
+						<?php endif; ?>
 					</li>
 				</ul>
 			</div>

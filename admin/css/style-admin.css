@@ -76,18 +76,18 @@
     width:30%;
 }
 
-.taxonomy-classe #_dsi_classe_lunedi_repeat .cmb-repeat-group-field,
-.taxonomy-classe #_dsi_classe_martedi_repeat .cmb-repeat-group-field,
-.taxonomy-classe #_dsi_classe_mercoledi_repeat .cmb-repeat-group-field,
-.taxonomy-classe #_dsi_classe_giovedi_repeat .cmb-repeat-group-field,
-.taxonomy-classe #_dsi_classe_venerdi_repeat .cmb-repeat-group-field,
-.taxonomy-classe #_dsi_classe_sabato_repeat .cmb-repeat-group-field {
+.taxonomy-classe #_dis_classe_lunedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dis_classe_martedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dis_classe_mercoledi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dis_classe_giovedi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dis_classe_venerdi_repeat .cmb-repeat-group-field,
+.taxonomy-classe #_dis_classe_sabato_repeat .cmb-repeat-group-field {
     width:33%;
     padding:0px 0px 6px 0px !important;
     float:left;
 }
 
-.taxonomy-classe #_dsi_classe_libri_repeat .inside .cmb-type-text{
+.taxonomy-classe #_dis_classe_libri_repeat .inside .cmb-type-text{
     width:25%;
     float:left;
     border:0px;
@@ -111,12 +111,12 @@
 
 /* materia */
 
-#_dsi_materia_attivita_repeat .inside .cmb-type-text,#_dsi_materia_attivita_repeat .inside .cmb-type-textarea{
+#_dis_materia_attivita_repeat .inside .cmb-type-text,#_dis_materia_attivita_repeat .inside .cmb-type-textarea{
     width:50%;
     float:left;
     border:0px;
 }
-#_dsi_materia_libri_repeat .inside .cmb-type-text{
+#_dis_materia_libri_repeat .inside .cmb-type-text{
     width:25%;
     float:left;
     border:0px;
@@ -186,24 +186,24 @@
 luogo
  */
 
-#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-text,#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-textarea-small,#_dsi_luogo_modalita_accesso_repeat .inside .cmb-type-select{
+#_dis_luogo_modalita_accesso_repeat .inside .cmb-type-text,#_dis_luogo_modalita_accesso_repeat .inside .cmb-type-textarea-small,#_dis_luogo_modalita_accesso_repeat .inside .cmb-type-select{
     width:33%;
     float:left;
     border:0px;
 }
 
-#_dsi_luogo_modalita_accesso_repeat .inside .cmb-row {
+#_dis_luogo_modalita_accesso_repeat .inside .cmb-row {
     padding-bottom:0px !important;
     padding-top:8px !important;
 }
 
-#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-type-text,#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-type-textarea-small{
+#_dis_luogo_elementi_di_interesse_repeat .inside .cmb-type-text,#_dis_luogo_elementi_di_interesse_repeat .inside .cmb-type-textarea-small{
     width:50%;
     float:left;
     border:0px;
 }
 
-#_dsi_luogo_elementi_di_interesse_repeat .inside .cmb-row {
+#_dis_luogo_elementi_di_interesse_repeat .inside .cmb-row {
     padding-bottom:0px !important;
     padding-top:8px !important;
 }
@@ -215,8 +215,8 @@ luogo
     padding-bottom: 0px;
 }
 
-#_dsi_luogo_elementi_di_interesse_repeat .cmb2-metabox-description,
-#_dsi_luogo_modalita_accesso_repeat .cmb2-metabox-description {
+#_dis_luogo_elementi_di_interesse_repeat .cmb2-metabox-description,
+#_dis_luogo_modalita_accesso_repeat .cmb2-metabox-description {
     padding-bottom:0px !important;
     margin-bottom:0px !important;
 }
@@ -240,7 +240,7 @@ luogo
 /** documento **/
 
 
-#_dsi_documento_timeline_repeat .inside .cmb-type-text-date
+#_dis_documento_timeline_repeat .inside .cmb-type-text-date
 {
     width:20%;
     float:left;
@@ -249,14 +249,14 @@ luogo
     padding-right: 10px;
     margin-left: -10px;
 }
-#_dsi_documento_timeline_repeat .inside .cmb-type-text
+#_dis_documento_timeline_repeat .inside .cmb-type-text
 {
     width:80%;
     float:left;
     border:0px;
 }
 
-#_dsi_documento_timeline_repeat .inside .cmb-row {
+#_dis_documento_timeline_repeat .inside .cmb-row {
     padding-bottom:0px !important;
     padding-top:8px !important;
 }
@@ -304,7 +304,7 @@ luogo
 /** evento **/
 
 
-#_dsi_evento_date_repeat .inside .cmb-type-textarea, #_dsi_evento_date_repeat .inside .cmb-type-textarea-small
+#_dis_evento_date_repeat .inside .cmb-type-textarea, #_dis_evento_date_repeat .inside .cmb-type-textarea-small
 {
     width:80%;
     float:left;
@@ -313,11 +313,11 @@ luogo
 
 }
 
-#_dsi_evento_date_repeat .inside .cmb-type-textarea-small textarea{
+#_dis_evento_date_repeat .inside .cmb-type-textarea-small textarea{
     width:100%;
 }
 
-#_dsi_evento_date_repeat .inside .cmb-type-text-datetime-timestamp
+#_dis_evento_date_repeat .inside .cmb-type-text-datetime-timestamp
 {
     width:20%;
     float:left;
@@ -326,17 +326,17 @@ luogo
     padding-right: 10px;
     margin-left: -10px;
 }
-#_dsi_evento_date_repeat .inside .cmb-type-textarea-small .cmb2-metabox-description{
+#_dis_evento_date_repeat .inside .cmb-type-textarea-small .cmb2-metabox-description{
 
     padding:0px;
 }
 
-#_dsi_evento_date_repeat .inside .cmb-row {
+#_dis_evento_date_repeat .inside .cmb-row {
     padding-bottom:0px !important;
     padding-top:8px !important;
 }
 
-#_dsi_evento_timestamp_inizio_date, #_dsi_evento_timestamp_inizio_time{
+#_dis_evento_timestamp_inizio_date, #_dis_evento_timestamp_inizio_time{
 
     width:40% !important;
     float:left !important;
@@ -345,7 +345,7 @@ luogo
     margin-top:10px !important;
 }
 
-#_dsi_evento_timestamp_fine_date, #_dsi_evento_timestamp_fine_time{
+#_dis_evento_timestamp_fine_date, #_dis_evento_timestamp_fine_time{
 
     width:40% !important;
     float:left !important;
@@ -354,16 +354,16 @@ luogo
     margin-top:10px !important;
 }
 
-#_dsi_evento_box_side .cmb-type-text-datetime-timestamp{
+#_dis_evento_box_side .cmb-type-text-datetime-timestamp{
     padding:10px 0px 10px 0px!important;
 }
 
 /** doc **/
-#_dsi_documento_box_annullato{
+#_dis_documento_box_annullato{
     background-color:#d1344d;
 }
 
-#_dsi_documento_box_annullato .cmb-th,#_dsi_documento_box_annullato .cmb2-metabox-description, #_dsi_documento_box_annullato h2{
+#_dis_documento_box_annullato .cmb-th,#_dis_documento_box_annullato .cmb2-metabox-description, #_dis_documento_box_annullato h2{
     color:#fff;
 }
 
@@ -466,7 +466,7 @@ luogo
     background: rgba(0, 0, 0, 0.5) url(images/spinner.gif) center center no-repeat;
 }
 
-._dsi_circolare_tipologia.error, label.error {
+._dis_circolare_tipologia.error, label.error {
     color: #D8000C;
 }
 
@@ -474,7 +474,7 @@ luogo
     border-color: #D8000C;
 }
 
-._dsi_circolare_tipologia_error {
+._dis_circolare_tipologia_error {
     display: block!important;
     font-weight: bold;
     color: #D8000C;

@@ -10,8 +10,8 @@
 global $post;
 get_header();
 
-$dsi_topics        = wp_get_post_terms( $post->ID, DIS_FAQ_TOPIC_TAXONOMY );
-$dsi_topics_string = DIS_ContentsManager::get_topic_string_from_terms( $dsi_topics, true );
+$dis_topics        = wp_get_post_terms( $post->ID, DIS_FAQ_TOPIC_TAXONOMY );
+$dis_topics_string = DIS_ContentsManager::get_topic_string_from_terms( $dis_topics, true );
 // Increment the counter of the visits.
 DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post->ID );
 ?>
@@ -32,7 +32,7 @@ DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post-
 			</h3>
 			<p>
 				<?php echo esc_html__( 'Topics', 'design_laboratori_italia' ); ?>:&nbsp;
-				<?php echo wp_kses_post( $dsi_topics_string ); ?>
+				<?php echo wp_kses_post( $dis_topics_string ); ?>
 			</p>
 
 			<?php the_content(); ?>

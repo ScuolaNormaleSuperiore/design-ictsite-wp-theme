@@ -224,11 +224,28 @@ class DIS_MultiLangManager {
 	 * Retrieve a page given the 'DIS_ActivationItems' label used in dis_translate_data.
 	 *
 	 * @param string $label
-	 * @return object
+	 * @return object|null
 	 */
-	public static function get_page_by_label( string $label ):object {
-		$translated_label = dis_translate_data()[ $label ];
-		return get_page_by_path( $translated_label, OBJECT, 'page' );
+	public static function get_page_by_label( string $label ) {
+		$candidates = array_filter(
+			array_unique(
+				array(
+					dis_translate_data()[ $label ] ?? '',
+					_x( $label, 'DIS_ActivationItems', 'design_laboratori_italia' ),
+					_x( $label, 'DIS_ActivationItems', 'design_ict_site' ),
+					$label,
+				)
+			)
+		);
+
+		foreach ( $candidates as $candidate ) {
+			$page = get_page_by_path( $candidate, OBJECT, 'page' );
+			if ( $page ) {
+				return $page;
+			}
+		}
+
+		return null;
 	}
 
 	/**
@@ -264,10 +281,43 @@ class DIS_MultiLangManager {
 	 * @return object
 	 */
 	public static function get_archive_page( $type ) {
-		$slug = dis_ct_data()[$type]['slug'];
-		if ( ! $slug ) return '';
-		$page = get_page_by_path( $slug );
-		return $page;
+		$archive_label = self::get_archive_page_label( $type );
+		if ( $archive_label ) {
+			$page = self::get_page_by_label( $archive_label );
+			if ( $page ) {
+				return $page;
+			}
+		}
+
+		$slug = dis_ct_data()[ $type ]['slug'] ?? '';
+		if ( ! $slug ) {
+			return '';
+		}
+
+		return get_page_by_path( $slug );
+	}
+
+	/**
+	 * Map a post type to its archive-page activation label.
+	 *
+	 * @param string $type
+	 * @return string
+	 */
+	private static function get_archive_page_label( $type ) {
+		$map = array(
+			DIS_DEFAULT_POST              => ARTICLES_PAGE_SLUG,
+			DIS_OFFICE_POST_TYPE          => OFFICES_PAGE_SLUG,
+			DIS_PLACE_POST_TYPE           => PLACES_PAGE_SLUG,
+			DIS_EVENT_POST_TYPE           => EVENTS_PAGE_SLUG,
+			DIS_NEWS_POST_TYPE            => NEWS_PAGE_SLUG,
+			DIS_PROJECT_POST_TYPE         => PROJECTS_PAGE_SLUG,
+			DIS_PERSON_POST_TYPE          => PEOPLE_PAGE_SLUG,
+			DIS_SERVICE_CLUSTER_POST_TYPE => SERVICE_CLUSTER_PAGE_SLUG,
+			DIS_SERVICE_ITEM_POST_TYPE    => SERVICE_ITEM_PAGE_SLUG,
+			DIS_FAQ_POST_TYPE             => FAQ_PAGE_SLUG,
+		);
+
+		return $map[ $type ] ?? '';
 	}
 
 

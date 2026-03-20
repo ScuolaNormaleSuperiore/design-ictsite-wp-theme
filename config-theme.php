@@ -41,93 +41,98 @@ define( 'DIS_FAQ_POST_TYPE', 'dis-faq' );
 
 // CUSTOM CONTENT BASE DATA.
 if ( ! function_exists( 'dis_ct_data' ) ) {
+	/**
+	 * Return base configuration for custom content types.
+	 *
+	 * @return array<string, array<string, string>>
+	 */
 	function dis_ct_data() {
 		global $dis_ct_data;
 		if ( ! isset( $dis_ct_data ) ) {
 			$dis_ct_data = array(
-				DIS_EVENT_POST_TYPE => array(
+				DIS_EVENT_POST_TYPE           => array(
 					'type'          => DIS_EVENT_POST_TYPE,
-					'singular_name' => _x( 'Event', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Events', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'events', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Event', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Events', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'events', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_NEWS_POST_TYPE => array(
+				DIS_NEWS_POST_TYPE            => array(
 					'type'          => DIS_NEWS_POST_TYPE,
-					'singular_name' => _x( 'News', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'News-plural', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'news', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'News', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'News-plural', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'news', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_PROJECT_POST_TYPE => array(
+				DIS_PROJECT_POST_TYPE         => array(
 					'type'          => DIS_PROJECT_POST_TYPE,
-					'singular_name' => _x( 'Project', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Projects', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'projects', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Project', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Projects', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'projects', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_OFFICE_POST_TYPE => array(
+				DIS_OFFICE_POST_TYPE          => array(
 					'type'          => DIS_OFFICE_POST_TYPE,
-					'singular_name' => _x( 'Office', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'offices', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Office', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Offices', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'offices', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
 				DIS_SERVICE_CLUSTER_POST_TYPE => array(
 					'type'          => DIS_SERVICE_CLUSTER_POST_TYPE,
-					'singular_name' => _x( 'Service Cluster', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Service Clusters', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'service-clusters', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Service Cluster', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Service Clusters', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'service-clusters', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_SERVICE_ITEM_POST_TYPE => array(
+				DIS_SERVICE_ITEM_POST_TYPE    => array(
 					'type'          => DIS_SERVICE_ITEM_POST_TYPE,
-					'singular_name' => _x( 'Service', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'services', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Service', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Services', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'services', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_PERSON_POST_TYPE => array(
+				DIS_PERSON_POST_TYPE          => array(
 					'type'          => DIS_PERSON_POST_TYPE,
-					'singular_name' => _x( 'Person', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Persons', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'people', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Person', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Persons', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'people', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_PLACE_POST_TYPE => array(
+				DIS_PLACE_POST_TYPE           => array(
 					'type'          => DIS_PLACE_POST_TYPE,
-					'singular_name' => _x( 'Place', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Places', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'places', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Place', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Places', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'places', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_ATTACHMENT_POST_TYPE => array(
+				DIS_ATTACHMENT_POST_TYPE      => array(
 					'type'          => DIS_ATTACHMENT_POST_TYPE,
-					'singular_name' => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Attachments', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'attachments', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Attachment', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Attachments', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'attachments', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_BANNER_POST_TYPE => array(
+				DIS_BANNER_POST_TYPE          => array(
 					'type'          => DIS_BANNER_POST_TYPE,
-					'singular_name' => _x( 'Banner', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Banners', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'banners', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Banner', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Banners', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'banners', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_SPONSOR_POST_TYPE => array(
+				DIS_SPONSOR_POST_TYPE         => array(
 					'type'          => DIS_SPONSOR_POST_TYPE,
-					'singular_name' => _x( 'Sponsor', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'sponsors', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Sponsor', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Sponsors', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'sponsors', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_DEFAULT_POST => array(
+				DIS_DEFAULT_POST              => array(
 					'type'          => DIS_DEFAULT_POST,
-					'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Articles', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'articles', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Article', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Articles', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'articles', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_DEFAULT_PAGE => array(
+				DIS_DEFAULT_PAGE              => array(
 					'type'          => DIS_DEFAULT_PAGE,
-					'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'pages', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Page', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Pages', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'pages', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
-				DIS_FAQ_POST_TYPE => array(
+				DIS_FAQ_POST_TYPE             => array(
 					'type'          => DIS_FAQ_POST_TYPE,
-					'singular_name' => _x( 'Faq', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'plural_name'   => _x( 'Faq', 'DIS_PostTypeLabels', 'design_ict_site' ),
-					'slug'          => _x( 'faq', 'DIS_PostTypeSlugs', 'design_ict_site' ),
+					'singular_name' => _x( 'Faq', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'plural_name'   => _x( 'Faq', 'DIS_PostTypeLabels', 'design_laboratori_italia' ),
+					'slug'          => _x( 'faq', 'DIS_PostTypeSlugs', 'design_laboratori_italia' ),
 				),
 			);
 		}
@@ -221,31 +226,31 @@ define(
 define(
 	'DIS_HP_SECTIONS',
 	array(
-		'main_hero' =>
+		'main_hero'         =>
 			array(
 				'id'       => 'main_hero',
 				'name'     => 'Main hero',
 				'template' => 'template-parts/home/hp-main-hero-section',
 			),
-		'cluster_section' =>
+		'cluster_section'   =>
 			array(
 				'id'       => 'cluster_section',
 				'name'     => 'Cluster list',
 				'template' => 'template-parts/home/hp-clusters-section',
 			),
-		'events_section' =>
+		'events_section'    =>
 			array(
 				'id'       => 'events_section',
 				'name'     => 'Events',
 				'template' => 'template-parts/home/hp-events-section',
 			),
-		'news_section' =>
+		'news_section'      =>
 			array(
 				'id'       => 'news_section',
 				'name'     => 'News',
 				'template' => 'template-parts/home/hp-news-section',
 			),
-		'projects_section' =>
+		'projects_section'  =>
 			array(
 				'id'       => 'projects_section',
 				'name'     => 'Projects',
@@ -257,25 +262,25 @@ define(
 				'name'     => 'Featured contents',
 				'template' => 'template-parts/home/hp-featured-contents-section',
 			),
-		'articles_section' =>
+		'articles_section'  =>
 			array(
 				'id'       => 'articles_section',
 				'name'     => 'Articles',
 				'template' => 'template-parts/home/hp-articles-section',
 			),
-		'banners_section' =>
+		'banners_section'   =>
 			array(
 				'id'       => 'banners_section',
 				'name'     => 'Banners',
 				'template' => 'template-parts/home/hp-banners-section',
 			),
-		'sponsors_section' =>
+		'sponsors_section'  =>
 			array(
 				'id'       => 'sponsors_section',
 				'name'     => 'Sponsors',
 				'template' => 'template-parts/home/hp-sponsors-section',
 			),
-		'video_section' =>
+		'video_section'     =>
 			array(
 				'id'       => 'video_section',
 				'name'     => 'Video',

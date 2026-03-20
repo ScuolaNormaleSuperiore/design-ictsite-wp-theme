@@ -1,12 +1,44 @@
 <?php
-/* Template Name: SiteMap
-*
-* @package Design_ICT_Site
-*/
+/**
+ * Template Name: SiteMap
+ *
+ * @package Design_ICT_Site
+ */
 
 global $post;
 get_header();
-$pt = DIS_NavigationManager::get_site_tree();
+$dis_pt = DIS_NavigationManager::get_site_tree();
+
+if ( ! function_exists( 'dis_render_sitemap_items' ) ) {
+	/**
+	 * Render the sitemap tree recursively.
+	 *
+	 * @param DIS_TreeItem[] $items The items to render.
+	 * @return void
+	 */
+	function dis_render_sitemap_items( array $items ) {
+		if ( empty( $items ) ) {
+			return;
+		}
+		?>
+		<ul>
+			<?php foreach ( $items as $item ) : ?>
+				<li>
+					<?php if ( '' === $item->link ) : ?>
+						<?php echo esc_html( $item->name ); ?>
+					<?php else : ?>
+						<a href="<?php echo esc_url( $item->link ); ?>">
+							<?php echo esc_html( $item->name ); ?>
+						</a>
+					<?php endif; ?>
+
+					<?php dis_render_sitemap_items( $item->children ); ?>
+				</li>
+			<?php endforeach; ?>
+		</ul>
+		<?php
+	}
+}
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
@@ -22,61 +54,16 @@ $pt = DIS_NavigationManager::get_site_tree();
 			<div class="card-wrapper card-teaser-wrapper card-teaser-block-2">
 
 				<!-- TREE -->
-				<?php
-					if ( count( $pt ) > 0 ) {
-				?>
-				<ul class="menutree">
-					<li>
-						<a href="<?php echo $pt[DIS_HOMEPAGE_SLUG]->link; ?>">
-							<?php echo $pt[DIS_HOMEPAGE_SLUG]->name; ?>
-						</a>
-					</li>
-					<ul>
-						<?php
-						// I level.
-						foreach ( $pt[DIS_HOMEPAGE_SLUG]->children as $item ) {
-							$item_name = $item->name;
-							if ( str_contains( strtolower( $item_name ), 'menu' ) ) {
-								$item_name = __ ( $item_name, 'kk_writer_theme' );
-							}
-							if ( $item->link === '' ) {
-								echo '<li>' . $item_name . '</li>';
-							} else if ( $item->external ) {
-								echo '<li><a target="_blank" href="' . $item->link . '">' . $item_name . '</a></li>';
-							} else {
-								echo '<li><a href="' . $item->link . '">' . $item_name . '</a></li>';
-							}
-							// II level.
-							echo '<ul>';
-							foreach ( $item->children as $childitem ) {
-								if ( $childitem->link === '' ) {
-									echo '<li>' . $childitem->name . '</li>';
-								} else if ( $childitem->external ) {
-									echo '<li><a target="_blank" href="' . $childitem->link . '">' . $childitem->name . '</a></li>';
-								} else {
-									echo '<li><a href="' . $childitem->link . '">' . $childitem->name . '</a></li>';
-								}
-								// III level.
-								echo '<ul>';
-								foreach ( $childitem->children as $grandchilditem ) {
-									if ( $grandchilditem->link === '' ) {
-										echo '<li>' . $grandchilditem->name . '</li>';
-									} else if ( $grandchilditem->external ) {
-										echo '<li><a target="_blank" href="' . $grandchilditem->link . '">' . $grandchilditem->name . '</a></li>';
-									} else {
-										echo '<li><a href="' . $grandchilditem->link . '">' . $grandchilditem->name . '</a></li>';
-									}
-								}
-								echo '</ul>';
-							}
-							echo '</ul>';
-						}
-						?>
+				<?php if ( count( $dis_pt ) > 0 ) : ?>
+					<ul class="menutree">
+						<li>
+							<a href="<?php echo esc_url( $dis_pt[ DIS_HOMEPAGE_SLUG ]->link ); ?>">
+								<?php echo esc_html( $dis_pt[ DIS_HOMEPAGE_SLUG ]->name ); ?>
+							</a>
+						</li>
+						<?php dis_render_sitemap_items( $dis_pt[ DIS_HOMEPAGE_SLUG ]->children ); ?>
 					</ul>
-				</ul>
-				<?php
-					}
-				?>
+				<?php endif; ?>
 
 
 			</div>

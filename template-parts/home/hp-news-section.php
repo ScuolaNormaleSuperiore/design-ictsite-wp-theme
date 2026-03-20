@@ -73,6 +73,8 @@ if ( $section_enabled ) {
 										<?php
 										if ( $category ) {
 											$news_list = DIS_MultiLangManager::get_page_by_label( NEWS_PAGE_SLUG );
+										}
+										if ( $category && $news_list ) {
 										?>
 										<a href="<?php echo esc_url( get_permalink( $news_list ) ) . '?category=' . $category->slug; ?>"
 											class="it-card-category it-card-link link-secondary">

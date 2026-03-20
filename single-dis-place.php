@@ -10,18 +10,18 @@
 global $post;
 get_header();
 
-$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
-$dsi_getting_here      = DIS_CustomFieldsManager::get_field( 'getting_here', $post->ID );
-$dsi_telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
-$dsi_email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
-$dsi_opening_hours     = DIS_CustomFieldsManager::get_field( 'opening_hours', $post->ID );
-$dsi_gps_position      = DIS_CustomFieldsManager::get_field( 'gps_position', $post->ID );
+$dis_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$dis_getting_here      = DIS_CustomFieldsManager::get_field( 'getting_here', $post->ID );
+$dis_telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$dis_email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$dis_opening_hours     = DIS_CustomFieldsManager::get_field( 'opening_hours', $post->ID );
+$dis_gps_position      = DIS_CustomFieldsManager::get_field( 'gps_position', $post->ID );
 // Manage Address.
-$dsi_address      = DIS_CustomFieldsManager::get_field( 'address', $post->ID );
-$dsi_city         = DIS_CustomFieldsManager::get_field( 'city', $post->ID );
-$dsi_zip_code     = DIS_CustomFieldsManager::get_field( 'zip_code', $post->ID );
-$dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code ) );
+$dis_address      = DIS_CustomFieldsManager::get_field( 'address', $post->ID );
+$dis_city         = DIS_CustomFieldsManager::get_field( 'city', $post->ID );
+$dis_zip_code     = DIS_CustomFieldsManager::get_field( 'zip_code', $post->ID );
+$dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code ) );
 ?>
 
 <!-- PLACE DETAIL -->
@@ -39,7 +39,7 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 					<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
 				</h3>
 				<p>
-					<?php echo nl2br( esc_html( $dsi_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</p>
 			</div>
 
@@ -49,7 +49,7 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 					<?php echo esc_html__( 'How to reach us', 'design_laboratori_italia' ); ?>
 				</h3>
 				<p>
-					<?php echo wp_kses_post( $dsi_getting_here ); ?>
+					<?php echo wp_kses_post( $dis_getting_here ); ?>
 				</p>
 			</div> 
 		</div>
@@ -63,8 +63,8 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 							<div class="it-right-zone">
 								<span class="text">
 								<?php
-								if ( ! empty( $dsi_full_address ) ) {
-									echo esc_html( implode( ', ', $dsi_full_address ) );
+								if ( ! empty( $dis_full_address ) ) {
+									echo esc_html( implode( ', ', $dis_full_address ) );
 								}
 								?>
 								</span>
@@ -75,12 +75,12 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 							</div>
 						</li>
 						<?php
-						if ( $dsi_opening_hours ) {
+						if ( $dis_opening_hours ) {
 							?>
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text">
-									<?php echo wp_kses_post( $dsi_opening_hours ); ?>
+									<?php echo wp_kses_post( $dis_opening_hours ); ?>
 								</span>
 								<svg class="icon">
 									<title><?php echo esc_html__( 'Hours', 'design_laboratori_italia' ); ?></title>
@@ -90,11 +90,11 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 						</li>
 							<?php
 						}
-						if ( $dsi_telephone ) {
+						if ( $dis_telephone ) {
 							?>
 						<li class="list-item">
 							<div class="it-right-zone">
-								<span class="text"><?php echo esc_html( $dsi_telephone ); ?></span>
+								<span class="text"><?php echo esc_html( $dis_telephone ); ?></span>
 									<svg class="icon">
 										<title><?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone' ); ?>"></use>
@@ -103,11 +103,11 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 						</li>
 							<?php
 						}
-						if ( $dsi_email ) {
+						if ( $dis_email ) {
 							?>
 						<li class="list-item">
 							<div class="it-right-zone">
-								<span class="text"><?php echo esc_html( $dsi_email ); ?></span>
+								<span class="text"><?php echo esc_html( $dis_email ); ?></span>
 									<svg class="icon">
 										<title><?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail' ); ?>"></use>
@@ -133,9 +133,9 @@ $dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code 
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<figure class="img-wrapper">
-							<?php if ( ! str_contains( (string) $dsi_gps_position, 'data-map-markers="[]">' ) ) : ?>
+							<?php if ( ! str_contains( (string) $dis_gps_position, 'data-map-markers="[]">' ) ) : ?>
 								<div class="img-responsive-wrapper">
-									<?php echo wp_kses_post( $dsi_gps_position ); ?>
+									<?php echo wp_kses_post( $dis_gps_position ); ?>
 								</div>
 							<?php endif; ?>
 						</figure>

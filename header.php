@@ -10,19 +10,19 @@
  */
 
 // Site options.
-$site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
-$site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
-$current_lang = DIS_MultiLangManager::get_current_language();
-$network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt_options' );
-$network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
+$dis_site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
+$dis_site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
+$dis_current_lang = DIS_MultiLangManager::get_current_language();
+$dis_network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt_options' );
+$dis_network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
 // Menu options.
-$locations = get_nav_menu_locations();
+$dis_locations = get_nav_menu_locations();
 // Check presence mandatory plugins.
 // @TODO: check_mandatory_plugins().
 ?>
 
 <!doctype html>
-<html lang="<?php echo esc_attr( $current_lang ); ?>">
+<html lang="<?php echo esc_attr( $dis_current_lang ); ?>">
 
 <head>
 	<meta charset="utf-8">
@@ -41,12 +41,12 @@ $locations = get_nav_menu_locations();
 			'template-parts/header/meta_tags',
 			false,
 			array(
-				'site_title'   => $site_title,
-				'site_tagline' => $site_tagline,
-				'current_lang' => $current_lang,
+				'site_title'   => $dis_site_title,
+				'site_tagline' => $dis_site_tagline,
+				'current_lang' => $dis_current_lang,
 			),
 		);
-	?>
+		?>
 
 	<!-- SEO - OG Internal Management -->
 	<?php
@@ -54,12 +54,12 @@ $locations = get_nav_menu_locations();
 			'template-parts/header/seo_tags',
 			false,
 			array(
-				'site_title'   => $site_title,
-				'site_tagline' => $site_tagline,
-				'current_lang' => $current_lang,
+				'site_title'   => $dis_site_title,
+				'site_tagline' => $dis_site_tagline,
+				'current_lang' => $dis_current_lang,
 			),
 		);
-	?>
+		?>
 
 </head>
 
@@ -71,19 +71,19 @@ $locations = get_nav_menu_locations();
 	<!-- TOP BAR -->
 	<div class="skiplinks">
 		<a class="visually-hidden-focusable" href="#main-menu">
-			<?php echo __( 'Go to the menu', 'design_ict_site' ); ?>
+			<?php echo esc_html__( 'Go to the menu', 'design_laboratori_italia' ); ?>
 		</a>
 		<a class="visually-hidden-focusable" href="#main-content">
-			<?php echo __( 'Go to the content', 'design_ict_site' ); ?>
+			<?php echo esc_html__( 'Go to the content', 'design_laboratori_italia' ); ?>
 		</a>
 		<a class="visually-hidden-focusable" href="#it-footer">
-			<?php echo __( 'Go to the footer', 'design_ict_site' ); ?>
+			<?php echo esc_html__( 'Go to the footer', 'design_laboratori_italia' ); ?>
 		</a>
 		<?php
-		$accessibility_page = DIS_MultiLangManager::get_page_link( ACCESSIBILITY_PAGE_SLUG );
+		$dis_accessibility_page = DIS_MultiLangManager::get_page_link( ACCESSIBILITY_PAGE_SLUG );
 		?>
-		<a class="visually-hidden-focusable" href="<?php echo esc_url( $accessibility_page ); ?>">
-			<?php echo __( 'Go to the accessibility statement', 'design_ict_site' ); ?>
+		<a class="visually-hidden-focusable" href="<?php echo esc_url( $dis_accessibility_page ); ?>">
+			<?php echo esc_html__( 'Go to the accessibility statement', 'design_laboratori_italia' ); ?>
 		</a>
 	</div>
 	<div class="it-header-slim-wrapper">
@@ -92,23 +92,21 @@ $locations = get_nav_menu_locations();
 				<div class="col-12">
 					<div class="it-header-slim-wrapper-content">
 						<!-- Left-->
-						<a class="d-none d-lg-block navbar-brand" href="<?php echo esc_url( $network_url ); ?>">
-							<?php echo esc_attr( $network_name ); ?>
+						<a class="d-none d-lg-block navbar-brand" href="<?php echo esc_url( $dis_network_url ); ?>">
+							<?php echo esc_html( $dis_network_name ); ?>
 						</a>
 						<!--Right -->
 						<div class="nav-mobile">
-							<nav aria-label="<?php echo __( 'Accessory navigation', 'design_ict_site' ); ?>">
-								<a class="it-opener d-lg-none" data-bs-toggle="collapse" href="<?php echo esc_url( $network_url ); ?>" role="button"
-									aria-expanded="false" aria-controls="menu4" aria-label="<?php echo esc_attr( $network_name ); ?>">
-									<span><?php echo esc_attr( $network_name ); ?></span>
+							<nav aria-label="<?php echo esc_attr__( 'Accessory navigation', 'design_laboratori_italia' ); ?>">
+								<a class="it-opener d-lg-none" data-bs-toggle="collapse" href="<?php echo esc_url( $dis_network_url ); ?>" role="button"
+									aria-expanded="false" aria-controls="menu4" aria-label="<?php echo esc_attr( $dis_network_name ); ?>">
+									<span><?php echo esc_html( $dis_network_name ); ?></span>
 									<svg class="icon" aria-hidden="true">
-										<use href=<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand' ); ?>"></use>
 									</svg>
 								</a>
 								<!-- TOP BAR MENU -->
-								<?php
-								echo get_template_part( 'template-parts/menu/top-header-menu', false, array( 'locations' => $locations ) );
-								?>
+								<?php get_template_part( 'template-parts/menu/top-header-menu', false, array( 'locations' => $dis_locations ) ); ?>
 							</nav>
 						</div>
 						<div class="it-header-slim-right-zone">
@@ -138,12 +136,12 @@ $locations = get_nav_menu_locations();
 									'template-parts/header/logo_title_header',
 									false,
 									array(
-										'site_title'   => $site_title,
-										'site_tagline' => $site_tagline,
-										'current_lang' => $current_lang,
+										'site_title'   => $dis_site_title,
+										'site_tagline' => $dis_site_tagline,
+										'current_lang' => $dis_current_lang,
 									),
 								);
-							?>
+								?>
 							<!--Social and site search section -->
 							<div class="it-right-zone">
 								<!-- social section-->
@@ -163,32 +161,28 @@ $locations = get_nav_menu_locations();
 				<div class="row">
 					<div class="col-12">
 						<!--start nav-->
-						<nav class="navbar navbar-expand-lg has-megamenu" aria-label="<?php echo __( 'Main navigation', 'design_ict_site' ); ?>">
+						<nav class="navbar navbar-expand-lg has-megamenu" aria-label="<?php echo esc_attr__( 'Main navigation', 'design_laboratori_italia' ); ?>">
 							<button class="custom-navbar-toggler" type="button" aria-controls="nav1" aria-expanded="false"
-								aria-label="<?php echo __( 'Show/Hide navigation', 'design_ict_site' ); ?>" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
+								aria-label="<?php echo esc_attr__( 'Show/Hide navigation', 'design_laboratori_italia' ); ?>" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
 								<svg class="icon">
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-burger'; ?>"></use>
+									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-burger' ); ?>"></use>
 								</svg>
 							</button>
 							<div class="navbar-collapsable" id="nav1" style="display: none;">
 								<div class="overlay" style="display: none;"></div>
 								<div class="close-div">
 									<button class="btn close-menu" type="button">
-										<span class="visually-hidden"><?php echo __( 'Hide navigation', 'design_ict_site' ); ?></span>
+										<span class="visually-hidden"><?php echo esc_html__( 'Hide navigation', 'design_laboratori_italia' ); ?></span>
 										<svg class="icon">
-											<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-close-big'; ?>"></use>
+											<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-close-big' ); ?>"></use>
 										</svg>
 									</button>
 								</div>
 								<div class="menu-wrapper" id="main-menu">
 									<!-- PRIMARY MENU -->
-									<?php
-									echo get_template_part( 'template-parts/menu/primary-menu', false, array( 'locations' => $locations ) );
-									?>
+									<?php get_template_part( 'template-parts/menu/primary-menu', false, array( 'locations' => $dis_locations ) ); ?>
 									<!-- SECONDARY MENU-->
-									<?php
-									echo get_template_part( 'template-parts/menu/secondary-menu', false, array( 'locations' => $locations ) );
-									?>
+									<?php get_template_part( 'template-parts/menu/secondary-menu', false, array( 'locations' => $dis_locations ) ); ?>
 								</div>
 							</div>
 						</nav>
@@ -207,10 +201,9 @@ $locations = get_nav_menu_locations();
 			<h1 class="visually-hidden">Contenuto principale</h1>
 
 			<!-- ALERT section -->
-			<?php	get_template_part( 'template-parts/header/alert' ); ?>
+			<?php get_template_part( 'template-parts/header/alert' ); ?>
 
 			<!-- BREADCRUMB-->
-			<?php	get_template_part( 'template-parts/header/breadcrumb' ); ?>
+			<?php get_template_part( 'template-parts/header/breadcrumb' ); ?>
 
 		</section>
-

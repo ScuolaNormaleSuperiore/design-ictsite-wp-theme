@@ -10,23 +10,23 @@
 global $post;
 get_header();
 
-$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
-$dsi_start_date        = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
-$dsi_end_date          = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
-$dsi_start_date_lng    = $dsi_start_date ? DIS_ContentsManager::format_long_date( $dsi_start_date, false ) : '';
-$dsi_end_date_lng      = $dsi_end_date ? DIS_ContentsManager::format_long_date( $dsi_end_date, false ) : '';
-$dsi_start_hour        = DIS_CustomFieldsManager::get_field( 'start_hour', $post->ID );
-$dsi_end_hour          = DIS_CustomFieldsManager::get_field( 'end_hour', $post->ID );
-$dsi_hour_string       = ( $dsi_start_hour && $dsi_end_hour ) ? $dsi_start_hour . ' - ' . $dsi_end_hour : ( $dsi_start_hour ?? '' );
-$dsi_video             = DIS_CustomFieldsManager::get_field( 'video', $post->ID );
-$dsi_location          = DIS_CustomFieldsManager::get_field( 'location', $post->ID );
-$dsi_email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
-$dsi_telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
-$dsi_website           = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
-$dsi_attachment        = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
-$dsi_offices           = DIS_CustomFieldsManager::get_field( 'office', $post->ID );
-$dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_offices, true );
+$dis_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
+$dis_start_date        = DIS_CustomFieldsManager::get_field( 'start_date', $post->ID );
+$dis_end_date          = DIS_CustomFieldsManager::get_field( 'end_date', $post->ID );
+$dis_start_date_lng    = $dis_start_date ? DIS_ContentsManager::format_long_date( $dis_start_date, false ) : '';
+$dis_end_date_lng      = $dis_end_date ? DIS_ContentsManager::format_long_date( $dis_end_date, false ) : '';
+$dis_start_hour        = DIS_CustomFieldsManager::get_field( 'start_hour', $post->ID );
+$dis_end_hour          = DIS_CustomFieldsManager::get_field( 'end_hour', $post->ID );
+$dis_hour_string       = ( $dis_start_hour && $dis_end_hour ) ? $dis_start_hour . ' - ' . $dis_end_hour : ( $dis_start_hour ?? '' );
+$dis_video             = DIS_CustomFieldsManager::get_field( 'video', $post->ID );
+$dis_location          = DIS_CustomFieldsManager::get_field( 'location', $post->ID );
+$dis_email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$dis_telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$dis_website           = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
+$dis_attachment        = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
+$dis_offices           = DIS_CustomFieldsManager::get_field( 'office', $post->ID );
+$dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_offices, true );
 ?>
 
 
@@ -43,35 +43,35 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 				<!-- Subtitle with dates -->
 				<p class="it-card-subtitle lead">
 					<?php
-					if ( $dsi_start_date_lng && $dsi_end_date_lng ) {
+					if ( $dis_start_date_lng && $dis_end_date_lng ) {
 						/* translators: 1: event start date, 2: event end date. */
-						$dsi_date_string = sprintf( __( 'From %1$s to %2$s', 'design_laboratori_italia' ), $dsi_start_date_lng, $dsi_end_date_lng );
-						echo esc_html( $dsi_date_string );
-					} elseif ( $dsi_start_date_lng ) {
-						echo esc_html( $dsi_start_date_lng );
+						$dis_date_string = sprintf( __( 'From %1$s to %2$s', 'design_laboratori_italia' ), $dis_start_date_lng, $dis_end_date_lng );
+						echo esc_html( $dis_date_string );
+					} elseif ( $dis_start_date_lng ) {
+						echo esc_html( $dis_start_date_lng );
 					}
-					if ( $dsi_hour_string ) {
-						echo ', ' . esc_html( $dsi_hour_string );
+					if ( $dis_hour_string ) {
+						echo ', ' . esc_html( $dis_hour_string );
 					}
 					?>
 				</p>
 
 				<!-- Short description -->
 				<p>
-					<?php echo nl2br( esc_html( $dsi_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</p>
 			</div>
 
 			<!-- Featured Image -->
-			<?php if ( $dsi_image_data ) : ?>
+			<?php if ( $dis_image_data ) : ?>
 			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
 							<img
-								src="<?php echo esc_url( $dsi_image_data['image_url'] ); ?>"
-								title="<?php echo esc_attr( $dsi_image_data['image_title'] ); ?>"
-								alt="<?php echo esc_attr( $dsi_image_data['image_alt'] ); ?>"
+								src="<?php echo esc_url( $dis_image_data['image_url'] ); ?>"
+								title="<?php echo esc_attr( $dis_image_data['image_title'] ); ?>"
+								alt="<?php echo esc_attr( $dis_image_data['image_alt'] ); ?>"
 							>
 						</div>
 					</div>
@@ -85,14 +85,14 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 				<?php the_content(); ?>
 			</div>
 
-			<?php if ( $dsi_video ) : ?>
+			<?php if ( $dis_video ) : ?>
 				<div class="row">
 					<!-- VIDEO -->
 					<?php
 						get_template_part(
 							'template-parts/common/video-section',
 							false,
-							array( 'video' => $dsi_video )
+							array( 'video' => $dis_video )
 						);
 					?>
 				</div>
@@ -105,11 +105,11 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 			<div class="sidebar-wrapper it-line-left-side ps-4">
 				<div class="it-list-wrapper">
 					<ul class="it-list">
-						<?php if ( $dsi_location ) : ?>
+						<?php if ( $dis_location ) : ?>
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_html( $dsi_location ); ?>
+										<?php echo esc_html( $dis_location ); ?>
 									</span>
 									<svg class="icon">
 										<title>
@@ -120,11 +120,11 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 								</div>
 						</li>
 						<?php endif; ?>
-						<?php if ( $dsi_telephone ) : ?>
+						<?php if ( $dis_telephone ) : ?>
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_html( $dsi_telephone ); ?>
+										<?php echo esc_html( $dis_telephone ); ?>
 									</span>
 									<svg class="icon">
 										<title>
@@ -135,11 +135,11 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 								</div>
 							</li>
 						<?php endif; ?>
-						<?php if ( $dsi_email ) : ?>
+						<?php if ( $dis_email ) : ?>
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_html( $dsi_email ); ?>
+										<?php echo esc_html( $dis_email ); ?>
 									</span>
 									<svg class="icon">
 										<title>
@@ -150,9 +150,9 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 								</div>
 							</li>
 						<?php endif; ?>
-						<?php if ( $dsi_website ) : ?>
+						<?php if ( $dis_website ) : ?>
 							<li>
-								<a target="_blank" href="<?php echo esc_url( $dsi_website ); ?>" class="list-item" rel="noopener noreferrer">
+								<a target="_blank" href="<?php echo esc_url( $dis_website ); ?>" class="list-item" rel="noopener noreferrer">
 									<div class="it-right-zone">
 									<span class="text">
 										<?php echo esc_html__( 'Website', 'design_laboratori_italia' ); ?>
@@ -165,12 +165,12 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 								</a>
 							</li>
 						<?php endif; ?>
-						<?php if ( $dsi_attachment ) : ?>
+						<?php if ( $dis_attachment ) : ?>
 							<li>
-								<a target="_blank" href="<?php echo esc_url( $dsi_attachment['url'] ); ?>" class="list-item" rel="noopener noreferrer">
+								<a target="_blank" href="<?php echo esc_url( $dis_attachment['url'] ); ?>" class="list-item" rel="noopener noreferrer">
 									<div class="it-right-zone">
 										<span class="text">
-											<?php echo esc_html( $dsi_attachment['title'] ); ?>
+											<?php echo esc_html( $dis_attachment['title'] ); ?>
 										</span>
 										<svg class="icon">
 											<title>
@@ -182,11 +182,11 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 								</a>
 							</li>
 						<?php endif; ?>
-						<?php if ( $dsi_full_offices ) : ?>
+						<?php if ( $dis_full_offices ) : ?>
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo wp_kses_post( $dsi_full_offices ); ?>
+										<?php echo wp_kses_post( $dis_full_offices ); ?>
 									</span>
 									<svg class="icon">
 										<title>
@@ -210,12 +210,12 @@ $dsi_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dsi_o
 
 <!-- Related contents -->
 <?php
-	$dsi_related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
+	$dis_related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
 	get_template_part(
 		'template-parts/common/related-contents',
 		false,
 		array(
-			'items'     => $dsi_related,
+			'items'     => $dis_related,
 			'all_label' => __( 'All events', 'design_laboratori_italia' ),
 			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)
