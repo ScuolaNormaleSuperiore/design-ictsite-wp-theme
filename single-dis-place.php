@@ -10,18 +10,18 @@
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
-$getting_here      = DIS_CustomFieldsManager::get_field( 'getting_here', $post->ID );
-$telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
-$email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
-$opening_hours     = DIS_CustomFieldsManager::get_field( 'opening_hours', $post->ID );
-$gps_position      = DIS_CustomFieldsManager::get_field( 'gps_position', $post->ID );
+$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$dsi_getting_here      = DIS_CustomFieldsManager::get_field( 'getting_here', $post->ID );
+$dsi_telephone         = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$dsi_email             = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$dsi_opening_hours     = DIS_CustomFieldsManager::get_field( 'opening_hours', $post->ID );
+$dsi_gps_position      = DIS_CustomFieldsManager::get_field( 'gps_position', $post->ID );
 // Manage Address.
-$address      = DIS_CustomFieldsManager::get_field( 'address', $post->ID );
-$city         = DIS_CustomFieldsManager::get_field( 'city', $post->ID );
-$zip_code     = DIS_CustomFieldsManager::get_field( 'zip_code', $post->ID );
-$full_address = array_filter( array( $address, $city, $zip_code ) );
+$dsi_address      = DIS_CustomFieldsManager::get_field( 'address', $post->ID );
+$dsi_city         = DIS_CustomFieldsManager::get_field( 'city', $post->ID );
+$dsi_zip_code     = DIS_CustomFieldsManager::get_field( 'zip_code', $post->ID );
+$dsi_full_address = array_filter( array( $dsi_address, $dsi_city, $dsi_zip_code ) );
 ?>
 
 <!-- PLACE DETAIL -->
@@ -36,20 +36,20 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 			<!-- Short description -->	
 			<div class="row pb-3">
 				<h3 class="it-page-section h4 visually-hidden" id="description">
-					<?php echo esc_attr( __( 'Description', 'design_ict_site' ) ); ?>
+					<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
 				</h3>
 				<p>
-					<?php echo nl2br( string: esc_html( $short_description ) ); ?>
+					<?php echo nl2br( esc_html( $dsi_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				</p>
 			</div>
 
 			<!-- How to reach us -->	
 			<div class="row pb-3">
 				<h3 class="it-page-section h4" id="how_to_reach_us">
-					<?php echo esc_attr( __( 'How to reach us', 'design_ict_site' ) ); ?>
+					<?php echo esc_html__( 'How to reach us', 'design_laboratori_italia' ); ?>
 				</h3>
 				<p>
-					<?php echo wp_kses_post( $getting_here ); ?>
+					<?php echo wp_kses_post( $dsi_getting_here ); ?>
 				</p>
 			</div> 
 		</div>
@@ -63,58 +63,58 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 							<div class="it-right-zone">
 								<span class="text">
 								<?php
-								if ( ! empty( $full_address ) ) :
-									echo esc_html( implode( ', ', $full_address ) );
-								endif
+								if ( ! empty( $dsi_full_address ) ) {
+									echo esc_html( implode( ', ', $dsi_full_address ) );
+								}
 								?>
 								</span>
 									<svg class="icon">
-										<title><?php echo esc_attr( __( 'Address', 'design_ict_site' ) ); ?></title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker'; ?>"></use>
+										<title><?php echo esc_html__( 'Address', 'design_laboratori_italia' ); ?></title>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker' ); ?>"></use>
 									</svg>
 							</div>
 						</li>
 						<?php
-							if ( $opening_hours ) {
-						?>
+						if ( $dsi_opening_hours ) {
+							?>
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text">
-									<?php echo wp_kses_post( $opening_hours ); ?>
+									<?php echo wp_kses_post( $dsi_opening_hours ); ?>
 								</span>
 								<svg class="icon">
-									<title><?php echo esc_attr( __( 'Hours', 'design_ict_site' ) ); ?></title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clock'; ?>"></use>
+									<title><?php echo esc_html__( 'Hours', 'design_laboratori_italia' ); ?></title>
+									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clock' ); ?>"></use>
 								</svg>
 							</div>
 						</li>
-						<?php
-							}
-							if ( $telephone ) {
-						?>
-						<li class="list-item">
-							<div class="it-right-zone">
-								<span class="text"><?php echo esc_attr( $telephone ); ?></span>
-									<svg class="icon">
-										<title><?php echo esc_attr( __( 'Telephone', 'design_ict_site' ) ); ?></title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
-									</svg>
-							</div>
-						</li>
-						<?php
+							<?php
 						}
-						if ( $email ) {
-						?>
+						if ( $dsi_telephone ) {
+							?>
 						<li class="list-item">
 							<div class="it-right-zone">
-								<span class="text"><?php echo esc_attr( $email ); ?></span>
+								<span class="text"><?php echo esc_html( $dsi_telephone ); ?></span>
 									<svg class="icon">
-										<title><?php echo esc_attr( __( 'E-mail', 'design_ict_site' ) ); ?></title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail'; ?>"></use>
+										<title><?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?></title>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone' ); ?>"></use>
 									</svg>
 							</div>
 						</li>
-						<?php
+							<?php
+						}
+						if ( $dsi_email ) {
+							?>
+						<li class="list-item">
+							<div class="it-right-zone">
+								<span class="text"><?php echo esc_html( $dsi_email ); ?></span>
+									<svg class="icon">
+										<title><?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?></title>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail' ); ?>"></use>
+									</svg>
+							</div>
+						</li>
+							<?php
 						}
 						?>
 					</ul>
@@ -126,20 +126,18 @@ $full_address = array_filter( array( $address, $city, $zip_code ) );
 	<!-- MAP  -->
 	<div class="row mb-5">
 		<h3 id="posizione" class="it-page-section h4 visually-hidden">
-			<?php echo esc_attr( __( 'Position', 'design_ict_site' ) ); ?>
+			<?php echo esc_html__( 'Position', 'design_laboratori_italia' ); ?>
 		</h3>  
 		<div class="card-wrapper">
 			<div class="card card-img no-after">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<figure class="img-wrapper">
-							<?php if ( ! str_contains( $gps_position, 'data-map-markers="[]">' ) ) : ?>
+							<?php if ( ! str_contains( (string) $dsi_gps_position, 'data-map-markers="[]">' ) ) : ?>
 								<div class="img-responsive-wrapper">
-									<?php
-									echo $gps_position;
-									?>
+									<?php echo wp_kses_post( $dsi_gps_position ); ?>
 								</div>
-							<?php endif ?>
+							<?php endif; ?>
 						</figure>
 					</div>
 				</div>

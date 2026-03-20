@@ -6,16 +6,17 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
 
-$image_data  = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
-$persons     = DIS_CustomFieldsManager::get_field( 'members', $post->ID );
-$email       = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
-$telephone   = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
-$places      = DIS_CustomFieldsManager::get_field( 'places', $post->ID );
-$full_places = DIS_ContentsManager::get_string_list_from_posts( $places, true );
-$projects    = DIS_ContentsManager::get_office_projects( $post );
+$dsi_image_data  = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$dsi_persons     = DIS_CustomFieldsManager::get_field( 'members', $post->ID );
+$dsi_email       = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$dsi_telephone   = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$dsi_places      = DIS_CustomFieldsManager::get_field( 'places', $post->ID );
+$dsi_full_places = DIS_ContentsManager::get_string_list_from_posts( $dsi_places, true );
+$dsi_projects    = DIS_ContentsManager::get_office_projects( $post );
 ?>
 
 
@@ -29,17 +30,17 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 			<!-- Body -->
 			<div class="row pb-3">
 				<h3 class="it-page-section h4 visually-hidden" id="description">
-					<?php echo esc_attr( __( 'Description', 'design_ict_site' ) ); ?>
+					<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
 				</h3>
 				<?php echo wp_kses_post( get_the_content() ); ?>
 			</div>
 
 			<!-- Members -->
-			<?php if ( $persons ) : ?>
+			<?php if ( $dsi_persons ) : ?>
 				<div class="row">
 					<h3 class="h4 service-paragraph mt-3">
 						<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;
-						<?php echo esc_attr( __( 'People', 'design_ict_site' ) ); ?>
+						<?php echo esc_html__( 'People', 'design_laboratori_italia' ); ?>
 					</h3>
 
 					<!-- People -->
@@ -48,20 +49,20 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 							'template-parts/common/people-section',
 							false,
 							array(
-								'persons' => $persons,
+								'persons' => $dsi_persons,
 								'format'  => 'small',
 							)
 						);
 					?>
 				</div> <!-- row -->
-			<?php endif ?>
+			<?php endif; ?>
 
 			<!-- Projects -->
-			<?php if ( $projects ) : ?>
+			<?php if ( $dsi_projects ) : ?>
 				<div class="row">
 					<h3 class="h4 service-paragraph mt-3">
 						<i class="bi bi-clipboard-data" style="font-size: 1.75rem;"></i>&nbsp;
-						<?php echo esc_attr( __( 'Projects', 'design_ict_site' ) ); ?>
+						<?php echo esc_html__( 'Projects', 'design_laboratori_italia' ); ?>
 					</h3>
 					<!-- Projects section -->
 					<?php
@@ -69,13 +70,13 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 							'template-parts/common/projects-section',
 							false,
 							array(
-								'projects' => $projects,
+								'projects' => $dsi_projects,
 								'format'   => 'small',
 							)
 						);
-						?>
+					?>
 				</div> <!-- row -->
-			<?php endif ?>
+			<?php endif; ?>
 
 		</div>
 
@@ -85,55 +86,55 @@ $projects    = DIS_ContentsManager::get_office_projects( $post );
 				<div class="it-list-wrapper">
 					<ul class="it-list">
 						<?php
-						if ( $full_places ) {
-						?>
+						if ( $dsi_full_places ) {
+							?>
 							<!-- Place -->
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
 										<a href="scheda-luogo.html">
-											<?php echo wp_kses_post( $full_places ); ?>
+											<?php echo wp_kses_post( $dsi_full_places ); ?>
 										</a>
 									</span>
 									<svg class="icon">
-										<title><?php echo esc_attr( __( 'Address', 'design_ict_site' ) ); ?></title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker'; ?>"></use>
+										<title><?php echo esc_html__( 'Address', 'design_laboratori_italia' ); ?></title>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker' ); ?>"></use>
 									</svg>
 								</div>
 							</li>
-						<?php
+							<?php
 						}
-						if ( $telephone ) {
-						?>
+						if ( $dsi_telephone ) {
+							?>
 							<!-- Telephone -->
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_attr( $telephone ); ?>
+										<?php echo esc_html( $dsi_telephone ); ?>
 									</span>
 									<svg class="icon">
-										<title><?php echo esc_attr( __( 'Telephone', 'design_ict_site' ) ); ?></title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone'; ?>"></use>
+										<title><?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?></title>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone' ); ?>"></use>
 									</svg>
 								</div>
 							</li>
-						<?php
-							}
-							if ( $email ) {
-						?>
+							<?php
+						}
+						if ( $dsi_email ) {
+							?>
 						<!-- E-mail -->
 						<li class="list-item">
 							<div class="it-right-zone">
 								<span class="text">
-									<?php echo esc_attr( $email ); ?>
+									<?php echo esc_html( $dsi_email ); ?>
 								</span>
 								<svg class="icon">
-									<title><?php echo esc_attr( __( 'E-mail', 'design_ict_site' ) ); ?></title>
-									<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail'; ?>"></use>
+									<title><?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?></title>
+									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail' ); ?>"></use>
 								</svg>
 							</div>
 						</li>
-						<?php
+							<?php
 						}
 						?>
 					</ul>

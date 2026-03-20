@@ -6,10 +6,9 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
-
-
 ?>
 
 <h3>Attachment detail page</h3>

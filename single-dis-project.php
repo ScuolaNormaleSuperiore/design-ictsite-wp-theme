@@ -6,14 +6,15 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
 
-$image_data = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
-$website    = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
-$repository = DIS_CustomFieldsManager::get_field( 'repository', $post->ID );
-$video      = DIS_CustomFieldsManager::get_field( 'video', $post->ID );
-$persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ?? array();
+$dsi_image_data = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
+$dsi_website    = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
+$dsi_repository = DIS_CustomFieldsManager::get_field( 'repository', $post->ID );
+$dsi_video      = DIS_CustomFieldsManager::get_field( 'video', $post->ID );
+$dsi_persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ?? array();
 ?>
 
 <!-- CONTENT BODY -->
@@ -29,14 +30,14 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 			<?php the_content(); ?>
 
 			<!-- Featured image-->
-			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="In evidenza">
+			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
 							<img
-								src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-								title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-								alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+								src="<?php echo esc_url( $dsi_image_data['image_url'] ); ?>"
+								title="<?php echo esc_attr( $dsi_image_data['image_title'] ); ?>"
+								alt="<?php echo esc_attr( $dsi_image_data['image_alt'] ); ?>"
 							>
 							</div>
 					</div>
@@ -47,38 +48,34 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 			<div class="row">
 				<!-- People -->
 				<?php
-				if ( $persons ) {
-				?>
+				if ( $dsi_persons ) {
+					?>
 				<h3 class="h4 service-paragraph mt-3">
 					<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;
-					<?php echo esc_attr( __( 'Contributors', 'design_ict_site' ) ); ?>
+					<?php echo esc_html__( 'Contributors', 'design_laboratori_italia' ); ?>
 				</h3>
-				<?php
+					<?php
 					get_template_part(
 						'template-parts/common/people-section',
 						false,
 						array(
-							'persons' => $persons,
+							'persons' => $dsi_persons,
 							'format'  => 'small',
 						)
 					);
-				?>
-				<?php
+					?>
+					<?php
 				}
 				?>
 
 				<!-- VIDEO -->
 				<?php
-				if ( $video ){
-				?>
-				<?php
+				if ( $dsi_video ) {
 					get_template_part(
 						'template-parts/common/video-section',
 						false,
-						array( 'video' => $video )
+						array( 'video' => $dsi_video )
 					);
-				?>
-				<?php
 				}
 				?>
 
@@ -93,44 +90,44 @@ $persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID ) ??
 					<ul class="it-list">
 						<!-- Website -->
 						<?php
-						if ( $website ) {
-						?>
+						if ( $dsi_website ) {
+							?>
 						<li>
-							<a href="<?php echo esc_url( $website ); ?>" target="_blank" class="list-item">
+							<a href="<?php echo esc_url( $dsi_website ); ?>" target="_blank" class="list-item" rel="noopener noreferrer">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_attr( __( 'Website', 'design_ict_site' ) ); ?>
+										<?php echo esc_html__( 'Website', 'design_laboratori_italia' ); ?>
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_attr( __( 'Link to the websiste of the project', 'design_ict_site' ) ); ?>
+											<?php echo esc_html__( 'Link to the website of the project', 'design_laboratori_italia' ); ?>
 										</title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link'; ?>"></use>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link' ); ?>"></use>
 									</svg>
 								</div>
 							</a>
 						</li>
-						<?php
+							<?php
 						}
-						if ( $repository ) {
-						?>
+						if ( $dsi_repository ) {
+							?>
 						<!-- Repository-->
 						<li>
-							<a href="<?php echo esc_url( $repository ); ?>" target="_blank" class="list-item">
+							<a href="<?php echo esc_url( $dsi_repository ); ?>" target="_blank" class="list-item" rel="noopener noreferrer">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_attr( __( 'Repository', 'design_ict_site' ) ); ?>
+										<?php echo esc_html__( 'Repository', 'design_laboratori_italia' ); ?>
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_attr( __( 'Link to the repository of the project', 'design_ict_site' ) ); ?>
+											<?php echo esc_html__( 'Link to the repository of the project', 'design_laboratori_italia' ); ?>
 										</title>
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-code-circle'; ?>"></use>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-code-circle' ); ?>"></use>
 									</svg>
 								</div>
 							</a>
 						</li>
-						<?php
+							<?php
 						}
 						?>
 					</ul>

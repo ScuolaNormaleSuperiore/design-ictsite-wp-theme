@@ -10,8 +10,8 @@
 global $post;
 get_header();
 
-$topics        = wp_get_post_terms( $post->ID, DIS_FAQ_TOPIC_TAXONOMY );
-$topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, true );
+$dsi_topics        = wp_get_post_terms( $post->ID, DIS_FAQ_TOPIC_TAXONOMY );
+$dsi_topics_string = DIS_ContentsManager::get_topic_string_from_terms( $dsi_topics, true );
 // Increment the counter of the visits.
 DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post->ID );
 ?>
@@ -28,11 +28,11 @@ DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post-
 
 			<!-- Answer -->
 			<h3 class="it-page-section h4 visually-hidden" id="descrizione">
-				<?php echo esc_attr( __( 'Description', 'design_ict_site' ) ); ?>
+				<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
 			</h3>
 			<p>
-				<?php echo esc_attr( __( 'Topics', 'design_ict_site' ) ); ?>:&nbsp;
-				<?php echo wp_kses_post( $topics_string ); ?>
+				<?php echo esc_html__( 'Topics', 'design_laboratori_italia' ); ?>:&nbsp;
+				<?php echo wp_kses_post( $dsi_topics_string ); ?>
 			</p>
 
 			<?php the_content(); ?>

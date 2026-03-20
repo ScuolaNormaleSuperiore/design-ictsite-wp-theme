@@ -9,19 +9,19 @@
 
 global $post;
 get_header();
-$name         = DIS_CustomFieldsManager::get_field( 'name', $post->ID );
-$surname      = DIS_CustomFieldsManager::get_field( 'surname', $post->ID );
-$honorific    = DIS_CustomFieldsManager::get_field( 'honorific', $post->ID );
-$website      = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
-$email        = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
-$phone        = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
-$roles        = get_the_terms( $post->ID, DIS_PERSON_ROLE_TAXONOMY );
-$photo        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/person.png' );
-$offices      = DIS_ContentsManager::get_person_offices( $post );
-$full_name    = trim( join( ' ', array( $honorific, $name, $surname ) ) );
-$full_roles   = $roles ? implode( ', ', wp_list_pluck( $roles, 'name' ) ) : '';
-$full_offices = DIS_ContentsManager::get_string_list_from_posts( $offices, true );
-$attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
+$dsi_name         = DIS_CustomFieldsManager::get_field( 'name', $post->ID );
+$dsi_surname      = DIS_CustomFieldsManager::get_field( 'surname', $post->ID );
+$dsi_honorific    = DIS_CustomFieldsManager::get_field( 'honorific', $post->ID );
+$dsi_website      = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
+$dsi_email        = DIS_CustomFieldsManager::get_field( 'email', $post->ID );
+$dsi_phone        = DIS_CustomFieldsManager::get_field( 'telephone', $post->ID );
+$dsi_roles        = get_the_terms( $post->ID, DIS_PERSON_ROLE_TAXONOMY );
+$dsi_photo        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/person.png' );
+$dsi_offices      = DIS_ContentsManager::get_person_offices( $post );
+$dsi_full_name    = trim( implode( ' ', array_filter( array( $dsi_honorific, $dsi_name, $dsi_surname ) ) ) );
+$dsi_full_roles   = $dsi_roles ? implode( ', ', wp_list_pluck( $dsi_roles, 'name' ) ) : '';
+$dsi_full_offices = DIS_ContentsManager::get_string_list_from_posts( $dsi_offices, true );
+$dsi_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 ?>
 
 
@@ -34,18 +34,18 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 					<div class="it-card-profile">
 						<h2 class="it-card-profile-name ">
 							<a href="#">
-								<?php echo esc_attr( $full_name ); ?>
+								<?php echo esc_html( $dsi_full_name ); ?>
 							</a>
 						</h2>
 						<p class="it-card-profile-role">
-							<?php echo esc_attr( $full_roles ); ?>
+							<?php echo esc_html( $dsi_full_roles ); ?>
 						</p>
 					</div>
 					<div class="avatar size-xxl">
 						<img
-							src="<?php echo esc_url( $photo['image_url'] ); ?>"
-							title="<?php echo $full_name; ?>"
-							alt="<?php echo $full_name; ?>"
+							src="<?php echo esc_url( $dsi_photo['image_url'] ); ?>"
+							title="<?php echo esc_attr( $dsi_full_name ); ?>"
+							alt="<?php echo esc_attr( $dsi_full_name ); ?>"
 						>
 					</div>
 				</div>
@@ -53,32 +53,32 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 					<dl class="it-card-description-list">
 						<div>
 							<dt>
-								<?php echo __( 'Area/Service', 'design_ict_site' ); ?>:
+								<?php echo esc_html__( 'Area/Service', 'design_laboratori_italia' ); ?>:
 							</dt>
 							<dd>
-								<?php echo wp_kses_post( $full_offices ); ?>
+								<?php echo wp_kses_post( $dsi_full_offices ); ?>
 							</dd>
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'E-mail', 'design_ict_site' ); ?>:
+								<?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?>:
 							</dt>
 							<dd>
-								<a href="mailto:<?php echo esc_attr( $email ); ?>"><?php echo esc_attr( $email ); ?></a>
+								<a href="mailto:<?php echo esc_attr( $dsi_email ); ?>"><?php echo esc_html( $dsi_email ); ?></a>
 							</dd>
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'Telephone', 'design_ict_site' ); ?>:
+								<?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?>:
 							</dt>
-							<dd><?php echo esc_attr( $phone ); ?></dd>
+							<dd><?php echo esc_html( $dsi_phone ); ?></dd>
 						</div>
 						<div>
 							<dt>
-								<?php echo __( 'Web site', 'design_ict_site' ); ?>:
+								<?php echo esc_html__( 'Web site', 'design_laboratori_italia' ); ?>:
 							</dt>
 							<dd>
-								<a href="<?php echo esc_url( $website ); ?>"><?php echo esc_url( $website ); ?></a>
+								<a href="<?php echo esc_url( $dsi_website ); ?>"><?php echo esc_html( $dsi_website ); ?></a>
 							</dd>
 						</div>
 
@@ -93,30 +93,27 @@ $attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->ID );
 		</div>
 
 		<!-- attachments -->
-		 <?php
-		 if ( $attachment ) {
-		?>
+		<?php
+		if ( $dsi_attachment ) {
+			?>
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12 mb-3 mb-md-4">
 					<article class="it-card rounded border shadow-sm mb-3">
 						<h4 class="it-card-title it-card-title-icon ">
-							<a href="<?php echo esc_attr( $attachment['url'] ); ?>">
-								<?php echo esc_attr( $attachment['title'] ); ?>
+							<a href="<?php echo esc_url( $dsi_attachment['url'] ); ?>">
+								<?php echo esc_html( $dsi_attachment['title'] ); ?>
 								<div class="it-card-title-icon-wrapper">
 									<svg class="icon icon-primary" aria-hidden="true">
-										<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-file'; ?>"></use>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-file' ); ?>"></use>
 									</svg>
 								</div>
 							</a>
 						</h4>
-						<!--div class="it-card-body">
-							<p class="it-card-text">???</p>
-						</div -->
 					</article>
 				</div>
 			</div>
-		<?php
-		 }
+			<?php
+		}
 		?>
 
 	</div>

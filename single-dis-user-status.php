@@ -6,10 +6,9 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
-
-
 ?>
 
 <h3>User Status detail page</h3>

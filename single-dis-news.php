@@ -6,11 +6,12 @@
  *
  * @package Design_ICT_Site
  */
+
 global $post;
 get_header();
 
-$short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-$image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
+$dsi_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
+$dsi_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' );
 ?>
 
 <!-- NEWS DETAIL -->
@@ -25,28 +26,28 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' 
 
 			<!-- Short description -->
 			<p class="lead">
-				<?php echo nl2br( string: esc_html( $short_description ) ); ?>
+				<?php echo nl2br( esc_html( $dsi_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 			</p>
 			<p class="data">
 				<?php echo esc_attr( get_the_date( 'j F Y' ) ); ?>
 			</p>
 
 			<!-- Featured Image -->
-			<?php if ( $image_data ): ?>
-			<section class="it-hero-wrapper it-hero-small-size" aria-label="<?php echo __( 'In evidence', 'design_ict_site' ) ?>">
+			<?php if ( $dsi_image_data ) : ?>
+			<section class="it-hero-wrapper it-hero-small-size" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
 							<img
-								src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-								title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-								alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
+								src="<?php echo esc_url( $dsi_image_data['image_url'] ); ?>"
+								title="<?php echo esc_attr( $dsi_image_data['image_title'] ); ?>"
+								alt="<?php echo esc_attr( $dsi_image_data['image_alt'] ); ?>"
 							>
 						</div>
 					</div>
 				</div>
 			</section>
-			<?php endif ?>
+			<?php endif; ?>
 
 			<!-- Body -->
 			<div class="p-5">
@@ -59,17 +60,17 @@ $image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '' 
 
 <!-- Related contents -->
 <?php
-	$related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
+	$dsi_related = DIS_CustomFieldsManager::get_field( 'related_items', $post->ID );
 	get_template_part(
 		'template-parts/common/related-contents',
 		false,
 		array(
-			'items'     => $related,
-			'all_label' => __( 'All news', 'design_ict_site' ),
+			'items'     => $dsi_related,
+			'all_label' => __( 'All news', 'design_laboratori_italia' ),
 			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)
 	);
-?>
+	?>
 
 
 <?php
