@@ -17,7 +17,8 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 ## Changed
 - Updates Bootstrap Italia to 2.18.0.
 - Updated Dockerfile.
-
+## Fixed
+- Refactoring of templates pages.
 
 
 
