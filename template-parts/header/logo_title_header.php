@@ -40,7 +40,7 @@ if ( $logo_visible === 'true' ) {
 						xmlns:xlink="http://www.w3.org/1999/xlink" width="82" height="82"
 						alt="<?php echo __( 'Logo of the site', 'design_ict_site' ); ?>"
 						title="<?php echo esc_attr( $site_title ); ?>">
-						<?php echo wp_remote_get( $logo_url ); ?>
+						<?php echo wp_remote_retrieve_body( wp_remote_get( $logo_url ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 					</svg>
 				</a>
 		<?php

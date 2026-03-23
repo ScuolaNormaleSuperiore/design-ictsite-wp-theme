@@ -23,7 +23,7 @@ $def_topic_name = $def_topic ? $def_topic->name : '';
 $topic_slug     = isset( $_GET['topic'] ) ? sanitize_text_field( wp_unslash( $_GET['topic'] ) ) : $def_topic_slug;
 if ( isset( $_GET['topic'] ) ) {
 	$topic_term = get_term_by( 'slug', $topic_slug, DIS_FAQ_TOPIC_TAXONOMY );
-	$topic_name = $topic_term->name;
+	$topic_name = ( $topic_term && ! is_wp_error( $topic_term ) ) ? $topic_term->name : $def_topic_name;
 } else {
 	$topic_name = $def_topic_name;
 }
@@ -55,13 +55,13 @@ if ( $topic_slug ) {
 						<button class="custom-navbar-toggler" type="button" aria-controls="navbarNav"
 							aria-label="Apri/Chiudi indice" data-bs-toggle="navbarcollapsible" data-bs-target="#navbarNav">
 							<span class="it-list"></span>
-							<?php esc_attr( __( 'FAQ by topic', 'design_ict_site' ) ); ?>
+							<?php echo esc_attr( __( 'FAQ by topic', 'design_ict_site' ) ); ?>
 						</button>
 						<div class="navbar-collapsable" id="navbarNav" tabindex="-1">
 							<div class="close-div visually-hidden">
 								<button class="btn close-menu" type="button">
 									<span class="it-close"></span>
-									<?php esc_attr( __( 'Close', 'design_ict_site' ) ); ?>
+									<?php echo esc_attr( __( 'Close', 'design_ict_site' ) ); ?>
 								</button>
 							</div>
 							<button type="button" class="it-back-button btn w-100 text-start">
@@ -70,13 +70,13 @@ if ( $topic_slug ) {
 										xlink:href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-chevron-left' ); ?>"></use>
 								</svg>
 								<span>
-									<?php esc_attr( __( 'Back', 'design_ict_site' ) ); ?>
+									<?php echo esc_attr( __( 'Back', 'design_ict_site' ) ); ?>
 								</span>
 							</button>
 							<div class="menu-wrapper" tabindex="-1">
 								<div class="link-list-wrapper">
 									<h3>	
-										<?php esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
+										<?php echo esc_attr( __( 'Browse by topic', 'design_ict_site' ) ); ?>
 									</h3>
 									<ul class="link-list">
 										<?php

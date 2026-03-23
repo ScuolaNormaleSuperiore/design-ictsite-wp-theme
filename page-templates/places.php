@@ -89,7 +89,7 @@ $num_results = $the_query->found_posts;
 											</a>
 										</h4>
 										<p class="it-card-profile-type">
-											<?php echo esc_attr( $place_type->name ); ?>
+											<?php echo $place_type ? esc_attr( $place_type->name ) : ''; ?>
 										</p>
 									</div>
 

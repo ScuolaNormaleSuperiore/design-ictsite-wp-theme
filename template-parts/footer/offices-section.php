@@ -18,7 +18,7 @@ if ( count( $offices ) > 0 ) {
 				<li>
 					<a class="list-item"
 						href="<?php echo esc_attr( get_permalink( $office ) ); ?>"
-						title="<?php echo esc_attr( __( 'Go to the page', 'design_ict_site' ) ); ?> . ': ' . <?php echo esc_attr( $office->post_title ); ?>"><?php echo esc_attr( $office->post_title ); ?>
+						title="<?php echo esc_attr( __( 'Go to the page', 'design_ict_site' ) . ': ' . $office->post_title ); ?>"><?php echo esc_attr( $office->post_title ); ?>
 					</a>
 				</li>
 			<?php

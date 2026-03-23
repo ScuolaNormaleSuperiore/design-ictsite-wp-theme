@@ -326,7 +326,7 @@ class DIS_ContentsManager {
 			'posts_per_page' => $params['posts_per_page'] ?? -1,
 		);
 		// Search for a string.
-		if ( $params['search_string'] ) {
+		if ( ! empty( $params['search_string'] ) ) {
 			$args['s'] = $params['search_string'];
 		}
 		// Filter by taxonomy.
@@ -779,7 +779,7 @@ class DIS_ContentsManager {
 			}
 			if ( DIS_OptionsManager::dis_get_option( 'ignore_robots', 'dis_opt_advanced_settings' ) === 'true' ) {
 				// Ignore some bots.
-				$user_agent = $_SERVER['HTTP_USER_AGENT'] ? sanitize_text_field( $_SERVER['HTTP_USER_AGENT'] ) : '';
+				$user_agent = isset( $_SERVER['HTTP_USER_AGENT'] ) ? sanitize_text_field( wp_unslash( $_SERVER['HTTP_USER_AGENT'] ) ) : '';
 				$bots       = BOT_LABEL;
 				foreach ( $bots as $bot ) {
 					if ( stripos( $user_agent, $bot ) !== false ) {

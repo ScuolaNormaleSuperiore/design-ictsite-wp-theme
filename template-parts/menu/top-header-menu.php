@@ -33,7 +33,6 @@ if ( has_nav_menu( $location ) ) {
 			<?php
 			}
 			?>
-			</ul>
 		</ul>
 	</div>
 
