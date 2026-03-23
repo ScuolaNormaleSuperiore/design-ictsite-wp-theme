@@ -1,17 +1,21 @@
 <?php
 /**
- * Definition of the Autocomplete Manager: manages the site autocomplete features.
- * 
+ * Autocomplete manager bootstrap.
+ *
  * @package Design_ICT_Site
  */
 
+/**
+ * Definition of the Autocomplete Manager: manages the site autocomplete features.
+ *
+ * @package Design_ICT_Site
+ */
 
 define( 'DIS_AUTCOMPLETE_MAX_CHARS', 200 );
 define( 'DIS_AUTCOMPLETE_MAX_NUM_RESULTS', 8 );
 
 /**
  * The manager that uploads the layout of the theme.
- *
  */
 class DIS_AutocompleteManager {
 	/**
@@ -30,24 +34,29 @@ class DIS_AutocompleteManager {
 		add_action( 'wp_ajax_nopriv_theme_autocomplete', array( $this, 'theme_autocomplete_callback' ) );
 	}
 
+	/**
+	 * Enqueue autocomplete assets when one of the related features is enabled.
+	 *
+	 * @return void
+	 */
 	public function upload_scripts() {
-		// Import algolia library for autocompletion.
-		$hp_autocomplete  = DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' );
-		$doc_autocomplete = DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' );
-		$faq_autocomplete = DIS_OptionsManager::dis_get_option( 'faq_autocomplete_enabled', 'dis_opt_hp_layout' );
+		$home_autocomplete_enabled = ( 'true' === DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' ) );
+		$doc_autocomplete_enabled  = ( 'true' === DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' ) );
+		$faq_autocomplete_enabled  = ( 'true' === DIS_OptionsManager::dis_get_option( 'faq_autocomplete_enabled', 'dis_opt_hp_layout' ) );
+		$site_autocomplete_enabled = ( 'true' === DIS_OptionsManager::dis_get_option( 'site_search_autocomplete_enabled', 'dis_opt_hp_layout' ) );
 
 		if (
-				( DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' ) ||
-				( DIS_OptionsManager::dis_get_option( 'doc_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' ) ||
-				( DIS_OptionsManager::dis_get_option( 'faq_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' ) ||
-				( DIS_OptionsManager::dis_get_option( 'site_search_autocomplete_enabled', 'dis_opt_hp_layout' ) === 'true' )
-			) {
+			$home_autocomplete_enabled ||
+			$doc_autocomplete_enabled ||
+			$faq_autocomplete_enabled ||
+			$site_autocomplete_enabled
+		) {
 			// Algolia library.
 			wp_enqueue_script(
 				'dis-algolia-autocomplete',
 				DIS_THEME_URL . '/assets/algolia/dis-algolia.js',
 				array(),
-				null,
+				filemtime( DIS_THEME_PATH . 'assets/algolia/dis-algolia.js' ),
 				true
 			);
 			// Custom Algolia.
@@ -55,7 +64,7 @@ class DIS_AutocompleteManager {
 				'dis-autocomplete-init',
 				get_template_directory_uri() . '/assets/algolia/dis-autocomplete-init.js',
 				array( 'dis-algolia-autocomplete' ),
-				null,
+				filemtime( DIS_THEME_PATH . 'assets/algolia/dis-autocomplete-init.js' ),
 				true
 			);
 			// Algolia CSS.
@@ -63,7 +72,7 @@ class DIS_AutocompleteManager {
 				'dis-algolia-autocomplete-css',
 				DIS_THEME_URL . '/assets/algolia/dis-algolia.css',
 				array(),
-				null
+				filemtime( DIS_THEME_PATH . 'assets/algolia/dis-algolia.css' )
 			);
 
 			// Passing variables from PHP to JS.
@@ -73,40 +82,41 @@ class DIS_AutocompleteManager {
 				array(
 					'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
 					'nonce'          => wp_create_nonce( 'sf_site_autocomplete_nonce' ),
-					'searchLabel'    => __( 'Search...', 'design_ict_site' ),
-					'noResultString' => __( 'No results found for', 'design_ict_site' ),
+					'searchLabel'    => __( 'Search...', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+					'noResultString' => __( 'No results found for', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
 				)
 			);
-
 		}
 	}
 
 	/**
-	 * AJAX endpoint for all theme autocomplete components.
-	 * It choose the right handle according to the selector.
+	 * Route AJAX requests to the proper autocomplete handler.
 	 *
-	 * @return object
+	 * @return mixed
 	 */
 	public function theme_autocomplete_callback() {
-		// error_log( '*** ECCOMI IN theme_autocomplete_callback ***' );
+		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$selector = isset( $_POST['selector'] ) ? sanitize_text_field( wp_unslash( $_POST['selector'] ) ) : '';
-		if ( $selector === 'home_search_autocomplete' ) {
+		if ( 'home_search_autocomplete' === $selector ) {
 			return $this->home_search_autocomplete_callback();
-		} elseif ( $selector === 'faq_search_autocomplete' ) {
+		} elseif ( 'faq_search_autocomplete' === $selector ) {
 			return $this->faq_search_autocomplete_callback();
-		} elseif ( $selector === 'doc_search_autocomplete' ) {
+		} elseif ( 'doc_search_autocomplete' === $selector ) {
 			return $this->doc_search_autocomplete_callback();
-		} else {
-			return;
 		}
+
+		wp_send_json( array() );
 	}
 
+	/**
+	 * Return autocomplete results for the global site search.
+	 *
+	 * @return void
+	 */
 	public function home_search_autocomplete_callback() {
-		// error_log( '*** ECCOMI IN home_search_autocomplete_callback ***' );
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
@@ -138,16 +148,18 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
 
+	/**
+	 * Return autocomplete results for FAQs.
+	 *
+	 * @return void
+	 */
 	public function faq_search_autocomplete_callback() {
-		// error_log( '*** ECCOMI IN faq_search_autocomplete_callback ***' );
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
@@ -177,16 +189,18 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
 
+	/**
+	 * Return autocomplete results for documentation attachments.
+	 *
+	 * @return void
+	 */
 	public function doc_search_autocomplete_callback() {
-		// error_log( '*** ECCOMI IN doc_search_autocomplete_callback ***' );
 		check_ajax_referer( 'sf_site_autocomplete_nonce', 'nonce' );
 		$q       = isset( $_POST['q'] ) ? sanitize_text_field( wp_unslash( $_POST['q'] ) ) : '';
 		$results = array();
-		// error_log( '*** TEXT:' . $q . ' ***' );
 
 		if ( strlen( $q ) >= 1 ) {
 			// Retrieve the posts.
@@ -219,7 +233,6 @@ class DIS_AutocompleteManager {
 			}
 			wp_reset_postdata();
 		}
-		// error_log( '*** SENDING ' . json_encode( $results ) );
 		wp_send_json( $results );
 	}
 
@@ -228,13 +241,13 @@ class DIS_AutocompleteManager {
 	 * or the first sentence of the post if $search_string is not found.
 	 * Limits the output to DIS_AUTCOMPLETE_MAX_CHARS characters.
 	 *
-	 * @param string   $search_string The string to search for.
-	 * @param WP_Post  $post          The WordPress post object.
-	 * @return string                 The desired snippet.
+	 * @param string  $search_string The string to search for.
+	 * @param WP_Post $post          The WordPress post object.
+	 * @return string The desired snippet.
 	 */
 	private function get_post_snippet_by_search( $search_string, $post ) {
 		if ( ! $post instanceof WP_Post ) {
-				return '';
+			return '';
 		}
 		// Remove HTML tags from the content.
 		$content = self::clean_post_body( $post->post_content );
@@ -259,7 +272,7 @@ class DIS_AutocompleteManager {
 			$result = substr( $result, 0, DIS_AUTCOMPLETE_MAX_CHARS );
 			// Cut at the last space before the DIS_AUTCOMPLETE_MAX_CHARSth character.
 			$last_space = strrpos( $result, ' ' );
-			if ( $last_space !== false ) {
+			if ( false !== $last_space ) {
 				$result = substr( $result, 0, $last_space ) . '...';
 			} else {
 				$result .= '...';
@@ -269,11 +282,16 @@ class DIS_AutocompleteManager {
 		return $result;
 	}
 
+	/**
+	 * Convert post content to plain text for snippet generation.
+	 *
+	 * @param string $content Raw post content.
+	 * @return string
+	 */
 	public function clean_post_body( $content ) {
 		$plain_text = wp_strip_all_tags( $content );
 		$plain_text = preg_replace( '/&nbsp;/', ' ', $plain_text );
 		$plain_text = html_entity_decode( $plain_text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );
 		return $plain_text;
 	}
-
 }

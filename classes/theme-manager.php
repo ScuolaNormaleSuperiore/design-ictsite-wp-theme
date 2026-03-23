@@ -73,7 +73,7 @@ if ( ! class_exists( 'Faq_Manager' ) ) {
 	include_once 'faq-manager.php';
 }
 if ( ! class_exists( 'DIS_AutocompleteManager' ) ) {
-	include_once 'autocomplete-manager.php';
+	include_once 'class-dis-autocompletemanager.php';
 }
 /**
  * The manager that builds the tool and configures Wordpress.
