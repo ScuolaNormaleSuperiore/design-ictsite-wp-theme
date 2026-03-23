@@ -27,7 +27,7 @@ if ( has_nav_menu( $location ) ) {
 			?>
 
 					<li class="nav-item dropdown">
-						<a class="nav-link dropdown-toggle <?php echo $active_class; ?>"
+						<a class="nav-link dropdown-toggle <?php echo esc_attr( $active_class ); ?>"
 							href="#" data-bs-toggle="dropdown" aria-expanded="false" id="mainNavDropdown1">
 							<span><?php echo esc_attr( $item['element']->title ); ?></span>
 							<svg class="icon icon-xs" role="img" aria-labelledby="Expand">
@@ -65,7 +65,7 @@ if ( has_nav_menu( $location ) ) {
 					} else {
 			?>
 				<li class="nav-item">
-					<a class="nav-link <?php echo $active_class; ?>" href="<?php echo esc_url( $item['element']->url ); ?>">
+					<a class="nav-link <?php echo esc_attr( $active_class ); ?>" href="<?php echo esc_url( $item['element']->url ); ?>">
 						<span><?php echo esc_attr( $item['element']->title ); ?></span>
 					</a>
 				</li>

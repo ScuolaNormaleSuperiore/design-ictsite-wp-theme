@@ -16,7 +16,7 @@ if ( $serv_by_cat ) {
 			?>
 			<li>
 				<a class="list-item large medium icon-right"
-					href="<?php echo get_permalink( $cat['item']->ID ); ?>">
+					href="<?php echo esc_url( get_permalink( $cat['item']->ID ) ); ?>">
 					<span class="list-item-title-icon-wrapper">
 						<span class="list-item-title">
 							<?php echo esc_attr( $cat['title'] ); ?>

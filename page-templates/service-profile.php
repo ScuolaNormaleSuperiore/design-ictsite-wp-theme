@@ -25,7 +25,7 @@ if ( $user_status ) {
 			<div class="col">
 
 				<h2 class="pb-2">
-					<?php echo __( 'Services for', 'design_ict_site' ) . ' ' . strtolower( $status_taxonomy->name ) ; ?> 
+					<?php echo esc_html( __( 'Services for', 'design_ict_site' ) . ' ' . strtolower( $status_taxonomy->name ) ); ?> 
 				</h2>
 	
 				<!-- SERVICES BY CATEGORY -->

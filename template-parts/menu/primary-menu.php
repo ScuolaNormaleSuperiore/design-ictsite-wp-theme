@@ -28,7 +28,7 @@ if ( has_nav_menu( $location ) ) {
 				?>
 
 						<li class="nav-item dropdown">
-							<a class="nav-link dropdown-toggle <?php echo $active_class; ?>"
+							<a class="nav-link dropdown-toggle <?php echo esc_attr( $active_class ); ?>"
 								href="#" role="button" data-bs-toggle="dropdown"
 								aria-expanded="false" id="mainNavDropdown3">
 								<span><?php echo esc_attr( $item['element']->title ); ?></span>
@@ -63,7 +63,7 @@ if ( has_nav_menu( $location ) ) {
 												$how_to_title = DIS_CustomFieldsManager::get_field( 'how_to_title', $subitem->ID );
 										?>
 											<li>
-												<a class="dropdown-item list-item" href="<?php echo get_permalink( $subitem->ID ); ?>">
+												<a class="dropdown-item list-item" href="<?php echo esc_url( get_permalink( $subitem->ID ) ); ?>">
 													<span><?php echo esc_attr( $how_to_title ); ?></span>
 												</a>
 											</li>
@@ -80,8 +80,8 @@ if ( has_nav_menu( $location ) ) {
 					} else {
 					?>
 
-						<li class="nav-item <?php echo $active_class; ?>">
-							<a class="nav-link <?php echo $active_class; ?>" aria-current="page" href="<?php echo esc_url( $item['element']->url ); ?>">
+						<li class="nav-item <?php echo esc_attr( $active_class ); ?>">
+							<a class="nav-link <?php echo esc_attr( $active_class ); ?>" aria-current="page" href="<?php echo esc_url( $item['element']->url ); ?>">
 							<span><?php echo esc_attr( $item['element']->title ); ?></span>
 						</a>
 					</li>

@@ -75,7 +75,7 @@ get_header();
 
 				<!-- Back to the parent -->
 				<?php if ( $parent_item ) : ?>
-					<a href="<?php echo get_permalink( $parent_item ); ?>"
+					<a href="<?php echo esc_url( get_permalink( $parent_item ) ); ?>"
 						class="btn btn-primary btn-xs btn-me m-4 " role="button" data-focus-mouse="false">
 						<svg class="icon icon-sm icon-white me-2"
 							role="img"
@@ -107,8 +107,8 @@ get_header();
 										$active = ( get_permalink() === get_permalink( $p ) ) ? 'active' : '';
 								?>
 									<li>
-										<a class="list-item medium <?php echo $active ?>"
-											href="<?php echo get_permalink( $p ); ?>">
+										<a class="list-item medium <?php echo esc_attr( $active ); ?>"
+											href="<?php echo esc_url( get_permalink( $p ) ); ?>">
 											<span>
 												<?php echo esc_attr( $p->post_title ); ?>
 											</span>
