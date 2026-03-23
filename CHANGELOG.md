@@ -20,7 +20,8 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Updated Dockerfile.
 ## Fixed
 - Refactoring of templates pages.
-
+- Applied security fixes.
+- Bug-fixing.
 
 
 
