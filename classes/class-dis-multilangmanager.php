@@ -1,12 +1,17 @@
 <?php
+// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 /**
  * Definition of the Multi Language Manager: wrapper for Polylang.
  *
  * @package Design_ICT_Site
  */
+
+// phpcs:disable Squiz.Commenting.FunctionComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
+// phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralText
+// phpcs:disable WordPress.WP.I18n.TextDomainMismatch
 /**
  * The manager that wraps Polylang's libraries.
- *
  */
 class DIS_MultiLangManager {
 	/**
@@ -48,10 +53,9 @@ class DIS_MultiLangManager {
 	 * @return string
 	 */
 	public static function get_home_url() {
-		// return pll_home_url();
 		$curr = self::get_current_language();
 		$def  = self::get_default_language();
-		if ( $curr === $def ){
+		if ( $curr === $def ) {
 			return get_site_url();
 		}
 		return get_site_url() . '/' . $curr;
@@ -85,7 +89,7 @@ class DIS_MultiLangManager {
 	 * @param [type] $args
 	 * @return object[]
 	 */
-	public static function get_languages_list( $args=[] ): array {
+	public static function get_languages_list( $args = array() ): array {
 		return pll_languages_list( $args );
 	}
 
@@ -109,7 +113,7 @@ class DIS_MultiLangManager {
 	 * @return void
 	 */
 	public static function set_term_language( $term, $lang ) {
-		return pll_set_term_language( $term, $lang );
+		pll_set_term_language( $term, $lang );
 	}
 
 	/**
@@ -144,7 +148,7 @@ class DIS_MultiLangManager {
 		return pll_save_post_translations( $related_posts );
 	}
 
-	public static function get_default_language( $type = 'slug' ){
+	public static function get_default_language( $type = 'slug' ) {
 		return pll_default_language( $type );
 	}
 
@@ -173,9 +177,8 @@ class DIS_MultiLangManager {
 					)
 				);
 			}
-		} else {
+		} elseif ( $post ) {
 
-			if ( $post ) {
 				// Altre pagine del sito (non HP).
 				$traduzioni = self::get_post_translations( $post->ID );
 				$selectors  = array(
@@ -184,8 +187,8 @@ class DIS_MultiLangManager {
 						'url'  => get_permalink( $post ),
 					),
 				);
-				foreach ( $languages_list as $lang_slug ) {
-					if ( ( $lang_slug !== $current_language ) && array_key_exists( $lang_slug , $traduzioni ) ){
+			foreach ( $languages_list as $lang_slug ) {
+					if ( ( $lang_slug !== $current_language ) && array_key_exists( $lang_slug, $traduzioni ) ) {
 						array_push(
 							$selectors,
 							array(
@@ -194,7 +197,6 @@ class DIS_MultiLangManager {
 							)
 						);
 					}
-				}
 			}
 		}
 		return $selectors;
@@ -207,19 +209,19 @@ class DIS_MultiLangManager {
 		$ids            = array();
 		foreach ( $menu_locations as $name => $menu_langs ) {
 			foreach ( $menu_langs as $ml_lang => $ml_id ) {
-				if ( ! in_array( $ml_id, $ids ) ) {
+				if ( ! in_array( $ml_id, $ids, true ) ) {
 					if ( isset( $items[ $ml_lang ] ) ) {
-						array_push( $items[$ml_lang], array( $name => $ml_id ) );
+						array_push( $items[ $ml_lang ], array( $name => $ml_id ) );
 						array_push( $ids, $ml_id );
 					} else {
-						$items[$ml_lang] = array();
+						$items[ $ml_lang ] = array();
 						array_push( $items[ $ml_lang ], array( $name => $ml_id ) );
 						array_push( $ids, $ml_id );
 					}
 				}
 			}
 		}
-		return $items[ $lang ] ?? [];
+		return $items[ $lang ] ?? array();
 	}
 
 	/**
@@ -269,7 +271,9 @@ class DIS_MultiLangManager {
 	public static function get_page_link( $page_slug ) {
 		$slug_trans = _x( $page_slug, 'DIS_ActivationItems', 'design_ict_site' );
 		$post       = get_page_by_path( $slug_trans, OBJECT, 'page' );
-		if ( ! $post ) return '';
+		if ( ! $post ) {
+			return '';
+		}
 		return get_permalink( $post );
 	}
 
@@ -281,7 +285,9 @@ class DIS_MultiLangManager {
 	 */
 	public static function get_archive_link( $type ) {
 		$page = self::get_archive_page( $type );
-		if ( ! $page ) return '';
+		if ( ! $page ) {
+			return '';
+		}
 		$url = get_permalink( $page->ID );
 		return $url;
 	}
@@ -331,6 +337,4 @@ class DIS_MultiLangManager {
 
 		return $map[ $type ] ?? '';
 	}
-
-
 }

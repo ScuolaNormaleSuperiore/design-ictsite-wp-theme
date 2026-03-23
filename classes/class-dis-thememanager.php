@@ -13,10 +13,10 @@
  */
 
 if ( ! class_exists( 'DIS_MultiLangManager' ) ) {
-	include_once 'multi-lang-manager.php';
+	include_once 'class-dis-multilangmanager.php';
 }
 if ( ! class_exists( 'DIS_CustomFieldsManager' ) ) {
-	include_once 'custom-fields-manager.php';
+	include_once 'class-dis-customfieldsmanager.php';
 }
 if ( ! class_exists( 'DIS_LayoutManager' ) ) {
 	include_once 'class-dis-layoutmanager.php';
@@ -51,11 +51,11 @@ if ( ! class_exists( 'Person_Manager' ) ) {
 if ( ! class_exists( 'Project_Manager' ) ) {
 	include_once 'project-manager.php';
 }
-if ( ! class_exists( 'Event_Manager' ) ) {
-	include_once 'event-manager.php';
+if ( ! class_exists( 'DIS_EventManager' ) ) {
+	include_once 'class-dis-eventmanager.php';
 }
-if ( ! class_exists( 'News_Manager' ) ) {
-	include_once 'news-manager.php';
+if ( ! class_exists( 'DIS_NewsManager' ) ) {
+	include_once 'class-dis-newsmanager.php';
 }
 if ( ! class_exists( 'Place_Manager' ) ) {
 	include_once 'place-manager.php';
@@ -202,11 +202,11 @@ class DIS_ThemeManager {
 		$prjm->setup();
 
 		// Setup of the DIS-Event post-type.
-		$evnm = new Event_Manager();
+		$evnm = new DIS_EventManager();
 		$evnm->setup();
 
 		// Setup of the DIS-News post-type.
-		$nwsm = new News_Manager();
+		$nwsm = new DIS_NewsManager();
 		$nwsm->setup();
 
 		// Setup of the Place post-type.
