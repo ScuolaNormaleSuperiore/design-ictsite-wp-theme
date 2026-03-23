@@ -19,7 +19,7 @@ if ( $section_enabled ) {
 		<h2 class="pb-2">
 		<?php
 		if ( $show_title ) {
-			echo __( 'Services', 'design_ict_site' );
+			echo esc_html__( 'Services', 'design_ict_site' );
 		}
 		?>
 		</h2>

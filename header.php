@@ -38,7 +38,7 @@ $dis_locations = get_nav_menu_locations();
 	<!-- META TAGS -->
 	<?php
 		get_template_part(
-			'template-parts/header/meta_tags',
+			'template-parts/header/meta-tags',
 			false,
 			array(
 				'site_title'   => $dis_site_title,
@@ -51,7 +51,7 @@ $dis_locations = get_nav_menu_locations();
 	<!-- SEO - OG Internal Management -->
 	<?php
 		get_template_part(
-			'template-parts/header/seo_tags',
+			'template-parts/header/seo-tags',
 			false,
 			array(
 				'site_title'   => $dis_site_title,
@@ -111,10 +111,10 @@ $dis_locations = get_nav_menu_locations();
 						</div>
 						<div class="it-header-slim-right-zone">
 							<!-- Language selection section -->
-							<?php get_template_part( 'template-parts/header/language_selector' ); ?>
+							<?php get_template_part( 'template-parts/header/language-selector' ); ?>
 
 							<!-- Login section -->
-							<?php get_template_part( 'template-parts/header/login_button' ); ?>
+							<?php get_template_part( 'template-parts/header/login-button' ); ?>
 						</div>
 					</div>
 				</div>
@@ -133,7 +133,7 @@ $dis_locations = get_nav_menu_locations();
 							<!-- Logo & title section -->
 							<?php
 								get_template_part(
-									'template-parts/header/logo_title_header',
+									'template-parts/header/logo-title-header',
 									false,
 									array(
 										'site_title'   => $dis_site_title,

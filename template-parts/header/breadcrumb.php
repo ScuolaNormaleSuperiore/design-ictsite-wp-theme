@@ -5,34 +5,24 @@
  * @package Design_ICT_Site
  */
 
-global $post;
 if ( ! is_home() ) {
-	$steps = DIS_NavigationManager::build_content_path( $post );
-	$index = 0;
-?>
+	$dis_post  = get_post();
+	$dis_steps = DIS_NavigationManager::build_content_path( $dis_post );
+	?>
 
-	<nav class="breadcrumb-container" aria-label="<?php echo __( 'Navigation path', 'design_ict_site' ); ?>">
+	<nav class="breadcrumb-container" aria-label="<?php echo esc_attr__( 'Navigation path', 'design_ict_site' ); ?>">
 		<ol class="breadcrumb pb-0">
-			<?php
-			foreach( $steps as $step ) {
-			?>
-				<li class="<?php echo esc_attr( $step->css_class ); ?>">
-				<a href="<?php echo esc_url( $step->url ); ?>"><?php echo esc_attr( $step->label ); ?></a>
-				<?php
-					if ( $index < count( $steps ) -1 ) {
-				?>
-				<span class="separator">&gt;</span>
-				<?php
-				}
-				?>
-			</li>
-			<?php
-				$index++;
-			}
-			?>
+			<?php foreach ( $dis_steps as $dis_index => $dis_step ) : ?>
+				<li class="<?php echo esc_attr( $dis_step->css_class ); ?>">
+					<a href="<?php echo esc_url( $dis_step->url ); ?>"><?php echo esc_html( $dis_step->label ); ?></a>
+					<?php if ( $dis_index < count( $dis_steps ) - 1 ) : ?>
+						<span class="separator">&gt;</span>
+					<?php endif; ?>
+				</li>
+			<?php endforeach; ?>
 		</ol>
 	</nav>
 
-<?php
+	<?php
 }
 ?>
