@@ -204,7 +204,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 	</div> <!-- row -->
 
 	<!-- Last modification -->
-	<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
+	<?php get_template_part( 'template-parts/footer/last-modification' ); ?>
 
 </div> <!-- container -->
 

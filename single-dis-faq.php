@@ -41,7 +41,7 @@ DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post-
 	</div> <!-- row -->
 
 	<!-- Last modification -->
-	<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
+	<?php get_template_part( 'template-parts/footer/last-modification' ); ?>
 
 </div>
 

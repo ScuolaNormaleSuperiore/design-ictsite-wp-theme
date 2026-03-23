@@ -138,7 +138,7 @@ $dis_persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID 
 	</div> <!-- row-->
 
 	<!-- Last modification -->
-	<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
+	<?php get_template_part( 'template-parts/footer/last-modification' ); ?>
 
 </div>
 

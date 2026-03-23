@@ -28,7 +28,7 @@ $dis_locations    = get_nav_menu_locations();
 							<!-- Logo & title section -->
 							<?php
 								get_template_part(
-									'template-parts/footer/logo_title_footer',
+									'template-parts/footer/logo-title-footer',
 									false,
 									array(
 										'site_title'   => $dis_site_title,

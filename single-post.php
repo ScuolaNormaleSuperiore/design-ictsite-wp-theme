@@ -60,7 +60,7 @@ $dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 
 
 		<!-- Last modification -->
-		<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
+		<?php get_template_part( 'template-parts/footer/last-modification' ); ?>
 	</div>
 
 

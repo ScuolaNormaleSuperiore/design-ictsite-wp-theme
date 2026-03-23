@@ -216,7 +216,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 	</div> <!-- row-->
 
 	<!-- Last modification -->
-	<?php get_template_part( 'template-parts/footer/last_modification' ); ?>
+	<?php get_template_part( 'template-parts/footer/last-modification' ); ?>
 
 </div>
 
