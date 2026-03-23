@@ -53,8 +53,8 @@ class DIS_ActivationManager {
 	 */
 	public function register_menu_link() {
 		add_theme_page(
-			esc_html__( 'Reload theme data', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
-			esc_html__( 'Reload theme data', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+			esc_html__( 'Reload theme data', 'design_ict_site' ),
+			esc_html__( 'Reload theme data', 'design_ict_site' ),
 			DIS_EDIT_THEME_PERMISSION,
 			self::$main_page,
 			array( self::class, 'get_page_code' )
@@ -72,19 +72,19 @@ class DIS_ActivationManager {
 		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin notice flag after safe redirect.
 		$reloaded_ok = $is_reload && ( '1' === sanitize_text_field( wp_unslash( $_GET['reloaded'] ) ) );
 		echo "<DIV class='wrap'>";
-		echo '<H1>' . esc_html__( 'Reload theme data', 'design_ict_site' ) . '</H1>'; // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+		echo '<H1>' . esc_html__( 'Reload theme data', 'design_ict_site' ) . '</H1>';
 		echo '<DIV class="dis_admin_reload_data">';
-		echo '<P>' . esc_html__( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ) . '</P>'; // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+		echo '<P>' . esc_html__( 'Click the button to reload theme data: post-types, taxonomies, sections, pages, menu, etc. ', 'design_ict_site' ) . '</P>';
 		echo '<form method="post">';
 		wp_nonce_field( 'dis_reload_nonce_action', 'dis_reload_nonce' );
-		echo '<button type="submit" name="reload_data" class="button button-primary">' . esc_html__( 'Reload data', 'design_ict_site' ) . '</button>'; // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+		echo '<button type="submit" name="reload_data" class="button button-primary">' . esc_html__( 'Reload data', 'design_ict_site' ) . '</button>';
 		echo '</form>';
 		echo '</DIV>';
 		if ( $is_reload ) {
 			if ( $reloaded_ok ) {
-				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><EM>' . esc_html__( 'Theme data loaded successfully', 'design_ict_site' ) . '</EM></DIV>'; // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+				echo '<DIV class="dis_admin_reload_result text-primary mt-20"><EM>' . esc_html__( 'Theme data loaded successfully', 'design_ict_site' ) . '</EM></DIV>';
 			} else {
-				echo '<DIV class="dis_admin_reload_result text-danger"><EM>' . esc_html__( 'Theme data not reloaded', 'design_ict_site' ) . '</EM></DIV>'; // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+				echo '<DIV class="dis_admin_reload_result text-danger"><EM>' . esc_html__( 'Theme data not reloaded', 'design_ict_site' ) . '</EM></DIV>';
 			}
 		}
 		echo '</DIV>';
@@ -277,9 +277,9 @@ class DIS_ActivationManager {
 							if ( is_wp_error( $new_page_id ) || empty( $new_page_id ) ) {
 								$msg = sprintf(
 									/* translators: 1: page slug, 2: error message. */
-									__( "Unable to create the page '%1\$s': %2\$s", 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+									__( "Unable to create the page '%1\$s': %2\$s", 'design_ict_site' ),
 									$slug_trans,
-									is_wp_error( $new_page_id ) ? $new_page_id->get_error_message() : __( 'unknown error', 'design_ict_site' ) // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+									is_wp_error( $new_page_id ) ? $new_page_id->get_error_message() : __( 'unknown error', 'design_ict_site' )
 								);
 								array_push( $messages, $msg );
 								continue;
@@ -293,7 +293,7 @@ class DIS_ActivationManager {
 							DIS_MultiLangManager::set_post_language( $new_page_id, $lang->slug );
 						}
 						/* translators: %s: page slug. */
-						$msg = sprintf( __( "Successfully created the page: '%s'.", 'design_ict_site' ), $slug_trans ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+						$msg = sprintf( __( "Successfully created the page: '%s'.", 'design_ict_site' ), $slug_trans );
 						array_push( $messages, $msg );
 						$related_posts[ $lang->slug ] = $new_page_id;
 					} else {
@@ -370,7 +370,7 @@ class DIS_ActivationManager {
 		if ( $menu_object ) {
 			// Preserve existing menu items, but keep the location assignment in sync.
 			/* translators: %s: menu name. */
-			$msg = sprintf( __( "The menu '%s' already exists.", 'design_ict_site' ), $menu_name ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+			$msg = sprintf( __( "The menu '%s' already exists.", 'design_ict_site' ), $menu_name );
 			array_push( $messages, $msg );
 			$menu_id = $menu_object->term_id;
 			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
@@ -423,7 +423,7 @@ class DIS_ActivationManager {
 			self::assign_menu_location( $menu, $menu_location );
 			update_option( 'menu_check', true );
 			/* translators: %s: menu name. */
-			$msg = sprintf( __( "NEW menu '%s' created.", 'design_ict_site' ), $menu_name ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+			$msg = sprintf( __( "NEW menu '%s' created.", 'design_ict_site' ), $menu_name );
 			array_push( $messages, $msg );
 		}
 	}

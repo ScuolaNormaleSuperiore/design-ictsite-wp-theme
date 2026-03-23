@@ -255,7 +255,7 @@ class DIS_ThemeManager {
 	 */
 	public function configure_languages() {
 		// For the labels of the theme.
-		load_theme_textdomain( 'design_ict_site', get_template_directory() . '/languages' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+		load_theme_textdomain( 'design_ict_site', get_template_directory() . '/languages' );
 	}
 
 	/**
@@ -286,11 +286,11 @@ class DIS_ThemeManager {
 		// Images limits.
 		$image_types = array( 'image/jpeg', 'image/png', 'image/gif', 'image/webp' );
 		if ( in_array( $type, $image_types, true ) && $size > $image_max_size ) {
-			$file['error'] = __( 'The image is too big. The maximum allowed is: 1MB.', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+			$file['error'] = __( 'The image is too big. The maximum allowed is: 1MB.', 'design_ict_site' );
 		}
 		// PDF size attachment limit.
 		if ( 'application/pdf' === $type && $size > $pdf_max_size ) {
-			$file['error'] = __( 'The PDF file is too big. the maximum allowed is: 2MB.', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+			$file['error'] = __( 'The PDF file is too big. the maximum allowed is: 2MB.', 'design_ict_site' );
 		}
 		return $file;
 	}
@@ -305,7 +305,7 @@ class DIS_ThemeManager {
 		add_filter(
 			'login_errors',
 			function () {
-				return __( 'Invalid username or password', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+				return __( 'Invalid username or password', 'design_ict_site' );
 			}
 		);
 		// Hook per nascondere la versione del CMS (tag generator).

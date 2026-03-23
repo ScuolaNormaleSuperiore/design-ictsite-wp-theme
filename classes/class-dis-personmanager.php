@@ -34,10 +34,10 @@ class DIS_PersonManager {
 	 */
 	public function add_taxonomies() {
 		$person_role_labels = array(
-			'name'          => _x( 'Person Roles', 'DIS_TaxonomyGeneralName', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-			'singular_name' => _x( 'Person Role', 'DIS_TaxonomySingularName', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-			'add_new_item'  => __( 'Add a person role', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-			'menu_name'     => __( 'Person Roles', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+			'name'          => _x( 'Person Roles', 'DIS_TaxonomyGeneralName', 'design_ict_site' ),
+			'singular_name' => _x( 'Person Role', 'DIS_TaxonomySingularName', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add a person role', 'design_ict_site' ),
+			'menu_name'     => __( 'Person Roles', 'design_ict_site' ),
 		);
 		$person_role_args   = array(
 			'hierarchical'      => true,
@@ -62,10 +62,10 @@ class DIS_PersonManager {
 		$labels = array(
 			'name'          => dis_ct_data()[ DIS_PERSON_POST_TYPE ]['plural_name'],
 			'singular_name' => dis_ct_data()[ DIS_PERSON_POST_TYPE ]['singular_name'],
-			'add_new'       => __( 'Add an item', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-			'add_new_item'  => __( 'Add an item', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-			'edit_item'     => __( 'Edit the item', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
-			'view_item'     => __( 'View the item', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch
+			'add_new'       => __( 'Add an item', 'design_ict_site' ),
+			'add_new_item'  => __( 'Add an item', 'design_ict_site' ),
+			'edit_item'     => __( 'Edit the item', 'design_ict_site' ),
+			'view_item'     => __( 'View the item', 'design_ict_site' ),
 		);
 
 		$args = array(

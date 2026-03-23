@@ -45,8 +45,8 @@ class DIS_ExportManager {
 	 */
 	public function register_menu_link() {
 		add_theme_page(
-			esc_html__( 'Export data', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
-			esc_html__( 'Export data', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+			esc_html__( 'Export data', 'design_ict_site' ),
+			esc_html__( 'Export data', 'design_ict_site' ),
 			DIS_EDIT_THEME_PERMISSION,
 			self::$main_page,
 			array( self::class, 'get_export_data_page' )
@@ -61,14 +61,14 @@ class DIS_ExportManager {
 	public static function get_export_data_page() {
 		?>
 		<div class="wrap">
-			<h1><?php echo esc_html__( 'Export ICT data', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain. ?></h1>
-			<p><?php echo esc_html__( 'Export in JSON format', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain. ?>:</p>
+			<h1><?php echo esc_html__( 'Export ICT data', 'design_ict_site' );
+			<p><?php echo esc_html__( 'Export in JSON format', 'design_ict_site' );
 			<form method="post">
 				<?php wp_nonce_field( 'export_ict_nonce_action', 'export_ict_nonce' ); ?>
 				<input type="submit" name="export_faq" class="button button-primary"
-					value="<?php echo esc_attr__( 'Export FAQ', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain. ?>" />
+					value="<?php echo esc_attr__( 'Export FAQ', 'design_ict_site' );
 				<input type="submit" name="export_services" class="button button-secondary"
-					value="<?php echo esc_attr__( 'Export Services', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain. ?>" />
+					value="<?php echo esc_attr__( 'Export Services', 'design_ict_site' );
 			</form>
 		</div>
 		<?php

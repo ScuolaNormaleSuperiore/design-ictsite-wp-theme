@@ -82,8 +82,8 @@ class DIS_AutocompleteManager {
 				array(
 					'ajaxUrl'        => admin_url( 'admin-ajax.php' ),
 					'nonce'          => wp_create_nonce( 'sf_site_autocomplete_nonce' ),
-					'searchLabel'    => __( 'Search...', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
-					'noResultString' => __( 'No results found for', 'design_ict_site' ), // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
+					'searchLabel'    => __( 'Search...', 'design_ict_site' ),
+					'noResultString' => __( 'No results found for', 'design_ict_site' ),
 				)
 			);
 		}

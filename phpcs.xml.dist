@@ -24,7 +24,7 @@
 	<rule ref="WordPress.WP.I18n">
 		<properties>
 			<property name="text_domain" type="array">
-				<element value="design_laboratori_italia"/>
+				<element value="design_ict_site"/>
 			</property>
 		</properties>
 	</rule>
