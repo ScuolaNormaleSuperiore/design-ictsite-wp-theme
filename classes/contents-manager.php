@@ -843,22 +843,36 @@ class DIS_ContentsManager {
 	}
 
 	public static function get_content_types_with_results() {
-		$content_types              = self::searchable_post_types();
-		$content_types_with_results = array();
-		foreach ( $content_types as $ct ) {
-			$the_query = new WP_Query(
-				array(
-					'post_type'   => $ct['slug'],
-					'post_status' => 'publish',
-				)
-			);
-			$num_results = $the_query->found_posts;
-			if ( $num_results > 0 ) {
-				array_push( $content_types_with_results, $ct );
-			}
-			wp_reset_postdata();
+		global $wpdb;
+
+		$content_types = self::searchable_post_types();
+		$slugs         = array_column( $content_types, 'slug' );
+
+		// Single aggregated query instead of one WP_Query per post type.
+		$placeholders = implode( ', ', array_fill( 0, count( $slugs ), '%s' ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+		$rows = $wpdb->get_results(
+			$wpdb->prepare(
+				"SELECT post_type, COUNT(*) AS total FROM {$wpdb->posts} WHERE post_type IN ($placeholders) AND post_status = 'publish' GROUP BY post_type", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				$slugs
+			)
+		);
+
+		// Index results by post_type for quick lookup.
+		$counts = array();
+		foreach ( $rows as $row ) {
+			$counts[ $row->post_type ] = (int) $row->total;
 		}
-		return self::sort_by_name( $content_types_with_results );
+
+		// Keep only types that have at least one published post.
+		$content_types_with_results = array_filter(
+			$content_types,
+			function ( $ct ) use ( $counts ) {
+				return isset( $counts[ $ct['slug'] ] ) && $counts[ $ct['slug'] ] > 0;
+			}
+		);
+
+		return self::sort_by_name( array_values( $content_types_with_results ) );
 	}
 
 	public static function get_site_search_query( $selected_contents, $search_string, $page_size) {
