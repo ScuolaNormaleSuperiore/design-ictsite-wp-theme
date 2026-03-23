@@ -22,7 +22,7 @@ if ( ! class_exists( 'DIS_LayoutManager' ) ) {
 	include_once 'class-dis-layoutmanager.php';
 }
 if ( ! class_exists( 'DIS_OptionsManager' ) ) {
-	include_once 'options-manager.php';
+	include_once 'class-dis-optionsmanager.php';
 }
 if ( ! class_exists( 'DIS_ExportManager' ) ) {
 	include_once 'class-dis-exportmanager.php';

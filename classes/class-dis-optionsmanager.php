@@ -1,14 +1,21 @@
 <?php
 /**
  * Definition of the Options Manager: builds in the site back-office the Configuration menu of the theme.
- * 
+ *
  * @package Design_ICT_Site
  */
+
+// phpcs:disable Squiz.Commenting.VariableComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamTag
+// phpcs:disable Squiz.Commenting.FunctionComment.InvalidNoReturn
+// phpcs:disable Squiz.Commenting.FunctionComment.ParamCommentFullStop
+// phpcs:disable Squiz.Commenting.FunctionComment.ParamNameNoMatch
+// phpcs:disable WordPress.WP.I18n.TextDomainMismatch
 
 
 /**
  * The manager of the Configuration menu.
- *
  */
 class DIS_OptionsManager {
 	private $tab_group   = 'dis_options';
@@ -17,7 +24,7 @@ class DIS_OptionsManager {
 
 	/**
 	 * Constructor of the Manager.
-	*/
+	 */
 	public function __construct() {}
 
 	public function build_conf_menu() {
@@ -27,10 +34,13 @@ class DIS_OptionsManager {
 
 	public function setup_option_assets() {
 		$current_screen = get_current_screen();
-		if ( strpos( $current_screen->id, 'dis_opt' ) !== false ) {
-				wp_enqueue_style( 'dis_options_dialog', DIS_THEME_URL . '/admin/css/jquery-ui.css' );
-				// Hiding the submenu in the WordPress adminmenu.
-				wp_enqueue_script( 'dis_options_dialog', DIS_THEME_URL . '/admin/js/options.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), '1.0', true );
+		if ( $current_screen && false !== strpos( $current_screen->id, 'dis_opt' ) ) {
+			$theme_version  = wp_get_theme()->get( 'Version' );
+			$style_version  = file_exists( DIS_THEME_PATH . 'admin/css/jquery-ui.css' ) ? filemtime( DIS_THEME_PATH . 'admin/css/jquery-ui.css' ) : $theme_version;
+			$script_version = file_exists( DIS_THEME_PATH . 'admin/js/options.js' ) ? filemtime( DIS_THEME_PATH . 'admin/js/options.js' ) : $theme_version;
+			wp_enqueue_style( 'dis_options_dialog', DIS_THEME_URL . '/admin/css/jquery-ui.css', array(), $style_version );
+			// Hiding the submenu in the WordPress adminmenu.
+			wp_enqueue_script( 'dis_options_dialog', DIS_THEME_URL . '/admin/js/options.js', array( 'jquery', 'jquery-ui-core', 'jquery-ui-dialog' ), $script_version, true );
 		}
 	}
 
@@ -62,7 +72,7 @@ class DIS_OptionsManager {
 	 */
 	public function add_opt_base_option( $option_key, $tab_group, $capability ) {
 		$result = true;
-		$args = array(
+		$args   = array(
 			'id'           => $option_key . '_id',
 			'title'        => esc_html__( 'ICT Site', 'design_ict_site' ),
 			'object_types' => array( 'options-page' ),
@@ -74,7 +84,7 @@ class DIS_OptionsManager {
 			'icon_url'     => 'dashicons-admin-tools', // Menu icon. Only applicable if 'parent_slug' is left empty.
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$base_options = new_cmb2_box( $args );
@@ -142,7 +152,7 @@ class DIS_OptionsManager {
 				'desc'       => __( 'The logo of the site, please load an SVG image.', 'design_ict_site' ),
 				'type'       => 'file',
 				'query_args' => array(
-					'type' => array( 'image', ),
+					'type' => array( 'image' ),
 				),
 			)
 		);
@@ -166,7 +176,7 @@ class DIS_OptionsManager {
 				'desc'       => __( 'Choose the the footer logo. If it is not present, but the display of the logo in the footer is enabled, the header logo is shown with inverted colors. It is recommended to upload an image in SVG format.', 'design_ict_site' ),
 				'type'       => 'file',
 				'query_args' => array(
-					'type' => array( 'image', ),
+					'type' => array( 'image' ),
 				),
 			)
 		);
@@ -190,7 +200,7 @@ class DIS_OptionsManager {
 			'capability'   => $capability,
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 
@@ -205,11 +215,11 @@ class DIS_OptionsManager {
 		);
 		$alerts_group_id = $alerts_options->add_field(
 			array(
-				'id'          => 'messages',
-				'type'        => 'group',
-				'desc'        => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages supported by the site', 'design_ict_site' )   . '.',
-				'repeatable'  => true,
-				'options'     => array(
+				'id'         => 'messages',
+				'type'       => 'group',
+				'desc'       => __( 'Each message is built through a short description (max 300 characters) and expiration date (optional) translated into all languages supported by the site', 'design_ict_site' ) . '.',
+				'repeatable' => true,
+				'options'    => array(
 					'group_title'    => __( 'Message', 'design_ict_site' ) . ' {#}',
 					'add_button'     => __( 'Add a message', 'design_ict_site' ),
 					'remove_button'  => __( 'Remove the message', 'design_ict_site' ),
@@ -256,7 +266,6 @@ class DIS_OptionsManager {
 				'type' => 'text_url',
 			)
 		);
-
 	}
 
 	/**
@@ -276,7 +285,7 @@ class DIS_OptionsManager {
 			'tab_title'    => __( 'HP sections', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$section_options = new_cmb2_box( $args );
@@ -291,11 +300,11 @@ class DIS_OptionsManager {
 		);
 		$section_group_id = $section_options->add_field(
 			array(
-				'id'          => 'site_sections',
-				'type'        => 'group',
-				'desc'        => __( 'Choose the site sections', 'design_ict_site' ) . '.',
-				'repeatable'  => true,
-				'options'     => array(
+				'id'         => 'site_sections',
+				'type'       => 'group',
+				'desc'       => __( 'Choose the site sections', 'design_ict_site' ) . '.',
+				'repeatable' => true,
+				'options'    => array(
 					'group_title'    => __( 'Section', 'design_ict_site' ) . ' {#}',
 					'add_button'     => __( 'Add the section', 'design_ict_site' ),
 					'remove_button'  => __( 'Remove the section', 'design_ict_site' ),
@@ -364,7 +373,7 @@ class DIS_OptionsManager {
 			'tab_title'    => __( 'HP layout', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$home_options = new_cmb2_box( $args );
@@ -473,7 +482,7 @@ class DIS_OptionsManager {
 			'tab_title'    => __( 'Main hero', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$main_hero_options = new_cmb2_box( $args );
@@ -571,7 +580,7 @@ class DIS_OptionsManager {
 			'tab_title'    => __( 'Site contacts', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$contacts_options = new_cmb2_box( $args );
@@ -638,7 +647,6 @@ class DIS_OptionsManager {
 				'type' => 'text',
 			)
 		);
-
 	}
 
 	/**
@@ -658,7 +666,7 @@ class DIS_OptionsManager {
 			'tab_title'    => __( 'Social media', 'design_ict_site' ),
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 				$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$social_options = new_cmb2_box( $args );
@@ -673,12 +681,12 @@ class DIS_OptionsManager {
 		);
 		$social_options->add_field(
 			array(
-				'id'      => 'show_socials',
-				'name'    => __( 'Show social media icons', 'design_ict_site' ),
-				'desc'    => __( 'Enable the display of social media in the header and footer of the page.', 'design_ict_site' ),
-				'type'    => 'radio_inline',
-				'default' => 'false',
-				'options' => array(
+				'id'         => 'show_socials',
+				'name'       => __( 'Show social media icons', 'design_ict_site' ),
+				'desc'       => __( 'Enable the display of social media in the header and footer of the page.', 'design_ict_site' ),
+				'type'       => 'radio_inline',
+				'default'    => 'false',
+				'options'    => array(
 					'true'  => __( 'Yes', 'design_ict_site' ),
 					'false' => __( 'No', 'design_ict_site' ),
 				),
@@ -783,7 +791,7 @@ class DIS_OptionsManager {
 			'capability'   => $capability,
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$newsletter_options = new_cmb2_box( $args );
@@ -832,11 +840,11 @@ class DIS_OptionsManager {
 		);
 		$newsletter_options->add_field(
 			array(
-				'id'         => 'newsletter_list_id',
-				'name'       => __( 'List ID', 'design_ict_site' ),
-				'desc'       => __( 'ID of the list associated with the site', 'design_ict_site' ),
-				'type'       => 'text_small',
-				'attributes' => array(
+				'id'              => 'newsletter_list_id',
+				'name'            => __( 'List ID', 'design_ict_site' ),
+				'desc'            => __( 'ID of the list associated with the site', 'design_ict_site' ),
+				'type'            => 'text_small',
+				'attributes'      => array(
 					'type'    => 'number',
 					'pattern' => '\d*',
 				),
@@ -846,11 +854,11 @@ class DIS_OptionsManager {
 		);
 		$newsletter_options->add_field(
 			array(
-				'id'         => 'newsletter_template_id',
-				'name'       => __( 'Template ID', 'design_ict_site' ),
-				'desc'       => __( 'ID of the page template that handles the double OptIn', 'design_ict_site' ),
-				'type'       => 'text_small',
-				'attributes' => array(
+				'id'              => 'newsletter_template_id',
+				'name'            => __( 'Template ID', 'design_ict_site' ),
+				'desc'            => __( 'ID of the page template that handles the double OptIn', 'design_ict_site' ),
+				'type'            => 'text_small',
+				'attributes'      => array(
 					'type'    => 'number',
 					'pattern' => '\d*',
 				),
@@ -877,17 +885,17 @@ class DIS_OptionsManager {
 			'capability'   => $capability,
 		);
 		// 'tab_group' property is supported in > 2.4.0.
-		if ( version_compare( CMB2_VERSION, '2.4.0' ) ) {
+		if ( version_compare( CMB2_VERSION, '2.4.0', '>=' ) ) {
 			$args['display_cb'] = array( $this, 'options_display_with_tabs' );
 		}
 		$advanced_options = new_cmb2_box( $args );
 
 		$advanced_options->add_field(
 			array(
-					'id'   => 'advanced_info',
-					'name' => __( 'Advanced options', 'design_ict_site' ),
-					'desc' => __( 'Section to configure advanced settings.', 'design_ict_site' ),
-					'type' => 'title',
+				'id'   => 'advanced_info',
+				'name' => __( 'Advanced options', 'design_ict_site' ),
+				'desc' => __( 'Section to configure advanced settings.', 'design_ict_site' ),
+				'type' => 'title',
 			)
 		);
 
@@ -940,13 +948,13 @@ class DIS_OptionsManager {
 		);
 		$advanced_options->add_field(
 			array(
-				'id'   => 'analytics_code',
-				'name' => 'Code',
-				'desc' => __( 'Enter the analytics code.', 'design_ict_site' ),
-				'type' => 'textarea_code',
-				'attributes'    => array(
-					'rows'       => 10,
-					'maxlength'  => '1000',
+				'id'         => 'analytics_code',
+				'name'       => 'Code',
+				'desc'       => __( 'Enter the analytics code.', 'design_ict_site' ),
+				'type'       => 'textarea_code',
+				'attributes' => array(
+					'rows'      => 10,
+					'maxlength' => '1000',
 				),
 			)
 		);
@@ -1012,7 +1020,7 @@ class DIS_OptionsManager {
 		);
 
 		$advanced_options->add_field(
-		array(
+			array(
 				'id'   => 'page_counter',
 				'name' => __( 'Page counters', 'design_ict_site' ),
 				'type' => 'title',
@@ -1057,19 +1065,22 @@ class DIS_OptionsManager {
 				),
 			)
 		);
-
 	}
 
 
 	/**
-	* A CMB2 options-page display callback override which adds tab navigation among
-	* CMB2 options pages which share this same display callback.
-	* Used to put the configuration menu on the left.
-	*
-	* @param CMB2_Options_Hookup $cmb_options The CMB2_Options_Hookup object.
-	*/
+	 * A CMB2 options-page display callback override which adds tab navigation among
+	 * CMB2 options pages which share this same display callback.
+	 * Used to put the configuration menu on the left.
+	 *
+	 * @param CMB2_Options_Hookup $cmb_options The CMB2_Options_Hookup object.
+	 */
 	public function options_display_with_tabs( $cmb_options ) {
-		$tabs = self::options_page_tabs( $cmb_options );
+		$tabs         = self::options_page_tabs( $cmb_options );
+		$current_page = '';
+		if ( isset( $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+			$current_page = sanitize_key( wp_unslash( $_GET['page'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		}
 		?>
 		<div class="wrap cmb2-options-page option-<?php echo esc_attr( $cmb_options->option_key ); ?>">
 			<?php if ( get_admin_page_title() ) : ?>
@@ -1078,7 +1089,7 @@ class DIS_OptionsManager {
 				<div class="cmb2-options-box">
 					<div class="nav-tab-wrapper">
 						<?php foreach ( $tabs as $option_key => $tab_title ) : ?>
-							<a class="nav-tab<?php if ( isset( $_GET['page'] ) && $option_key === $_GET['page'] ) : ?> nav-tab-active<?php endif; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
+							<a class="nav-tab<?php echo ( $option_key === $current_page ) ? ' nav-tab-active' : ''; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
 						<?php endforeach; ?>
 					</div>
 					<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo esc_attr( $cmb_options->cmb->cmb_id ); ?>" enctype="multipart/form-data" encoding="multipart/form-data">
@@ -1097,14 +1108,14 @@ class DIS_OptionsManager {
 	}
 
 	/**
-	* Gets navigation tabs array for CMB2 options pages which share the given
-	* display_cb param.
-	* Used to put the configuration menu on the left.
-	*
-	* @param CMB2_Options_Hookup $cmb_options The CMB2_Options_Hookup object.
-	*
-	* @return array Array of tab information.
-	*/
+	 * Gets navigation tabs array for CMB2 options pages which share the given
+	 * display_cb param.
+	 * Used to put the configuration menu on the left.
+	 *
+	 * @param CMB2_Options_Hookup $cmb_options The CMB2_Options_Hookup object.
+	 *
+	 * @return array Array of tab information.
+	 */
 	private function options_page_tabs( $cmb_options ) {
 		$tab_group = $cmb_options->cmb->prop( 'tab_group' );
 		$tabs      = array();
@@ -1120,25 +1131,25 @@ class DIS_OptionsManager {
 
 	/**
 	 * Wrapper function around cmb2_get_option
+	 *
 	 * @since  0.1.0
 	 * @param  string $key     Options array key
 	 * @param  mixed  $default Optional default value
 	 * @return mixed           Option value
 	 */
-	public static function dis_get_option( $key, $option_key, $default = false ) {
+	public static function dis_get_option( $key, $option_key, $default_value = false ) {
 		if ( function_exists( 'cmb2_get_option' ) ) {
 			// Use cmb2_get_option as it passes through some key filters.
-			return cmb2_get_option( $option_key, $key, $default );
+			return cmb2_get_option( $option_key, $key, $default_value );
 		}
 		// Fallback to get_option if CMB2 is not loaded yet.
-		$opts = get_option( $option_key, $default );
-		$val = $default;
-		if ( 'all' == $key ) {
+		$opts = get_option( $option_key, $default_value );
+		$val  = $default_value;
+		if ( 'all' === $key ) {
 			$val = $opts;
 		} elseif ( is_array( $opts ) && array_key_exists( $key, $opts ) && false !== $opts[ $key ] ) {
 			$val = $opts[ $key ];
 		}
 		return $val;
 	}
-
 }
