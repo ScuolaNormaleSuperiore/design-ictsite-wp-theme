@@ -31,7 +31,7 @@ if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 	include_once 'class-dis-activationmanager.php';
 }
 if ( ! class_exists( 'DIS_ContentsManager' ) ) {
-	include_once 'contents-manager.php';
+	include_once 'class-dis-contentsmanager.php';
 }
 if ( ! class_exists( 'DIS_NavigationManager' ) ) {
 	include_once 'navigation-manager.php';
