@@ -1,10 +1,10 @@
 <?php
-/* Template Name: How to
-*
-* @package Design_ICT_Site
-*/
+/**
+ * Template Name: How to
+ *
+ * @package Design_ICT_Site
+ */
 
-global $post;
 get_header();
 ?>
 

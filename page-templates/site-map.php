@@ -5,8 +5,8 @@
  * @package Design_ICT_Site
  */
 
-global $post;
 get_header();
+$dis_post         = get_post();
 $dis_sitemap_tree = DIS_NavigationManager::get_sitemap_tree();
 ?>
 
@@ -14,7 +14,7 @@ $dis_sitemap_tree = DIS_NavigationManager::get_sitemap_tree();
 
 	<!-- PAGE TITLE -->
 	<h2 class="pb-2">
-		<?php echo esc_attr( $post->post_title ); ?>
+		<?php echo esc_html( $dis_post->post_title ); ?>
 	</h2>
 
 	<!-- PAGE BODY -->
@@ -26,7 +26,6 @@ $dis_sitemap_tree = DIS_NavigationManager::get_sitemap_tree();
 				<?php if ( count( $dis_sitemap_tree ) > 0 ) : ?>
 					<?php echo dis_render_sitemap_html( $dis_sitemap_tree ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
 				<?php endif; ?>
-
 
 			</div>
 		</div>

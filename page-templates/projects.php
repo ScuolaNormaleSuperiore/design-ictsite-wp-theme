@@ -1,33 +1,36 @@
 <?php
-/* Template Name: Projects
-*
-* @package Design_ICT_Site
-*/
+/**
+ * Template Name: Projects
+ *
+ * @package Design_ICT_Site
+ */
 
-global $post;
 get_header();
 
 // Check pagination parameters.
-$posts_per_page  = strval( DIS_ITEMS_PER_PAGE_ODD );
-$per_page_values = DIS_ITEMS_PER_PAGE_VALUES_ODD;
+$dis_posts_per_page  = strval( DIS_ITEMS_PER_PAGE_ODD );
+$dis_per_page_values = DIS_ITEMS_PER_PAGE_VALUES_ODD;
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	$posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
+	$dis_posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
 }
-$current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive pagination parameter.
+$dis_current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Prepare the query.
-$params = array(
+$dis_params = array(
 	'post_type'      => DIS_PROJECT_POST_TYPE,
 	'search_string'  => '',
-	'posts_per_page' => $posts_per_page,
-	'current_page'   => $current_page,
+	'posts_per_page' => $dis_posts_per_page,
+	'current_page'   => $dis_current_page,
 	'orderby'        => 'title',
 	'order'          => 'ASC',
 );
 
 // Execute the query.
-$the_query   = DIS_ContentsManager::get_generic_post_query( $params );
-$num_results = $the_query->found_posts;
+$dis_query       = DIS_ContentsManager::get_generic_post_query( $dis_params );
+$dis_num_results = $dis_query->found_posts;
 ?>
 
 <!-- ARCHIVE PAGE -->
@@ -35,30 +38,30 @@ $num_results = $the_query->found_posts;
 	<div class="row">
 		<div class="col">
 			<h2 class="pb-2">
-				<?php echo esc_attr( get_the_title() ); ?>
+				<?php echo esc_html( get_the_title() ); ?>
 			</h2>
 
 			<?php
-			if ( $num_results ) {
-			?>
+			if ( $dis_num_results ) {
+				?>
 				<!-- RESULT LIST  -->
 				<ul class="it-card-list row" aria-label="Lista delle news">
 					<?php
-					while ( $the_query->have_posts() ) {
-						$the_query->the_post();
-						$image_data = DIS_ContentsManager::get_image_metadata( $post, 'full' );
-						$short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
-					?>
+					while ( $dis_query->have_posts() ) {
+						$dis_query->the_post();
+						$dis_post       = get_post();
+						$dis_image_data = DIS_ContentsManager::get_image_metadata( $dis_post, 'full' );
+						$dis_short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $dis_post->ID );
+						?>
 					<li class="col-12 col-md-6 col-lg-4 mb-3 mb-md-4">
 						<article class="it-card it-card-image it-card-height-full">
 							<!-- Title -->
 							<h3 class="it-card-title ">
 								<a
-									href="<?php echo esc_url( get_permalink( $post->ID ) ); ?>"
-									title="<?php echo esc_attr( $post->post_title ); ?>"
-									alt="<?php echo esc_attr( $post->post_title ); ?>"
+									href="<?php echo esc_url( get_permalink( $dis_post->ID ) ); ?>"
+									title="<?php echo esc_attr( $dis_post->post_title ); ?>"
 								>
-									<?php echo esc_attr( $post->post_title ); ?>
+									<?php echo esc_html( $dis_post->post_title ); ?>
 								</a>
 							</h3>
 							<!-- Image -->
@@ -66,35 +69,35 @@ $num_results = $the_query->found_posts;
 								<div class="ratio ratio-16x9">
 									<figure class="figure img-full">
 										<img
-												src="<?php echo esc_url( $image_data['image_url'] ); ?>"
-												title="<?php echo esc_attr( $image_data['image_title'] ); ?>"
-												alt="<?php echo esc_attr( $image_data['image_alt'] ); ?>"
-											>
+											src="<?php echo esc_url( $dis_image_data['image_url'] ); ?>"
+											title="<?php echo esc_attr( $dis_image_data['image_title'] ); ?>"
+											alt="<?php echo esc_attr( $dis_image_data['image_alt'] ); ?>"
+										>
 									</figure>
 								</div>
 							</div>
 							<!-- Body -->
 							<div class="it-card-body">
 								<p class="it-card-text">
-									<?php echo esc_attr( $short_desc ); ?>
+									<?php echo esc_html( $dis_short_desc ); ?>
 								</p>
 							</div>
 						</article>
 					</li>
-					<?php
+						<?php
 					}
 					wp_reset_postdata();
 					?>
 				</ul>
-			<?php
+				<?php
 			} else {
-			?>
+				?>
 				<div class="col-12 col-lg-8">
-					<div clas="row pt-2">
-						<em><?php echo esc_attr( __( 'No results found', 'design_ict_site' ) ); ?></em>
+					<div class="row pt-2">
+						<em><?php echo esc_html__( 'No results found', 'design_ict_site' ); ?></em>
 					</div>
 				</div>
-			<?php
+				<?php
 			}
 			?>
 
@@ -105,11 +108,11 @@ $num_results = $the_query->found_posts;
 				'template-parts/common/pagination',
 				null,
 				array(
-					'query'           => $the_query,
-					'posts_per_page'  => $posts_per_page,
-					'per_page_values' => $per_page_values,
-					'num_results'     => $num_results,
-					'current_page'    => $current_page,
+					'query'           => $dis_query,
+					'posts_per_page'  => $dis_posts_per_page,
+					'per_page_values' => $dis_per_page_values,
+					'num_results'     => $dis_num_results,
+					'current_page'    => $dis_current_page,
 				)
 			);
 			?>

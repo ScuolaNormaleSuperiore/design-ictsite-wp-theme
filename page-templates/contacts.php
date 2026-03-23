@@ -1,10 +1,10 @@
 <?php
-/* Template Name: Contacts
-*
-* @package Design_ICT_Site
-*/
+/**
+ * Template Name: Contacts
+ *
+ * @package Design_ICT_Site
+ */
 
-global $post;
 get_header();
 
 ?>

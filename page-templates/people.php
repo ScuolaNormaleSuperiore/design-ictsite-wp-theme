@@ -1,13 +1,13 @@
 <?php
-/* Template Name: People
-*
-* @package Design_ICT_Site
-*/
+/**
+ * Template Name: People
+ *
+ * @package Design_ICT_Site
+ */
 
-global $post;
 get_header();
 
-$persons = DIS_ContentsManager::get_person_list();
+$dis_persons = DIS_ContentsManager::get_person_list();
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
@@ -22,11 +22,11 @@ $persons = DIS_ContentsManager::get_person_list();
 				'template-parts/common/people-section',
 				false,
 				array(
-					'persons' => $persons,
+					'persons' => $dis_persons,
 					'format'  => 'full',
 				)
 			);
-		?>
+			?>
 
 	</div>
 </div>

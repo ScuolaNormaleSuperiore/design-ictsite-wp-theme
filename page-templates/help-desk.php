@@ -1,13 +1,13 @@
 <?php
-/** Template Name: Help-desk
+/**
+ * Template Name: Help-desk
  *
  * @package Design_ICT_Site
  */
 
-global $post;
 get_header();
-$faq_page_link = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
-$doc_page_link = DIS_MultiLangManager::get_page_link( DOCUMENTATION_PAGE_SLUG );
+$dis_faq_page_link = DIS_MultiLangManager::get_page_link( FAQ_PAGE_SLUG );
+$dis_doc_page_link = DIS_MultiLangManager::get_page_link( DOCUMENTATION_PAGE_SLUG );
 ?>
 
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
@@ -39,14 +39,14 @@ $doc_page_link = DIS_MultiLangManager::get_page_link( DOCUMENTATION_PAGE_SLUG );
 								</h3>
 							</li>
 							<li>
-								<a class="list-item medium" href="<?php echo esc_url( $faq_page_link ); ?>">
+								<a class="list-item medium" href="<?php echo esc_url( $dis_faq_page_link ); ?>">
 									<span>
 										<?php echo esc_attr( __( 'FAQ', 'design_ict_site' ) ); ?>
 									</span>
 								</a>
 							</li>
 							<li>
-								<a class="list-item medium" href="<?php echo esc_url( $doc_page_link ); ?>">
+								<a class="list-item medium" href="<?php echo esc_url( $dis_doc_page_link ); ?>">
 									<span>
 										<?php echo esc_attr( __( 'Documentation', 'design_ict_site' ) ); ?>
 									</span>

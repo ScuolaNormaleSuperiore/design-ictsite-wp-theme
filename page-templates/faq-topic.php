@@ -1,14 +1,14 @@
 <?php
-/** Template Name: Faq
+/**
+ * Template Name: Faq
  *
  * @package Design_ICT_Site
  */
 
-global $post;
 get_header();
 
 // Get all the FAQ topics.
-$all_topics = get_terms(
+$dis_all_topics = get_terms(
 	array(
 		'taxonomy'   => DIS_FAQ_TOPIC_TAXONOMY,
 		'hide_empty' => true,
@@ -17,26 +17,28 @@ $all_topics = get_terms(
 	)
 );
 
-$def_topic      = count( $all_topics ) > 0 ? $all_topics[0] : null;
-$def_topic_slug = $def_topic ? $def_topic->slug : '';
-$def_topic_name = $def_topic ? $def_topic->name : '';
-$topic_slug     = isset( $_GET['topic'] ) ? sanitize_text_field( wp_unslash( $_GET['topic'] ) ) : $def_topic_slug;
+$dis_default_topic      = count( $dis_all_topics ) > 0 ? $dis_all_topics[0] : null;
+$dis_default_topic_slug = $dis_default_topic ? $dis_default_topic->slug : '';
+$dis_default_topic_name = $dis_default_topic ? $dis_default_topic->name : '';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only public filter parameter.
+$dis_topic_slug = isset( $_GET['topic'] ) ? sanitize_text_field( wp_unslash( $_GET['topic'] ) ) : $dis_default_topic_slug;
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only public filter parameter.
 if ( isset( $_GET['topic'] ) ) {
-	$topic_term = get_term_by( 'slug', $topic_slug, DIS_FAQ_TOPIC_TAXONOMY );
-	$topic_name = ( $topic_term && ! is_wp_error( $topic_term ) ) ? $topic_term->name : $def_topic_name;
+	$dis_topic_term = get_term_by( 'slug', $dis_topic_slug, DIS_FAQ_TOPIC_TAXONOMY );
+	$dis_topic_name = ( $dis_topic_term && ! is_wp_error( $dis_topic_term ) ) ? $dis_topic_term->name : $dis_default_topic_name;
 } else {
-	$topic_name = $def_topic_name;
+	$dis_topic_name = $dis_default_topic_name;
 }
 
-if ( $topic_slug ) {
-	$faqs = DIS_ContentsManager::get_faq_by_topic( $topic_slug );
-?>
+if ( $dis_topic_slug ) {
+	$dis_faqs = DIS_ContentsManager::get_faq_by_topic( $dis_topic_slug );
+	?>
 
 	<!-- FAQ PAGE -->
 	<section class="section pt-0 pb-5" >
 		<div class="container p-4">
 			<h2 class="pb-2">
-				FAQ - <?php echo esc_attr( $topic_name ); ?>
+				FAQ - <?php echo esc_attr( $dis_topic_name ); ?>
 			</h2>
 			<p class="lead">
 				<?php echo esc_html( get_the_excerpt() ); ?>
@@ -80,16 +82,16 @@ if ( $topic_slug ) {
 									</h3>
 									<ul class="link-list">
 										<?php
-										foreach ( $all_topics as $topic_item ) {
-											$active    = $topic_item->slug === $topic_slug ? 'active' : '';
-											$topic_url = DIS_ContentsManager::get_topic_url_by_slug( $topic_item->slug );
-										?>
+										foreach ( $dis_all_topics as $dis_topic_item ) {
+											$dis_active    = $dis_topic_item->slug === $dis_topic_slug ? 'active' : '';
+											$dis_topic_url = DIS_ContentsManager::get_topic_url_by_slug( $dis_topic_item->slug );
+											?>
 											<li class="nav-item">
-													<a class="nav-link <?php echo esc_attr( $active ); ?>" href="<?php echo esc_url( $topic_url ); ?>">
-														<span><?php echo esc_attr( $topic_item->name ); ?></span>
+													<a class="nav-link <?php echo esc_attr( $dis_active ); ?>" href="<?php echo esc_url( $dis_topic_url ); ?>">
+														<span><?php echo esc_attr( $dis_topic_item->name ); ?></span>
 													</a>
 											</li>
-										<?php
+											<?php
 										}
 										?>
 									</ul>
@@ -104,31 +106,31 @@ if ( $topic_slug ) {
 					<div class="link-list-wrapper multiline">
 						<ul class="link-list">
 							<?php
-								foreach( $faqs as $faq ) {
-									$topics        = wp_get_post_terms( $faq->ID, DIS_FAQ_TOPIC_TAXONOMY );
-									$topics_string = DIS_ContentsManager::get_topic_string_from_terms( $topics, false );
-							?>
+							foreach ( $dis_faqs as $dis_faq ) {
+								$dis_topics        = wp_get_post_terms( $dis_faq->ID, DIS_FAQ_TOPIC_TAXONOMY );
+								$dis_topics_string = DIS_ContentsManager::get_topic_string_from_terms( $dis_topics, false );
+								?>
 								<li>
-									<a class="list-item icon-right" href="<?php echo esc_url( get_permalink( $faq->ID ) ); ?>">
+									<a class="list-item icon-right" href="<?php echo esc_url( get_permalink( $dis_faq->ID ) ); ?>">
 										<span class="list-item-title-icon-wrapper">
 											<h4 class="list-item-title">
-												<?php echo esc_attr( $faq->post_title ); ?>
+											<?php echo esc_attr( $dis_faq->post_title ); ?>
 											</h4>
 											<svg class="icon icon-primary">
 												<title>
-													<?php echo esc_attr( __( 'Code', 'design_ict_site' ) ); ?>
+												<?php echo esc_attr( __( 'Code', 'design_ict_site' ) ); ?>
 												</title>
 												<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-right' ); ?>"></use>
 											</svg>
 										</span>
-										<p><?php echo wp_kses_post( $topics_string ); ?></p>
+										<p><?php echo wp_kses_post( $dis_topics_string ); ?></p>
 									</a>
 								</li>
 								<li>
 									<span class="divider" role="separator"></span>
 								</li>
-							<?php
-								}
+								<?php
+							}
 							?>
 						</ul>
 					</div>
@@ -142,6 +144,6 @@ if ( $topic_slug ) {
 	<?php get_template_part( 'template-parts/common/help-desk-call-to-action' ); ?>
 
 
-<?php
+	<?php
 }
 get_footer();
