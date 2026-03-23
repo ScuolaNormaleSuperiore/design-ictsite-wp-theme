@@ -1,8 +1,14 @@
 <?php
 /**
+ * Theme manager bootstrap.
+ *
+ * @package Design_ICT_Site
+ */
+
+/**
  * Definition of the ThemeManager used to create the custom content types.
  * In this file we define the structure of the site.
- * 
+ *
  * @package Design_ICT_Site
  */
 
@@ -13,13 +19,13 @@ if ( ! class_exists( 'DIS_CustomFieldsManager' ) ) {
 	include_once 'custom-fields-manager.php';
 }
 if ( ! class_exists( 'DIS_LayoutManager' ) ) {
-	include_once 'layout-manager.php';
+	include_once 'class-dis-layoutmanager.php';
 }
 if ( ! class_exists( 'DIS_OptionsManager' ) ) {
 	include_once 'options-manager.php';
 }
 if ( ! class_exists( 'DIS_ExportManager' ) ) {
-	include_once 'export-manager.php';
+	include_once 'class-dis-exportmanager.php';
 }
 if ( ! class_exists( 'DIS_ActivationManager' ) ) {
 	include_once 'class-dis-activationmanager.php';
@@ -76,10 +82,9 @@ if ( ! class_exists( 'DIS_AutocompleteManager' ) ) {
 	include_once 'class-dis-autocompletemanager.php';
 }
 /**
- * The manager that builds the tool and configures Wordpress.
+ * The manager that builds the tool and configures WordPress.
  * How to get a manger?
  * $theme_manager = DIS_ThemeManager::get_instance();
- *
  */
 class DIS_ThemeManager {
 	/**
@@ -89,16 +94,36 @@ class DIS_ThemeManager {
 	 */
 	protected static $instance = null;
 
+	/**
+	 * Custom fields manager instance.
+	 *
+	 * @var DIS_CustomFieldsManager|null
+	 */
 	public $cfm = null;
+
+	/**
+	 * Multilanguage manager instance.
+	 *
+	 * @var DIS_MultiLangManager|null
+	 */
 	public $mlm = null;
+
+	/**
+	 * Options manager instance.
+	 *
+	 * @var DIS_OptionsManager|null
+	 */
 	public $cnm = null;
 
+	/**
+	 * Constructor.
+	 */
 	public function __construct() {}
 
 	/**
 	 * Create the instance of the manager.
 	 *
-	 * @return object.
+	 * @return self
 	 */
 	public static function get_instance() {
 		if ( is_null( self::$instance ) ) {
@@ -183,7 +208,7 @@ class DIS_ThemeManager {
 		// Setup of the DIS-News post-type.
 		$nwsm = new News_Manager();
 		$nwsm->setup();
-		
+
 		// Setup of the Place post-type.
 		$plcm = new Place_Manager();
 		$plcm->setup();
@@ -197,8 +222,8 @@ class DIS_ThemeManager {
 		$pgm->setup();
 
 		// Setup of the Attachment post-type.
-		$atm = new DIS_AttachmentManager();
-		$atm->setup();
+		$attachment_manager = new DIS_AttachmentManager();
+		$attachment_manager->setup();
 
 		// Setup of the Banner post-type.
 		$bnm = new Banner_Manager();
@@ -213,8 +238,8 @@ class DIS_ThemeManager {
 		$fqm->setup();
 
 		// Setup of Autocomplete Manager.
-		$atm = new DIS_AutocompleteManager();
-		$atm->setup();
+		$autocomplete_manager = new DIS_AutocompleteManager();
+		$autocomplete_manager->setup();
 
 		// Setup of sitemap renderers and XML endpoints.
 		$nvm = new DIS_NavigationManager();
@@ -230,7 +255,7 @@ class DIS_ThemeManager {
 	 */
 	public function configure_languages() {
 		// For the labels of the theme.
-		load_theme_textdomain( 'design_ict_site', get_template_directory() . '/languages' );
+		load_theme_textdomain( 'design_ict_site', get_template_directory() . '/languages' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
 	}
 
 	/**
@@ -247,19 +272,25 @@ class DIS_ThemeManager {
 		}
 	}
 
+	/**
+	 * Enforce upload limits based on file type.
+	 *
+	 * @param array $file Uploaded file metadata.
+	 * @return array
+	 */
 	public function configure_upload_limits( $file ) {
 		$image_max_size = 1024 * 1024;     // 1MB for images.
 		$pdf_max_size   = 2 * 1024 * 1024; // 2MB for PDF files.
 		$type           = $file['type'];
 		$size           = $file['size'];
 		// Images limits.
-		$image_types = ['image/jpeg', 'image/png', 'image/gif', 'image/webp'];
-		if ( in_array( $type, $image_types ) && $size > $image_max_size ) {
-			$file['error'] = __( 'The image is too big. The maximum allowed is: 1MB.', 'design_ict_site' );
+		$image_types = array( 'image/jpeg', 'image/png', 'image/gif', 'image/webp' );
+		if ( in_array( $type, $image_types, true ) && $size > $image_max_size ) {
+			$file['error'] = __( 'The image is too big. The maximum allowed is: 1MB.', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
 		}
 		// PDF size attachment limit.
-		if ( $type === 'application/pdf' && $size > $pdf_max_size ) {
-			$file['error'] = __( 'The PDF file is too big. the maximum allowed is: 2MB.', 'design_ict_site' );
+		if ( 'application/pdf' === $type && $size > $pdf_max_size ) {
+			$file['error'] = __( 'The PDF file is too big. the maximum allowed is: 2MB.', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
 		}
 		return $file;
 	}
@@ -273,8 +304,8 @@ class DIS_ThemeManager {
 		// Hook to hide the login error message.
 		add_filter(
 			'login_errors',
-			function() {
-				return __( 'Invalid username or password', 'design_ict_site' );
+			function () {
+				return __( 'Invalid username or password', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.TextDomainMismatch -- Legacy theme text domain.
 			}
 		);
 		// Hook per nascondere la versione del CMS (tag generator).
@@ -291,8 +322,11 @@ class DIS_ThemeManager {
 	private function setup_internationalisation() {
 		add_action( 'init', array( $this, 'configure_languages' ) );
 	}
-
-
+	/**
+	 * Ensure the super editor role exists and has the expected capabilities.
+	 *
+	 * @return void
+	 */
 	public function add_super_editor() {
 		// Recupera il ruolo Editor.
 		$base_role = get_role( 'editor' );
@@ -300,7 +334,7 @@ class DIS_ThemeManager {
 		if ( $base_role ) {
 			// Aggiungi un nuovo ruolo basato sul ruolo Editor, se non esiste.
 			$new_role = get_role( DIS_SUPER_EDITOR_ROLE_SLUG );
-			if ( ! $new_role ){
+			if ( ! $new_role ) {
 				$new_role = add_role( DIS_SUPER_EDITOR_ROLE_SLUG, DIS_SUPER_EDITOR_ROLE_NAME, $base_role->capabilities );
 			}
 			// Assegna al nuovo ruolo il permesso di lavorare sul tema e sul menu del sito.
@@ -310,7 +344,7 @@ class DIS_ThemeManager {
 			$new_role->add_cap( DIS_EDIT_CONFIG_PERMISSION );
 			// Assegna il permesso di modificare le configurazioni del tema all'amministratore del sito.
 			$admin_role = get_role( 'administrator' );
-			if ( $admin_role ){
+			if ( $admin_role ) {
 				$admin_role->add_cap( DIS_EDIT_CONFIG_PERMISSION );
 			}
 		}
@@ -325,23 +359,21 @@ class DIS_ThemeManager {
 		add_action( 'init', array( $this, 'configure_permalink' ) );
 	}
 
+	/**
+	 * Hook upload limit filtering.
+	 *
+	 * @return void
+	 */
 	private function setup_upload_limits() {
 		add_action( 'wp_handle_upload_prefilter', array( $this, 'configure_upload_limits' ) );
 	}
 
+	/**
+	 * Hook role setup.
+	 *
+	 * @return void
+	 */
 	private function setup_roles() {
 		add_action( 'init', array( $this, 'add_super_editor' ) );
 	}
-
-
-
-}
-
-
-/**
- * To prevent class clonation.
- */
-final class DIS_ThemeManager_Singleton extends DIS_ThemeManager {
-	private function __clone() {}
-	public function __wakeup() {}
 }

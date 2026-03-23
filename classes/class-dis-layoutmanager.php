@@ -1,15 +1,15 @@
 <?php
 /**
- * Definition of the Layout Manager: uploads css and js.
- * In this file we define the layout of the site.
- * 
+ * Layout manager bootstrap.
+ *
  * @package Design_ICT_Site
  */
 
-
 /**
- * The manager that uploads the layout of the theme.
+ * Definition of the Layout Manager: uploads css and js.
+ * In this file we define the layout of the site.
  *
+ * @package Design_ICT_Site
  */
 class DIS_LayoutManager {
 	/**
@@ -30,26 +30,47 @@ class DIS_LayoutManager {
 		add_action( 'wp_footer', array( $this, 'load_pagination_script' ) );
 	}
 
+	/**
+	 * Enqueue frontend styles and scripts.
+	 *
+	 * @return void
+	 */
 	public function upload_scripts() {
 		// Import CSS files.
-		wp_enqueue_style( 'dis-wp-style', get_stylesheet_uri() ); // File style.css vuoto.
-		wp_enqueue_style( 'dis-font', DIS_THEME_URL . '/assets/css/fonts.css' );
-		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css' );
-		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css' );
-		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css' );
+		wp_enqueue_style( 'dis-wp-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
+		wp_enqueue_style( 'dis-font', DIS_THEME_URL . '/assets/css/fonts.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/fonts.css' ) );
+		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/bootstrap-italia-custom.min.css' ) );
+		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/custom-colors.css' ) );
+		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/main.css' ) );
 		// Enqueue Bootstrap Icons.
 		wp_enqueue_style( 'bootstrap-icons-cdn', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css', array(), '1.11.3' );
 
 		// Import Javascript files.
-		wp_enqueue_script( 'dis-boostrap-italia-js', DIS_THEME_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js', array(), false, true);
+		wp_enqueue_script(
+			'dis-boostrap-italia-js',
+			DIS_THEME_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js',
+			array(),
+			filemtime( DIS_THEME_PATH . 'assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js' ),
+			true
+		);
 	}
 
+	/**
+	 * Enqueue backend styles for the theme admin UI.
+	 *
+	 * @return void
+	 */
 	public function upload_admin_scripts() {
-		// ADMIN style: for Configuration Menu (CMB2) - To put the menu on the left instead of at the top.
-		wp_enqueue_style( 'dis-style-admin-css', DIS_THEME_URL . '/admin/css/style-admin.css' );
-		wp_enqueue_style( 'dis-admin-css', DIS_THEME_URL . '/admin/css/admin.css' );
+		// Admin styles for the theme configuration screens.
+		wp_enqueue_style( 'dis-style-admin-css', DIS_THEME_URL . '/admin/css/style-admin.css', array(), filemtime( DIS_THEME_PATH . 'admin/css/style-admin.css' ) );
+		wp_enqueue_style( 'dis-admin-css', DIS_THEME_URL . '/admin/css/admin.css', array(), filemtime( DIS_THEME_PATH . 'admin/css/admin.css' ) );
 	}
 
+	/**
+	 * Enable standard theme support options.
+	 *
+	 * @return void
+	 */
 	public function configure_post_options() {
 		// Add default posts and comments RSS feed links to head.
 		add_theme_support( 'automatic-feed-links' );
@@ -59,9 +80,14 @@ class DIS_LayoutManager {
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		// add_theme_support( 'post-thumbnails' );
+		// Post thumbnails support can be enabled here if the theme starts using featured images.
 	}
 
+	/**
+	 * Register the menu locations used by the theme.
+	 *
+	 * @return void
+	 */
 	public function define_menu_locations() {
 		/**
 		 * This theme uses wp_nav_menu().
@@ -71,9 +97,14 @@ class DIS_LayoutManager {
 		register_nav_menus( DIS_MENU_LOCATIONS );
 	}
 
+	/**
+	 * Print the pagination helper script on singular views and page templates.
+	 *
+	 * @return void
+	 */
 	public function load_pagination_script() {
-	if ( is_page_template() || is_singular() ) {
-	?>
+		if ( is_page_template() || is_singular() ) {
+			?>
 		<script>
 			if (document.querySelector('.dropdown-menu.dli-pagination-dropdown')) {
 
@@ -118,9 +149,7 @@ class DIS_LayoutManager {
 				}
 			}
 		</script>
-	<?php
+			<?php
+		}
 	}
-	}
-
-
 }

@@ -46,7 +46,7 @@ require_once DIS_THEME_PATH . '/inc/cmb2.php';
  * SETUP THE THEME.
  */
 if ( ! class_exists( 'DIS_ThemeManager' ) ) {
-	require_once get_template_directory() . '/classes/theme-manager.php';
+	require_once get_template_directory() . '/classes/class-dis-thememanager.php';
 }
 
 
