@@ -11,7 +11,7 @@
 // phpcs:disable Squiz.Commenting.FunctionComment.InvalidNoReturn
 // phpcs:disable Squiz.Commenting.FunctionComment.ParamCommentFullStop
 // phpcs:disable Squiz.Commenting.FunctionComment.ParamNameNoMatch
-// phpcs:disable WordPress.WP.I18n.TextDomainMismatch
+
 
 
 /**

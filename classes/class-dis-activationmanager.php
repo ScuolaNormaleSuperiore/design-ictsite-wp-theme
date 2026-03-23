@@ -204,7 +204,12 @@ class DIS_ActivationManager {
 			return '';
 		}
 
-		$content = file_get_contents( $file_path ); // phpcs:ignore WordPress.WP.AlternativeFunctions.file_get_contents_file_get_contents -- Local theme seed file.
+		global $wp_filesystem;
+		if ( empty( $wp_filesystem ) ) {
+			require_once ABSPATH . 'wp-admin/includes/file.php';
+			WP_Filesystem();
+		}
+		$content = $wp_filesystem->get_contents( $file_path );
 
 		return false === $content ? '' : $content;
 	}
@@ -250,14 +255,14 @@ class DIS_ActivationManager {
 				switch_to_locale( $lang->locale );
 
 				// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
-				$slug_trans = _x( $pg['content_slug'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText,WordPress.WP.I18n.TextDomainMismatch -- Seed config stores translation keys with legacy theme text domain.
+				$slug_trans = _x( $pg['content_slug'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
 				if ( $slug_trans ) {
 					$check_page  = self::get_content( $slug_trans, $pg['content_type'] );
 					$new_page_id = $check_page ? $check_page->ID : 0;
 					if ( 0 === $new_page_id ) {
 						// Create the page if not exists.
 						// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
-						$title_trans = _x( $pg['content_title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText,WordPress.WP.I18n.TextDomainMismatch -- Seed config stores translation keys with legacy theme text domain.
+						$title_trans = _x( $pg['content_title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
 						if ( $title_trans ) {
 							// Check if a page template exists.
 							$content = self::get_page_seed_content( $pg['content_file'], $lang->slug );
@@ -382,12 +387,12 @@ class DIS_ActivationManager {
 				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
 					// Link to pages or posts.
 					// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
-					$slug_trans = _x( $menu_item['slug'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText,WordPress.WP.I18n.TextDomainMismatch -- Menu config stores translation keys with legacy theme text domain.
+					$slug_trans = _x( $menu_item['slug'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
 					if ( $slug_trans ) {
 						$result = self::get_content( $slug_trans, $menu_item['content_type'] );
 
 						// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
-						$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText,WordPress.WP.I18n.TextDomainMismatch -- Menu config stores translation keys with legacy theme text domain.
+						$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
 						if ( $result ) {
 							$menu_item_id = $result->ID;
 							wp_update_nav_menu_item(
@@ -406,7 +411,7 @@ class DIS_ActivationManager {
 					}
 				} else {
 					// External links.
-					$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText,WordPress.WP.I18n.TextDomainMismatch -- Menu config stores translation keys with legacy theme text domain.
+					$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
 					if ( $title_trans ) {
 						wp_update_nav_menu_item(
 							$menu->term_id,

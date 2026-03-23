@@ -9,7 +9,7 @@
 // phpcs:disable Squiz.Commenting.FunctionComment.Missing
 // phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
 // phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralText
-// phpcs:disable WordPress.WP.I18n.TextDomainMismatch
+
 /**
  * The manager that wraps Polylang's libraries.
  */
