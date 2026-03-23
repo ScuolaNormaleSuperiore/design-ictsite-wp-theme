@@ -14,12 +14,12 @@ if ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $mes
 
 		<div class="alert alert-<?php echo esc_attr( $msg['message_color'] ); ?> alert-dismissible fade show mb-0"
 			role="alert"
-			aria-label="<?php echo __( 'Alert', 'design_ict_site' ); ?>"
+			aria-label="<?php echo esc_attr__( 'Alert', 'design_ict_site' ); ?>"
 		>
 			<?php
 			if ( $message_link ) {
 			?>
-				<a target="_blank" href="<?php echo esc_attr( $message_link ); ?>">
+				<a target="_blank" href="<?php echo esc_url( $message_link ); ?>" rel="noopener noreferrer">
 			<?php
 			}
 			echo esc_attr( $msg['message_text'] );
@@ -29,10 +29,10 @@ if ( $messages && ! empty( $messages ) && array_key_exists( 'message_text', $mes
 			<?php
 				}
 			?>
-				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo __( 'Close alert', 'design_ict_site' ); ?>">
-					<svg class="icon" role="img" aria-labelledby="Close" aria-label="<?php echo __( 'Close alert', 'design_ict_site' ); ?>">
-						<title>Chiudi avviso</title>
-						<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-close'; ?>"></use>
+				<button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="<?php echo esc_attr__( 'Close alert', 'design_ict_site' ); ?>">
+					<svg class="icon" role="img" aria-labelledby="Close" aria-label="<?php echo esc_attr__( 'Close alert', 'design_ict_site' ); ?>">
+						<title><?php echo esc_html__( 'Close alert', 'design_ict_site' ); ?></title>
+						<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-close' ); ?>"></use>
 					</svg>
 				</button>
 		</div>
