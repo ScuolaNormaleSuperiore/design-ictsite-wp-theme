@@ -135,7 +135,7 @@ class DIS_ContentsManager {
 		$results  = array();
 		if ( $sections ) {
 			foreach ( $sections as $section ) {
-				if ( ( 'false' === $only_active ) || ( 'false' !== $section['enabled'] ) ) {
+				if ( ! $only_active || 'false' !== $section['enabled'] ) {
 					array_push( $results, $section );
 				}
 			}
