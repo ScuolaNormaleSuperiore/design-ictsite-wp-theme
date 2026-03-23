@@ -32,7 +32,7 @@ $msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You c
 			if ( $show_title ) {
 		?>
 			<h2 class="pb-4">
-				<?php echo __( 'Video', 'design_ict_site' );?>
+				<?php echo esc_html__( 'Video', 'design_ict_site' );?>
 			</h2>
 		<?php
 			}
@@ -54,21 +54,21 @@ $msg_text   = sprintf( __( 'Accept the Youtube cookies to watch the video. You c
 							<div class="acceptoverlay-inner">
 								<div class="acceptoverlay-icon">
 									<svg class="icon icon-xl">
-										<use href="/bootstrap-italia/svg/sprites.svg#it-video"></use>
+										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-video' ); ?>"></use>
 									</svg>
 								</div>
 								<p>
-									<?php echo $msg_text; ?>
+									<?php echo wp_kses_post( $msg_text ); ?>
 								</p>
 								<div class="acceptoverlay-buttons bg-dark">
 									<button type="button" class="btn btn-primary" data-bs-accept-from="youtube.com"
 										onclick="loadYouTubeVideo('<?php echo esc_url( $video ); ?>')">
-										<?php echo __( 'Accept', 'design_ict_site' ); ?>
+										<?php echo esc_html__( 'Accept', 'design_ict_site' ); ?>
 									</button>
 									<div class="form-check">
 										<input id="chk-remember" type="checkbox" data-bs-accept-remember>
 										<label for="chk-remember">
-											<?php echo __( 'Remember for all videos', 'design_ict_site' ); ?>
+											<?php echo esc_html__( 'Remember for all videos', 'design_ict_site' ); ?>
 										</label>
 									</div>
 								</div>
