@@ -113,7 +113,7 @@ $num_results = $the_query->found_posts;
 										}
 										if ( $category && $list_page ) {
 										?>
-										<a href="<?php echo esc_url( get_permalink( $list_page ) ) . '?category=' . $category->slug; ?>"
+										<a href="<?php echo esc_url( add_query_arg( 'category', $category->slug, get_permalink( $list_page ) ) ); ?>"
 											class="it-card-category it-card-link link-secondary">
 											<span class="visually-hidden">
 												<?php echo __( 'Related category', 'design_ict_site' ); ?>:&nbsp;

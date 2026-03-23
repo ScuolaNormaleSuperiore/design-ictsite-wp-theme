@@ -82,7 +82,7 @@ if ( $section_enabled ) {
 										}
 										if ( $category && $event_list ) {
 										?>
-										<a href="<?php echo esc_url( get_permalink( $event_list ) ) . '?category=' . $category->slug; ?>"
+										<a href="<?php echo esc_url( add_query_arg( 'category', $category->slug, get_permalink( $event_list ) ) ); ?>"
 											class="it-card-category it-card-link link-secondary">
 											<span class="visually-hidden">
 												<?php echo __( 'Related category', 'design_ict_site' ); ?>:&nbsp;

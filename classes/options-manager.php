@@ -1071,7 +1071,7 @@ class DIS_OptionsManager {
 	public function options_display_with_tabs( $cmb_options ) {
 		$tabs = self::options_page_tabs( $cmb_options );
 		?>
-		<div class="wrap cmb2-options-page option-<?php echo $cmb_options->option_key; ?>">
+		<div class="wrap cmb2-options-page option-<?php echo esc_attr( $cmb_options->option_key ); ?>">
 			<?php if ( get_admin_page_title() ) : ?>
 				<h2><?php echo wp_kses_post( get_admin_page_title() ); ?></h2>
 			<?php endif; ?>
@@ -1081,7 +1081,7 @@ class DIS_OptionsManager {
 							<a class="nav-tab<?php if ( isset( $_GET['page'] ) && $option_key === $_GET['page'] ) : ?> nav-tab-active<?php endif; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
 						<?php endforeach; ?>
 					</div>
-					<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo $cmb_options->cmb->cmb_id; ?>" enctype="multipart/form-data" encoding="multipart/form-data">
+					<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo esc_attr( $cmb_options->cmb->cmb_id ); ?>" enctype="multipart/form-data" encoding="multipart/form-data">
 						<fieldset class="form-content">
 							<input type="hidden" name="action" value="<?php echo esc_attr( $cmb_options->option_key ); ?>">
 							<?php $cmb_options->options_page_metabox(); ?>

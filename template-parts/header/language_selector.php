@@ -14,8 +14,8 @@ if ( $language_selector_enabled === 'true' ) {
 
 	<div class="nav-item dropdown">
 		<a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown" aria-expanded="false">
-			<span class="visually-hidden"><?php echo __( 'Language selection: selected language', 'design_ict_site' ); ?></span>
-			<span><?php echo strtoupper($current_lang); ?></span>
+			<span class="visually-hidden"><?php echo esc_html( __( 'Language selection: selected language', 'design_ict_site' ) ); ?></span>
+			<span><?php echo esc_html( strtoupper( $current_lang ) ); ?></span>
 			<svg class="icon d-none d-lg-block">
 				<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
 			</svg>
@@ -29,12 +29,12 @@ if ( $language_selector_enabled === 'true' ) {
 								foreach ( $selectors_lang as $selector ) {
 							?>
 								<li>
-									<a class="dropdown-item list-item" href="<?php echo $selector['url'] ?>">
+									<a class="dropdown-item list-item" href="<?php echo esc_url( $selector['url'] ); ?>">
 										<span>
-											<?php echo strtoupper( $selector['slug'] ); ?>
+											<?php echo esc_html( strtoupper( $selector['slug'] ) ); ?>
 											<?php if ( $current_lang === $selector['slug'] ){
 											?>
-												<span class="visually-hidden"><?php echo __( 'selected', 'design_ict_site' ); ?></span>
+												<span class="visually-hidden"><?php echo esc_html( __( 'selected', 'design_ict_site' ) ); ?></span>
 											<?php
 											}
 											?>
