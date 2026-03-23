@@ -92,9 +92,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 							<li class="list-item">
 								<div class="it-right-zone">
 									<span class="text">
-										<a href="scheda-luogo.html">
-											<?php echo wp_kses_post( $dis_full_places ); ?>
-										</a>
+										<?php echo wp_kses_post( $dis_full_places ); ?>
 									</span>
 									<svg class="icon">
 										<title><?php echo esc_html__( 'Address', 'design_ict_site' ); ?></title>
