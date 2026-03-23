@@ -374,6 +374,6 @@ class DIS_ThemeManager {
 	 * @return void
 	 */
 	private function setup_roles() {
-		add_action( 'init', array( $this, 'add_super_editor' ) );
+		add_action( 'after_switch_theme', array( $this, 'add_super_editor' ) );
 	}
 }
