@@ -10,7 +10,6 @@ require_once DIS_THEME_PATH . '/inc/walkers/footer-menu-walker.php';
 $locations  = $args['locations'];
 $location   = BOTTOM_FOOTER_LOCATION_SLUG;
 $menu_items = array();
-$menus      = wp_get_nav_menus();
 
 if ( has_nav_menu( $location ) ) {
 	$custom_menu = wp_get_nav_menu_object( $locations[ $location ] );

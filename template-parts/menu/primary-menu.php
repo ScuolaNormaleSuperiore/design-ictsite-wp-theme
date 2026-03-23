@@ -8,7 +8,6 @@
 $locations  = $args['locations'];
 $location   = PRIMARY_LOCATION_SLUG;
 $menu_items = array();
-$menus = wp_get_nav_menus();
 
 if ( has_nav_menu( $location ) ) {
 	$custom_menu = wp_get_nav_menu_object( $locations[ $location ] );
