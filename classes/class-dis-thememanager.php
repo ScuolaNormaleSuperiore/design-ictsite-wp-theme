@@ -34,7 +34,7 @@ if ( ! class_exists( 'DIS_ContentsManager' ) ) {
 	include_once 'class-dis-contentsmanager.php';
 }
 if ( ! class_exists( 'DIS_NavigationManager' ) ) {
-	include_once 'navigation-manager.php';
+	include_once 'class-dis-navigationmanager.php';
 }
 if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
 	include_once 'service-cluster-manager.php';

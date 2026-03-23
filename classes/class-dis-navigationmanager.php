@@ -1,18 +1,25 @@
 <?php
+// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 /**
  * Definition of the Navigation Manager.
  *
  * @package Design_ICT_Site
  */
 
+// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
+// phpcs:disable Universal.Files.SeparateFunctionsFromOO.Mixed
+// phpcs:disable Squiz.Commenting.VariableComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.Missing
+// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
+
 class DIS_TreeItem {
 	public string $name;
 	public string $slug;
 	public string $link;
-	public bool   $external;
-	public array  $children;
+	public bool $external;
+	public array $children;
 
-	public function __construct( $name, $slug, $link, $external=false, $children=array() ) {
+	public function __construct( $name, $slug, $link, $external = false, $children = array() ) {
 		$this->name     = $name;
 		$this->slug     = $slug;
 		$this->link     = $link;
@@ -24,19 +31,18 @@ class DIS_TreeItem {
 class DIS_BreadItem {
 	public string $label;
 	public string $url;
-	public string $class;
+	public string $css_class;
 
-	public function __construct( $label, $url, $class ) {
-		$this->label = $label;
-		$this->url   = $url;
-		$this->class = $class;
+	public function __construct( $label, $url, $css_class ) {
+		$this->label     = $label;
+		$this->url       = $url;
+		$this->css_class = $css_class;
 	}
 }
 
 
 /**
  * The manager for the site contents.
- *
  */
 class DIS_NavigationManager {
 	/**
@@ -57,20 +63,20 @@ class DIS_NavigationManager {
 
 	/**
 	 * Return the path of the breadcrumb.
-	 * 
+	 *
 	 * @param mixed $post
 	 * @return object[]
 	 */
 	public static function build_content_path( $post ) {
 		$home_url = DIS_MultiLangManager::get_home_url();
-		$root     = new DIS_BreadItem( 'Home',  $home_url, 'breadcrumb-item' );
+		$root     = new DIS_BreadItem( 'Home', $home_url, 'breadcrumb-item' );
 		$steps    = array();
 		array_push( $steps, $root );
 
 		if ( $post ) {
 			switch ( $post->post_type ) {
 				case DIS_DEFAULT_PAGE:
-					$post_parent = $post->post_parent;
+					$post_parent  = $post->post_parent;
 					$post_parents = array();
 					while ( $post_parent !== 0 ) {
 						$post_tmp       = get_post( $post_parent );
@@ -79,9 +85,9 @@ class DIS_NavigationManager {
 							get_permalink( $post_tmp->ID ),
 							'breadcrumb-item'
 						);
-						$post_parent = $post_tmp->post_parent;
+						$post_parent    = $post_tmp->post_parent;
 					}
-					$post_parents = count( $post_parents ) > 1 ? array_reverse( $post_parents ) : $post_parents;
+					$post_parents = ( count( $post_parents ) > 1 ) ? array_reverse( $post_parents ) : $post_parents;
 					foreach ( $post_parents as $parent ) {
 						array_push(
 							$steps,
@@ -97,49 +103,49 @@ class DIS_NavigationManager {
 						),
 					);
 					break;
-					case DIS_DEFAULT_POST:
-						$ct    = DIS_MultiLangManager::get_archive_page( $post->post_type );
-						if ( $ct instanceof WP_Post ) {
-							array_push(
-								$steps,
-								$post_parents[] = new DIS_BreadItem(
-									$ct->post_title,
-									get_permalink( $ct ),
-									'breadcrumb-item'
-								),
-							);
-						}
+				case DIS_DEFAULT_POST:
+					$ct = DIS_MultiLangManager::get_archive_page( $post->post_type );
+					if ( $ct instanceof WP_Post ) {
 						array_push(
 							$steps,
 							$post_parents[] = new DIS_BreadItem(
+								$ct->post_title,
+								get_permalink( $ct ),
+								'breadcrumb-item'
+							),
+						);
+					}
+					array_push(
+						$steps,
+						$post_parents[] = new DIS_BreadItem(
 							$post->post_title,
 							'',
 							'breadcrumb-item active'
 						),
 					);
 					break;
-					default:
-						$ct = DIS_MultiLangManager::get_archive_page( $post->post_type );
-						if ( $ct instanceof WP_Post ) {
-							array_push(
-								$steps,
-								$post_parents[] = new DIS_BreadItem(
-									$ct->post_title,
-									get_permalink( $ct ),
-									'breadcrumb-item'
-								),
-							);
-						}
+				default:
+					$ct = DIS_MultiLangManager::get_archive_page( $post->post_type );
+					if ( $ct instanceof WP_Post ) {
 						array_push(
 							$steps,
 							$post_parents[] = new DIS_BreadItem(
+								$ct->post_title,
+								get_permalink( $ct ),
+								'breadcrumb-item'
+							),
+						);
+					}
+					array_push(
+						$steps,
+						$post_parents[] = new DIS_BreadItem(
 							$post->post_title,
 							'',
 							'breadcrumb-item active'
 						),
 					);
 					break;
-				}
+			}
 		}
 		return $steps;
 	}
@@ -161,27 +167,27 @@ class DIS_NavigationManager {
 	public static function get_sitemap_tree() {
 		$pt       = array(); // Page Tree.
 		$site_url = DIS_MultiLangManager::get_home_url();
-		
+
 		// 1 - Home Page.
-		$home =  new DIS_TreeItem(
+		$home                    = new DIS_TreeItem(
 			DIS_HOMEPAGE_NAME,
 			DIS_HOMEPAGE_SLUG,
 			$site_url
 		);
-		$pt[DIS_HOMEPAGE_SLUG] = $home;
+		$pt[ DIS_HOMEPAGE_SLUG ] = $home;
 
 		// 2 - Network Page.
-		$network_url  = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt_options' );
+		$network_url = DIS_OptionsManager::dis_get_option( 'site_network_url', 'dis_opt_options' );
 		if ( $network_url ) {
 			$network_name = DIS_OptionsManager::dis_get_option( 'site_network_name', 'dis_opt_options' );
 			$network_name = $network_name ? $network_name : DIS_NETWORK_NAME;
-			$network      =  new DIS_TreeItem(
+			$network      = new DIS_TreeItem(
 				$network_name,
 				DIS_NETWORK_SLUG,
 				$network_url,
 				true
 			);
-			$pt[DIS_HOMEPAGE_SLUG]->children[DIS_NETWORK_SLUG] = $network;
+			$pt[ DIS_HOMEPAGE_SLUG ]->children[ DIS_NETWORK_SLUG ] = $network;
 		}
 
 		// The list of the defined menus.
@@ -193,28 +199,28 @@ class DIS_NavigationManager {
 		foreach ( $menus as $item ) {
 			$mname = key( $item );
 			if ( $mname ) {
-				$mid     = $item[ $mname ];
-				$menu    = wp_get_nav_menu_object( $mid );
+				$mid  = $item[ $mname ];
+				$menu = wp_get_nav_menu_object( $mid );
 				if ( $menu ) {
-					$element =  new DIS_TreeItem(
+					$element                                    = new DIS_TreeItem(
 						$menu->name,
 						$menu->slug,
 						'',
 						true
 					);
-					$pt[$home->slug]->children[$menu->slug] = $element;
-					$menu_items = wp_get_nav_menu_items(
+					$pt[ $home->slug ]->children[ $menu->slug ] = $element;
+					$menu_items                                 = wp_get_nav_menu_items(
 						$mid,
 						array(
 							'orderby' => 'menu_order',
 							'order'   => 'ASC',
 						)
 					);
-					$pt[$home->slug]->children[$menu->slug]->children = self::build_menu_branch( $menu_items ?: array(), $slugs );
+					$pt[ $home->slug ]->children[ $menu->slug ]->children = self::build_menu_branch( $menu_items ? $menu_items : array(), $slugs );
 				}
 			}
 		}
-	
+
 		return $pt;
 	}
 
@@ -254,7 +260,7 @@ class DIS_NavigationManager {
 		$tree = is_array( $tree ) ? $tree : self::get_sitemap_tree();
 		$urls = self::collect_sitemap_urls( $tree );
 
-		$xml = '<?xml version="1.0" encoding="UTF-8"?>';
+		$xml  = '<?xml version="1.0" encoding="UTF-8"?>';
 		$xml .= '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 		foreach ( $urls as $url ) {
 			$xml .= '<url><loc>' . esc_xml( $url ) . '</loc></url>';
@@ -340,7 +346,7 @@ class DIS_NavigationManager {
 		exit;
 	}
 
-	private static function get_pt_archive_slugs(){
+	private static function get_pt_archive_slugs() {
 		$slugs = array();
 		$items = dis_ct_data();
 		foreach ( $items as $post_type => $item ) {
@@ -483,7 +489,7 @@ class DIS_NavigationManager {
 		$tree = array();
 
 		foreach ( $children_by_parent[ $parent_id ] ?? array() as $menu_item ) {
-			$tree_item = self::build_tree_item_from_menu_item( $menu_item );
+			$tree_item           = self::build_tree_item_from_menu_item( $menu_item );
 			$tree_item->children = self::build_menu_children(
 				$children_by_parent,
 				(int) $menu_item->ID,
@@ -515,16 +521,16 @@ class DIS_NavigationManager {
 			);
 		}
 
-		$object = get_post( $menu_item->object_id );
-		$name   = $menu_item->title;
-		$slug   = $menu_item->post_name ?: sanitize_title( $menu_item->title );
-		$link   = $menu_item->url ?: '';
+		$object   = get_post( $menu_item->object_id );
+		$name     = $menu_item->title;
+		$slug     = $menu_item->post_name ? $menu_item->post_name : sanitize_title( $menu_item->title );
+		$link     = $menu_item->url ? $menu_item->url : '';
 		$external = true;
 
 		if ( $object instanceof WP_Post ) {
-			$name = $object->post_title;
-			$slug = $object->post_name;
-			$link = get_permalink( $object->ID );
+			$name     = $object->post_title;
+			$slug     = $object->post_name;
+			$link     = get_permalink( $object->ID );
 			$external = false;
 		}
 
@@ -631,7 +637,6 @@ class DIS_NavigationManager {
 			);
 		}
 	}
-
 }
 
 if ( ! function_exists( 'dis_render_sitemap_html' ) ) {
