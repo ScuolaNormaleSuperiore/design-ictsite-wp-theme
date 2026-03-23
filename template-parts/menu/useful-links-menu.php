@@ -1,4 +1,4 @@
-<?php
+<?php // phpcs:ignore Squiz.Commenting.FileComment.Missing -- File comment already provided below.
 /**
  * Section with the useful links menu of the footer.
  *
@@ -7,30 +7,29 @@
 
 require_once DIS_THEME_PATH . '/inc/walkers/useful-links-menu-walker.php';
 
-$locations  = $args['locations'];
-$location   = USEFUL_LINKS_LOCATION_SLUG;
-$menu_items = array();
+$dis_locations = $args['locations'];
+$dis_location  = USEFUL_LINKS_LOCATION_SLUG;
 
-if ( has_nav_menu( $location ) ) {
-	$custom_menu = wp_get_nav_menu_object( $locations[ $location ] );
-	$menuitems   = wp_get_nav_menu_items( $custom_menu->term_id, array( 'order' => 'DESC' ) );
-	$menuitems   = $menuitems ? $menuitems : array();
-	if ( count( $menuitems ) > 0 ) {
-?>
-		<h4 class="customSpacing"><?php echo __( 'Useful links menu', 'design_ict_site' ); ?></h4>
+if ( has_nav_menu( $dis_location ) ) {
+	$dis_custom_menu = wp_get_nav_menu_object( $dis_locations[ $dis_location ] );
+	$dis_menu_items  = wp_get_nav_menu_items( $dis_custom_menu->term_id, array( 'order' => 'DESC' ) );
+	$dis_menu_items  = $dis_menu_items ? $dis_menu_items : array();
+
+	if ( count( $dis_menu_items ) > 0 ) {
+		?>
+		<h4 class="customSpacing"><?php echo esc_html__( 'Useful links menu', 'design_ict_site' ); ?></h4>
 		<div class="link-list-wrapper">
-		<?php
+			<?php
 			wp_nav_menu(
 				array(
-					'theme_location' => $location,
+					'theme_location' => $dis_location,
 					'depth'          => 0,
 					'menu_class'     => 'footer-list',
 					'walker'         => new Useful_Links_Walker(),
 				)
 			);
-		?>
+			?>
 		</div>
-<?php
+		<?php
 	}
 }
-?>
