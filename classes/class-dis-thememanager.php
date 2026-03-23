@@ -42,11 +42,11 @@ if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
 if ( ! class_exists( 'Service_Manager' ) ) {
 	include_once 'service-manager.php';
 }
-if ( ! class_exists( 'Office_Manager' ) ) {
-	include_once 'office-manager.php';
+if ( ! class_exists( 'DIS_OfficeManager' ) ) {
+	include_once 'class-dis-officemanager.php';
 }
-if ( ! class_exists( 'Person_Manager' ) ) {
-	include_once 'person-manager.php';
+if ( ! class_exists( 'DIS_PersonManager' ) ) {
+	include_once 'class-dis-personmanager.php';
 }
 if ( ! class_exists( 'Project_Manager' ) ) {
 	include_once 'project-manager.php';
@@ -63,8 +63,8 @@ if ( ! class_exists( 'Place_Manager' ) ) {
 if ( ! class_exists( 'Post_Manager' ) ) {
 	include_once 'post-manager.php';
 }
-if ( ! class_exists( 'Page_Manager' ) ) {
-	include_once 'page-manager.php';
+if ( ! class_exists( 'DIS_PageManager' ) ) {
+	include_once 'class-dis-pagemanager.php';
 }
 if ( ! class_exists( 'DIS_AttachmentManager' ) ) {
 	include_once 'class-dis-attachmentmanager.php';
@@ -190,11 +190,11 @@ class DIS_ThemeManager {
 		$srvpt->setup();
 
 		// Setup of the Office post-type.
-		$offm = new Office_Manager();
+		$offm = new DIS_OfficeManager();
 		$offm->setup();
 
 		// Setup of the People post-type.
-		$prsm = new Person_Manager();
+		$prsm = new DIS_PersonManager();
 		$prsm->setup();
 
 		// Setup of the DIS-Project post-type.
@@ -218,7 +218,7 @@ class DIS_ThemeManager {
 		$pstm->setup();
 
 		// Setup of the Page post-type.
-		$pgm = new Page_Manager();
+		$pgm = new DIS_PageManager();
 		$pgm->setup();
 
 		// Setup of the Attachment post-type.
