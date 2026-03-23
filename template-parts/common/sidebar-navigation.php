@@ -28,7 +28,7 @@ $user_status = $args['user_status'] ?? '';
 							?>
 							<li>
 								<a class="list-item medium <?php echo esc_attr( $active ); ?>"
-									href="<?php echo esc_url( get_permalink( $service_profile ) ) . '?user_status=' . $sl->slug; ?>">
+									href="<?php echo esc_url( add_query_arg( 'user_status', $sl->slug, get_permalink( $service_profile ) ) ); ?>">
 									<span><?php echo esc_attr( $sl->name ); ?></span>
 								</a>
 							</li>

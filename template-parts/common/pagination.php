@@ -53,9 +53,9 @@ $current_page    = $args['current_page'];
 					<button class="btn btn-dropdown dropdown-toggle" type="button" id="pagerChanger"
 						data-bs-toggle="dropdown" aria-haspopup="true"
 						aria-expanded="false" aria-label="Jump to the page">
-						<?php echo $posts_per_page; ?>/<?php echo __( 'page', 'design_ict_site' ); ?>
+						<?php echo esc_html( $posts_per_page ); ?>/<?php echo esc_html__( 'page', 'design_ict_site' ); ?>
 						<svg class="icon icon-primary icon-sm">
-							<use href="<?php echo DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand'; ?>"></use>
+							<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand' ); ?>"></use>
 						</svg>
 					</button>
 					<div class="dropdown-menu dli-pagination-dropdown" aria-labelledby="pagerChanger">
@@ -67,9 +67,9 @@ $current_page    = $args['current_page'];
 								?>
 								<li>
 									<a class="dropdown-item list-item <?php if( $is_active ) { echo 'active'; } ?>"
-										href="#" data-perpage="<?php echo $pvalue; ?>">
+										href="#" data-perpage="<?php echo esc_attr( $pvalue ); ?>">
 										<span>
-											<?php echo $pvalue; ?>/<?php echo __( 'page', 'design_ict_site' ); ?>
+											<?php echo esc_html( $pvalue ); ?>/<?php echo esc_html__( 'page', 'design_ict_site' ); ?>
 										</span>
 									</a>
 									</li>
