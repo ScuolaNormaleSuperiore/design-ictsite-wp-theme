@@ -71,19 +71,19 @@ $dis_locations = get_nav_menu_locations();
 	<!-- TOP BAR -->
 	<div class="skiplinks">
 		<a class="visually-hidden-focusable" href="#main-menu">
-			<?php echo esc_html__( 'Go to the menu', 'design_laboratori_italia' ); ?>
+			<?php echo esc_html__( 'Go to the menu', 'design_ict_site' ); ?>
 		</a>
 		<a class="visually-hidden-focusable" href="#main-content">
-			<?php echo esc_html__( 'Go to the content', 'design_laboratori_italia' ); ?>
+			<?php echo esc_html__( 'Go to the content', 'design_ict_site' ); ?>
 		</a>
 		<a class="visually-hidden-focusable" href="#it-footer">
-			<?php echo esc_html__( 'Go to the footer', 'design_laboratori_italia' ); ?>
+			<?php echo esc_html__( 'Go to the footer', 'design_ict_site' ); ?>
 		</a>
 		<?php
 		$dis_accessibility_page = DIS_MultiLangManager::get_page_link( ACCESSIBILITY_PAGE_SLUG );
 		?>
 		<a class="visually-hidden-focusable" href="<?php echo esc_url( $dis_accessibility_page ); ?>">
-			<?php echo esc_html__( 'Go to the accessibility statement', 'design_laboratori_italia' ); ?>
+			<?php echo esc_html__( 'Go to the accessibility statement', 'design_ict_site' ); ?>
 		</a>
 	</div>
 	<div class="it-header-slim-wrapper">
@@ -97,7 +97,7 @@ $dis_locations = get_nav_menu_locations();
 						</a>
 						<!--Right -->
 						<div class="nav-mobile">
-							<nav aria-label="<?php echo esc_attr__( 'Accessory navigation', 'design_laboratori_italia' ); ?>">
+							<nav aria-label="<?php echo esc_attr__( 'Accessory navigation', 'design_ict_site' ); ?>">
 								<a class="it-opener d-lg-none" data-bs-toggle="collapse" href="<?php echo esc_url( $dis_network_url ); ?>" role="button"
 									aria-expanded="false" aria-controls="menu4" aria-label="<?php echo esc_attr( $dis_network_name ); ?>">
 									<span><?php echo esc_html( $dis_network_name ); ?></span>
@@ -161,9 +161,9 @@ $dis_locations = get_nav_menu_locations();
 				<div class="row">
 					<div class="col-12">
 						<!--start nav-->
-						<nav class="navbar navbar-expand-lg has-megamenu" aria-label="<?php echo esc_attr__( 'Main navigation', 'design_laboratori_italia' ); ?>">
+						<nav class="navbar navbar-expand-lg has-megamenu" aria-label="<?php echo esc_attr__( 'Main navigation', 'design_ict_site' ); ?>">
 							<button class="custom-navbar-toggler" type="button" aria-controls="nav1" aria-expanded="false"
-								aria-label="<?php echo esc_attr__( 'Show/Hide navigation', 'design_laboratori_italia' ); ?>" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
+								aria-label="<?php echo esc_attr__( 'Show/Hide navigation', 'design_ict_site' ); ?>" data-bs-toggle="navbarcollapsible" data-bs-target="#nav1">
 								<svg class="icon">
 									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-burger' ); ?>"></use>
 								</svg>
@@ -172,7 +172,7 @@ $dis_locations = get_nav_menu_locations();
 								<div class="overlay" style="display: none;"></div>
 								<div class="close-div">
 									<button class="btn close-menu" type="button">
-										<span class="visually-hidden"><?php echo esc_html__( 'Hide navigation', 'design_laboratori_italia' ); ?></span>
+										<span class="visually-hidden"><?php echo esc_html__( 'Hide navigation', 'design_ict_site' ); ?></span>
 										<svg class="icon">
 											<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-close-big' ); ?>"></use>
 										</svg>

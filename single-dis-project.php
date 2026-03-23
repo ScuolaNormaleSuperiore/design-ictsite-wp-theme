@@ -30,7 +30,7 @@ $dis_persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID 
 			<?php the_content(); ?>
 
 			<!-- Featured image-->
-			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
+			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo esc_attr__( 'In evidence', 'design_ict_site' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
@@ -52,7 +52,7 @@ $dis_persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID 
 					?>
 				<h3 class="h4 service-paragraph mt-3">
 					<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;
-					<?php echo esc_html__( 'Contributors', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Contributors', 'design_ict_site' ); ?>
 				</h3>
 					<?php
 					get_template_part(
@@ -96,11 +96,11 @@ $dis_persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID 
 							<a href="<?php echo esc_url( $dis_website ); ?>" target="_blank" class="list-item" rel="noopener noreferrer">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_html__( 'Website', 'design_laboratori_italia' ); ?>
+										<?php echo esc_html__( 'Website', 'design_ict_site' ); ?>
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_html__( 'Link to the website of the project', 'design_laboratori_italia' ); ?>
+											<?php echo esc_html__( 'Link to the website of the project', 'design_ict_site' ); ?>
 										</title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link' ); ?>"></use>
 									</svg>
@@ -116,11 +116,11 @@ $dis_persons    = DIS_CustomFieldsManager::get_field( 'participants', $post->ID 
 							<a href="<?php echo esc_url( $dis_repository ); ?>" target="_blank" class="list-item" rel="noopener noreferrer">
 								<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_html__( 'Repository', 'design_laboratori_italia' ); ?>
+										<?php echo esc_html__( 'Repository', 'design_ict_site' ); ?>
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_html__( 'Link to the repository of the project', 'design_laboratori_italia' ); ?>
+											<?php echo esc_html__( 'Link to the repository of the project', 'design_ict_site' ); ?>
 										</title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-code-circle' ); ?>"></use>
 									</svg>

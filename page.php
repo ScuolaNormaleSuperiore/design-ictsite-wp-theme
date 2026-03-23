@@ -51,15 +51,15 @@ get_header();
 						class="btn btn-primary btn-xs btn-me m-4 " role="button" data-focus-mouse="false">
 						<svg class="icon icon-sm icon-white me-2"
 							role="img"
-							aria-labelledby="<?php echo esc_attr__( 'Go back', 'design_laboratori_italia' ); ?>"
+							aria-labelledby="<?php echo esc_attr__( 'Go back', 'design_ict_site' ); ?>"
 						>
 							<title>
-								<?php echo esc_html__( 'Go back', 'design_laboratori_italia' ); ?>
+								<?php echo esc_html__( 'Go back', 'design_ict_site' ); ?>
 							</title>
 							<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-arrow-left' ); ?>"></use>
 						</svg>
 						<span>
-							<?php echo esc_html__( 'Go back', 'design_laboratori_italia' ); ?>
+							<?php echo esc_html__( 'Go back', 'design_ict_site' ); ?>
 						</span>
 					</a>
 				<?php endif; ?>
@@ -71,7 +71,7 @@ get_header();
 							<ul class="link-list">
 								<li>
 									<h3>
-										<?php echo esc_html__( 'Related pages', 'design_laboratori_italia' ); ?>
+										<?php echo esc_html__( 'Related pages', 'design_ict_site' ); ?>
 									</h3>
 								</li>
 								<?php foreach ( $dis_page_children as $dis_page_item ) : ?>

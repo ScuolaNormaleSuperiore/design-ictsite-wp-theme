@@ -60,7 +60,7 @@ $dis_clusters   = DIS_ContentsManager::get_cluster_list();
 					<div class="link-list-wrapper">
 						<ul class="link-list">
 							<li>
-								<h3><?php echo esc_html__( 'Services', 'design_laboratori_italia' ); ?></h3>
+								<h3><?php echo esc_html__( 'Services', 'design_ict_site' ); ?></h3>
 							</li>
 							<?php foreach ( $dis_clusters as $dis_cluster ) : ?>
 								<?php $dis_active = ( (string) $post->ID === (string) $dis_cluster->ID ) ? 'active' : ''; ?>

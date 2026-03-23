@@ -28,10 +28,10 @@ DIS_ContentsManager::increment_visit_counter( 'faq_page_counter_enabled', $post-
 
 			<!-- Answer -->
 			<h3 class="it-page-section h4 visually-hidden" id="descrizione">
-				<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
+				<?php echo esc_html__( 'Description', 'design_ict_site' ); ?>
 			</h3>
 			<p>
-				<?php echo esc_html__( 'Topics', 'design_laboratori_italia' ); ?>:&nbsp;
+				<?php echo esc_html__( 'Topics', 'design_ict_site' ); ?>:&nbsp;
 				<?php echo wp_kses_post( $dis_topics_string ); ?>
 			</p>
 

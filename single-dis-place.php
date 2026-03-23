@@ -36,7 +36,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 			<!-- Short description -->	
 			<div class="row pb-3">
 				<h3 class="it-page-section h4 visually-hidden" id="description">
-					<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Description', 'design_ict_site' ); ?>
 				</h3>
 				<p>
 					<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
@@ -46,7 +46,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 			<!-- How to reach us -->	
 			<div class="row pb-3">
 				<h3 class="it-page-section h4" id="how_to_reach_us">
-					<?php echo esc_html__( 'How to reach us', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'How to reach us', 'design_ict_site' ); ?>
 				</h3>
 				<p>
 					<?php echo wp_kses_post( $dis_getting_here ); ?>
@@ -69,7 +69,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 								?>
 								</span>
 									<svg class="icon">
-										<title><?php echo esc_html__( 'Address', 'design_laboratori_italia' ); ?></title>
+										<title><?php echo esc_html__( 'Address', 'design_ict_site' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker' ); ?>"></use>
 									</svg>
 							</div>
@@ -83,7 +83,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 									<?php echo wp_kses_post( $dis_opening_hours ); ?>
 								</span>
 								<svg class="icon">
-									<title><?php echo esc_html__( 'Hours', 'design_laboratori_italia' ); ?></title>
+									<title><?php echo esc_html__( 'Hours', 'design_ict_site' ); ?></title>
 									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clock' ); ?>"></use>
 								</svg>
 							</div>
@@ -96,7 +96,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 							<div class="it-right-zone">
 								<span class="text"><?php echo esc_html( $dis_telephone ); ?></span>
 									<svg class="icon">
-										<title><?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?></title>
+										<title><?php echo esc_html__( 'Telephone', 'design_ict_site' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone' ); ?>"></use>
 									</svg>
 							</div>
@@ -109,7 +109,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 							<div class="it-right-zone">
 								<span class="text"><?php echo esc_html( $dis_email ); ?></span>
 									<svg class="icon">
-										<title><?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?></title>
+										<title><?php echo esc_html__( 'E-mail', 'design_ict_site' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail' ); ?>"></use>
 									</svg>
 							</div>
@@ -126,7 +126,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 	<!-- MAP  -->
 	<div class="row mb-5">
 		<h3 id="posizione" class="it-page-section h4 visually-hidden">
-			<?php echo esc_html__( 'Position', 'design_laboratori_italia' ); ?>
+			<?php echo esc_html__( 'Position', 'design_ict_site' ); ?>
 		</h3>  
 		<div class="card-wrapper">
 			<div class="card card-img no-after">

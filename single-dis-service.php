@@ -45,7 +45,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			<?php if ( $dis_service_link ) : ?>
 				<div class="mb-4">
 					<a target="_blank" href="<?php echo esc_url( $dis_service_link ); ?>" rel="noopener noreferrer" class="btn btn-primary">
-						<?php echo esc_html__( 'Access the service', 'design_laboratori_italia' ); ?>
+						<?php echo esc_html__( 'Access the service', 'design_ict_site' ); ?>
 					</a>
 				</div>
 			<?php endif; ?>
@@ -54,7 +54,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			<?php if ( $dis_features ) : ?>
 				<h3 class="h4 service-paragraph">
 					<i class="bi bi-check-circle" style="font-size: 1.75rem;"></i>
-					<?php echo esc_html__( 'Features', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Features', 'design_ict_site' ); ?>
 				</h3>
 				<?php echo wp_kses_post( $dis_features ); ?>
 			<?php endif; ?>
@@ -63,7 +63,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			<?php if ( $dis_requirements ) : ?>
 				<h3 class="h4 service-paragraph">
 					<i class="bi bi-list-check" style="font-size: 1.75rem;"></i>
-					<?php echo esc_html__( 'Requirements', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Requirements', 'design_ict_site' ); ?>
 				</h3>
 				<?php echo wp_kses_post( $dis_requirements ); ?>
 			<?php endif; ?>
@@ -73,7 +73,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 				<?php $dis_designed_for_string = implode( ', ', wp_list_pluck( $dis_designed_for, 'name' ) ); ?>
 				<h3 class="h4 service-paragraph">
 					<i class="bi bi-people" style="font-size: 1.75rem;"></i>
-					<?php echo esc_html__( 'Designed for', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Designed for', 'design_ict_site' ); ?>
 				</h3>
 				<p>
 					<?php echo esc_html( $dis_designed_for_string ); ?>
@@ -84,7 +84,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			<?php if ( $dis_get_started ) : ?>
 				<h3 class="h4 service-paragraph">
 					<i class="bi bi-rocket" style="font-size: 1.75rem;"></i>
-					<?php echo esc_html__( 'Get started', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Get started', 'design_ict_site' ); ?>
 				</h3>
 				<p>
 					<?php echo wp_kses_post( $dis_get_started ); ?>
@@ -95,7 +95,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			<?php if ( $dis_rates ) : ?>
 				<h3 class="h4 service-paragraph">
 					<i class="bi bi-credit-card" style="font-size: 1.75rem;"></i>
-					<?php echo esc_html__( 'Rates', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Rates', 'design_ict_site' ); ?>
 				</h3>
 				<p>
 					<?php echo wp_kses_post( $dis_rates ); ?>
@@ -106,7 +106,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			<?php if ( $dis_related_faqs ) : ?>
 				<h3 class="h4 service-paragraph">
 					<i class="bi bi-question-circle" style="font-size: 1.75rem;"></i>
-					<?php echo esc_html__( 'FAQ', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'FAQ', 'design_ict_site' ); ?>
 				</h3>
 				<div class="accordion accordion-left-icon" id="accordionExampleLft">
 					<?php foreach ( $dis_related_faqs as $dis_index => $dis_faq ) : ?>
@@ -150,7 +150,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 				<?php if ( $dis_related_doc ) : ?>
 					<h3 class="h4">
 						<i class="bi bi-info-circle" style="font-size: 1.75rem;"></i>&nbsp;
-						<?php echo esc_html__( 'Documentation', 'design_laboratori_italia' ); ?>
+						<?php echo esc_html__( 'Documentation', 'design_ict_site' ); ?>
 					</h3>
 					<ul class="link-list">
 						<?php foreach ( $dis_related_doc as $dis_doc ) : ?>
@@ -172,7 +172,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 				<?php if ( $dis_related_services ) : ?>
 					<h3 class="h4">
 						<i class="bi bi-arrow-right-circle" style="font-size: 1.75rem;"></i>&nbsp;
-						<?php echo esc_html__( 'Related services', 'design_laboratori_italia' ); ?>
+						<?php echo esc_html__( 'Related services', 'design_ict_site' ); ?>
 					</h3>
 					<ul>
 						<?php foreach ( $dis_related_services as $dis_service ) : ?>
@@ -188,12 +188,12 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 				<!-- Get help -->
 				<h3 class="h4">
 					<i class="bi bi-question-circle" style="font-size: 1.75rem;"></i>&nbsp;
-					<?php echo esc_html__( 'Get Help', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Get Help', 'design_ict_site' ); ?>
 				</h3>
 				<?php if ( $dis_offices ) : ?>
 					<?php
 					/* translators: %s: linked office list. */
-					$dis_get_help_string = sprintf( __( 'The competent office is %s', 'design_laboratori_italia' ), $dis_full_offices );
+					$dis_get_help_string = sprintf( __( 'The competent office is %s', 'design_ict_site' ), $dis_full_offices );
 					?>
 					<p class="ps-4">
 						<?php echo wp_kses_post( $dis_get_help_string ); ?>.
@@ -203,7 +203,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 				$dis_support_page_link = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 				$dis_support_link      = '<a href="' . esc_url( $dis_support_page_link ) . '">Help Desk</a>';
 				/* translators: %s: help desk link. */
-				$dis_support_string = sprintf( __( 'For support contact the %s', 'design_laboratori_italia' ), $dis_support_link );
+				$dis_support_string = sprintf( __( 'For support contact the %s', 'design_ict_site' ), $dis_support_link );
 				?>
 				<p class="ps-4">
 					<?php echo wp_kses_post( $dis_support_string ); ?>

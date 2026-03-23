@@ -45,7 +45,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 					<?php
 					if ( $dis_start_date_lng && $dis_end_date_lng ) {
 						/* translators: 1: event start date, 2: event end date. */
-						$dis_date_string = sprintf( __( 'From %1$s to %2$s', 'design_laboratori_italia' ), $dis_start_date_lng, $dis_end_date_lng );
+						$dis_date_string = sprintf( __( 'From %1$s to %2$s', 'design_ict_site' ), $dis_start_date_lng, $dis_end_date_lng );
 						echo esc_html( $dis_date_string );
 					} elseif ( $dis_start_date_lng ) {
 						echo esc_html( $dis_start_date_lng );
@@ -64,7 +64,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 
 			<!-- Featured Image -->
 			<?php if ( $dis_image_data ) : ?>
-			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
+			<section class="it-hero-wrapper it-hero-small-size mt-3" aria-label="<?php echo esc_attr__( 'In evidence', 'design_ict_site' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
@@ -113,7 +113,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_html__( 'Position', 'design_laboratori_italia' ); ?>
+											<?php echo esc_html__( 'Position', 'design_ict_site' ); ?>
 										</title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker' ); ?>"></use>
 									</svg>
@@ -128,7 +128,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?>
+											<?php echo esc_html__( 'Telephone', 'design_ict_site' ); ?>
 										</title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone' ); ?>"></use>
 									</svg>
@@ -143,7 +143,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?>
+											<?php echo esc_html__( 'E-mail', 'design_ict_site' ); ?>
 										</title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail' ); ?>"></use>
 									</svg>
@@ -155,7 +155,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 								<a target="_blank" href="<?php echo esc_url( $dis_website ); ?>" class="list-item" rel="noopener noreferrer">
 									<div class="it-right-zone">
 									<span class="text">
-										<?php echo esc_html__( 'Website', 'design_laboratori_italia' ); ?>
+										<?php echo esc_html__( 'Website', 'design_ict_site' ); ?>
 									</span>
 										<svg class="icon">
 											<title>Link al sito web del progetto</title>
@@ -174,7 +174,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 										</span>
 										<svg class="icon">
 											<title>
-												<?php echo esc_html__( 'Attachment', 'design_laboratori_italia' ); ?>
+												<?php echo esc_html__( 'Attachment', 'design_ict_site' ); ?>
 											</title>
 											<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-clip' ); ?>"></use>
 										</svg>
@@ -190,7 +190,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 									</span>
 									<svg class="icon">
 										<title>
-											<?php echo esc_html__( 'Office', 'design_laboratori_italia' ); ?>
+											<?php echo esc_html__( 'Office', 'design_ict_site' ); ?>
 										</title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-pa' ); ?>"></use>
 									</svg>
@@ -216,7 +216,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 		false,
 		array(
 			'items'     => $dis_related,
-			'all_label' => __( 'All events', 'design_laboratori_italia' ),
+			'all_label' => __( 'All events', 'design_ict_site' ),
 			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)
 	);

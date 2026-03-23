@@ -245,7 +245,7 @@ class DIS_MultiLangManager {
 			array_unique(
 				array(
 					dis_translate_data()[ $label ] ?? '',
-					_x( $label, 'DIS_ActivationItems', 'design_laboratori_italia' ),
+					_x( $label, 'DIS_ActivationItems', 'design_ict_site' ),
 					_x( $label, 'DIS_ActivationItems', 'design_ict_site' ),
 					$label,
 				)

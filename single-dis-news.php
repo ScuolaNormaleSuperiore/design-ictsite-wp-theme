@@ -34,7 +34,7 @@ $dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 
 			<!-- Featured Image -->
 			<?php if ( $dis_image_data ) : ?>
-			<section class="it-hero-wrapper it-hero-small-size" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
+			<section class="it-hero-wrapper it-hero-small-size" aria-label="<?php echo esc_attr__( 'In evidence', 'design_ict_site' ); ?>">
 				<div class="img-responsive-wrapper">
 					<div class="img-responsive">
 						<div class="img-wrapper">
@@ -66,7 +66,7 @@ $dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 		false,
 		array(
 			'items'     => $dis_related,
-			'all_label' => __( 'All news', 'design_laboratori_italia' ),
+			'all_label' => __( 'All news', 'design_ict_site' ),
 			'all_link'  => DIS_MultiLangManager::get_archive_link( $post->post_type ),
 		)
 	);

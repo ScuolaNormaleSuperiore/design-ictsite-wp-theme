@@ -19,7 +19,7 @@ $dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 		<section class="it-hero-wrapper it-dark it-overlay it-text-centered" id="it-hero-wrapper">
 			
 			<?php if ( $dis_image_data ) : ?>
-			<div class="img-responsive-wrapper" aria-label="<?php echo esc_attr__( 'In evidence', 'design_laboratori_italia' ); ?>">
+			<div class="img-responsive-wrapper" aria-label="<?php echo esc_attr__( 'In evidence', 'design_ict_site' ); ?>">
 				<div class="img-responsive">
 					<div class="img-wrapper">
 						<img

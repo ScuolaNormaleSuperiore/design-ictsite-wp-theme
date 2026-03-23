@@ -30,7 +30,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 			<!-- Body -->
 			<div class="row pb-3">
 				<h3 class="it-page-section h4 visually-hidden" id="description">
-					<?php echo esc_html__( 'Description', 'design_laboratori_italia' ); ?>
+					<?php echo esc_html__( 'Description', 'design_ict_site' ); ?>
 				</h3>
 				<?php echo wp_kses_post( get_the_content() ); ?>
 			</div>
@@ -40,7 +40,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 				<div class="row">
 					<h3 class="h4 service-paragraph mt-3">
 						<i class="bi bi-person" style="font-size: 1.75rem;"></i>&nbsp;
-						<?php echo esc_html__( 'People', 'design_laboratori_italia' ); ?>
+						<?php echo esc_html__( 'People', 'design_ict_site' ); ?>
 					</h3>
 
 					<!-- People -->
@@ -62,7 +62,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 				<div class="row">
 					<h3 class="h4 service-paragraph mt-3">
 						<i class="bi bi-clipboard-data" style="font-size: 1.75rem;"></i>&nbsp;
-						<?php echo esc_html__( 'Projects', 'design_laboratori_italia' ); ?>
+						<?php echo esc_html__( 'Projects', 'design_ict_site' ); ?>
 					</h3>
 					<!-- Projects section -->
 					<?php
@@ -97,7 +97,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 										</a>
 									</span>
 									<svg class="icon">
-										<title><?php echo esc_html__( 'Address', 'design_laboratori_italia' ); ?></title>
+										<title><?php echo esc_html__( 'Address', 'design_ict_site' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-map-marker' ); ?>"></use>
 									</svg>
 								</div>
@@ -113,7 +113,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 										<?php echo esc_html( $dis_telephone ); ?>
 									</span>
 									<svg class="icon">
-										<title><?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?></title>
+										<title><?php echo esc_html__( 'Telephone', 'design_ict_site' ); ?></title>
 										<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-telephone' ); ?>"></use>
 									</svg>
 								</div>
@@ -129,7 +129,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 									<?php echo esc_html( $dis_email ); ?>
 								</span>
 								<svg class="icon">
-									<title><?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?></title>
+									<title><?php echo esc_html__( 'E-mail', 'design_ict_site' ); ?></title>
 									<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-mail' ); ?>"></use>
 								</svg>
 							</div>

@@ -53,7 +53,7 @@ $dis_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->I
 					<dl class="it-card-description-list">
 						<div>
 							<dt>
-								<?php echo esc_html__( 'Area/Service', 'design_laboratori_italia' ); ?>:
+								<?php echo esc_html__( 'Area/Service', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<?php echo wp_kses_post( $dis_full_offices ); ?>
@@ -61,7 +61,7 @@ $dis_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->I
 						</div>
 						<div>
 							<dt>
-								<?php echo esc_html__( 'E-mail', 'design_laboratori_italia' ); ?>:
+								<?php echo esc_html__( 'E-mail', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<a href="mailto:<?php echo esc_attr( $dis_email ); ?>"><?php echo esc_html( $dis_email ); ?></a>
@@ -69,13 +69,13 @@ $dis_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->I
 						</div>
 						<div>
 							<dt>
-								<?php echo esc_html__( 'Telephone', 'design_laboratori_italia' ); ?>:
+								<?php echo esc_html__( 'Telephone', 'design_ict_site' ); ?>:
 							</dt>
 							<dd><?php echo esc_html( $dis_phone ); ?></dd>
 						</div>
 						<div>
 							<dt>
-								<?php echo esc_html__( 'Web site', 'design_laboratori_italia' ); ?>:
+								<?php echo esc_html__( 'Web site', 'design_ict_site' ); ?>:
 							</dt>
 							<dd>
 								<a href="<?php echo esc_url( $dis_website ); ?>"><?php echo esc_html( $dis_website ); ?></a>
