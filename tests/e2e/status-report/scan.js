@@ -88,8 +88,15 @@ async function extractUrls(page, baseUrl, sitemapPath, timeout) {
   }
 
   const urls = await page.evaluate((base) => {
-    const anchors = Array.from(document.querySelectorAll('a[href]'));
+    // Limit extraction to the actual sitemap tree rendered inside the page body,
+    // excluding shared links from header/footer such as login/admin entries.
+    const sitemapRoot =
+      document.querySelector('#dis-sitemap-tree') ||
+      document.querySelector('.card-wrapper.card-teaser-wrapper.card-teaser-block-2') ||
+      document.querySelector('main');
+    const anchors = Array.from((sitemapRoot || document).querySelectorAll('a[href]'));
     const found = new Set();
+
     anchors.forEach((a) => {
       const href = a.getAttribute('href');
       if (!href) return;

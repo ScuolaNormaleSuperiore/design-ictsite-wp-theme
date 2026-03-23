@@ -20,7 +20,7 @@ $dis_sitemap_tree = DIS_NavigationManager::get_sitemap_tree();
 	<!-- PAGE BODY -->
 	<div class="row">
 		<div class="col">
-			<div class="card-wrapper card-teaser-wrapper card-teaser-block-2">
+			<div id="dis-sitemap-tree" class="card-wrapper card-teaser-wrapper card-teaser-block-2">
 
 				<!-- TREE -->
 				<?php if ( count( $dis_sitemap_tree ) > 0 ) : ?>
