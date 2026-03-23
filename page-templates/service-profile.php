@@ -1,22 +1,24 @@
 <?php
-/* Template Name: ServiceProfile
-*
-* @package Design_ICT_Site
-*/
+/**
+ * Template Name: ServiceProfile
+ *
+ * @package Design_ICT_Site
+ */
 
-global $post;
 get_header();
-$user_status = '';
+$dis_user_status = '';
+// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only filter parameter on public archive-style page.
 if ( isset( $_GET['user_status'] ) && ! empty( $_GET['user_status'] ) ) {
-	$user_status = sanitize_text_field( $_GET['user_status'] );
+	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only filter parameter on public archive-style page.
+	$dis_user_status = sanitize_text_field( wp_unslash( $_GET['user_status'] ) );
 }
-if ( $user_status ) {
-	$services    = DIS_ContentsManager::get_service_list_by_user_status( $user_status );
-	$serv_by_cat = DIS_ContentsManager::group_services_by_cluster( $services );
+if ( $dis_user_status ) {
+	$dis_services    = DIS_ContentsManager::get_service_list_by_user_status( $dis_user_status );
+	$dis_serv_by_cat = DIS_ContentsManager::group_services_by_cluster( $dis_services );
 	// Order by category.
-	ksort( $serv_by_cat );
-	$status_taxonomy = get_term_by( 'slug', $user_status, DIS_USER_STATUS_TAXONOMY );
-?>
+	ksort( $dis_serv_by_cat );
+	$dis_status_taxonomy = get_term_by( 'slug', $dis_user_status, DIS_USER_STATUS_TAXONOMY );
+	?>
 
 	<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
 		<div class="row">
@@ -25,15 +27,16 @@ if ( $user_status ) {
 			<div class="col">
 
 				<h2 class="pb-2">
-					<?php echo esc_html( __( 'Services for', 'design_ict_site' ) . ' ' . strtolower( $status_taxonomy->name ) ); ?> 
+					<?php echo esc_html( __( 'Services for', 'design_ict_site' ) . ' ' . ( ( $dis_status_taxonomy && ! is_wp_error( $dis_status_taxonomy ) ) ? strtolower( $dis_status_taxonomy->name ) : '' ) ); ?>
 				</h2>
-	
+
 				<!-- SERVICES BY CATEGORY -->
 				<?php
 					get_template_part(
 						'template-parts/common/services-by-category',
 						false,
-						array( 'serv_by_cat' => $serv_by_cat
+						array(
+							'serv_by_cat' => $dis_serv_by_cat,
 						)
 					);
 				?>
@@ -45,7 +48,8 @@ if ( $user_status ) {
 				get_template_part(
 					'template-parts/common/sidebar-navigation',
 					false,
-					array( 'user_status' => $user_status
+					array(
+						'user_status' => $dis_user_status,
 					)
 				);
 			?>
@@ -53,6 +57,6 @@ if ( $user_status ) {
 		</div>
 	</div>
 
-<?php
+	<?php
 }
 get_footer();
