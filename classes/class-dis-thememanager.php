@@ -69,14 +69,14 @@ if ( ! class_exists( 'Page_Manager' ) ) {
 if ( ! class_exists( 'DIS_AttachmentManager' ) ) {
 	include_once 'class-dis-attachmentmanager.php';
 }
-if ( ! class_exists( 'Banner_Manager' ) ) {
-	include_once 'banner-manager.php';
+if ( ! class_exists( 'DIS_BannerManager' ) ) {
+	include_once 'class-dis-bannermanager.php';
 }
-if ( ! class_exists( 'Sponsor_Manager' ) ) {
-	include_once 'sponsor-manager.php';
+if ( ! class_exists( 'DIS_SponsorManager' ) ) {
+	include_once 'class-dis-sponsormanager.php';
 }
-if ( ! class_exists( 'Faq_Manager' ) ) {
-	include_once 'faq-manager.php';
+if ( ! class_exists( 'DIS_FaqManager' ) ) {
+	include_once 'class-dis-faqmanager.php';
 }
 if ( ! class_exists( 'DIS_AutocompleteManager' ) ) {
 	include_once 'class-dis-autocompletemanager.php';
@@ -226,15 +226,15 @@ class DIS_ThemeManager {
 		$attachment_manager->setup();
 
 		// Setup of the Banner post-type.
-		$bnm = new Banner_Manager();
+		$bnm = new DIS_BannerManager();
 		$bnm->setup();
 
 		// Setup of the Sponsor post-type.
-		$spm = new Sponsor_Manager();
+		$spm = new DIS_SponsorManager();
 		$spm->setup();
 
 		// Setup of the Faq post-type.
-		$fqm = new Faq_Manager();
+		$fqm = new DIS_FaqManager();
 		$fqm->setup();
 
 		// Setup of Autocomplete Manager.
