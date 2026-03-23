@@ -21,7 +21,8 @@ if ( $section_enabled ) {
 			<div class="it-grid-list-wrapper it-image-label-grid">
 				<div class="grid-row">
 					<?php
-					foreach ( $items as $item ) {
+					update_postmeta_cache( wp_list_pluck( $items, 'ID' ) );
+				foreach ( $items as $item ) {
 						$image_data    = DIS_ContentsManager::get_image_metadata( $item, 'full', '/assets/img/default-background.png' );
 						$external_link = DIS_CustomFieldsManager::get_field( 'external_link', $item->ID );
 					?>

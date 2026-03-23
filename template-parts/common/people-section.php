@@ -7,6 +7,10 @@
 
 $dis_persons = is_array( $args['persons'] ?? null ) ? $args['persons'] : array();
 $dis_col_lg  = ( ( $args['format'] ?? 'full' ) === 'full' ) ? 'col-lg-4' : 'col-lg-6';
+
+if ( ! empty( $dis_persons ) ) {
+	update_postmeta_cache( wp_list_pluck( $dis_persons, 'ID' ) );
+}
 ?>
 
 <ul class="it-card-list row" aria-label="<?php echo esc_attr__( 'People list', 'design_ict_site' ); ?>:">

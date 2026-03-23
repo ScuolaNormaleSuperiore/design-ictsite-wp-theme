@@ -27,6 +27,7 @@ if ( $section_enabled ) {
 			<div class="card-wrapper card-teaser-wrapper card-teaser-block-4">
 
 			<?php
+			update_postmeta_cache( wp_list_pluck( $items, 'ID' ) );
 			foreach ( $items as $item ) {
 				$icon_code = DIS_CustomFieldsManager::get_field( 'icon_code', $item->ID );
 			?>
