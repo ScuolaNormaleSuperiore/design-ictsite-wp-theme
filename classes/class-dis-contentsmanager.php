@@ -346,15 +346,26 @@ class DIS_ContentsManager {
 	 */
 	public static function items_per_category( array $items, string $taxonomy ): array {
 		$items_per_category = array();
+		if ( empty( $items ) ) {
+			return $items_per_category;
+		}
+
+		$items_by_id = array();
 		foreach ( $items as $item ) {
-			$terms = get_the_terms( $item->ID, $taxonomy );
-			if ( empty( $terms ) || is_wp_error( $terms ) ) {
-				continue;
-			}
-			foreach ( $terms as $term ) {
-				$items_per_category[ $term->name ][] = $item;
+			$items_by_id[ $item->ID ] = $item;
+		}
+
+		$all_terms = wp_get_object_terms( array_keys( $items_by_id ), $taxonomy );
+		if ( is_wp_error( $all_terms ) || empty( $all_terms ) ) {
+			return $items_per_category;
+		}
+
+		foreach ( $all_terms as $term ) {
+			if ( isset( $items_by_id[ $term->object_id ] ) ) {
+				$items_per_category[ $term->name ][] = $items_by_id[ $term->object_id ];
 			}
 		}
+
 		ksort( $items_per_category );
 		return $items_per_category;
 	}
