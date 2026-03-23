@@ -36,11 +36,11 @@ if ( ! class_exists( 'DIS_ContentsManager' ) ) {
 if ( ! class_exists( 'DIS_NavigationManager' ) ) {
 	include_once 'class-dis-navigationmanager.php';
 }
-if ( ! class_exists( 'Service_Cluster_Manager' ) ) {
-	include_once 'service-cluster-manager.php';
+if ( ! class_exists( 'DIS_ServiceClusterManager' ) ) {
+	include_once 'class-dis-serviceclustermanager.php';
 }
-if ( ! class_exists( 'Service_Manager' ) ) {
-	include_once 'service-manager.php';
+if ( ! class_exists( 'DIS_ServiceManager' ) ) {
+	include_once 'class-dis-servicemanager.php';
 }
 if ( ! class_exists( 'DIS_OfficeManager' ) ) {
 	include_once 'class-dis-officemanager.php';
@@ -48,8 +48,8 @@ if ( ! class_exists( 'DIS_OfficeManager' ) ) {
 if ( ! class_exists( 'DIS_PersonManager' ) ) {
 	include_once 'class-dis-personmanager.php';
 }
-if ( ! class_exists( 'Project_Manager' ) ) {
-	include_once 'project-manager.php';
+if ( ! class_exists( 'DIS_ProjectManager' ) ) {
+	include_once 'class-dis-projectmanager.php';
 }
 if ( ! class_exists( 'DIS_EventManager' ) ) {
 	include_once 'class-dis-eventmanager.php';
@@ -57,11 +57,11 @@ if ( ! class_exists( 'DIS_EventManager' ) ) {
 if ( ! class_exists( 'DIS_NewsManager' ) ) {
 	include_once 'class-dis-newsmanager.php';
 }
-if ( ! class_exists( 'Place_Manager' ) ) {
-	include_once 'place-manager.php';
+if ( ! class_exists( 'DIS_PlaceManager' ) ) {
+	include_once 'class-dis-placemanager.php';
 }
-if ( ! class_exists( 'Post_Manager' ) ) {
-	include_once 'post-manager.php';
+if ( ! class_exists( 'DIS_PostManager' ) ) {
+	include_once 'class-dis-postmanager.php';
 }
 if ( ! class_exists( 'DIS_PageManager' ) ) {
 	include_once 'class-dis-pagemanager.php';
@@ -182,11 +182,11 @@ class DIS_ThemeManager {
 		 */
 
 		// Setup of the Service Cluster post-type.
-		$srcm = new Service_Cluster_Manager();
+		$srcm = new DIS_ServiceClusterManager();
 		$srcm->setup();
 
 		// Setup of the Service post-type.
-		$srvpt = new Service_Manager();
+		$srvpt = new DIS_ServiceManager();
 		$srvpt->setup();
 
 		// Setup of the Office post-type.
@@ -198,7 +198,7 @@ class DIS_ThemeManager {
 		$prsm->setup();
 
 		// Setup of the DIS-Project post-type.
-		$prjm = new Project_Manager();
+		$prjm = new DIS_ProjectManager();
 		$prjm->setup();
 
 		// Setup of the DIS-Event post-type.
@@ -210,11 +210,11 @@ class DIS_ThemeManager {
 		$nwsm->setup();
 
 		// Setup of the Place post-type.
-		$plcm = new Place_Manager();
+		$plcm = new DIS_PlaceManager();
 		$plcm->setup();
 
 		// Setup of the Post post-type.
-		$pstm = new Post_Manager();
+		$pstm = new DIS_PostManager();
 		$pstm->setup();
 
 		// Setup of the Page post-type.

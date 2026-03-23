@@ -16,7 +16,7 @@ if ( ! is_home() ) {
 			<?php
 			foreach( $steps as $step ) {
 			?>
-			<li class="<?php echo esc_attr( $step->class ); ?>">
+				<li class="<?php echo esc_attr( $step->css_class ); ?>">
 				<a href="<?php echo esc_url( $step->url ); ?>"><?php echo esc_attr( $step->label ); ?></a>
 				<?php
 					if ( $index < count( $steps ) -1 ) {
