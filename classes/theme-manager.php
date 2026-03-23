@@ -22,7 +22,7 @@ if ( ! class_exists( 'DIS_ExportManager' ) ) {
 	include_once 'export-manager.php';
 }
 if ( ! class_exists( 'DIS_ActivationManager' ) ) {
-	include_once 'activation-manager.php';
+	include_once 'class-dis-activationmanager.php';
 }
 if ( ! class_exists( 'DIS_ContentsManager' ) ) {
 	include_once 'contents-manager.php';
