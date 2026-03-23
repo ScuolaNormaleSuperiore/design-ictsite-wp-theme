@@ -894,26 +894,46 @@ class DIS_ContentsManager {
 	}
 
 	public static function get_results_post_types( $ct_list, $search_string ): array {
-		$items = array();
-		$tmp   = array();
-		$the_query = self::get_site_search_query(
-			$ct_list,
-			$search_string,
-			-1
+		global $wpdb;
+
+		// Step 1: fetch only IDs via WP_Query to preserve WP search logic (stop words, excerpt, etc.).
+		$params = array(
+			'post_status'    => 'publish',
+			'posts_per_page' => -1,
+			'fields'         => 'ids',
+			'orderby'        => 'none',
 		);
-		if ( $the_query->found_posts ) {
-			$results = $the_query->posts;
-			foreach ( $results as $result ) {
-				if ( ! in_array( $result->post_type, $tmp ) ) {
-					array_push( $tmp, $result->post_type );
-					array_push(
-						$items,
-						array(
-							'name' => dis_ct_data()[ $result->post_type ]['plural_name'],
-							'slug' => $result->post_type,
-						)
-					);
-				}
+		if ( ! empty( $search_string ) ) {
+			$params['s'] = $search_string;
+		}
+		if ( count( $ct_list ) > 0 ) {
+			$params['post_type'] = $ct_list;
+		}
+		$id_query = new WP_Query( $params );
+		$ids      = $id_query->posts;
+
+		if ( empty( $ids ) ) {
+			return array();
+		}
+
+		// Step 2: get distinct post_types for those IDs with a single lightweight query.
+		$placeholders = implode( ', ', array_fill( 0, count( $ids ), '%d' ) );
+		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
+		$post_types = $wpdb->get_col(
+			$wpdb->prepare(
+				"SELECT DISTINCT post_type FROM {$wpdb->posts} WHERE ID IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				$ids
+			)
+		);
+
+		$ct_data = dis_ct_data();
+		$items   = array();
+		foreach ( $post_types as $slug ) {
+			if ( isset( $ct_data[ $slug ] ) ) {
+				$items[] = array(
+					'name' => $ct_data[ $slug ]['plural_name'],
+					'slug' => $slug,
+				);
 			}
 		}
 		return $items;
