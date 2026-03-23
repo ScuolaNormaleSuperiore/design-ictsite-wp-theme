@@ -97,38 +97,42 @@ class DIS_NavigationManager {
 						),
 					);
 					break;
-				case DIS_DEFAULT_POST:
-					$ct    = DIS_MultiLangManager::get_archive_page( $post->post_type );
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
-							$ct->post_title,
-							get_permalink( $ct ),
-							'breadcrumb-item'
-						),
-					);
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
+					case DIS_DEFAULT_POST:
+						$ct    = DIS_MultiLangManager::get_archive_page( $post->post_type );
+						if ( $ct instanceof WP_Post ) {
+							array_push(
+								$steps,
+								$post_parents[] = new DIS_BreadItem(
+									$ct->post_title,
+									get_permalink( $ct ),
+									'breadcrumb-item'
+								),
+							);
+						}
+						array_push(
+							$steps,
+							$post_parents[] = new DIS_BreadItem(
 							$post->post_title,
 							'',
 							'breadcrumb-item active'
 						),
 					);
 					break;
-				default:
-					$ct = DIS_MultiLangManager::get_archive_page( $post->post_type );
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
-							$ct->post_title,
-							get_permalink( $ct ),
-							'breadcrumb-item'
-						),
-					);
-					array_push(
-						$steps,
-						$post_parents[] = new DIS_BreadItem(
+					default:
+						$ct = DIS_MultiLangManager::get_archive_page( $post->post_type );
+						if ( $ct instanceof WP_Post ) {
+							array_push(
+								$steps,
+								$post_parents[] = new DIS_BreadItem(
+									$ct->post_title,
+									get_permalink( $ct ),
+									'breadcrumb-item'
+								),
+							);
+						}
+						array_push(
+							$steps,
+							$post_parents[] = new DIS_BreadItem(
 							$post->post_title,
 							'',
 							'breadcrumb-item active'

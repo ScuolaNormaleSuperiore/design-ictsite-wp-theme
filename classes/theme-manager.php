@@ -60,8 +60,8 @@ if ( ! class_exists( 'Post_Manager' ) ) {
 if ( ! class_exists( 'Page_Manager' ) ) {
 	include_once 'page-manager.php';
 }
-if ( ! class_exists( 'Attachment_Manager' ) ) {
-	include_once 'attachment-manager.php';
+if ( ! class_exists( 'DIS_AttachmentManager' ) ) {
+	include_once 'class-dis-attachmentmanager.php';
 }
 if ( ! class_exists( 'Banner_Manager' ) ) {
 	include_once 'banner-manager.php';
@@ -197,7 +197,7 @@ class DIS_ThemeManager {
 		$pgm->setup();
 
 		// Setup of the Attachment post-type.
-		$atm = new Attachment_Manager();
+		$atm = new DIS_AttachmentManager();
 		$atm->setup();
 
 		// Setup of the Banner post-type.
