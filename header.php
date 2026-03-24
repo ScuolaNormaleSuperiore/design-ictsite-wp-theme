@@ -65,6 +65,7 @@ $dis_locations = get_nav_menu_locations();
 
 <!-- BODY -->
 <body <?php body_class(); ?>>
+<?php wp_body_open(); ?>
 
 <!-- HEADER -->
 <header class="it-header-wrapper" >
