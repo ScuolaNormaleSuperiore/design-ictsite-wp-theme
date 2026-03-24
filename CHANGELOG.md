@@ -14,6 +14,15 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
+## [DEV-0.1.9] - 2026-04-01
+## Changed
+## Fixed
+- Bug-fixing.
+## Security
+## Added
+
+
+
 ## [DEV-0.1.8] - 2026-03-20
 ## Changed
 - Updates Bootstrap Italia to 2.18.0.
@@ -22,8 +31,6 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Refactoring of templates pages.
 - Applied security fixes.
 - Bug-fixing.
-
-
 
 ## [DEV-0.1.7] - 2026-03-10
 ## Changed
