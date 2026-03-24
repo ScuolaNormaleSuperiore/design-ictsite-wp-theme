@@ -276,7 +276,7 @@ class DIS_NavigationManager {
 	 * @return string
 	 */
 	public static function render_sitemap_index_xml() {
-		$languages = DIS_MultiLangManager::get_languages_list();
+		$languages = self::get_enabled_sitemap_languages();
 		$xml       = '<?xml version="1.0" encoding="UTF-8"?>';
 		$xml      .= '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">';
 
@@ -409,13 +409,31 @@ class DIS_NavigationManager {
 	}
 
 	/**
+	 * Get the list of languages that should expose an XML sitemap.
+	 *
+	 * When the language selector is disabled, only the default language sitemap
+	 * should remain publicly available.
+	 *
+	 * @return string[]
+	 */
+	private static function get_enabled_sitemap_languages() {
+		$language_selector_enabled = DIS_OptionsManager::dis_get_option( 'language_selector_visible', 'dis_opt_advanced_settings' );
+		if ( 'true' !== $language_selector_enabled ) {
+			$default_language = DIS_MultiLangManager::get_default_language();
+			return $default_language ? array( $default_language ) : array();
+		}
+
+		return DIS_MultiLangManager::get_languages_list();
+	}
+
+	/**
 	 * Validate that the requested sitemap language exists.
 	 *
 	 * @param string $language Language slug.
 	 * @return bool
 	 */
 	private static function is_valid_sitemap_language( $language ) {
-		return in_array( $language, DIS_MultiLangManager::get_languages_list(), true );
+		return in_array( $language, self::get_enabled_sitemap_languages(), true );
 	}
 
 	/**

@@ -312,6 +312,8 @@ class DIS_ThemeManager {
 		add_filter( 'the_generator', '__return_null' );
 		// Disable XMLRPC service.
 		add_filter( 'xmlrpc_enabled', '__return_false' );
+		// Disable the core WordPress sitemap in favor of the theme custom sitemap.
+		add_filter( 'wp_sitemaps_enabled', '__return_false' );
 	}
 
 	/**
