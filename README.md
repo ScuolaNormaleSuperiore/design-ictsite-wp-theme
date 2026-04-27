@@ -55,12 +55,12 @@ The theme provides both a user-facing HTML sitemap and XML sitemaps for search e
 ## Demo
 ### Docker
 You can test the theme using a *Docker* container that contains all the required software components (Wordpress + theme + plugins + sample content).
-The Dockerfile to use is: [Dockerfile](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DEV/Docker/Dockerfile).
+The Dockerfile to use is: [Dockerfile](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/SETUP/Docker/Dockerfile).
 
 The demo site refers to a sample ICT site called **ICT Demo** that is already configured and populated with sample content. The purpose of ICT Demo is to demonstrate the system's features and allow for quick testing; it is not intended for use in production environments.
 
 The commands to run to create and run the container are:
-- docker build -t demoict-img -f Dockerfile .
+- docker build -t demoict-img -f SETUP/Docker/Dockerfile .
 - docker run -p 80:80 -p 3306:3306 --name=demoict -d demoict-img
  
 To connect to the container shell, run the command:

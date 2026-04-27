@@ -24,10 +24,8 @@
 nbproject
 Thumbs.db
 
-# VSCode
-.vscode
-!.vscode/settings.json
-!.vscode/launch.json
+# htaccess
+/.htaccess
 
 # Site status scanner
 tests/e2e/status-report/reports/*
@@ -36,6 +34,10 @@ tests/e2e/status-report/reports/*
 # HTML validation scanner (VNU)
 tests/e2e/html-report/reports/*
 !tests/e2e/html-report/reports/.gitkeep
+
+# BUILD CSS
+assets/css/compiled
+assets/bootstrap-italia/css/bootstrap-italia-custom.min.css
 
 # Node
 node_modules
@@ -46,17 +48,23 @@ composer.lock
 .composer-cache/
 .composer-home/
 
-# Custom files
-assets/css/compiled
-assets/bootstrap-italia/css/bootstrap-italia-custom.min.css
+# Tests
+.phpunit.result.cache
 
-# AI tool temporary directories
+# VSCode
+.vscode
+!.vscode/settings.json
+!.vscode/launch.json
+
+# Custom directives
+.codex-tmp
+.codex
+.claude
+DEV
 AGENTS
 AGENTS.md
 CLAUDE.md
-AGENTS/ISSUES_TODO.md
-AGENTS/ISSUES_RESOLVED.md
-.codex-tmp/
-.claude
-.tmp
+tmp-alm-php-path-test.out
+tmp-alm-php-path-test.php
+tmp/
 .codex

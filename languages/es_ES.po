@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-05-05 09:24+0000\n"
-"PO-Revision-Date: 2026-03-23 11:20+0000\n"
+"PO-Revision-Date: 2026-04-27 10:21+0000\n"
 "Last-Translator: \n"
 "Language-Team: Spanish (Spain)\n"
 "Language: es_ES\n"
@@ -20,29 +20,30 @@ msgstr ""
 msgid "About us"
 msgstr ""
 
-#: template-parts/common/video-section.php:39
-#: template-parts/home/hp-video-section.php:66
+#: template-parts/common/video-section.php:42
+#: template-parts/home/hp-video-section.php:57
 msgid "Accept"
 msgstr ""
 
-#: template-parts/common/video-section.php:10
-#: template-parts/home/hp-video-section.php:21
+#. 1: privacy page URL, 2: privacy page label.
+#: template-parts/common/video-section.php:13
+#: template-parts/home/hp-video-section.php:20
 #, php-format
 msgid ""
 "Accept the Youtube cookies to watch the video. You can manage the "
-"preferences into the <a target=\"_blank\" href=\"%s\" class=\"text-white\">"
-"%s</a>."
+"preferences into the <a target=\"_blank\" href=\"%1$s\" class=\"text-white\">"
+"%2$s</a>."
 msgstr ""
 
 #: single-dis-service.php:48
 msgid "Access the service"
 msgstr ""
 
-#: header.php:100
+#: header.php:101
 msgid "Accessory navigation"
 msgstr "Área de Proyectos y Servicios TIC"
 
-#: template-parts/home/hp-banners-section.php:33
+#: template-parts/home/hp-banners-section.php:27
 msgid "Activity banner"
 msgstr ""
 
@@ -95,7 +96,7 @@ msgstr ""
 msgid "Add the section"
 msgstr ""
 
-#: single-dis-office.php:100 single-dis-place.php:72
+#: single-dis-office.php:98 single-dis-place.php:72
 #: classes/class-dis-optionsmanager.php:606
 msgid "Address"
 msgstr ""
@@ -106,23 +107,23 @@ msgstr ""
 msgid "Advanced options"
 msgstr ""
 
-#: template-parts/header/alert.php:17
+#: template-parts/header/alert.php:18
 msgid "Alert"
 msgstr ""
 
-#: template-parts/home/hp-articles-section.php:70
+#: template-parts/home/hp-articles-section.php:64
 msgid "All articles"
 msgstr ""
 
-#: single-dis-event.php:219 template-parts/home/hp-events-section.php:108
+#: single-dis-event.php:219 template-parts/home/hp-events-section.php:100
 msgid "All events"
 msgstr ""
 
-#: single-dis-news.php:69 template-parts/home/hp-news-section.php:102
+#: single-dis-news.php:69 template-parts/home/hp-news-section.php:93
 msgid "All news"
 msgstr ""
 
-#: template-parts/home/hp-projects-section.php:74
+#: template-parts/home/hp-projects-section.php:64
 msgid "All projects"
 msgstr ""
 
@@ -130,8 +131,8 @@ msgstr ""
 msgid "API token"
 msgstr ""
 
-#: page-templates/articles.php:206 page-templates/events.php:212
-#: page-templates/news.php:207 page-templates/places.php:173
+#: page-templates/articles.php:211 page-templates/events.php:217
+#: page-templates/news.php:211 page-templates/places.php:187
 msgid "Apply filters"
 msgstr ""
 
@@ -152,7 +153,7 @@ msgstr ""
 msgid "Autocomplete sections"
 msgstr ""
 
-#: page-templates/faq-topic.php:73
+#: page-templates/faq-topic.php:75
 msgid "Back"
 msgstr ""
 
@@ -160,7 +161,7 @@ msgstr ""
 msgid "Background image"
 msgstr ""
 
-#: template-parts/home/hp-banners-section.php:29
+#: template-parts/home/hp-banners-section.php:25
 msgid "Banner"
 msgstr ""
 
@@ -172,11 +173,11 @@ msgstr ""
 msgid "Brevo"
 msgstr ""
 
-#: template-parts/common/sidebar-navigation.php:19
+#: template-parts/common/sidebar-navigation.php:18
 msgid "Browse by profile"
 msgstr ""
 
-#: page-templates/faq-topic.php:79
+#: page-templates/faq-topic.php:81
 msgid "Browse by topic"
 msgstr ""
 
@@ -205,16 +206,17 @@ msgid ""
 "pages, menu, etc. "
 msgstr ""
 
-#: page-templates/faq-topic.php:64
+#: page-templates/faq-topic.php:66
 msgid "Close"
 msgstr ""
 
-#: template-parts/header/alert.php:32 template-parts/header/alert.php:33
+#: template-parts/header/alert.php:27 template-parts/header/alert.php:28
+#: template-parts/header/alert.php:29
 msgid "Close alert"
 msgstr ""
 
-#: page-templates/faq-topic.php:119 page-templates/faq.php:117
-#: page-templates/search.php:212
+#: page-templates/faq-topic.php:121 page-templates/faq.php:117
+#: page-templates/search.php:200
 msgid "Code"
 msgstr ""
 
@@ -239,7 +241,7 @@ msgstr ""
 msgid "Contributors"
 msgstr ""
 
-#: page-templates/privacy.php:29
+#: page-templates/privacy.php:30
 msgid "Cookies management"
 msgstr ""
 
@@ -708,27 +710,22 @@ msgctxt "DIS_PostTypeSlugs"
 msgid "sponsors"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:21
+#: template-parts/home/hp-main-hero-section.php:18
 msgctxt "DIS_SiteOptionLabel"
 msgid "MainHeroLeftButtonLabel"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:22
+#: template-parts/home/hp-main-hero-section.php:19
 msgctxt "DIS_SiteOptionLabel"
 msgid "MainHeroRightButtonLabel"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:20
-msgctxt "DIS_SiteOptionLabel"
-msgid "MainHeroSearchButtonLabel"
-msgstr ""
-
-#: template-parts/home/hp-main-hero-section.php:19
+#: template-parts/home/hp-main-hero-section.php:17
 msgctxt "DIS_SiteOptionLabel"
 msgid "MainHeroText"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:18
+#: template-parts/home/hp-main-hero-section.php:16
 msgctxt "DIS_SiteOptionLabel"
 msgid "MainHeroTitle"
 msgstr ""
@@ -777,19 +774,23 @@ msgstr ""
 msgid "Do not count the views of the robots."
 msgstr ""
 
+#: page-templates/documentation.php:172
+msgid "Document"
+msgstr ""
+
 #. Name of the template
 #: single-dis-service.php:153 page-templates/documentation.php:2
-#: page-templates/documentation.php:71 page-templates/help-desk.php:51
+#: page-templates/documentation.php:86 page-templates/help-desk.php:51
 msgid "Documentation"
 msgstr ""
 
-#: single-dis-event.php:146 single-dis-office.php:132 single-dis-person.php:64
+#: single-dis-event.php:146 single-dis-office.php:130 single-dis-person.php:64
 #: single-dis-place.php:112 classes/class-dis-optionsmanager.php:614
 msgid "E-mail"
 msgstr ""
 
-#: template-parts/common/newsletter.php:21
-#: template-parts/common/newsletter.php:30
+#: template-parts/common/newsletter.php:24
+#: template-parts/common/newsletter.php:35
 msgid "E-mail address"
 msgstr ""
 
@@ -895,7 +896,7 @@ msgstr ""
 msgid "Enter the analytics code."
 msgstr ""
 
-#: template-parts/common/newsletter.php:27
+#: template-parts/common/newsletter.php:31
 msgid "Enter your email address to receive updates"
 msgstr ""
 
@@ -906,6 +907,11 @@ msgstr ""
 
 #: classes/class-dis-pagemanager.php:50 classes/class-dis-postmanager.php:50
 msgid "Excerpt"
+msgstr ""
+
+#: template-parts/menu/primary-menu.php:33
+#: template-parts/menu/secondary-menu.php:32
+msgid "Expand"
 msgstr ""
 
 #: page-templates/faq.php:58
@@ -942,7 +948,7 @@ msgstr ""
 msgid "Faq"
 msgstr ""
 
-#: page-templates/faq-topic.php:58
+#: page-templates/faq-topic.php:60
 msgid "FAQ by topic"
 msgstr ""
 
@@ -950,8 +956,8 @@ msgstr ""
 msgid "FAQ views counter"
 msgstr ""
 
-#: template-parts/home/hp-featured-contents-section.php:23
-#: template-parts/home/hp-featured-contents-section.php:25
+#: template-parts/home/hp-featured-contents-section.php:24
+#: template-parts/home/hp-featured-contents-section.php:26
 msgid "Featured services"
 msgstr ""
 
@@ -959,21 +965,21 @@ msgstr ""
 msgid "Features"
 msgstr ""
 
-#: page-templates/search.php:155
+#: page-templates/search.php:153
 msgid "Filter by"
 msgstr ""
 
-#: page-templates/articles.php:174 page-templates/articles.php:178
-#: page-templates/events.php:180 page-templates/events.php:184
-#: page-templates/news.php:175 page-templates/news.php:179
+#: page-templates/articles.php:179 page-templates/articles.php:183
+#: page-templates/events.php:185 page-templates/events.php:189
+#: page-templates/news.php:179 page-templates/news.php:183
 msgid "Filter by category"
 msgstr ""
 
-#: page-templates/places.php:146 page-templates/places.php:150
+#: page-templates/places.php:160 page-templates/places.php:164
 msgid "Filter by place type"
 msgstr ""
 
-#: template-parts/header/social-list.php:12
+#: template-parts/header/social-list.php:59
 msgid "Follow us on"
 msgstr ""
 
@@ -1005,29 +1011,27 @@ msgstr ""
 msgid "For support contact the %s"
 msgstr ""
 
-#: page-templates/documentation.php:56 page-templates/search.php:81
+#. 1: number of results, 2: search string.
+#: page-templates/documentation.php:65 page-templates/search.php:84
 #, php-format
 msgid "Found %1$s results for \"%2$s\"."
 msgstr ""
 
-#: page-templates/documentation.php:57
+#. %s: number of results.
+#: page-templates/documentation.php:71
 #, php-format
 msgid "Found %s results."
 msgstr ""
 
 #. 1: event start date, 2: event end date.
-#: single-dis-event.php:48
+#. 1: start date, 2: end date.
+#: single-dis-event.php:48 page-templates/events.php:113
 #, php-format
 msgid "From %1$s to %2$s"
 msgstr ""
 
-#: page-templates/events.php:108
-#, php-format
-msgid "From %s to %s"
-msgstr ""
-
 #: page-templates/service-items.php:22
-#: template-parts/common/sidebar-navigation.php:55
+#: template-parts/common/sidebar-navigation.php:54
 msgid "Full list of services"
 msgstr ""
 
@@ -1044,23 +1048,27 @@ msgstr ""
 msgid "Go back"
 msgstr ""
 
-#: header.php:86
+#: template-parts/common/newsletter.php:14
+msgid "Go to page: Newsletter"
+msgstr ""
+
+#: header.php:87
 msgid "Go to the accessibility statement"
 msgstr ""
 
-#: header.php:77
+#: header.php:78
 msgid "Go to the content"
 msgstr ""
 
-#: header.php:80
+#: header.php:81
 msgid "Go to the footer"
 msgstr ""
 
-#: header.php:74
+#: header.php:75
 msgid "Go to the menu"
 msgstr ""
 
-#: template-parts/footer/offices-section.php:21
+#: template-parts/footer/offices-section.php:19
 msgid "Go to the page"
 msgstr ""
 
@@ -1073,12 +1081,12 @@ msgstr ""
 msgid "Help-desk"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:34
-#: template-parts/home/hp-main-hero-section.php:35
+#: template-parts/home/hp-main-hero-section.php:30
+#: template-parts/home/hp-main-hero-section.php:31
 msgid "Hero image"
 msgstr ""
 
-#: header.php:175
+#: header.php:176
 msgid "Hide navigation"
 msgstr ""
 
@@ -1189,11 +1197,11 @@ msgstr ""
 msgid "Invalid username or password"
 msgstr ""
 
-#: template-parts/header/language_selector.php:17
+#: template-parts/header/language-selector.php:17
 msgid "Language selection: selected language"
 msgstr ""
 
-#: template-parts/footer/last_modification.php:14
+#: template-parts/footer/last-modification.php:13
 msgid "Last modification"
 msgstr ""
 
@@ -1225,12 +1233,12 @@ msgstr ""
 msgid "List ID"
 msgstr ""
 
-#: template-parts/common/sidebar-navigation.php:69
+#: template-parts/common/sidebar-navigation.php:68
 msgid "List of services by category"
 msgstr ""
 
 #: classes/class-dis-optionsmanager.php:905
-#: template-parts/header/login_button.php:14
+#: template-parts/header/login-button.php:14
 msgid "Login"
 msgstr ""
 
@@ -1246,12 +1254,10 @@ msgstr ""
 msgid "Logo header"
 msgstr ""
 
-#: template-parts/footer/logo_title_footer.php:28
-#: template-parts/footer/logo_title_footer.php:41
-#: template-parts/footer/logo_title_footer.php:54
-#: template-parts/header/logo_title_header.php:28
-#: template-parts/header/logo_title_header.php:41
-#: template-parts/header/logo_title_header.php:54
+#: template-parts/footer/logo-title-footer.php:23
+#: template-parts/footer/logo-title-footer.php:46
+#: template-parts/header/logo-title-header.php:23
+#: template-parts/header/logo-title-header.php:45
 msgid "Logo of the site"
 msgstr ""
 
@@ -1261,7 +1267,7 @@ msgstr ""
 msgid "Main hero"
 msgstr ""
 
-#: header.php:164
+#: header.php:165
 msgid "Main navigation"
 msgstr ""
 
@@ -1281,7 +1287,7 @@ msgstr ""
 msgid "Multilanguage"
 msgstr ""
 
-#: template-parts/header/breadcrumb.php:14
+#: template-parts/header/breadcrumb.php:13
 msgid "Navigation path"
 msgstr ""
 
@@ -1306,7 +1312,7 @@ msgstr ""
 
 #. Name of the template
 #: classes/class-dis-optionsmanager.php:802 page-templates/newsletter.php:2
-#: template-parts/common/newsletter.php:12
+#: template-parts/common/newsletter.php:15
 msgid "Newsletter"
 msgstr ""
 
@@ -1340,10 +1346,10 @@ msgstr ""
 msgid "No"
 msgstr ""
 
-#: page-templates/articles.php:143 page-templates/documentation.php:55
+#: page-templates/articles.php:148 page-templates/documentation.php:62
 #: page-templates/faq.php:87 page-templates/faq.php:135
-#: page-templates/news.php:144 page-templates/places.php:117
-#: page-templates/projects.php:94
+#: page-templates/news.php:148 page-templates/places.php:131
+#: page-templates/projects.php:97
 msgid "No results found"
 msgstr ""
 
@@ -1360,8 +1366,8 @@ msgstr ""
 msgid "Offices"
 msgstr ""
 
-#: template-parts/common/pagination.php:56
-#: template-parts/common/pagination.php:72
+#: template-parts/common/pagination.php:53
+#: template-parts/common/pagination.php:67
 msgid "page"
 msgstr ""
 
@@ -1374,7 +1380,7 @@ msgstr ""
 msgid "People"
 msgstr ""
 
-#: template-parts/common/people-section.php:13
+#: template-parts/common/people-section.php:16
 msgid "People list"
 msgstr ""
 
@@ -1413,14 +1419,14 @@ msgstr ""
 msgid "Privacy"
 msgstr ""
 
-#: template-parts/common/video-section.php:8
-#: template-parts/home/hp-video-section.php:19
+#: template-parts/common/video-section.php:9
+#: template-parts/home/hp-video-section.php:16
 msgid "Privacy Policy"
 msgstr ""
 
 #. Name of the template
 #: single-dis-office.php:65 page-templates/projects.php:2
-#: template-parts/home/hp-projects-section.php:27
+#: template-parts/home/hp-projects-section.php:25
 msgid "Projects"
 msgstr ""
 
@@ -1428,14 +1434,14 @@ msgstr ""
 msgid "Rates"
 msgstr ""
 
-#: page-templates/articles.php:119 page-templates/events.php:130
-#: page-templates/news.php:120 template-parts/home/hp-events-section.php:88
-#: template-parts/home/hp-news-section.php:82
+#: page-templates/articles.php:124 page-templates/events.php:135
+#: page-templates/news.php:124 template-parts/home/hp-events-section.php:84
+#: template-parts/home/hp-news-section.php:77
 msgid "Related category"
 msgstr ""
 
-#: template-parts/common/related-contents.php:17
-#: template-parts/common/related-contents.php:60
+#: template-parts/common/related-contents.php:18
+#: template-parts/common/related-contents.php:54
 msgid "Related contents"
 msgstr ""
 
@@ -1457,8 +1463,8 @@ msgstr ""
 msgid "Reload theme data"
 msgstr ""
 
-#: template-parts/common/video-section.php:44
-#: template-parts/home/hp-video-section.php:71
+#: template-parts/common/video-section.php:47
+#: template-parts/home/hp-video-section.php:62
 msgid "Remember for all videos"
 msgstr ""
 
@@ -1487,7 +1493,7 @@ msgstr ""
 msgid "REST API"
 msgstr ""
 
-#: page-templates/privacy.php:45
+#: page-templates/privacy.php:46
 msgid "Revoke"
 msgstr ""
 
@@ -1496,9 +1502,9 @@ msgid "Right button label"
 msgstr ""
 
 #. Name of the template
-#: page-templates/documentation.php:84 page-templates/documentation.php:107
-#: page-templates/search.php:2 page-templates/search.php:97
-#: page-templates/search.php:110 page-templates/search.php:133
+#: page-templates/documentation.php:98 page-templates/documentation.php:120
+#: page-templates/search.php:2 page-templates/search.php:100
+#: page-templates/search.php:112 page-templates/search.php:134
 #: template-parts/header/site-search.php:18
 msgid "Search"
 msgstr ""
@@ -1513,7 +1519,7 @@ msgstr ""
 msgid "Search in the site"
 msgstr ""
 
-#: page-templates/documentation.php:97
+#: page-templates/documentation.php:110
 msgid "Search the documentation"
 msgstr ""
 
@@ -1521,12 +1527,12 @@ msgstr ""
 msgid "Search the FAQs"
 msgstr ""
 
-#: page-templates/search.php:123
+#: page-templates/search.php:124
 msgid "Search the site"
 msgstr ""
 
 #: classes/class-dis-autocompletemanager.php:85
-#: template-parts/home/hp-main-hero-section.php:70
+#: template-parts/home/hp-main-hero-section.php:62
 msgid "Search..."
 msgstr ""
 
@@ -1543,7 +1549,7 @@ msgstr ""
 msgid "Section to configure base options."
 msgstr ""
 
-#: template-parts/header/language_selector.php:37
+#: template-parts/header/language-selector.php:34
 msgid "selected"
 msgstr ""
 
@@ -1575,11 +1581,11 @@ msgid "ServiceProfile"
 msgstr ""
 
 #: single-dis-service-cluster.php:63 page-templates/service-clusters.php:18
-#: template-parts/home/hp-clusters-section.php:22
+#: template-parts/home/hp-clusters-section.php:20
 msgid "Services"
 msgstr ""
 
-#: page-templates/service-profile.php:28
+#: page-templates/service-profile.php:30
 msgid "Services for"
 msgstr ""
 
@@ -1591,11 +1597,11 @@ msgstr ""
 msgid "Show the section title"
 msgstr ""
 
-#: header.php:166
+#: header.php:167
 msgid "Show/Hide navigation"
 msgstr ""
 
-#: template-parts/common/newsletter.php:35
+#: template-parts/common/newsletter.php:41
 msgid "Sign me up"
 msgstr ""
 
@@ -1609,7 +1615,7 @@ msgstr ""
 msgid "Site contacts"
 msgstr ""
 
-#: template-parts/home/hp-main-hero-section.php:62
+#: template-parts/home/hp-main-hero-section.php:54
 msgid "Site search"
 msgstr ""
 
@@ -1644,6 +1650,10 @@ msgstr ""
 msgid "Some plugin require the REST API to be enabled."
 msgstr ""
 
+#: template-parts/home/hp-sponsors-section.php:17
+msgid "Sponsor and partnerships"
+msgstr ""
+
 #: classes/class-dis-optionsmanager.php:240
 msgid "Success"
 msgstr ""
@@ -1658,7 +1668,7 @@ msgstr ""
 msgid "Tagline"
 msgstr ""
 
-#: single-dis-event.php:131 single-dis-office.php:116 single-dis-person.php:72
+#: single-dis-event.php:131 single-dis-office.php:114 single-dis-person.php:72
 #: single-dis-place.php:99
 msgid "Telephone"
 msgstr ""
@@ -1796,11 +1806,7 @@ msgstr ""
 msgid "User Status"
 msgstr ""
 
-#: template-parts/common/newsletter.php:11
-msgid "Vai alla pagina: Newsletter"
-msgstr ""
-
-#: template-parts/home/hp-video-section.php:35
+#: template-parts/home/hp-video-section.php:29
 msgid "Video"
 msgstr ""
 
@@ -1871,18 +1877,18 @@ msgstr ""
 msgid "Yes if the logo needs to be shown in the header."
 msgstr ""
 
-#: page-templates/privacy.php:39
+#: page-templates/privacy.php:40
 msgid "You have installed the following third-party cookies:"
 msgstr ""
 
-#: page-templates/privacy.php:35
+#: page-templates/privacy.php:36
 msgid "You have not installed third-party cookies"
 msgstr ""
 
-#: page-templates/search.php:80
+#: page-templates/search.php:81
 msgid "You need to enter some text in the search box."
 msgstr ""
 
-#: page-templates/privacy.php:42
+#: page-templates/privacy.php:43
 msgid "Youtube for video viewing"
 msgstr ""
