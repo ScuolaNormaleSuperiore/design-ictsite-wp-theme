@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2026-04-27 10:21+0000\n"
+"PO-Revision-Date: 2026-04-27 12:50+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -804,7 +804,7 @@ msgstr "Non contare le visualizzazioni dei robot."
 
 #: page-templates/documentation.php:172
 msgid "Document"
-msgstr ""
+msgstr "documento"
 
 #. Name of the template
 #: single-dis-service.php:153 page-templates/documentation.php:2
@@ -952,7 +952,7 @@ msgstr "Estratto"
 #: template-parts/menu/primary-menu.php:33
 #: template-parts/menu/secondary-menu.php:32
 msgid "Expand"
-msgstr ""
+msgstr "Espandi"
 
 #: page-templates/faq.php:58
 msgid "Explore by topic"
@@ -1092,7 +1092,7 @@ msgstr "Torna indietro"
 
 #: template-parts/common/newsletter.php:14
 msgid "Go to page: Newsletter"
-msgstr ""
+msgstr "Vai alla pagina: Newsletter"
 
 #: header.php:87
 msgid "Go to the accessibility statement"
@@ -1703,7 +1703,7 @@ msgstr "Alcuni plugin richiedono l'abilitazione dell'API REST."
 
 #: template-parts/home/hp-sponsors-section.php:17
 msgid "Sponsor and partnerships"
-msgstr ""
+msgstr "Sponsorizzazioni e partnership"
 
 #: classes/class-dis-optionsmanager.php:240
 msgid "Success"
