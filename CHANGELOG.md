@@ -13,15 +13,17 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
-
-## [DEV-0.1.9] - 2026-04-01
-## Changed
+## [DEV-0.2.0] - 2026-04-30
 ## Fixed
-- Bug-fixing.
-## Security
+## Changed
 ## Added
 
 
+
+## [DEV-0.1.9] - 2026-04-27
+## Fixed
+- Bug-fixing.
+- Fixed the bug of wrong translations
 
 ## [DEV-0.1.8] - 2026-03-20
 ## Changed

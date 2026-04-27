@@ -1,10 +1,10 @@
-# This repository adheres to the publiccode.yml standard by including this 
+# This repository adheres to the publiccode.yml standard by including this
 # metadata file that makes public software easily discoverable.
 # More info at https://github.com/italia/publiccode.yml
 
 publiccodeYmlVersion: '0.4.0'
 applicationSuite: WordPress
-softwareVersion: DEV-0.1.9
+softwareVersion: DEV-0.2.0
 categories:
   - website-builder
 description:
@@ -44,7 +44,7 @@ description:
       - assets/screenshots/backoffice.png
     shortDescription: >-
         Tema WordPress per la creazione di siti web che presentano e facilitano l'utilizzo dei servizi ICT di un'organizzazione.
-developmentStatus: development 
+developmentStatus: development
 intendedAudience:
   countries:
     - it
