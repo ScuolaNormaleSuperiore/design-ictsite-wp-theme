@@ -14,6 +14,8 @@
  * The manager that wraps Polylang's libraries.
  */
 class DIS_MultiLangManager {
+	const REWRITE_RULES_VERSION = '20260427-translated-cpt-slugs-aliases';
+
 	/**
 	 * Constructor of the Manager.
 	 */
@@ -27,6 +29,9 @@ class DIS_MultiLangManager {
 	public function setup() {
 		add_filter( 'pll_get_post_types', array( $this, 'add_cpt_to_pll' ), 10, 2 );
 		add_filter( 'pll_get_taxonomies', array( $this, 'add_tax_to_pll' ), 10, 2 );
+		add_filter( 'post_type_link', array( $this, 'filter_post_type_link' ), 10, 2 );
+		add_action( 'init', array( $this, 'add_translated_cpt_rewrite_rules' ), 20 );
+		add_action( 'wp_loaded', array( $this, 'maybe_flush_rewrite_rules' ), 20 );
 	}
 
 	/**
@@ -232,6 +237,215 @@ class DIS_MultiLangManager {
 	 */
 	public static function get_post_translations( $post_id ): array {
 		return pll_get_post_translations( $post_id );
+	}
+
+	/**
+	 * Add custom post type rewrite rules for every translated language slug.
+	 *
+	 * @return void
+	 */
+	public function add_translated_cpt_rewrite_rules() {
+		foreach ( self::get_languages_data() as $language_slug => $locale ) {
+			$language_prefix = self::get_language_url_prefix( $language_slug );
+
+			foreach ( array_keys( self::get_translatable_cpt_slug_sources() ) as $post_type ) {
+				if ( ! post_type_exists( $post_type ) ) {
+					continue;
+				}
+
+				foreach ( self::get_all_translated_cpt_slugs( $post_type ) as $post_type_slug ) {
+					$rule_base = trim( $language_prefix . '/' . $post_type_slug, '/' );
+					if ( ! $rule_base ) {
+						continue;
+					}
+
+					add_rewrite_rule(
+						'^' . preg_quote( $rule_base, '#' ) . '/([^/]+)/?$',
+						'index.php?post_type=' . $post_type . '&name=$matches[1]&lang=' . $language_slug,
+						'top'
+					);
+				}
+			}
+		}
+	}
+
+	/**
+	 * Normalize custom post type links to the slug translated for the post language.
+	 *
+	 * @param string  $post_link The generated permalink.
+	 * @param WP_Post $post      The post object.
+	 * @return string
+	 */
+	public function filter_post_type_link( $post_link, $post ) {
+		if ( ! $post instanceof WP_Post ) {
+			return $post_link;
+		}
+
+		if ( ! array_key_exists( $post->post_type, self::get_translatable_cpt_slug_sources() ) ) {
+			return $post_link;
+		}
+
+		$locale = function_exists( 'pll_get_post_language' ) ? pll_get_post_language( $post->ID, 'locale' ) : '';
+		if ( ! $locale ) {
+			return $post_link;
+		}
+
+		$target_slug = self::get_translated_cpt_slug( $post->post_type, $locale );
+		if ( ! $target_slug ) {
+			return $post_link;
+		}
+
+		foreach ( self::get_all_translated_cpt_slugs( $post->post_type ) as $known_slug ) {
+			$post_link = preg_replace(
+				'~/' . preg_quote( $known_slug, '~' ) . '/(?=[^/]+/?(?:[?#]|$))~',
+				'/' . $target_slug . '/',
+				$post_link,
+				1
+			);
+		}
+
+		return $post_link;
+	}
+
+	/**
+	 * Flush rewrite rules once after the translated CPT rules version changes.
+	 *
+	 * @return void
+	 */
+	public function maybe_flush_rewrite_rules() {
+		$option_name = 'dis_translated_cpt_rewrite_rules_version';
+
+		if ( self::REWRITE_RULES_VERSION === get_option( $option_name ) ) {
+			return;
+		}
+
+		flush_rewrite_rules( false );
+		update_option( $option_name, self::REWRITE_RULES_VERSION, false );
+	}
+
+	/**
+	 * Return the custom post type source slugs used by theme translations.
+	 *
+	 * @return array<string, string>
+	 */
+	private static function get_translatable_cpt_slug_sources() {
+		return array(
+			DIS_EVENT_POST_TYPE           => 'events',
+			DIS_NEWS_POST_TYPE            => 'news',
+			DIS_PROJECT_POST_TYPE         => 'projects',
+			DIS_OFFICE_POST_TYPE          => 'offices',
+			DIS_SERVICE_CLUSTER_POST_TYPE => 'service-clusters',
+			DIS_SERVICE_ITEM_POST_TYPE    => 'services',
+			DIS_PERSON_POST_TYPE          => 'people',
+			DIS_PLACE_POST_TYPE           => 'places',
+			DIS_ATTACHMENT_POST_TYPE      => 'attachments',
+			DIS_BANNER_POST_TYPE          => 'banners',
+			DIS_SPONSOR_POST_TYPE         => 'sponsors',
+			DIS_FAQ_POST_TYPE             => 'faq',
+		);
+	}
+
+	/**
+	 * Return available language slugs mapped to locales.
+	 *
+	 * @return array<string, string>
+	 */
+	private static function get_languages_data() {
+		static $languages = null;
+
+		if ( null !== $languages ) {
+			return $languages;
+		}
+
+		if ( ! function_exists( 'pll_languages_list' ) ) {
+			$languages = array();
+			return $languages;
+		}
+
+		$language_slugs   = pll_languages_list( array( 'fields' => 'slug' ) );
+		$language_locales = pll_languages_list( array( 'fields' => 'locale' ) );
+		$languages        = array();
+
+		foreach ( $language_slugs as $index => $language_slug ) {
+			if ( ! empty( $language_locales[ $index ] ) ) {
+				$languages[ $language_slug ] = $language_locales[ $index ];
+			}
+		}
+
+		return $languages;
+	}
+
+	/**
+	 * Return the URL path prefix used by Polylang for a language.
+	 *
+	 * @param string $language_slug Language slug.
+	 * @return string
+	 */
+	private static function get_language_url_prefix( $language_slug ) {
+		if ( ! function_exists( 'pll_home_url' ) ) {
+			return $language_slug === self::get_default_language() ? '' : $language_slug;
+		}
+
+		$home_path     = trim( (string) wp_parse_url( home_url( '/' ), PHP_URL_PATH ), '/' );
+		$language_path = trim( (string) wp_parse_url( pll_home_url( $language_slug ), PHP_URL_PATH ), '/' );
+
+		if ( $home_path && 0 === strpos( $language_path, $home_path ) ) {
+			$language_path = trim( substr( $language_path, strlen( $home_path ) ), '/' );
+		}
+
+		return $language_path;
+	}
+
+	/**
+	 * Return a custom post type slug translated for a locale.
+	 *
+	 * @param string $post_type Custom post type.
+	 * @param string $locale    Locale code.
+	 * @return string
+	 */
+	private static function get_translated_cpt_slug( $post_type, $locale ) {
+		static $translated_slugs = array();
+
+		$sources = self::get_translatable_cpt_slug_sources();
+		if ( empty( $sources[ $post_type ] ) ) {
+			return '';
+		}
+
+		$cache_key = $post_type . '|' . $locale;
+		if ( isset( $translated_slugs[ $cache_key ] ) ) {
+			return $translated_slugs[ $cache_key ];
+		}
+
+		if ( $locale && function_exists( 'switch_to_locale' ) ) {
+			switch_to_locale( $locale );
+			$slug = _x( $sources[ $post_type ], 'DIS_PostTypeSlugs', 'design_ict_site' );
+			restore_previous_locale();
+		} else {
+			$slug = _x( $sources[ $post_type ], 'DIS_PostTypeSlugs', 'design_ict_site' );
+		}
+
+		$translated_slugs[ $cache_key ] = sanitize_title( $slug );
+
+		return $translated_slugs[ $cache_key ];
+	}
+
+	/**
+	 * Return all translated slugs known for a custom post type.
+	 *
+	 * @param string $post_type Custom post type.
+	 * @return string[]
+	 */
+	private static function get_all_translated_cpt_slugs( $post_type ) {
+		$slugs = array();
+
+		foreach ( self::get_languages_data() as $locale ) {
+			$slug = self::get_translated_cpt_slug( $post_type, $locale );
+			if ( $slug ) {
+				$slugs[] = $slug;
+			}
+		}
+
+		return array_unique( $slugs );
 	}
 
 	/**
