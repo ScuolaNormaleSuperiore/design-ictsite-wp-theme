@@ -67,7 +67,8 @@ if (
 		$dis_query       = DIS_ContentsManager::get_site_search_query(
 			$dis_searchable_ct,
 			$dis_search_string,
-			$dis_posts_per_page
+			$dis_posts_per_page,
+			$dis_current_page
 		);
 		$dis_num_results = $dis_query->found_posts;
 	}

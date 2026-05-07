@@ -935,9 +935,9 @@ class DIS_ContentsManager {
 		return self::sort_by_name( array_values( $content_types_with_results ) );
 	}
 
-	public static function get_site_search_query( $selected_contents, $search_string, $page_size ) {
+	public static function get_site_search_query( $selected_contents, $search_string, $page_size, $page_number = 1 ) {
 		$params = array(
-			'paged'          => get_query_var( 'paged', 1 ),
+			'paged'          => max( 1, (int) $page_number ),
 			'post_status'    => 'publish',
 			'posts_per_page' => $page_size,
 			'orderby'        => 'title',
