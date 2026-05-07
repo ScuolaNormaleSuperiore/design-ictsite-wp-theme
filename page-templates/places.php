@@ -78,11 +78,11 @@ $dis_num_results = $dis_query->found_posts;
 					<?php
 					while ( $dis_query->have_posts() ) {
 						$dis_query->the_post();
-						$dis_post       = get_post();
-						$dis_image_data = DIS_ContentsManager::get_image_metadata( $dis_post, 'full' );
-						$dis_short_desc = DIS_CustomFieldsManager::get_field( 'short_description', $dis_post->ID );
-						$dis_types      = get_the_terms( $dis_post->ID, DIS_PLACE_TYPE_TAXONOMY );
-						$dis_place_type = ( $dis_types && count( $dis_types ) > 0 ) ? $dis_types[0] : null;
+						$dis_post        = get_post();
+						$dis_image_data  = DIS_ContentsManager::get_image_metadata( $dis_post, 'full' );
+						$dis_short_desc  = DIS_CustomFieldsManager::get_field( 'short_description', $dis_post->ID );
+						$dis_types       = get_the_terms( $dis_post->ID, DIS_PLACE_TYPE_TAXONOMY );
+						$dis_place_types = ( $dis_types && ! is_wp_error( $dis_types ) ) ? implode( ', ', wp_list_pluck( $dis_types, 'name' ) ) : '';
 
 						// Manage offices.
 						$dis_offices        = DIS_ContentsManager::get_place_offices( $dis_post );
@@ -98,7 +98,7 @@ $dis_num_results = $dis_query->found_posts;
 											</a>
 										</h4>
 										<p class="it-card-profile-type">
-											<?php echo $dis_place_type ? esc_html( $dis_place_type->name ) : ''; ?>
+											<?php echo esc_html( $dis_place_types ); ?>
 										</p>
 									</div>
 

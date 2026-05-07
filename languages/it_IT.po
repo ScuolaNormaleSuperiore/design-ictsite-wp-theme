@@ -1170,7 +1170,7 @@ msgstr "How to"
 
 #: single-dis-place.php:49
 msgid "How to reach us"
-msgstr "come raggiungerci"
+msgstr "Come raggiungerci"
 
 #: classes/class-dis-optionsmanager.php:194
 #: classes/class-dis-optionsmanager.php:197
