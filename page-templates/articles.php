@@ -66,7 +66,7 @@ $dis_num_results = $dis_query->found_posts;
 			if ( $dis_num_results ) {
 				?>
 				<!-- RESULT LIST  -->
-				<ul class="it-card-list row" aria-label="Lista delle news">
+				<ul class="it-card-list row" aria-label="<?php echo esc_attr__( 'Articles list', 'design_ict_site' ); ?>">
 					<?php
 					while ( $dis_query->have_posts() ) {
 						$dis_query->the_post();
@@ -144,7 +144,7 @@ $dis_num_results = $dis_query->found_posts;
 			} else {
 				?>
 				<div class="col-12 col-lg-8">
-					<div clas="row pt-2">
+					<div class="row pt-2">
 						<em><?php echo esc_attr( __( 'No results found', 'design_ict_site' ) ); ?></em>
 					</div>
 				</div>

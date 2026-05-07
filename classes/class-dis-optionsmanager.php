@@ -1089,7 +1089,7 @@ class DIS_OptionsManager {
 				<div class="cmb2-options-box">
 					<div class="nav-tab-wrapper">
 						<?php foreach ( $tabs as $option_key => $tab_title ) : ?>
-							<a class="nav-tab<?php echo ( $option_key === $current_page ) ? ' nav-tab-active' : ''; ?>" href="<?php menu_page_url( $option_key ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
+							<a class="nav-tab<?php echo ( $option_key === $current_page ) ? ' nav-tab-active' : ''; ?>" href="<?php echo esc_url( menu_page_url( $option_key, false ) ); ?>"><?php echo wp_kses_post( $tab_title ); ?></a>
 						<?php endforeach; ?>
 					</div>
 					<form class="cmb-form" action="<?php echo esc_url( admin_url( 'admin-post.php' ) ); ?>" method="POST" id="<?php echo esc_attr( $cmb_options->cmb->cmb_id ); ?>" enctype="multipart/form-data" encoding="multipart/form-data">

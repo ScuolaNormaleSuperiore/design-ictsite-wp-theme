@@ -288,7 +288,7 @@ class DIS_AutocompleteManager {
 	 * @param string $content Raw post content.
 	 * @return string
 	 */
-	public function clean_post_body( $content ) {
+	private static function clean_post_body( $content ) {
 		$plain_text = wp_strip_all_tags( $content );
 		$plain_text = preg_replace( '/&nbsp;/', ' ', $plain_text );
 		$plain_text = html_entity_decode( $plain_text, ENT_QUOTES | ENT_HTML5, 'UTF-8' );

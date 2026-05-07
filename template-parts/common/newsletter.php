@@ -27,7 +27,8 @@ if ( 'true' === $dis_newsletter_enabled ) {
 						</svg>
 					</div>
 				</div>
-				<input type="text"
+				<label for="user_mail" class="visually-hidden"><?php echo esc_html__( 'E-mail address', 'design_ict_site' ); ?></label>
+				<input type="email"
 					title="<?php echo esc_attr__( 'Enter your email address to receive updates', 'design_ict_site' ); ?>"
 					class="form-control bg-transparent text-white border-white"
 					id="user_mail"

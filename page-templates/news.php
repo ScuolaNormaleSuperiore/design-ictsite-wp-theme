@@ -144,7 +144,7 @@ $dis_num_results = $dis_query->found_posts;
 			} else {
 				?>
 				<div class="col-12 col-lg-8">
-					<div clas="row pt-2">
+					<div class="row pt-2">
 						<em><?php echo esc_attr( __( 'No results found', 'design_ict_site' ) ); ?></em>
 					</div>
 				</div>

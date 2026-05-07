@@ -146,7 +146,7 @@ class DIS_ExportManager {
 	 * @return void
 	 */
 	public static function manage_submit_action() {
-		if ( ! current_user_can( 'edit_pages' ) ) {
+		if ( ! current_user_can( 'manage_options' ) ) {
 			return;
 		}
 

@@ -43,7 +43,7 @@ class DIS_PageManager {
 	 * @return void
 	 */
 	public function edit_excerpt_metabox() {
-		remove_meta_box( 'postexcerpt', DIS_DEFAULT_POST, 'normal' );
+		remove_meta_box( 'postexcerpt', DIS_DEFAULT_PAGE, 'normal' );
 		// Adds the metabox under the main editor.
 		add_meta_box(
 			'postexcerpt',
