@@ -52,7 +52,7 @@ if ( $dis_section_enabled ) {
 									<a
 										<?php
 										if ( $dis_new_window ) {
-											echo 'target="_blank"';
+											echo 'target="_blank" rel="noopener noreferrer"';
 										}
 										?>
 										class="btn btn-sm btn-secondary"
