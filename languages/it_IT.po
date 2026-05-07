@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2026-04-27 12:50+0000\n"
+"PO-Revision-Date: 2026-05-07 12:45+0000\n"
 "Last-Translator: \n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -147,9 +147,13 @@ msgstr "Applica i filtri"
 msgid "Are you sure you want to remove?"
 msgstr "Sei sicuro di voler rimuovere?"
 
-#: single-dis-person.php:56
+#: single-dis-person.php:54
 msgid "Area/Service"
 msgstr "Area/Servizio"
+
+#: page-templates/articles.php:69
+msgid "Articles list"
+msgstr "Elenco articoli"
 
 #: single-dis-event.php:177
 msgid "Attachment"
@@ -228,7 +232,7 @@ msgid "Close alert"
 msgstr "Chiudi avviso"
 
 #: page-templates/faq-topic.php:121 page-templates/faq.php:117
-#: page-templates/search.php:200
+#: page-templates/search.php:201
 msgid "Code"
 msgstr "Codice"
 
@@ -236,7 +240,7 @@ msgstr "Codice"
 msgid "Configure the sections of the site."
 msgstr "Configura le sezioni del sito."
 
-#: template-parts/footer/contacts-section.php:22
+#: template-parts/footer/contacts-section.php:23
 msgid "Contact email address"
 msgstr "Indirizzo e-mail di contatto"
 
@@ -812,13 +816,14 @@ msgstr "documento"
 msgid "Documentation"
 msgstr "Documentazione"
 
-#: single-dis-event.php:146 single-dis-office.php:130 single-dis-person.php:64
+#: single-dis-event.php:146 single-dis-office.php:130 single-dis-person.php:62
 #: single-dis-place.php:112 classes/class-dis-optionsmanager.php:614
 msgid "E-mail"
 msgstr "E-mail"
 
 #: template-parts/common/newsletter.php:24
-#: template-parts/common/newsletter.php:35
+#: template-parts/common/newsletter.php:30
+#: template-parts/common/newsletter.php:36
 msgid "E-mail address"
 msgstr "Indirizzo e-mail"
 
@@ -936,12 +941,12 @@ msgstr "Inserisci i messaggi che verranno visualizzati nella home page"
 msgid "Enter the analytics code."
 msgstr "Inserisci il codice di analytics."
 
-#: template-parts/common/newsletter.php:31
+#: template-parts/common/newsletter.php:32
 msgid "Enter your email address to receive updates"
 msgstr "Inserisci il tuo indirizzo email per ricevere gli aggiornamenti"
 
 #. Name of the template
-#: page-templates/events.php:2
+#: page-templates/events.php:2 page-templates/events.php:67
 msgid "Events"
 msgstr "Eventi"
 
@@ -988,7 +993,7 @@ msgstr "FAQ"
 msgid "Faq"
 msgstr "Faq"
 
-#: page-templates/faq-topic.php:60
+#: page-templates/faq-topic.php:60 page-templates/faq.php:66
 msgid "FAQ by topic"
 msgstr "FAQ per argomento"
 
@@ -1005,7 +1010,7 @@ msgstr "Servizi in evidenza"
 msgid "Features"
 msgstr "Funzionalità"
 
-#: page-templates/search.php:153
+#: page-templates/search.php:154
 msgid "Filter by"
 msgstr "Filtra per"
 
@@ -1031,13 +1036,13 @@ msgstr "Logo del più pagina visibile"
 msgid "Footer menu"
 msgstr "Footer menu"
 
-#: template-parts/footer/contacts-section.php:16
+#: template-parts/footer/contacts-section.php:17
 msgid "FooterContactsDescription"
 msgstr ""
 "L'helpdesk telefonico è disponibile dal lunedì al venerdì in orario di "
 "ufficio (9.00-13.00/14.00-17.00)"
 
-#: template-parts/footer/contacts-section.php:13
+#: template-parts/footer/contacts-section.php:14
 msgid "FooterContactsLabel"
 msgstr "Helpdesk"
 
@@ -1052,7 +1057,7 @@ msgid "For support contact the %s"
 msgstr "Per supporto contatta l'%s"
 
 #. 1: number of results, 2: search string.
-#: page-templates/documentation.php:65 page-templates/search.php:84
+#: page-templates/documentation.php:65 page-templates/search.php:85
 #, php-format
 msgid "Found %1$s results for \"%2$s\"."
 msgstr "Trovati %1$s risultati per \"%2$s\"."
@@ -1098,7 +1103,7 @@ msgstr "Vai alla pagina: Newsletter"
 msgid "Go to the accessibility statement"
 msgstr "Vai alla dichiarazione di accessibilità"
 
-#: header.php:78
+#: header.php:78 header.php:202
 #| msgid "Go to the main content"
 msgid "Go to the content"
 msgstr "Vai al contenuto"
@@ -1111,6 +1116,8 @@ msgstr "Vai al piè pagina"
 msgid "Go to the menu"
 msgstr "Val al menu"
 
+#: template-parts/common/pagination.php:16
+#: template-parts/common/pagination.php:52
 #: template-parts/footer/offices-section.php:19
 msgid "Go to the page"
 msgstr "Vai alla pagina"
@@ -1266,7 +1273,7 @@ msgstr "Collegamento ad una pagina più approfondita, anche esterna al sito"
 msgid "Link to the repository of the project"
 msgstr "Link al repository del progetto"
 
-#: single-dis-project.php:103
+#: single-dis-event.php:161 single-dis-project.php:103
 #, fuzzy
 #| msgid "Link to the websiste of the project"
 msgid "Link to the website of the project"
@@ -1353,7 +1360,7 @@ msgid "NEW menu '%s' created."
 msgstr "NUOVO menu '%s' creato."
 
 #. Name of the template
-#: page-templates/news.php:2
+#: page-templates/news.php:2 page-templates/news.php:69
 msgid "News"
 msgstr "Notizie"
 
@@ -1409,7 +1416,7 @@ msgid "Office"
 msgstr "Ufficio"
 
 #. Name of the template
-#: page-templates/offices.php:2
+#: page-templates/offices.php:2 template-parts/common/people-section.php:70
 msgid "Offices"
 msgstr "Uffici"
 
@@ -1448,6 +1455,10 @@ msgstr "Tipo di luogo"
 msgid "Places"
 msgstr "Luoghi"
 
+#: page-templates/places.php:77
+msgid "Places list"
+msgstr "Elenco luoghi"
+
 #: single-dis-event.php:116 single-dis-place.php:129
 msgid "Position"
 msgstr "Posizione"
@@ -1475,6 +1486,7 @@ msgstr "Privacy Policy"
 
 #. Name of the template
 #: single-dis-office.php:65 page-templates/projects.php:2
+#: page-templates/projects.php:48
 #: template-parts/home/hp-projects-section.php:25
 msgid "Projects"
 msgstr "Progetti"
@@ -1552,8 +1564,8 @@ msgstr "Etichetta del bottone di destra"
 
 #. Name of the template
 #: page-templates/documentation.php:98 page-templates/documentation.php:120
-#: page-templates/search.php:2 page-templates/search.php:100
-#: page-templates/search.php:112 page-templates/search.php:134
+#: page-templates/search.php:2 page-templates/search.php:101
+#: page-templates/search.php:113 page-templates/search.php:135
 #: template-parts/header/site-search.php:18
 msgid "Search"
 msgstr "Cerca"
@@ -1578,7 +1590,7 @@ msgstr "Cerca nella documentazione"
 msgid "Search the FAQs"
 msgstr "Cerca tra le FAQ"
 
-#: page-templates/search.php:124
+#: page-templates/search.php:125
 msgid "Search the site"
 msgstr "Cerca nel sito"
 
@@ -1648,11 +1660,11 @@ msgstr "Mostra le icone dei social media"
 msgid "Show the section title"
 msgstr "Mostra il titolo della sezione"
 
-#: header.php:167
+#: header.php:167 page-templates/faq-topic.php:58
 msgid "Show/Hide navigation"
 msgstr "Mostra/Nascondi navigazione"
 
-#: template-parts/common/newsletter.php:41
+#: template-parts/common/newsletter.php:42
 msgid "Sign me up"
 msgstr "Iscrivimi"
 
@@ -1719,7 +1731,7 @@ msgstr "Creata con successo la pagina: '%s'."
 msgid "Tagline"
 msgstr "Tagline"
 
-#: single-dis-event.php:131 single-dis-office.php:114 single-dis-person.php:72
+#: single-dis-event.php:131 single-dis-office.php:114 single-dis-person.php:70
 #: single-dis-place.php:99
 msgid "Telephone"
 msgstr "Telefono"
@@ -1888,7 +1900,7 @@ msgstr "Warning"
 msgid "Web Analytics Code"
 msgstr "Codice per la Web Analytics"
 
-#: single-dis-person.php:78
+#: single-dis-person.php:76
 msgid "Web site"
 msgstr "Sito web"
 
@@ -1945,7 +1957,7 @@ msgstr "Hai installato i seguenti cookie di terze parti:"
 msgid "You have not installed third-party cookies"
 msgstr "Non hai installato cookie di terze parti"
 
-#: page-templates/search.php:81
+#: page-templates/search.php:82
 msgid "You need to enter some text in the search box."
 msgstr "E' necessario inserire il testo nella casella di ricerca."
 
