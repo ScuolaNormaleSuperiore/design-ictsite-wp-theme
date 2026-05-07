@@ -45,7 +45,7 @@ $dis_num_results = $dis_query->found_posts;
 			if ( $dis_num_results ) {
 				?>
 				<!-- RESULT LIST  -->
-				<ul class="it-card-list row" aria-label="Lista delle news">
+				<ul class="it-card-list row" aria-label="<?php echo esc_attr__( 'Projects', 'design_ict_site' ); ?>">
 					<?php
 					while ( $dis_query->have_posts() ) {
 						$dis_query->the_post();

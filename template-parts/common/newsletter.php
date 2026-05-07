@@ -11,7 +11,7 @@ if ( 'true' === $dis_newsletter_enabled ) {
 	$dis_page_url = DIS_MultiLangManager::get_page_link( NEWSLETTER_PAGE_SLUG );
 	?>
 	<h4>
-		<a href="#" title="<?php echo esc_attr__( 'Go to page: Newsletter', 'design_ict_site' ); ?>">
+		<a href="<?php echo esc_url( $dis_page_url ); ?>" title="<?php echo esc_attr__( 'Go to page: Newsletter', 'design_ict_site' ); ?>">
 			<?php echo esc_html__( 'Newsletter', 'design_ict_site' ); ?>
 		</a>
 	</h4>

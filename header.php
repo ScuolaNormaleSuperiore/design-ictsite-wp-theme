@@ -199,7 +199,7 @@ $dis_locations = get_nav_menu_locations();
 
 <main id="main-content"> <!-- closed in footer.php -->
 		<section class="container p-4">
-			<h1 class="visually-hidden">Contenuto principale</h1>
+			<h1 class="visually-hidden"><?php echo esc_html__( 'Go to the content', 'design_ict_site' ); ?></h1>
 
 			<!-- ALERT section -->
 			<?php get_template_part( 'template-parts/header/alert' ); ?>

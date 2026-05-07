@@ -13,7 +13,7 @@ $dis_current_page    = $args['current_page'] ?? 1;
 $dis_pagination_on   = $dis_num_results > intval( $dis_posts_per_page );
 ?>
 
-<nav class="pagination-wrapper justify-content-center mt-3" aria-label="Centered navigation">
+<nav class="pagination-wrapper justify-content-center mt-3" aria-label="<?php echo esc_attr__( 'Go to the page', 'design_ict_site' ); ?>">
 	<div class="row w-100" id="pagination_links">
 
 		<!-- Pages navigation -->
@@ -49,7 +49,7 @@ $dis_pagination_on   = $dis_num_results > intval( $dis_posts_per_page );
 				<div class="dropdown">
 					<button class="btn btn-dropdown dropdown-toggle" type="button" id="pagerChanger"
 						data-bs-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false" aria-label="Jump to the page">
+						aria-expanded="false" aria-label="<?php echo esc_attr__( 'Go to the page', 'design_ict_site' ); ?>">
 						<?php echo esc_html( $dis_posts_per_page ); ?>/<?php echo esc_html__( 'page', 'design_ict_site' ); ?>
 						<svg class="icon icon-primary icon-sm">
 							<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand' ); ?>"></use>

@@ -66,6 +66,9 @@ if ( ! empty( $dis_persons ) ) {
 				<div class="it-card-body">
 					<dl class="it-card-description-list">
 						<div>
+							<dt class="visually-hidden">
+								<?php echo esc_html__( 'Offices', 'design_ict_site' ); ?>
+							</dt>
 							<dd>
 								<?php echo wp_kses_post( $dis_full_offices ); ?>
 							</dd>

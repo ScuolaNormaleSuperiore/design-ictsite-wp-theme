@@ -63,7 +63,7 @@ $dis_items            = DIS_ContentsManager::get_top_faqs( 6 );
 			</div>
 		</div>
 		<!-- TOPICS -->
-		<div class="row h-100" role="region" aria-label="Lista argomenti FAQ">
+		<div class="row h-100" role="region" aria-label="<?php echo esc_attr__( 'FAQ by topic', 'design_ict_site' ); ?>">
 			<?php
 			if ( count( $dis_all_topics ) > 0 ) {
 				foreach ( $dis_all_topics as $dis_topic ) {

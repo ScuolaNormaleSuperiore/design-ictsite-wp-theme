@@ -158,7 +158,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 										<?php echo esc_html__( 'Website', 'design_ict_site' ); ?>
 									</span>
 										<svg class="icon">
-											<title>Link al sito web del progetto</title>
+											<title><?php echo esc_html__( 'Link to the website of the project', 'design_ict_site' ); ?></title>
 											<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-external-link' ); ?>"></use>
 										</svg>
 									</div>

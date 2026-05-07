@@ -55,7 +55,7 @@ if ( $dis_topic_slug ) {
 				<div class="col-12 col-lg-4">
 					<nav class="navbar it-navscroll-wrapper navbar-expand-lg it-bottom-navscroll it-left-side" data-bs-navscroll>
 						<button class="custom-navbar-toggler" type="button" aria-controls="navbarNav"
-							aria-label="Apri/Chiudi indice" data-bs-toggle="navbarcollapsible" data-bs-target="#navbarNav">
+							aria-label="<?php echo esc_attr__( 'Show/Hide navigation', 'design_ict_site' ); ?>" data-bs-toggle="navbarcollapsible" data-bs-target="#navbarNav">
 							<span class="it-list"></span>
 							<?php echo esc_attr( __( 'FAQ by topic', 'design_ict_site' ) ); ?>
 						</button>

@@ -33,9 +33,7 @@ $dis_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->I
 				<div class="it-card-profile-header">
 					<div class="it-card-profile">
 						<h2 class="it-card-profile-name ">
-							<a href="#">
-								<?php echo esc_html( $dis_full_name ); ?>
-							</a>
+							<?php echo esc_html( $dis_full_name ); ?>
 						</h2>
 						<p class="it-card-profile-role">
 							<?php echo esc_html( $dis_full_roles ); ?>
