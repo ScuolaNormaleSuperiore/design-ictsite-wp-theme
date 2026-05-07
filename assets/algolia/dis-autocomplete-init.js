@@ -75,11 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle" style="padding: 8px 12px;">
-											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;">
-												${html([highlightedName])}
-											</a>
-											<small>${html([highlightedText])}</small><br/>
-											<small>${html([objectType])}</small>
+											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;"
+												dangerouslySetInnerHTML=${{ __html: highlightedName }}></a>
+											<small dangerouslySetInnerHTML=${{ __html: highlightedText }}></small><br/>
+											<small dangerouslySetInnerHTML=${{ __html: objectType }}></small>
 										</div>
 									</div>
 								</div>`;
@@ -180,10 +179,9 @@ document.addEventListener('DOMContentLoaded', function() {
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle" style="padding: 8px 12px;">
-											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;">
-												${html([highlightedName])}
-											</a>
-											<small>${html([highlightedText])}</small>
+											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;"
+												dangerouslySetInnerHTML=${{ __html: highlightedName }}></a>
+											<small dangerouslySetInnerHTML=${{ __html: highlightedText }}></small>
 										</div>
 									</div>
 								</div>`;
@@ -266,10 +264,9 @@ document.addEventListener('DOMContentLoaded', function() {
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle" style="padding: 8px 12px;">
-											<a target="_blank" href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;">
-												${html([highlightedName])}
-											</a>
-											<small>${html([highlightedText])}</small>
+											<a target="_blank" href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;"
+												dangerouslySetInnerHTML=${{ __html: highlightedName }}></a>
+											<small dangerouslySetInnerHTML=${{ __html: highlightedText }}></small>
 										</div>
 									</div>
 								</div>`;
