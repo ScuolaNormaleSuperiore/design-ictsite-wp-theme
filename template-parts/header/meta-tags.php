@@ -21,7 +21,11 @@ $dis_keywords      = preg_replace( '/[^a-zA-Z0-9\s]/', '', $dis_page_title . ' '
 <meta name="keywords" content="<?php echo esc_attr( $dis_keywords ); ?>"/>
 <meta name="author" content="ICT Staff">
 <meta name="generator" content="">
-<meta name="robots" content="noindex">
+<?php
+// Robots indexing is intentionally NOT hardcoded here: WordPress core handles
+// the robots meta tag via the `wp_robots` filter on wp_head(), respecting the
+// Settings > Reading > "Search engine visibility" option (blog_public).
+?>
 
 <meta http-equiv="content-type" content="<?php echo esc_attr( $dis_charset ); ?>" />
 <meta http-equiv="content-language" content="<?php echo esc_attr( $dis_current_lang ); ?>" />
