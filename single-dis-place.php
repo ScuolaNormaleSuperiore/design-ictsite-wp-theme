@@ -39,7 +39,7 @@ $dis_full_address = array_filter( array( $dis_address, $dis_city, $dis_zip_code 
 					<?php echo esc_html__( 'Description', 'design_ict_site' ); ?>
 				</h3>
 				<p>
-					<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo nl2br( esc_html( $dis_short_description ) ); ?>
 				</p>
 			</div>
 

@@ -1,5 +1,4 @@
 <?php
-// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 /**
  * Definition of the Banner Manager.
  *

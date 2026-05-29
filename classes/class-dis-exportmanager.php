@@ -88,7 +88,7 @@ class DIS_ExportManager {
 		$faqs   = get_posts( $args );
 		$result = array();
 		foreach ( $faqs as $post ) {
-			$text     = wp_strip_all_tags( apply_filters( 'the_content', $post->post_content ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook.
+			$text     = wp_strip_all_tags( apply_filters( 'the_content', $post->post_content ) );
 			$related  = array();
 			$services = DIS_CustomFieldsManager::get_field( 'service', $post->ID );
 			if ( $services ) {
@@ -128,7 +128,7 @@ class DIS_ExportManager {
 		$services = get_posts( $args );
 		$result   = array();
 		foreach ( $services as $post ) {
-			$text = wp_strip_all_tags( apply_filters( 'the_content', $post->post_content ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core hook.
+			$text = wp_strip_all_tags( apply_filters( 'the_content', $post->post_content ) );
 			array_push(
 				$result,
 				array(

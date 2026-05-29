@@ -10,21 +10,14 @@ get_header();
 // Check pagination parameters.
 $dis_posts_per_page  = strval( DIS_ITEMS_PER_PAGE_EVEN );
 $dis_per_page_values = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-	$dis_posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
-}
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
+$dis_posts_per_page = DIS_ContentsManager::get_validated_per_page( $dis_per_page_values, $dis_posts_per_page );
 $dis_current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Parameters: get default values.
 $dis_all_categories = get_categories( array( 'hide_empty' => true ) );
 
 // Parameters: check and sanitize values.
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 if ( isset( $_GET['selected_categories'] ) && is_array( $_GET['selected_categories'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 	$dis_selected_categories = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_categories'] ) );
 } else {
 	$dis_selected_categories = array();

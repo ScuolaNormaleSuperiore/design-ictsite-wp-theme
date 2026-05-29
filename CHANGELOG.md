@@ -15,7 +15,9 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [DEV-0.2.0] - 2026-05-07
 ## Fixed
-- Bug-fixing
+- Bug-fixing: Fixed bug reported by AI.
+- Security: Fixed issues reported by AI.
+
 
 
 ## [DEV-0.1.9] - 2026-04-27

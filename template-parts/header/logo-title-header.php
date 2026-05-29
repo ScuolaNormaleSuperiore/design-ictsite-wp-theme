@@ -29,13 +29,12 @@ if ( 'true' === $dis_logo_visible ) {
 				</a>
 			<?php else : ?>
 				<a href="<?php echo esc_url( $dis_site_url ); ?>">
-					<svg xmlns="http://www.w3.org/2000/svg"
-						xmlns:xlink="http://www.w3.org/1999/xlink"
+					<?php // SVG logos are rendered via <img> so the browser uses secure static mode (no script execution, no external fetch), avoiding SVG-based XSS. ?>
+					<img src="<?php echo esc_url( $dis_logo_url ); ?>"
 						width="82"
 						height="82"
-						title="<?php echo esc_attr( $dis_site_title ); ?>">
-						<?php echo wp_remote_retrieve_body( wp_remote_get( $dis_logo_url ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
-					</svg>
+						alt="<?php echo esc_attr( $dis_site_title ); ?>"
+					/>
 				</a>
 			<?php endif; ?>
 		<?php else : ?>

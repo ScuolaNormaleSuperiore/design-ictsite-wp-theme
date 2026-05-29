@@ -23,7 +23,6 @@ $dis_pagination_on   = $dis_num_results > intval( $dis_posts_per_page );
 				$dis_prev_label = '<svg class="icon icon-primary" role="img" aria-labelledby="chevron-left"><title>Chevron Left</title><use href="' . esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-chevron-left' ) . '"></use></svg>';
 				$dis_next_label = '<svg class="icon icon-primary" role="img" aria-labelledby="chevron-right"><title>Chevron Right</title><use href="' . esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-chevron-right' ) . '"></use></svg>';
 
-				// phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped -- paginate_links() returns safe HTML.
 				echo paginate_links(
 					array(
 						'base'      => add_query_arg( 'num_page', '%#%' ),
@@ -43,7 +42,6 @@ $dis_pagination_on   = $dis_num_results > intval( $dis_posts_per_page );
 		<!-- Choose number of results per page -->
 		<div class="col-md-3 dli-dropdown-container">
 			<?php
-			// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 			if ( $dis_pagination_on || isset( $_GET['posts_per_page'] ) ) {
 				?>
 				<div class="dropdown">

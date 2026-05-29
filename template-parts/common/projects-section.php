@@ -21,7 +21,7 @@ $dis_col_lg   = ( ( $args['format'] ?? 'full' ) === 'full' ) ? 'col-lg-4' : 'col
 				</h3>
 				<div class="it-card-body">
 					<p class="it-card-text">
-						<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+						<?php echo nl2br( esc_html( $dis_short_description ) ); ?>
 					</p>
 				</div>
 			</article>

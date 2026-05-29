@@ -43,7 +43,7 @@ $dis_clusters   = DIS_ContentsManager::get_cluster_list();
 								</h3>
 								<div class="card-text font-serif">
 									<p>
-										<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+										<?php echo nl2br( esc_html( $dis_short_description ) ); ?>
 									</p>
 								</div>
 							</div>

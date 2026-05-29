@@ -7,9 +7,7 @@
 
 get_header();
 $dis_user_status = '';
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only filter parameter on public archive-style page.
 if ( isset( $_GET['user_status'] ) && ! empty( $_GET['user_status'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only filter parameter on public archive-style page.
 	$dis_user_status = sanitize_text_field( wp_unslash( $_GET['user_status'] ) );
 }
 if ( $dis_user_status ) {

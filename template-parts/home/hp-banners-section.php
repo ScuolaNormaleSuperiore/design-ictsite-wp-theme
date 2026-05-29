@@ -46,7 +46,7 @@ if ( $dis_section_enabled ) {
 								<span class="it-Categoria"><?php echo esc_html( $dis_section ); ?></span>
 								<h2><?php echo esc_html( $dis_item->post_title ); ?></h2>
 								<p class="d-none d-lg-block">
-									<?php echo wp_kses_post( apply_filters( 'the_content', $dis_item->post_content ) ); // phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedHooknameFound -- Core WordPress content filter. ?>
+									<?php echo wp_kses_post( apply_filters( 'the_content', $dis_item->post_content ) ); ?>
 								</p>
 								<div class="it-btn-container">
 									<a

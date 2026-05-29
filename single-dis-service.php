@@ -132,7 +132,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 								aria-labelledby="<?php echo esc_attr( 'heading' . $dis_item_id ); ?>"
 							>
 								<div class="accordion-body">
-									<?php echo wpautop( wp_kses_post( $dis_faq->post_content ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+									<?php echo wpautop( wp_kses_post( $dis_faq->post_content ) ); ?>
 								</div>
 							</div>
 						</div>

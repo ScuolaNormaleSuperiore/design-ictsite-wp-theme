@@ -10,15 +10,9 @@ get_header();
 // Check pagination parameters.
 $dis_posts_per_page  = strval( DIS_ITEMS_PER_PAGE_ODD );
 $dis_per_page_values = DIS_ITEMS_PER_PAGE_VALUES_ODD;
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-	$dis_posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
-}
+$dis_posts_per_page = DIS_ContentsManager::get_validated_per_page( $dis_per_page_values, $dis_posts_per_page );
 $dis_current_page = 1;
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive pagination parameter.
 if ( isset( $_GET['num_page'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive pagination parameter.
 	$dis_current_page = max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) );
 }
 
@@ -32,9 +26,7 @@ $dis_all_types = get_terms(
 );
 
 // Check and sanitize parameters.
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 if ( isset( $_GET['selected_types'] ) && is_array( $_GET['selected_types'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 	$dis_selected_types = array_map( 'sanitize_text_field', wp_unslash( $_GET['selected_types'] ) );
 } else {
 	$dis_selected_types = array();

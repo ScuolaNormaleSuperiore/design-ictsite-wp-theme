@@ -67,9 +67,7 @@ class DIS_ActivationManager {
 	 * @return void
 	 */
 	public static function get_page_code() {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin notice flag after safe redirect.
 		$is_reload = isset( $_GET['reloaded'] );
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only admin notice flag after safe redirect.
 		$reloaded_ok = $is_reload && ( '1' === sanitize_text_field( wp_unslash( $_GET['reloaded'] ) ) );
 		echo "<DIV class='wrap'>";
 		echo '<H1>' . esc_html__( 'Reload theme data', 'design_ict_site' ) . '</H1>';
@@ -254,15 +252,13 @@ class DIS_ActivationManager {
 			foreach ( $languages as $lang ) {
 				switch_to_locale( $lang->locale );
 
-				// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
-				$slug_trans = _x( $pg['content_slug'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
+				$slug_trans = _x( $pg['content_slug'], 'DIS_ActivationItems', 'design_ict_site' );
 				if ( $slug_trans ) {
 					$check_page  = self::get_content( $slug_trans, $pg['content_type'] );
 					$new_page_id = $check_page ? $check_page->ID : 0;
 					if ( 0 === $new_page_id ) {
 						// Create the page if not exists.
-						// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
-						$title_trans = _x( $pg['content_title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Seed config stores translation keys.
+						$title_trans = _x( $pg['content_title'], 'DIS_ActivationItems', 'design_ict_site' );
 						if ( $title_trans ) {
 							// Check if a page template exists.
 							$content = self::get_page_seed_content( $pg['content_file'], $lang->slug );
@@ -386,13 +382,11 @@ class DIS_ActivationManager {
 			foreach ( $menu_items as $menu_item ) {
 				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
 					// Link to pages or posts.
-					// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
-					$slug_trans = _x( $menu_item['slug'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
+					$slug_trans = _x( $menu_item['slug'], 'DIS_ActivationItems', 'design_ict_site' );
 					if ( $slug_trans ) {
 						$result = self::get_content( $slug_trans, $menu_item['content_type'] );
 
-						// phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
-						$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
+						$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' );
 						if ( $result ) {
 							$menu_item_id = $result->ID;
 							wp_update_nav_menu_item(
@@ -411,7 +405,7 @@ class DIS_ActivationManager {
 					}
 				} else {
 					// External links.
-					$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' ); // phpcs:ignore WordPress.WP.I18n.NonSingularStringLiteralText -- Menu config stores translation keys.
+					$title_trans = _x( $menu_item['title'], 'DIS_ActivationItems', 'design_ict_site' );
 					if ( $title_trans ) {
 						wp_update_nav_menu_item(
 							$menu->term_id,

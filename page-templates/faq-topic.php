@@ -20,9 +20,7 @@ $dis_all_topics = get_terms(
 $dis_default_topic      = count( $dis_all_topics ) > 0 ? $dis_all_topics[0] : null;
 $dis_default_topic_slug = $dis_default_topic ? $dis_default_topic->slug : '';
 $dis_default_topic_name = $dis_default_topic ? $dis_default_topic->name : '';
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only public filter parameter.
 $dis_topic_slug = isset( $_GET['topic'] ) ? sanitize_text_field( wp_unslash( $_GET['topic'] ) ) : $dis_default_topic_slug;
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only public filter parameter.
 if ( isset( $_GET['topic'] ) ) {
 	$dis_topic_term = get_term_by( 'slug', $dis_topic_slug, DIS_FAQ_TOPIC_TAXONOMY );
 	$dis_topic_name = ( $dis_topic_term && ! is_wp_error( $dis_topic_term ) ) ? $dis_topic_term->name : $dis_default_topic_name;

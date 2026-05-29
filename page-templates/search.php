@@ -16,24 +16,16 @@ $dis_query             = null;
 // Check pagination parameters.
 $dis_posts_per_page  = strval( DIS_ITEMS_PER_PAGE_EVEN );
 $dis_per_page_values = DIS_ITEMS_PER_PAGE_VALUES_EVEN;
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-	$dis_posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
-}
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive pagination parameter.
+$dis_posts_per_page = DIS_ContentsManager::get_validated_per_page( $dis_per_page_values, $dis_posts_per_page );
 $dis_current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Set and format the filters for the query.
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
 if ( isset( $_GET['isreset'] ) && 'yes' === sanitize_text_field( wp_unslash( $_GET['isreset'] ) ) ) {
 	$dis_selected_contents = $dis_default_ct_list;
 	$dis_search_string     = '';
 	$dis_searchable_ct     = $dis_default_ct_list;
 } else {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Search filters are read-only and final query is nonce-gated below.
 	if ( isset( $_GET['selected_contents'] ) ) {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended,WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Search filters are read-only and sanitized below.
 		$dis_raw = wp_unslash( $_GET['selected_contents'] );
 		if ( is_array( $dis_raw ) ) {
 			$dis_selected_contents = array_map( 'sanitize_text_field', $dis_raw );
@@ -46,19 +38,15 @@ if ( isset( $_GET['isreset'] ) && 'yes' === sanitize_text_field( wp_unslash( $_G
 		$dis_searchable_ct     = $dis_default_ct_list;
 	}
 
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Search input is additionally guarded by nonce verification below.
 	if ( isset( $_GET['search_string'] ) ) {
-		// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Search input is additionally guarded by nonce verification below.
 		$dis_search_string = sanitize_text_field( wp_unslash( $_GET['search_string'] ) );
 	}
 }
 
 $dis_results_ct = array();
 if (
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Explicit nonce validation follows immediately.
 	isset( $_GET['site_search_nonce_field'] ) &&
 	wp_verify_nonce(
-		// phpcs:ignore WordPress.Security.ValidatedSanitizedInput.InputNotSanitized -- Nonce is validated by wp_verify_nonce().
 		sanitize_text_field( wp_unslash( $_GET['site_search_nonce_field'] ) ),
 		'sf_site_search_nonce'
 	)

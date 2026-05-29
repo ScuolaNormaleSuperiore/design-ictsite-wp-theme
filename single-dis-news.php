@@ -26,7 +26,7 @@ $dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full',
 
 			<!-- Short description -->
 			<p class="lead">
-				<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+				<?php echo nl2br( esc_html( $dis_short_description ) ); ?>
 			</p>
 			<p class="data">
 				<?php echo esc_attr( get_the_date( 'j F Y' ) ); ?>

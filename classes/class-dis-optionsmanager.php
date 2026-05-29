@@ -5,15 +5,6 @@
  * @package Design_ICT_Site
  */
 
-// phpcs:disable Squiz.Commenting.VariableComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamTag
-// phpcs:disable Squiz.Commenting.FunctionComment.InvalidNoReturn
-// phpcs:disable Squiz.Commenting.FunctionComment.ParamCommentFullStop
-// phpcs:disable Squiz.Commenting.FunctionComment.ParamNameNoMatch
-
-
-
 /**
  * The manager of the Configuration menu.
  */
@@ -1078,8 +1069,8 @@ class DIS_OptionsManager {
 	public function options_display_with_tabs( $cmb_options ) {
 		$tabs         = self::options_page_tabs( $cmb_options );
 		$current_page = '';
-		if ( isset( $_GET['page'] ) ) { // phpcs:ignore WordPress.Security.NonceVerification.Recommended
-			$current_page = sanitize_key( wp_unslash( $_GET['page'] ) ); // phpcs:ignore WordPress.Security.NonceVerification.Recommended
+		if ( isset( $_GET['page'] ) ) {
+			$current_page = sanitize_key( wp_unslash( $_GET['page'] ) );
 		}
 		?>
 		<div class="wrap cmb2-options-page option-<?php echo esc_attr( $cmb_options->option_key ); ?>">

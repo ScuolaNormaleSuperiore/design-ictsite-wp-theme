@@ -1,24 +1,10 @@
 <?php
-// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 /**
  * Content helpers and wrappers used across the theme.
  *
  * @package Design_ICT_Site
  */
 
-// phpcs:disable Squiz.Commenting.VariableComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
-// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamTag
-// phpcs:disable Squiz.Commenting.FunctionComment.ParamCommentFullStop
-// phpcs:disable Squiz.Commenting.FunctionComment.ParamNameNoMatch
-// phpcs:disable Squiz.Commenting.FunctionComment.WrongStyle
-// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
-// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_query
-// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_meta_key
-// phpcs:disable WordPress.DB.SlowDBQuery.slow_db_query_tax_query
-// phpcs:disable WordPress.DB.DirectDatabaseQuery.NoCaching
-// phpcs:disable WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 /**
  * Wrapper used for Open Graph metadata rendering.
  */
@@ -371,7 +357,31 @@ class DIS_ContentsManager {
 		return $items_per_category;
 	}
 
-
+	/**
+	 * Return a request "posts_per_page" value validated against an allowlist.
+	 *
+	 * Reads the public `posts_per_page` query parameter and accepts it only if it
+	 * matches one of the allowed values; otherwise returns the provided default.
+	 * Works with any allowlist (e.g. DIS_ITEMS_PER_PAGE_VALUES_EVEN or _ODD), which
+	 * prevents unauthenticated requests from forcing oversized queries (e.g.
+	 * `?posts_per_page=999999`).
+	 *
+	 * Must be called at the public input boundary (page templates), not inside the
+	 * query builders, which legitimately receive `posts_per_page = -1` from internal callers.
+	 *
+	 * @param array  $allowed Whitelisted string values.
+	 * @param string $default Default value when the request value is not allowed.
+	 * @return string
+	 */
+	public static function get_validated_per_page( $allowed, $default ) {
+		if ( isset( $_GET['posts_per_page'] ) ) {
+			$requested = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
+			if ( in_array( $requested, (array) $allowed, true ) ) {
+				return $requested;
+			}
+		}
+		return (string) $default;
+	}
 
 	public static function get_generic_post_query( $params ) {
 		$args = array(
@@ -910,10 +920,9 @@ class DIS_ContentsManager {
 
 		// Single aggregated query instead of one WP_Query per post type.
 		$placeholders = implode( ', ', array_fill( 0, count( $slugs ), '%s' ) );
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 		$rows = $wpdb->get_results(
 			$wpdb->prepare(
-				"SELECT post_type, COUNT(*) AS total FROM {$wpdb->posts} WHERE post_type IN ($placeholders) AND post_status = 'publish' GROUP BY post_type", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				"SELECT post_type, COUNT(*) AS total FROM {$wpdb->posts} WHERE post_type IN ($placeholders) AND post_status = 'publish' GROUP BY post_type",
 				$slugs
 			)
 		);
@@ -978,10 +987,9 @@ class DIS_ContentsManager {
 
 		// Step 2: get distinct post_types for those IDs with a single lightweight query.
 		$placeholders = implode( ', ', array_fill( 0, count( $ids ), '%d' ) );
-		// phpcs:ignore WordPress.DB.DirectDatabaseQuery.DirectQuery, WordPress.DB.PreparedSQLPlaceholders.UnfinishedPrepare
 		$post_types = $wpdb->get_col(
 			$wpdb->prepare(
-				"SELECT DISTINCT post_type FROM {$wpdb->posts} WHERE ID IN ($placeholders)", // phpcs:ignore WordPress.DB.PreparedSQL.InterpolatedNotPrepared
+				"SELECT DISTINCT post_type FROM {$wpdb->posts} WHERE ID IN ($placeholders)",
 				$ids
 			)
 		);

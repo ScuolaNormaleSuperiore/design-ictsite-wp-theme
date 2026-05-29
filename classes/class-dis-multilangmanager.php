@@ -1,14 +1,9 @@
 <?php
-// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 /**
  * Definition of the Multi Language Manager: wrapper for Polylang.
  *
  * @package Design_ICT_Site
  */
-
-// phpcs:disable Squiz.Commenting.FunctionComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
-// phpcs:disable WordPress.WP.I18n.NonSingularStringLiteralText
 
 /**
  * The manager that wraps Polylang's libraries.

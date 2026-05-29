@@ -24,7 +24,7 @@ $dis_sitemap_tree = DIS_NavigationManager::get_sitemap_tree();
 
 				<!-- TREE -->
 				<?php if ( count( $dis_sitemap_tree ) > 0 ) : ?>
-					<?php echo dis_render_sitemap_html( $dis_sitemap_tree ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo dis_render_sitemap_html( $dis_sitemap_tree ); ?>
 				<?php endif; ?>
 
 			</div>

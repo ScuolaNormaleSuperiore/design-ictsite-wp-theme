@@ -1,4 +1,4 @@
-<?php // phpcs:ignore Squiz.Commenting.FileComment.Missing -- File comment already provided below.
+<?php
 /**
  * Section with the useful links menu of the footer.
  *

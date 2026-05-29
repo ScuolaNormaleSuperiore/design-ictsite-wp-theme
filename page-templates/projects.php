@@ -10,12 +10,7 @@ get_header();
 // Check pagination parameters.
 $dis_posts_per_page  = strval( DIS_ITEMS_PER_PAGE_ODD );
 $dis_per_page_values = DIS_ITEMS_PER_PAGE_VALUES_ODD;
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-if ( isset( $_GET['posts_per_page'] ) && is_numeric( $_GET['posts_per_page'] ) ) {
-	// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive filter parameter.
-	$dis_posts_per_page = sanitize_text_field( wp_unslash( $_GET['posts_per_page'] ) );
-}
-// phpcs:ignore WordPress.Security.NonceVerification.Recommended -- Read-only archive pagination parameter.
+$dis_posts_per_page = DIS_ContentsManager::get_validated_per_page( $dis_per_page_values, $dis_posts_per_page );
 $dis_current_page = isset( $_GET['num_page'] ) ? max( 1, intval( sanitize_text_field( wp_unslash( $_GET['num_page'] ) ) ) ) : 1;
 
 // Prepare the query.

@@ -1,16 +1,9 @@
 <?php
-// phpcs:ignoreFile WordPress.Files.FileName.InvalidClassFileName
 /**
  * Definition of the Navigation Manager.
  *
  * @package Design_ICT_Site
  */
-
-// phpcs:disable Generic.Files.OneObjectStructurePerFile.MultipleFound
-// phpcs:disable Universal.Files.SeparateFunctionsFromOO.Mixed
-// phpcs:disable Squiz.Commenting.VariableComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.Missing
-// phpcs:disable Squiz.Commenting.FunctionComment.MissingParamComment
 
 class DIS_TreeItem {
 	public string $name;
@@ -328,7 +321,7 @@ class DIS_NavigationManager {
 		header( 'Content-Type: application/xml; charset=' . get_bloginfo( 'charset' ) );
 
 		if ( 'index' === $sitemap_type ) {
-			echo self::render_sitemap_index_xml(); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo self::render_sitemap_index_xml();
 			exit;
 		}
 
@@ -337,12 +330,12 @@ class DIS_NavigationManager {
 			global $wp_query;
 			$wp_query->set_404();
 			status_header( 404 );
-			echo '<?xml version="1.0" encoding="UTF-8"?><error>Not found</error>'; // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+			echo '<?xml version="1.0" encoding="UTF-8"?><error>Not found</error>';
 			exit;
 		}
 
 		DIS_MultiLangManager::switch_language( $lang );
-		echo self::render_sitemap_xml( self::get_sitemap_tree() ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped
+		echo self::render_sitemap_xml( self::get_sitemap_tree() );
 		exit;
 	}
 

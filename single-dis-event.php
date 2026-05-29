@@ -58,7 +58,7 @@ $dis_full_offices      = DIS_ContentsManager::get_string_list_from_posts( $dis_o
 
 				<!-- Short description -->
 				<p>
-					<?php echo nl2br( esc_html( $dis_short_description ) ); // phpcs:ignore WordPress.Security.EscapeOutput.OutputNotEscaped ?>
+					<?php echo nl2br( esc_html( $dis_short_description ) ); ?>
 				</p>
 			</div>
 
