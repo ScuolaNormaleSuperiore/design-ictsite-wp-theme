@@ -1,4 +1,54 @@
 
+/**
+ * Escape a string for safe insertion as HTML text content.
+ *
+ * @param {*} value Raw value coming from the AJAX endpoint.
+ * @return {string} HTML-escaped string.
+ */
+function escapeHtml(value) {
+	return String(value ?? '')
+		.replace(/&/g, '&amp;')
+		.replace(/</g, '&lt;')
+		.replace(/>/g, '&gt;')
+		.replace(/"/g, '&quot;')
+		.replace(/'/g, '&#39;');
+}
+
+/**
+ * HTML-escape a text, then wrap the (case-insensitive) query matches in <mark>.
+ * The text is escaped first, so the only HTML injected afterwards is the <mark> wrapper.
+ *
+ * @param {*} text  Raw text to display.
+ * @param {string} query Trimmed search query.
+ * @return {string} Safe HTML string with highlighted matches.
+ */
+function highlightQuery(text, query) {
+	const escapedText = escapeHtml(text);
+	if (!query) {
+		return escapedText;
+	}
+	// Escape the query the same way as the text, then escape regex metacharacters,
+	// so matching stays consistent with the already-escaped text.
+	const escapedQuery = escapeHtml(query).replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&');
+	const regex = new RegExp(`(${escapedQuery})`, 'gi');
+	return escapedText.replace(regex, '<mark>$1</mark>');
+}
+
+/**
+ * Allow only http(s) absolute URLs or site-relative URLs; otherwise return '#'.
+ * Blocks dangerous schemes such as javascript: or data:.
+ *
+ * @param {*} url Raw URL coming from the AJAX endpoint.
+ * @return {string} A safe URL.
+ */
+function safeUrl(url) {
+	const value = String(url ?? '').trim();
+	if (/^\//.test(value) || /^https?:\/\//i.test(value)) {
+		return value;
+	}
+	return '#';
+}
+
 document.addEventListener('DOMContentLoaded', function() {
 
 	// Access the module Algolia Autocomplete.
@@ -62,20 +112,15 @@ document.addEventListener('DOMContentLoaded', function() {
 							item({ item, html, state }) {
 								// Use the html function provided by Algolia for the template.
 								const query = state.query.trim();
-								let highlightedName = item.name;
-								let highlightedText = item.text;
+								// Escape the raw values, then highlight the query matches.
+								const highlightedName = highlightQuery(item.name, query);
+								const highlightedText = highlightQuery(item.text, query);
+								const objectType = `<small style="text-transform: uppercase">${escapeHtml(item.type)}</small>`;
 
-								if (query.length > 0) {
-									// Crea una RegExp case-insensitive per evidenziare la query
-									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
-									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
-									objectType = `<small style="text-transform: uppercase">${item.type}</small>`;
-								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle" style="padding: 8px 12px;">
-											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;"
+											<a href="${safeUrl(item.link)}" style="text-decoration: underline; color: #3674B3; display: block;"
 												dangerouslySetInnerHTML=${{ __html: highlightedName }}></a>
 											<small dangerouslySetInnerHTML=${{ __html: highlightedText }}></small><br/>
 											<small dangerouslySetInnerHTML=${{ __html: objectType }}></small>
@@ -95,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						},
 						// Manage the click on each element.
 						onSelect({ item, event }) {
-							window.location.href = item.link;
+							window.location.href = safeUrl(item.link);
 						}
 					}
 				];
@@ -167,19 +212,14 @@ document.addEventListener('DOMContentLoaded', function() {
 							item({ item, html, state }) {
 								// Use the html function provided by Algolia for the template.
 								const query = state.query.trim();
-								let highlightedName = item.name;
-								let highlightedText = item.text;
+								// Escape the raw values, then highlight the query matches.
+								const highlightedName = highlightQuery(item.name, query);
+								const highlightedText = highlightQuery(item.text, query);
 
-								if (query.length > 0) {
-									// Create a case-insensitive RegExp to highlight the query.
-									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
-									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
-								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle" style="padding: 8px 12px;">
-											<a href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;"
+											<a href="${safeUrl(item.link)}" style="text-decoration: underline; color: #3674B3; display: block;"
 												dangerouslySetInnerHTML=${{ __html: highlightedName }}></a>
 											<small dangerouslySetInnerHTML=${{ __html: highlightedText }}></small>
 										</div>
@@ -198,7 +238,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						},
 						// Manage the click on each element.
 						onSelect({ item, event }) {
-							window.location.href = item.link;
+							window.location.href = safeUrl(item.link);
 						}
 					}
 				];
@@ -252,19 +292,14 @@ document.addEventListener('DOMContentLoaded', function() {
 							item({ item, html, state }) {
 								// Use the html function provided by Algolia for the template.
 								const query = state.query.trim();
-								let highlightedName = item.name;
-								let highlightedText = item.text;
+								// Escape the raw values, then highlight the query matches.
+								const highlightedName = highlightQuery(item.name, query);
+								const highlightedText = highlightQuery(item.text, query);
 
-								if (query.length > 0) {
-									// Create a case-insensitive RegExp to highlight the query.
-									const regex = new RegExp(`(${query.replace(/[-\/\\^$*+?.()|[\]{}]/g, '\\$&')})`, 'gi');
-									highlightedName = item.name.replace(regex, '<mark>$1</mark>');
-									highlightedText = item.text.replace(regex, '<mark>$1</mark>');
-								}
 								return html`<div class="aa-ItemWrapper">
 									<div class="aa-ItemContent">
 										<div class="aa-ItemTitle" style="padding: 8px 12px;">
-											<a target="_blank" href="${item.link}" style="text-decoration: underline; color: #3674B3; display: block;"
+											<a target="_blank" rel="noopener noreferrer" href="${safeUrl(item.link)}" style="text-decoration: underline; color: #3674B3; display: block;"
 												dangerouslySetInnerHTML=${{ __html: highlightedName }}></a>
 											<small dangerouslySetInnerHTML=${{ __html: highlightedText }}></small>
 										</div>
@@ -283,7 +318,7 @@ document.addEventListener('DOMContentLoaded', function() {
 						},
 						// Manage the click on each element.
 						onSelect({ item, event }) {
-							window.location.href = item.link;
+							window.location.href = safeUrl(item.link);
 						}
 					}
 				];

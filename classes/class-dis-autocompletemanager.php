@@ -137,7 +137,7 @@ class DIS_AutocompleteManager {
 					array_push(
 						$results,
 						array(
-							'name' => html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ),
+							'name' => html_entity_decode( wp_strip_all_tags( get_the_title( $p ) ), ENT_QUOTES, 'UTF-8' ),
 							'text' => html_entity_decode( self::get_post_snippet_by_search( $q, $p ), ENT_QUOTES, 'UTF-8' ),
 							'icon' => '',
 							'type' => $type,
@@ -178,7 +178,7 @@ class DIS_AutocompleteManager {
 					array_push(
 						$results,
 						array(
-							'name' => html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ),
+							'name' => html_entity_decode( wp_strip_all_tags( get_the_title( $p ) ), ENT_QUOTES, 'UTF-8' ),
 							'text' => html_entity_decode( self::get_post_snippet_by_search( $q, $p ), ENT_QUOTES, 'UTF-8' ),
 							'icon' => '',
 							'type' => $type,
@@ -222,7 +222,7 @@ class DIS_AutocompleteManager {
 					array_push(
 						$results,
 						array(
-							'name' => html_entity_decode( get_the_title( $p ), ENT_QUOTES, 'UTF-8' ),
+							'name' => html_entity_decode( wp_strip_all_tags( get_the_title( $p ) ), ENT_QUOTES, 'UTF-8' ),
 							'text' => html_entity_decode( self::get_post_snippet_by_search( $q, $p ), ENT_QUOTES, 'UTF-8' ),
 							'icon' => '',
 							'type' => $type,
