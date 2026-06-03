@@ -1,6 +1,6 @@
 <?php
 /**
- * Template Name: Faq
+ * Template Name: FAQ Topic
  *
  * @package Design_ICT_Site
  */

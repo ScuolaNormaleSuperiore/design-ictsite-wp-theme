@@ -10,6 +10,11 @@
 global $post;
 get_header();
 
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
+
 $dis_cluster_id = $post->ID;
 $dis_services   = DIS_ContentsManager::get_service_list( 'priority', $dis_cluster_id );
 $dis_clusters   = DIS_ContentsManager::get_cluster_list();

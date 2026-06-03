@@ -9,6 +9,11 @@
 
 global $post;
 get_header();
+
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
 $dis_name         = DIS_CustomFieldsManager::get_field( 'name', $post->ID );
 $dis_surname      = DIS_CustomFieldsManager::get_field( 'surname', $post->ID );
 $dis_honorific    = DIS_CustomFieldsManager::get_field( 'honorific', $post->ID );

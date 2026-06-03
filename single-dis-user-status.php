@@ -7,12 +7,7 @@
  * @package Design_ICT_Site
  */
 
-global $post;
-get_header();
-?>
-
-<h3>User Status detail page</h3>
-
-
-<?php
-get_footer();
+// This post type has no public single view: redirect single requests to the
+// home page.
+wp_safe_redirect( home_url( '/' ) );
+exit;

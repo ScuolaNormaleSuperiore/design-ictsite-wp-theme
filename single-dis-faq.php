@@ -10,6 +10,11 @@
 global $post;
 get_header();
 
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
+
 $dis_topics        = wp_get_post_terms( $post->ID, DIS_FAQ_TOPIC_TAXONOMY );
 $dis_topics_string = DIS_ContentsManager::get_topic_string_from_terms( $dis_topics, true );
 // Increment the counter of the visits.

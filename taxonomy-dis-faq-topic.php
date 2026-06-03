@@ -7,24 +7,14 @@
  * @package Design_ICT_Site
  */
 
-global $post;
-global $wp_query;
-get_header();
+// FAQ topic taxonomy archive: redirect to the FAQ-by-topic page, passing the
+// requested topic as a query argument so the dedicated template handles it.
+$dis_term_slug  = get_query_var( 'term' );
+$dis_topic_page = DIS_MultiLangManager::get_page_by_label( FAQ_TOPIC_PAGE_SLUG );
 
-$dis_taxonomy_slug = get_query_var( 'taxonomy' );
-$dis_term_slug     = get_query_var( 'term' );
-if ( $dis_taxonomy_slug && $dis_term_slug ) {
-	?>
-
-
-REDIRECT TO:
-<BR/>
-	<?php echo esc_html( $dis_taxonomy_slug ); ?>
-<BR/>
-	<?php echo esc_html( $dis_term_slug ); ?>
-<BR/>
-
-
-	<?php
+if ( $dis_topic_page && $dis_term_slug ) {
+	wp_safe_redirect( add_query_arg( 'topic', $dis_term_slug, get_permalink( $dis_topic_page ) ) );
+} else {
+	wp_safe_redirect( home_url( '/' ) );
 }
-get_footer();
+exit;

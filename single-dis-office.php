@@ -10,6 +10,11 @@
 global $post;
 get_header();
 
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
+
 $dis_image_data  = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 $dis_persons     = DIS_CustomFieldsManager::get_field( 'members', $post->ID );
 $dis_email       = DIS_CustomFieldsManager::get_field( 'email', $post->ID );

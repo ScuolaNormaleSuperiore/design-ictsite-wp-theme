@@ -11,6 +11,11 @@
 
 global $post;
 get_header();
+
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
 ?>
 
 <!-- BASIC PAGE -->

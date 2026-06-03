@@ -47,7 +47,7 @@ class DIS_ExportManager {
 		add_theme_page(
 			esc_html__( 'Export data', 'design_ict_site' ),
 			esc_html__( 'Export data', 'design_ict_site' ),
-			DIS_EDIT_THEME_PERMISSION,
+			'manage_options',
 			self::$main_page,
 			array( self::class, 'get_export_data_page' )
 		);

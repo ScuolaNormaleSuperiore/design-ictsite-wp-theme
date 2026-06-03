@@ -10,6 +10,11 @@
 global $post;
 get_header();
 
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
+
 $dis_short_description = DIS_CustomFieldsManager::get_field( 'short_description', $post->ID );
 $dis_image_data        = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 $dis_getting_here      = DIS_CustomFieldsManager::get_field( 'getting_here', $post->ID );

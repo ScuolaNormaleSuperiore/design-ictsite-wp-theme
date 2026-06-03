@@ -51,7 +51,7 @@ class DIS_SponsorManager {
 			'menu_icon'     => 'dashicons-megaphone',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
-			'rewrite'       => array( 'slug' => dis_ct_data()[ DIS_SPONSOR_POST_TYPE ]['singular_name'] ),
+			'rewrite'       => array( 'slug' => dis_ct_data()[ DIS_SPONSOR_POST_TYPE ]['slug'] ),
 			'taxonomies'    => array( DIS_DEFAULT_CATEGORY, DIS_DEFAULT_TAGS ),
 		);
 

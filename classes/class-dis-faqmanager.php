@@ -46,7 +46,7 @@ class DIS_FaqManager {
 			'query_var'         => true,
 			'rewrite'           => array(
 				'slug'       => DIS_FAQ_TOPIC_TAXONOMY,
-				'with-front' => false,
+				'with_front' => false,
 			),
 			'show_in_rest'      => true,
 		);
@@ -80,6 +80,7 @@ class DIS_FaqManager {
 			'menu_icon'     => 'dashicons-code-standards',
 			'has_archive'   => false,
 			'show_in_rest'  => true,
+			'rewrite'       => array( 'slug' => dis_ct_data()[ DIS_FAQ_POST_TYPE ]['slug'] ),
 			'taxonomies'    => array(
 				DIS_DEFAULT_CATEGORY,
 				DIS_DEFAULT_TAGS,

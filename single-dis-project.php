@@ -10,6 +10,11 @@
 global $post;
 get_header();
 
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
+
 $dis_image_data = DIS_ContentsManager::get_image_metadata( $post, 'full', '/assets/img/default-background.png' );
 $dis_website    = DIS_CustomFieldsManager::get_field( 'website', $post->ID );
 $dis_repository = DIS_CustomFieldsManager::get_field( 'repository', $post->ID );

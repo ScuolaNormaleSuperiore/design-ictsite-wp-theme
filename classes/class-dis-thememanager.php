@@ -259,16 +259,39 @@ class DIS_ThemeManager {
 	}
 
 	/**
-	 * Force the permalink format for this site.
+	 * Set a sensible default permalink structure once, on theme activation.
+	 *
+	 * Hooked to after_switch_theme (not init) so the global site option is not
+	 * overridden on every request: the administrator stays free to change the
+	 * permalink structure afterwards. The structure is only set when permalinks
+	 * are still "Plain" (empty), so an existing pretty structure is preserved.
+	 *
+	 * The rewrite flush is deferred to the next init (see
+	 * maybe_flush_rewrite_rules()) because custom post types are not yet
+	 * registered when after_switch_theme fires.
 	 *
 	 * @return void
 	 */
 	public function configure_permalink() {
-		$desired = '/%postname%/';
-		if ( get_option( 'permalink_structure' ) !== $desired ) {
-			update_option( 'permalink_structure', $desired );
-			global $wp_rewrite;
-			$wp_rewrite->flush_rules();
+		if ( '' === get_option( 'permalink_structure' ) ) {
+			update_option( 'permalink_structure', '/%postname%/' );
+		}
+		// Defer the rewrite flush to the next init, when CPT rules exist.
+		update_option( 'dis_flush_rewrite_needed', '1' );
+	}
+
+	/**
+	 * Flush rewrite rules once after activation, when CPTs are registered.
+	 *
+	 * Runs on init at a late priority so custom post type rewrite rules are
+	 * already registered; clears the one-shot flag set by configure_permalink().
+	 *
+	 * @return void
+	 */
+	public function maybe_flush_rewrite_rules() {
+		if ( get_option( 'dis_flush_rewrite_needed' ) ) {
+			flush_rewrite_rules();
+			delete_option( 'dis_flush_rewrite_needed' );
 		}
 	}
 
@@ -310,10 +333,41 @@ class DIS_ThemeManager {
 		);
 		// Hook per nascondere la versione del CMS (tag generator).
 		add_filter( 'the_generator', '__return_null' );
-		// Disable XMLRPC service.
-		add_filter( 'xmlrpc_enabled', '__return_false' );
+		// XML-RPC: disabled unless explicitly enabled via the theme option.
+		if ( 'true' !== DIS_OptionsManager::dis_get_option( 'xmlrpc_api_enabled', 'dis_opt_advanced_settings' ) ) {
+			add_filter( 'xmlrpc_enabled', '__return_false' );
+		}
+		// REST API: restricted to authenticated users unless explicitly enabled
+		// via the theme option (a full disable would break the block editor/admin).
+		if ( 'true' !== DIS_OptionsManager::dis_get_option( 'rest_api_enabled', 'dis_opt_advanced_settings' ) ) {
+			add_filter( 'rest_authentication_errors', array( $this, 'restrict_rest_to_authenticated' ) );
+		}
 		// Disable the core WordPress sitemap in favor of the theme custom sitemap.
 		add_filter( 'wp_sitemaps_enabled', '__return_false' );
+	}
+
+	/**
+	 * Restrict REST API access to authenticated users.
+	 *
+	 * Used when the "Enable the REST API" option is off. Authenticated users keep
+	 * full access (so the block editor and admin REST calls keep working); anonymous
+	 * requests are rejected.
+	 *
+	 * @param WP_Error|null|true $result Current authentication result.
+	 * @return WP_Error|null|true
+	 */
+	public function restrict_rest_to_authenticated( $result ) {
+		if ( ! empty( $result ) ) {
+			return $result;
+		}
+		if ( ! is_user_logged_in() ) {
+			return new WP_Error(
+				'rest_not_logged_in',
+				__( 'The REST API is restricted to authenticated users.', 'design_ict_site' ),
+				array( 'status' => rest_authorization_required_code() )
+			);
+		}
+		return $result;
 	}
 
 	/**
@@ -358,7 +412,10 @@ class DIS_ThemeManager {
 	 * @return void
 	 */
 	private function setup_site_structure() {
-		add_action( 'init', array( $this, 'configure_permalink' ) );
+		// Set the default permalink structure once, on activation, then flush
+		// rewrite rules on the following init when CPT rules are available.
+		add_action( 'after_switch_theme', array( $this, 'configure_permalink' ) );
+		add_action( 'init', array( $this, 'maybe_flush_rewrite_rules' ), 99 );
 	}
 
 	/**

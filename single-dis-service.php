@@ -10,6 +10,11 @@
 global $post;
 get_header();
 
+if ( ! $post instanceof WP_Post ) {
+	get_footer();
+	return;
+}
+
 $dis_service_link     = DIS_CustomFieldsManager::get_field( 'service_link', $post->ID );
 $dis_features         = DIS_CustomFieldsManager::get_field( 'features', $post->ID );
 $dis_requirements     = DIS_CustomFieldsManager::get_field( 'requirements', $post->ID );

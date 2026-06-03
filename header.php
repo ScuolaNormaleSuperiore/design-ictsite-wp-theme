@@ -198,13 +198,21 @@ $dis_locations = get_nav_menu_locations();
 <!-- END HEADER -->
 
 <main id="main-content"> <!-- closed in footer.php -->
-		<section class="container p-4">
-			<h1 class="visually-hidden"><?php echo esc_html__( 'Go to the content', 'design_ict_site' ); ?></h1>
+		<h1 class="visually-hidden"><?php echo esc_html__( 'Go to the content', 'design_ict_site' ); ?></h1>
+		<?php
+		// Show the alert/breadcrumb band only when it has content: on the blog home
+		// both alert and breadcrumb are empty, so the padded section would otherwise
+		// render as an empty strip. The condition mirrors alert.php's own check.
+		$dis_alert_messages = DIS_OptionsManager::dis_get_option( 'messages', 'dis_opt_site_alerts' );
+		$dis_has_alert      = is_array( $dis_alert_messages ) && ! empty( $dis_alert_messages )
+			&& array_key_exists( 'message_text', $dis_alert_messages[0] );
+		if ( ! is_home() || $dis_has_alert ) :
+			?>
+			<section class="container p-4">
+				<!-- ALERT section -->
+				<?php get_template_part( 'template-parts/header/alert' ); ?>
 
-			<!-- ALERT section -->
-			<?php get_template_part( 'template-parts/header/alert' ); ?>
-
-			<!-- BREADCRUMB-->
-			<?php get_template_part( 'template-parts/header/breadcrumb' ); ?>
-
-		</section>
+				<!-- BREADCRUMB-->
+				<?php get_template_part( 'template-parts/header/breadcrumb' ); ?>
+			</section>
+		<?php endif; ?>
