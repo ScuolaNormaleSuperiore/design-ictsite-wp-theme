@@ -22,6 +22,7 @@ class DIS_OfficeManager {
 	public function setup() {
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
+		add_action( 'init', array( $this, 'attach_taxonomies' ), 20 );
 	}
 
 	/**
@@ -59,6 +60,16 @@ class DIS_OfficeManager {
 
 		// Add the custom fields.
 		$this->add_fields();
+	}
+
+	/**
+	 * Re-attach core taxonomies after the post type registration phase.
+	 *
+	 * @return void
+	 */
+	public function attach_taxonomies() {
+		register_taxonomy_for_object_type( DIS_DEFAULT_CATEGORY, DIS_OFFICE_POST_TYPE );
+		register_taxonomy_for_object_type( DIS_DEFAULT_TAGS, DIS_OFFICE_POST_TYPE );
 	}
 
 	/**

@@ -24,6 +24,8 @@ class DIS_PersonManager {
 		add_action( 'init', array( $this, 'add_taxonomies' ) );
 		// Register the post type.
 		add_action( 'init', array( $this, 'add_post_type' ) );
+		// Attach default taxonomies.
+		add_action( 'init', array( $this, 'attach_taxonomies' ), 20 );
 	}
 
 	/**
@@ -88,6 +90,15 @@ class DIS_PersonManager {
 		$this->add_fields();
 	}
 
+	/**
+	 * Re-attach core taxonomies after the post type registration phase.
+	 *
+	 * @return void
+	 */
+	public function attach_taxonomies() {
+		register_taxonomy_for_object_type( DIS_DEFAULT_CATEGORY, DIS_PERSON_POST_TYPE );
+		register_taxonomy_for_object_type( DIS_DEFAULT_TAGS, DIS_PERSON_POST_TYPE );
+	}
 
 	/**
 	 * Add the custom fields of the custom post-type.
