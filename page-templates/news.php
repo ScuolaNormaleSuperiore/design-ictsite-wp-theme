@@ -111,7 +111,7 @@ $dis_num_results = $dis_query->found_posts;
 										}
 										if ( $dis_category && $dis_list_page ) {
 											?>
-										<a href="<?php echo esc_url( add_query_arg( 'category', $dis_category->slug, get_permalink( $dis_list_page ) ) ); ?>"
+										<a href="<?php echo esc_url( add_query_arg( 'selected_categories[]', $dis_category->slug, get_permalink( $dis_list_page ) ) ); ?>"
 											class="it-card-category it-card-link link-secondary">
 											<span class="visually-hidden">
 												<?php echo esc_html__( 'Related category', 'design_ict_site' ); ?>:&nbsp;

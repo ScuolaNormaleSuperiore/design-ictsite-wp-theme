@@ -15,7 +15,7 @@ define( 'DIS_NETWORK_NAME', 'Network' );
 
 // DEFAULT WP TAXONOMIES.
 define( 'DIS_DEFAULT_CATEGORY', 'category' );
-define( 'DIS_DEFAULT_TAGS', 'post-tag' );
+define( 'DIS_DEFAULT_TAGS', 'post_tag' );
 define( 'DIS_PLACE_TYPE_TAXONOMY', 'dis-place-type' );
 define( 'DIS_PERSON_ROLE_TAXONOMY', 'dis-person-role' );
 define( 'DIS_USER_STATUS_TAXONOMY', 'dis-user-status' );
