@@ -72,13 +72,17 @@ class DIS_NavigationManager {
 					$post_parent  = $post->post_parent;
 					$post_parents = array();
 					while ( $post_parent !== 0 ) {
-						$post_tmp       = get_post( $post_parent );
+						$post_tmp = get_post( $post_parent );
+						if ( ! $post_tmp instanceof WP_Post ) {
+							// Parent missing/trashed: stop walking the chain.
+							break;
+						}
 						$post_parents[] = new DIS_BreadItem(
 							$post_tmp->post_title,
 							get_permalink( $post_tmp->ID ),
 							'breadcrumb-item'
 						);
-						$post_parent    = $post_tmp->post_parent;
+						$post_parent = (int) $post_tmp->post_parent;
 					}
 					$post_parents = ( count( $post_parents ) > 1 ) ? array_reverse( $post_parents ) : $post_parents;
 					foreach ( $post_parents as $parent ) {
@@ -101,7 +105,7 @@ class DIS_NavigationManager {
 					if ( $ct instanceof WP_Post ) {
 						array_push(
 							$steps,
-							$post_parents[] = new DIS_BreadItem(
+							new DIS_BreadItem(
 								$ct->post_title,
 								get_permalink( $ct ),
 								'breadcrumb-item'
@@ -110,7 +114,7 @@ class DIS_NavigationManager {
 					}
 					array_push(
 						$steps,
-						$post_parents[] = new DIS_BreadItem(
+						new DIS_BreadItem(
 							$post->post_title,
 							'',
 							'breadcrumb-item active'
@@ -122,7 +126,7 @@ class DIS_NavigationManager {
 					if ( $ct instanceof WP_Post ) {
 						array_push(
 							$steps,
-							$post_parents[] = new DIS_BreadItem(
+							new DIS_BreadItem(
 								$ct->post_title,
 								get_permalink( $ct ),
 								'breadcrumb-item'
@@ -131,7 +135,7 @@ class DIS_NavigationManager {
 					}
 					array_push(
 						$steps,
-						$post_parents[] = new DIS_BreadItem(
+						new DIS_BreadItem(
 							$post->post_title,
 							'',
 							'breadcrumb-item active'

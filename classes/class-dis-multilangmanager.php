@@ -155,19 +155,23 @@ class DIS_MultiLangManager {
 	public static function get_page_selectors() {
 		global $post;
 		$selectors        = array();
-		$site_url         = self::get_home_url();
 		$languages_list   = self::get_languages_list();
 		$default_language = self::get_default_language();
 		$current_language = self::get_current_language();
 		// Home Page is the same for all languages.
 		if ( is_home() ) {
 
-			// Home Page.
+			// Build each language home URL relative to the site root via
+			// pll_home_url(), never relative to the current language: otherwise
+			// switching from a non-default language back to the default one would
+			// keep the current language prefix and stay on the wrong language.
 			foreach ( $languages_list as $lang_slug ) {
-				if ( $lang_slug !== $default_language ) {
-					$url = $site_url . '/' . $lang_slug;
+				if ( function_exists( 'pll_home_url' ) ) {
+					$url = pll_home_url( $lang_slug );
+				} elseif ( $lang_slug !== $default_language ) {
+					$url = get_site_url() . '/' . $lang_slug;
 				} else {
-					$url = $site_url;
+					$url = get_site_url();
 				}
 				array_push(
 					$selectors,

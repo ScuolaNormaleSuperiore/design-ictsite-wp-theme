@@ -9,7 +9,6 @@ if ( 'true' === DIS_OptionsManager::dis_get_option( 'seo_internal_management_ena
 	$dis_og_data = DIS_ContentsManager::get_og_data();
 	?>
 
-	<link rel="profile" href="http://gmpg.org/xfn/11" />
 	<title><?php echo esc_html( $dis_og_data->shared_title ); ?></title>
 	<link rel="canonical" href="<?php echo esc_url( $dis_og_data->url ); ?>" />
 	<meta property="og:locale" content="<?php echo esc_attr( $dis_og_data->locale ); ?>" />
@@ -29,7 +28,7 @@ if ( 'true' === DIS_OptionsManager::dis_get_option( 'seo_internal_management_ena
 	<meta name="twitter:creator" content="ICT Team">
 	<meta name="twitter:title" content="<?php echo esc_attr( $dis_og_data->title ); ?>">
 	<meta name="twitter:description" content="<?php echo esc_attr( $dis_og_data->description ); ?>">
-	<meta name="twitter:image" content="<?php echo esc_attr( $dis_og_data->image ); ?>">
+	<meta name="twitter:image" content="<?php echo esc_url( $dis_og_data->image ); ?>">
 	<meta name="twitter:url" content="<?php echo esc_url( $dis_og_data->url ); ?>">
 
 	<?php
