@@ -12,12 +12,15 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Check wp_enqueue_scripts (how many time is called?).
 
 
+
+## [1.0.2] - 2026-09-11
+
+
+
 ## [1.0.1] - 2026-09-10
 ## Changed
 - Changed the theme license from `GPL-3.0-only` to `GPL-3.0-or-later`, aligning `style.css`, `package.json`, `package-lock.json`, `publiccode.yml` and `README.md`. The `LICENSE` file is unchanged: the GPL v3 text is the same, only the declaration differs. The bundled third-party components keep their own licenses.
 - Documented in the README that the license applies to the theme's own code, with a pointer to `CREDITS.txt` for the bundled components.
-
-
 
 ## [1.0.0] - 2026-09-10
 First stable release. Versioning drops the `DEV-` prefix and follows plain Semantic Versioning.

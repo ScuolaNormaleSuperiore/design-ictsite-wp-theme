@@ -2,7 +2,7 @@
 **WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***.
 
 ## Project status
-The project is stable. The current release is **1.0.1**.
+The project is stable. The current release is **1.0.2**.
 All notable changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 
