@@ -12,11 +12,18 @@
 "bootstrap-italia": "^<new_version>"
 },
 ```
-1. Also edit the *README.md* file on the line:
+6. Use a shell to access the template's root directory: ***design-ictsite-wp-theme***.
+7. Run the command ***npm install***
+8. Run the command ***npm run update_layout_win*** or ***npm run update_layout_linux***. This command produces a new *bootstrap-italia-custom.min* file that overwrites the existing one.
+9. Add an entry under ***Changed*** in the ***CHANGELOG.md*** file, for example: `Updates Bootstrap Italia to <new_version>.`
+10. Verify that the correct version of ***Bootstrap Italia*** is loaded.
+
+## Checks after the update
+
+- `assets/bootstrap-italia/version.js` must declare the new version in `BOOTSTRAP_ITALIA_VERSION`.
+- `assets/bootstrap-italia/` must match `node_modules/bootstrap-italia/dist/`, with no leftover files from the previous version:
 ```
-The project uses the [***Bootstrap Italia <new_version>***] library.
+diff -rq assets/bootstrap-italia node_modules/bootstrap-italia/dist
 ```
-1. Use a shell to access the template's root directory: ***design-ictsite-wp-theme***.
-2. Run the command ***npm install***
-3. Run the command ***npm run update_layout_win*** or ***npm run update_layout_linux***. This command produces a new *bootstrap-italia-custom.min* file that overwrites the existing one.
-4. Verify that the correct version of ***Bootstrap Italia*** is loaded.
+- `assets/css/bootstrap-italia-custom.min.css` must be regenerated and must contain the new value of `--bootstrap-italia-version`.
+- `npm ls bootstrap-italia`, `package.json` and `package-lock.json` must all report the same version.

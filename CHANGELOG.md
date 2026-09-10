@@ -13,6 +13,15 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
+## [Unreleased]
+## Changed
+- Updates Bootstrap Italia to 2.18.3.
+- Updates Algolia Autocomplete to 1.19.10 (panel repositioning, keyboard auto-scroll, animation performance).
+## Fixed
+- Fixed the wrong Bootstrap Italia sprites path in the common video section template.
+
+
+
 ## [DEV-0.2.0] - 2026-05-07
 ## Fixed
 - Bug-fixing: Fixed bug reported by AI.
