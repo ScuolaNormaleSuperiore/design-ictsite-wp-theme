@@ -14,6 +14,9 @@ get_header();
 
 $dis_home_url    = DIS_MultiLangManager::get_home_url();
 $dis_search_link = DIS_MultiLangManager::get_page_link( SITE_SEARCH_PAGE_SLUG );
+// The page listing every service, resolved by its activation label so the link
+// stays correct in every language.
+$dis_services_page = DIS_MultiLangManager::get_page_by_label( SERVICE_ITEM_PAGE_SLUG );
 // wp_get_referer() returns false when the referer is missing or external,
 // so the "go back" link can never become an open redirect.
 $dis_back_url = wp_get_referer();
@@ -63,6 +66,15 @@ $dis_sprites  = DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg';
 						<?php echo esc_html__( 'Go to the search page', 'design_ict_site' ); ?>
 						<svg class="icon icon-sm icon-white ms-2" aria-hidden="true">
 							<use href="<?php echo esc_url( $dis_sprites . '#it-search' ); ?>"></use>
+						</svg>
+					</a>
+				<?php endif; ?>
+
+				<?php if ( $dis_services_page instanceof WP_Post ) : ?>
+					<a class="btn btn-sm btn-primary ms-3" href="<?php echo esc_url( get_permalink( $dis_services_page ) ); ?>">
+						<?php echo esc_html__( 'Full list of services', 'design_ict_site' ); ?>
+						<svg class="icon icon-sm icon-white ms-2" aria-hidden="true">
+							<use href="<?php echo esc_url( $dis_sprites . '#it-list' ); ?>"></use>
 						</svg>
 					</a>
 				<?php endif; ?>

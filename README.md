@@ -2,7 +2,7 @@
 **WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***.
 
 ## Project status
-The project is stable. The current release is **1.0.0**.
+The project is stable. The current release is **1.0.1**.
 All notable changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 
@@ -53,8 +53,12 @@ This is an open-source project. [Here](https://github.com/ScuolaNormaleSuperiore
 
 
 ## License
-The theme is released under the terms of the [GNU General Public License v3.0](LICENSE), as declared in
-`publiccode.yml` (`license: GPL-3.0-only`). The full text is available in the [LICENSE](LICENSE) file.
+The theme is released under the terms of the
+[GNU General Public License v3.0 or later](LICENSE), as declared in `publiccode.yml`
+(`license: GPL-3.0-or-later`). The full text is available in the [LICENSE](LICENSE) file.
+
+This applies to the theme's own code. The bundled third-party components keep their
+respective licenses, listed in [CREDITS.txt](CREDITS.txt).
 
 ## Reuse Catalogue
 The project is published in the Developers Italia reuse catalog. [This](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36) the project Home Page.

@@ -1,6 +1,6 @@
 {
   "name": "design-ictsite-wp-theme",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "WordPress theme for ICT sites",
   "main": "index.js",
   "scripts": {
@@ -26,7 +26,7 @@
     "url": "git+https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme.git"
   },
   "author": "Servizi Informativi SNS",
-  "license": "GPL-3.0-only",
+  "license": "GPL-3.0-or-later",
   "bugs": {
     "url": "https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/issues"
   },
