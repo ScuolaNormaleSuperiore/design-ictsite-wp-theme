@@ -3,7 +3,7 @@ msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2025-03-10 08:30+0000\n"
-"PO-Revision-Date: 2026-05-07 13:06+0000\n"
+"PO-Revision-Date: 2026-09-10 08:21+0000\n"
 "Last-Translator: claudio bat\n"
 "Language-Team: Italiano\n"
 "Language: it_IT\n"
@@ -41,7 +41,7 @@ msgstr ""
 "Accetta i cookie di YouTube per vedere il video. Puoi gestire le preferenze "
 "nella <a target=\"_blank\" href=\"%s\" class=\"text-white\">%s</a>."
 
-#: single-dis-service.php:48
+#: single-dis-service.php:53
 msgid "Access the service"
 msgstr "Accedi al servizio"
 
@@ -53,40 +53,40 @@ msgstr "Navigazione accessoria"
 msgid "Activity banner"
 msgstr "Banner attività"
 
-#: classes/class-dis-optionsmanager.php:224
+#: classes/class-dis-optionsmanager.php:215
 msgid "Add a message"
 msgstr "Aggiungi un messaggio"
 
-#: classes/class-dis-personmanager.php:39
+#: classes/class-dis-personmanager.php:40
 msgid "Add a person role"
 msgstr "Aggiungi un ruolo"
 
-#: classes/class-dis-placemanager.php:41
+#: classes/class-dis-placemanager.php:40
 msgid "Add a Place Type"
 msgstr "Aggiungi un tipo di luogo"
 
-#: classes/class-dis-faqmanager.php:39
+#: classes/class-dis-faqmanager.php:38
 msgid "Add a topic"
 msgstr "Aggiungi un argomento"
 
 #: classes/class-dis-attachmentmanager.php:41
 #: classes/class-dis-attachmentmanager.php:42
 #: classes/class-dis-bannermanager.php:38
-#: classes/class-dis-bannermanager.php:39 classes/class-dis-eventmanager.php:38
-#: classes/class-dis-eventmanager.php:39 classes/class-dis-faqmanager.php:67
-#: classes/class-dis-faqmanager.php:68 classes/class-dis-newsmanager.php:38
-#: classes/class-dis-newsmanager.php:39 classes/class-dis-officemanager.php:39
-#: classes/class-dis-personmanager.php:65
-#: classes/class-dis-personmanager.php:66 classes/class-dis-placemanager.php:68
-#: classes/class-dis-placemanager.php:69
-#: classes/class-dis-projectmanager.php:38
+#: classes/class-dis-bannermanager.php:39 classes/class-dis-eventmanager.php:39
+#: classes/class-dis-eventmanager.php:40 classes/class-dis-faqmanager.php:66
+#: classes/class-dis-faqmanager.php:67 classes/class-dis-newsmanager.php:39
+#: classes/class-dis-newsmanager.php:40 classes/class-dis-officemanager.php:39
+#: classes/class-dis-personmanager.php:66
+#: classes/class-dis-personmanager.php:67 classes/class-dis-placemanager.php:67
+#: classes/class-dis-placemanager.php:68
 #: classes/class-dis-projectmanager.php:39
-#: classes/class-dis-serviceclustermanager.php:38
+#: classes/class-dis-projectmanager.php:40
 #: classes/class-dis-serviceclustermanager.php:39
-#: classes/class-dis-servicemanager.php:68
+#: classes/class-dis-serviceclustermanager.php:40
 #: classes/class-dis-servicemanager.php:69
-#: classes/class-dis-sponsormanager.php:38
+#: classes/class-dis-servicemanager.php:70
 #: classes/class-dis-sponsormanager.php:39
+#: classes/class-dis-sponsormanager.php:40
 msgid "Add an item"
 msgstr "Aggiungi un oggetto"
 
@@ -94,22 +94,22 @@ msgstr "Aggiungi un oggetto"
 msgid "Add an item "
 msgstr "Aggiungi un oggetto"
 
-#: classes/class-dis-servicemanager.php:41
+#: classes/class-dis-servicemanager.php:42
 msgid "Add an user status"
 msgstr "Aggiungi uno stato utente"
 
-#: classes/class-dis-optionsmanager.php:309
+#: classes/class-dis-optionsmanager.php:300
 msgid "Add the section"
 msgstr "Aggiungi la sezione"
 
-#: single-dis-office.php:98 single-dis-place.php:72
-#: classes/class-dis-optionsmanager.php:606
+#: single-dis-office.php:103 single-dis-place.php:77
+#: classes/class-dis-optionsmanager.php:597
 msgid "Address"
 msgstr "Indirizzo"
 
-#: classes/class-dis-optionsmanager.php:879
-#: classes/class-dis-optionsmanager.php:882
-#: classes/class-dis-optionsmanager.php:896
+#: classes/class-dis-optionsmanager.php:870
+#: classes/class-dis-optionsmanager.php:873
+#: classes/class-dis-optionsmanager.php:887
 msgid "Advanced options"
 msgstr "Opzioni avanzate"
 
@@ -121,11 +121,11 @@ msgstr "Avviso"
 msgid "All articles"
 msgstr "tutti gli articoli"
 
-#: single-dis-event.php:219 template-parts/home/hp-events-section.php:100
+#: single-dis-event.php:224 template-parts/home/hp-events-section.php:100
 msgid "All events"
 msgstr "Tutti gli eventi"
 
-#: single-dis-news.php:69 template-parts/home/hp-news-section.php:93
+#: single-dis-news.php:74 template-parts/home/hp-news-section.php:93
 msgid "All news"
 msgstr "Tutte le notizie"
 
@@ -133,41 +133,41 @@ msgstr "Tutte le notizie"
 msgid "All projects"
 msgstr "Tutti i progetti"
 
-#: classes/class-dis-optionsmanager.php:834
+#: classes/class-dis-optionsmanager.php:825
 msgid "API token"
 msgstr "Token dell'API"
 
-#: page-templates/articles.php:211 page-templates/events.php:217
-#: page-templates/news.php:211 page-templates/places.php:187
+#: page-templates/articles.php:204 page-templates/events.php:210
+#: page-templates/news.php:204 page-templates/places.php:179
 msgid "Apply filters"
 msgstr "Applica i filtri"
 
-#: classes/class-dis-optionsmanager.php:228
-#: classes/class-dis-optionsmanager.php:313
+#: classes/class-dis-optionsmanager.php:219
+#: classes/class-dis-optionsmanager.php:304
 msgid "Are you sure you want to remove?"
 msgstr "Sei sicuro di voler rimuovere?"
 
-#: single-dis-person.php:54
+#: single-dis-person.php:59
 msgid "Area/Service"
 msgstr "Area/Servizio"
 
-#: page-templates/articles.php:69
+#: page-templates/articles.php:62
 msgid "Articles list"
 msgstr "Elenco articoli"
 
-#: single-dis-event.php:177
+#: single-dis-event.php:182
 msgid "Attachment"
 msgstr "Allegato"
 
-#: classes/class-dis-optionsmanager.php:410
+#: classes/class-dis-optionsmanager.php:401
 msgid "Autocomplete sections"
 msgstr "Sezioni di completamento automatico"
 
-#: page-templates/faq-topic.php:75
+#: page-templates/faq-topic.php:73
 msgid "Back"
 msgstr "Indietro"
 
-#: classes/class-dis-optionsmanager.php:552
+#: classes/class-dis-optionsmanager.php:543
 msgid "Background image"
 msgstr "Immagine di sfondo"
 
@@ -175,11 +175,11 @@ msgstr "Immagine di sfondo"
 msgid "Banner"
 msgstr "Banner"
 
-#: classes/class-dis-optionsmanager.php:81
+#: classes/class-dis-optionsmanager.php:72
 msgid "Base options"
 msgstr "Opzioni base"
 
-#: classes/class-dis-optionsmanager.php:827
+#: classes/class-dis-optionsmanager.php:818
 msgid "Brevo"
 msgstr "Brevo"
 
@@ -187,19 +187,19 @@ msgstr "Brevo"
 msgid "Browse by profile"
 msgstr "Naviga per profilo"
 
-#: page-templates/faq-topic.php:81
+#: page-templates/faq-topic.php:79
 msgid "Browse by topic"
 msgstr "Naviga per argomento"
 
-#: classes/class-dis-optionsmanager.php:322
+#: classes/class-dis-optionsmanager.php:313
 msgid "Choose the section."
 msgstr "Scegli la sezione."
 
-#: classes/class-dis-optionsmanager.php:305
+#: classes/class-dis-optionsmanager.php:296
 msgid "Choose the site sections"
 msgstr "Scegli la sezione del sito"
 
-#: classes/class-dis-optionsmanager.php:176
+#: classes/class-dis-optionsmanager.php:167
 msgid ""
 "Choose the the footer logo. If it is not present, but the display of the "
 "logo in the footer is enabled, the header logo is shown with inverted colors."
@@ -210,11 +210,11 @@ msgstr ""
 "visualizzato con colori invertiti. Si consiglia di caricare un'immagine in "
 "formato SVG."
 
-#: classes/class-dis-optionsmanager.php:598
+#: classes/class-dis-optionsmanager.php:589
 msgid "City"
 msgstr "Città"
 
-#: classes/class-dis-activationmanager.php:77
+#: classes/class-dis-activationmanager.php:75
 msgid ""
 "Click the button to reload theme data: post-types, taxonomies, sections, "
 "pages, menu, etc. "
@@ -222,7 +222,7 @@ msgstr ""
 "Fare clic sul pulsante per ricaricare i dati del tema: tipi di post, "
 "tassonomie, sezioni, pagine, menu, ecc."
 
-#: page-templates/faq-topic.php:66
+#: page-templates/faq-topic.php:64
 msgid "Close"
 msgstr "Chiudi"
 
@@ -231,12 +231,12 @@ msgstr "Chiudi"
 msgid "Close alert"
 msgstr "Chiudi avviso"
 
-#: page-templates/faq-topic.php:121 page-templates/faq.php:117
-#: page-templates/search.php:201
+#: page-templates/faq-topic.php:119 page-templates/faq.php:117
+#: page-templates/search.php:189
 msgid "Code"
 msgstr "Codice"
 
-#: classes/class-dis-optionsmanager.php:297
+#: classes/class-dis-optionsmanager.php:288
 msgid "Configure the sections of the site."
 msgstr "Configura le sezioni del sito."
 
@@ -253,7 +253,7 @@ msgstr "Contatta l'help desk per assistenza tecnica."
 msgid "Contacts"
 msgstr "Contatti"
 
-#: single-dis-project.php:55
+#: single-dis-project.php:60
 msgid "Contributors"
 msgstr "Partecipanti"
 
@@ -261,11 +261,11 @@ msgstr "Partecipanti"
 msgid "Cookies management"
 msgstr "Gestione dei cookie"
 
-#: classes/class-dis-optionsmanager.php:239
+#: classes/class-dis-optionsmanager.php:230
 msgid "Danger"
 msgstr "Pericolo"
 
-#: single-dis-faq.php:31 single-dis-office.php:33 single-dis-place.php:39
+#: single-dis-faq.php:36 single-dis-office.php:38 single-dis-place.php:44
 msgid "Description"
 msgstr "Descrizione"
 
@@ -273,7 +273,7 @@ msgstr "Descrizione"
 msgid "Design ICT Site"
 msgstr "Design ICT Site"
 
-#: single-dis-service.php:76
+#: single-dis-service.php:81
 msgid "Designed for"
 msgstr "Realizzato per"
 
@@ -759,62 +759,62 @@ msgctxt "DIS_SiteOptionLabel"
 msgid "MainHeroTitle"
 msgstr "Come posso aiutarti?"
 
-#: classes/class-dis-personmanager.php:37
+#: classes/class-dis-personmanager.php:38
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Person Roles"
 msgstr "Ruoli delle persone"
 
-#: classes/class-dis-placemanager.php:39
+#: classes/class-dis-placemanager.php:38
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Place Type"
 msgstr "Tipo di luogo"
 
-#: classes/class-dis-faqmanager.php:37
+#: classes/class-dis-faqmanager.php:36
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "Topics"
 msgstr "Argomenti"
 
-#: classes/class-dis-servicemanager.php:39
+#: classes/class-dis-servicemanager.php:40
 msgctxt "DIS_TaxonomyGeneralName"
 msgid "User Status"
 msgstr "Stato utente"
 
-#: classes/class-dis-personmanager.php:38
+#: classes/class-dis-personmanager.php:39
 msgctxt "DIS_TaxonomySingularName"
 msgid "Person Role"
 msgstr "Ruolo persona"
 
-#: classes/class-dis-placemanager.php:40
+#: classes/class-dis-placemanager.php:39
 msgctxt "DIS_TaxonomySingularName"
 msgid "Place Type"
 msgstr "Tipo luogo"
 
-#: classes/class-dis-faqmanager.php:38
+#: classes/class-dis-faqmanager.php:37
 msgctxt "DIS_TaxonomySingularName"
 msgid "Topic"
 msgstr "Argomanto"
 
-#: classes/class-dis-servicemanager.php:40
+#: classes/class-dis-servicemanager.php:41
 msgctxt "DIS_TaxonomySingularName"
 msgid "User Status"
 msgstr "Stato utente"
 
-#: classes/class-dis-optionsmanager.php:1033
+#: classes/class-dis-optionsmanager.php:1024
 msgid "Do not count the views of the robots."
 msgstr "Non contare le visualizzazioni dei robot."
 
-#: page-templates/documentation.php:172
+#: page-templates/documentation.php:163
 msgid "Document"
 msgstr "documento"
 
 #. Name of the template
-#: single-dis-service.php:153 page-templates/documentation.php:2
-#: page-templates/documentation.php:86 page-templates/help-desk.php:51
+#: single-dis-service.php:158 page-templates/documentation.php:2
+#: page-templates/documentation.php:77 page-templates/help-desk.php:51
 msgid "Documentation"
 msgstr "Documentazione"
 
-#: single-dis-event.php:146 single-dis-office.php:130 single-dis-person.php:62
-#: single-dis-place.php:112 classes/class-dis-optionsmanager.php:614
+#: single-dis-event.php:151 single-dis-office.php:135 single-dis-person.php:67
+#: single-dis-place.php:117 classes/class-dis-optionsmanager.php:605
 msgid "E-mail"
 msgstr "E-mail"
 
@@ -824,7 +824,7 @@ msgstr "E-mail"
 msgid "E-mail address"
 msgstr "Indirizzo e-mail"
 
-#: classes/class-dis-optionsmanager.php:220
+#: classes/class-dis-optionsmanager.php:211
 msgid ""
 "Each message is built through a short description (max 300 characters) and "
 "expiration date (optional) translated into all languages supported by the "
@@ -835,78 +835,78 @@ msgstr ""
 "supportate dal sito"
 
 #: classes/class-dis-attachmentmanager.php:43
-#: classes/class-dis-bannermanager.php:40 classes/class-dis-eventmanager.php:40
-#: classes/class-dis-faqmanager.php:69 classes/class-dis-newsmanager.php:40
+#: classes/class-dis-bannermanager.php:40 classes/class-dis-eventmanager.php:41
+#: classes/class-dis-faqmanager.php:68 classes/class-dis-newsmanager.php:41
 #: classes/class-dis-officemanager.php:40
-#: classes/class-dis-personmanager.php:67 classes/class-dis-placemanager.php:70
-#: classes/class-dis-projectmanager.php:40
-#: classes/class-dis-serviceclustermanager.php:40
-#: classes/class-dis-servicemanager.php:70
-#: classes/class-dis-sponsormanager.php:40
+#: classes/class-dis-personmanager.php:68 classes/class-dis-placemanager.php:69
+#: classes/class-dis-projectmanager.php:41
+#: classes/class-dis-serviceclustermanager.php:41
+#: classes/class-dis-servicemanager.php:71
+#: classes/class-dis-sponsormanager.php:41
 msgid "Edit the item"
 msgstr "Modifica l'oggetto"
 
-#: classes/class-dis-optionsmanager.php:417
+#: classes/class-dis-optionsmanager.php:408
 msgid "Enable Home Page autocomplete"
 msgstr "Abilita autocompletamento in Home Page"
 
-#: classes/class-dis-optionsmanager.php:1011
+#: classes/class-dis-optionsmanager.php:1002
 msgid "Enable internal SEO management"
 msgstr "Abilita la gestione SEO interna"
 
-#: classes/class-dis-optionsmanager.php:932
+#: classes/class-dis-optionsmanager.php:923
 msgid "Enable language selector"
 msgstr "Abilita selettore lingua"
 
-#: classes/class-dis-optionsmanager.php:456
+#: classes/class-dis-optionsmanager.php:447
 msgid "Enable site documentation autocomplete"
 msgstr "Abilita il completamento automatico della documentazione del sito"
 
-#: classes/class-dis-optionsmanager.php:443
+#: classes/class-dis-optionsmanager.php:434
 msgid "Enable site FAQ autocomplete"
 msgstr "Abilita atocompletamento nelle FAQ"
 
-#: classes/class-dis-optionsmanager.php:430
+#: classes/class-dis-optionsmanager.php:421
 msgid "Enable site search autocomplete"
 msgstr "Abilita autocompletamento nella ricerca"
 
-#: classes/class-dis-optionsmanager.php:457
+#: classes/class-dis-optionsmanager.php:448
 msgid "Enable the autocomplete in the documentation page"
 msgstr "Abilita il completamento automatico nella pagina della documentazione"
 
-#: classes/class-dis-optionsmanager.php:444
+#: classes/class-dis-optionsmanager.php:435
 msgid "Enable the autocomplete in the FAQ page"
 msgstr "Abilita il completamento automatico nella pagina FAQ"
 
-#: classes/class-dis-optionsmanager.php:418
+#: classes/class-dis-optionsmanager.php:409
 msgid "Enable the autocomplete in the main hero of the Home Page"
 msgstr ""
 "Abilita il completamento automatico nell'eroe principale della Home Page"
 
-#: classes/class-dis-optionsmanager.php:431
+#: classes/class-dis-optionsmanager.php:422
 msgid "Enable the autocomplete in the site search page"
 msgstr "Abilita il completamento automatico nella pagina di ricerca del sito"
 
-#: classes/class-dis-optionsmanager.php:1059
+#: classes/class-dis-optionsmanager.php:1050
 msgid "Enable the counter of the views of the FAQ detail page."
 msgstr ""
 "Abilita il contatore delle visualizzazioni della pagina dei dettagli delle "
 "FAQ."
 
-#: classes/class-dis-optionsmanager.php:1046
+#: classes/class-dis-optionsmanager.php:1037
 msgid "Enable the counter of the views of the service detail page."
 msgstr ""
 "Abilita il contatore delle visualizzazioni della pagina dei dettagli del "
 "servizio."
 
-#: classes/class-dis-optionsmanager.php:686
+#: classes/class-dis-optionsmanager.php:677
 msgid ""
 "Enable the display of social media in the header and footer of the page."
 msgstr ""
 "Abilita la visualizzazione dei social media nell'intestazione e nel piè di "
 "pagina della pagina."
 
-#: classes/class-dis-optionsmanager.php:1012
+#: classes/class-dis-optionsmanager.php:1003
 msgid ""
 "Enable the internal management of SEO and OG tags or disable it to delegate "
 "this job to an external plugin."
@@ -914,27 +914,27 @@ msgstr ""
 "Abilita la gestione interna dei tag SEO e OG oppure disattivala per delegare "
 "questo lavoro a un plugin esterno."
 
-#: classes/class-dis-optionsmanager.php:809
+#: classes/class-dis-optionsmanager.php:800
 msgid "Enable the newsletter"
 msgstr "Abilita la newsletter"
 
-#: classes/class-dis-optionsmanager.php:971
+#: classes/class-dis-optionsmanager.php:962
 msgid "Enable the REST API"
 msgstr "Abilita la API REST"
 
-#: classes/class-dis-optionsmanager.php:991
+#: classes/class-dis-optionsmanager.php:982
 msgid "Enable the XMLRPC API"
 msgstr "Abilita la API XMLRPC "
 
-#: classes/class-dis-optionsmanager.php:333
+#: classes/class-dis-optionsmanager.php:324
 msgid "Enable this section"
 msgstr "Abilita questa sezione"
 
-#: classes/class-dis-optionsmanager.php:212
+#: classes/class-dis-optionsmanager.php:203
 msgid "Enter messages that will be displayed on the homepage"
 msgstr "Inserisci i messaggi che verranno visualizzati nella home page"
 
-#: classes/class-dis-optionsmanager.php:953
+#: classes/class-dis-optionsmanager.php:944
 msgid "Enter the analytics code."
 msgstr "Inserisci il codice di analytics."
 
@@ -943,11 +943,11 @@ msgid "Enter your email address to receive updates"
 msgstr "Inserisci il tuo indirizzo email per ricevere gli aggiornamenti"
 
 #. Name of the template
-#: page-templates/events.php:2 page-templates/events.php:67
+#: page-templates/events.php:2 page-templates/events.php:60
 msgid "Events"
 msgstr "Eventi"
 
-#: classes/class-dis-pagemanager.php:50 classes/class-dis-postmanager.php:50
+#: classes/class-dis-pagemanager.php:49 classes/class-dis-postmanager.php:49
 msgid "Excerpt"
 msgstr "Estratto"
 
@@ -981,20 +981,25 @@ msgstr "Esporta nel formato JSON"
 msgid "Export Services"
 msgstr "Esporta i servizi"
 
-#: single-dis-service.php:109 page-templates/help-desk.php:44
+#: single-dis-service.php:114 page-templates/help-desk.php:44
 msgid "FAQ"
 msgstr "FAQ"
 
 #. Name of the template
-#: page-templates/faq-topic.php:2 page-templates/faq.php:2
+#: page-templates/faq.php:2
 msgid "Faq"
 msgstr "Faq"
 
-#: page-templates/faq-topic.php:60 page-templates/faq.php:66
+#: page-templates/faq-topic.php:58 page-templates/faq.php:66
 msgid "FAQ by topic"
 msgstr "FAQ per argomento"
 
-#: classes/class-dis-optionsmanager.php:1058
+#. Name of the template
+#: page-templates/faq-topic.php:2
+msgid "FAQ Topic"
+msgstr "Argomento delle FAQ"
+
+#: classes/class-dis-optionsmanager.php:1049
 msgid "FAQ views counter"
 msgstr "Contatore visualizzazioni FAQ"
 
@@ -1003,21 +1008,21 @@ msgstr "Contatore visualizzazioni FAQ"
 msgid "Featured services"
 msgstr "Servizi in evidenza"
 
-#: single-dis-service.php:57
+#: single-dis-service.php:62
 msgid "Features"
 msgstr "Funzionalità"
 
-#: page-templates/search.php:154
+#: page-templates/search.php:142
 msgid "Filter by"
 msgstr "Filtra per"
 
-#: page-templates/articles.php:179 page-templates/articles.php:183
-#: page-templates/events.php:185 page-templates/events.php:189
-#: page-templates/news.php:179 page-templates/news.php:183
+#: page-templates/articles.php:172 page-templates/articles.php:176
+#: page-templates/events.php:178 page-templates/events.php:182
+#: page-templates/news.php:172 page-templates/news.php:176
 msgid "Filter by category"
 msgstr "Filtra per categoria"
 
-#: page-templates/places.php:160 page-templates/places.php:164
+#: page-templates/places.php:152 page-templates/places.php:156
 msgid "Filter by place type"
 msgstr "Filtra per tipo di luogo"
 
@@ -1025,7 +1030,7 @@ msgstr "Filtra per tipo di luogo"
 msgid "Follow us on"
 msgstr "Seguici su"
 
-#: classes/class-dis-optionsmanager.php:162
+#: classes/class-dis-optionsmanager.php:153
 msgid "Footer logo visible"
 msgstr "Logo del più pagina visibile"
 
@@ -1048,26 +1053,26 @@ msgid "FooterOfficesLabel"
 msgstr "Area Progetti e Servizi ICT"
 
 #. %s: help desk link.
-#: single-dis-service.php:206
+#: single-dis-service.php:211
 #, php-format
 msgid "For support contact the %s"
 msgstr "Per supporto contatta l'%s"
 
 #. 1: number of results, 2: search string.
-#: page-templates/documentation.php:65 page-templates/search.php:85
+#: page-templates/documentation.php:56 page-templates/search.php:73
 #, php-format
 msgid "Found %1$s results for \"%2$s\"."
 msgstr "Trovati %1$s risultati per \"%2$s\"."
 
 #. %s: number of results.
-#: page-templates/documentation.php:71
+#: page-templates/documentation.php:62
 #, php-format
 msgid "Found %s results."
 msgstr "Trovati %s risultati."
 
 #. 1: event start date, 2: event end date.
 #. 1: start date, 2: end date.
-#: single-dis-event.php:48 page-templates/events.php:113
+#: single-dis-event.php:53 page-templates/events.php:106
 #, php-format
 msgid "From %1$s to %2$s"
 msgstr "Da %1$s a %2$s"
@@ -1077,17 +1082,17 @@ msgstr "Da %1$s a %2$s"
 msgid "Full list of services"
 msgstr "Elenco completo dei servizi"
 
-#: single-dis-service.php:191
+#: single-dis-service.php:196
 #, fuzzy
 #| msgid "Get help"
 msgid "Get Help"
 msgstr "Supporto"
 
-#: single-dis-service.php:87
+#: single-dis-service.php:92
 msgid "Get started"
 msgstr "Per iniziare"
 
-#: page.php:54 page.php:57 page.php:62 page-templates/privacy.php:82
+#: 404.php:50 page.php:59 page.php:62 page.php:67 page-templates/privacy.php:82
 #: page-templates/privacy.php:85 page-templates/privacy.php:90
 msgid "Go back"
 msgstr "Torna indietro"
@@ -1100,7 +1105,7 @@ msgstr "Vai alla pagina: Newsletter"
 msgid "Go to the accessibility statement"
 msgstr "Vai alla dichiarazione di accessibilità"
 
-#: header.php:78 header.php:202
+#: header.php:78 header.php:201
 #| msgid "Go to the main content"
 msgid "Go to the content"
 msgstr "Vai al contenuto"
@@ -1109,17 +1114,25 @@ msgstr "Vai al contenuto"
 msgid "Go to the footer"
 msgstr "Vai al piè pagina"
 
+#: 404.php:55
+msgid "Go to the home page"
+msgstr "Vai alla home page"
+
 #: header.php:75
 msgid "Go to the menu"
 msgstr "Val al menu"
 
 #: template-parts/common/pagination.php:16
-#: template-parts/common/pagination.php:52
+#: template-parts/common/pagination.php:50
 #: template-parts/footer/offices-section.php:19
 msgid "Go to the page"
 msgstr "Vai alla pagina"
 
-#: classes/class-dis-optionsmanager.php:138
+#: 404.php:63
+msgid "Go to the search page"
+msgstr "Vai alla pagina di ricerca"
+
+#: classes/class-dis-optionsmanager.php:129
 msgid "Header logo visible"
 msgstr "Logo dell'intestazione visibile"
 
@@ -1139,27 +1152,27 @@ msgstr "Immagine dell'hero"
 msgid "Hide navigation"
 msgstr "Nascondi la navigazione"
 
-#: classes/class-dis-optionsmanager.php:211
+#: classes/class-dis-optionsmanager.php:202
 msgid "Home Page alerts"
 msgstr "Avvisi della Home Page"
 
-#: classes/class-dis-optionsmanager.php:385
+#: classes/class-dis-optionsmanager.php:376
 msgid "Home Page layout"
 msgstr "Layout della Home Page"
 
-#: classes/class-dis-optionsmanager.php:386
+#: classes/class-dis-optionsmanager.php:377
 msgid "Home Page layout settings."
 msgstr "Impostazioni del layout della Home Page"
 
-#: classes/class-dis-optionsmanager.php:296
+#: classes/class-dis-optionsmanager.php:287
 msgid "Home Page sections"
 msgstr "Sezioni della Home Page"
 
-#: classes/class-dis-optionsmanager.php:394
+#: classes/class-dis-optionsmanager.php:385
 msgid "Home Page Video"
 msgstr "Video in Home Page"
 
-#: single-dis-place.php:86
+#: single-dis-place.php:91
 msgid "Hours"
 msgstr "Orari"
 
@@ -1168,28 +1181,28 @@ msgstr "Orari"
 msgid "How to"
 msgstr "How to"
 
-#: single-dis-place.php:49
+#: single-dis-place.php:54
 msgid "How to reach us"
 msgstr "Come raggiungerci"
 
-#: classes/class-dis-optionsmanager.php:194
-#: classes/class-dis-optionsmanager.php:197
+#: classes/class-dis-optionsmanager.php:185
+#: classes/class-dis-optionsmanager.php:188
 msgid "HP alerts"
 msgstr "Avvisi in HP"
 
-#: classes/class-dis-optionsmanager.php:367
+#: classes/class-dis-optionsmanager.php:358
 msgid "HP Layout"
 msgstr "Layout della HP"
 
-#: classes/class-dis-optionsmanager.php:373
+#: classes/class-dis-optionsmanager.php:364
 msgid "HP layout"
 msgstr "Layout della HP"
 
-#: classes/class-dis-optionsmanager.php:279
+#: classes/class-dis-optionsmanager.php:270
 msgid "HP Sections"
 msgstr "Sezioni della HP"
 
-#: classes/class-dis-optionsmanager.php:285
+#: classes/class-dis-optionsmanager.php:276
 msgid "HP sections"
 msgstr "Sezioni della HP"
 
@@ -1197,7 +1210,7 @@ msgstr "Sezioni della HP"
 msgid "https://ict.sns.it"
 msgstr "https://ict.sns.it"
 
-#: classes/class-dis-optionsmanager.php:77
+#: classes/class-dis-optionsmanager.php:68
 msgid "ICT Site"
 msgstr "Sito ICT"
 
@@ -1205,44 +1218,44 @@ msgstr "Sito ICT"
 msgid "ICT SNS"
 msgstr "ICT SNS"
 
-#: classes/class-dis-optionsmanager.php:845
+#: classes/class-dis-optionsmanager.php:836
 msgid "ID of the list associated with the site"
 msgstr "ID della lista associata al sito"
 
-#: classes/class-dis-optionsmanager.php:859
+#: classes/class-dis-optionsmanager.php:850
 msgid "ID of the page template that handles the double OptIn"
 msgstr "ID del modello di pagina che gestisce il doppio OptIn"
 
-#: classes/class-dis-optionsmanager.php:334
+#: classes/class-dis-optionsmanager.php:325
 msgid "If yes, the section is shown in the Home Page."
 msgstr "In caso affermativo, la sezione viene visualizzata nella Home Page."
 
-#: classes/class-dis-optionsmanager.php:348
+#: classes/class-dis-optionsmanager.php:339
 msgid "If yes, the title of the section is shown."
 msgstr "In caso affermativo, viene visualizzato il titolo della sezione."
 
-#: classes/class-dis-optionsmanager.php:1032
+#: classes/class-dis-optionsmanager.php:1023
 msgid "Ignore robots"
 msgstr "Ignora i robots."
 
-#: classes/class-dis-optionsmanager.php:553
+#: classes/class-dis-optionsmanager.php:544
 msgid "Image in png or jpg format."
 msgstr "Immagine in formato png o jpg."
 
-#: single-dis-event.php:67 single-dis-news.php:37 single-dis-project.php:33
-#: single-post.php:22
+#: single-dis-event.php:72 single-dis-news.php:42 single-dis-project.php:38
+#: single-post.php:27
 msgid "In evidence"
 msgstr "In evidenza"
 
-#: classes/class-dis-optionsmanager.php:242
+#: classes/class-dis-optionsmanager.php:233
 msgid "Info"
 msgstr "Informazioni"
 
-#: classes/class-dis-optionsmanager.php:678
+#: classes/class-dis-optionsmanager.php:669
 msgid "Insert here the links to your social media."
 msgstr "Inserisci qui i link ai tuoi social media."
 
-#: classes/class-dis-thememanager.php:308
+#: classes/class-dis-thememanager.php:331
 msgid "Invalid username or password"
 msgstr "Nome utente o password non validi"
 
@@ -1254,23 +1267,23 @@ msgstr "Selezione lingua: lingua selezionata"
 msgid "Last modification"
 msgstr "Ultima modifica"
 
-#: classes/class-dis-optionsmanager.php:532
+#: classes/class-dis-optionsmanager.php:523
 msgid "Left button label"
 msgstr "Etichetta del bottone di sinistra"
 
-#: classes/class-dis-optionsmanager.php:264
+#: classes/class-dis-optionsmanager.php:255
 msgid "Link"
 msgstr "Link"
 
-#: classes/class-dis-optionsmanager.php:265
+#: classes/class-dis-optionsmanager.php:256
 msgid "Link to a more in-depth page, even external to the site"
 msgstr "Collegamento ad una pagina più approfondita, anche esterna al sito"
 
-#: single-dis-project.php:123
+#: single-dis-project.php:128
 msgid "Link to the repository of the project"
 msgstr "Link al repository del progetto"
 
-#: single-dis-event.php:161 single-dis-project.php:103
+#: single-dis-event.php:166 single-dis-project.php:108
 #, fuzzy
 #| msgid "Link to the websiste of the project"
 msgid "Link to the website of the project"
@@ -1280,7 +1293,7 @@ msgstr "Link al sito web del progetto"
 msgid "Linked pages"
 msgstr "Pagine collegate"
 
-#: classes/class-dis-optionsmanager.php:844
+#: classes/class-dis-optionsmanager.php:835
 msgid "List ID"
 msgstr "ID lella lista"
 
@@ -1288,33 +1301,33 @@ msgstr "ID lella lista"
 msgid "List of services by category"
 msgstr "Elenco dei servizi per categoria"
 
-#: classes/class-dis-optionsmanager.php:905
+#: classes/class-dis-optionsmanager.php:896
 #: template-parts/header/login-button.php:14
 msgid "Login"
 msgstr "Login"
 
-#: classes/class-dis-optionsmanager.php:912
+#: classes/class-dis-optionsmanager.php:903
 msgid "Login visible"
 msgstr "Login visibile"
 
-#: classes/class-dis-optionsmanager.php:175
+#: classes/class-dis-optionsmanager.php:166
 msgid "Logo footer"
 msgstr "Logo del footer"
 
-#: classes/class-dis-optionsmanager.php:151
+#: classes/class-dis-optionsmanager.php:142
 msgid "Logo header"
 msgstr "Logo dell'header"
 
 #: template-parts/footer/logo-title-footer.php:23
 #: template-parts/footer/logo-title-footer.php:46
 #: template-parts/header/logo-title-header.php:23
-#: template-parts/header/logo-title-header.php:45
+#: template-parts/header/logo-title-header.php:44
 msgid "Logo of the site"
 msgstr "Logo del sito"
 
-#: classes/class-dis-optionsmanager.php:476
-#: classes/class-dis-optionsmanager.php:482
-#: classes/class-dis-optionsmanager.php:494
+#: classes/class-dis-optionsmanager.php:467
+#: classes/class-dis-optionsmanager.php:473
+#: classes/class-dis-optionsmanager.php:485
 msgid "Main hero"
 msgstr "Hero principale"
 
@@ -1322,11 +1335,11 @@ msgstr "Hero principale"
 msgid "Main navigation"
 msgstr "Navigazione principale"
 
-#: classes/class-dis-optionsmanager.php:252
+#: classes/class-dis-optionsmanager.php:243
 msgid "Maximum 300 characters"
 msgstr "Massimo 300 caratteri"
 
-#: classes/class-dis-optionsmanager.php:223
+#: classes/class-dis-optionsmanager.php:214
 msgid "Message"
 msgstr "Avviso"
 
@@ -1334,7 +1347,7 @@ msgstr "Avviso"
 msgid "Most searched frequently asked questions"
 msgstr "Domande frequenti più cercate"
 
-#: classes/class-dis-optionsmanager.php:925
+#: classes/class-dis-optionsmanager.php:916
 msgid "Multilanguage"
 msgstr "Multilingua"
 
@@ -1342,65 +1355,65 @@ msgstr "Multilingua"
 msgid "Navigation path"
 msgstr "Path di navizione"
 
-#: classes/class-dis-optionsmanager.php:122
+#: classes/class-dis-optionsmanager.php:113
 msgid "Network name"
 msgstr "Nome del Network"
 
-#: classes/class-dis-optionsmanager.php:130
+#: classes/class-dis-optionsmanager.php:121
 msgid "Network url"
 msgstr "Indirizzo del Network"
 
 #. %s: menu name.
-#: classes/class-dis-activationmanager.php:431
+#: classes/class-dis-activationmanager.php:425
 #, php-format
 msgid "NEW menu '%s' created."
 msgstr "NUOVO menu '%s' creato."
 
 #. Name of the template
-#: page-templates/news.php:2 page-templates/news.php:69
+#: page-templates/news.php:2 page-templates/news.php:62
 msgid "News"
 msgstr "Notizie"
 
 #. Name of the template
-#: classes/class-dis-optionsmanager.php:802 page-templates/newsletter.php:2
+#: classes/class-dis-optionsmanager.php:793 page-templates/newsletter.php:2
 #: template-parts/common/newsletter.php:15
 msgid "Newsletter"
 msgstr "Newsletter"
 
-#: classes/class-dis-optionsmanager.php:821
+#: classes/class-dis-optionsmanager.php:812
 msgid "Newsletter manager"
 msgstr "Manager della Newsletter"
 
-#: classes/class-dis-optionsmanager.php:785
-#: classes/class-dis-optionsmanager.php:788
+#: classes/class-dis-optionsmanager.php:776
+#: classes/class-dis-optionsmanager.php:779
 msgid "Newsletter options"
 msgstr "Opzioni della Newsletter"
 
-#: classes/class-dis-optionsmanager.php:144
-#: classes/class-dis-optionsmanager.php:168
-#: classes/class-dis-optionsmanager.php:339
-#: classes/class-dis-optionsmanager.php:353
-#: classes/class-dis-optionsmanager.php:423
-#: classes/class-dis-optionsmanager.php:436
-#: classes/class-dis-optionsmanager.php:449
-#: classes/class-dis-optionsmanager.php:462
-#: classes/class-dis-optionsmanager.php:691
-#: classes/class-dis-optionsmanager.php:814
-#: classes/class-dis-optionsmanager.php:917
-#: classes/class-dis-optionsmanager.php:937
-#: classes/class-dis-optionsmanager.php:977
-#: classes/class-dis-optionsmanager.php:997
-#: classes/class-dis-optionsmanager.php:1017
-#: classes/class-dis-optionsmanager.php:1038
-#: classes/class-dis-optionsmanager.php:1051
-#: classes/class-dis-optionsmanager.php:1064
+#: classes/class-dis-optionsmanager.php:135
+#: classes/class-dis-optionsmanager.php:159
+#: classes/class-dis-optionsmanager.php:330
+#: classes/class-dis-optionsmanager.php:344
+#: classes/class-dis-optionsmanager.php:414
+#: classes/class-dis-optionsmanager.php:427
+#: classes/class-dis-optionsmanager.php:440
+#: classes/class-dis-optionsmanager.php:453
+#: classes/class-dis-optionsmanager.php:682
+#: classes/class-dis-optionsmanager.php:805
+#: classes/class-dis-optionsmanager.php:908
+#: classes/class-dis-optionsmanager.php:928
+#: classes/class-dis-optionsmanager.php:968
+#: classes/class-dis-optionsmanager.php:988
+#: classes/class-dis-optionsmanager.php:1008
+#: classes/class-dis-optionsmanager.php:1029
+#: classes/class-dis-optionsmanager.php:1042
+#: classes/class-dis-optionsmanager.php:1055
 msgid "No"
 msgstr "No"
 
-#: page-templates/articles.php:148 page-templates/documentation.php:62
+#: page-templates/articles.php:141 page-templates/documentation.php:53
 #: page-templates/faq.php:87 page-templates/faq.php:135
-#: page-templates/news.php:148 page-templates/places.php:131
-#: page-templates/projects.php:97
+#: page-templates/news.php:141 page-templates/places.php:123
+#: page-templates/projects.php:92
 msgid "No results found"
 msgstr "Nessun risultato trovato"
 
@@ -1408,7 +1421,7 @@ msgstr "Nessun risultato trovato"
 msgid "No results found for"
 msgstr "Nessun risultato per"
 
-#: single-dis-event.php:193
+#: single-dis-event.php:198
 msgid "Office"
 msgstr "Ufficio"
 
@@ -1417,17 +1430,21 @@ msgstr "Ufficio"
 msgid "Offices"
 msgstr "Uffici"
 
-#: template-parts/common/pagination.php:53
-#: template-parts/common/pagination.php:67
+#: template-parts/common/pagination.php:51
+#: template-parts/common/pagination.php:65
 msgid "page"
 msgstr "pagina"
 
-#: classes/class-dis-optionsmanager.php:1025
+#: classes/class-dis-optionsmanager.php:1016
 msgid "Page counters"
 msgstr "Contatori di pagina"
 
+#: 404.php:31
+msgid "Page not found"
+msgstr "Pagina non trovata"
+
 #. Name of the template
-#: single-dis-office.php:43 page-templates/people.php:2
+#: single-dis-office.php:48 page-templates/people.php:2
 msgid "People"
 msgstr "Persone"
 
@@ -1435,15 +1452,15 @@ msgstr "Persone"
 msgid "People list"
 msgstr "Elenco delle persone"
 
-#: classes/class-dis-personmanager.php:40
+#: classes/class-dis-personmanager.php:41
 msgid "Person Roles"
 msgstr "Ruolo di persona"
 
-#: classes/class-dis-optionsmanager.php:622
+#: classes/class-dis-optionsmanager.php:613
 msgid "Phone number"
 msgstr "Telefono"
 
-#: classes/class-dis-placemanager.php:42
+#: classes/class-dis-placemanager.php:41
 msgid "Place Type"
 msgstr "Tipo di luogo"
 
@@ -1452,11 +1469,11 @@ msgstr "Tipo di luogo"
 msgid "Places"
 msgstr "Luoghi"
 
-#: page-templates/places.php:77
+#: page-templates/places.php:69
 msgid "Places list"
 msgstr "Elenco luoghi"
 
-#: single-dis-event.php:116 single-dis-place.php:129
+#: single-dis-event.php:121 single-dis-place.php:134
 msgid "Position"
 msgstr "Posizione"
 
@@ -1467,7 +1484,7 @@ msgstr "Posizione"
 msgid "Post"
 msgstr "post"
 
-#: classes/class-dis-optionsmanager.php:992
+#: classes/class-dis-optionsmanager.php:983
 msgid "Preferably, it should be disabled."
 msgstr "Sarebbe preferibile disattivarlo."
 
@@ -1482,18 +1499,18 @@ msgid "Privacy Policy"
 msgstr "Privacy Policy"
 
 #. Name of the template
-#: single-dis-office.php:65 page-templates/projects.php:2
-#: page-templates/projects.php:48
+#: single-dis-office.php:70 page-templates/projects.php:2
+#: page-templates/projects.php:43
 #: template-parts/home/hp-projects-section.php:25
 msgid "Projects"
 msgstr "Progetti"
 
-#: single-dis-service.php:98
+#: single-dis-service.php:103
 msgid "Rates"
 msgstr "Tariffe"
 
-#: page-templates/articles.php:124 page-templates/events.php:135
-#: page-templates/news.php:124 template-parts/home/hp-events-section.php:84
+#: page-templates/articles.php:117 page-templates/events.php:128
+#: page-templates/news.php:117 template-parts/home/hp-events-section.php:84
 #: template-parts/home/hp-news-section.php:77
 msgid "Related category"
 msgstr "Categoria relativa"
@@ -1503,21 +1520,21 @@ msgstr "Categoria relativa"
 msgid "Related contents"
 msgstr "Contenuti collegati"
 
-#: page.php:74 page-templates/privacy.php:102
+#: page.php:79 page-templates/privacy.php:102
 msgid "Related pages"
 msgstr "Pagine correlate"
 
-#: single-dis-service.php:175
+#: single-dis-service.php:180
 msgid "Related services"
 msgstr "Servizi correlati"
 
-#: classes/class-dis-activationmanager.php:80
+#: classes/class-dis-activationmanager.php:78
 msgid "Reload data"
 msgstr "Ricarica i dati"
 
 #: classes/class-dis-activationmanager.php:56
 #: classes/class-dis-activationmanager.php:57
-#: classes/class-dis-activationmanager.php:75
+#: classes/class-dis-activationmanager.php:73
 msgid "Reload theme data"
 msgstr "Ricarica i dati del tema"
 
@@ -1526,15 +1543,15 @@ msgstr "Ricarica i dati del tema"
 msgid "Remember for all videos"
 msgstr "Ricorda per tutti i video"
 
-#: classes/class-dis-optionsmanager.php:225
+#: classes/class-dis-optionsmanager.php:216
 msgid "Remove the message"
 msgstr "Rimuovi l'avviso"
 
-#: classes/class-dis-optionsmanager.php:310
+#: classes/class-dis-optionsmanager.php:301
 msgid "Remove the section"
 msgstr "Rimuovi la sezione"
 
-#: single-dis-project.php:119
+#: single-dis-project.php:124
 msgid "Repository"
 msgstr "Repository"
 
@@ -1543,11 +1560,11 @@ msgstr "Repository"
 msgid "Request support"
 msgstr "Richiedi supporto"
 
-#: single-dis-service.php:66
+#: single-dis-service.php:71
 msgid "Requirements"
 msgstr "Prerequisiti"
 
-#: classes/class-dis-optionsmanager.php:964
+#: classes/class-dis-optionsmanager.php:955
 msgid "REST API"
 msgstr "API REST"
 
@@ -1555,19 +1572,19 @@ msgstr "API REST"
 msgid "Revoke"
 msgstr "Revoca"
 
-#: classes/class-dis-optionsmanager.php:542
+#: classes/class-dis-optionsmanager.php:533
 msgid "Right button label"
 msgstr "Etichetta del bottone di destra"
 
 #. Name of the template
-#: page-templates/documentation.php:98 page-templates/documentation.php:120
-#: page-templates/search.php:2 page-templates/search.php:101
-#: page-templates/search.php:113 page-templates/search.php:135
+#: page-templates/documentation.php:89 page-templates/documentation.php:111
+#: page-templates/search.php:2 page-templates/search.php:89
+#: page-templates/search.php:101 page-templates/search.php:123
 #: template-parts/header/site-search.php:18
 msgid "Search"
 msgstr "Cerca"
 
-#: classes/class-dis-optionsmanager.php:522
+#: classes/class-dis-optionsmanager.php:513
 msgid "Search button label"
 msgstr "Etichetta del bottone di ricerca"
 
@@ -1577,7 +1594,7 @@ msgstr "Etichetta del bottone di ricerca"
 msgid "Search in the site"
 msgstr "Cerca nel sito"
 
-#: page-templates/documentation.php:110
+#: page-templates/documentation.php:101
 #, fuzzy
 #| msgid "Search the Documentation"
 msgid "Search the documentation"
@@ -1587,25 +1604,30 @@ msgstr "Cerca nella documentazione"
 msgid "Search the FAQs"
 msgstr "Cerca tra le FAQ"
 
-#: page-templates/search.php:125
+#: page-templates/search.php:113
 msgid "Search the site"
 msgstr "Cerca nel sito"
+
+#: 404.php:39
+msgid "Search the site or use the links below to continue browsing."
+msgstr ""
+"Cerca nel sito o utilizza i link qui sotto per continuare la navigazione."
 
 #: classes/class-dis-autocompletemanager.php:85
 #: template-parts/home/hp-main-hero-section.php:62
 msgid "Search..."
 msgstr "Cerca..."
 
-#: classes/class-dis-optionsmanager.php:308
-#: classes/class-dis-optionsmanager.php:321
+#: classes/class-dis-optionsmanager.php:299
+#: classes/class-dis-optionsmanager.php:312
 msgid "Section"
 msgstr "Sezione"
 
-#: classes/class-dis-optionsmanager.php:897
+#: classes/class-dis-optionsmanager.php:888
 msgid "Section to configure advanced settings."
 msgstr "Sezione per configurare le impostazioni avanzate."
 
-#: classes/class-dis-optionsmanager.php:96
+#: classes/class-dis-optionsmanager.php:87
 msgid "Section to configure base options."
 msgstr "Sezione per configurare le opzioni di base."
 
@@ -1613,15 +1635,15 @@ msgstr "Sezione per configurare le opzioni di base."
 msgid "selected"
 msgstr "selezionato"
 
-#: classes/class-dis-optionsmanager.php:822
+#: classes/class-dis-optionsmanager.php:813
 msgid "Selection of the program used to manage the site newsletter"
 msgstr "Selezione del programma utilizzato per gestire la newsletter del sito"
 
-#: classes/class-dis-optionsmanager.php:1004
+#: classes/class-dis-optionsmanager.php:995
 msgid "SEO"
 msgstr "SEO"
 
-#: classes/class-dis-optionsmanager.php:1045
+#: classes/class-dis-optionsmanager.php:1036
 msgid "Service views counter"
 msgstr "Contatore delle visualizzazioni del servizio"
 
@@ -1640,24 +1662,24 @@ msgstr "Servizi"
 msgid "ServiceProfile"
 msgstr "Profilo del servizio"
 
-#: single-dis-service-cluster.php:63 page-templates/service-clusters.php:18
+#: single-dis-service-cluster.php:68 page-templates/service-clusters.php:18
 #: template-parts/home/hp-clusters-section.php:20
 msgid "Services"
 msgstr "Servizi"
 
-#: page-templates/service-profile.php:30
+#: page-templates/service-profile.php:28
 msgid "Services for"
 msgstr "Servizi per"
 
-#: classes/class-dis-optionsmanager.php:685
+#: classes/class-dis-optionsmanager.php:676
 msgid "Show social media icons"
 msgstr "Mostra le icone dei social media"
 
-#: classes/class-dis-optionsmanager.php:347
+#: classes/class-dis-optionsmanager.php:338
 msgid "Show the section title"
 msgstr "Mostra il titolo della sezione"
 
-#: header.php:167 page-templates/faq-topic.php:58
+#: header.php:167 page-templates/faq-topic.php:56
 msgid "Show/Hide navigation"
 msgstr "Mostra/Nascondi navigazione"
 
@@ -1665,13 +1687,13 @@ msgstr "Mostra/Nascondi navigazione"
 msgid "Sign me up"
 msgstr "Iscrivimi"
 
-#: classes/class-dis-optionsmanager.php:95
+#: classes/class-dis-optionsmanager.php:86
 msgid "Site configurations"
 msgstr "Configurazioni del sito"
 
-#: classes/class-dis-optionsmanager.php:574
-#: classes/class-dis-optionsmanager.php:580
-#: classes/class-dis-optionsmanager.php:590
+#: classes/class-dis-optionsmanager.php:565
+#: classes/class-dis-optionsmanager.php:571
+#: classes/class-dis-optionsmanager.php:581
 msgid "Site contacts"
 msgstr "Contatti del sito"
 
@@ -1679,7 +1701,7 @@ msgstr "Contatti del sito"
 msgid "Site search"
 msgstr "Ricerca nel sito"
 
-#: classes/class-dis-optionsmanager.php:103
+#: classes/class-dis-optionsmanager.php:94
 msgid "Site title"
 msgstr "Titolo del sito"
 
@@ -1688,25 +1710,25 @@ msgstr "Titolo del sito"
 msgid "SiteMap"
 msgstr "Mappa del Sito"
 
-#: classes/class-dis-optionsmanager.php:630
+#: classes/class-dis-optionsmanager.php:621
 msgid "SMTP"
 msgstr "SMTP"
 
-#: classes/class-dis-optionsmanager.php:645
+#: classes/class-dis-optionsmanager.php:636
 msgid "SMTP sender email"
 msgstr "Mittente SMTP"
 
-#: classes/class-dis-optionsmanager.php:637
+#: classes/class-dis-optionsmanager.php:628
 msgid "SMTP sender name"
 msgstr "Nome mittente SMTP"
 
-#: classes/class-dis-optionsmanager.php:660
-#: classes/class-dis-optionsmanager.php:666
-#: classes/class-dis-optionsmanager.php:677
+#: classes/class-dis-optionsmanager.php:651
+#: classes/class-dis-optionsmanager.php:657
+#: classes/class-dis-optionsmanager.php:668
 msgid "Social media"
 msgstr "Social media"
 
-#: classes/class-dis-optionsmanager.php:972
+#: classes/class-dis-optionsmanager.php:963
 msgid "Some plugin require the REST API to be enabled."
 msgstr "Alcuni plugin richiedono l'abilitazione dell'API REST."
 
@@ -1714,54 +1736,54 @@ msgstr "Alcuni plugin richiedono l'abilitazione dell'API REST."
 msgid "Sponsor and partnerships"
 msgstr "Sponsorizzazioni e partnership"
 
-#: classes/class-dis-optionsmanager.php:240
+#: classes/class-dis-optionsmanager.php:231
 msgid "Success"
 msgstr "Successo"
 
 #. %s: page slug.
-#: classes/class-dis-activationmanager.php:301
+#: classes/class-dis-activationmanager.php:297
 #, php-format
 msgid "Successfully created the page: '%s'."
 msgstr "Creata con successo la pagina: '%s'."
 
-#: classes/class-dis-optionsmanager.php:114
+#: classes/class-dis-optionsmanager.php:105
 msgid "Tagline"
 msgstr "Tagline"
 
-#: single-dis-event.php:131 single-dis-office.php:114 single-dis-person.php:70
-#: single-dis-place.php:99
+#: single-dis-event.php:136 single-dis-office.php:119 single-dis-person.php:75
+#: single-dis-place.php:104
 msgid "Telephone"
 msgstr "Telefono"
 
-#: classes/class-dis-optionsmanager.php:858
+#: classes/class-dis-optionsmanager.php:849
 msgid "Template ID"
 msgstr "ID del template"
 
-#: classes/class-dis-optionsmanager.php:251
-#: classes/class-dis-optionsmanager.php:512
+#: classes/class-dis-optionsmanager.php:242
+#: classes/class-dis-optionsmanager.php:503
 msgid "Text"
 msgstr "Testo"
 
-#: classes/class-dis-optionsmanager.php:607
+#: classes/class-dis-optionsmanager.php:598
 msgid "The address of the site."
 msgstr "L'indirizzo del sito."
 
-#: classes/class-dis-optionsmanager.php:599
+#: classes/class-dis-optionsmanager.php:590
 msgid "The city of the site."
 msgstr "La città del sito."
 
 #. %s: linked office list.
-#: single-dis-service.php:196
+#: single-dis-service.php:201
 #, php-format
 #| msgid "The competent service is %s"
 msgid "The competent office is %s"
 msgstr "L'ufficio competente è %s"
 
-#: classes/class-dis-optionsmanager.php:591
+#: classes/class-dis-optionsmanager.php:582
 msgid "The contact shown in the footer."
 msgstr "Il contatto mostrato nel piè di pagina."
 
-#: classes/class-dis-optionsmanager.php:615
+#: classes/class-dis-optionsmanager.php:606
 msgid "The e-mail of the site."
 msgstr "L'e-mail del sito."
 
@@ -1773,95 +1795,105 @@ msgstr ""
 "Le FAQ sono organizzate per argomento. Clicca sull'argomento di interesse "
 "per visualizzare le domande e le risposte."
 
-#: classes/class-dis-optionsmanager.php:495
+#: classes/class-dis-optionsmanager.php:486
 msgid "The hero section of the Home Page."
 msgstr "La sezione dedicata agli eroi della Home Page."
 
-#: classes/class-dis-thememanager.php:289
+#: classes/class-dis-thememanager.php:312
 msgid "The image is too big. The maximum allowed is: 1MB."
 msgstr "L'immagine è troppo grande. Il massimo consentito è 1 MB."
 
-#: classes/class-dis-optionsmanager.php:152
+#: classes/class-dis-optionsmanager.php:143
 msgid "The logo of the site, please load an SVG image."
 msgstr "Il logo del sito, carica un'immagine SVG."
 
 #. %s: menu name.
-#: classes/class-dis-activationmanager.php:378
+#: classes/class-dis-activationmanager.php:374
 #, php-format
 msgid "The menu '%s' already exists."
 msgstr "Il menu '%s' esiste già."
 
-#: classes/class-dis-optionsmanager.php:123
+#: classes/class-dis-optionsmanager.php:114
 msgid "The name of the network the site is part of."
 msgstr "Nome della rete di cui il sito fa parte."
 
-#: classes/class-dis-optionsmanager.php:638
+#: classes/class-dis-optionsmanager.php:629
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr "Il nome che deve comparire nelle e-mail inviate dal sito."
 
-#: classes/class-dis-thememanager.php:293
+#: 404.php:35
+msgid ""
+"The page you are looking for does not exist, or it has been moved or renamed."
+msgstr ""
+"La pagina che stai cercando non esiste, oppure è stata spostata o rinominata."
+
+#: classes/class-dis-thememanager.php:316
 #, fuzzy
 #| msgid "The PDf file is too big. the maximum allowed is: 2MB."
 msgid "The PDF file is too big. the maximum allowed is: 2MB."
 msgstr "Il file PDF è troppo grande. La dimensione massima consentita è 2 MB."
 
-#: classes/class-dis-optionsmanager.php:623
+#: classes/class-dis-optionsmanager.php:614
 msgid "The phone number of the site."
 msgstr "Il numero di telefono del sito."
 
-#: classes/class-dis-optionsmanager.php:646
+#: classes/class-dis-optionsmanager.php:637
 msgid "The provider e-mail that must be used as sender."
 msgstr ""
 "L'indirizzo e-mail del provider che deve essere utilizzato come mittente."
 
-#: classes/class-dis-optionsmanager.php:115
+#: classes/class-dis-thememanager.php:366
+msgid "The REST API is restricted to authenticated users."
+msgstr "L'API REST è riservata agli utenti autenticati."
+
+#: classes/class-dis-optionsmanager.php:106
 msgid "The tagline of the site."
 msgstr "The tagline of the site."
 
-#: classes/class-dis-optionsmanager.php:104
+#: classes/class-dis-optionsmanager.php:95
 msgid "The title of the site."
 msgstr "Il titolo del sito."
 
-#: classes/class-dis-optionsmanager.php:131
+#: classes/class-dis-optionsmanager.php:122
 msgid "The url of the network the site is part of."
 msgstr "L'URL della rete di cui il sito fa parte."
 
-#: classes/class-dis-optionsmanager.php:402
+#: classes/class-dis-optionsmanager.php:393
 msgid "The URL of the video to show in Home Page"
 msgstr "L'URL del video da mostrare nella home page"
 
-#: classes/class-dis-activationmanager.php:85
+#: classes/class-dis-activationmanager.php:83
 msgid "Theme data loaded successfully"
 msgstr "Dati del tema caricati correttamente"
 
-#: classes/class-dis-activationmanager.php:87
+#: classes/class-dis-activationmanager.php:85
 msgid "Theme data not reloaded"
 msgstr "Dati del tema non ricaricati"
 
-#: classes/class-dis-optionsmanager.php:502
+#: classes/class-dis-optionsmanager.php:493
 msgid "Title"
 msgstr "Titolo"
 
-#: classes/class-dis-optionsmanager.php:503
-#: classes/class-dis-optionsmanager.php:513
-#: classes/class-dis-optionsmanager.php:523
-#: classes/class-dis-optionsmanager.php:533
-#: classes/class-dis-optionsmanager.php:543
+#: classes/class-dis-optionsmanager.php:494
+#: classes/class-dis-optionsmanager.php:504
+#: classes/class-dis-optionsmanager.php:514
+#: classes/class-dis-optionsmanager.php:524
+#: classes/class-dis-optionsmanager.php:534
 msgid "To translate the text refers to the domain DIS_SiteOptionLabel."
 msgstr ""
 "Per tradurre il testo si fa riferimento al dominio DIS_SiteOptionLabel."
 
-#: single-dis-faq.php:34 classes/class-dis-faqmanager.php:40
+#: single-dis-faq.php:39 classes/class-dis-faqmanager.php:39
 msgid "Topics"
 msgstr "Argomenti"
 
 #. 1: page slug, 2: error message.
-#: classes/class-dis-activationmanager.php:285
+#: classes/class-dis-activationmanager.php:281
 #, php-format
 msgid "Unable to create the page '%1$s': %2$s"
 msgstr "Impossibile creare la pagina '%1$s': %2$s"
 
-#: classes/class-dis-activationmanager.php:287
+#: classes/class-dis-activationmanager.php:283
 msgid "unknown error"
 msgstr "errore sconosciuto"
 
@@ -1869,7 +1901,7 @@ msgstr "errore sconosciuto"
 msgid "Useful links menu"
 msgstr "Menu dei link utili"
 
-#: classes/class-dis-servicemanager.php:42
+#: classes/class-dis-servicemanager.php:43
 msgid "User Status"
 msgstr "Stato utente"
 
@@ -1878,30 +1910,30 @@ msgid "Video"
 msgstr "Video"
 
 #: classes/class-dis-attachmentmanager.php:44
-#: classes/class-dis-bannermanager.php:41 classes/class-dis-eventmanager.php:41
-#: classes/class-dis-faqmanager.php:70 classes/class-dis-newsmanager.php:41
+#: classes/class-dis-bannermanager.php:41 classes/class-dis-eventmanager.php:42
+#: classes/class-dis-faqmanager.php:69 classes/class-dis-newsmanager.php:42
 #: classes/class-dis-officemanager.php:41
-#: classes/class-dis-personmanager.php:68 classes/class-dis-placemanager.php:71
-#: classes/class-dis-projectmanager.php:41
-#: classes/class-dis-serviceclustermanager.php:41
-#: classes/class-dis-servicemanager.php:71
-#: classes/class-dis-sponsormanager.php:41
+#: classes/class-dis-personmanager.php:69 classes/class-dis-placemanager.php:70
+#: classes/class-dis-projectmanager.php:42
+#: classes/class-dis-serviceclustermanager.php:42
+#: classes/class-dis-servicemanager.php:72
+#: classes/class-dis-sponsormanager.php:42
 msgid "View the item"
 msgstr "Visualizza l'oggetto"
 
-#: classes/class-dis-optionsmanager.php:241
+#: classes/class-dis-optionsmanager.php:232
 msgid "Warning"
 msgstr "Warning"
 
-#: classes/class-dis-optionsmanager.php:945
+#: classes/class-dis-optionsmanager.php:936
 msgid "Web Analytics Code"
 msgstr "Codice per la Web Analytics"
 
-#: single-dis-person.php:76
+#: single-dis-person.php:81
 msgid "Web site"
 msgstr "Sito web"
 
-#: single-dis-event.php:158 single-dis-project.php:99
+#: single-dis-event.php:163 single-dis-project.php:104
 msgid "Website"
 msgstr "Sito web"
 
@@ -1913,36 +1945,36 @@ msgstr ""
 "Tema WordPress per la creazione di siti web che presentano e facilitano "
 "l'uso dei servizi ICT di un'organizzazione."
 
-#: classes/class-dis-optionsmanager.php:984
+#: classes/class-dis-optionsmanager.php:975
 msgid "XMLRPC API"
 msgstr "API XMLRPC"
 
-#: classes/class-dis-optionsmanager.php:143
-#: classes/class-dis-optionsmanager.php:167
-#: classes/class-dis-optionsmanager.php:338
-#: classes/class-dis-optionsmanager.php:352
-#: classes/class-dis-optionsmanager.php:422
-#: classes/class-dis-optionsmanager.php:435
-#: classes/class-dis-optionsmanager.php:448
-#: classes/class-dis-optionsmanager.php:461
-#: classes/class-dis-optionsmanager.php:690
-#: classes/class-dis-optionsmanager.php:813
-#: classes/class-dis-optionsmanager.php:916
-#: classes/class-dis-optionsmanager.php:936
-#: classes/class-dis-optionsmanager.php:976
-#: classes/class-dis-optionsmanager.php:996
-#: classes/class-dis-optionsmanager.php:1016
-#: classes/class-dis-optionsmanager.php:1037
-#: classes/class-dis-optionsmanager.php:1050
-#: classes/class-dis-optionsmanager.php:1063
+#: classes/class-dis-optionsmanager.php:134
+#: classes/class-dis-optionsmanager.php:158
+#: classes/class-dis-optionsmanager.php:329
+#: classes/class-dis-optionsmanager.php:343
+#: classes/class-dis-optionsmanager.php:413
+#: classes/class-dis-optionsmanager.php:426
+#: classes/class-dis-optionsmanager.php:439
+#: classes/class-dis-optionsmanager.php:452
+#: classes/class-dis-optionsmanager.php:681
+#: classes/class-dis-optionsmanager.php:804
+#: classes/class-dis-optionsmanager.php:907
+#: classes/class-dis-optionsmanager.php:927
+#: classes/class-dis-optionsmanager.php:967
+#: classes/class-dis-optionsmanager.php:987
+#: classes/class-dis-optionsmanager.php:1007
+#: classes/class-dis-optionsmanager.php:1028
+#: classes/class-dis-optionsmanager.php:1041
+#: classes/class-dis-optionsmanager.php:1054
 msgid "Yes"
 msgstr "Sì"
 
-#: classes/class-dis-optionsmanager.php:163
+#: classes/class-dis-optionsmanager.php:154
 msgid "Yes if the logo needs to be shown in the footer."
 msgstr "Sì, se il logo deve essere visualizzato nel piè di pagina."
 
-#: classes/class-dis-optionsmanager.php:139
+#: classes/class-dis-optionsmanager.php:130
 msgid "Yes if the logo needs to be shown in the header."
 msgstr "Sì, se il logo deve essere visualizzato nel piè di pagina."
 
@@ -1954,7 +1986,7 @@ msgstr "Hai installato i seguenti cookie di terze parti:"
 msgid "You have not installed third-party cookies"
 msgstr "Non hai installato cookie di terze parti"
 
-#: page-templates/search.php:82
+#: page-templates/search.php:70
 msgid "You need to enter some text in the search box."
 msgstr "E' necessario inserire il testo nella casella di ricerca."
 
