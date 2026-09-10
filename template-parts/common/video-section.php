@@ -29,7 +29,7 @@ $dis_msg_text   = sprintf(
 			<div class="acceptoverlay-inner">
 				<div class="acceptoverlay-icon">
 					<svg class="icon icon-xl">
-						<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/dist/svg/sprites.svg#it-video' ); ?>"></use>
+						<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-video' ); ?>"></use>
 					</svg>
 				</div>
 				<p>

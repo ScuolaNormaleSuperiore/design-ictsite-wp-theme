@@ -7,12 +7,62 @@ if ! command -v git >/dev/null 2>&1; then
 	exit 0
 fi
 
+# Third-party and generated files are excluded from the scan: no project secret is
+# ever authored there, and minified bundles/sourcemaps are single very long lines
+# that make the generic patterns below match across unrelated content.
+is_excluded_path() {
+	case "$1" in
+		vendor/*|node_modules/*|inc/vendor/*) return 0 ;;
+		assets/bootstrap-italia/*|assets/algolia/dis-algolia.*) return 0 ;;
+		assets/css/compiled/*) return 0 ;;
+		*.min.js|*.min.css|*.map) return 0 ;;
+		languages/*.mo) return 0 ;;
+	esac
+	return 1
+}
+
+# Initial commit: compare against the empty tree.
 if git rev-parse --verify HEAD >/dev/null 2>&1; then
-	diff_output="$(git diff --cached --unified=0 --no-color --diff-filter=ACMRTUXB)"
+	base_rev=""
 else
-	# Initial commit: compare against empty tree.
-	empty_tree="$(git hash-object -t tree /dev/null)"
-	diff_output="$(git diff --cached --unified=0 --no-color --diff-filter=ACMRTUXB "$empty_tree")"
+	base_rev="$(git hash-object -t tree /dev/null)"
+fi
+
+if [ -n "$base_rev" ]; then
+	staged_files="$(git diff --cached --name-only --diff-filter=ACMRTUXB "$base_rev")"
+else
+	staged_files="$(git diff --cached --name-only --diff-filter=ACMRTUXB)"
+fi
+
+if [ -z "$staged_files" ]; then
+	exit 0
+fi
+
+scanned_files=()
+skipped_count=0
+while IFS= read -r staged_file; do
+	if [ -z "$staged_file" ]; then
+		continue
+	fi
+	if is_excluded_path "$staged_file"; then
+		skipped_count=$((skipped_count + 1))
+		continue
+	fi
+	scanned_files+=("$staged_file")
+done <<< "$staged_files"
+
+if [ "$skipped_count" -gt 0 ]; then
+	echo "[DIS pre-commit] Skipped $skipped_count third-party/generated file(s)." >&2
+fi
+
+if [ "${#scanned_files[@]}" -eq 0 ]; then
+	exit 0
+fi
+
+if [ -n "$base_rev" ]; then
+	diff_output="$(git diff --cached --unified=0 --no-color --diff-filter=ACMRTUXB "$base_rev" -- "${scanned_files[@]}")"
+else
+	diff_output="$(git diff --cached --unified=0 --no-color --diff-filter=ACMRTUXB -- "${scanned_files[@]}")"
 fi
 
 if [ -z "$diff_output" ]; then
@@ -59,7 +109,8 @@ done
 if [ "$found" -eq 1 ]; then
 	echo >&2
 	echo "Commit blocked. Remove secrets or move safe examples outside staged changes." >&2
-	echo "If this is a false positive, adjust the pattern list in .githooks/check-staged-secrets.sh." >&2
+	echo "If this is a false positive, adjust the pattern list or is_excluded_path() in" >&2
+	echo ".githooks/check-staged-secrets.sh." >&2
 	exit 1
 fi
 
