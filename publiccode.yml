@@ -4,7 +4,7 @@
 
 publiccodeYmlVersion: '0.4.0'
 applicationSuite: WordPress
-softwareVersion: DEV-0.2.0
+softwareVersion: 1.0.0
 categories:
   - website-builder
 description:
@@ -44,7 +44,7 @@ description:
       - assets/screenshots/backoffice.png
     shortDescription: >-
         Tema WordPress per la creazione di siti web che presentano e facilitano l'utilizzo dei servizi ICT di un'organizzazione.
-developmentStatus: development
+developmentStatus: stable
 intendedAudience:
   countries:
     - it
@@ -84,7 +84,7 @@ maintenance:
 name: Design Sito ICT
 platforms:
   - web
-releaseDate: '2025-03-07'
+releaseDate: '2026-09-10'
 softwareType: addon
 url: 'https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme'
 logo: assets/img/logo_ict_site.png

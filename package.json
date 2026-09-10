@@ -1,6 +1,6 @@
 {
   "name": "design-ictsite-wp-theme",
-  "version": "DEV-0.2.0",
+  "version": "1.0.0",
   "description": "WordPress theme for ICT sites",
   "main": "index.js",
   "scripts": {
@@ -9,7 +9,7 @@
     "lint:php:file": "composer run lint:php --",
     "lint:php:fix": "composer run lint:php:fix -- .",
     "lint:php:fix:file": "composer run lint:php:fix --",
-    "version": "node scripts/config-sync && git add style.css && git add README.md",
+    "version": "node SETUP/npm_scripts/config-sync.js && git add style.css && git add VERSION.txt",
     "postversion": "echo \"You can now publish your tag with 'git push --follow-tags'\"",
 		"create_layout": "sass --load-path=node_modules assets/scss/bootstrap-italia-custom.scss:assets/css/compiled/bootstrap-italia-custom.min.css --style=compressed",
 		"update_layout_win": "npm run create_layout && xcopy .\\assets\\css\\compiled\\bootstrap-italia-custom.min.* .\\assets\\css\\ /Y",

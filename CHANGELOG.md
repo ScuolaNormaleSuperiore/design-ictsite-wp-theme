@@ -13,12 +13,24 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
-## [Unreleased]
+## [1.0.0] - 2026-09-10
+First stable release. Versioning drops the `DEV-` prefix and follows plain Semantic Versioning.
+## Added
+- Added the 404 page template.
+- Added the operator manual to the documentation.
 ## Changed
 - Updates Bootstrap Italia to 2.18.3.
 - Updates Algolia Autocomplete to 1.19.10 (panel repositioning, keyboard auto-scroll, animation performance).
 ## Fixed
 - Fixed the wrong Bootstrap Italia sprites path in the common video section template.
+- Fixed a custom taxonomy bug.
+- Fixed related-category links not applying the archive filter.
+- Fixed the language selector and the breadcrumb.
+- Fixed multiple frontend, i18n and security issues.
+- Hardened the SVG logo handling and `posts_per_page`; removed PHPCS suppressions.
+- Removed an unintended `noindex`.
+## Security
+- Escaped previously unescaped output fields.
 
 
 
@@ -26,8 +38,6 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 ## Fixed
 - Bug-fixing: Fixed bug reported by AI.
 - Security: Fixed issues reported by AI.
-
-
 
 ## [DEV-0.1.9] - 2026-04-27
 ## Fixed
