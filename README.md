@@ -1,4 +1,4 @@
-# ![developers.italia](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "developers.italia") Theme for ICT sites
+# ![Developers Italia logo](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "Developers Italia") Theme for ICT sites
 **WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***.
 
 ## Project status
@@ -140,8 +140,8 @@ After installing WordPress on a server, follow these steps to install and config
 6. Create default content: *WP->Appearance->Reload theme data -> Reload activation data (menus, pages, taxonomies, etc.)*
 7. In *WP->Appearance->Menus*, click **Save menu**.
 8. Theme Setup: Go to *WP->Configuration* and set your configuration data.
-**Immagine 1:** Backoffice: theme configuration.
-![configure](assets/screenshots/backoffice.png)
+**Back office: theme configuration**
+![Theme configuration screen in the WordPress back office](assets/screenshots/backoffice.png)
 
 ## Layout customization (font and colors)
 Fonts and colors come from two stylesheets shipped with the theme:
@@ -174,18 +174,23 @@ publiccode-parser publiccode.yml
 
 ## Gallery
 
-**Immagine 1:** Homepage: the main hero.
-![configure](assets/screenshots/homepage.png)
-**Immagine 2:** Homepage: service clusters.
-![configure](assets/screenshots/hp-service-cluster.png)
-**Immagine 3:** Service cluster.
-![configure](assets/screenshots/service-cluster.png)
-**Immagine 4:** Service item.
-![configure](assets/screenshots/service-item.png)
-**Immagine 5:** Documentation.
-![configure](assets/screenshots/documentation.png)
-**Immagine 6:** FAQ.
-![configure](assets/screenshots/faq.png)
+**Home page: the main hero**
+![Home page showing the main hero section](assets/screenshots/homepage.png)
+
+**Home page: service clusters**
+![Home page section listing the service clusters](assets/screenshots/hp-service-cluster.png)
+
+**Service cluster**
+![Service cluster page with the list of its services](assets/screenshots/service-cluster.png)
+
+**Service item**
+![Service detail page](assets/screenshots/service-item.png)
+
+**Documentation**
+![Documentation page with the search box and the document list](assets/screenshots/documentation.png)
+
+**FAQ**
+![FAQ page with the search box and the topic list](assets/screenshots/faq.png)
 
 
 ## Automatic checks
