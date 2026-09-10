@@ -18,11 +18,13 @@ First stable release. Versioning drops the `DEV-` prefix and follows plain Seman
 ## Added
 - Added the 404 page template.
 - Added the operator manual to the documentation.
+- Added FAQ search results to the FAQ page: pressing Enter, or the new Search button, in the FAQ autocomplete now runs a paginated FAQ search rendered on the same page.
 ## Changed
 - Updates Bootstrap Italia to 2.18.3.
 - Updates Algolia Autocomplete to 1.19.10 (panel repositioning, keyboard auto-scroll, animation performance).
 ## Fixed
 - Fixed the wrong Bootstrap Italia sprites path in the common video section template.
+- Fixed the Search button in the autocomplete forms of the site search and documentation pages: it submitted an empty query, or re-submitted the previous one, instead of the text just typed.
 - Fixed a custom taxonomy bug.
 - Fixed related-category links not applying the archive filter.
 - Fixed the language selector and the breadcrumb.

@@ -81,6 +81,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			placeholder: searchLabel,
 			openOnFocus: true,
 			debounce:    300,
+			// Mirror the query into the hidden input, so the submit button carries it too.
+			// The hidden input exists on the site search page; on the home page there is none.
+			onStateChange({ state }) {
+				const input = document.querySelector('#main_search_form input[name="search_string"]');
+				if (input) {
+					input.value = state.query;
+				}
+			},
 			getSources() {
 				return [
 					{
@@ -175,6 +183,9 @@ document.addEventListener('DOMContentLoaded', function() {
 		const searchLabel    = disHpAutocompleteAjax.searchLabel;
 		const noResultString = disHpAutocompleteAjax.noResultString;
 		const minChars = 3;
+		// Restore the submitted query after the page reload.
+		const faqParams       = new URLSearchParams(window.location.search);
+		const faqInitialQuery = faqParams.has('search_string') ? faqParams.get('search_string').trim() : '';
 
 		// Algolia Autocomplete.
 		algoliaModule.autocomplete({
@@ -182,6 +193,14 @@ document.addEventListener('DOMContentLoaded', function() {
 			placeholder: searchLabel,
 			openOnFocus: true,
 			debounce:    300,
+			initialState: { query: faqInitialQuery },
+			// Mirror the query into the hidden input, so the submit button carries it too.
+			onStateChange({ state }) {
+				const input = document.querySelector('#faq_search_form input[name="search_string"]');
+				if (input) {
+					input.value = state.query;
+				}
+			},
 			getSources() {
 				return [
 					{
@@ -242,6 +261,25 @@ document.addEventListener('DOMContentLoaded', function() {
 						}
 					}
 				];
+			},
+			// Submit the query to the FAQ page, which renders the result list.
+			onSubmit({ state }) {
+				const query = state.query.trim();
+				if (query) {
+					const form = document.getElementById('faq_search_form');
+					if (form) {
+						// The hidden input is rendered by the template; create it only as a fallback.
+						let input = form.querySelector('input[name="search_string"]');
+						if (!input) {
+							input = document.createElement('input');
+							input.type = 'hidden';
+							input.name = 'search_string';
+							form.appendChild(input);
+						}
+						input.value = query;
+						form.submit();
+					}
+				}
 			}
 		});
 	}
@@ -262,6 +300,13 @@ document.addEventListener('DOMContentLoaded', function() {
 			placeholder: searchLabel,
 			openOnFocus: true,
 			debounce:    300,
+			// Mirror the query into the hidden input, so the submit button carries it too.
+			onStateChange({ state }) {
+				const input = document.querySelector('#doc_search_form input[name="search_string"]');
+				if (input) {
+					input.value = state.query;
+				}
+			},
 			getSources() {
 				return [
 					{
