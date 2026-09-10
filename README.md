@@ -2,46 +2,69 @@
 **WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***.
 
 ## Project status
-The project is in beta testing.
+The project is stable. The current release is **1.0.0**.
+All notable changes are documented in [CHANGELOG.md](CHANGELOG.md).
 
 
 ## Credits
 This project uses the library [***Bootstrap Italia***](https://italia.github.io/bootstrap-italia/). All plugins and libraries used by the theme are listed in the file [CREDITS.txt](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CREDITS.txt).
 
 ## Features
-	- Automatic site population (pages and menu).
-	- Section for theme and content configuration.
-	- Customization of the home page layout.
-	- Management of the ICT staff.
-	- Management of the ICT projects.
-	- Management of news and events.
-	- Management of site locations.
-	- Management of ICT Faq and documents.
-	- Management of blog articles.
-	- Archive pages with pagination.
-	- Search across all site content.
-	- Management of site alerts.
-	- Cookie management.
-	- Sitemap.
-	- Hero section management on the home page.
-	- Management of events, news, and article sections on the home page.
-	- Banner management on the home page.
-	- Multi-language support.
+
+### Content
+- Management of the ICT services and service clusters.
+- Services filtered by user profile.
+- Management of the ICT staff, offices and site locations.
+- Management of the ICT projects.
+- Management of news, events and blog articles.
+- Management of ICT FAQ, organized by topic, and of documents.
+- Management of sponsors and of home page banners.
+- Archive pages with pagination.
+
+### Search
+- Search across all site content.
+- Search within the FAQ, with results paginated on the FAQ page.
+- Search within the documentation.
+- Optional autocomplete on the home page, the site search page, the FAQ page and the documentation page, each one independently enabled from the back office.
+
+### Site setup and configuration
+- Automatic site population (pages and menus) on activation, repeatable from *Appearance → Reload theme data*.
+- Back office section for theme and content configuration.
+- Customization of the home page layout and of its sections (hero, clusters, events, news, projects, featured contents, articles, banners, sponsors, video).
+- Management of site alerts.
+- Newsletter data and contact information.
+- Web analytics code and SEO options.
+- Cookie management.
+- Dedicated 404 page.
+- HTML and XML sitemaps.
+- Export of FAQ and services in JSON format.
+- Multi-language support through Polylang.
 
 ## Requirements
-1. WordPress (version >= 6.1.1).
+1. WordPress >= 6.1.1 (tested up to 7.1).
+2. PHP >= 8.0.
+3. The plugins listed under [Dependencies](#dependencies).
+
+Node.js and npm are required only to rebuild the theme stylesheet, as described under
+[Layout customization](#layout-customization-font-and-colors); they are not needed to run the theme.
 
 ## Repository
 This is an open-source project. [Here](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme) you can find the repository that contains the code of the project.
 
+
+## License
+The theme is released under the terms of the [GNU General Public License v3.0](LICENSE), as declared in
+`publiccode.yml` (`license: GPL-3.0-only`). The full text is available in the [LICENSE](LICENSE) file.
 
 ## Reuse Catalogue
 The project is published in the Developers Italia reuse catalog. [This](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36) the project Home Page.
 
 ## Documentation
    - [User manual (IT)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/wiki).
+   - [Operator manual (IT, PDF)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/Sito_ICT_Manuale_operatore_generico.pdf).
    - [Post-type and taxonomy schema](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/ICT-SiteContentTypes.pdf).
    - [How to update Bootstrap Italia](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/How%20to%20update%20Bootstrap%20Italia.md).
+   - [Changelog](CHANGELOG.md).
 
 ## Sitemap
 The theme provides both a user-facing HTML sitemap and XML sitemaps for search engines.
@@ -90,8 +113,14 @@ For the theme to function correctly, you must install the following plugins:
 The theme displays a warning when one of these plugins is not installed.
 
 ## Roles and Permissions
-Installing the theme adds a role called **Super Editor**, which has the same permissions as an Editor, plus the ability to configure the plugin (WP->Configuration) and modify the theme menu (WP->Appearance).
+Installing the theme adds a role called **Super Editor**, which has the same permissions as an Editor, plus the ability to configure the theme (WP->Configuration) and modify the theme menus (WP->Appearance).
 
+
+## Export data
+The theme adds an **Export data** page under *WP->Appearance*, reserved to administrators
+(`manage_options`). From there the following content can be downloaded as JSON:
+* the FAQ, with their topics, as `faq-export-<date>.json`;
+* the services, with the related data, as `services-export-<date>.json`.
 
 ## Theme installation and configuration
 After installing WordPress on a server, follow these steps to install and configure the **Design ICT site** theme:
@@ -108,23 +137,23 @@ After installing WordPress on a server, follow these steps to install and config
 
 	5.3 Set *Choose the language to assign* = it.
 
-6. Create default content: *WP->Appearance->Reload data-> Reload activation data (menus, pages, taxonomies, etc.)*
+6. Create default content: *WP->Appearance->Reload theme data -> Reload activation data (menus, pages, taxonomies, etc.)*
 7. In *WP->Appearance->Menus*, click **Save menu**.
 8. Theme Setup: Go to *WP->Configuration* and set your configuration data.
 **Immagine 1:** Backoffice: theme configuration.
 ![configure](assets/screenshots/backoffice.png)
 
 ## Layout customization (font and colors)
-In *WP->Configuration->More->Site Style* you can choose between:
-* **Standard Bootstrap Italia Style**: Style that uses the default colors and fonts from the Bootstrap Italia library.
-* **Custom Style**: Style that uses custom colors and fonts from the [bootstrap-italia-custom.min.css](assets/scss/bootstrap-italia-custom.min.css) and [custom-colors.css](assets/css/custom-colors.css) files.
+Fonts and colors come from two stylesheets shipped with the theme:
+* [assets/css/bootstrap-italia-custom.min.css](assets/css/bootstrap-italia-custom.min.css): the Bootstrap Italia library compiled from the theme sources, where the library variables are overridden.
+* [assets/css/custom-colors.css](assets/css/custom-colors.css): additional colour overrides applied on top of the library.
 
-The [bootstrap-italia-custom.min.css](assets/scss/bootstrap-italia-custom.min.css) file can be created using the procedure described in the [Library Customization](https://italia.github.io/bootstrap-italia/docs/get-started/customization-of-the-library/) document or by following these steps:
+The compiled stylesheet is generated from [assets/scss/bootstrap-italia-custom.scss](assets/scss/bootstrap-italia-custom.scss). To change fonts or colours, edit the SCSS source and rebuild, following the procedure described in the [Library Customization](https://italia.github.io/bootstrap-italia/docs/get-started/customization-of-the-library/) document or these steps:
 
 1. Access the template's root directory: ***design-ictsite-wp-theme*** using a shell.
 2. Run the command ***npm install*** to create the *node-modules* folder with all relevant dependencies.
-3. Edit the [bootstrap-italia.scss] file (assets/scss/bootstrap-italia-custom.scss) to specify the values that need to be modified and regenerated.
-4. Run the command ***npm run update_layout_win*** or ***npm run update_layout_linux***. This command creates a new *bootstrap-italia-custom.min* file that overwrites the existing one.
+3. Edit [assets/scss/bootstrap-italia-custom.scss](assets/scss/bootstrap-italia-custom.scss) to specify the values that need to be modified.
+4. Run the command ***npm run update_layout_win*** or ***npm run update_layout_linux***. This command regenerates `assets/css/bootstrap-italia-custom.min.css`, overwriting the existing one.
 
 Other guides on this topic:
 * [Customizing the Library](https://italia.github.io/bootstrap-italia/docs/come-iniziare/personalizzazione-della-libreria).
@@ -139,7 +168,7 @@ To report bugs, please use the [Issues](https://github.com/ScuolaNormaleSuperior
 The ***publiccode.yml*** file is used to publish the project in the [reuse catalog](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36). To verify its correctness, you can use this [procedure](https://github.com/italia/publiccode-parser-go).
 ```
 go install github.com/italia/publiccode-parser-go/v4/publiccode-parser@latest
-cd <plugin_folder_root>
+cd <theme_folder_root>
 publiccode-parser publiccode.yml
 ```
 
