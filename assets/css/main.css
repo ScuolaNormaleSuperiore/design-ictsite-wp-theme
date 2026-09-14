@@ -260,9 +260,24 @@ html {
 }
 
 /* SECONDARY MENU FONT SIZE */
-/* Bootstrap Italia ships the secondary navbar at 0.875rem, smaller than the
-   primary one. Align it to the primary menu size (1rem), which the primary
-   nav links inherit from the document root. */
+/* Bootstrap Italia sets every anchor of the secondary navbar to 0.875rem,
+   smaller than the primary menu. Two different sizes are involved, so two
+   rules are needed.
+
+   Bar items: the primary ones are 18px, not because a rule says so but
+   because .nav-link declares font-size: var(--bs-nav-link-font-size), a
+   variable Bootstrap Italia never defines. The declaration is therefore
+   dropped and the link simply inherits the 1.125rem carried by ul.navbar-nav.
+   Inheriting here reproduces exactly that, with no number to keep in sync if
+   the library changes it.
+
+   Dropdown items: kept at 1rem, the same size the primary dropdown uses
+   (.link-list-wrapper ul li a). They must not follow the bar to 18px. */
 .it-header-navbar-wrapper nav .navbar-collapsable .menu-wrapper .navbar-nav.navbar-secondary a {
 	font-size: 1rem;
+}
+
+.it-header-navbar-wrapper nav .navbar-collapsable .menu-wrapper .navbar-nav.navbar-secondary a.nav-link {
+	font-size: inherit;
+	line-height: inherit;
 }
