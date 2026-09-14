@@ -15,11 +15,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [1.0.3] - 2026-09-14
 ### Fixed
-- Restored the missing `add_theme_support( 'post-thumbnails' )` declaration: the featured image
-  metabox was unavailable in the back office for all 14 post types (the 12 theme custom post types
-  plus the built-in `post` and `page`), and every listing fell back to the default placeholder image.
-  Previously uploaded images were never lost and are visible again without re-uploading them.
-- Bug-fixing
+- Bug-fixing: post-thumbnails, main-menu, ecc.
 
 ## [1.0.2] - 2026-09-11
 ### Fixed

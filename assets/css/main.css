@@ -258,3 +258,11 @@ html {
 	padding:0.25em 0;
 	border-bottom: .5px solid ;
 }
+
+/* SECONDARY MENU FONT SIZE */
+/* Bootstrap Italia ships the secondary navbar at 0.875rem, smaller than the
+   primary one. Align it to the primary menu size (1rem), which the primary
+   nav links inherit from the document root. */
+.it-header-navbar-wrapper nav .navbar-collapsable .menu-wrapper .navbar-nav.navbar-secondary a {
+	font-size: 1rem;
+}
