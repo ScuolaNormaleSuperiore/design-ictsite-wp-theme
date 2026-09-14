@@ -15,7 +15,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 ## [1.0.3] - 2026-09-14
 ### Fixed
-- Bug-fixing: post-thumbnails, main-menu, ecc.
+- Bug-fixing: post-thumbnails, main-menu, secondary menu font size, ecc.
 
 ## [1.0.2] - 2026-09-11
 ### Fixed
