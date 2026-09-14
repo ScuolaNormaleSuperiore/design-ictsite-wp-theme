@@ -38,10 +38,7 @@ if ( has_nav_menu( $dis_location ) ) {
 							<div class="link-list-wrapper">
 								<ul class="link-list">
 									<li>
-										<a class="dropdown-item list-item"
-											href="<?php echo esc_url( $dis_item['element']->url ); ?>">
-											<span><?php echo esc_html( $dis_item['element']->title ); ?></span>
-										</a>
+										<span class="link-list-heading text-white"><?php echo esc_html( $dis_item['element']->title ); ?></span>
 									</li>
 									<li><span class="divider"></span></li>
 									<?php foreach ( $dis_item['children'] as $dis_sub_item ) : ?>
