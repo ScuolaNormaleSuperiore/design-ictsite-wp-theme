@@ -76,11 +76,13 @@ class DIS_LayoutManager {
 		add_theme_support( 'automatic-feed-links' );
 
 		/*
-		 * Enable support for Post Thumbnails on posts and pages.
+		 * Enable support for Post Thumbnails on posts, pages and every theme custom post type.
+		 * Required by DIS_ContentsManager::get_image_metadata() and by the featured image
+		 * metabox of the post types that declare the 'thumbnail' support.
 		 *
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
-		// Post thumbnails support can be enabled here if the theme starts using featured images.
+		add_theme_support( 'post-thumbnails' );
 	}
 
 	/**
