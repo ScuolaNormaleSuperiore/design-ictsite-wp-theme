@@ -13,8 +13,11 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 ## [1.0.4] - 2026-09-15
+### Added
+- Option to publish the WordPress sitemap (`/wp-sitemap.xml`), enabled by default.
 ### Fixed
-- Bug-fixing
+- Page title: page name first, site name last.
+- Missing page title on 404, on archives, and when internal SEO management is off.
 
 ## [1.0.3] - 2026-09-14
 ### Fixed

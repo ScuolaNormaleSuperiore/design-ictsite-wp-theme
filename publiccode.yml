@@ -84,7 +84,7 @@ maintenance:
 name: Design Sito ICT
 platforms:
   - web
-releaseDate: '2026-09-14'
+releaseDate: '2026-09-15'
 softwareType: addon
 url: 'https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme'
 logo: assets/img/logo_ict_site.png
