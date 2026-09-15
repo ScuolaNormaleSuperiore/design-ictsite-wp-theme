@@ -342,8 +342,18 @@ class DIS_ThemeManager {
 		if ( 'true' !== DIS_OptionsManager::dis_get_option( 'rest_api_enabled', 'dis_opt_advanced_settings' ) ) {
 			add_filter( 'rest_authentication_errors', array( $this, 'restrict_rest_to_authenticated' ) );
 		}
-		// Disable the core WordPress sitemap in favor of the theme custom sitemap.
-		add_filter( 'wp_sitemaps_enabled', '__return_false' );
+
+		/*
+		 * Core WordPress sitemap (/wp-sitemap.xml), controlled by the theme option.
+		 * It is published unless the administrator turns it off: the check is written
+		 * against the 'false' value on purpose, so that an installation that has never
+		 * saved the advanced settings keeps the sitemap, which is the WordPress default.
+		 * The theme sitemap at /sitemap-index.xml is served by DIS_NavigationManager and
+		 * is not affected by this option.
+		 */
+		if ( 'false' === DIS_OptionsManager::dis_get_option( 'wp_sitemap_enabled', 'dis_opt_advanced_settings' ) ) {
+			add_filter( 'wp_sitemaps_enabled', '__return_false' );
+		}
 	}
 
 	/**

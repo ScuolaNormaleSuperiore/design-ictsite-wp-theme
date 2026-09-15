@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Design ICT Site\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-09-10 08:19+0000\n"
+"POT-Creation-Date: 2026-09-15 09:00+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: \n"
@@ -220,7 +220,7 @@ msgstr ""
 msgid "Close alert"
 msgstr ""
 
-#: page-templates/faq-topic.php:119 page-templates/faq.php:117
+#: page-templates/faq-topic.php:119 page-templates/faq.php:248
 #: page-templates/search.php:189
 msgid "Code"
 msgstr ""
@@ -775,7 +775,7 @@ msgctxt "DIS_TaxonomySingularName"
 msgid "User Status"
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1024
+#: classes/class-dis-optionsmanager.php:1037
 msgid "Do not count the views of the robots."
 msgstr ""
 
@@ -859,12 +859,16 @@ msgstr ""
 msgid "Enable the autocomplete in the site search page"
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1050
+#: classes/class-dis-optionsmanager.php:1063
 msgid "Enable the counter of the views of the FAQ detail page."
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1037
+#: classes/class-dis-optionsmanager.php:1050
 msgid "Enable the counter of the views of the service detail page."
+msgstr ""
+
+#: classes/class-dis-optionsmanager.php:1015
+msgid "Enable the default WP sitemap"
 msgstr ""
 
 #: classes/class-dis-optionsmanager.php:677
@@ -920,7 +924,7 @@ msgstr ""
 msgid "Expand"
 msgstr ""
 
-#: page-templates/faq.php:58
+#: page-templates/faq.php:189
 msgid "Explore by topic"
 msgstr ""
 
@@ -954,7 +958,7 @@ msgstr ""
 msgid "Faq"
 msgstr ""
 
-#: page-templates/faq-topic.php:58 page-templates/faq.php:66
+#: page-templates/faq-topic.php:58 page-templates/faq.php:197
 msgid "FAQ by topic"
 msgstr ""
 
@@ -963,7 +967,7 @@ msgstr ""
 msgid "FAQ Topic"
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1049
+#: classes/class-dis-optionsmanager.php:1062
 msgid "FAQ views counter"
 msgstr ""
 
@@ -1021,7 +1025,8 @@ msgid "For support contact the %s"
 msgstr ""
 
 #. 1: number of results, 2: search string.
-#: page-templates/documentation.php:56 page-templates/search.php:73
+#: page-templates/documentation.php:56 page-templates/faq.php:63
+#: page-templates/search.php:73
 #, php-format
 msgid "Found %1$s results for \"%2$s\"."
 msgstr ""
@@ -1039,7 +1044,7 @@ msgstr ""
 msgid "From %1$s to %2$s"
 msgstr ""
 
-#: page-templates/service-items.php:22
+#: 404.php:75 page-templates/service-items.php:22
 #: template-parts/common/sidebar-navigation.php:54
 msgid "Full list of services"
 msgstr ""
@@ -1052,7 +1057,7 @@ msgstr ""
 msgid "Get started"
 msgstr ""
 
-#: 404.php:50 page.php:59 page.php:62 page.php:67 page-templates/privacy.php:82
+#: 404.php:53 page.php:59 page.php:62 page.php:67 page-templates/privacy.php:82
 #: page-templates/privacy.php:85 page-templates/privacy.php:90
 msgid "Go back"
 msgstr ""
@@ -1073,7 +1078,7 @@ msgstr ""
 msgid "Go to the footer"
 msgstr ""
 
-#: 404.php:55
+#: 404.php:58
 msgid "Go to the home page"
 msgstr ""
 
@@ -1087,7 +1092,7 @@ msgstr ""
 msgid "Go to the page"
 msgstr ""
 
-#: 404.php:63
+#: 404.php:66
 msgid "Go to the search page"
 msgstr ""
 
@@ -1163,6 +1168,10 @@ msgstr ""
 msgid "HP sections"
 msgstr ""
 
+#. URI of the theme
+msgid "https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme"
+msgstr ""
+
 #. Author URI of the theme
 msgid "https://ict.sns.it"
 msgstr ""
@@ -1191,7 +1200,7 @@ msgstr ""
 msgid "If yes, the title of the section is shown."
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1023
+#: classes/class-dis-optionsmanager.php:1036
 msgid "Ignore robots"
 msgstr ""
 
@@ -1298,7 +1307,7 @@ msgstr ""
 msgid "Message"
 msgstr ""
 
-#: page-templates/faq.php:99
+#: page-templates/faq.php:230
 msgid "Most searched frequently asked questions"
 msgstr ""
 
@@ -1359,16 +1368,17 @@ msgstr ""
 #: classes/class-dis-optionsmanager.php:968
 #: classes/class-dis-optionsmanager.php:988
 #: classes/class-dis-optionsmanager.php:1008
-#: classes/class-dis-optionsmanager.php:1029
+#: classes/class-dis-optionsmanager.php:1021
 #: classes/class-dis-optionsmanager.php:1042
 #: classes/class-dis-optionsmanager.php:1055
+#: classes/class-dis-optionsmanager.php:1068
 msgid "No"
 msgstr ""
 
 #: page-templates/articles.php:141 page-templates/documentation.php:53
-#: page-templates/faq.php:87 page-templates/faq.php:135
-#: page-templates/news.php:141 page-templates/places.php:123
-#: page-templates/projects.php:92
+#: page-templates/faq.php:60 page-templates/faq.php:218
+#: page-templates/faq.php:266 page-templates/news.php:141
+#: page-templates/places.php:123 page-templates/projects.php:92
 msgid "No results found"
 msgstr ""
 
@@ -1390,11 +1400,11 @@ msgstr ""
 msgid "page"
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1016
+#: classes/class-dis-optionsmanager.php:1029
 msgid "Page counters"
 msgstr ""
 
-#: 404.php:31
+#: 404.php:34 classes/class-dis-contentsmanager.php:155
 msgid "Page not found"
 msgstr ""
 
@@ -1456,6 +1466,13 @@ msgstr ""
 #: page-templates/projects.php:43
 #: template-parts/home/hp-projects-section.php:25
 msgid "Projects"
+msgstr ""
+
+#: classes/class-dis-optionsmanager.php:1016
+msgid ""
+"Publish the sitemap generated by WordPress at /wp-sitemap.xml. The theme "
+"sitemap at /sitemap-index.xml, which is language aware, stays available in "
+"either case."
 msgstr ""
 
 #: single-dis-service.php:103
@@ -1531,9 +1548,9 @@ msgstr ""
 
 #. Name of the template
 #: page-templates/documentation.php:89 page-templates/documentation.php:111
-#: page-templates/search.php:2 page-templates/search.php:89
-#: page-templates/search.php:101 page-templates/search.php:123
-#: template-parts/header/site-search.php:18
+#: page-templates/faq.php:100 page-templates/search.php:2
+#: page-templates/search.php:89 page-templates/search.php:101
+#: page-templates/search.php:123 template-parts/header/site-search.php:18
 msgid "Search"
 msgstr ""
 
@@ -1547,11 +1564,17 @@ msgstr ""
 msgid "Search in the site"
 msgstr ""
 
+#. %s: the search terms submitted by the visitor.
+#: classes/class-dis-contentsmanager.php:160
+#, php-format
+msgid "Search results for \"%s\""
+msgstr ""
+
 #: page-templates/documentation.php:101
 msgid "Search the documentation"
 msgstr ""
 
-#: page-templates/faq.php:43
+#: page-templates/faq.php:90
 msgid "Search the FAQs"
 msgstr ""
 
@@ -1559,7 +1582,7 @@ msgstr ""
 msgid "Search the site"
 msgstr ""
 
-#: 404.php:39
+#: 404.php:42
 msgid "Search the site or use the links below to continue browsing."
 msgstr ""
 
@@ -1593,7 +1616,7 @@ msgstr ""
 msgid "SEO"
 msgstr ""
 
-#: classes/class-dis-optionsmanager.php:1036
+#: classes/class-dis-optionsmanager.php:1049
 msgid "Service views counter"
 msgstr ""
 
@@ -1736,7 +1759,7 @@ msgstr ""
 msgid "The e-mail of the site."
 msgstr ""
 
-#: page-templates/faq.php:61
+#: page-templates/faq.php:192
 msgid ""
 "The FAQs are organized by topic. Click on the topic of interest to view the "
 "questions and answers."
@@ -1768,7 +1791,7 @@ msgstr ""
 msgid "The name that must appear on the e-mails sent by the site."
 msgstr ""
 
-#: 404.php:35
+#: 404.php:38
 msgid ""
 "The page you are looking for does not exist, or it has been moved or renamed."
 msgstr ""
@@ -1785,7 +1808,7 @@ msgstr ""
 msgid "The provider e-mail that must be used as sender."
 msgstr ""
 
-#: classes/class-dis-thememanager.php:366
+#: classes/class-dis-thememanager.php:376
 msgid "The REST API is restricted to authenticated users."
 msgstr ""
 
@@ -1904,9 +1927,10 @@ msgstr ""
 #: classes/class-dis-optionsmanager.php:967
 #: classes/class-dis-optionsmanager.php:987
 #: classes/class-dis-optionsmanager.php:1007
-#: classes/class-dis-optionsmanager.php:1028
+#: classes/class-dis-optionsmanager.php:1020
 #: classes/class-dis-optionsmanager.php:1041
 #: classes/class-dis-optionsmanager.php:1054
+#: classes/class-dis-optionsmanager.php:1067
 msgid "Yes"
 msgstr ""
 
