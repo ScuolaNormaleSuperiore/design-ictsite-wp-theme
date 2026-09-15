@@ -12,6 +12,9 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Check wp_enqueue_scripts (how many time is called?).
 
 
+## [1.0.4] - 2026-09-15
+### Fixed
+- Bug-fixing
 
 ## [1.0.3] - 2026-09-14
 ### Fixed

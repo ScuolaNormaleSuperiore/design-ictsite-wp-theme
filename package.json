@@ -1,6 +1,6 @@
 {
   "name": "design-ictsite-wp-theme",
-  "version": "1.0.3",
+  "version": "1.0.4",
   "description": "WordPress theme for ICT sites",
   "main": "index.js",
   "scripts": {

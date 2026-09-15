@@ -9,7 +9,13 @@ if ( 'true' === DIS_OptionsManager::dis_get_option( 'seo_internal_management_ena
 	$dis_og_data = DIS_ContentsManager::get_og_data();
 	?>
 
-	<title><?php echo esc_html( $dis_og_data->shared_title ); ?></title>
+	<?php
+	/*
+	 * No <title> here: it is rendered by WordPress through add_theme_support( 'title-tag' )
+	 * and filled in by DIS_LayoutManager::filter_document_title(). Printing it again would
+	 * put two <title> elements in the same document.
+	 */
+	?>
 	<?php if ( $dis_og_data->url ) : ?>
 		<link rel="canonical" href="<?php echo esc_url( $dis_og_data->url ); ?>" />
 	<?php endif; ?>

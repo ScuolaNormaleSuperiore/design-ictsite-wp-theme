@@ -27,6 +27,7 @@ class DIS_LayoutManager {
 		add_action( 'admin_enqueue_scripts', array( $this, 'upload_admin_scripts' ) );
 		add_action( 'after_setup_theme', array( $this, 'configure_post_options' ) );
 		add_action( 'after_setup_theme', array( $this, 'define_menu_locations' ) );
+		add_filter( 'pre_get_document_title', array( $this, 'filter_document_title' ) );
 		add_action( 'wp_footer', array( $this, 'load_pagination_script' ) );
 	}
 
@@ -83,6 +84,37 @@ class DIS_LayoutManager {
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
+
+		/*
+		 * Let WordPress render the <title> tag.
+		 * The theme never prints a <title> of its own: when the internal SEO management
+		 * is enabled, filter_document_title() replaces the text that WordPress would
+		 * otherwise compose, so there is exactly one title in every configuration.
+		 * Without this support the pages would have no title at all as soon as the
+		 * internal SEO management is switched off.
+		 */
+		add_theme_support( 'title-tag' );
+	}
+
+	/**
+	 * Replace the document title with the one built by the theme.
+	 *
+	 * Applies only while the internal SEO management is enabled: when it is off the
+	 * title is left to WordPress, or to the SEO plugin the administrator delegated it
+	 * to, and this filter does nothing.
+	 *
+	 * @param string $title Title computed by WordPress.
+	 * @return string The theme title, or the received one when the theme has none.
+	 */
+	public function filter_document_title( $title ) {
+		$seo_enabled = DIS_OptionsManager::dis_get_option( 'seo_internal_management_enabled', 'dis_opt_advanced_settings' );
+		if ( 'true' !== $seo_enabled ) {
+			return $title;
+		}
+
+		$og_data = DIS_ContentsManager::get_og_data();
+
+		return $og_data->shared_title ? $og_data->shared_title : $title;
 	}
 
 	/**
