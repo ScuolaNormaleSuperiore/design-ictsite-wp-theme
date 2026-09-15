@@ -67,42 +67,134 @@ class DIS_ContentsManager {
 		$og_data   = new DIS_OG_Wrapper();
 		$item_id   = $post && $post->ID ? $post->ID : '';
 		$item_type = $item_id && $post->post_type ? $post->post_type : 'homepage';
-		if ( is_home() || ( $item_id && in_array( $item_type, MULTILANG_POST_TYPES, true ) ) ) {
+
+		/*
+		 * Site level data. It does not depend on the queried post, so it is filled in
+		 * every context: without it the pages that have no post of their own (404,
+		 * taxonomy archives, search) would render an empty <title> and empty OG tags.
+		 */
+		$site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
+		$site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
+		$site_url     = site_url();
+		$parsed_url   = wp_parse_url( $site_url );
+		$domain       = isset( $parsed_url['host'] ) ? $parsed_url['host'] : '';
+
+		$og_data->type         = $item_type;
+		$og_data->locale       = DIS_MultiLangManager::get_current_language();
+		$og_data->site_url     = $site_url;
+		$og_data->site_title   = $site_title;
+		$og_data->site_tagline = $site_tagline;
+		$og_data->domain       = $domain;
+
+		$has_own_post = is_home() || ( $item_id && in_array( $item_type, MULTILANG_POST_TYPES, true ) );
+
+		if ( $has_own_post ) {
 			// Get data to fill OG structure.
-			$site_title   = DIS_OptionsManager::dis_get_option( 'site_title', 'dis_opt_options' );
-			$site_tagline = DIS_OptionsManager::dis_get_option( 'site_tagline', 'dis_opt_options' );
-			$item_title   = is_home() ? $site_title : $post->post_title;
-			$item_desc    = is_home() ? $site_tagline : self::clean_and_truncate_text( $post->post_content, DIS_ACF_SHORT_TEXT_LENGTH );
-			$item_url     = get_permalink();
-			$img_id       = is_home() ? null : get_post_thumbnail_id( $item_id );
-				$img_array    = wp_get_attachment_image_src( $img_id, 'large' );
-				$has_image    = $img_id && is_array( $img_array );
-				$file_path    = $img_id ? get_attached_file( $img_id ) : '';
-				$file_info    = $img_id ? wp_check_filetype( $file_path ) : '';
-				$img_type     = $img_id ? $file_info['type'] : '';
-				$item_image   = $has_image ? $img_array[0] : '';
-			$site_url     = site_url();
-			$parsed_url   = wp_parse_url( $site_url );
-			$domain       = $parsed_url['host'];
-			$shared_title = is_home() ? $site_title : $site_title . ' - ' . $post->post_title;
+			$item_title = is_home() ? $site_title : $post->post_title;
+			$item_desc  = is_home() ? $site_tagline : self::clean_and_truncate_text( $post->post_content, DIS_ACF_SHORT_TEXT_LENGTH );
+			$item_url   = get_permalink();
+			$img_id     = is_home() ? null : get_post_thumbnail_id( $item_id );
+			$img_array  = wp_get_attachment_image_src( $img_id, 'large' );
+			$has_image  = $img_id && is_array( $img_array );
+			$file_path  = $img_id ? get_attached_file( $img_id ) : '';
+			$file_info  = $img_id ? wp_check_filetype( $file_path ) : '';
+			$img_type   = $img_id ? $file_info['type'] : '';
+			$item_image = $has_image ? $img_array[0] : '';
+
 			// Fill OG data.
 			$og_data->id           = is_home() ? $item_id : 0;
 			$og_data->title        = $item_title;
-			$og_data->type         = $item_type;
 			$og_data->description  = $item_desc;
-			$og_data->site_url     = $site_url;
 			$og_data->url          = is_home() ? $site_url : $item_url;
-			$og_data->locale       = DIS_MultiLangManager::get_current_language();
-			$og_data->site_title   = $site_title;
-			$og_data->site_tagline = $site_tagline;
 			$og_data->image        = $item_image;
-				$og_data->img_width    = $has_image && isset( $img_array[1] ) ? $img_array[1] : '0';
-				$og_data->img_height   = $has_image && isset( $img_array[2] ) ? $img_array[2] : '0';
+			$og_data->img_width    = $has_image && isset( $img_array[1] ) ? $img_array[1] : '0';
+			$og_data->img_height   = $has_image && isset( $img_array[2] ) ? $img_array[2] : '0';
 			$og_data->img_type     = $img_type;
-			$og_data->domain       = $domain;
-			$og_data->shared_title = $shared_title;
+			$og_data->shared_title = self::build_shared_title( is_home() ? '' : $post->post_title, $site_title );
+		} else {
+			// Contexts without a post of their own: 404, taxonomy archives, search results.
+			$context_title = self::get_context_title();
+
+			$og_data->id           = 0;
+			$og_data->title        = $context_title ? $context_title : $site_title;
+			$og_data->description  = $site_tagline;
+			$og_data->url          = self::get_context_url();
+			$og_data->shared_title = self::build_shared_title( $context_title, $site_title );
 		}
+
 		return $og_data;
+	}
+
+	/**
+	 * Compose the document title, page name first and site name last.
+	 *
+	 * @param string $page_title Title of the current page; empty on the home page.
+	 * @param string $site_title Name of the site.
+	 * @return string The title to print inside <title>.
+	 */
+	private static function build_shared_title( $page_title, $site_title ) {
+		if ( ! $page_title ) {
+			return $site_title;
+		}
+		if ( ! $site_title ) {
+			return $page_title;
+		}
+		return $page_title . ' - ' . $site_title;
+	}
+
+	/**
+	 * Describe the current page when WordPress has no queried post to name it with.
+	 *
+	 * Covers the views that would otherwise produce an empty title: the 404 page,
+	 * the search results and the taxonomy and post type archives.
+	 *
+	 * @return string The page name, or an empty string when the context is unknown.
+	 */
+	private static function get_context_title() {
+		if ( is_404() ) {
+			return __( 'Page not found', 'design_ict_site' );
+		}
+
+		if ( is_search() ) {
+			/* translators: %s: the search terms submitted by the visitor. */
+			return sprintf( __( 'Search results for "%s"', 'design_ict_site' ), get_search_query() );
+		}
+
+		if ( is_category() || is_tag() || is_tax() ) {
+			$term = get_queried_object();
+			return $term instanceof WP_Term ? $term->name : '';
+		}
+
+		if ( is_post_type_archive() ) {
+			return post_type_archive_title( '', false );
+		}
+
+		return '';
+	}
+
+	/**
+	 * Canonical URL for the views handled by get_context_title().
+	 *
+	 * The 404 page and the search results deliberately return an empty string: they
+	 * are not a resource of their own, so they must not declare a canonical URL.
+	 *
+	 * @return string The canonical URL, or an empty string when there is none.
+	 */
+	private static function get_context_url() {
+		if ( is_category() || is_tag() || is_tax() ) {
+			$term = get_queried_object();
+			if ( $term instanceof WP_Term ) {
+				$link = get_term_link( $term );
+				return is_wp_error( $link ) ? '' : $link;
+			}
+		}
+
+		if ( is_post_type_archive() ) {
+			$link = get_post_type_archive_link( get_query_var( 'post_type' ) );
+			return $link ? $link : '';
+		}
+
+		return '';
 	}
 
 	public static function get_hp_sections() {
