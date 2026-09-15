@@ -118,7 +118,9 @@ For the theme to function correctly, you must install the following plugins:
 The theme displays a warning when one of these plugins is not installed.
 
 ## Roles and Permissions
-Installing the theme adds a role called **Super Editor**, which has the same permissions as an Editor, plus the ability to configure the theme (*WP->ICT Site*) and modify the theme menus (*WP->Appearance*).
+Installing the theme adds a role called **Super Editor**, which has the same permissions as an Editor plus access to *WP->Appearance*, so it can edit the site menus and use *Reload theme data*.
+
+Theme configuration (*WP->ICT Site*) is reserved to administrators: it requires the `manage_options` capability, which the Super Editor does not have.
 
 
 ## Export data
