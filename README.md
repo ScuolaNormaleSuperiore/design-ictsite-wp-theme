@@ -65,7 +65,7 @@ The project is published in the Developers Italia reuse catalog. [This](https://
 
 ## Documentation
    - [User manual (IT)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/wiki).
-   - [Operator manual (IT, PDF)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/Sito_ICT_Manuale_operatore_generico.pdf).
+   - [Operator manual (IT, PDF)](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/Sito_ICT_Manuale_operatore.pdf).
    - [Post-type and taxonomy schema](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/ICT-SiteContentTypes.pdf).
    - [How to update Bootstrap Italia](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/How%20to%20update%20Bootstrap%20Italia.md).
    - [Changelog](CHANGELOG.md).
