@@ -8,9 +8,16 @@
 $dis_logo_visible = DIS_OptionsManager::dis_get_option( 'header_logo_visible', 'dis_opt_options' );
 
 if ( 'true' === $dis_logo_visible ) {
+	/*
+	 * set_url_scheme() aligns the stored URL to the scheme of the current request,
+	 * so an image saved as http:// is not served as mixed content on an https page.
+	 * Note that it rewrites the scheme of ANY absolute URL, external hosts included:
+	 * a logo hosted on a third-party server reachable over HTTP only would be
+	 * rewritten to https and would stop loading. That is the intended trade-off.
+	 */
 	$dis_site_title = $args['site_title'] ?? '';
 	$dis_tagline    = $args['site_tagline'] ?? '';
-	$dis_logo_url   = DIS_OptionsManager::dis_get_option( 'site_logo', 'dis_opt_options' );
+	$dis_logo_url   = set_url_scheme( DIS_OptionsManager::dis_get_option( 'site_logo', 'dis_opt_options' ) );
 	$dis_site_url   = DIS_MultiLangManager::get_home_url();
 	?>
 

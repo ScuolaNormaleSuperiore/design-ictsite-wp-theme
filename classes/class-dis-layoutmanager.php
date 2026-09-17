@@ -37,12 +37,29 @@ class DIS_LayoutManager {
 	 * @return void
 	 */
 	public function upload_scripts() {
+		/*
+		 * Front-end assets are versioned with the theme version, read once, instead of
+		 * with filemtime() on each file. filemtime() invalidated the browser cache on
+		 * every edit, which is convenient, but it also cost one filesystem read per
+		 * asset on every request and published the last deployment time of the theme
+		 * in the page source, as ?ver=<unix timestamp>.
+		 *
+		 * The trade-off: editing an asset without bumping the theme version now leaves
+		 * visitors on the cached copy. The release flow already handles this, since
+		 * `npm version` propagates the number to style.css through config-sync.js.
+		 *
+		 * The admin assets in upload_admin_scripts() keep filemtime() on purpose: there
+		 * the timestamp is not exposed to anonymous visitors and immediate cache
+		 * invalidation is worth more while working on the back office.
+		 */
+		$dis_version = wp_get_theme()->get( 'Version' );
+
 		// Import CSS files.
-		wp_enqueue_style( 'dis-wp-style', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
-		wp_enqueue_style( 'dis-font', DIS_THEME_URL . '/assets/css/fonts.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/fonts.css' ) );
-		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/bootstrap-italia-custom.min.css' ) );
-		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/custom-colors.css' ) );
-		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css', array(), filemtime( DIS_THEME_PATH . 'assets/css/main.css' ) );
+		wp_enqueue_style( 'dis-wp-style', get_stylesheet_uri(), array(), $dis_version );
+		wp_enqueue_style( 'dis-font', DIS_THEME_URL . '/assets/css/fonts.css', array(), $dis_version );
+		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css', array(), $dis_version );
+		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css', array(), $dis_version );
+		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css', array(), $dis_version );
 		// Enqueue Bootstrap Icons.
 		wp_enqueue_style( 'bootstrap-icons-cdn', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css', array(), '1.11.3' );
 
@@ -51,7 +68,7 @@ class DIS_LayoutManager {
 			'dis-boostrap-italia-js',
 			DIS_THEME_URL . '/assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js',
 			array(),
-			filemtime( DIS_THEME_PATH . 'assets/bootstrap-italia/js/bootstrap-italia.bundle.min.js' ),
+			$dis_version,
 			true
 		);
 	}

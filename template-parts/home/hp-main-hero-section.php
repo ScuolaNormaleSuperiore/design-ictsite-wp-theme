@@ -12,7 +12,14 @@ $dis_section_enabled = ( 'true' === $dis_enabled_par );
 $dis_hp_autocomplete = DIS_OptionsManager::dis_get_option( 'home_search_autocomplete_enabled', 'dis_opt_hp_layout' );
 
 if ( $dis_section_enabled ) {
-	$dis_hero_image   = DIS_OptionsManager::dis_get_option( 'main_hero_image', 'dis_opt_main_hero' );
+	/*
+	 * set_url_scheme() aligns the stored URL to the scheme of the current request,
+	 * so an image saved as http:// is not served as mixed content on an https page.
+	 * Note that it rewrites the scheme of ANY absolute URL, external hosts included:
+	 * a logo hosted on a third-party server reachable over HTTP only would be
+	 * rewritten to https and would stop loading. That is the intended trade-off.
+	 */
+	$dis_hero_image   = set_url_scheme( DIS_OptionsManager::dis_get_option( 'main_hero_image', 'dis_opt_main_hero' ) );
 	$dis_hero_title   = _x( 'MainHeroTitle', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$dis_hero_text    = _x( 'MainHeroText', 'DIS_SiteOptionLabel', 'design_ict_site' );
 	$dis_left_button  = _x( 'MainHeroLeftButtonLabel', 'DIS_SiteOptionLabel', 'design_ict_site' );

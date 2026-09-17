@@ -1,11 +1,11 @@
 {
-  "name": "Bootstrap Italia Playground",
-  "short_name": "BI",
+  "name": "Servizi informatici di ateneo",
+  "short_name": "ICT SNS",
   "start_url": "/",
   "theme_color": "#06C",
   "background_color": "#06C",
   "display": "standalone",
-  "description": "Bootstrap Italia Playground",
+  "description": "Servizi informatici della Scuola Normale Superiore",
   "icons": [
     {
       "src": "android-chrome-192x192.png",

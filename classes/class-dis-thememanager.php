@@ -354,6 +354,44 @@ class DIS_ThemeManager {
 		if ( 'false' === DIS_OptionsManager::dis_get_option( 'wp_sitemap_enabled', 'dis_opt_advanced_settings' ) ) {
 			add_filter( 'wp_sitemaps_enabled', '__return_false' );
 		}
+
+		// Security headers sent on every front-end response.
+		add_action( 'send_headers', array( $this, 'send_security_headers' ) );
+	}
+
+	/**
+	 * Send the security headers the theme is responsible for.
+	 *
+	 * Only fixed-value headers are sent here, the ones that declare a behaviour
+	 * without restricting what the page may load:
+	 *
+	 * - X-Content-Type-Options stops MIME sniffing. Harmless as long as assets are
+	 *   served with the right Content-Type, which was verified for every CSS and JS
+	 *   file of the theme.
+	 * - X-Frame-Options prevents the site from being framed by another origin. It
+	 *   does NOT affect the iframes the site embeds itself, such as the YouTube
+	 *   players. SAMEORIGIN rather than DENY, so the site can still frame its own
+	 *   pages.
+	 * - Referrer-Policy makes explicit what current browsers already do by default.
+	 *
+	 * Content-Security-Policy is deliberately NOT sent here: the theme still has
+	 * inline <script> and <style> blocks and loads an external stylesheet, so a
+	 * restrictive policy would break the pages and a permissive one would protect
+	 * nothing. It is tracked as a separate issue.
+	 *
+	 * If the web server already sets these headers, remove this hook instead of
+	 * setting them twice: PHP overrides the server value for the same header name.
+	 *
+	 * @return void
+	 */
+	public function send_security_headers() {
+		if ( is_admin() ) {
+			return;
+		}
+
+		header( 'X-Content-Type-Options: nosniff' );
+		header( 'X-Frame-Options: SAMEORIGIN' );
+		header( 'Referrer-Policy: strict-origin-when-cross-origin' );
 	}
 
 	/**

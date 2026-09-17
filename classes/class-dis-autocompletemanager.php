@@ -51,12 +51,19 @@ class DIS_AutocompleteManager {
 			$faq_autocomplete_enabled ||
 			$site_autocomplete_enabled
 		) {
+			/*
+			 * Versioned with the theme version, like every other front-end asset:
+			 * filemtime() would publish the deployment time of the theme in the page
+			 * source as ?ver=<unix timestamp>. See DIS_LayoutManager::upload_scripts().
+			 */
+			$dis_version = wp_get_theme()->get( 'Version' );
+
 			// Algolia library.
 			wp_enqueue_script(
 				'dis-algolia-autocomplete',
 				DIS_THEME_URL . '/assets/algolia/dis-algolia.js',
 				array(),
-				filemtime( DIS_THEME_PATH . 'assets/algolia/dis-algolia.js' ),
+				$dis_version,
 				true
 			);
 			// Custom Algolia.
@@ -64,7 +71,7 @@ class DIS_AutocompleteManager {
 				'dis-autocomplete-init',
 				get_template_directory_uri() . '/assets/algolia/dis-autocomplete-init.js',
 				array( 'dis-algolia-autocomplete' ),
-				filemtime( DIS_THEME_PATH . 'assets/algolia/dis-autocomplete-init.js' ),
+				$dis_version,
 				true
 			);
 			// Algolia CSS.
@@ -72,7 +79,7 @@ class DIS_AutocompleteManager {
 				'dis-algolia-autocomplete-css',
 				DIS_THEME_URL . '/assets/algolia/dis-algolia.css',
 				array(),
-				filemtime( DIS_THEME_PATH . 'assets/algolia/dis-algolia.css' )
+				$dis_version
 			);
 
 			// Passing variables from PHP to JS.
