@@ -8,13 +8,12 @@ This projects uses [Semantic Versioning](http://semver.org/).
 
 TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
-## [TODO]
-- Check wp_enqueue_scripts (how many time is called?).
 
 
 
 ## [1.0.5] - 2026-09-17
-- Bug-fixing: fixed PWA behaviour, category pages, service profile, ecc.
+### Fixed
+- Bug-fixing: fixed PWA behaviour, category pages, service profile, meta charset, ecc.
 
 
 
