@@ -44,7 +44,7 @@ $dis_related_faqs = DIS_ContentsManager::get_related_faq( $post );
 			</h2>
 
 			<!-- Description -->
-			<?php echo wp_kses_post( get_the_content() ); ?>
+			<?php the_content(); ?>
 
 			<!-- Button to access the service -->
 			<?php if ( $dis_service_link ) : ?>

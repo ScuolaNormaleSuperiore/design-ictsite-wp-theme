@@ -37,7 +37,7 @@ $dis_projects    = DIS_ContentsManager::get_office_projects( $post );
 				<h3 class="it-page-section h4 visually-hidden" id="description">
 					<?php echo esc_html__( 'Description', 'design_ict_site' ); ?>
 				</h3>
-				<?php echo wp_kses_post( get_the_content() ); ?>
+				<?php the_content(); ?>
 			</div>
 
 			<!-- Members -->
