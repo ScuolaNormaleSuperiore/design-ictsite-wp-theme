@@ -81,10 +81,10 @@ maintenance:
     - email: servizi.informativi@sns.it
       name: Servizi Informativi SNS
   type: community
-name: Design Sito ICT
+name: Design ICT Site
 platforms:
   - web
-releaseDate: '2026-09-15'
+releaseDate: '2026-09-17'
 softwareType: addon
 url: 'https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme'
 logo: assets/img/logo_ict_site.png
