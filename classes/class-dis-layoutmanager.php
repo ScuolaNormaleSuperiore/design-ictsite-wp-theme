@@ -60,8 +60,16 @@ class DIS_LayoutManager {
 		wp_enqueue_style( 'dis-boostrap-italia', DIS_THEME_URL . '/assets/css/bootstrap-italia-custom.min.css', array(), $dis_version );
 		wp_enqueue_style( 'dis-custom-css', DIS_THEME_URL . '/assets/css/custom-colors.css', array(), $dis_version );
 		wp_enqueue_style( 'dis-main', DIS_THEME_URL . '/assets/css/main.css', array(), $dis_version );
-		// Enqueue Bootstrap Icons.
-		wp_enqueue_style( 'bootstrap-icons-cdn', 'https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css', array(), '1.11.3' );
+
+		/*
+		 * Bootstrap Icons is bundled in assets/bootstrap-icons/ instead of being loaded
+		 * from a CDN: WordPress.org forbids non-service assets served by third parties,
+		 * the CDN request exposed each visitor IP, and a local file needs no subresource
+		 * integrity attribute. The upstream CSS is kept unmodified and its fonts/ subfolder
+		 * preserved, so the relative url() paths resolve and the library can be updated by
+		 * replacing the files.
+		 */
+		wp_enqueue_style( 'bootstrap-icons', DIS_THEME_URL . '/assets/bootstrap-icons/bootstrap-icons.css', array(), $dis_version );
 
 		// Import Javascript files.
 		wp_enqueue_script(

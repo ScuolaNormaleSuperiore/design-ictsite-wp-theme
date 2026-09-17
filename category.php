@@ -1,23 +1,13 @@
 <?php
 /**
- * Detail page for category: category-dis-faq-topic.php
+ * Category archive redirect.
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
  * @package Design_ICT_Site
  */
 
-global $post;
-get_header();
-
-?>
-
-<div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
-
-CATEGORY DETAIL PAGE
-
-</div>
-
-
-<?php
-get_footer();
+// Category archives are not part of the theme's public navigation: redirect
+// direct requests instead of exposing the legacy placeholder page.
+wp_safe_redirect( home_url( '/' ) );
+exit;

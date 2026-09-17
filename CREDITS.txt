@@ -2,6 +2,7 @@
 *** Libraries used in the theme ***
 
 - [Bootstrap Italia](https://italia.github.io/bootstrap-italia/)
+- [Bootstrap Icons](https://icons.getbootstrap.com/) (MIT, bundled in `assets/bootstrap-icons/`)
 - [CMB2](https://github.com/CMB2/CMB2)
 - [TGM-Plugin-Activation](http://tgmpluginactivation.com/)
 
