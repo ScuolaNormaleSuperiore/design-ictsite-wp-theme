@@ -11,6 +11,53 @@ $dis_post = get_post();
 
 <!-- PRIVACY PAGE -->
 <div class="container shadow rounded  p-4 pt-3 pb-3 mb-5">
+	<script>
+		function checkLocalStorage() {
+			const keyExists = localStorage.getItem('bs-ck3') !== null;
+			const noDenyCookiesMsg = document.getElementById('dis_no_accepted_cookies_msg');
+			const denyCookiesButton = document.getElementById('dis_deny_cookies_button');
+
+			if (!noDenyCookiesMsg || !denyCookiesButton) {
+				return;
+			}
+
+			if (keyExists) {
+				noDenyCookiesMsg.style.display = 'none';
+				denyCookiesButton.style.display = 'block';
+			} else {
+				noDenyCookiesMsg.style.display = 'block';
+				denyCookiesButton.style.display = 'none';
+			}
+		}
+
+		window.addEventListener('DOMContentLoaded', checkLocalStorage);
+
+		function deleteYouTubeCookies() {
+			const domain = 'youtube.com';
+			document.cookie.split(';').forEach(function (cookie) {
+				const cookieName = cookie.split('=')[0].trim();
+				document.cookie = cookieName + '=; path=/; domain=' + domain + '; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+			});
+		}
+
+		function removeThirdPartiesCookies() {
+			const keyExists = localStorage.getItem('bs-ck3') !== null;
+			const noDenyCookiesMsg = document.getElementById('dis_no_accepted_cookies_msg');
+			const denyCookiesButton = document.getElementById('dis_deny_cookies_button');
+
+			if (keyExists) {
+				localStorage.removeItem('bs-ck3');
+
+				if (noDenyCookiesMsg && denyCookiesButton) {
+					noDenyCookiesMsg.style.display = 'block';
+					denyCookiesButton.style.display = 'none';
+				}
+
+				deleteYouTubeCookies();
+			}
+		}
+	</script>
+
 	<div class="row">
 
 		<div class="col">

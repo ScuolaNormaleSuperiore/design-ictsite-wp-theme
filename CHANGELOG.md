@@ -14,7 +14,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 ## [1.0.5] - 2026-09-17
-- Bug-fixing: fixed PWA behaviour
+- Bug-fixing: fixed PWA behaviour, category pages, service profile, ecc.
 
 
 

@@ -378,7 +378,25 @@ class DIS_ActivationManager {
 			self::assign_menu_location( $menu, $menu_location );
 		} else {
 			$menu_id = wp_create_nav_menu( $menu_name );
+			if ( is_wp_error( $menu_id ) ) {
+				/* translators: 1: menu name, 2: error message. */
+				$msg = sprintf(
+					__( "Unable to create the menu '%1\$s': %2\$s", 'design_ict_site' ),
+					$menu_name,
+					$menu_id->get_error_message()
+				);
+				array_push( $messages, $msg );
+				return;
+			}
+
 			$menu    = get_term_by( 'id', $menu_id, 'nav_menu' );
+			if ( ! $menu || is_wp_error( $menu ) ) {
+				/* translators: %s: menu name. */
+				$msg = sprintf( __( "Unable to load the menu '%s'.", 'design_ict_site' ), $menu_name );
+				array_push( $messages, $msg );
+				return;
+			}
+
 			foreach ( $menu_items as $menu_item ) {
 				if ( ( ! isset( $menu_item['link'] ) ) || ( '' === $menu_item['link'] ) ) {
 					// Link to pages or posts.

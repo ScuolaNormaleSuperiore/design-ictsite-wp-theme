@@ -11,7 +11,12 @@ $dis_locations = $args['locations'];
 $dis_location  = USEFUL_LINKS_LOCATION_SLUG;
 
 if ( has_nav_menu( $dis_location ) ) {
-	$dis_custom_menu = wp_get_nav_menu_object( $dis_locations[ $dis_location ] );
+	$dis_menu_id     = $dis_locations[ $dis_location ] ?? 0;
+	$dis_custom_menu = $dis_menu_id ? wp_get_nav_menu_object( $dis_menu_id ) : false;
+	if ( ! ( $dis_custom_menu instanceof WP_Term ) ) {
+		return;
+	}
+
 	$dis_menu_items  = wp_get_nav_menu_items( $dis_custom_menu->term_id, array( 'order' => 'DESC' ) );
 	$dis_menu_items  = $dis_menu_items ? $dis_menu_items : array();
 
