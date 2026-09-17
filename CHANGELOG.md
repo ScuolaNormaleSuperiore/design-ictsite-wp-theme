@@ -12,6 +12,12 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 - Check wp_enqueue_scripts (how many time is called?).
 
 
+
+## [1.0.5] - 2026-09-17
+- Bug-fixing: fixed PWA behaviour
+
+
+
 ## [1.0.4] - 2026-09-15
 ### Added
 - Option to publish the WordPress sitemap (`/wp-sitemap.xml`), enabled by default.
