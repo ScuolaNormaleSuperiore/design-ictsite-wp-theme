@@ -44,9 +44,9 @@ if ( $dis_section_enabled ) {
 				<div class="col-12">
 					<div class="it-hero-text-wrapper">
 						<?php if ( $dis_show_title ) : ?>
-							<h2>
-								<?php echo esc_html( $dis_hero_title ); ?>
-							</h2>
+							<h2><?php echo esc_html( $dis_hero_title ); ?></h2>
+						<?php else : ?>
+							<h2 class="visually-hidden"><?php echo esc_html( $dis_hero_title ); ?></h2>
 						<?php endif; ?>
 
 						<form id="main_search_form" action="<?php echo esc_url( $dis_search_link ); ?>" method="get">

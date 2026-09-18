@@ -1125,7 +1125,7 @@ msgstr "Vai alla home page"
 
 #: header.php:75
 msgid "Go to the menu"
-msgstr "Val al menu"
+msgstr "Vai al menu"
 
 #: template-parts/common/pagination.php:16
 #: template-parts/common/pagination.php:50
