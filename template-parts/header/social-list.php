@@ -63,7 +63,7 @@ if ( 'true' === $dis_show_socials ) {
 				<?php if ( $dis_social_url ) : ?>
 					<li>
 						<a href="<?php echo esc_url( $dis_social_url ); ?>" aria-label="<?php echo esc_attr( $dis_social_config['label'] ); ?>" target="_blank" rel="noopener noreferrer">
-							<svg class="icon" role="img" aria-labelledby="<?php echo esc_attr( strtolower( str_replace( ' ', '-', $dis_social_config['label'] ) ) ); ?>" aria-label="<?php echo esc_attr( $dis_social_config['label'] ); ?>">
+							<svg class="icon" role="img" aria-label="<?php echo esc_attr( $dis_social_config['label'] ); ?>">
 								<title><?php echo esc_html( $dis_social_config['label'] ); ?></title>
 								<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#' . $dis_social_config['icon'] ); ?>"></use>
 							</svg>

@@ -98,9 +98,14 @@ $dis_num_results = $dis_query->found_posts;
 								<div class="it-card-body">
 									<?php if ( $dis_offices_string ) : ?>
 										<dl class="it-card-description-list">
-											<p>
-												<?php echo wp_kses_post( $dis_offices_string ); ?>
-											</p>
+											<div>
+												<dt class="visually-hidden">
+													<?php echo esc_html__( 'Offices', 'design_ict_site' ); ?>
+												</dt>
+												<dd>
+													<?php echo wp_kses_post( $dis_offices_string ); ?>
+												</dd>
+											</div>
 										</dl>
 									<?php endif; ?>
 									<?php if ( $dis_short_desc ) : ?>

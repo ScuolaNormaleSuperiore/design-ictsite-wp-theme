@@ -240,8 +240,8 @@ class DIS_NavigationManager {
 			esc_url( $tree[ DIS_HOMEPAGE_SLUG ]->link ),
 			esc_html( $tree[ DIS_HOMEPAGE_SLUG ]->name )
 		);
-		$html .= '</li>';
 		$html .= self::render_sitemap_html_items( $tree[ DIS_HOMEPAGE_SLUG ]->children );
+		$html .= '</li>';
 		$html .= '</ul>';
 
 		return $html;

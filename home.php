@@ -14,7 +14,7 @@ $dis_all_sections = DIS_ContentsManager::get_hp_sections();
 $dis_sections     = DIS_ContentsManager::get_hp_section_options( true );
 ?>
 
-<div id="main-container" class="main-container redbrown" role="main">
+<div id="main-container" class="main-container redbrown">
 
 	<?php
 	foreach ( $dis_sections as $dis_section ) {
