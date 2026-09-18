@@ -102,7 +102,7 @@ $dis_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->I
 			<div class="row">
 				<div class="col-12 col-md-12 col-lg-12 mb-3 mb-md-4">
 					<article class="it-card rounded border shadow-sm mb-3">
-						<h4 class="it-card-title it-card-title-icon ">
+						<h3 class="h4 it-card-title it-card-title-icon">
 							<a href="<?php echo esc_url( $dis_attachment['url'] ); ?>">
 								<?php echo esc_html( $dis_attachment['title'] ); ?>
 								<div class="it-card-title-icon-wrapper">
@@ -111,7 +111,7 @@ $dis_attachment   = DIS_CustomFieldsManager::get_field( 'attachment_1', $post->I
 									</svg>
 								</div>
 							</a>
-						</h4>
+						</h3>
 					</article>
 				</div>
 			</div>

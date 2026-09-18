@@ -10,9 +10,9 @@ $dis_email_obfuscated = antispambot( $dis_email );
 $dis_telephone        = DIS_OptionsManager::dis_get_option( 'site_telephone', 'dis_opt_site_contacts' );
 ?>
 
-<h4 class="customSpacing">
+<h3 class="h4 customSpacing">
 	<?php echo esc_html__( 'FooterContactsLabel', 'design_ict_site' ); ?>
-</h4>
+</h3>
 <p>
 	<?php echo esc_html__( 'FooterContactsDescription', 'design_ict_site' ); ?>
 </p>
