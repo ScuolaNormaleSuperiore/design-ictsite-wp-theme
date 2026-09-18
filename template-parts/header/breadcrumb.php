@@ -14,7 +14,11 @@ if ( ! is_home() ) {
 		<ol class="breadcrumb pb-0">
 			<?php foreach ( $dis_steps as $dis_index => $dis_step ) : ?>
 				<li class="<?php echo esc_attr( $dis_step->css_class ); ?>">
-					<a href="<?php echo esc_url( $dis_step->url ); ?>"><?php echo esc_html( $dis_step->label ); ?></a>
+					<?php if ( $dis_step->url ) : ?>
+						<a href="<?php echo esc_url( $dis_step->url ); ?>"><?php echo esc_html( $dis_step->label ); ?></a>
+					<?php else : ?>
+						<a aria-current="page"><?php echo esc_html( $dis_step->label ); ?></a>
+					<?php endif; ?>
 					<?php if ( $dis_index < count( $dis_steps ) - 1 ) : ?>
 						<span class="separator">&gt;</span>
 					<?php endif; ?>
