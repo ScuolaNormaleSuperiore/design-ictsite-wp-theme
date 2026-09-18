@@ -17,7 +17,7 @@ if ( ! is_home() ) {
 					<?php if ( $dis_step->url ) : ?>
 						<a href="<?php echo esc_url( $dis_step->url ); ?>"><?php echo esc_html( $dis_step->label ); ?></a>
 					<?php else : ?>
-						<a aria-current="page"><?php echo esc_html( $dis_step->label ); ?></a>
+						<span aria-current="page"><?php echo esc_html( $dis_step->label ); ?></span>
 					<?php endif; ?>
 					<?php if ( $dis_index < count( $dis_steps ) - 1 ) : ?>
 						<span class="separator">&gt;</span>
