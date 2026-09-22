@@ -47,7 +47,8 @@ $dis_pagination_on   = $dis_num_results > intval( $dis_posts_per_page );
 				<div class="dropdown">
 					<button class="btn btn-dropdown dropdown-toggle" type="button" id="pagerChanger"
 						data-bs-toggle="dropdown" aria-haspopup="true"
-						aria-expanded="false" aria-label="<?php echo esc_attr__( 'Go to the page', 'design_ict_site' ); ?>">
+						aria-expanded="false"
+						aria-label="<?php echo esc_attr( sprintf( /* translators: %s: "{n}/page" label already shown on the button. */ __( '%s, choose a different value', 'design_ict_site' ), $dis_posts_per_page . '/' . __( 'page', 'design_ict_site' ) ) ); ?>">
 						<?php echo esc_html( $dis_posts_per_page ); ?>/<?php echo esc_html__( 'page', 'design_ict_site' ); ?>
 						<svg class="icon icon-primary icon-sm">
 							<use href="<?php echo esc_url( DIS_THEME_URL . '/assets/bootstrap-italia/svg/sprites.svg#it-expand' ); ?>"></use>
