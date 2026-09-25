@@ -14,13 +14,11 @@ if ( $dis_section_enabled ) {
 	$dis_items = DIS_ContentsManager::get_cluster_list( true, 'priority' );
 	?>
 	<div class="container card shadow rounded home-listing-items p-4 pt-5 pb-3">
-		<h2 class="pb-2">
-			<?php
-			if ( $dis_show_title ) {
-				echo esc_html__( 'Services', 'design_ict_site' );
-			}
-			?>
-		</h2>
+		<?php if ( $dis_show_title ) : ?>
+			<h2 class="pb-2"><?php echo esc_html__( 'Services', 'design_ict_site' ); ?></h2>
+		<?php else : ?>
+			<h2 class="visually-hidden"><?php echo esc_html__( 'Services', 'design_ict_site' ); ?></h2>
+		<?php endif; ?>
 		<div class="row">
 			<div class="card-wrapper card-teaser-wrapper card-teaser-block-4">
 				<?php

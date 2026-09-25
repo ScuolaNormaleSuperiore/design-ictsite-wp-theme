@@ -56,7 +56,6 @@ if ( ! $post instanceof WP_Post ) {
 						class="btn btn-primary btn-xs btn-me m-4 " role="button" data-focus-mouse="false">
 						<svg class="icon icon-sm icon-white me-2"
 							role="img"
-							aria-labelledby="<?php echo esc_attr__( 'Go back', 'design_ict_site' ); ?>"
 						>
 							<title>
 								<?php echo esc_html__( 'Go back', 'design_ict_site' ); ?>

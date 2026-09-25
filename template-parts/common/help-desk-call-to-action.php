@@ -25,7 +25,7 @@ $dis_help_link = DIS_MultiLangManager::get_page_link( HELP_DESK_PAGE_SLUG );
 							<?php echo esc_html__( 'Contact the help desk for technical assistance.', 'design_ict_site' ); ?>
 						</p>
 					</div>
-					<div class="it-card-footer" aria-label="<?php echo esc_attr__( 'Request support', 'design_ict_site' ); ?>">
+					<div class="it-card-footer">
 						<a class="btn btn-sm btn-primary ms-3" href="<?php echo esc_url( $dis_help_link ); ?>">
 							<?php echo esc_html__( 'Request support', 'design_ict_site' ); ?>
 							<svg class="icon icon-white ms-2">

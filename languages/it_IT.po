@@ -15,6 +15,12 @@ msgstr ""
 "X-Loco-Version: 2.8.4; wp-6.9.4; php-8.3.11\n"
 "X-Domain: design_ict_site"
 
+#. %s: "{n}/page" label already shown on the button.
+#: template-parts/common/pagination.php:51
+#, php-format
+msgid "%s, choose a different value"
+msgstr "%s, scegli un valore diverso"
+
 #. Name of the template
 #: page-templates/about-us.php:2
 msgid "About us"
@@ -1125,10 +1131,9 @@ msgstr "Vai alla home page"
 
 #: header.php:75
 msgid "Go to the menu"
-msgstr "Val al menu"
+msgstr "Vai al menu"
 
 #: template-parts/common/pagination.php:16
-#: template-parts/common/pagination.php:50
 #: template-parts/footer/offices-section.php:19
 msgid "Go to the page"
 msgstr "Vai alla pagina"

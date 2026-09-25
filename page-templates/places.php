@@ -84,11 +84,11 @@ $dis_num_results = $dis_query->found_posts;
 							<article class="it-card it-card-profile it-card-height-full it-card-border-top it-card-border-top-secondary rounded shadow-sm border mb-3">
 								<div class="it-card-profile-header">
 									<div class="it-card-profile">
-										<h4 class="it-card-profile-name ">
+										<h3 class="h4 it-card-profile-name">
 											<a href="<?php echo esc_url( get_permalink( $dis_post ) ); ?>">
 												<?php echo esc_html( $dis_post->post_title ); ?>
 											</a>
-										</h4>
+										</h3>
 										<p class="it-card-profile-type">
 											<?php echo esc_html( $dis_place_types ); ?>
 										</p>
@@ -98,9 +98,14 @@ $dis_num_results = $dis_query->found_posts;
 								<div class="it-card-body">
 									<?php if ( $dis_offices_string ) : ?>
 										<dl class="it-card-description-list">
-											<p>
-												<?php echo wp_kses_post( $dis_offices_string ); ?>
-											</p>
+											<div>
+												<dt class="visually-hidden">
+													<?php echo esc_html__( 'Offices', 'design_ict_site' ); ?>
+												</dt>
+												<dd>
+													<?php echo wp_kses_post( $dis_offices_string ); ?>
+												</dd>
+											</div>
 										</dl>
 									<?php endif; ?>
 									<?php if ( $dis_short_desc ) : ?>

@@ -19,13 +19,11 @@ if ( $dis_section_enabled ) {
 		<section id="blocco-news" class="section pt-5 pb-3">
 			<div class="section-content">
 				<div class="container">
-					<h2 class="pb-4">
-						<?php
-						if ( $dis_show_title ) {
-							echo esc_html( dis_ct_data()[ DIS_NEWS_POST_TYPE ]['plural_name'] );
-						}
-						?>
-					</h2>
+					<?php if ( $dis_show_title ) : ?>
+						<h2 class="pb-4"><?php echo esc_html( dis_ct_data()[ DIS_NEWS_POST_TYPE ]['plural_name'] ); ?></h2>
+					<?php else : ?>
+						<h2 class="visually-hidden"><?php echo esc_html( dis_ct_data()[ DIS_NEWS_POST_TYPE ]['plural_name'] ); ?></h2>
+					<?php endif; ?>
 					<div class="row">
 						<?php foreach ( $dis_items as $dis_item ) : ?>
 							<?php

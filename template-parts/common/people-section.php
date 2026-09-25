@@ -42,7 +42,7 @@ if ( ! empty( $dis_persons ) ) {
 			<article class="it-card it-card-profile it-card-height-full it-card-border-top it-card-border-top-secondary rounded shadow-sm border">
 				<div class="it-card-profile-header">
 					<div class="it-card-profile">
-						<h4 class="it-card-profile-name ">
+						<h3 class="h4 it-card-profile-name">
 							<?php if ( 'no_link' !== $dis_detail_link ) : ?>
 								<a target="<?php echo esc_attr( $dis_target ); ?>" href="<?php echo esc_url( $dis_full_link ); ?>">
 							<?php endif; ?>
@@ -50,7 +50,7 @@ if ( ! empty( $dis_persons ) ) {
 							<?php if ( 'no_link' !== $dis_detail_link ) : ?>
 								</a>
 							<?php endif; ?>
-						</h4>
+						</h3>
 						<p class="it-card-profile-role">
 							<?php echo esc_html( $dis_full_roles ); ?>
 						</p>

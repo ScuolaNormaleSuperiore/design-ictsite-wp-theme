@@ -35,6 +35,10 @@ tests/e2e/status-report/reports/*
 tests/e2e/html-report/reports/*
 !tests/e2e/html-report/reports/.gitkeep
 
+# Accessibility scanner (pa11y-ci)
+tests/e2e/pa11y-report/reports/*
+!tests/e2e/pa11y-report/reports/.gitkeep
+
 # BUILD CSS
 assets/css/compiled
 assets/bootstrap-italia/css/bootstrap-italia-custom.min.css

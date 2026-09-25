@@ -142,6 +142,14 @@ html {
 
 /** Accessibilità*/
 
+/* La pagina corrente nel breadcrumb non è un link (niente href/id/name,
+   per WCAG2AA.H91.A.Placeholder), quindi è uno span: qui replichiamo lo
+   stile che .breadcrumb-item a applica agli altri elementi. */
+.breadcrumb-item.active span {
+	color: hsl(210, 33%, 28%);
+	font-weight: 400;
+}
+
 .it-footer a {
 	text-decoration: none;
 }

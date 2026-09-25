@@ -19,7 +19,8 @@
     "status:compare": "node tests/e2e/status-report/compare.js",
     "html:scan": "node tests/e2e/html-report/scan.js",
     "html:scan:gate": "node tests/e2e/html-report/scan.js --gate",
-    "html:compare": "node tests/e2e/html-report/compare.js"
+    "html:compare": "node tests/e2e/html-report/compare.js",
+    "pa11y:scan": "pa11y-ci --config tests/e2e/pa11y-report/pa11yci.config.js"
   },
   "repository": {
     "type": "git",
@@ -35,6 +36,8 @@
     "bootstrap-italia": "^2.18.3"
   },
   "devDependencies": {
+    "pa11y-ci": "^4.1.1",
+    "pa11y-ci-reporter-html": "^8.1.1",
     "playwright": "^1.50.0",
     "sass": "^1.81.0",
     "vnu-jar": "^26.3.17"
