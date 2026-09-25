@@ -10,12 +10,15 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 
+## [1.0.6] - 2026-09-25
+### Fixed
+- Bug-fixing
+
+
 
 ## [1.0.5] - 2026-09-17
 ### Fixed
 - Bug-fixing: fixed PWA behaviour, category pages, service profile, meta charset, ecc.
-
-
 
 ## [1.0.4] - 2026-09-15
 ### Added
