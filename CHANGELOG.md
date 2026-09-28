@@ -10,7 +10,7 @@ TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
 ## [1.0.6] - 2026-09-28
-### Fixed
+### Added
 - New feature: PWA implementation
 
 ## [1.0.5] - 2026-09-17
