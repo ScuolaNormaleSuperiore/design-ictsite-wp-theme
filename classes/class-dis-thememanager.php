@@ -81,6 +81,9 @@ if ( ! class_exists( 'DIS_FaqManager' ) ) {
 if ( ! class_exists( 'DIS_AutocompleteManager' ) ) {
 	include_once 'class-dis-autocompletemanager.php';
 }
+if ( ! class_exists( 'DIS_PwaManager' ) ) {
+	include_once 'class-dis-pwamanager.php';
+}
 /**
  * The manager that builds the tool and configures WordPress.
  * How to get a manger?
@@ -240,6 +243,10 @@ class DIS_ThemeManager {
 		// Setup of Autocomplete Manager.
 		$autocomplete_manager = new DIS_AutocompleteManager();
 		$autocomplete_manager->setup();
+
+		// Setup progressive web app support.
+		$pwa_manager = new DIS_PwaManager();
+		$pwa_manager->setup();
 
 		// Setup of sitemap renderers and XML endpoints.
 		$nvm = new DIS_NavigationManager();
