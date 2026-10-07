@@ -36,7 +36,7 @@
     "bootstrap-italia": "^2.18.3"
   },
   "devDependencies": {
-    "pa11y-ci": "^4.1.1",
+    "pa11y-ci": "^5.0.0",
     "pa11y-ci-reporter-html": "^8.1.1",
     "playwright": "^1.50.0",
     "sass": "^1.81.0",

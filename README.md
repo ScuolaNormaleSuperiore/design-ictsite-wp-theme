@@ -1,6 +1,7 @@
 # ![Developers Italia logo](https://avatars1.githubusercontent.com/u/15377824?s=36&v=4 "Developers Italia") Theme for ICT sites
 **WordPress theme** for building websites that showcase and facilitate the use of an organization’s ***ICT services***.
 
+
 ## Project status
 The project is stable. The current release is [VERSION.txt](VERSION.txt).
 All notable changes are documented in [CHANGELOG.md](CHANGELOG.md).
@@ -170,6 +171,33 @@ Other guides on this topic:
 
 ## Tickets and bug fixes
 To report bugs, please use the [Issues](https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/issues) section of the project repository.
+
+To report a **security vulnerability**, do not open a public issue: follow the [security policy](SECURITY.md) and use GitHub's private vulnerability reporting.
+
+## How to contribute
+
+Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before opening an issue or pull request.
+
+## AI project context
+
+Ask the coding assistant to “read the project context”. It reads `AGENTS.md` (or `CLAUDE.md`), then
+`AGENTS/AGENTS_README.md`, `AGENTS/PROJECT.md`, `AGENTS/ARCHITECTURE.md`,
+`AGENTS/AI_BEHAVIOR.md`, and `AGENTS/CODING_STANDARDS.md`, in that order. It then lists the available
+skills and asks what to work on.
+
+## Testing and quality checks
+
+Run these commands from the theme root:
+
+- `composer run lint:php` — checks PHP code against the configured WordPress coding standards.
+- `npm run status:scan -- https://your-site.example` — crawls the sitemap and reports HTTP, PHP,
+  JavaScript, resource-loading, and page-performance issues.
+- `npm run html:scan -- https://your-site.example` — validates rendered page HTML with Nu Html Checker.
+- `npm run html:scan:gate -- https://your-site.example` — runs the same HTML validation and exits with
+  an error code when the result fails, making it suitable for a quality gate.
+- `npm run pa11y:scan` — checks the configured pages for WCAG 2.1 AA accessibility issues.
+
+Detailed scanner instructions are in `tests/e2e/*/README.md`.
 
 ## Verify publiccode.yml file
 The ***publiccode.yml*** file is used to publish the project in the [reuse catalog](https://developers.italia.it/it/software/721253b5-4075-4f9f-b16c-eb3eee57cd36). To verify its correctness, you can use this [procedure](https://github.com/italia/publiccode-parser-go).

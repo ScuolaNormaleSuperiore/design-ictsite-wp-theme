@@ -17,17 +17,29 @@ come sopra), altrimenti il reporter non viene trovato.
 ## Configurare l'elenco delle pagine
 
 A differenza di `html-report` e `status-report`, questo scanner non
-scopre le pagine automaticamente. Modificare l'array `urls` in
-[`pa11yci.config.js`](pa11yci.config.js) ogni volta che vengono aggiunte o
-rimosse pagine dal sito.
+scopre le pagine automaticamente.
+
+- **Sito da controllare**: variabile d'ambiente `PA11Y_BASE_URL`
+  (default `http://localhost`).
+- **Pagine generiche** (home, archivi, accessibilità, privacy): elenco in
+  `buildUrls()` di [`pa11yci.config.js`](pa11yci.config.js).
+- **Pagine di dettaglio del proprio sito** (una persona, un ufficio, una
+  notizia, ...): file locale `pa11yci.urls.local.json`, ignorato da git, con un
+  array JSON di percorsi (`"/uffici/nome/"`) o di URL assoluti.
 
 
 ## Comandi
 
 ```bash
 # Esegue una scansione completa
-npm run pa11y:scan
+PA11Y_BASE_URL=https://example.org npm run pa11y:scan
 ```
+
+Su Windows (PowerShell): `$env:PA11Y_BASE_URL = "https://example.org"; npm run pa11y:scan`.
+
+Con `pa11y-ci` 5 serve Chrome 154: installarlo con
+`npx puppeteer browsers install chrome` oppure indicare un Chrome già presente
+con la variabile `PUPPETEER_EXECUTABLE_PATH`.
 
 
 ## Output

@@ -38,6 +38,8 @@ tests/e2e/html-report/reports/*
 # Accessibility scanner (pa11y-ci)
 tests/e2e/pa11y-report/reports/*
 !tests/e2e/pa11y-report/reports/.gitkeep
+# Site-specific pages to scan (private, one per developer)
+tests/e2e/pa11y-report/pa11yci.urls.local.json
 
 # BUILD CSS
 assets/css/compiled
@@ -64,10 +66,8 @@ composer.lock
 .codex-tmp
 .codex
 .claude
+# Local private development context symlink (kept outside the repository).
 DEV
-AGENTS
-AGENTS.md
-CLAUDE.md
 tmp-alm-php-path-test.out
 tmp-alm-php-path-test.php
 tmp/
