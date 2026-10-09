@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * DLI HTML Validation Comparator
+ * Design ICT Site HTML Validation Comparator
  *
  * Compares two html_report JSON files and shows metric deltas.
  * If no files are specified, picks the two most recent in reports/.
@@ -221,7 +221,7 @@ function writeHtml(result, outFile) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DLI HTML Validation Compare</title>
+<title>Design ICT Site HTML Validation Compare</title>
 <style>
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:24px;background:#f6f7f9;color:#1f2937}
 h1,h2{margin:0 0 8px}
@@ -233,7 +233,7 @@ h2{font-size:16px;margin-top:24px;margin-bottom:8px}
 </style>
 </head>
 <body>
-  <h1>DLI HTML Validation Comparator</h1>
+  <h1>Design ICT Site HTML Validation Comparator</h1>
   <div class="meta">
     New: <strong>${escHtml(newFile)}</strong> (${new Date(newReport.scannedAt).toLocaleString('it-IT')}) — verdict: ${verdictBadge(summary.verdictNew)}
     &nbsp;|&nbsp;
@@ -270,7 +270,7 @@ h2{font-size:16px;margin-top:24px;margin-bottom:8px}
 function printConsole(result) {
   const sep = '='.repeat(60);
   console.log('\n' + sep);
-  console.log('DLI HTML Validation Comparator');
+  console.log('Design ICT Site HTML Validation Comparator');
   console.log(sep);
   console.log(`New: ${result.newFile}`);
   console.log(`Old: ${result.oldFile}`);

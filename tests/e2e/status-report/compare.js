@@ -187,7 +187,7 @@ function printConsole(pages, summary, opts, fileNew, fileOld, reportNew, reportO
   const VERDICT_LABEL = { IMPROVED: 'MIGLIORATO', DEGRADED: 'PEGGIORATO', UNCHANGED: 'INVARIATO', MIXED: 'MISTO' };
 
   console.log('\n' + SEP);
-  console.log('DLI Site Status Comparator');
+  console.log('Design ICT Site Status Comparator');
   console.log(SEP);
   console.log(`Nuovo  : ${path.basename(fileNew)}  (${new Date(reportNew.scannedAt).toLocaleString('it-IT')})`);
   console.log(`Vecchio: ${path.basename(fileOld)}  (${new Date(reportOld.scannedAt).toLocaleString('it-IT')})`);
@@ -375,7 +375,7 @@ function writeHtml(pages, summary, opts, fileNew, fileOld, reportNew, reportOld)
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DLI Site Status &mdash; Confronto report</title>
+<title>Design ICT Site Status &mdash; Confronto report</title>
 <style>
   * { box-sizing: border-box; }
   body { font-family: system-ui, sans-serif; margin: 0; padding: 24px; background: #f5f5f5; color: #222; }
@@ -398,7 +398,7 @@ function writeHtml(pages, summary, opts, fileNew, fileOld, reportNew, reportOld)
 </head>
 <body>
 
-<h1>DLI Site Status &mdash; Confronto report</h1>
+<h1>Design ICT Site Status &mdash; Confronto report</h1>
 <p class="meta">Elaborato il <strong>${scannedAt}</strong></p>
 
 <div class="files-box">

@@ -23,6 +23,7 @@ Beyond templates, the theme also bootstraps the site structure, creates default 
 - Export tools for FAQs and services in JSON format.
 - Multilingual support through Polylang for built-in and custom content.
 - Theme-managed "Super Editor" role: an Editor that can also manage the site menus and reload the theme data. The theme configuration panel stays reserved to administrators.
+- Progressive Web App support: a service worker served from the site root and a registration script loaded on public pages for logged-out visitors.
 - Dependency checks for required plugins and reusable setup assets for demo and Docker environments.
 
 
@@ -44,7 +45,6 @@ Beyond templates, the theme also bootstraps the site structure, creates default 
 - `CHANGELOG.md` is the main project changelog and follows a Keep a Changelog style.
 - The latest documented version in the repository is `1.0.7`.
 - Recent entries highlight Bootstrap Italia updates, Docker maintenance, autocomplete features, FAQ/topic improvements, archive pages, pagination fixes, and translation updates.
-- The changelog also contains an open TODO note about verifying the `wp_enqueue_scripts` behavior.
 - Operational issue tracking uses local ignored files (`AGENTS/ISSUES_TODO.md` and `AGENTS/ISSUES_RESOLVED.md`); never publish private findings.
 
 

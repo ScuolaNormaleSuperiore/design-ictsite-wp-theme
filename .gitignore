@@ -38,6 +38,10 @@ tests/e2e/html-report/reports/*
 # Accessibility scanner (pa11y-ci)
 tests/e2e/pa11y-report/reports/*
 !tests/e2e/pa11y-report/reports/.gitkeep
+
+# Issues snapshots (private backlog data, never commit)
+tests/e2e/issues-report/reports/*
+!tests/e2e/issues-report/reports/.gitkeep
 # Site-specific pages to scan (private, one per developer)
 tests/e2e/pa11y-report/pa11yci.urls.local.json
 
@@ -66,10 +70,12 @@ composer.lock
 .codex-tmp
 .codex
 .claude
+.agents
 # Local private development context symlink (kept outside the repository).
 DEV
 AGENTS/ISSUES_TODO.md
 AGENTS/ISSUES_RESOLVED.md
+AGENTS/CODE_REVIEW_PROGRESS.md
 tmp-alm-php-path-test.out
 tmp-alm-php-path-test.php
 tmp/

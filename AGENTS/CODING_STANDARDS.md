@@ -15,6 +15,7 @@ Write code according to official WordPress standards and project-specific conven
 - Readability and maintainability.
 - Compliance with WordPress Coding Standards.
 
+
 ## Accessibility for Italian Public Administration
 
 This is a project for the Italian Public Administration. Accessibility is a
@@ -75,6 +76,17 @@ introduce barriers.
 - Prefer tested Bootstrap Italia components and patterns; preserve their
   accessibility behaviour when customizing them.
 
+- Design and implement every new feature so that it is accessible from its
+  first release; accessibility remediation must not be deferred by default.
+- When a change requires a Bootstrap Italia component, its markup, variants,
+  design tokens, or component-specific accessibility guidance, use the Filo
+  MCP server (`design-system-italia`) to retrieve the current data before
+  implementation. Treat its output as implementation guidance and confirm
+  normative requirements against the authoritative AgID sources listed above.
+  If the server is not available, notify the operator and use the official
+  Bootstrap Italia documentation and the markup already present in the theme;
+  do not invent component markup.
+
 ### Pre-merge accessibility checklist
 
 - Check the affected page with keyboard only: navigation, visible focus, menus,
@@ -87,6 +99,17 @@ introduce barriers.
 - For a change that may affect the published accessibility statement or feedback
   mechanism, notify the project owner so the deployed site's assessment and
   declaration can be updated.
+
+
+## Compatibility
+
+- WordPress: minimum 6.1.1 (`style.css`, `phpcs.xml.dist`, `README.md`).
+- PHP: minimum 8.0 (`Requires PHP` in `style.css`); the Docker demo runs PHP 8.3.
+  Do not use syntax or functions newer than PHP 8.0 (for example enums,
+  `readonly` properties, `never` return type) without the operator's approval.
+  Functions that WordPress polyfills, such as `str_contains()`, are allowed.
+- Do not declare or raise a minimum version in `style.css` or `README.md`
+  without the operator's confirmation.
 
 
 ## Core PHP/WordPress Rules
@@ -106,6 +129,7 @@ introduce barriers.
 - Variables: `$variable_name_with_underscores`
 - Constants: `CONSTANT_NAME_UPPERCASE`
 - Files: `file-name-with-hyphens.php`
+- Class files follow the WordPress pattern `class-dis-<name>manager.php` and define the class `DIS_<Name>Manager` (for example `class-dis-thememanager.php` defines `DIS_ThemeManager`).
 
 ### Code structure
 
@@ -121,6 +145,14 @@ introduce barriers.
 - Escape all output by context (`esc_html`, `esc_attr`, `esc_url`, `wp_kses_post`).
 - Use nonces for state-changing actions.
 - Check capabilities (`current_user_can`) before privileged operations.
+- Call `wp_unslash()` before sanitizing `$_GET`, `$_POST`, `$_REQUEST`, and `$_COOKIE` values.
+- A nonce verifies intent, not authorization: always check capabilities as well. Public actions need their own abuse controls.
+- Every REST route defines an explicit `permission_callback`. Use `__return_true` only for intentionally public read-only data, with validated arguments and bounded results.
+- Redirect with `wp_safe_redirect()`. Validate remote URLs (scheme and host) and use timeouts, so user-supplied URLs cannot reach internal addresses (SSRF).
+- Validate uploads: file type, extension, and size.
+- Escape as late as possible, by context. In JavaScript, do not insert untrusted data with `innerHTML`; use `textContent`.
+- Never use `eval`, `extract`, `unserialize` on untrusted data, or shell commands built from user input.
+- Do not log or display secrets or personal data.
 
 ### WordPress-specific implementation
 
@@ -129,6 +161,7 @@ introduce barriers.
 - Preserve the existing project convention for classes/constants based on the `DIS_` prefix.
 - Use `$wpdb->prepare()` for dynamic SQL.
 - Enqueue scripts/styles with WordPress enqueue APIs.
+
 
 ### Required plugin dependencies
 
@@ -147,6 +180,7 @@ fail, and that is a deliberate product decision, not a defect.
   without FTP.
 - The same reasoning applies to any new code that runs on an admin request: the
   front end may fail, the plugin screen must not.
+
 
 
 ## Frontend Standards (HTML, CSS, JS)
@@ -189,10 +223,20 @@ Official references:
 - Use translator comments for formatted strings.
 
 
-## Testing and Checks
+## Verification
 
-- Write testable code (small units, clear dependencies).
-- Add tests for non-trivial logic when practical.
-- Run:
-  - `composer run lint:php`
-  - `composer run lint:php:fix` (when needed)
+Write testable code (small units, clear dependencies) and add tests for non-trivial logic when practical.
+
+Pick the checks that match the change, run them, and report which ones could not run and why. Never state that something was verified when the check did not run. The canonical command list is in `AGENTS/ARCHITECTURE.md`. `phpcs.xml.dist` excludes only third-party, generated, and tooling files (see `Third-Party, Generated and Exported Files` in `AGENTS/AI_BEHAVIOR.md`); never add first-party code to its exclusions to silence a finding.
+
+| Change | Check | Notes |
+|---|---|---|
+| Any PHP file | `php -l <file>` | Syntax only |
+| Any PHP, CSS or SCSS file | `composer run lint:php` (whole theme) or `npm run lint:php:file -- <file>` | PHPCS with `phpcs.xml.dist`; fix with `composer run lint:php:fix`; never weaken the ruleset |
+| Static analysis | not available | PHPStan is installed but not adopted (no `phpstan.neon`, no WordPress stubs): do not run it |
+| Changed rendered HTML or JS | `npm run status:scan -- <baseUrl>` | Needs a reachable site and Playwright (`npm run status:scan:install-browser`) |
+| Changed rendered HTML | `npm run html:scan -- <baseUrl>` (`html:scan:gate` fails on errors) | Needs a reachable site, Java 8+, `vnu-jar` and Playwright |
+| Changed templates, styles, scripts, forms | `npm run pa11y:scan` | Needs a reachable site (`PA11Y_BASE_URL`); URL list in `tests/e2e/pa11y-report/`; complements manual keyboard checks |
+| SCSS changed | `npm run create_layout`, then `update_layout_win` or `update_layout_linux` | Regenerates the minified CSS |
+
+Scanners write into git-ignored `reports/` folders. No automated test suite exists for PHP logic.

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * DLI Site Status Scanner
+ * Design ICT Site Status Scanner
  *
  * Usage:
  *   node scan.js <baseUrl> [options]
@@ -14,8 +14,8 @@
  *   --out <path>          Output file path without extension (default: ./report)
  *
  * Example:
- *   node scan.js https://laboratorio1.local/
- *   node scan.js https://laboratorio1.local/ --sitemap /mappa-sito/ --concurrency 2
+ *   node scan.js https://example.local/
+ *   node scan.js https://example.local/ --sitemap /mappa-sito/ --concurrency 2
  */
 
 'use strict';
@@ -324,7 +324,7 @@ async function main() {
   }
 
   console.log('='.repeat(60));
-  console.log('DLI Site Status Scanner');
+  console.log('Design ICT Site Status Scanner');
   console.log('='.repeat(60));
   console.log(`Base URL    : ${opts.baseUrl}`);
   console.log(`Sitemap     : ${opts.sitemap}`);

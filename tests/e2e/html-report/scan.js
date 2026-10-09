@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * DLI HTML Validation Scanner
+ * Design ICT Site HTML Validation Scanner
  *
  * Scans all site pages and validates their rendered HTML against the
  * Nu Html Checker (VNU). Requires Java 8+ and the vnu-jar npm package.
@@ -22,8 +22,8 @@
  *   Java 8+ must be installed and available on PATH
  *
  * Example:
- *   node scan.js https://laboratorio1.local
- *   node scan.js https://laboratorio1.local --gate
+ *   node scan.js https://example.local
+ *   node scan.js https://example.local --gate
  */
 
 'use strict';
@@ -345,7 +345,7 @@ function writeHtml(data, filePath) {
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>DLI HTML Validation Report</title>
+<title>Design ICT Site HTML Validation Report</title>
 <style>
 body{font-family:system-ui,-apple-system,Segoe UI,Roboto,sans-serif;margin:0;padding:24px;background:#f6f7f9;color:#1f2937}
 h1{margin:0 0 8px}
@@ -361,7 +361,7 @@ ul{margin:4px 0;padding-left:16px}
 </style>
 </head>
 <body>
-  <h1>DLI HTML Validation Report</h1>
+  <h1>Design ICT Site HTML Validation Report</h1>
   <div class="meta">
     Scanned: <strong>${new Date(scannedAt).toLocaleString('it-IT')}</strong>
     &nbsp;|&nbsp;
@@ -437,7 +437,7 @@ async function main() {
   const vnuJarPath = requireVnu();
 
   console.log('='.repeat(60));
-  console.log('DLI HTML Validation Scanner');
+  console.log('Design ICT Site HTML Validation Scanner');
   console.log('='.repeat(60));
   console.log(`Base URL : ${opts.baseUrl}`);
   console.log(`Sitemap  : ${opts.sitemap}`);

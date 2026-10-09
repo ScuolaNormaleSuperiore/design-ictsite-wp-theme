@@ -186,7 +186,7 @@ function writeHtml(results, summary, opts) {
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>DLI Site Status Report</title>
+<title>Design ICT Site Status Report</title>
 <style>
   * { box-sizing: border-box; }
   body { font-family: system-ui, sans-serif; margin: 0; padding: 24px; background: #f5f5f5; color: #222; }
@@ -208,7 +208,7 @@ function writeHtml(results, summary, opts) {
 </head>
 <body>
 
-<h1>DLI Site Status Report</h1>
+<h1>Design ICT Site Status Report</h1>
 <p class="meta">
   Sito: <strong><a href="${escHtml(opts.baseUrl)}" target="_blank" rel="noopener">${escHtml(opts.baseUrl)}</a></strong>
   &nbsp;&bull;&nbsp; Scansione: <strong>${scannedAt}</strong>

@@ -1,4 +1,4 @@
-# DLI HTML Validation Report
+# Design ICT Site HTML Validation Report
 
 Scans all site pages and validates their rendered HTML against the **Nu Html Checker (VNU)**.
 Each page is loaded via Playwright (full browser render), then the HTML is passed to VNU via stdin.
@@ -15,10 +15,10 @@ Each page is loaded via Playwright (full browser render), then the HTML is passe
 
 ```bash
 # Run a full scan
-npm run html:scan -- https://laboratorio1.local
+npm run html:scan -- https://example.local
 
 # Run with gate (exit code 1 if verdict is FAIL)
-npm run html:scan:gate -- https://laboratorio1.local
+npm run html:scan:gate -- https://example.local
 
 # Compare the two most recent reports
 npm run html:compare

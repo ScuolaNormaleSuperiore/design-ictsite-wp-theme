@@ -1,6 +1,6 @@
-# DLI Site Status Scanner
+# Design ICT Site Status Scanner
 
-Scanner automatico pre-produzione per siti basati sul tema **Design Laboratori WordPress**.
+Scanner automatico pre-produzione per siti basati sul tema **Design ICT Site WordPress**.
 
 Visita tutte le pagine del sito partendo dalla mappa del sito e produce un report
 dettagliato degli errori trovati: errori HTTP, errori PHP nel sorgente, errori
@@ -93,26 +93,26 @@ Durante la scansione lo script stampa l'avanzamento in tempo reale:
 
 ```
 ============================================================
-DLI Site Status Scanner
+Design ICT Site Status Scanner
 ============================================================
-Base URL    : https://laboratorio1.local
+Base URL    : https://example.local
 Sitemap     : /mappa-sito/
 Timeout     : 15000ms
 Concurrency : 3
 Output      : ./report.html / ./report.json
 ============================================================
 
-Reading sitemap: https://laboratorio1.local/mappa-sito/
+Reading sitemap: https://example.local/mappa-sito/
 Found 34 unique internal URLs.
 
 Scanning 34 pages (concurrency: 3)...
 
-  ✓  https://laboratorio1.local/ [200]
-  ✗  https://laboratorio1.local/ricerca/progetti/ [200] (2 errors)
+  ✓  https://example.local/ [200]
+  ✗  https://example.local/ricerca/progetti/ [200] (2 errors)
        [PHP] Notice: Undefined variable $lab_id in template-parts/projects.php:47
-       [NET] 404 https://laboratorio1.local/assets/img/placeholder-old.png
-  ✓  https://laboratorio1.local/chi-siamo/ [200]
-  ✗  https://laboratorio1.local/persone/mario-rossi/ [200] (1 error)
+       [NET] 404 https://example.local/assets/img/placeholder-old.png
+  ✓  https://example.local/chi-siamo/ [200]
+  ✗  https://example.local/persone/mario-rossi/ [200] (1 error)
        [JS] TypeError: Cannot read properties of undefined (reading 'map')
   ...
 
@@ -130,7 +130,7 @@ Timeouts    : 0
 Avg time    : 620ms
 Max time    : 3840ms
 Slow pages  : 1 (> 3s)
-  3840ms  https://laboratorio1.local/ricerca/progetti/
+  3840ms  https://example.local/ricerca/progetti/
 ============================================================
 Result      : FAIL
 ============================================================
@@ -165,7 +165,7 @@ scansioni successive:
 
 ```json
 {
-  "baseUrl": "https://laboratorio1.local",
+  "baseUrl": "https://example.local",
   "scannedAt": "2026-03-05T10:00:00.000Z",
   "totalPages": 34,
   "pagesWithErrors": 4,
@@ -179,12 +179,12 @@ scansioni successive:
     "avgResponseTimeMs": 620,
     "maxResponseTimeMs": 3840,
     "slowPages": [
-      { "url": "https://laboratorio1.local/ricerca/progetti/", "ttfbMs": 2100, "responseTimeMs": 3840 }
+      { "url": "https://example.local/ricerca/progetti/", "ttfbMs": 2100, "responseTimeMs": 3840 }
     ]
   },
   "pages": [
     {
-      "url": "https://laboratorio1.local/ricerca/progetti/",
+      "url": "https://example.local/ricerca/progetti/",
       "status": 200,
       "ttfbMs": 2100,
       "responseTimeMs": 3840,
@@ -232,7 +232,7 @@ npm run scan:install-browser
 
 Tutti i comandi si eseguono dalla **root del tema**.
 
-**Scansione del sito locale (URL preconfigurato: `https://laboratorio1.local`):**
+**Scansione del sito locale (sostituire `https://example.local` con l'URL del proprio sito):**
 
 ```bash
 npm run scan:demo
@@ -272,7 +272,7 @@ npm run scan -- <baseUrl> [opzioni]
 
 | Opzione | Default | Descrizione |
 |---|---|---|
-| `<baseUrl>` | — | URL base del sito, obbligatorio. Es: `https://laboratorio1.local` |
+| `<baseUrl>` | — | URL base del sito, obbligatorio. Es: `https://example.local` |
 | `--sitemap <path>` | `/mappa-sito/` | Percorso della pagina che contiene i link alle pagine del sito |
 | `--timeout <ms>` | `15000` | Millisecondi di attesa massima per ogni pagina prima di segnare TIMEOUT |
 | `--concurrency <n>` | `3` | Numero massimo di pagine visitate contemporaneamente |
@@ -283,16 +283,16 @@ npm run scan -- <baseUrl> [opzioni]
 
 ```bash
 # Solo URL base — output con suffisso data/ora automatico
-npm run scan -- https://laboratorio1.local
+npm run scan -- https://example.local
 
 # Mappa del sito su percorso diverso
-npm run scan -- https://laboratorio1.local --sitemap /sitemap-pages/
+npm run scan -- https://example.local --sitemap /sitemap-pages/
 
 # Timeout più lungo per siti lenti, un tab alla volta
-npm run scan -- https://laboratorio1.local --timeout 30000 --concurrency 1
+npm run scan -- https://example.local --timeout 30000 --concurrency 1
 
 # Output su nome file personalizzato (senza suffisso automatico)
-npm run scan -- https://laboratorio1.local --out ./output/2026-03-05
+npm run scan -- https://example.local --out ./output/2026-03-05
 ```
 
 
@@ -330,7 +330,7 @@ per mantenere la cartella nel repository.
 ---
 
 
-# DLI Site Status Comparator
+# Design ICT Site Status Comparator
 
 Script Node.js che confronta due report JSON prodotti da `scan.js` e indica
 per ogni pagina se la situazione è **migliorata**, **peggiorata** o **invariata**
@@ -386,7 +386,7 @@ tests/e2e/status-report/reports/compare_<ts-nuovo>_vs_<ts-vecchio>.json
 
 ```
 ============================================================
-DLI Site Status Comparator
+Design ICT Site Status Comparator
 ============================================================
 Nuovo  : reports/report_20260310_1430.json  (2026-03-10 14:30)
 Vecchio: reports/report_20260305_1000.json  (2026-03-05 10:00)
@@ -449,7 +449,7 @@ File HTML autonomo (apribile direttamente nel browser) con:
   },
   "pages": [
     {
-      "url": "https://laboratorio1.local/spinoff/biloab",
+      "url": "https://example.local/spinoff/biloab",
       "delta": "FIXED",
       "old": { "errors": [{ "type": "JS", "message": "..." }], "ttfbMs": 210, "responseTimeMs": 980 },
       "new": { "errors": [], "ttfbMs": 185, "responseTimeMs": 870 },
