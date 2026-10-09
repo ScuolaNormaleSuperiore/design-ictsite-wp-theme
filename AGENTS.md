@@ -2,26 +2,8 @@
 
 ChatGPT/Codex-specific entry point.
 
-
-## Session bootstrap
-Run this section only once at session start, unless the user explicitly asks to reload AGENTS context.
-
-1. Read `AGENTS/AGENTS_README.md`.
-2. Read `AGENTS/PROJECT.md`.
-3. Read `AGENTS/ARCHITECTURE.md`.
-4. Read `AGENTS/AI_BEHAVIOR.md`.
-5. Read `AGENTS/CODING_STANDARDS.md`.
-6. Report `Bootstrap completed` and the full list of files read.
-7. List the skills available in the current session. Explicitly state whether applicable official WordPress skills are loaded; if they are not, notify the human operator.
-8. List the available trigger commands from `AGENTS/AI_BEHAVIOR.md` using the format: `/slug` - Trigger X: brief description.
-9. Ask the human operator which project task they want to work on.
-
-
-## Reload trigger
-Re-run the full "Session bootstrap" only when the user explicitly asks, using phrases like:
-- "reload agents"
-- "re-read AGENTS"
-- "refresh AGENTS context"
+## Bootstrap
+Read `AGENTS/AGENTS_README.md` and follow its `Session bootstrap` sequence.
 
 
 ## Codex Notes
@@ -49,4 +31,3 @@ Re-run the full "Session bootstrap" only when the user explicitly asks, using ph
 - Response format preference:
   - Keep outputs brief, numbered, and findings-first.
   - For URL audits, report only high-impact issues unless explicitly asked for exhaustive findings.
-- When creating commits, follow `AGENTS/GIT_WORKFLOW.md`.

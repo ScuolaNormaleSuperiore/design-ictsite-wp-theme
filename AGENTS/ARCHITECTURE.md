@@ -67,9 +67,6 @@
 - Theme bootstrap entry point: `functions.php`
 - Main bootstrap class: `DIS_ThemeManager`
 - Asset build and layout commands from `package.json`:
-  - `npm run build`
-  - `npm run minify:css`
-  - `npm run minify:js`
   - `npm run create_layout`
   - `npm run update_layout_win`
   - `npm run update_layout_linux`

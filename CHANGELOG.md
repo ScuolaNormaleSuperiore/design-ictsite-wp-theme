@@ -9,6 +9,13 @@ This projects uses [Semantic Versioning](http://semver.org/).
 TAGS: Added, Changed, Deprecated, Removed, Fixed, Security.
 
 
+
+
+## [1.0.7] - 2026-10-09
+- Added AI Agents bootstrap.
+
+
+
 ## [1.0.6] - 2026-09-28
 ### Added
 - New feature: PWA implementation

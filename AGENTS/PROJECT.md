@@ -42,7 +42,7 @@ Beyond templates, the theme also bootstraps the site structure, creates default 
 ## Changelog and TODO List
 
 - `CHANGELOG.md` is the main project changelog and follows a Keep a Changelog style.
-- The latest documented version in the repository is `DEV-0.1.8`.
+- The latest documented version in the repository is `1.0.7`.
 - Recent entries highlight Bootstrap Italia updates, Docker maintenance, autocomplete features, FAQ/topic improvements, archive pages, pagination fixes, and translation updates.
 - The changelog also contains an open TODO note about verifying the `wp_enqueue_scripts` behavior.
 - Operational issue tracking for AI-assisted work is kept in private local files (`DEV/CODE_REVIEW/ISSUES_TODO.md` and `DEV/CODE_REVIEW/ISSUES_RESOLVED.md`), never committed and created on demand.
@@ -51,13 +51,16 @@ Beyond templates, the theme also bootstraps the site structure, creates default 
 
 ## Automated Quality Checks (tests/e2e/)
 
-- No `tests/` directory or end-to-end suite is currently present in this repository snapshot.
-- `package.json` provides asset build and minification commands:
-  - `npm run build`
-  - `npm run minify:css`
-  - `npm run minify:js`
+- `tests/e2e/` contains runtime status, HTML validation, and accessibility checks.
+- `package.json` provides layout build commands:
+  - `npm run create_layout`
   - `npm run update_layout_win`
   - `npm run update_layout_linux`
+- It also provides quality-check commands:
+  - `npm run status:scan -- <baseUrl>`
+  - `npm run html:scan -- <baseUrl>`
+  - `npm run html:scan:gate -- <baseUrl>`
+  - `npm run pa11y:scan`
 - AGENTS instructions indicate `composer run lint:php` as the primary PHP quality gate when available.
 - The repository also includes `.github/workflows/scorecard.yml` for OpenSSF Scorecard analysis and git hooks under `.githooks/`.
 

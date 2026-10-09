@@ -82,7 +82,7 @@ introduce barriers.
 - Check semantic structure, accessible names, alternative text, heading order,
   language attributes, and ARIA validity.
 - Check contrast, text resizing/zoom, reflow, and responsive layouts.
-- Run `npm run ux:scan -- <baseUrl>` when a local or test URL is available.
+- Run `npm run pa11y:scan` when the configured local or test routes are available.
   Automated checks support review but do not replace manual testing.
 - For a change that may affect the published accessibility statement or feedback
   mechanism, notify the project owner so the deployed site's assessment and
