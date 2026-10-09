@@ -3,7 +3,7 @@
 ChatGPT/Codex-specific entry point.
 
 ## Bootstrap
-Read `AGENTS/AGENTS_README.md` and follow its `Session bootstrap` sequence.
+Read `AGENTS/AI_BOOTSTRAP.md` and follow its `Session bootstrap` sequence.
 
 
 ## Codex Notes
@@ -27,7 +27,7 @@ Read `AGENTS/AGENTS_README.md` and follow its `Session bootstrap` sequence.
   - After each change, run syntax/lint checks and search for orphan references with `rg`.
   - Final report must include what could not be verified (for example missing tools/environment limits).
 - Issue tracking discipline:
-  - When an issue is resolved, update both `DEV/CODE_REVIEW/ISSUES_TODO.md` and `DEV/CODE_REVIEW/ISSUES_RESOLVED.md` in the same task.
+  - When an issue is resolved, update both `AGENTS/ISSUES_TODO.md` and `AGENTS/ISSUES_RESOLVED.md` in the same task.
 - Response format preference:
   - Keep outputs brief, numbered, and findings-first.
   - For URL audits, report only high-impact issues unless explicitly asked for exhaustive findings.

@@ -55,4 +55,4 @@ the exploitable details of an unfixed or recently fixed vulnerability.
 
 - Open PR from feature branch to `main`.
 - Write clear title and summary.
-- Reference related issues by title or number only. `DEV/CODE_REVIEW/ISSUES_*.md` are private, never committed, and their content must not be copied into the PR.
+- Reference public issues by title or number when applicable. Never copy private backlog contents into a commit or PR.

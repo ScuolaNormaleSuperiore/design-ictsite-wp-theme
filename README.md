@@ -180,8 +180,8 @@ Contributions are welcome. Please read [CONTRIBUTING.md](CONTRIBUTING.md) before
 ## AI project context
 
 Ask the coding assistant to “read the project context”. It reads `AGENTS.md` (or `CLAUDE.md`), then
-`AGENTS/AGENTS_README.md`, `AGENTS/PROJECT.md`, `AGENTS/ARCHITECTURE.md`,
-`AGENTS/AI_BEHAVIOR.md`, `AGENTS/CODING_STANDARDS.md`, and `AGENTS/GIT_WORKFLOW.md`, in that order.
+`AGENTS/AI_BOOTSTRAP.md`, `AGENTS/PROJECT.md`, `AGENTS/ARCHITECTURE.md`,
+`AGENTS/AI_BEHAVIOR.md`, `AGENTS/CODING_STANDARDS.md`, and `AGENTS/GIT_WORKFLOW.md`, in that order. It ensures the local issue files exist without reading them; `AGENTS/CODE_REVIEW.md` is read only by `/code-review`.
 It then lists the available skills and asks what to work on.
 
 ## Testing and quality checks

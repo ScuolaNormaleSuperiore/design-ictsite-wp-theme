@@ -28,7 +28,6 @@
 - `SETUP/ACF_Custom_Fields/`: exported ACF field definitions that describe the editorial data structure.
 - `SETUP/Docker/`: Docker demo assets, database/bootstrap scripts, and sample content for local setup.
 - `DOC/`: supplementary project documentation.
-- `DEV/`: private local folder (git-ignored symlink, not part of the repository). It may be absent in a clone.
 - `.githooks/`: versioned git hooks (secret scan before commit).
 
 

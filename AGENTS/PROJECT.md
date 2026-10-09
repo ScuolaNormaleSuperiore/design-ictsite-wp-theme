@@ -45,7 +45,7 @@ Beyond templates, the theme also bootstraps the site structure, creates default 
 - The latest documented version in the repository is `1.0.7`.
 - Recent entries highlight Bootstrap Italia updates, Docker maintenance, autocomplete features, FAQ/topic improvements, archive pages, pagination fixes, and translation updates.
 - The changelog also contains an open TODO note about verifying the `wp_enqueue_scripts` behavior.
-- Operational issue tracking for AI-assisted work is kept in private local files (`DEV/CODE_REVIEW/ISSUES_TODO.md` and `DEV/CODE_REVIEW/ISSUES_RESOLVED.md`), never committed and created on demand.
+- Operational issue tracking uses local ignored files (`AGENTS/ISSUES_TODO.md` and `AGENTS/ISSUES_RESOLVED.md`); never publish private findings.
 
 
 

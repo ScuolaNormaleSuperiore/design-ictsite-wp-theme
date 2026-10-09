@@ -3,7 +3,7 @@
 Claude Code-specific entry point.
 
 ## Bootstrap
-Read `AGENTS/AGENTS_README.md` and follow its `Session bootstrap` sequence.
+Read `AGENTS/AI_BOOTSTRAP.md` and follow its `Session bootstrap` sequence.
 
 ## Claude Code Notes
 - Use plan mode for non-trivial tasks (new features, multi-file refactors, architectural decisions).
