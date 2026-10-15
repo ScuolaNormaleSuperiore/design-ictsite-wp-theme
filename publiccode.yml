@@ -7,10 +7,11 @@ applicationSuite: WordPress
 softwareVersion: 1.0.7
 categories:
   - website-builder
+  - content-management
 description:
   it:
     documentation: >-
-      https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/README.md
+      https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/DOC/Sito_ICT_Manuale_operatore.pdf
     features:
       - Popolamento automatico del sito (pagine e menu).
       - Sezione per la configurazione di temi e contenuti.
@@ -30,11 +31,14 @@ description:
       - Gestione di eventi, news e sezioni articoli in home page.
       - Gestione dei banner in home page.
       - Supporto multilingua.
-      - Manifesto PWA.
+      - PWA installabile con service worker e pagina offline.
     localisedName: Design ICT Site
-    longDescription: >
-      Tema WordPress per la creazione di siti web che presentano e facilitano l'utilizzo dei servizi ICT di un'organizzazione.
-      Il sito offre una serie di tipi di contenuto personalizzati per pubblicare servizi, faq, documentazione ecc.
+    longDescription: |
+      Design ICT Site è un tema WordPress per costruire il sito dei servizi ICT di un ente: pubblica in modo ordinato servizi e cluster di servizi, uffici, persone, progetti, luoghi, eventi, notizie, FAQ e documentazione, oltre agli articoli del blog.
+
+      Dopo l'attivazione il tema popola il sito con pagine e menu predefiniti e offre un'area di configurazione per identità del sito, contatti, avvisi, newsletter e analytics. La home page è modulare: hero, cluster di servizi, eventi, notizie, progetti, contenuti in evidenza, articoli, banner, sponsor e video si attivano e si ordinano dal pannello.
+
+      Il tema usa Bootstrap Italia, segue le Linee guida di design per i servizi digitali della PA, è multilingue grazie a Polylang e include ricerca su tutti i contenuti con suggerimenti opzionali, mappa del sito HTML e XML, esportazione in JSON di FAQ e servizi e supporto PWA. È disponibile una demo con Docker.
     screenshots:
       - assets/screenshots/homepage.png
       - assets/screenshots/hp-service-cluster.png
@@ -68,6 +72,8 @@ it:
     spid: false
 legal:
   license: GPL-3.0-or-later
+  mainCopyrightOwner: Scuola Normale Superiore
+  repoOwner: Scuola Normale Superiore
 localisation:
   availableLanguages:
     - it
@@ -77,15 +83,25 @@ dependsOn:
   open:
     - name: WordPress
       optional: false
+      versionMin: '6.1.1'
+    - name: PHP
+      optional: false
+      versionMin: '8.0'
+    - name: Advanced Custom Fields
+      optional: false
+    - name: Polylang
+      optional: false
 maintenance:
   contacts:
     - email: servizi.informativi@sns.it
       name: Servizi Informativi SNS
   type: community
 name: Design ICT Site
+landingURL: 'https://ict.sns.it/'
 platforms:
   - web
-releaseDate: '2026-09-28'
+releaseDate: '2026-10-09'
+roadmap: 'https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme/blob/main/CHANGELOG.md'
 softwareType: addon
 url: 'https://github.com/ScuolaNormaleSuperiore/design-ictsite-wp-theme'
-logo: assets/img/logo_ict_site.png
+logo: assets/img/logo_ict_site.svg
